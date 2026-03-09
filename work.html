@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Orizon ADV — Work</title>
+<meta name="description" content="Orizon ADV - Performance Marketing, Web Development e AI per la crescita del tuo business.">
+<link rel="icon" type="image/png" href="/images/logo-orizon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#3750F7;--blue-d:#233BD9;--blue-l:#6377FD;--blue-s:#9FABFF;--blue-ll:#D2D8FF;--green:#60E787;--green-d:#4CCB70;--green-l:#A1F9BA;--pink:#FEEAEE;--black:#0C1713;--black-m:#5A625F;--black-l:#A8ACAB;--black-ll:#D9D9D9;--gray:#F4F5F7;--white:#FFFFFF}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'IBM Plex Sans',sans-serif;color:var(--black);background:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+::selection{background:var(--blue-ll);color:var(--blue-d)}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:0 56px;height:72px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);background:rgba(255,255,255,.88);border-bottom:1px solid rgba(55,80,247,.05);transition:all .4s}
+.nav.scrolled{box-shadow:0 1px 20px rgba(55,80,247,.04)}
+.nav-logo{font-size:21px;font-weight:700;color:var(--blue);letter-spacing:-.04em;text-decoration:none}
+.nav-links{display:flex;gap:8px;align-items:center}
+.nav-link{padding:8px 18px;border-radius:100px;font-size:14px;font-weight:500;color:var(--black-m);text-decoration:none;transition:all .3s;border:1px solid transparent}
+.nav-link:hover{color:var(--black);background:var(--gray)}
+.nav-link.active{color:var(--blue);background:rgba(55,80,247,.05)}
+.nav-cta{padding:9px 22px;border-radius:100px;font-size:14px;font-weight:600;color:var(--white);background:var(--blue);text-decoration:none;transition:all .35s;border:none;cursor:pointer;font-family:inherit}
+.nav-cta:hover{background:var(--blue-d);transform:translateY(-1px);box-shadow:0 8px 24px rgba(55,80,247,.2)}
+
+/* HERO */
+.hero{padding:150px 56px 48px;max-width:1440px;margin:0 auto}
+.hero-eyebrow{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:20px;display:flex;align-items:center;gap:14px}
+.hero-eyebrow::before{content:'';width:36px;height:2px;background:linear-gradient(90deg,var(--green),var(--blue));border-radius:1px}
+.hero h1{font-size:clamp(36px,5vw,64px);font-weight:700;letter-spacing:-.045em;line-height:1.04;margin-bottom:20px;max-width:800px}
+.hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--blue),var(--blue-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-desc{font-size:18px;line-height:1.7;color:var(--black-m);max-width:560px}
+
+/* MARQUEE LOGOS */
+.marquee-section{padding:48px 0;border-top:1px solid rgba(55,80,247,.04);border-bottom:1px solid rgba(55,80,247,.04);overflow:hidden}
+.marquee-label{text-align:center;font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--black-l);margin-bottom:28px}
+.marquee-track{display:flex;animation:marquee 35s linear infinite;width:max-content}
+.marquee-track:hover{animation-play-state:paused}
+.marquee-item{padding:0 44px;font-size:18px;font-weight:700;color:var(--black-ll);letter-spacing:-.02em;white-space:nowrap;transition:color .3s;cursor:default;display:flex;align-items:center;gap:12px}
+.marquee-item:hover{color:var(--black-m)}
+.marquee-dot{width:6px;height:6px;border-radius:50%;background:var(--blue-ll);flex-shrink:0}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* STATS */
+.stats{padding:48px 56px 64px;max-width:1440px;margin:0 auto}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat{padding:32px 28px;border-radius:20px;background:var(--black);position:relative;overflow:hidden}
+.stat::before{content:'';position:absolute;width:100px;height:100px;border-radius:50%;top:-30px;right:-30px;pointer-events:none}
+.stat:nth-child(1)::before{background:radial-gradient(circle,rgba(55,80,247,.15),transparent 70%)}
+.stat:nth-child(2)::before{background:radial-gradient(circle,rgba(96,231,135,.12),transparent 70%)}
+.stat:nth-child(3)::before{background:radial-gradient(circle,rgba(99,119,253,.12),transparent 70%)}
+.stat:nth-child(4)::before{background:radial-gradient(circle,rgba(96,231,135,.15),transparent 70%)}
+.stat-value{font-size:clamp(28px,3vw,40px);font-weight:700;color:var(--white);letter-spacing:-.03em;margin-bottom:4px;position:relative}
+.stat-value .accent{color:var(--green)}
+.stat-label{font-size:12px;color:rgba(255,255,255,.4);font-weight:500;position:relative}
+
+/* SECTION */
+.section-eyebrow{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.section-eyebrow::before{content:'';width:28px;height:2px;background:var(--green);border-radius:1px}
+.section-title{font-size:clamp(28px,3.5vw,44px);font-weight:700;letter-spacing:-.035em;line-height:1.1;margin-bottom:16px}
+.section-desc{font-size:17px;color:var(--black-m);line-height:1.7;max-width:520px;margin-bottom:48px}
+
+/* DIVIDER */
+.divider{max-width:1440px;margin:0 auto;padding:0 56px}
+.divider-line{height:1px;background:linear-gradient(90deg,transparent,rgba(55,80,247,.07),transparent)}
+
+/* FEATURED CASE STUDIES — big 2-col */
+.cases-featured{padding:80px 56px 48px;max-width:1440px;margin:0 auto}
+.cases-grid-big{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.case-big{border-radius:24px;overflow:hidden;background:var(--gray);border:1px solid rgba(55,80,247,.03);transition:all .4s;cursor:pointer;text-decoration:none;color:var(--black);display:block}
+.case-big:hover{border-color:var(--blue);box-shadow:0 16px 48px rgba(55,80,247,.08);transform:translateY(-3px)}
+.case-visual{height:220px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px}
+.case-visual-name{font-size:34px;font-weight:700;letter-spacing:-.03em}
+.case-visual-sub{font-size:12px;font-weight:600}
+.case-body{padding:28px}
+.case-head{margin-bottom:16px}
+.case-brand{font-size:19px;font-weight:700;letter-spacing:-.01em;margin-bottom:2px}
+.case-cat{font-size:12px;color:var(--black-l);font-weight:500}
+.case-kpis-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.case-kpi{background:var(--white);border-radius:12px;padding:14px 16px}
+.case-kpi-v{font-size:22px;font-weight:700;color:var(--green-d);letter-spacing:-.02em}
+.case-kpi-l{font-size:10px;color:var(--black-l);font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-top:2px}
+.case-tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:14px}
+.case-tag{font-size:10px;font-weight:700;padding:4px 10px;border-radius:100px}
+.case-text{font-size:14px;color:var(--black-m);line-height:1.65;margin-bottom:16px}
+.case-link{font-size:13px;font-weight:700;color:var(--blue);text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:gap .3s}
+.case-link:hover{gap:10px}
+
+/* COMPACT CASE GRID */
+.cases-more{padding:20px 56px 80px;max-width:1440px;margin:0 auto}
+.more-label{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--black-l);margin-bottom:20px}
+.cases-grid-compact{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.case-compact{border-radius:20px;overflow:hidden;background:var(--gray);border:1px solid rgba(55,80,247,.03);transition:all .4s;cursor:pointer;text-decoration:none;color:var(--black);display:block}
+.case-compact:hover{border-color:var(--blue);box-shadow:0 12px 36px rgba(55,80,247,.07);transform:translateY(-3px)}
+.case-compact-visual{height:140px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:2px}
+.case-compact-visual-name{font-size:24px;font-weight:700;letter-spacing:-.02em}
+.case-compact-visual-sub{font-size:11px;font-weight:600}
+.case-compact-body{padding:22px 24px}
+.case-compact-brand{font-size:16px;font-weight:700;margin-bottom:2px}
+.case-compact-cat{font-size:11px;color:var(--black-l);font-weight:500;margin-bottom:12px}
+.case-compact-kpis{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.case-compact-kpi{background:var(--white);border-radius:10px;padding:10px 12px}
+.case-compact-kpi-v{font-size:17px;font-weight:700;color:var(--green-d);letter-spacing:-.02em}
+.case-compact-kpi-l{font-size:9px;color:var(--black-l);font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-top:1px}
+.case-compact-link{font-size:12px;font-weight:700;color:var(--blue);text-decoration:none;display:inline-flex;align-items:center;gap:5px;transition:gap .3s}
+.case-compact-link:hover{gap:9px}
+
+/* ALSO WORKED STRIP */
+.also-strip{padding:0 56px 80px;max-width:1440px;margin:0 auto}
+.also-inner{background:var(--gray);border-radius:20px;padding:32px 36px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.also-label{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--black-l);flex-shrink:0}
+.also-names{display:flex;gap:10px;flex-wrap:wrap}
+.also-name{padding:8px 18px;border-radius:100px;font-size:13px;font-weight:600;color:var(--black-m);border:1px solid var(--black-ll);background:var(--white);transition:all .3s}
+.also-name:hover{border-color:var(--blue);color:var(--blue)}
+
+/* CTA */
+.cta{padding:64px 56px 100px;text-align:center;position:relative}
+.cta::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(55,80,247,.04),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.cta h2{font-size:clamp(28px,4vw,48px);font-weight:700;letter-spacing:-.035em;margin-bottom:16px;position:relative}
+.cta>p{font-size:18px;color:var(--black-m);margin-bottom:36px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7;position:relative}
+.cta-btn{padding:18px 48px;background:var(--blue);color:var(--white);border:none;border-radius:100px;font-family:inherit;font-size:17px;font-weight:700;cursor:pointer;transition:all .4s;position:relative}
+.cta-btn:hover{transform:translateY(-3px);box-shadow:0 20px 56px rgba(55,80,247,.22);background:var(--blue-d)}
+
+/* FOOTER */
+.footer{border-top:1px solid rgba(55,80,247,.04);padding:56px 56px 40px;max-width:1440px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;margin-bottom:48px}
+.footer-brand{max-width:280px}
+.footer-logo{font-size:20px;font-weight:700;color:var(--blue);letter-spacing:-.04em;margin-bottom:12px}
+.footer-tagline{font-size:13px;color:var(--black-l);line-height:1.6;margin-bottom:20px}
+.footer-contact-item{font-size:13px;color:var(--black-m);margin-bottom:8px;display:flex;align-items:center;gap:8px;text-decoration:none;transition:color .3s}
+.footer-contact-item:hover{color:var(--blue)}
+.footer-contact-item svg{width:14px;height:14px;opacity:.5;flex-shrink:0}
+.footer-col h4{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--black-l);margin-bottom:16px}
+.footer-col a{display:block;font-size:14px;font-weight:500;color:var(--black-m);text-decoration:none;margin-bottom:10px;transition:color .3s}
+.footer-col a:hover{color:var(--blue)}
+.footer-bottom{padding-top:24px;border-top:1px solid rgba(55,80,247,.04);font-size:12px;color:var(--black-l);font-weight:500;text-align:center}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1)}
+.rv.v{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+.nav{padding:0 32px}.hero{padding:130px 32px 40px}
+.stats,.cases-featured,.cases-more,.also-strip,.cta{padding-left:32px;padding-right:32px}
+.stats-grid{grid-template-columns:1fr 1fr}
+.cases-grid-big{grid-template-columns:1fr}.cases-grid-compact{grid-template-columns:1fr 1fr}
+.footer{padding:40px 32px 32px}.footer-top{grid-template-columns:1fr 1fr;gap:32px}
+}
+@media(max-width:768px){
+.nav{padding:0 20px;height:64px}.nav-links{display:none}
+.hero{padding:110px 20px 36px}
+.stats,.cases-featured,.cases-more,.also-strip,.cta{padding-left:20px;padding-right:20px}
+.stats-grid{grid-template-columns:1fr 1fr}.cases-grid-compact{grid-template-columns:1fr}
+.also-inner{flex-direction:column;align-items:flex-start;gap:16px}
+.footer{padding:32px 20px 24px}.footer-top{grid-template-columns:1fr;gap:28px}
+.divider{padding:0 20px}
+}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script>const {
+  useState,
+  useEffect,
+  useRef
+} = React;
+const Reveal = ({
+  children,
+  delay = 0
+}) => {
+  const ref = useRef(null);
+  const [vis, setVis] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) {
+        setVis(true);
+        obs.unobserve(el);
+      }
+    }, {
+      threshold: .06
+    });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+  return /*#__PURE__*/React.createElement("div", {
+    ref: ref,
+    className: "rv " + (vis ? "v" : ""),
+    style: {
+      transitionDelay: delay + "s"
+    }
+  }, children);
+};
+function AnimCounter({
+  end,
+  prefix = "",
+  suffix = "",
+  duration = 2000
+}) {
+  const [val, setVal] = useState(0);
+  const ref = useRef(null);
+  const started = useRef(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting && !started.current) {
+        started.current = true;
+        const start = performance.now();
+        const step = now => {
+          const p = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - p, 3);
+          setVal(Math.round(eased * end));
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+        obs.unobserve(el);
+      }
+    }, {
+      threshold: .3
+    });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [end, duration]);
+  return /*#__PURE__*/React.createElement("span", {
+    ref: ref
+  }, prefix, val.toLocaleString('it-IT'), suffix);
+}
+const IconMail = () => /*#__PURE__*/React.createElement("svg", {
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: "2"
+}, /*#__PURE__*/React.createElement("rect", {
+  x: "2",
+  y: "4",
+  width: "20",
+  height: "16",
+  rx: "2"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "m2 4 10 8 10-8"
+}));
+const IconPhone = () => /*#__PURE__*/React.createElement("svg", {
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: "2"
+}, /*#__PURE__*/React.createElement("path", {
+  d: "M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3.09 5.18 2 2 0 0 1 5.08 3h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 11.87a16 16 0 0 0 6.04 6.04l2.23-2.23a2 2 0 0 1 2.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0 1 22 16.92z"
+}));
+const IconPin = () => /*#__PURE__*/React.createElement("svg", {
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: "2"
+}, /*#__PURE__*/React.createElement("path", {
+  d: "M21 10c0 6-9 13-9 13s-9-7-9-13a9 9 0 1 1 18 0z"
+}), /*#__PURE__*/React.createElement("circle", {
+  cx: "12",
+  cy: "10",
+  r: "3"
+}));
+const marqueeClients = ["Climando", "Buytutto", "L\u2019Arcolaio", "Bidoo", "Londonstore", "VG Informatica", "Manfrellotti", "B-Power", "De Matteo Home", "F.lli Fontana"];
+function App() {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const fn = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", fn, {
+      passive: true
+    });
+    return () => window.removeEventListener("scroll", fn);
+  }, []);
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("nav", {
+    className: "nav" + (scrolled ? " scrolled" : "")
+  }, /*#__PURE__*/React.createElement("a", {
+    className: "nav-logo",
+    href: "/index.html"
+  }, "orizon"), /*#__PURE__*/React.createElement("div", {
+    className: "nav-links"
+  }, /*#__PURE__*/React.createElement("a", {
+    className: "nav-link",
+    href: "/index.html"
+  }, "Home"), /*#__PURE__*/React.createElement("a", {
+    className: "nav-link",
+    href: "/servizi.html"
+  }, "Servizi"), /*#__PURE__*/React.createElement("a", {
+    className: "nav-link active",
+    href: "/work.html"
+  }, "Work"), /*#__PURE__*/React.createElement("a", {
+    className: "nav-link",
+    href: "/contatti.html"
+  }, "Contatti"), /*#__PURE__*/React.createElement("a", {className: "nav-cta", href: "/contatti.html"}, "Parliamone"))), /*#__PURE__*/React.createElement("header", {
+    className: "hero"
+  }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("p", {
+    className: "hero-eyebrow"
+  }, "I nostri casi studio")), /*#__PURE__*/React.createElement(Reveal, {
+    delay: .08
+  }, /*#__PURE__*/React.createElement("h1", null, "Numeri veri.", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("em", null, "Crescita reale."))), /*#__PURE__*/React.createElement(Reveal, {
+    delay: .14
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "hero-desc"
+  }, "Non parliamo di potenziale. Ogni caso studio racconta una storia di crescita concreta, con numeri verificabili e risultati misurabili."))), /*#__PURE__*/React.createElement("div", {
+    className: "marquee-section"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "marquee-label"
+  }, "Lavoriamo con"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      overflow: "hidden"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "marquee-track"
+  }, [...marqueeClients, ...marqueeClients, ...marqueeClients, ...marqueeClients].map((c, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    className: "marquee-item"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "marquee-dot"
+  }), c))))), /*#__PURE__*/React.createElement("section", {
+    className: "stats"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "stats-grid"
+  }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("div", {
+    className: "stat"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "stat-value"
+  }, /*#__PURE__*/React.createElement(AnimCounter, {
+    end: 24
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "stat-label"
+  }, "Clienti attualmente attivi"))), /*#__PURE__*/React.createElement(Reveal, {
+    delay: .08
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "stat"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "stat-value"
+  }, /*#__PURE__*/React.createElement(AnimCounter, {
+    end: 8,
+    suffix: " anni"
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "stat-label"
+  }, "Durata collaborazione media"))), /*#__PURE__*/React.createElement(Reveal, {
+    delay: .16
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "stat"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "stat-value"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "accent"
+  }, "x"), /*#__PURE__*/React.createElement(AnimCounter, {
+    end: 12
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "stat-label"
+  }, "MER medio \u2014 5 multi brand, 5 private label"))), /*#__PURE__*/React.createElement(Reveal, {
+    delay: .24
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "stat"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "stat-value"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "accent"
+  }, "\u20AC"), /*#__PURE__*/React.createElement(AnimCounter, {
+    end: 9,
+    suffix: ".4M"
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "stat-label"
+  }, "Speso in ADV nel 2025"))))), /*#__PURE__*/React.createElement("div", {
+    className: "divider"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "divider-line"
+  })), /*#__PURE__*/React.createElement("section", {
+    className: "cases-featured"
+  }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("p", {
+    className: "section-eyebrow"
+  }, "In evidenza")), /*#__PURE__*/React.createElement(Reveal, {
+    delay: .06
+  }, /*#__PURE__*/React.createElement("h2", {
+    className: "section-title"
+  }, "Casi Studio")), /*#__PURE__*/React.createElement(Reveal, {
+    delay: .1
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "section-desc"
+  }, "I progetti che meglio raccontano il nostro approccio e i risultati che generiamo.")), /*#__PURE__*/React.createElement("div", {
+    className: "cases-grid-big"
+  }, /*#__PURE__*/React.createElement(Reveal, {
+    delay: .1
+  }, /*#__PURE__*/React.createElement("a", {
+    className: "case-big",
+    href: "#"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-visual",
+    style: {
+      background: "linear-gradient(135deg,#0284C7,#0EA5E9)"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "case-visual-name",
+    style: {
+      color: "white"
+    }
+  }, "Climando"), /*#__PURE__*/React.createElement("span", {
+    className: "case-visual-sub",
+    style: {
+      color: "rgba(255,255,255,.6)"
+    }
+  }, "Buytutto")), /*#__PURE__*/React.createElement("div", {
+    className: "case-body"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-head"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-brand"
+  }, "Climando / Buytutto"), /*#__PURE__*/React.createElement("div", {
+    className: "case-cat"
+  }, "E-Commerce multicanale")), /*#__PURE__*/React.createElement("div", {
+    className: "case-kpis-grid"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-kpi"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-kpi-v"
+  }, "\u20AC", "5.96M"), /*#__PURE__*/React.createElement("div", {
+    className: "case-kpi-l"
+  }, "Sales")), /*#__PURE__*/React.createElement("div", {
+    className: "case-kpi"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-kpi-v"
+  }, "35.34x"), /*#__PURE__*/React.createElement("div", {
+    className: "case-kpi-l"
+  }, "ROAS")), /*#__PURE__*/React.createElement("div", {
+    className: "case-kpi"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-kpi-v"
+  }, "45.4K"), /*#__PURE__*/React.createElement("div", {
+    className: "case-kpi-l"
+  }, "Conversions")), /*#__PURE__*/React.createElement("div", {
+    className: "case-kpi"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-kpi-v"
+  }, "\u20AC", "169K"), /*#__PURE__*/React.createElement("div", {
+    className: "case-kpi-l"
+  }, "Ad Spend"))), /*#__PURE__*/React.createElement("div", {
+    className: "case-tags"
+  }, ["Meta Ads", "Google Ads", "Multicanale", "Revenue Sharing"].map(t => /*#__PURE__*/React.createElement("span", {
+    key: t,
+    className: "case-tag",
+    style: {
+      background: "rgba(2,132,199,.08)",
+      color: "#0284C7"
+    }
+  }, t))), /*#__PURE__*/React.createElement("p", {
+    className: "case-text"
+  }, "\u20AC", "169K di investimento trasformati in quasi ", "\u20AC", "6M di vendite. Gestione multicanale Meta e Google Ads con ottimizzazione su MER complessivo e modello revenue sharing attivo."), /*#__PURE__*/React.createElement("span", {
+    className: "case-link"
+  }, "Vedi case study completo ", "\u2192")))), /*#__PURE__*/React.createElement(Reveal, {
+    delay: .18
+  }, /*#__PURE__*/React.createElement("a", {
+    className: "case-big",
+    href: "#"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-visual",
+    style: {
+      background: "linear-gradient(135deg,#FEF3C7,#F59E0B)"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "case-visual-name",
+    style: {
+      color: "#92400E"
+    }
+  }, "L", "\u2019", "Arcolaio"), /*#__PURE__*/React.createElement("span", {
+    className: "case-visual-sub",
+    style: {
+      color: "#B45309"
+    }
+  }, "larcolaio.com")), /*#__PURE__*/React.createElement("div", {
+    className: "case-body"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-head"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-brand"
+  }, "L", "\u2019", "Arcolaio"), /*#__PURE__*/React.createElement("div", {
+    className: "case-cat"
+  }, "Food & Artigianato")), /*#__PURE__*/React.createElement("div", {
+    className: "case-kpis-grid"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-kpi"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-kpi-v"
+  }, "\u20AC", "0", "\u2192", "\u20AC", "2M"), /*#__PURE__*/React.createElement("div", {
+    className: "case-kpi-l"
+  }, "In 2 anni")), /*#__PURE__*/React.createElement("div", {
+    className: "case-kpi"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-kpi-v"
+  }, "x13"), /*#__PURE__*/React.createElement("div", {
+    className: "case-kpi-l"
+  }, "MER"))), /*#__PURE__*/React.createElement("div", {
+    className: "case-tags"
+  }, ["Meta", "Google", "TikTok", "Marketplace", "Branding", "Shopify"].map(t => /*#__PURE__*/React.createElement("span", {
+    key: t,
+    className: "case-tag",
+    style: {
+      background: "rgba(217,119,6,.08)",
+      color: "#B45309"
+    }
+  }, t))), /*#__PURE__*/React.createElement("p", {
+    className: "case-text"
+  }, "Da zero a ", "\u20AC", "2M di fatturato in 2 anni. Gestione completa a 360\xB0: dalla strategia marketplace alle campagne paid, dal branding allo sviluppo sito Shopify."), /*#__PURE__*/React.createElement("span", {
+    className: "case-link"
+  }, "Vedi case study completo ", "\u2192")))), /*#__PURE__*/React.createElement(Reveal, {
+    delay: .1
+  }, /*#__PURE__*/React.createElement("a", {
+    className: "case-big",
+    href: "#"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-visual",
+    style: {
+      background: "linear-gradient(135deg,#1E1E1E,#DC2626)"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "case-visual-name",
+    style: {
+      color: "white"
+    }
+  }, "Londonstore"), /*#__PURE__*/React.createElement("span", {
+    className: "case-visual-sub",
+    style: {
+      color: "rgba(255,255,255,.5)"
+    }
+  }, "londonstore.it")), /*#__PURE__*/React.createElement("div", {
+    className: "case-body"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-head"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-brand"
+  }, "Londonstore"), /*#__PURE__*/React.createElement("div", {
+    className: "case-cat"
+  }, "E-Commerce Fashion")), /*#__PURE__*/React.createElement("div", {
+    className: "case-kpis-grid"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-kpi"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-kpi-v"
+  }, "+180%"), /*#__PURE__*/React.createElement("div", {
+    className: "case-kpi-l"
+  }, "Revenue YoY")), /*#__PURE__*/React.createElement("div", {
+    className: "case-kpi"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-kpi-v"
+  }, "4.2x"), /*#__PURE__*/React.createElement("div", {
+    className: "case-kpi-l"
+  }, "ROAS"))), /*#__PURE__*/React.createElement("div", {
+    className: "case-tags"
+  }, ["Meta Ads", "Google Ads", "AI Creative", "CRO"].map(t => /*#__PURE__*/React.createElement("span", {
+    key: t,
+    className: "case-tag",
+    style: {
+      background: "rgba(220,38,38,.06)",
+      color: "#DC2626"
+    }
+  }, t))), /*#__PURE__*/React.createElement("p", {
+    className: "case-text"
+  }, "Crescita del 180% YoY del fatturato con strategia multicanale integrata e produzione creativa potenziata dall", "\u2019", "AI per velocizzare il testing delle ads."), /*#__PURE__*/React.createElement("span", {
+    className: "case-link"
+  }, "Vedi case study completo ", "\u2192")))), /*#__PURE__*/React.createElement(Reveal, {
+    delay: .18
+  }, /*#__PURE__*/React.createElement("a", {
+    className: "case-big",
+    href: "#"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-visual",
+    style: {
+      background: "linear-gradient(135deg,#0F766E,#2DD4BF)"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "case-visual-name",
+    style: {
+      color: "white"
+    }
+  }, "B-Power"), /*#__PURE__*/React.createElement("span", {
+    className: "case-visual-sub",
+    style: {
+      color: "rgba(255,255,255,.5)"
+    }
+  }, "Energia & Servizi")), /*#__PURE__*/React.createElement("div", {
+    className: "case-body"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-head"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-brand"
+  }, "B-Power"), /*#__PURE__*/React.createElement("div", {
+    className: "case-cat"
+  }, "Energia & Servizi")), /*#__PURE__*/React.createElement("div", {
+    className: "case-kpis-grid"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-kpi"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-kpi-v"
+  }, "+250%"), /*#__PURE__*/React.createElement("div", {
+    className: "case-kpi-l"
+  }, "Lead qualificati")), /*#__PURE__*/React.createElement("div", {
+    className: "case-kpi"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-kpi-v"
+  }, "-38%"), /*#__PURE__*/React.createElement("div", {
+    className: "case-kpi-l"
+  }, "Costo per lead"))), /*#__PURE__*/React.createElement("div", {
+    className: "case-tags"
+  }, ["Meta Ads", "Google Ads", "Lead Gen", "Funnel", "Landing Pages"].map(t => /*#__PURE__*/React.createElement("span", {
+    key: t,
+    className: "case-tag",
+    style: {
+      background: "rgba(15,118,110,.06)",
+      color: "#0F766E"
+    }
+  }, t))), /*#__PURE__*/React.createElement("p", {
+    className: "case-text"
+  }, "Strategia lead generation nel settore energia con funnel multi-step ottimizzati. Triplicati i lead qualificati riducendo il CPL del 38%."), /*#__PURE__*/React.createElement("span", {
+    className: "case-link"
+  }, "Vedi case study completo ", "\u2192")))))), /*#__PURE__*/React.createElement("section", {
+    className: "cases-more"
+  }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("div", {
+    className: "more-label"
+  }, "Altri progetti")), /*#__PURE__*/React.createElement("div", {
+    className: "cases-grid-compact"
+  }, /*#__PURE__*/React.createElement(Reveal, {
+    delay: .06
+  }, /*#__PURE__*/React.createElement("a", {
+    className: "case-compact",
+    href: "#"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-visual",
+    style: {
+      background: "linear-gradient(135deg,#059669,#34D399)"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "case-compact-visual-name",
+    style: {
+      color: "white"
+    }
+  }, "VG Informatica"), /*#__PURE__*/React.createElement("span", {
+    className: "case-compact-visual-sub",
+    style: {
+      color: "rgba(255,255,255,.5)"
+    }
+  }, "Tech & B2B")), /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-body"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-brand"
+  }, "VG Informatica"), /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-cat"
+  }, "Tech & B2B"), /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-kpis"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-kpi"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-kpi-v"
+  }, "+320%"), /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-kpi-l"
+  }, "Lead")), /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-kpi"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-kpi-v"
+  }, "-45%"), /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-kpi-l"
+  }, "CPL"))), /*#__PURE__*/React.createElement("span", {
+    className: "case-compact-link"
+  }, "Vedi case study ", "\u2192")))), /*#__PURE__*/React.createElement(Reveal, {
+    delay: .12
+  }, /*#__PURE__*/React.createElement("a", {
+    className: "case-compact",
+    href: "#"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-visual",
+    style: {
+      background: "linear-gradient(135deg,#4F46E5,#7C3AED)"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "case-compact-visual-name",
+    style: {
+      color: "white"
+    }
+  }, "Aste Online"), /*#__PURE__*/React.createElement("span", {
+    className: "case-compact-visual-sub",
+    style: {
+      color: "rgba(255,255,255,.5)"
+    }
+  }, "Aste & E-Commerce")), /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-body"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-brand"
+  }, "Aste Online"), /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-cat"
+  }, "Aste Online & E-Commerce"), /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-kpis"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-kpi"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-kpi-v"
+  }, "\u20AC", "3.25M"), /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-kpi-l"
+  }, "Fatturato")), /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-kpi"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-kpi-v"
+  }, "192K"), /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-kpi-l"
+  }, "Purchases"))), /*#__PURE__*/React.createElement("span", {
+    className: "case-compact-link"
+  }, "Vedi case study ", "\u2192")))), /*#__PURE__*/React.createElement(Reveal, {
+    delay: .18
+  }, /*#__PURE__*/React.createElement("a", {
+    className: "case-compact",
+    href: "#"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-visual",
+    style: {
+      background: "linear-gradient(135deg,#7E22CE,#C084FC)"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "case-compact-visual-name",
+    style: {
+      color: "white"
+    }
+  }, "F.lli Fontana"), /*#__PURE__*/React.createElement("span", {
+    className: "case-compact-visual-sub",
+    style: {
+      color: "rgba(255,255,255,.5)"
+    }
+  }, "Hotellerie")), /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-body"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-brand"
+  }, "F.lli Fontana Hotellerie"), /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-cat"
+  }, "Hotellerie / Forniture alberghiere"), /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-kpis"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-kpi"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-kpi-v"
+  }, "+210%"), /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-kpi-l"
+  }, "Revenue")), /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-kpi"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-kpi-v"
+  }, "5.8x"), /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-kpi-l"
+  }, "ROAS"))), /*#__PURE__*/React.createElement("span", {
+    className: "case-compact-link"
+  }, "Vedi case study ", "\u2192")))), /*#__PURE__*/React.createElement(Reveal, {
+    delay: .06
+  }, /*#__PURE__*/React.createElement("a", {
+    className: "case-compact",
+    href: "#"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-visual",
+    style: {
+      background: "linear-gradient(135deg,#78350F,#D97706)"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "case-compact-visual-name",
+    style: {
+      color: "white"
+    }
+  }, "Manfrellotti"), /*#__PURE__*/React.createElement("span", {
+    className: "case-compact-visual-sub",
+    style: {
+      color: "rgba(255,255,255,.6)"
+    }
+  }, "manfrellotti.it")), /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-body"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-brand"
+  }, "Manfrellotti"), /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-cat"
+  }, "Food & Eccellenze italiane"), /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-kpis"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-kpi"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-kpi-v"
+  }, "+145%"), /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-kpi-l"
+  }, "Revenue")), /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-kpi"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-kpi-v"
+  }, "x8"), /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-kpi-l"
+  }, "MER"))), /*#__PURE__*/React.createElement("span", {
+    className: "case-compact-link"
+  }, "Vedi case study ", "\u2192")))), /*#__PURE__*/React.createElement(Reveal, {
+    delay: .12
+  }, /*#__PURE__*/React.createElement("a", {
+    className: "case-compact",
+    href: "#"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-visual",
+    style: {
+      background: "linear-gradient(135deg,#6D28D9,#A78BFA)"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "case-compact-visual-name",
+    style: {
+      color: "white"
+    }
+  }, "De Matteo Home"), /*#__PURE__*/React.createElement("span", {
+    className: "case-compact-visual-sub",
+    style: {
+      color: "rgba(255,255,255,.5)"
+    }
+  }, "Home & Design")), /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-body"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-brand"
+  }, "De Matteo Home"), /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-cat"
+  }, "Home & Design"), /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-kpis"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-kpi"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-kpi-v"
+  }, "+190%"), /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-kpi-l"
+  }, "Vendite")), /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-kpi"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-kpi-v"
+  }, "3.6x"), /*#__PURE__*/React.createElement("div", {
+    className: "case-compact-kpi-l"
+  }, "ROAS"))), /*#__PURE__*/React.createElement("span", {
+    className: "case-compact-link"
+  }, "Vedi case study ", "\u2192")))), /*#__PURE__*/React.createElement(Reveal, {
+    delay: .18
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "case-compact",
+    style: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      background: "var(--gray)",
+      minHeight: 300,
+      cursor: "default"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      textAlign: "center",
+      padding: 32
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 40,
+      fontWeight: 700,
+      color: "var(--blue-ll)",
+      marginBottom: 8
+    }
+  }, "+15"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 15,
+      fontWeight: 700,
+      color: "var(--black-m)",
+      marginBottom: 4
+    }
+  }, "Altri clienti attivi"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 12,
+      color: "var(--black-l)"
+    }
+  }, "e tanti altri progetti in corso")))))), /*#__PURE__*/React.createElement("section", {
+    className: "cta"
+  }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("h2", null, "Vuoi essere il prossimo?")), /*#__PURE__*/React.createElement(Reveal, {
+    delay: .08
+  }, /*#__PURE__*/React.createElement("p", null, "Raccontaci il tuo progetto. Ti diremo esattamente cosa possiamo fare per te, senza giri di parole.")), /*#__PURE__*/React.createElement(Reveal, {
+    delay: .14
+  }, /*#__PURE__*/React.createElement("a", {className: "cta-btn", href: "/contatti.html", style: {display: "inline-block", textDecoration: "none"}}, "Parliamone ", "\u2192"))), /*#__PURE__*/React.createElement("footer", {
+    className: "footer"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "footer-top"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "footer-brand"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "footer-logo"
+  }, "orizon"), /*#__PURE__*/React.createElement("div", {
+    className: "footer-tagline"
+  }, "Performance Marketing, Web Development e AI per la crescita del tuo business."), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 20
+    }
+  }, /*#__PURE__*/React.createElement("a", {
+    className: "footer-contact-item",
+    href: "mailto:antonio@orizonadv.it"
+  }, /*#__PURE__*/React.createElement(IconMail, null), " antonio@orizonadv.it"), /*#__PURE__*/React.createElement("a", {
+    className: "footer-contact-item",
+    href: "tel:+393347113332"
+  }, /*#__PURE__*/React.createElement(IconPhone, null), " 334 711 3332"), /*#__PURE__*/React.createElement("a", {
+    className: "footer-contact-item",
+    href: "https://maps.google.com/?q=Corso+Umberto+I+153+Napoli",
+    target: "_blank",
+    rel: "noopener"
+  }, /*#__PURE__*/React.createElement(IconPin, null), " Corso Umberto I, 153 \u2014 Napoli"))), /*#__PURE__*/React.createElement("div", {
+    className: "footer-col"
+  }, /*#__PURE__*/React.createElement("h4", null, "Navigazione"), /*#__PURE__*/React.createElement("a", {
+    href: "/index.html"
+  }, "Home"), /*#__PURE__*/React.createElement("a", {
+    href: "/servizi.html"
+  }, "Servizi"), /*#__PURE__*/React.createElement("a", {
+    href: "/work.html"
+  }, "Work"), /*#__PURE__*/React.createElement("a", {
+    href: "/contatti.html"
+  }, "Contatti")), /*#__PURE__*/React.createElement("div", {
+    className: "footer-col"
+  }, /*#__PURE__*/React.createElement("h4", null, "Servizi"), /*#__PURE__*/React.createElement("a", {
+    href: "/servizi.html#perf"
+  }, "Performance Marketing"), /*#__PURE__*/React.createElement("a", {
+    href: "/servizi.html#web"
+  }, "Web Development"), /*#__PURE__*/React.createElement("a", {
+    href: "/servizi.html#ai"
+  }, "AI Development")), /*#__PURE__*/React.createElement("div", {
+    className: "footer-col"
+  }, /*#__PURE__*/React.createElement("h4", null, "Social"), /*#__PURE__*/React.createElement("a", {
+    href: "https://www.linkedin.com/in/antoniopratola/",
+    target: "_blank",
+    rel: "noopener"
+  }, "LinkedIn"), /*#__PURE__*/React.createElement("a", {
+    href: "https://instagram.com/pratolads",
+    target: "_blank",
+    rel: "noopener"
+  }, "Instagram"), /*#__PURE__*/React.createElement("a", {
+    href: "https://facebook.com/antoniopratola",
+    target: "_blank",
+    rel: "noopener"
+  }, "Facebook"))), /*#__PURE__*/React.createElement("div", {
+    className: "footer-bottom"
+  }, "\u00A9", " ", new Date().getFullYear(), " Orizon ADV \u2014 Tutti i diritti riservati")));
+}
+ReactDOM.createRoot(document.getElementById("root")).render(/*#__PURE__*/React.createElement(App, null));</script>
+</body>
+</html>

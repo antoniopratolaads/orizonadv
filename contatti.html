@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Orizon ADV — Contatti</title>
+<meta name="description" content="Orizon ADV - Performance Marketing, Web Development e AI per la crescita del tuo business.">
+<link rel="icon" type="image/png" href="/images/logo-orizon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#3750F7;--blue-d:#233BD9;--blue-l:#6377FD;--blue-s:#9FABFF;--blue-ll:#D2D8FF;--green:#60E787;--green-d:#4CCB70;--green-l:#A1F9BA;--pink:#FEEAEE;--black:#0C1713;--black-m:#5A625F;--black-l:#A8ACAB;--black-ll:#D9D9D9;--gray:#F4F5F7;--white:#FFFFFF}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'IBM Plex Sans',sans-serif;color:var(--black);background:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+::selection{background:var(--blue-ll);color:var(--blue-d)}
+
+.nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:0 56px;height:72px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);background:rgba(255,255,255,.88);border-bottom:1px solid rgba(55,80,247,.05);transition:all .4s}
+.nav.scrolled{box-shadow:0 1px 20px rgba(55,80,247,.04)}
+.nav-logo{font-size:21px;font-weight:700;color:var(--blue);letter-spacing:-.04em;text-decoration:none}
+.nav-links{display:flex;gap:8px;align-items:center}
+.nav-link{padding:8px 18px;border-radius:100px;font-size:14px;font-weight:500;color:var(--black-m);text-decoration:none;transition:all .3s;border:1px solid transparent}
+.nav-link:hover{color:var(--black);background:var(--gray)}
+.nav-link.active{color:var(--blue);background:rgba(55,80,247,.05)}
+
+.hero{padding:140px 56px 48px;max-width:1440px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end}
+.hero-eyebrow{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:20px;display:flex;align-items:center;gap:14px}
+.hero-eyebrow::before{content:'';width:36px;height:2px;background:linear-gradient(90deg,var(--green),var(--blue));border-radius:1px}
+.hero h1{font-size:clamp(36px,4.5vw,60px);font-weight:700;letter-spacing:-.045em;line-height:1.04;margin-bottom:20px}
+.hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--blue),var(--blue-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-desc{font-size:18px;line-height:1.7;color:var(--black-m);max-width:480px}
+
+.contact-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.c-card{padding:22px 24px;border-radius:18px;background:var(--gray);border:1px solid rgba(55,80,247,.03);text-decoration:none;color:var(--black);transition:all .35s;cursor:pointer;display:flex;align-items:flex-start;gap:14px}
+.c-card:hover{background:var(--white);border-color:var(--blue);box-shadow:0 8px 32px rgba(55,80,247,.07);transform:translateY(-2px)}
+.c-card-icon{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.c-card-icon svg{width:18px;height:18px}
+.c-card-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
+.c-card-value{font-size:14px;font-weight:600;color:var(--black);line-height:1.4}
+.social-row{display:flex;gap:10px;margin-top:12px}
+.social-pill{flex:1;padding:14px 16px;border-radius:14px;background:var(--gray);border:1px solid rgba(55,80,247,.03);text-decoration:none;color:var(--black-m);font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px;justify-content:center;transition:all .35s}
+.social-pill:hover{background:var(--white);border-color:var(--blue);color:var(--blue);box-shadow:0 4px 20px rgba(55,80,247,.06);transform:translateY(-1px)}
+.social-pill svg{width:16px;height:16px}
+
+.map-strip{max-width:1440px;margin:0 auto;padding:0 56px 48px}
+.map-wrap{border-radius:24px;overflow:hidden;border:1px solid rgba(55,80,247,.04);position:relative}
+.map-wrap iframe{width:100%;height:320px;border:none;display:block}
+.map-overlay{position:absolute;bottom:16px;left:16px;background:var(--white);border-radius:14px;padding:14px 20px;box-shadow:0 4px 24px rgba(0,0,0,.08);display:flex;align-items:center;gap:12px}
+.map-overlay-dot{width:10px;height:10px;border-radius:50%;background:var(--green);flex-shrink:0;box-shadow:0 0 0 3px rgba(96,231,135,.2);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(96,231,135,.2)}50%{box-shadow:0 0 0 6px rgba(96,231,135,.1)}}
+.map-overlay-text{font-size:13px;font-weight:600}
+.map-overlay-addr{font-size:11px;color:var(--black-m)}
+
+.form-section{max-width:720px;margin:0 auto;padding:0 56px 80px}
+.form-section-head{text-align:center;margin-bottom:32px}
+.form-section-head h2{font-size:clamp(26px,3vw,36px);font-weight:700;letter-spacing:-.03em;margin-bottom:12px}
+.form-section-head p{font-size:16px;color:var(--black-m);line-height:1.6}
+.form-container{background:var(--gray);border-radius:28px;padding:44px 40px;position:relative;overflow:hidden;border:1px solid rgba(55,80,247,.03)}
+.progress{display:flex;gap:8px;margin-bottom:40px}
+.progress-dot{flex:1;height:4px;border-radius:2px;background:var(--black-ll);transition:all .5s cubic-bezier(.22,1,.36,1)}
+.progress-dot.done,.progress-dot.active{background:var(--blue)}
+.step-eyebrow{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
+.step-title{font-size:26px;font-weight:700;letter-spacing:-.03em;margin-bottom:8px}
+.step-desc{font-size:14px;color:var(--black-m);line-height:1.6;margin-bottom:32px}
+.svc-options{display:flex;flex-direction:column;gap:10px}
+.svc-option{padding:18px 22px;border-radius:14px;border:1.5px solid var(--black-ll);background:var(--white);cursor:pointer;transition:all .3s;display:flex;align-items:center;gap:16px;user-select:none}
+.svc-option:hover{border-color:var(--blue-s)}
+.svc-option.selected{border-color:var(--blue);background:rgba(55,80,247,.03);box-shadow:0 0 0 3px rgba(55,80,247,.08)}
+.svc-option-check{width:24px;height:24px;border-radius:8px;border:2px solid var(--black-ll);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .3s;color:transparent}
+.svc-option.selected .svc-option-check{background:var(--blue);border-color:var(--blue);color:white}
+.svc-option-icon{font-size:22px;flex-shrink:0}
+.svc-option-text h4{font-size:15px;font-weight:700;margin-bottom:2px}
+.svc-option-text p{font-size:12px;color:var(--black-m)}
+.budget-options{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.budget-option{padding:20px 22px;border-radius:14px;border:1.5px solid var(--black-ll);background:var(--white);cursor:pointer;transition:all .3s;text-align:center;user-select:none}
+.budget-option:hover{border-color:var(--blue-s)}
+.budget-option.selected{border-color:var(--blue);background:rgba(55,80,247,.03);box-shadow:0 0 0 3px rgba(55,80,247,.08)}
+.budget-option-value{font-size:18px;font-weight:700;color:var(--black);margin-bottom:4px;letter-spacing:-.02em}
+.budget-option.selected .budget-option-value{color:var(--blue)}
+.budget-option-label{font-size:11px;color:var(--black-l);font-weight:500}
+.form-group{margin-bottom:18px}
+.form-label{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--black-m);margin-bottom:8px}
+.form-input{width:100%;padding:14px 18px;border-radius:12px;border:1.5px solid var(--black-ll);background:var(--white);font-family:inherit;font-size:15px;color:var(--black);transition:all .3s;outline:none}
+.form-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(55,80,247,.08)}
+.form-input::placeholder{color:var(--black-l)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+textarea.form-input{resize:vertical;min-height:120px;line-height:1.6}
+.form-buttons{display:flex;gap:12px;margin-top:32px}
+.btn-back{padding:14px 28px;border-radius:100px;border:1.5px solid var(--black-ll);background:var(--white);font-family:inherit;font-size:14px;font-weight:600;color:var(--black-m);cursor:pointer;transition:all .3s}
+.btn-back:hover{border-color:var(--black-l);color:var(--black)}
+.btn-next{padding:14px 32px;border-radius:100px;border:none;background:var(--blue);font-family:inherit;font-size:14px;font-weight:700;color:var(--white);cursor:pointer;transition:all .35s;flex:1;max-width:240px}
+.btn-next:hover{background:var(--blue-d);transform:translateY(-1px);box-shadow:0 8px 28px rgba(55,80,247,.2)}
+.btn-next:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
+.btn-submit{padding:16px 40px;border-radius:100px;border:none;background:var(--blue);font-family:inherit;font-size:15px;font-weight:700;color:var(--white);cursor:pointer;transition:all .35s;flex:1}
+.btn-submit:hover{background:var(--blue-d);transform:translateY(-1px);box-shadow:0 8px 28px rgba(55,80,247,.2)}
+.step-content{animation:stepIn .45s cubic-bezier(.22,1,.36,1)}
+@keyframes stepIn{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:translateX(0)}}
+.success-state{text-align:center;padding:40px 20px;animation:stepIn .5s cubic-bezier(.22,1,.36,1)}
+.success-icon{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--green-d));display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:32px;color:white}
+.success-state h3{font-size:24px;font-weight:700;letter-spacing:-.02em;margin-bottom:12px}
+.success-state p{font-size:15px;color:var(--black-m);line-height:1.7}
+
+.footer{border-top:1px solid rgba(55,80,247,.04);padding:48px 56px 40px;max-width:1440px;margin:0 auto}
+.footer-inner{display:flex;align-items:flex-start;justify-content:space-between;gap:40px;flex-wrap:wrap}
+.footer-brand{max-width:280px}
+.footer-logo{font-size:20px;font-weight:700;color:var(--blue);letter-spacing:-.04em;margin-bottom:12px}
+.footer-tagline{font-size:13px;color:var(--black-l);line-height:1.6}
+.footer-col h4{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--black-l);margin-bottom:16px}
+.footer-col a{display:block;font-size:14px;font-weight:500;color:var(--black-m);text-decoration:none;margin-bottom:10px;transition:color .3s}
+.footer-col a:hover{color:var(--blue)}
+.footer-bottom{margin-top:40px;padding-top:24px;border-top:1px solid rgba(55,80,247,.04);font-size:12px;color:var(--black-l);font-weight:500;text-align:center}
+
+.rv{opacity:0;transform:translateY(20px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1)}
+.rv.v{opacity:1;transform:translateY(0)}
+
+@media(max-width:1100px){.nav{padding:0 32px}.hero{padding:120px 32px 40px;grid-template-columns:1fr;gap:36px}.map-strip{padding:0 32px 40px}.form-section{padding:0 32px 64px}.footer{padding:40px 32px 32px}}
+@media(max-width:768px){.nav{padding:0 20px;height:64px}.nav-links{display:none}.hero{padding:100px 20px 36px}.contact-cards{grid-template-columns:1fr}.social-row{flex-direction:column}.map-strip{padding:0 20px 32px}.form-section{padding:0 20px 48px;max-width:100%}.form-container{padding:32px 24px;border-radius:22px}.form-row{grid-template-columns:1fr}.budget-options{grid-template-columns:1fr}.footer{padding:32px 20px 24px}.footer-inner{flex-direction:column;gap:32px}}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script>const {
+  useState,
+  useEffect,
+  useRef
+} = React;
+const Reveal = ({
+  children,
+  delay = 0
+}) => {
+  const ref = useRef(null);
+  const [vis, setVis] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) {
+        setVis(true);
+        obs.unobserve(el);
+      }
+    }, {
+      threshold: .06
+    });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+  return /*#__PURE__*/React.createElement("div", {
+    ref: ref,
+    className: "rv " + (vis ? "v" : ""),
+    style: {
+      transitionDelay: delay + "s"
+    }
+  }, children);
+};
+const IconMail = () => /*#__PURE__*/React.createElement("svg", {
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: "2",
+  strokeLinecap: "round",
+  strokeLinejoin: "round"
+}, /*#__PURE__*/React.createElement("rect", {
+  x: "2",
+  y: "4",
+  width: "20",
+  height: "16",
+  rx: "2"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "m2 4 10 8 10-8"
+}));
+const IconPhone = () => /*#__PURE__*/React.createElement("svg", {
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: "2",
+  strokeLinecap: "round",
+  strokeLinejoin: "round"
+}, /*#__PURE__*/React.createElement("path", {
+  d: "M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3.09 5.18 2 2 0 0 1 5.08 3h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 11.87a16 16 0 0 0 6.04 6.04l2.23-2.23a2 2 0 0 1 2.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0 1 22 16.92z"
+}));
+const IconPin = () => /*#__PURE__*/React.createElement("svg", {
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: "2",
+  strokeLinecap: "round",
+  strokeLinejoin: "round"
+}, /*#__PURE__*/React.createElement("path", {
+  d: "M21 10c0 6-9 13-9 13s-9-7-9-13a9 9 0 1 1 18 0z"
+}), /*#__PURE__*/React.createElement("circle", {
+  cx: "12",
+  cy: "10",
+  r: "3"
+}));
+const IconLinkedin = () => /*#__PURE__*/React.createElement("svg", {
+  viewBox: "0 0 24 24",
+  fill: "currentColor"
+}, /*#__PURE__*/React.createElement("path", {
+  d: "M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"
+}));
+const IconInstagram = () => /*#__PURE__*/React.createElement("svg", {
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: "2",
+  strokeLinecap: "round",
+  strokeLinejoin: "round"
+}, /*#__PURE__*/React.createElement("rect", {
+  x: "2",
+  y: "2",
+  width: "20",
+  height: "20",
+  rx: "5"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+}), /*#__PURE__*/React.createElement("line", {
+  x1: "17.5",
+  y1: "6.5",
+  x2: "17.51",
+  y2: "6.5"
+}));
+const IconFacebook = () => /*#__PURE__*/React.createElement("svg", {
+  viewBox: "0 0 24 24",
+  fill: "currentColor"
+}, /*#__PURE__*/React.createElement("path", {
+  d: "M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+}));
+const IconCheck = () => /*#__PURE__*/React.createElement("svg", {
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: "3",
+  strokeLinecap: "round",
+  strokeLinejoin: "round",
+  style: {
+    width: 14,
+    height: 14
+  }
+}, /*#__PURE__*/React.createElement("polyline", {
+  points: "20 6 9 17 4 12"
+}));
+function MultiStepForm() {
+  const [step, setStep] = useState(1);
+  const [submitted, setSubmitted] = useState(false);
+  const [data, setData] = useState({
+    services: [],
+    budget: '',
+    nome: '',
+    cognome: '',
+    email: '',
+    telefono: '',
+    azienda: '',
+    messaggio: ''
+  });
+  const toggle = s => setData(p => ({
+    ...p,
+    services: p.services.includes(s) ? p.services.filter(x => x !== s) : [...p.services, s]
+  }));
+  const canNext = () => {
+    if (step === 1) return data.services.length > 0;
+    if (step === 2) return data.budget !== '';
+    if (step === 3) return data.nome && data.email;
+    return true;
+  };
+  const svcs = [{
+    id: 'perf',
+    icon: '\uD83D\uDCC8',
+    name: 'Performance Marketing',
+    desc: 'Gestione campagne paid multicanale'
+  }, {
+    id: 'web',
+    icon: '\u26A1',
+    name: 'Web Development',
+    desc: 'Siti, e-commerce e landing page'
+  }, {
+    id: 'ai',
+    icon: '\uD83E\uDD16',
+    name: 'AI Development',
+    desc: 'SaaS, automazione e AI creative'
+  }];
+  const budgets = [{
+    id: 'none',
+    value: 'Non spendo in ADV',
+    label: 'Ancora nessun investimento'
+  }, {
+    id: 'low',
+    value: '< \u20AC5.000/mese',
+    label: 'Budget iniziale'
+  }, {
+    id: 'mid',
+    value: '\u20AC5K \u2014 \u20AC15K',
+    label: 'Budget in crescita'
+  }, {
+    id: 'high',
+    value: '\u20AC15K \u2014 \u20AC50K',
+    label: 'Budget consolidato'
+  }, {
+    id: 'top',
+    value: '> \u20AC50.000/mese',
+    label: 'Budget enterprise'
+  }, {
+    id: 'idk',
+    value: 'Preferisco parlarne',
+    label: 'Da definire insieme'
+  }];
+  if (submitted) return /*#__PURE__*/React.createElement("div", {
+    className: "form-container"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "success-state"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "success-icon"
+  }, "\u2713"), /*#__PURE__*/React.createElement("h3", null, "Messaggio inviato!"), /*#__PURE__*/React.createElement("p", null, "Grazie per averci contattato. Ti risponderemo entro 24 ore lavorative. Nel frattempo, preparati a crescere.")));
+  return /*#__PURE__*/React.createElement("div", {
+    className: "form-container"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "progress"
+  }, [1, 2, 3, 4].map(i => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    className: "progress-dot" + (i < step ? " done" : "") + (i === step ? " active" : "")
+  }))), step === 1 && /*#__PURE__*/React.createElement("div", {
+    className: "step-content",
+    key: "s1"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "step-eyebrow"
+  }, "Step 1 di 4"), /*#__PURE__*/React.createElement("h3", {
+    className: "step-title"
+  }, "Di cosa hai bisogno?"), /*#__PURE__*/React.createElement("p", {
+    className: "step-desc"
+  }, "Seleziona uno o pi\xF9 servizi che ti interessano."), /*#__PURE__*/React.createElement("div", {
+    className: "svc-options"
+  }, svcs.map(s => /*#__PURE__*/React.createElement("div", {
+    key: s.id,
+    className: "svc-option" + (data.services.includes(s.id) ? " selected" : ""),
+    onClick: () => toggle(s.id)
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "svc-option-check"
+  }, data.services.includes(s.id) && /*#__PURE__*/React.createElement(IconCheck, null)), /*#__PURE__*/React.createElement("span", {
+    className: "svc-option-icon"
+  }, s.icon), /*#__PURE__*/React.createElement("div", {
+    className: "svc-option-text"
+  }, /*#__PURE__*/React.createElement("h4", null, s.name), /*#__PURE__*/React.createElement("p", null, s.desc))))), /*#__PURE__*/React.createElement("div", {
+    className: "form-buttons"
+  }, /*#__PURE__*/React.createElement("button", {
+    className: "btn-next",
+    disabled: !canNext(),
+    onClick: () => setStep(2)
+  }, "Continua ", "\u2192"))), step === 2 && /*#__PURE__*/React.createElement("div", {
+    className: "step-content",
+    key: "s2"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "step-eyebrow"
+  }, "Step 2 di 4"), /*#__PURE__*/React.createElement("h3", {
+    className: "step-title"
+  }, "Quanto spendi in ADV?"), /*#__PURE__*/React.createElement("p", {
+    className: "step-desc"
+  }, "Indicaci il budget pubblicitario mensile attualmente investito."), /*#__PURE__*/React.createElement("div", {
+    className: "budget-options"
+  }, budgets.map(b => /*#__PURE__*/React.createElement("div", {
+    key: b.id,
+    className: "budget-option" + (data.budget === b.id ? " selected" : ""),
+    onClick: () => setData(p => ({
+      ...p,
+      budget: b.id
+    }))
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "budget-option-value"
+  }, b.value), /*#__PURE__*/React.createElement("div", {
+    className: "budget-option-label"
+  }, b.label)))), /*#__PURE__*/React.createElement("div", {
+    className: "form-buttons"
+  }, /*#__PURE__*/React.createElement("button", {
+    className: "btn-back",
+    onClick: () => setStep(1)
+  }, "\u2190", " Indietro"), /*#__PURE__*/React.createElement("button", {
+    className: "btn-next",
+    disabled: !canNext(),
+    onClick: () => setStep(3)
+  }, "Continua ", "\u2192"))), step === 3 && /*#__PURE__*/React.createElement("div", {
+    className: "step-content",
+    key: "s3"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "step-eyebrow"
+  }, "Step 3 di 4"), /*#__PURE__*/React.createElement("h3", {
+    className: "step-title"
+  }, "Chi sei?"), /*#__PURE__*/React.createElement("p", {
+    className: "step-desc"
+  }, "Dicci come contattarti. Niente spam, promesso."), /*#__PURE__*/React.createElement("div", {
+    className: "form-row"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/React.createElement("label", {
+    className: "form-label"
+  }, "Nome *"), /*#__PURE__*/React.createElement("input", {
+    className: "form-input",
+    placeholder: "Il tuo nome",
+    value: data.nome,
+    onChange: e => setData(p => ({
+      ...p,
+      nome: e.target.value
+    }))
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/React.createElement("label", {
+    className: "form-label"
+  }, "Cognome"), /*#__PURE__*/React.createElement("input", {
+    className: "form-input",
+    placeholder: "Il tuo cognome",
+    value: data.cognome,
+    onChange: e => setData(p => ({
+      ...p,
+      cognome: e.target.value
+    }))
+  }))), /*#__PURE__*/React.createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/React.createElement("label", {
+    className: "form-label"
+  }, "Email *"), /*#__PURE__*/React.createElement("input", {
+    className: "form-input",
+    type: "email",
+    placeholder: "nome@azienda.it",
+    value: data.email,
+    onChange: e => setData(p => ({
+      ...p,
+      email: e.target.value
+    }))
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "form-row"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/React.createElement("label", {
+    className: "form-label"
+  }, "Telefono"), /*#__PURE__*/React.createElement("input", {
+    className: "form-input",
+    type: "tel",
+    placeholder: "+39 ...",
+    value: data.telefono,
+    onChange: e => setData(p => ({
+      ...p,
+      telefono: e.target.value
+    }))
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/React.createElement("label", {
+    className: "form-label"
+  }, "Azienda"), /*#__PURE__*/React.createElement("input", {
+    className: "form-input",
+    placeholder: "Nome azienda",
+    value: data.azienda,
+    onChange: e => setData(p => ({
+      ...p,
+      azienda: e.target.value
+    }))
+  }))), /*#__PURE__*/React.createElement("div", {
+    className: "form-buttons"
+  }, /*#__PURE__*/React.createElement("button", {
+    className: "btn-back",
+    onClick: () => setStep(2)
+  }, "\u2190", " Indietro"), /*#__PURE__*/React.createElement("button", {
+    className: "btn-next",
+    disabled: !canNext(),
+    onClick: () => setStep(4)
+  }, "Continua ", "\u2192"))), step === 4 && /*#__PURE__*/React.createElement("div", {
+    className: "step-content",
+    key: "s4"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "step-eyebrow"
+  }, "Step 4 di 4"), /*#__PURE__*/React.createElement("h3", {
+    className: "step-title"
+  }, "Raccontaci il tuo progetto"), /*#__PURE__*/React.createElement("p", {
+    className: "step-desc"
+  }, "Pi\xF9 dettagli ci dai, pi\xF9 saremo precisi. Ma anche due righe vanno bene."), /*#__PURE__*/React.createElement("div", {
+    className: "form-group"
+  }, /*#__PURE__*/React.createElement("label", {
+    className: "form-label"
+  }, "Messaggio"), /*#__PURE__*/React.createElement("textarea", {
+    className: "form-input",
+    placeholder: "Descrivi brevemente il tuo progetto, i tuoi obiettivi, o semplicemente dicci ciao...",
+    value: data.messaggio,
+    onChange: e => setData(p => ({
+      ...p,
+      messaggio: e.target.value
+    }))
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "form-buttons"
+  }, /*#__PURE__*/React.createElement("button", {
+    className: "btn-back",
+    onClick: () => setStep(3)
+  }, "\u2190", " Indietro"), /*#__PURE__*/React.createElement("button", {
+    className: "btn-submit",
+    onClick: () => setSubmitted(true)
+  }, "Invia messaggio ", "\u2192"))));
+}
+function App() {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const fn = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", fn, {
+      passive: true
+    });
+    return () => window.removeEventListener("scroll", fn);
+  }, []);
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("nav", {
+    className: "nav" + (scrolled ? " scrolled" : "")
+  }, /*#__PURE__*/React.createElement("a", {
+    className: "nav-logo",
+    href: "/index.html"
+  }, "orizon"), /*#__PURE__*/React.createElement("div", {
+    className: "nav-links"
+  }, /*#__PURE__*/React.createElement("a", {
+    className: "nav-link",
+    href: "/index.html"
+  }, "Home"), /*#__PURE__*/React.createElement("a", {
+    className: "nav-link",
+    href: "/servizi.html"
+  }, "Servizi"), /*#__PURE__*/React.createElement("a", {
+    className: "nav-link",
+    href: "/work.html"
+  }, "Clienti"), /*#__PURE__*/React.createElement("a", {
+    className: "nav-link",
+    href: "/work.html"
+  }, "Work"), /*#__PURE__*/React.createElement("a", {
+    className: "nav-link active",
+    href: "/contatti.html"
+  }, "Contatti"))), /*#__PURE__*/React.createElement("header", {
+    className: "hero"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("p", {
+    className: "hero-eyebrow"
+  }, "Contatti")), /*#__PURE__*/React.createElement(Reveal, {
+    delay: .06
+  }, /*#__PURE__*/React.createElement("h1", null, "Parliamo del tuo", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("em", null, "prossimo traguardo."))), /*#__PURE__*/React.createElement(Reveal, {
+    delay: .12
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "hero-desc"
+  }, "Raccontaci il tuo progetto. Ti diremo esattamente cosa possiamo fare per te, senza giri di parole e senza impegno."))), /*#__PURE__*/React.createElement(Reveal, {
+    delay: .15
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    className: "contact-cards"
+  }, /*#__PURE__*/React.createElement("a", {
+    className: "c-card",
+    href: "mailto:antonio@orizonadv.it"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "c-card-icon",
+    style: {
+      background: "rgba(55,80,247,.06)"
+    }
+  }, /*#__PURE__*/React.createElement(IconMail, null)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    className: "c-card-label",
+    style: {
+      color: "var(--blue)"
+    }
+  }, "Email"), /*#__PURE__*/React.createElement("div", {
+    className: "c-card-value"
+  }, "antonio@orizonadv.it"))), /*#__PURE__*/React.createElement("a", {
+    className: "c-card",
+    href: "tel:+393347113332"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "c-card-icon",
+    style: {
+      background: "rgba(96,231,135,.08)"
+    }
+  }, /*#__PURE__*/React.createElement(IconPhone, null)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    className: "c-card-label",
+    style: {
+      color: "var(--green-d)"
+    }
+  }, "Telefono"), /*#__PURE__*/React.createElement("div", {
+    className: "c-card-value"
+  }, "334 711 3332"))), /*#__PURE__*/React.createElement("a", {
+    className: "c-card",
+    href: "https://maps.google.com/?q=Corso+Umberto+I+153+Napoli",
+    target: "_blank",
+    rel: "noopener",
+    style: {
+      gridColumn: "1 / -1"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "c-card-icon",
+    style: {
+      background: "rgba(229,62,62,.06)"
+    }
+  }, /*#__PURE__*/React.createElement(IconPin, null)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    className: "c-card-label",
+    style: {
+      color: "#E53E3E"
+    }
+  }, "Sede"), /*#__PURE__*/React.createElement("div", {
+    className: "c-card-value"
+  }, "Corso Umberto I, 153 \u2014 Napoli")))), /*#__PURE__*/React.createElement("div", {
+    className: "social-row"
+  }, /*#__PURE__*/React.createElement("a", {
+    className: "social-pill",
+    href: "https://www.linkedin.com/in/antoniopratola/",
+    target: "_blank",
+    rel: "noopener"
+  }, /*#__PURE__*/React.createElement(IconLinkedin, null), " LinkedIn"), /*#__PURE__*/React.createElement("a", {
+    className: "social-pill",
+    href: "https://instagram.com/pratolads",
+    target: "_blank",
+    rel: "noopener"
+  }, /*#__PURE__*/React.createElement(IconInstagram, null), " Instagram"), /*#__PURE__*/React.createElement("a", {
+    className: "social-pill",
+    href: "https://facebook.com/antoniopratola",
+    target: "_blank",
+    rel: "noopener"
+  }, /*#__PURE__*/React.createElement(IconFacebook, null), " Facebook"))))), /*#__PURE__*/React.createElement("div", {
+    className: "form-section"
+  }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("div", {
+    className: "form-section-head"
+  }, /*#__PURE__*/React.createElement("h2", null, "Inizia da qui"), /*#__PURE__*/React.createElement("p", null, "Compila il form e ti ricontatteremo entro 24 ore."))), /*#__PURE__*/React.createElement(Reveal, {
+    delay: .08
+  }, /*#__PURE__*/React.createElement(MultiStepForm, null))), /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("div", {
+    className: "map-strip"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "map-wrap"
+  }, /*#__PURE__*/React.createElement("iframe", {
+    src: "https://maps.google.com/maps?q=Corso+Umberto+I+153,+80138+Napoli+NA,+Italia&t=&z=16&ie=UTF8&iwloc=&output=embed",
+    loading: "lazy",
+    referrerPolicy: "no-referrer-when-downgrade",
+    title: "Orizon ADV - Sede Napoli",
+    style: {
+      border: "none"
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "map-overlay"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "map-overlay-dot"
+  }), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    className: "map-overlay-text"
+  }, "Orizon ADV"), /*#__PURE__*/React.createElement("div", {
+    className: "map-overlay-addr"
+  }, "Corso Umberto I, 153 \u2014 Napoli")))))), /*#__PURE__*/React.createElement("footer", {
+    className: "footer"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "footer-inner"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "footer-brand"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "footer-logo"
+  }, "orizon"), /*#__PURE__*/React.createElement("div", {
+    className: "footer-tagline"
+  }, "Performance Marketing, Web Development e AI per la crescita del tuo business.")), /*#__PURE__*/React.createElement("div", {
+    className: "footer-col"
+  }, /*#__PURE__*/React.createElement("h4", null, "Navigazione"), /*#__PURE__*/React.createElement("a", {
+    href: "/index.html"
+  }, "Home"), /*#__PURE__*/React.createElement("a", {
+    href: "/servizi.html"
+  }, "Servizi"), /*#__PURE__*/React.createElement("a", {
+    href: "/work.html"
+  }, "Clienti"), /*#__PURE__*/React.createElement("a", {
+    href: "/work.html"
+  }, "Work"), /*#__PURE__*/React.createElement("a", {
+    href: "/contatti.html"
+  }, "Contatti")), /*#__PURE__*/React.createElement("div", {
+    className: "footer-col"
+  }, /*#__PURE__*/React.createElement("h4", null, "Servizi"), /*#__PURE__*/React.createElement("a", {
+    href: "/servizi.html#perf"
+  }, "Performance Marketing"), /*#__PURE__*/React.createElement("a", {
+    href: "/servizi.html#web"
+  }, "Web Development"), /*#__PURE__*/React.createElement("a", {
+    href: "/servizi.html#ai"
+  }, "AI Development")), /*#__PURE__*/React.createElement("div", {
+    className: "footer-col"
+  }, /*#__PURE__*/React.createElement("h4", null, "Social"), /*#__PURE__*/React.createElement("a", {
+    href: "https://www.linkedin.com/in/antoniopratola/",
+    target: "_blank",
+    rel: "noopener"
+  }, "LinkedIn"), /*#__PURE__*/React.createElement("a", {
+    href: "https://instagram.com/pratolads",
+    target: "_blank",
+    rel: "noopener"
+  }, "Instagram"), /*#__PURE__*/React.createElement("a", {
+    href: "https://facebook.com/antoniopratola",
+    target: "_blank",
+    rel: "noopener"
+  }, "Facebook"))), /*#__PURE__*/React.createElement("div", {
+    className: "footer-bottom"
+  }, "\u00A9", " ", new Date().getFullYear(), " Orizon ADV \u2014 Tutti i diritti riservati")));
+}
+ReactDOM.createRoot(document.getElementById("root")).render(/*#__PURE__*/React.createElement(App, null));</script>
+</body>
+</html>
