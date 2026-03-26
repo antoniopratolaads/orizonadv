@@ -4,16 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Orizon ADV — Performance Marketing, Web & AI Development</title>
-<meta name="description" content="Orizon ADV - Performance Marketing, Web Development e AI per la crescita del tuo business.">
-<link rel="icon" type="image/png" href="/images/logo-orizon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 :root{--blue:#3750F7;--blue-d:#233BD9;--blue-l:#6377FD;--blue-s:#9FABFF;--blue-ll:#D2D8FF;--green:#60E787;--green-d:#4CCB70;--green-l:#A1F9BA;--pink:#FEEAEE;--black:#0C1713;--black-m:#5A625F;--black-l:#A8ACAB;--black-ll:#D9D9D9;--gray:#F4F5F7;--white:#FFFFFF}
-*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;overflow-x:hidden;max-width:100vw}
 body{font-family:'IBM Plex Sans',sans-serif;color:var(--black);background:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 ::selection{background:var(--blue-ll);color:var(--blue-d)}
 
@@ -29,21 +25,28 @@ body{font-family:'IBM Plex Sans',sans-serif;color:var(--black);background:var(--
 .nav-cta:hover{background:var(--blue-d);transform:translateY(-1px);box-shadow:0 8px 24px rgba(55,80,247,.2)}
 
 /* ── HERO ── */
-.hero{padding:160px 56px 80px;max-width:1440px;margin:0 auto;position:relative}
-.hero-eyebrow{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:24px;display:flex;align-items:center;gap:14px}
+.hero{padding:160px 56px 80px;max-width:1440px;margin:0 auto;position:relative;z-index:1}
+.hero-bg{position:fixed;top:0;left:0;width:100%;height:100vh;pointer-events:none;z-index:0;overflow:hidden}
+.hero-bg .orb{position:absolute;border-radius:50%;filter:blur(120px);opacity:.35;animation:orbFloat 25s ease-in-out infinite}
+.hero-orb-1{width:600px;height:600px;background:var(--blue-ll);top:-200px;right:-100px;animation-delay:0s}
+.hero-orb-2{width:400px;height:400px;background:rgba(96,231,135,.15);bottom:0;left:-100px;animation-delay:-8s}
+.hero-orb-3{width:500px;height:500px;background:rgba(55,80,247,.08);top:40%;left:30%;animation-delay:-16s}
+@keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(30px,-20px) scale(1.05)}50%{transform:translate(-20px,30px) scale(.95)}75%{transform:translate(20px,20px) scale(1.02)}}
+.hero-o-pattern{position:fixed;top:0;left:0;width:100%;height:100vh;pointer-events:none;z-index:0;overflow:hidden}
+.hero-o-pattern .o-shape{position:absolute;opacity:0;animation:oFade 1.8s ease-out forwards}
+@keyframes oFade{0%{opacity:0;transform:scale(.85) var(--o-rot)}100%{opacity:var(--o-op);transform:scale(1) var(--o-rot)}}
+.hero-eyebrow{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:24px;display:flex;align-items:center;gap:14px;position:relative}
 .hero-eyebrow::before{content:'';width:36px;height:2px;background:linear-gradient(90deg,var(--green),var(--blue));border-radius:1px}
-.hero h1{font-size:clamp(42px,5.5vw,76px);font-weight:700;letter-spacing:-.05em;line-height:1.02;margin-bottom:28px;max-width:900px}
+.hero h1{font-size:clamp(42px,5.5vw,76px);font-weight:700;letter-spacing:-.05em;line-height:1.02;margin-bottom:28px;max-width:900px;position:relative}
 .hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--blue),var(--blue-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-desc{font-size:19px;line-height:1.75;color:var(--black-m);max-width:560px;margin-bottom:40px}
+.hero-desc{font-size:19px;line-height:1.75;color:var(--black-m);max-width:560px;margin-bottom:40px;position:relative}
 .hero-desc strong{color:var(--black);font-weight:600}
-.hero-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
-.hero-btn{padding:16px 40px;border-radius:100px;font-family:inherit;font-size:16px;font-weight:700;cursor:pointer;transition:all .4s;border:none}
+.hero-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap;position:relative}
+.hero-btn{padding:16px 40px;border-radius:100px;font-family:inherit;font-size:16px;font-weight:700;cursor:pointer;transition:all .4s;border:none;text-decoration:none;display:inline-block}
 .hero-btn-primary{background:var(--blue);color:var(--white)}
 .hero-btn-primary:hover{background:var(--blue-d);transform:translateY(-2px);box-shadow:0 16px 48px rgba(55,80,247,.2)}
 .hero-btn-secondary{background:transparent;color:var(--black-m);border:1.5px solid var(--black-ll)}
 .hero-btn-secondary:hover{border-color:var(--blue);color:var(--blue)}
-.hero-float{position:absolute;right:80px;top:180px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle at 30% 30%,var(--blue-ll),rgba(55,80,247,.03) 70%);filter:blur(70px);pointer-events:none;animation:floatBlob 8s ease-in-out infinite alternate}
-@keyframes floatBlob{0%{transform:translate(0,0) scale(1)}100%{transform:translate(-20px,30px) scale(1.1)}}
 
 /* ── CLIENT MARQUEE ── */
 .marquee-section{padding:48px 0;border-top:1px solid rgba(55,80,247,.04);border-bottom:1px solid rgba(55,80,247,.04);overflow:hidden}
@@ -62,7 +65,7 @@ body{font-family:'IBM Plex Sans',sans-serif;color:var(--black);background:var(--
 .section-title{font-size:clamp(28px,3.5vw,44px);font-weight:700;letter-spacing:-.035em;line-height:1.1;margin-bottom:16px}
 .section-desc{font-size:17px;color:var(--black-m);line-height:1.7;max-width:520px;margin-bottom:56px}
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.svc-card{padding:36px 32px;border-radius:24px;background:var(--gray);border:1px solid rgba(55,80,247,.03);transition:all .4s;cursor:pointer;position:relative;overflow:hidden}
+.svc-card{padding:36px 32px;border-radius:24px;background:var(--gray);border:1px solid rgba(55,80,247,.03);transition:all .5s cubic-bezier(.22,1,.36,1);cursor:pointer;position:relative;overflow:hidden}
 .svc-card:hover{background:var(--white);border-color:var(--blue);box-shadow:0 16px 48px rgba(55,80,247,.08);transform:translateY(-4px)}
 .svc-card-num{font-size:64px;font-weight:700;-webkit-text-fill-color:transparent;-webkit-text-stroke:1px var(--black-ll);line-height:.85;margin-bottom:20px;opacity:.5}
 .svc-card:hover .svc-card-num{-webkit-text-stroke-color:var(--blue-ll)}
@@ -77,7 +80,7 @@ body{font-family:'IBM Plex Sans',sans-serif;color:var(--black);background:var(--
 /* ── STATS ── */
 .stats{padding:80px 56px;max-width:1440px;margin:0 auto}
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.stat{padding:36px 32px;border-radius:24px;background:var(--black);position:relative;overflow:hidden}
+.stat{padding:36px 32px;border-radius:24px;background:var(--black);position:relative;overflow:hidden;transition:transform .5s cubic-bezier(.22,1,.36,1),box-shadow .5s}
 .stat::before{content:'';position:absolute;width:120px;height:120px;border-radius:50%;top:-40px;right:-40px;pointer-events:none}
 .stat:nth-child(1)::before{background:radial-gradient(circle,rgba(55,80,247,.15),transparent 70%)}
 .stat:nth-child(2)::before{background:radial-gradient(circle,rgba(96,231,135,.12),transparent 70%)}
@@ -86,12 +89,13 @@ body{font-family:'IBM Plex Sans',sans-serif;color:var(--black);background:var(--
 .stat-value{font-size:clamp(32px,3.5vw,48px);font-weight:700;color:var(--white);letter-spacing:-.03em;margin-bottom:6px;position:relative}
 .stat-value .accent{color:var(--green)}
 .stat-label{font-size:13px;color:rgba(255,255,255,.45);font-weight:500;position:relative}
+.stat:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.2)}
 
 /* ── CASE STUDIES ── */
 .cases{padding:100px 56px;max-width:1440px;margin:0 auto}
 .cases-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .case-card-v2{border-radius:24px;overflow:hidden;background:var(--gray);border:1px solid rgba(55,80,247,.03);transition:all .4s;cursor:pointer}
-.case-card-v2:hover{border-color:var(--blue);box-shadow:0 16px 48px rgba(55,80,247,.08);transform:translateY(-3px)}
+.case-card-v2:hover{border-color:var(--blue);box-shadow:0 20px 56px rgba(55,80,247,.1);transform:translateY(-5px)}
 .case-visual{height:200px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px}
 .case-visual-name{font-size:32px;font-weight:700;letter-spacing:-.03em}
 .case-visual-sub{font-size:12px;font-weight:600}
@@ -111,9 +115,7 @@ body{font-family:'IBM Plex Sans',sans-serif;color:var(--black);background:var(--
 .founder{padding:100px 56px;max-width:1440px;margin:0 auto}
 .founder-grid{display:grid;grid-template-columns:400px 1fr;gap:64px;align-items:center}
 .founder-img{width:100%;aspect-ratio:3/4;border-radius:28px;overflow:hidden;position:relative}
-.founder-img-placeholder{width:100%;height:100%;background:linear-gradient(135deg,var(--blue),var(--blue-l));display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px}
-.founder-initials{font-size:72px;font-weight:700;color:rgba(255,255,255,.2);letter-spacing:-.04em}
-.founder-img-label{font-size:12px;font-weight:600;color:rgba(255,255,255,.4);letter-spacing:.1em;text-transform:uppercase}
+/* founder placeholder removed - using real photo */
 .founder-content{}
 .founder-name{font-size:clamp(24px,2.5vw,32px);font-weight:700;letter-spacing:-.03em;margin-bottom:4px}
 .founder-role{font-size:14px;color:var(--blue);font-weight:600;margin-bottom:28px}
@@ -164,8 +166,25 @@ body{font-family:'IBM Plex Sans',sans-serif;color:var(--black);background:var(--
 .divider-line{height:1px;background:linear-gradient(90deg,transparent,rgba(55,80,247,.07),transparent)}
 
 /* ── REVEAL ── */
-.rv{opacity:0;transform:translateY(20px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1)}
+.rv{opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
 .rv.v{opacity:1;transform:translateY(0)}
+.rv-scale{opacity:0;transform:scale(.95);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+.rv-scale.v{opacity:1;transform:scale(1)}
+.rv-left{opacity:0;transform:translateX(-30px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+.rv-left.v{opacity:1;transform:translateX(0)}
+
+
+/* ── HAMBURGER ── */
+.nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:1001}
+.nav-hamburger svg{width:24px;height:24px;stroke:var(--black);stroke-width:2;fill:none;stroke-linecap:round}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:999;background:rgba(255,255,255,.98);backdrop-filter:blur(24px);flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:0;pointer-events:none;transition:opacity .3s}
+.mobile-menu.open{opacity:1;pointer-events:auto}
+.mobile-menu a{font-size:20px;font-weight:600;color:var(--black-m);text-decoration:none;padding:14px 40px;border-radius:100px;transition:all .3s}
+.mobile-menu a:hover,.mobile-menu a.active{color:var(--blue);background:rgba(55,80,247,.05)}
+.mobile-menu .mobile-cta{margin-top:16px;padding:16px 40px;background:var(--blue);color:var(--white);border-radius:100px;font-size:16px;font-weight:700}
+.mobile-close{position:absolute;top:20px;right:24px;background:none;border:none;cursor:pointer;padding:8px}
+.mobile-close svg{width:24px;height:24px;stroke:var(--black);stroke-width:2;fill:none;stroke-linecap:round}
+@media(max-width:768px){.nav-hamburger{display:block}.mobile-menu{display:flex}}
 
 /* ── RESPONSIVE ── */
 @media(max-width:1100px){
@@ -193,738 +212,320 @@ body{font-family:'IBM Plex Sans',sans-serif;color:var(--black);background:var(--
 <div id="root"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
-<script>const {
-  useState,
-  useEffect,
-  useRef,
-  useCallback
-} = React;
-const Reveal = ({
-  children,
-  delay = 0
-}) => {
-  const ref = useRef(null);
-  const [vis, setVis] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) {
-        setVis(true);
-        obs.unobserve(el);
-      }
-    }, {
-      threshold: .06
-    });
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-  return /*#__PURE__*/React.createElement("div", {
-    ref: ref,
-    className: "rv " + (vis ? "v" : ""),
-    style: {
-      transitionDelay: delay + "s"
-    }
-  }, children);
-};
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
+<script type="text/babel" data-type="module">
+const{useState,useEffect,useRef,useCallback}=React;
+
+const Reveal=({children,delay=0})=>{const ref=useRef(null);const[vis,setVis]=useState(false);useEffect(()=>{const el=ref.current;if(!el)return;const obs=new IntersectionObserver(([e])=>{if(e.isIntersecting){setVis(true);obs.unobserve(el)}},{threshold:.06});obs.observe(el);return()=>obs.disconnect()},[]);return<div ref={ref} className={"rv "+(vis?"v":"")} style={{transitionDelay:delay+"s"}}>{children}</div>};
 
 /* Animated counter */
-function AnimCounter({
-  end,
-  prefix = "",
-  suffix = "",
-  duration = 2000
-}) {
-  const [val, setVal] = useState(0);
-  const ref = useRef(null);
-  const started = useRef(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting && !started.current) {
-        started.current = true;
-        const start = performance.now();
-        const step = now => {
-          const p = Math.min((now - start) / duration, 1);
-          const eased = 1 - Math.pow(1 - p, 3);
-          setVal(Math.round(eased * end));
-          if (p < 1) requestAnimationFrame(step);
-        };
-        requestAnimationFrame(step);
-        obs.unobserve(el);
-      }
-    }, {
-      threshold: .3
-    });
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, [end, duration]);
-  return /*#__PURE__*/React.createElement("span", {
-    ref: ref
-  }, prefix, val.toLocaleString('it-IT'), suffix);
-}
+function AnimCounter({end,prefix="",suffix="",duration=2000}){
+  const[val,setVal]=useState(0);const ref=useRef(null);const started=useRef(false);
+  useEffect(()=>{const el=ref.current;if(!el)return;
+    const obs=new IntersectionObserver(([e])=>{if(e.isIntersecting&&!started.current){started.current=true;
+      const start=performance.now();const step=(now)=>{const p=Math.min((now-start)/duration,1);const eased=1-Math.pow(1-p,3);
+      setVal(Math.round(eased*end));if(p<1)requestAnimationFrame(step)};requestAnimationFrame(step);obs.unobserve(el)}},{threshold:.3});
+    obs.observe(el);return()=>obs.disconnect()},[end,duration]);
+  return<span ref={ref}>{prefix}{val.toLocaleString('it-IT')}{suffix}</span>}
 
 /* Icons */
-const IconMail = () => /*#__PURE__*/React.createElement("svg", {
-  viewBox: "0 0 24 24",
-  fill: "none",
-  stroke: "currentColor",
-  strokeWidth: "2"
-}, /*#__PURE__*/React.createElement("rect", {
-  x: "2",
-  y: "4",
-  width: "20",
-  height: "16",
-  rx: "2"
-}), /*#__PURE__*/React.createElement("path", {
-  d: "m2 4 10 8 10-8"
-}));
-const IconPhone = () => /*#__PURE__*/React.createElement("svg", {
-  viewBox: "0 0 24 24",
-  fill: "none",
-  stroke: "currentColor",
-  strokeWidth: "2"
-}, /*#__PURE__*/React.createElement("path", {
-  d: "M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3.09 5.18 2 2 0 0 1 5.08 3h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 11.87a16 16 0 0 0 6.04 6.04l2.23-2.23a2 2 0 0 1 2.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0 1 22 16.92z"
-}));
-const IconPin = () => /*#__PURE__*/React.createElement("svg", {
-  viewBox: "0 0 24 24",
-  fill: "none",
-  stroke: "currentColor",
-  strokeWidth: "2"
-}, /*#__PURE__*/React.createElement("path", {
-  d: "M21 10c0 6-9 13-9 13s-9-7-9-13a9 9 0 1 1 18 0z"
-}), /*#__PURE__*/React.createElement("circle", {
-  cx: "12",
-  cy: "10",
-  r: "3"
-}));
-const IconLinkedin = () => /*#__PURE__*/React.createElement("svg", {
-  viewBox: "0 0 24 24",
-  fill: "currentColor"
-}, /*#__PURE__*/React.createElement("path", {
-  d: "M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"
-}));
-const IconInstagram = () => /*#__PURE__*/React.createElement("svg", {
-  viewBox: "0 0 24 24",
-  fill: "none",
-  stroke: "currentColor",
-  strokeWidth: "2",
-  strokeLinecap: "round",
-  strokeLinejoin: "round"
-}, /*#__PURE__*/React.createElement("rect", {
-  x: "2",
-  y: "2",
-  width: "20",
-  height: "20",
-  rx: "5"
-}), /*#__PURE__*/React.createElement("path", {
-  d: "M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
-}), /*#__PURE__*/React.createElement("line", {
-  x1: "17.5",
-  y1: "6.5",
-  x2: "17.51",
-  y2: "6.5"
-}));
-const IconFacebook = () => /*#__PURE__*/React.createElement("svg", {
-  viewBox: "0 0 24 24",
-  fill: "currentColor"
-}, /*#__PURE__*/React.createElement("path", {
-  d: "M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
-}));
-const clients = ["Climando", "Buytutto", "L\u2019Arcolaio", "Bidoo", "Londonstore", "VG Informatica", "Manfrellotti"];
-function App() {
-  const [scrolled, setScrolled] = useState(false);
-  useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", fn, {
-      passive: true
-    });
-    return () => window.removeEventListener("scroll", fn);
-  }, []);
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("nav", {
-    className: "nav" + (scrolled ? " scrolled" : "")
-  }, /*#__PURE__*/React.createElement("a", {
-    className: "nav-logo",
-    href: "/index.html"
-  }, "orizon"), /*#__PURE__*/React.createElement("div", {
-    className: "nav-links"
-  }, /*#__PURE__*/React.createElement("a", {
-    className: "nav-link active",
-    href: "/index.html"
-  }, "Home"), /*#__PURE__*/React.createElement("a", {
-    className: "nav-link",
-    href: "/servizi.html"
-  }, "Servizi"), /*#__PURE__*/React.createElement("a", {
-    className: "nav-link",
-    href: "/work.html"
-  }, "Clienti"), /*#__PURE__*/React.createElement("a", {
-    className: "nav-link",
-    href: "/work.html"
-  }, "Work"), /*#__PURE__*/React.createElement("a", {
-    className: "nav-link",
-    href: "/contatti.html"
-  }, "Contatti"), /*#__PURE__*/React.createElement("a", {className: "nav-cta", href: "/contatti.html"}, "Parliamone"))), /*#__PURE__*/React.createElement("header", {
-    className: "hero"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "hero-float",
-    "aria-hidden": "true"
-  }), /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("p", {
-    className: "hero-eyebrow"
-  }, "Performance Marketing \xB7 Web \xB7 AI")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .08
-  }, /*#__PURE__*/React.createElement("h1", null, "Il tuo fatturato", /*#__PURE__*/React.createElement("br", null), "\xE8 il nostro unico ", /*#__PURE__*/React.createElement("em", null, "KPI."))), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .16
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "hero-desc"
-  }, "Non vendiamo impressions. Non inseguiamo vanity metrics. ", /*#__PURE__*/React.createElement("strong", null, "Guadagniamo solo quando guadagni tu"), " \u2014 con un modello a revenue sharing che allinea i nostri incentivi ai tuoi al 100%.")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .24
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "hero-actions"
-  }, /*#__PURE__*/React.createElement("button", {
-    className: "hero-btn hero-btn-primary"
-  }, "Parliamone ", "\u2192"), /*#__PURE__*/React.createElement("button", {
-    className: "hero-btn hero-btn-secondary"
-  }, "Scopri i servizi")))), /*#__PURE__*/React.createElement("div", {
-    className: "marquee-section"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "marquee-label"
-  }, "Si fidano di noi"), /*#__PURE__*/React.createElement("div", {
-    style: {
-      overflow: "hidden"
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "marquee-track"
-  }, [...clients, ...clients, ...clients, ...clients].map((c, i) => /*#__PURE__*/React.createElement("div", {
-    key: i,
-    className: "marquee-item"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "marquee-dot"
-  }), c))))), /*#__PURE__*/React.createElement("section", {
-    className: "services"
-  }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("p", {
-    className: "section-eyebrow"
-  }, "Cosa facciamo")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .06
-  }, /*#__PURE__*/React.createElement("h2", {
-    className: "section-title"
-  }, "Tre leve per la tua crescita.")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .1
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "section-desc"
-  }, "Non facciamo tutto per tutti. Facciamo tre cose, e le facciamo dannatamente bene.")), /*#__PURE__*/React.createElement("div", {
-    className: "svc-grid"
-  }, /*#__PURE__*/React.createElement(Reveal, {
-    delay: .1
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "svc-card"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "svc-card-num"
-  }, "01"), /*#__PURE__*/React.createElement("span", {
-    className: "svc-card-badge",
-    style: {
-      background: "var(--blue-ll)",
-      color: "var(--blue)"
-    }
-  }, "Revenue-Driven"), /*#__PURE__*/React.createElement("h3", null, "Performance Marketing"), /*#__PURE__*/React.createElement("p", null, "Gestiamo tutti i canali paid con un unico obiettivo: il tuo utile netto. Ottimizziamo il MER complessivo per garantirti profitto reale su ogni euro investito."), /*#__PURE__*/React.createElement("div", {
-    className: "svc-card-tags"
-  }, ["Meta Ads", "Google Ads", "TikTok Ads", "Programmatic"].map(t => /*#__PURE__*/React.createElement("span", {
-    key: t,
-    className: "svc-card-tag"
-  }, t))), /*#__PURE__*/React.createElement("div", {
-    className: "svc-card-arrow"
-  }, "\u2192"))), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .18
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "svc-card"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "svc-card-num"
-  }, "02"), /*#__PURE__*/React.createElement("span", {
-    className: "svc-card-badge",
-    style: {
-      background: "var(--green-l)",
-      color: "var(--green-d)"
-    }
-  }, "Shopify Partners"), /*#__PURE__*/React.createElement("h3", null, "Web Development"), /*#__PURE__*/React.createElement("p", null, "Il tuo sito non \xE8 una vetrina. \xC8 la tua macchina di conversione. Lo costruiamo con un unico KPI in testa: il conversion rate."), /*#__PURE__*/React.createElement("div", {
-    className: "svc-card-tags"
-  }, ["Shopify", "Landing Pages", "A/B Testing", "CRO"].map(t => /*#__PURE__*/React.createElement("span", {
-    key: t,
-    className: "svc-card-tag"
-  }, t))), /*#__PURE__*/React.createElement("div", {
-    className: "svc-card-arrow"
-  }, "\u2192"))), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .26
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "svc-card"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "svc-card-num"
-  }, "03"), /*#__PURE__*/React.createElement("span", {
-    className: "svc-card-badge",
-    style: {
-      background: "var(--pink)",
-      color: "#E53E3E"
-    }
-  }, "AI-Powered"), /*#__PURE__*/React.createElement("h3", null, "AI Development"), /*#__PURE__*/React.createElement("p", null, "SaaS personalizzati per automatizzare i processi aziendali e modelli generativi per potenziare le creative a velocit\xE0 impossibile."), /*#__PURE__*/React.createElement("div", {
-    className: "svc-card-tags"
-  }, ["GPT-4o / Claude", "Custom LLM", "Automation", "SaaS"].map(t => /*#__PURE__*/React.createElement("span", {
-    key: t,
-    className: "svc-card-tag"
-  }, t))), /*#__PURE__*/React.createElement("div", {
-    className: "svc-card-arrow"
-  }, "\u2192"))))), /*#__PURE__*/React.createElement("section", {
-    className: "stats"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "stats-grid"
-  }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("div", {
-    className: "stat"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "stat-value"
-  }, /*#__PURE__*/React.createElement(AnimCounter, {
-    end: 24
-  })), /*#__PURE__*/React.createElement("div", {
-    className: "stat-label"
-  }, "Clienti attualmente attivi"))), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .08
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "stat"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "stat-value"
-  }, /*#__PURE__*/React.createElement(AnimCounter, {
-    end: 8,
-    suffix: " anni"
-  })), /*#__PURE__*/React.createElement("div", {
-    className: "stat-label"
-  }, "Durata collaborazione media"))), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .16
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "stat"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "stat-value"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "accent"
-  }, "x"), /*#__PURE__*/React.createElement(AnimCounter, {
-    end: 12
-  })), /*#__PURE__*/React.createElement("div", {
-    className: "stat-label"
-  }, "MER medio \u2014 5 multi brand, 5 private label"))), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .24
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "stat"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "stat-value"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "accent"
-  }, "\u20AC"), /*#__PURE__*/React.createElement(AnimCounter, {
-    end: 9,
-    suffix: ".4M"
-  })), /*#__PURE__*/React.createElement("div", {
-    className: "stat-label"
-  }, "Speso in ADV nel 2025"))))), /*#__PURE__*/React.createElement("div", {
-    className: "divider"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "divider-line"
-  })), /*#__PURE__*/React.createElement("section", {
-    className: "cases"
-  }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("p", {
-    className: "section-eyebrow"
-  }, "Risultati reali")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .06
-  }, /*#__PURE__*/React.createElement("h2", {
-    className: "section-title"
-  }, "Case Studies")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .1
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "section-desc"
-  }, "Non parliamo di potenziale. Parliamo di numeri veri, verificabili, misurabili.")), /*#__PURE__*/React.createElement("div", {
-    className: "cases-grid"
-  }, /*#__PURE__*/React.createElement(Reveal, {
-    delay: .1
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "case-card-v2"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "case-visual",
-    style: {
-      background: "linear-gradient(135deg,#0284C7,#0EA5E9)"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "case-visual-name",
-    style: {
-      color: "white"
-    }
-  }, "Climando"), /*#__PURE__*/React.createElement("span", {
-    className: "case-visual-sub",
-    style: {
-      color: "rgba(255,255,255,.6)"
-    }
-  }, "Buytutto")), /*#__PURE__*/React.createElement("div", {
-    className: "case-body"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "case-head"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "case-brand"
-  }, "Climando / Buytutto"), /*#__PURE__*/React.createElement("div", {
-    className: "case-cat"
-  }, "E-Commerce multicanale")), /*#__PURE__*/React.createElement("div", {
-    className: "case-kpis-grid"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "case-kpi"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "case-kpi-v"
-  }, "\u20AC", "5.96M"), /*#__PURE__*/React.createElement("div", {
-    className: "case-kpi-l"
-  }, "Sales")), /*#__PURE__*/React.createElement("div", {
-    className: "case-kpi"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "case-kpi-v"
-  }, "35.34x"), /*#__PURE__*/React.createElement("div", {
-    className: "case-kpi-l"
-  }, "ROAS")), /*#__PURE__*/React.createElement("div", {
-    className: "case-kpi"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "case-kpi-v"
-  }, "45.4K"), /*#__PURE__*/React.createElement("div", {
-    className: "case-kpi-l"
-  }, "Conversions")), /*#__PURE__*/React.createElement("div", {
-    className: "case-kpi"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "case-kpi-v"
-  }, "\u20AC", "169K"), /*#__PURE__*/React.createElement("div", {
-    className: "case-kpi-l"
-  }, "Ad Spend"))), /*#__PURE__*/React.createElement("p", {
-    className: "case-text"
-  }, "\u20AC", "169K di investimento trasformati in quasi ", "\u20AC", "6M di vendite con gestione multicanale Meta e Google Ads."), /*#__PURE__*/React.createElement("a", {
-    className: "case-link",
-    href: "/case-study/vg-informatica.html"
-  }, "Vedi case study ", "\u2192")))), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .18
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "case-card-v2"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "case-visual",
-    style: {
-      background: "linear-gradient(135deg,#FEF3C7,#F59E0B)"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "case-visual-name",
-    style: {
-      color: "#92400E"
-    }
-  }, "L", "\u2019", "Arcolaio"), /*#__PURE__*/React.createElement("span", {
-    className: "case-visual-sub",
-    style: {
-      color: "#B45309"
-    }
-  }, "larcolaio.com")), /*#__PURE__*/React.createElement("div", {
-    className: "case-body"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "case-head"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "case-brand"
-  }, "L", "\u2019", "Arcolaio"), /*#__PURE__*/React.createElement("div", {
-    className: "case-cat"
-  }, "Food & Artigianato")), /*#__PURE__*/React.createElement("div", {
-    className: "case-kpis-grid"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "case-kpi"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "case-kpi-v"
-  }, "\u20AC", "0", "\u2192", "\u20AC", "2M"), /*#__PURE__*/React.createElement("div", {
-    className: "case-kpi-l"
-  }, "In 2 anni")), /*#__PURE__*/React.createElement("div", {
-    className: "case-kpi"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "case-kpi-v"
-  }, "x13"), /*#__PURE__*/React.createElement("div", {
-    className: "case-kpi-l"
-  }, "MER"))), /*#__PURE__*/React.createElement("p", {
-    className: "case-text"
-  }, "Da zero a ", "\u20AC", "2M in 2 anni. Gestione completa: Marketplace, Meta, Google, TikTok, Branding e Sito."), /*#__PURE__*/React.createElement("a", {
-    className: "case-link",
-    href: "/case-study/vg-informatica.html"
-  }, "Vedi case study ", "\u2192")))), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .1
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "case-card-v2"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "case-visual",
-    style: {
-      background: "linear-gradient(135deg,#1E1E1E,#DC2626)"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "case-visual-name",
-    style: {
-      color: "white"
-    }
-  }, "Londonstore"), /*#__PURE__*/React.createElement("span", {
-    className: "case-visual-sub",
-    style: {
-      color: "rgba(255,255,255,.5)"
-    }
-  }, "londonstore.it")), /*#__PURE__*/React.createElement("div", {
-    className: "case-body"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "case-head"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "case-brand"
-  }, "Londonstore"), /*#__PURE__*/React.createElement("div", {
-    className: "case-cat"
-  }, "E-Commerce Fashion")), /*#__PURE__*/React.createElement("div", {
-    className: "case-kpis-grid"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "case-kpi"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "case-kpi-v"
-  }, "+180%"), /*#__PURE__*/React.createElement("div", {
-    className: "case-kpi-l"
-  }, "Revenue YoY")), /*#__PURE__*/React.createElement("div", {
-    className: "case-kpi"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "case-kpi-v"
-  }, "4.2x"), /*#__PURE__*/React.createElement("div", {
-    className: "case-kpi-l"
-  }, "ROAS"))), /*#__PURE__*/React.createElement("p", {
-    className: "case-text"
-  }, "Crescita significativa del fatturato con ottimizzazione multicanale e strategia creativa basata su AI."), /*#__PURE__*/React.createElement("a", {
-    className: "case-link",
-    href: "/case-study/vg-informatica.html"
-  }, "Vedi case study ", "\u2192")))), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .18
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "case-card-v2"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "case-visual",
-    style: {
-      background: "linear-gradient(135deg,#059669,#34D399)"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "case-visual-name",
-    style: {
-      color: "white"
-    }
-  }, "VG Informatica"), /*#__PURE__*/React.createElement("span", {
-    className: "case-visual-sub",
-    style: {
-      color: "rgba(255,255,255,.5)"
-    }
-  }, "vginformatica.it")), /*#__PURE__*/React.createElement("div", {
-    className: "case-body"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "case-head"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "case-brand"
-  }, "VG Informatica"), /*#__PURE__*/React.createElement("div", {
-    className: "case-cat"
-  }, "Tech & B2B")), /*#__PURE__*/React.createElement("div", {
-    className: "case-kpis-grid"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "case-kpi"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "case-kpi-v"
-  }, "+320%"), /*#__PURE__*/React.createElement("div", {
-    className: "case-kpi-l"
-  }, "Lead qualificati")), /*#__PURE__*/React.createElement("div", {
-    className: "case-kpi"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "case-kpi-v"
-  }, "-45%"), /*#__PURE__*/React.createElement("div", {
-    className: "case-kpi-l"
-  }, "CPL"))), /*#__PURE__*/React.createElement("p", {
-    className: "case-text"
-  }, "Strategia lead generation B2B con funnel multi-step e landing page ottimizzate per conversione."), /*#__PURE__*/React.createElement("a", {
-    className: "case-link",
-    href: "/case-study/vg-informatica.html"
-  }, "Vedi case study ", "\u2192")))))), /*#__PURE__*/React.createElement("div", {
-    className: "divider"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "divider-line"
-  })), /*#__PURE__*/React.createElement("section", {
-    className: "founder"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "founder-grid"
-  }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("div", {
-    className: "founder-img"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "founder-img-placeholder"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "founder-initials"
-  }, "AP"), /*#__PURE__*/React.createElement("div", {
-    className: "founder-img-label"
-  }, "Foto in arrivo")))), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .1
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "founder-content"
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "section-eyebrow"
-  }, "Chi c'", "\u2019", "\xE8 dietro Orizon"), /*#__PURE__*/React.createElement("h2", {
-    className: "founder-name"
-  }, "Antonio Pratola"), /*#__PURE__*/React.createElement("p", {
-    className: "founder-role"
-  }, "Founder & CEO \u2014 Orizon ADV"), /*#__PURE__*/React.createElement("p", {
-    className: "founder-text"
-  }, "Ho fondato Orizon con un", "\u2019", "idea semplice: ", /*#__PURE__*/React.createElement("strong", null, "le agenzie tradizionali sono rotte"), ". Fee mensili fissi che non dipendono dai risultati, report pieni di vanity metrics, contratti blindati che proteggono l", "\u2019", "agenzia e non il cliente. Volevo fare l", "\u2019", "esatto opposto."), /*#__PURE__*/React.createElement("p", {
-    className: "founder-text"
-  }, "Per questo abbiamo scelto il ", /*#__PURE__*/React.createElement("strong", null, "revenue sharing"), " come modello di business. Se il tuo fatturato non cresce, noi non guadagniamo. Cos\xEC semplice, cos\xEC raro. Questo ci costringe a essere ossessionati dai risultati \u2014 non dalle presentazioni."), /*#__PURE__*/React.createElement("p", {
-    className: "founder-text"
-  }, "Ogni decisione in Orizon parte da una domanda: ", /*#__PURE__*/React.createElement("strong", null, "questo far\xE0 vendere di pi\xF9 il nostro cliente?"), " Se la risposta non \xE8 un s\xEC chiaro, non lo facciamo. Non ci interessa vincere premi di design o accumulare follower. Ci interessa il tuo conto in banca."), /*#__PURE__*/React.createElement("div", {
-    className: "founder-quote"
-  }, "\u201C", "Cerchiamo clienti con potenziale latente per percorrere insieme la strada per la crescita e dire la nostra sul mercato del digitale.", "\u201D"), /*#__PURE__*/React.createElement("div", {
-    className: "founder-socials"
-  }, /*#__PURE__*/React.createElement("a", {
-    className: "founder-social",
-    href: "https://www.linkedin.com/in/antoniopratola/",
-    target: "_blank",
-    rel: "noopener"
-  }, /*#__PURE__*/React.createElement(IconLinkedin, null)), /*#__PURE__*/React.createElement("a", {
-    className: "founder-social",
-    href: "https://instagram.com/pratolads",
-    target: "_blank",
-    rel: "noopener"
-  }, /*#__PURE__*/React.createElement(IconInstagram, null)), /*#__PURE__*/React.createElement("a", {
-    className: "founder-social",
-    href: "https://facebook.com/antoniopratola",
-    target: "_blank",
-    rel: "noopener"
-  }, /*#__PURE__*/React.createElement(IconFacebook, null))))))), /*#__PURE__*/React.createElement("div", {
-    className: "divider"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "divider-line"
-  })), /*#__PURE__*/React.createElement("section", {
-    className: "testimonials"
-  }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("p", {
-    className: "section-eyebrow"
-  }, "Cosa dicono i clienti")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .06
-  }, /*#__PURE__*/React.createElement("h2", {
-    className: "section-title"
-  }, "Risultati, non parole.")), /*#__PURE__*/React.createElement("div", {
-    className: "testi-grid"
-  }, /*#__PURE__*/React.createElement(Reveal, {
-    delay: .1
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "testi"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "testi-stars"
-  }, "\u2B50\u2B50\u2B50\u2B50\u2B50"), /*#__PURE__*/React.createElement("p", {
-    className: "testi-text"
-  }, "\u201C", "Da quando lavoriamo con Orizon il nostro fatturato \xE8 esploso. Il modello revenue sharing ci ha dato la sicurezza di investire senza rischi. Risultati concreti dal primo mese.", "\u201D"), /*#__PURE__*/React.createElement("div", {
-    className: "testi-author"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "testi-avatar",
-    style: {
-      background: "linear-gradient(135deg,#0284C7,#0EA5E9)"
-    }
-  }, "C"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-    className: "testi-name"
-  }, "Climando / Buytutto"), /*#__PURE__*/React.createElement("div", {
-    className: "testi-company"
-  }, "E-Commerce multicanale"))))), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .18
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "testi"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "testi-stars"
-  }, "\u2B50\u2B50\u2B50\u2B50\u2B50"), /*#__PURE__*/React.createElement("p", {
-    className: "testi-text"
-  }, "\u201C", "Siamo partiti da zero e in due anni abbiamo raggiunto ", "\u20AC", "2M di fatturato. Antonio e il suo team hanno gestito tutto: dalle ads al sito, dal branding alla strategia marketplace.", "\u201D"), /*#__PURE__*/React.createElement("div", {
-    className: "testi-author"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "testi-avatar",
-    style: {
-      background: "linear-gradient(135deg,#D97706,#F59E0B)"
-    }
-  }, "A"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-    className: "testi-name"
-  }, "L", "\u2019", "Arcolaio"), /*#__PURE__*/React.createElement("div", {
-    className: "testi-company"
-  }, "Food & Artigianato"))))), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .26
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "testi"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "testi-stars"
-  }, "\u2B50\u2B50\u2B50\u2B50\u2B50"), /*#__PURE__*/React.createElement("p", {
-    className: "testi-text"
-  }, "\u201C", "Finalmente un", "\u2019", "agenzia che parla di numeri veri. Niente vanity metrics, niente report inutili. Solo fatturato, margini e crescita. Professionalit\xE0 e trasparenza al massimo livello.", "\u201D"), /*#__PURE__*/React.createElement("div", {
-    className: "testi-author"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "testi-avatar",
-    style: {
-      background: "linear-gradient(135deg,#DC2626,#F87171)"
-    }
-  }, "L"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-    className: "testi-name"
-  }, "Londonstore"), /*#__PURE__*/React.createElement("div", {
-    className: "testi-company"
-  }, "E-Commerce Fashion"))))))), /*#__PURE__*/React.createElement("section", {
-    className: "cta"
-  }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("h2", null, "Pronto a crescere?")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .08
-  }, /*#__PURE__*/React.createElement("p", null, "Raccontaci il tuo progetto. Ti diremo esattamente cosa possiamo fare per te, senza giri di parole.")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .14
-  }, /*#__PURE__*/React.createElement("a", {className: "cta-btn", href: "/contatti.html", style: {display: "inline-block", textDecoration: "none"}}, "Parliamone ", "\u2192"))), /*#__PURE__*/React.createElement("footer", {
-    className: "footer"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "footer-top"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "footer-brand"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "footer-logo"
-  }, "orizon"), /*#__PURE__*/React.createElement("div", {
-    className: "footer-tagline"
-  }, "Performance Marketing, Web Development e AI per la crescita del tuo business."), /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginTop: 20
-    }
-  }, /*#__PURE__*/React.createElement("a", {
-    className: "footer-contact-item",
-    href: "mailto:antonio@orizonadv.it"
-  }, /*#__PURE__*/React.createElement(IconMail, null), " antonio@orizonadv.it"), /*#__PURE__*/React.createElement("a", {
-    className: "footer-contact-item",
-    href: "tel:+393347113332"
-  }, /*#__PURE__*/React.createElement(IconPhone, null), " 334 711 3332"), /*#__PURE__*/React.createElement("a", {
-    className: "footer-contact-item",
-    href: "https://maps.google.com/?q=Corso+Umberto+I+153+Napoli",
-    target: "_blank",
-    rel: "noopener"
-  }, /*#__PURE__*/React.createElement(IconPin, null), " Corso Umberto I, 153 \u2014 Napoli"))), /*#__PURE__*/React.createElement("div", {
-    className: "footer-col"
-  }, /*#__PURE__*/React.createElement("h4", null, "Navigazione"), /*#__PURE__*/React.createElement("a", {
-    href: "/index.html"
-  }, "Home"), /*#__PURE__*/React.createElement("a", {
-    href: "/servizi.html"
-  }, "Servizi"), /*#__PURE__*/React.createElement("a", {
-    href: "/work.html"
-  }, "Clienti"), /*#__PURE__*/React.createElement("a", {
-    href: "/work.html"
-  }, "Work"), /*#__PURE__*/React.createElement("a", {
-    href: "/contatti.html"
-  }, "Contatti")), /*#__PURE__*/React.createElement("div", {
-    className: "footer-col"
-  }, /*#__PURE__*/React.createElement("h4", null, "Servizi"), /*#__PURE__*/React.createElement("a", {
-    href: "/servizi.html#perf"
-  }, "Performance Marketing"), /*#__PURE__*/React.createElement("a", {
-    href: "/servizi.html#web"
-  }, "Web Development"), /*#__PURE__*/React.createElement("a", {
-    href: "/servizi.html#ai"
-  }, "AI Development")), /*#__PURE__*/React.createElement("div", {
-    className: "footer-col"
-  }, /*#__PURE__*/React.createElement("h4", null, "Social"), /*#__PURE__*/React.createElement("a", {
-    href: "https://www.linkedin.com/in/antoniopratola/",
-    target: "_blank",
-    rel: "noopener"
-  }, "LinkedIn"), /*#__PURE__*/React.createElement("a", {
-    href: "https://instagram.com/pratolads",
-    target: "_blank",
-    rel: "noopener"
-  }, "Instagram"), /*#__PURE__*/React.createElement("a", {
-    href: "https://facebook.com/antoniopratola",
-    target: "_blank",
-    rel: "noopener"
-  }, "Facebook"))), /*#__PURE__*/React.createElement("div", {
-    className: "footer-bottom"
-  }, "\u00A9", " ", new Date().getFullYear(), " Orizon ADV \u2014 Tutti i diritti riservati")));
+const IconMail=()=><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 4 10 8 10-8"/></svg>;
+const IconPhone=()=><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3.09 5.18 2 2 0 0 1 5.08 3h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 11.87a16 16 0 0 0 6.04 6.04l2.23-2.23a2 2 0 0 1 2.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0 1 22 16.92z"/></svg>;
+const IconPin=()=><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 6-9 13-9 13s-9-7-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>;
+const IconLinkedin=()=><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>;
+const IconInstagram=()=><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>;
+const IconFacebook=()=><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>;
+
+const clients=["Climando","Buytutto","L\u2019Arcolaio","Bidoo","Londonstore","VG Informatica","Manfrellotti"];
+
+function App(){
+  const[scrolled,setScrolled]=useState(false);
+  useEffect(()=>{const fn=()=>setScrolled(window.scrollY>20);window.addEventListener("scroll",fn,{passive:true});return()=>window.removeEventListener("scroll",fn)},[]);
+
+  return<React.Fragment>
+
+    {/* ═══ NAV ═══ */}
+    <nav className={"nav"+(scrolled?" scrolled":"")}>
+      <a className="nav-logo" href="#">orizon</a>
+      <div className="nav-links">
+        <a className="nav-link active" href="#">Home</a>
+        <a className="nav-link" href="#">Servizi</a>
+        <a className="nav-link" href="#">Clienti</a>
+        <a className="nav-link" href="#">Work</a>
+        <a className="nav-link" href="#">Contatti</a>
+        <button className="nav-cta">Parliamone</button>
+      </div>
+    </nav>
+
+    {/* ═══ HERO ═══ */}
+    <div className="hero-bg" aria-hidden="true">
+      <div className="orb hero-orb-1"/>
+      <div className="orb hero-orb-2"/>
+      <div className="orb hero-orb-3"/>
+    </div>
+    <div className="hero-o-pattern" aria-hidden="true">
+      <div className="o-shape" style={{left:"2%",top:"5%",width:140,height:112,"--o-op":0.04,"--o-rot":"rotate(-12deg)",animationDelay:"0s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.06" fillRule="evenodd"/></svg></div><div className="o-shape" style={{left:"18%",top:"-8%",width:90,height:72,"--o-op":0.06,"--o-rot":"rotate(15deg)",animationDelay:"0.1s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.06" fillRule="evenodd"/></svg></div><div className="o-shape" style={{left:"38%",top:"8%",width:180,height:144,"--o-op":0.025,"--o-rot":"rotate(-6deg)",animationDelay:"0.2s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.06" fillRule="evenodd"/></svg></div><div className="o-shape" style={{left:"60%",top:"-5%",width:70,height:56,"--o-op":0.07,"--o-rot":"rotate(22deg)",animationDelay:"0.15s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.06" fillRule="evenodd"/></svg></div><div className="o-shape" style={{left:"80%",top:"10%",width:110,height:88,"--o-op":0.04,"--o-rot":"rotate(-18deg)",animationDelay:"0.05s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.06" fillRule="evenodd"/></svg></div><div className="o-shape" style={{left:"95%",top:"-3%",width:85,height:68,"--o-op":0.05,"--o-rot":"rotate(10deg)",animationDelay:"0.25s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.06" fillRule="evenodd"/></svg></div><div className="o-shape" style={{left:"-5%",top:"40%",width:100,height:80,"--o-op":0.035,"--o-rot":"rotate(-25deg)",animationDelay:"0.3s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.06" fillRule="evenodd"/></svg></div><div className="o-shape" style={{left:"25%",top:"50%",width:60,height:48,"--o-op":0.06,"--o-rot":"rotate(8deg)",animationDelay:"0.2s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.06" fillRule="evenodd"/></svg></div><div className="o-shape" style={{left:"50%",top:"45%",width:130,height:104,"--o-op":0.03,"--o-rot":"rotate(-10deg)",animationDelay:"0.1s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.06" fillRule="evenodd"/></svg></div><div className="o-shape" style={{left:"72%",top:"38%",width:75,height:60,"--o-op":0.05,"--o-rot":"rotate(16deg)",animationDelay:"0.35s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.06" fillRule="evenodd"/></svg></div><div className="o-shape" style={{left:"92%",top:"55%",width:150,height:120,"--o-op":0.025,"--o-rot":"rotate(-20deg)",animationDelay:"0.15s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.06" fillRule="evenodd"/></svg></div><div className="o-shape" style={{left:"8%",top:"75%",width:70,height:56,"--o-op":0.06,"--o-rot":"rotate(28deg)",animationDelay:"0.4s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.06" fillRule="evenodd"/></svg></div><div className="o-shape" style={{left:"35%",top:"80%",width:110,height:88,"--o-op":0.03,"--o-rot":"rotate(-14deg)",animationDelay:"0.25s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.06" fillRule="evenodd"/></svg></div><div className="o-shape" style={{left:"55%",top:"72%",width:55,height:44,"--o-op":0.07,"--o-rot":"rotate(6deg)",animationDelay:"0.3s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.06" fillRule="evenodd"/></svg></div><div className="o-shape" style={{left:"78%",top:"85%",width:90,height:72,"--o-op":0.04,"--o-rot":"rotate(-22deg)",animationDelay:"0.2s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.06" fillRule="evenodd"/></svg></div><div className="o-shape" style={{left:"15%",top:"25%",width:45,height:36,"--o-op":0.08,"--o-rot":"rotate(30deg)",animationDelay:"0.35s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.06" fillRule="evenodd"/></svg></div><div className="o-shape" style={{left:"65%",top:"60%",width:50,height:40,"--o-op":0.07,"--o-rot":"rotate(-8deg)",animationDelay:"0.45s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.06" fillRule="evenodd"/></svg></div>
+    </div>
+    <header className="hero">
+      <Reveal><p className="hero-eyebrow">Performance Marketing &middot; Web &middot; AI</p></Reveal>
+      <Reveal delay={.08}><h1>Il tuo fatturato<br/>è il nostro unico <em>KPI.</em></h1></Reveal>
+      <Reveal delay={.16}><p className="hero-desc">Non vendiamo impressions. Non inseguiamo vanity metrics. <strong>Guadagniamo solo quando guadagni tu</strong> — con un modello a revenue sharing che allinea i nostri incentivi ai tuoi al 100%.</p></Reveal>
+      <Reveal delay={.24}><div className="hero-actions">
+        <button className="hero-btn hero-btn-primary">Parliamone {"\u2192"}</button>
+        <button className="hero-btn hero-btn-secondary">Scopri i servizi</button>
+      </div></Reveal>
+    </header>
+
+    {/* ═══ CLIENT MARQUEE ═══ */}
+    <div className="marquee-section">
+      <div className="marquee-label">Si fidano di noi</div>
+      <div style={{overflow:"hidden"}}><div className="marquee-track">
+        {[...clients,...clients,...clients,...clients].map((c,i)=><div key={i} className="marquee-item"><span className="marquee-dot"/>{c}</div>)}
+      </div></div>
+    </div>
+
+    {/* ═══ SERVICES ═══ */}
+    <section className="services">
+      <Reveal><p className="section-eyebrow">Cosa facciamo</p></Reveal>
+      <Reveal delay={.06}><h2 className="section-title">Tre leve per la tua crescita.</h2></Reveal>
+      <Reveal delay={.1}><p className="section-desc">Non facciamo tutto per tutti. Facciamo tre cose, e le facciamo dannatamente bene.</p></Reveal>
+
+      <div className="svc-grid">
+        <Reveal delay={.1}><div className="svc-card">
+          <div className="svc-card-num">01</div>
+          <span className="svc-card-badge" style={{background:"var(--blue-ll)",color:"var(--blue)"}}>Revenue-Driven</span>
+          <h3>Performance Marketing</h3>
+          <p>Gestiamo tutti i canali paid con un unico obiettivo: il tuo utile netto. Ottimizziamo il MER complessivo per garantirti profitto reale su ogni euro investito.</p>
+          <div className="svc-card-tags">
+            {["Meta Ads","Google Ads","TikTok Ads","Programmatic"].map(t=><span key={t} className="svc-card-tag">{t}</span>)}
+          </div>
+          <div className="svc-card-arrow">{"\u2192"}</div>
+        </div></Reveal>
+
+        <Reveal delay={.18}><div className="svc-card">
+          <div className="svc-card-num">02</div>
+          <span className="svc-card-badge" style={{background:"var(--green-l)",color:"var(--green-d)"}}>Shopify Partners</span>
+          <h3>Web Development</h3>
+          <p>Il tuo sito non è una vetrina. È la tua macchina di conversione. Lo costruiamo con un unico KPI in testa: il conversion rate.</p>
+          <div className="svc-card-tags">
+            {["Shopify","Landing Pages","A/B Testing","CRO"].map(t=><span key={t} className="svc-card-tag">{t}</span>)}
+          </div>
+          <div className="svc-card-arrow">{"\u2192"}</div>
+        </div></Reveal>
+
+        <Reveal delay={.26}><div className="svc-card">
+          <div className="svc-card-num">03</div>
+          <span className="svc-card-badge" style={{background:"var(--pink)",color:"#E53E3E"}}>AI-Powered</span>
+          <h3>AI Development</h3>
+          <p>SaaS personalizzati per automatizzare i processi aziendali e modelli generativi per potenziare le creative a velocità impossibile.</p>
+          <div className="svc-card-tags">
+            {["GPT-4o / Claude","Custom LLM","Automation","SaaS"].map(t=><span key={t} className="svc-card-tag">{t}</span>)}
+          </div>
+          <div className="svc-card-arrow">{"\u2192"}</div>
+        </div></Reveal>
+      </div>
+    </section>
+
+    {/* ═══ STATS ═══ */}
+    <section className="stats">
+      <div className="stats-grid">
+        <Reveal><div className="stat">
+          <div className="stat-value"><AnimCounter end={24}/></div>
+          <div className="stat-label">Clienti attualmente attivi</div>
+        </div></Reveal>
+        <Reveal delay={.08}><div className="stat">
+          <div className="stat-value"><AnimCounter end={8} suffix=" anni"/></div>
+          <div className="stat-label">Durata collaborazione media</div>
+        </div></Reveal>
+        <Reveal delay={.16}><div className="stat">
+          <div className="stat-value"><span className="accent">x</span><AnimCounter end={12}/></div>
+          <div className="stat-label">MER medio — 5 multi brand, 5 private label</div>
+        </div></Reveal>
+        <Reveal delay={.24}><div className="stat">
+          <div className="stat-value"><span className="accent">{"\u20AC"}</span><AnimCounter end={9} suffix=".4M"/></div>
+          <div className="stat-label">Speso in ADV nel 2025</div>
+        </div></Reveal>
+      </div>
+    </section>
+
+    <div className="divider"><div className="divider-line"/></div>
+
+    {/* ═══ CASE STUDIES ═══ */}
+    <section className="cases">
+      <Reveal><p className="section-eyebrow">Risultati reali</p></Reveal>
+      <Reveal delay={.06}><h2 className="section-title">Case Studies</h2></Reveal>
+      <Reveal delay={.1}><p className="section-desc">Non parliamo di potenziale. Parliamo di numeri veri, verificabili, misurabili.</p></Reveal>
+
+      <div className="cases-grid">
+        {/* CLIMANDO */}
+        <Reveal delay={.1}><div className="case-card-v2">
+          <div className="case-visual" style={{background:"linear-gradient(135deg,#0284C7,#0EA5E9)"}}>
+            <span className="case-visual-name" style={{color:"white"}}>Climando</span>
+            <span className="case-visual-sub" style={{color:"rgba(255,255,255,.6)"}}>Buytutto</span>
+          </div>
+          <div className="case-body">
+            <div className="case-head"><div className="case-brand">Climando / Buytutto</div><div className="case-cat">E-Commerce multicanale</div></div>
+            <div className="case-kpis-grid">
+              <div className="case-kpi"><div className="case-kpi-v">{"\u20AC"}5.96M</div><div className="case-kpi-l">Sales</div></div>
+              <div className="case-kpi"><div className="case-kpi-v">50x</div><div className="case-kpi-l">ROAS</div></div>
+              <div className="case-kpi"><div className="case-kpi-v">8.7K</div><div className="case-kpi-l">Conversions</div></div>
+              <div className="case-kpi"><div className="case-kpi-v">{"\u20AC"}169K</div><div className="case-kpi-l">Ad Spend</div></div>
+            </div>
+            <p className="case-text">{"\u20AC"}169K di investimento trasformati in quasi {"\u20AC"}6M di vendite con gestione multicanale Meta e Google Ads.</p>
+            <a className="case-link" href="#">Vedi case study {"\u2192"}</a>
+          </div>
+        </div></Reveal>
+
+        {/* L'ARCOLAIO */}
+        <Reveal delay={.18}><div className="case-card-v2">
+          <div className="case-visual" style={{background:"linear-gradient(135deg,#FEF3C7,#F59E0B)"}}>
+            <span className="case-visual-name" style={{color:"#92400E"}}>L{"\u2019"}Arcolaio</span>
+            <span className="case-visual-sub" style={{color:"#B45309"}}>larcolaio.com</span>
+          </div>
+          <div className="case-body">
+            <div className="case-head"><div className="case-brand">L{"\u2019"}Arcolaio</div><div className="case-cat">Food & Artigianato</div></div>
+            <div className="case-kpis-grid">
+              <div className="case-kpi"><div className="case-kpi-v">{"\u20AC"}0{"\u2192"}{"\u20AC"}2M</div><div className="case-kpi-l">In 2 anni</div></div>
+              <div className="case-kpi"><div className="case-kpi-v">x13</div><div className="case-kpi-l">MER</div></div>
+            </div>
+            <p className="case-text">Da zero a {"\u20AC"}2M in 2 anni. Gestione completa: Marketplace, Meta, Google, TikTok, Branding e Sito.</p>
+            <a className="case-link" href="#">Vedi case study {"\u2192"}</a>
+          </div>
+        </div></Reveal>
+
+        {/* LONDONSTORE */}
+        <Reveal delay={.1}><div className="case-card-v2">
+          <div className="case-visual" style={{background:"linear-gradient(135deg,#1E1E1E,#DC2626)"}}>
+            <span className="case-visual-name" style={{color:"white"}}>Londonstore</span>
+            <span className="case-visual-sub" style={{color:"rgba(255,255,255,.5)"}}>londonstore.it</span>
+          </div>
+          <div className="case-body">
+            <div className="case-head"><div className="case-brand">Londonstore</div><div className="case-cat">E-Commerce Fashion</div></div>
+            <div className="case-kpis-grid">
+              <div className="case-kpi"><div className="case-kpi-v">+180%</div><div className="case-kpi-l">Revenue YoY</div></div>
+              <div className="case-kpi"><div className="case-kpi-v">4.2x</div><div className="case-kpi-l">ROAS</div></div>
+            </div>
+            <p className="case-text">Crescita significativa del fatturato con ottimizzazione multicanale e strategia creativa basata su AI.</p>
+            <a className="case-link" href="#">Vedi case study {"\u2192"}</a>
+          </div>
+        </div></Reveal>
+
+        {/* VG INFORMATICA */}
+        <Reveal delay={.18}><div className="case-card-v2">
+          <div className="case-visual" style={{background:"linear-gradient(135deg,#059669,#34D399)"}}>
+            <span className="case-visual-name" style={{color:"white"}}>VG Informatica</span>
+            <span className="case-visual-sub" style={{color:"rgba(255,255,255,.5)"}}>vginformatica.it</span>
+          </div>
+          <div className="case-body">
+            <div className="case-head"><div className="case-brand">VG Informatica</div><div className="case-cat">Tech & B2B</div></div>
+            <div className="case-kpis-grid">
+              <div className="case-kpi"><div className="case-kpi-v">+320%</div><div className="case-kpi-l">Lead qualificati</div></div>
+              <div className="case-kpi"><div className="case-kpi-v">-45%</div><div className="case-kpi-l">CPL</div></div>
+            </div>
+            <p className="case-text">Strategia lead generation B2B con funnel multi-step e landing page ottimizzate per conversione.</p>
+            <a className="case-link" href="#">Vedi case study {"\u2192"}</a>
+          </div>
+        </div></Reveal>
+      </div>
+    </section>
+
+    <div className="divider"><div className="divider-line"/></div>
+
+    {/* ═══ FOUNDER ═══ */}
+    <section className="founder">
+      <div className="founder-grid">
+        <Reveal><div className="founder-img" style={{position:"relative"}}><div style={{position:"absolute",top:12,left:12,zIndex:2,padding:"6px 14px",borderRadius:100,background:"rgba(0,0,0,.5)",backdropFilter:"blur(8px)",fontSize:12,fontWeight:600,color:"rgba(255,255,255,.8)"}}>Fatta con AI, farò una foto decente {"☺"}</div>
+          <img src="data:image/jpeg;base64,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" alt="Antonio Pratola — Founder Orizon ADV" style={{width:"100%",height:"100%",objectFit:"cover",borderRadius:28}}/>
+        </div></Reveal>
+        <Reveal delay={.1}><div className="founder-content">
+          <p className="section-eyebrow">Chi c'{"\u2019"}è dietro Orizon</p>
+          <h2 className="founder-name">Antonio Pratola</h2>
+          <p className="founder-role">Founder & CEO — Orizon ADV</p>
+
+          <p className="founder-text">Ho fondato Orizon con un{"\u2019"}idea semplice: <strong>le agenzie tradizionali sono rotte</strong>. Fee mensili fissi che non dipendono dai risultati, report pieni di vanity metrics, contratti blindati che proteggono l{"\u2019"}agenzia e non il cliente. Volevo fare l{"\u2019"}esatto opposto.</p>
+
+          <p className="founder-text">Per questo abbiamo scelto il <strong>revenue sharing</strong> come modello di business. Se il tuo fatturato non cresce, noi non guadagniamo. Così semplice, così raro. Questo ci costringe a essere ossessionati dai risultati — non dalle presentazioni.</p>
+
+          <p className="founder-text">Ogni decisione in Orizon parte da una domanda: <strong>questo farà vendere di più il nostro cliente?</strong> Se la risposta non è un sì chiaro, non lo facciamo. Non ci interessa vincere premi di design o accumulare follower. Ci interessa il tuo conto in banca.</p>
+
+          <div className="founder-quote">{"\u201C"}Cerchiamo clienti con potenziale latente per percorrere insieme la strada per la crescita e dire la nostra sul mercato del digitale.{"\u201D"}</div>
+
+          <div className="founder-socials">
+            <a className="founder-social" href="https://www.linkedin.com/in/antoniopratola/" target="_blank" rel="noopener"><IconLinkedin/></a>
+            <a className="founder-social" href="https://instagram.com/pratolads" target="_blank" rel="noopener"><IconInstagram/></a>
+            <a className="founder-social" href="https://facebook.com/antoniopratola" target="_blank" rel="noopener"><IconFacebook/></a>
+          </div>
+        </div></Reveal>
+      </div>
+    </section>
+
+    <div className="divider"><div className="divider-line"/></div>
+
+    {/* ═══ TESTIMONIALS ═══ */}
+    <section className="testimonials">
+      <Reveal><p className="section-eyebrow">Cosa dicono i clienti</p></Reveal>
+      <Reveal delay={.06}><h2 className="section-title">Risultati, non parole.</h2></Reveal>
+
+      <div className="testi-grid">
+        <Reveal delay={.1}><div className="testi">
+          <div className="testi-stars">{"\u2B50\u2B50\u2B50\u2B50\u2B50"}</div>
+          <p className="testi-text">{"\u201C"}Da quando lavoriamo con Orizon il nostro fatturato è esploso. Il modello revenue sharing ci ha dato la sicurezza di investire senza rischi. Risultati concreti dal primo mese.{"\u201D"}</p>
+          <div className="testi-author">
+            <div className="testi-avatar" style={{background:"linear-gradient(135deg,#0284C7,#0EA5E9)"}}>C</div>
+            <div><div className="testi-name">Climando / Buytutto</div><div className="testi-company">E-Commerce multicanale</div></div>
+          </div>
+        </div></Reveal>
+
+        <Reveal delay={.18}><div className="testi">
+          <div className="testi-stars">{"\u2B50\u2B50\u2B50\u2B50\u2B50"}</div>
+          <p className="testi-text">{"\u201C"}Siamo partiti da zero e in due anni abbiamo raggiunto {"\u20AC"}2M di fatturato. Antonio e il suo team hanno gestito tutto: dalle ads al sito, dal branding alla strategia marketplace.{"\u201D"}</p>
+          <div className="testi-author">
+            <div className="testi-avatar" style={{background:"linear-gradient(135deg,#D97706,#F59E0B)"}}>A</div>
+            <div><div className="testi-name">L{"\u2019"}Arcolaio</div><div className="testi-company">Food & Artigianato</div></div>
+          </div>
+        </div></Reveal>
+
+        <Reveal delay={.26}><div className="testi">
+          <div className="testi-stars">{"\u2B50\u2B50\u2B50\u2B50\u2B50"}</div>
+          <p className="testi-text">{"\u201C"}Finalmente un{"\u2019"}agenzia che parla di numeri veri. Niente vanity metrics, niente report inutili. Solo fatturato, margini e crescita. Professionalità e trasparenza al massimo livello.{"\u201D"}</p>
+          <div className="testi-author">
+            <div className="testi-avatar" style={{background:"linear-gradient(135deg,#DC2626,#F87171)"}}>L</div>
+            <div><div className="testi-name">Londonstore</div><div className="testi-company">E-Commerce Fashion</div></div>
+          </div>
+        </div></Reveal>
+      </div>
+    </section>
+
+    {/* ═══ CTA ═══ */}
+    <section className="cta">
+      <Reveal><h2>Pronto a crescere?</h2></Reveal>
+      <Reveal delay={.08}><p>Raccontaci il tuo progetto. Ti diremo esattamente cosa possiamo fare per te, senza giri di parole.</p></Reveal>
+      <Reveal delay={.14}><button className="cta-btn">Parliamone {"\u2192"}</button></Reveal>
+    </section>
+
+    {/* ═══ FOOTER ═══ */}
+    <footer className="footer">
+      <div className="footer-top">
+        <div className="footer-brand">
+          <div className="footer-logo">orizon</div>
+          <div className="footer-tagline">Performance Marketing, Web Development e AI per la crescita del tuo business.</div>
+          <div style={{marginTop:20}}>
+            <a className="footer-contact-item" href="mailto:antonio@orizonadv.it"><IconMail/> antonio@orizonadv.it</a>
+            <a className="footer-contact-item" href="tel:+393347113332"><IconPhone/> 334 711 3332</a>
+            <a className="footer-contact-item" href="https://maps.google.com/?q=Corso+Umberto+I+153+Napoli" target="_blank" rel="noopener"><IconPin/> Corso Umberto I, 153 — Napoli</a>
+          </div>
+        </div>
+        <div className="footer-col"><h4>Navigazione</h4><a href="#">Home</a><a href="#">Servizi</a><a href="#">Clienti</a><a href="#">Work</a><a href="#">Contatti</a></div>
+        <div className="footer-col"><h4>Servizi</h4><a href="#">Performance Marketing</a><a href="#">Web Development</a><a href="#">AI Development</a></div>
+        <div className="footer-col"><h4>Social</h4><a href="https://www.linkedin.com/in/antoniopratola/" target="_blank" rel="noopener">LinkedIn</a><a href="https://instagram.com/pratolads" target="_blank" rel="noopener">Instagram</a><a href="https://facebook.com/antoniopratola" target="_blank" rel="noopener">Facebook</a></div>
+      </div>
+      <div className="footer-bottom">{"\u00A9"} {new Date().getFullYear()} Orizon ADV — Tutti i diritti riservati</div>
+    </footer>
+
+  </React.Fragment>;
 }
-ReactDOM.createRoot(document.getElementById("root")).render(/*#__PURE__*/React.createElement(App, null));</script>
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+</script>
 </body>
 </html>

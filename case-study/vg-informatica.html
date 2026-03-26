@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Orizon ADV — VG Informatica Case Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#3750F7;--blue-d:#233BD9;--blue-l:#6377FD;--blue-s:#9FABFF;--blue-ll:#D2D8FF;--green:#60E787;--green-d:#4CCB70;--green-l:#A1F9BA;--pink:#FEEAEE;--black:#0C1713;--black-m:#5A625F;--black-l:#A8ACAB;--black-ll:#D9D9D9;--gray:#F4F5F7;--white:#FFFFFF;--vg:#059669;--vg-l:#34D399;--vg-ll:#D1FAE5;--vg-d:#047857}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'IBM Plex Sans',sans-serif;color:var(--black);background:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+::selection{background:var(--blue-ll);color:var(--blue-d)}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:0 56px;height:72px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);background:rgba(255,255,255,.88);border-bottom:1px solid rgba(55,80,247,.05);transition:all .4s}
+.nav.scrolled{box-shadow:0 1px 20px rgba(55,80,247,.04)}
+.nav-logo{font-size:21px;font-weight:700;color:var(--blue);letter-spacing:-.04em;text-decoration:none}
+.nav-links{display:flex;gap:8px;align-items:center}
+.nav-link{padding:8px 18px;border-radius:100px;font-size:14px;font-weight:500;color:var(--black-m);text-decoration:none;transition:all .3s;border:1px solid transparent}
+.nav-link:hover{color:var(--black);background:var(--gray)}
+.nav-cta{padding:9px 22px;border-radius:100px;font-size:14px;font-weight:600;color:var(--white);background:var(--blue);text-decoration:none;transition:all .35s;border:none;cursor:pointer;font-family:inherit}
+.nav-cta:hover{background:var(--blue-d);transform:translateY(-1px);box-shadow:0 8px 24px rgba(55,80,247,.2)}
+
+/* HERO */
+.cs-hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#059669,#34D399);padding:140px 56px 80px;min-height:480px;display:flex;align-items:flex-end}
+.cs-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.cs-hero::after{content:'';position:absolute;bottom:-120px;right:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.08),transparent 70%);pointer-events:none}
+.cs-hero-content{position:relative;max-width:1440px;width:100%;margin:0 auto}
+.cs-hero-back{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:rgba(255,255,255,.7);text-decoration:none;margin-bottom:32px;transition:all .3s;padding:8px 16px;border-radius:100px;background:rgba(255,255,255,.1);backdrop-filter:blur(8px)}
+.cs-hero-back:hover{background:rgba(255,255,255,.2);color:white}
+.cs-hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:100px;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:white;margin-bottom:20px}
+.cs-hero h1{font-size:clamp(36px,5vw,60px);font-weight:700;letter-spacing:-.045em;line-height:1.06;color:white;margin-bottom:12px;max-width:700px}
+.cs-hero-sub{font-size:18px;color:rgba(255,255,255,.7);max-width:500px;line-height:1.6}
+.cs-hero-logo{position:absolute;top:160px;right:56px;width:120px;height:120px;border-radius:28px;background:rgba(255,255,255,.12);backdrop-filter:blur(16px);display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:700;color:white;letter-spacing:-.02em;border:1px solid rgba(255,255,255,.15)}
+
+/* KPI STRIP */
+.kpi-strip{max-width:1440px;margin:-48px auto 0;padding:0 56px;position:relative;z-index:10}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.kpi-card{background:var(--white);border-radius:20px;padding:28px 24px;box-shadow:0 8px 40px rgba(0,0,0,.06);border:1px solid rgba(55,80,247,.04);text-align:center;transition:all .4s}
+.kpi-card:hover{transform:translateY(-3px);box-shadow:0 16px 48px rgba(0,0,0,.08)}
+.kpi-value{font-size:clamp(28px,3vw,38px);font-weight:700;letter-spacing:-.03em;margin-bottom:4px}
+.kpi-label{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--black-l)}
+
+/* CONTENT */
+.cs-content{max-width:1440px;margin:0 auto;padding:80px 56px}
+.cs-grid{display:grid;grid-template-columns:1fr 380px;gap:64px;align-items:flex-start}
+.cs-main{min-width:0}
+.cs-sidebar{position:sticky;top:96px}
+
+/* SECTION BLOCKS */
+.cs-block{margin-bottom:56px}
+.cs-block-label{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--vg);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.cs-block-label::before{content:'';width:24px;height:2px;background:var(--vg);border-radius:1px}
+.cs-block h2{font-size:clamp(24px,3vw,32px);font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-bottom:16px}
+.cs-block p{font-size:16px;line-height:1.8;color:var(--black-m);margin-bottom:16px}
+.cs-block p strong{color:var(--black);font-weight:600}
+
+/* PLACEHOLDER IMAGES */
+.ph-img{border-radius:20px;overflow:hidden;position:relative;margin-bottom:24px;border:1px solid rgba(55,80,247,.04)}
+.ph-img-inner{width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;position:relative}
+.ph-img-tag{position:absolute;top:14px;left:14px;padding:5px 12px;border-radius:100px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.9);color:var(--black-m);backdrop-filter:blur(8px)}
+.ph-img-label{font-size:14px;font-weight:600;color:rgba(255,255,255,.8)}
+.ph-img-hint{font-size:11px;color:rgba(255,255,255,.45)}
+
+/* DASHBOARD MOCK */
+.dash-mock{padding:24px;border-radius:16px;background:var(--gray);position:relative;overflow:hidden}
+.dash-mock-bar{height:8px;border-radius:4px;margin-bottom:12px}
+.dash-mock-row{display:flex;gap:12px;margin-bottom:12px}
+.dash-mock-cell{flex:1;height:60px;border-radius:10px;background:var(--white);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:2px}
+.dash-mock-cell-v{font-size:18px;font-weight:700;color:var(--vg)}
+.dash-mock-cell-l{font-size:9px;color:var(--black-l);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.dash-mock-chart{height:120px;border-radius:12px;background:var(--white);position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:12px 16px;gap:6px}
+.dash-mock-chart-bar{flex:1;border-radius:4px 4px 0 0;background:linear-gradient(180deg,var(--vg),var(--vg-l));transition:height .6s cubic-bezier(.22,1,.36,1)}
+
+/* SIDEBAR PANELS */
+.side-panel{background:var(--gray);border-radius:22px;padding:28px;margin-bottom:20px;border:1px solid rgba(55,80,247,.03)}
+.side-panel-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--vg);margin-bottom:12px}
+.side-panel-title{font-size:18px;font-weight:700;letter-spacing:-.02em;margin-bottom:16px}
+.side-detail{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(55,80,247,.04)}
+.side-detail:last-child{border-bottom:none}
+.side-detail-label{font-size:13px;color:var(--black-m)}
+.side-detail-value{font-size:13px;font-weight:700}
+.side-tags{display:flex;flex-wrap:wrap;gap:6px}
+.side-tag{padding:6px 14px;border-radius:100px;font-size:12px;font-weight:600;border:1px solid rgba(5,150,105,.12);color:var(--vg-d);background:var(--vg-ll);transition:all .3s}
+.side-tag:hover{background:var(--vg);color:white}
+
+/* RESULTS GRID */
+.results-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
+.result-card{padding:22px;border-radius:16px;background:var(--gray);border:1px solid rgba(55,80,247,.03);text-align:center}
+.result-card-v{font-size:28px;font-weight:700;letter-spacing:-.02em;margin-bottom:4px}
+.result-card-l{font-size:11px;color:var(--black-l);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.result-card-d{font-size:12px;color:var(--black-m);margin-top:6px;line-height:1.5}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:28px;margin-bottom:24px}
+.timeline::before{content:'';position:absolute;left:6px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--vg),var(--vg-l));border-radius:1px}
+.timeline-item{position:relative;margin-bottom:28px}
+.timeline-item:last-child{margin-bottom:0}
+.timeline-dot{position:absolute;left:-28px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--vg);border:3px solid var(--white);box-shadow:0 0 0 2px var(--vg)}
+.timeline-phase{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--vg);margin-bottom:4px}
+.timeline-title{font-size:16px;font-weight:700;margin-bottom:4px}
+.timeline-desc{font-size:14px;color:var(--black-m);line-height:1.6}
+
+/* QUOTE */
+.cs-quote{padding:32px;border-radius:22px;background:linear-gradient(135deg,var(--vg),var(--vg-d));position:relative;overflow:hidden;margin-bottom:24px}
+.cs-quote::before{content:'\201C';position:absolute;top:-10px;left:20px;font-size:120px;font-weight:700;color:rgba(255,255,255,.08);line-height:1;pointer-events:none}
+.cs-quote p{font-size:17px;line-height:1.7;color:white;font-style:italic;position:relative}
+.cs-quote-author{margin-top:16px;font-size:13px;font-weight:700;color:rgba(255,255,255,.7);position:relative}
+
+/* CTA BOTTOM */
+.cs-cta{text-align:center;padding:80px 56px 100px;position:relative}
+.cs-cta::before{content:'';position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(55,80,247,.04),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.cs-cta h2{font-size:clamp(28px,4vw,44px);font-weight:700;letter-spacing:-.035em;margin-bottom:14px;position:relative}
+.cs-cta p{font-size:17px;color:var(--black-m);margin-bottom:32px;max-width:460px;margin-left:auto;margin-right:auto;line-height:1.7;position:relative}
+.cs-cta-btn{padding:18px 44px;background:var(--blue);color:var(--white);border:none;border-radius:100px;font-family:inherit;font-size:16px;font-weight:700;cursor:pointer;transition:all .4s;position:relative}
+.cs-cta-btn:hover{transform:translateY(-3px);box-shadow:0 20px 48px rgba(55,80,247,.22);background:var(--blue-d)}
+.cs-cta-link{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--blue);text-decoration:none;margin-left:24px;transition:gap .3s}
+.cs-cta-link:hover{gap:12px}
+
+/* FOOTER */
+.footer{border-top:1px solid rgba(55,80,247,.04);padding:56px 56px 40px;max-width:1440px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;margin-bottom:48px}
+.footer-brand{max-width:280px}
+.footer-logo{font-size:20px;font-weight:700;color:var(--blue);letter-spacing:-.04em;margin-bottom:12px}
+.footer-tagline{font-size:13px;color:var(--black-l);line-height:1.6;margin-bottom:20px}
+.footer-contact-item{font-size:13px;color:var(--black-m);margin-bottom:8px;display:flex;align-items:center;gap:8px;text-decoration:none;transition:color .3s}
+.footer-contact-item:hover{color:var(--blue)}
+.footer-contact-item svg{width:14px;height:14px;opacity:.5;flex-shrink:0}
+.footer-col h4{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--black-l);margin-bottom:16px}
+.footer-col a{display:block;font-size:14px;font-weight:500;color:var(--black-m);text-decoration:none;margin-bottom:10px;transition:color .3s}
+.footer-col a:hover{color:var(--blue)}
+.footer-bottom{padding-top:24px;border-top:1px solid rgba(55,80,247,.04);font-size:12px;color:var(--black-l);font-weight:500;text-align:center}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1)}
+.rv.v{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+.nav{padding:0 32px}.cs-hero{padding:120px 32px 64px}.cs-hero-logo{display:none}
+.kpi-strip{padding:0 32px}.kpi-grid{grid-template-columns:1fr 1fr}
+.cs-content{padding:64px 32px}.cs-grid{grid-template-columns:1fr;gap:48px}.cs-sidebar{position:static}
+.cs-cta{padding:64px 32px 80px}.footer{padding:40px 32px 32px}.footer-top{grid-template-columns:1fr 1fr;gap:32px}
+}
+@media(max-width:768px){
+.nav{padding:0 20px;height:64px}.nav-links{display:none}
+.cs-hero{padding:100px 20px 56px;min-height:auto}.kpi-strip{padding:0 20px}.kpi-grid{grid-template-columns:1fr 1fr}
+.cs-content{padding:48px 20px}.results-grid{grid-template-columns:1fr}
+.cs-cta{padding:48px 20px 64px}.footer{padding:32px 20px 24px}.footer-top{grid-template-columns:1fr;gap:28px}
+}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
+<script type="text/babel" data-type="module">
+const{useState,useEffect,useRef}=React;
+
+const Reveal=({children,delay=0})=>{const ref=useRef(null);const[vis,setVis]=useState(false);useEffect(()=>{const el=ref.current;if(!el)return;const obs=new IntersectionObserver(([e])=>{if(e.isIntersecting){setVis(true);obs.unobserve(el)}},{threshold:.06});obs.observe(el);return()=>obs.disconnect()},[]);return<div ref={ref} className={"rv "+(vis?"v":"")} style={{transitionDelay:delay+"s"}}>{children}</div>};
+
+function AnimCounter({end,prefix="",suffix="",duration=2000}){
+  const[val,setVal]=useState(0);const ref=useRef(null);const started=useRef(false);
+  useEffect(()=>{const el=ref.current;if(!el)return;
+    const obs=new IntersectionObserver(([e])=>{if(e.isIntersecting&&!started.current){started.current=true;
+      const start=performance.now();const step=(now)=>{const p=Math.min((now-start)/duration,1);const eased=1-Math.pow(1-p,3);
+      setVal(Math.round(eased*end));if(p<1)requestAnimationFrame(step)};requestAnimationFrame(step);obs.unobserve(el)}},{threshold:.3});
+    obs.observe(el);return()=>obs.disconnect()},[end,duration]);
+  return<span ref={ref}>{prefix}{val.toLocaleString('it-IT')}{suffix}</span>}
+
+const IconMail=()=><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 4 10 8 10-8"/></svg>;
+const IconPhone=()=><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3.09 5.18 2 2 0 0 1 5.08 3h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 11.87a16 16 0 0 0 6.04 6.04l2.23-2.23a2 2 0 0 1 2.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0 1 22 16.92z"/></svg>;
+const IconPin=()=><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 6-9 13-9 13s-9-7-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>;
+
+function DashMock(){
+  const bars=[65,82,48,91,73,88,55,95,68,78,84,92];
+  return<div className="dash-mock">
+    <div className="dash-mock-bar" style={{background:"linear-gradient(90deg,var(--vg),var(--vg-l))",width:"60%"}}/>
+    <div className="dash-mock-row">
+      <div className="dash-mock-cell"><div className="dash-mock-cell-v">1,247</div><div className="dash-mock-cell-l">Lead totali</div></div>
+      <div className="dash-mock-cell"><div className="dash-mock-cell-v">{"\u20AC"}18.40</div><div className="dash-mock-cell-l">CPL medio</div></div>
+      <div className="dash-mock-cell"><div className="dash-mock-cell-v">8.2%</div><div className="dash-mock-cell-l">Conv. rate</div></div>
+    </div>
+    <div className="dash-mock-chart">
+      {bars.map((h,i)=><div key={i} className="dash-mock-chart-bar" style={{height:h+"%",animationDelay:i*.08+"s"}}/>)}
+    </div>
+  </div>
+}
+
+function App(){
+  const[scrolled,setScrolled]=useState(false);
+  useEffect(()=>{const fn=()=>setScrolled(window.scrollY>20);window.addEventListener("scroll",fn,{passive:true});return()=>window.removeEventListener("scroll",fn)},[]);
+
+  return<React.Fragment>
+
+    {/* NAV */}
+    <nav className={"nav"+(scrolled?" scrolled":"")}>
+      <a className="nav-logo" href="#">orizon</a>
+      <div className="nav-links">
+        <a className="nav-link" href="#">Home</a>
+        <a className="nav-link" href="#">Servizi</a>
+        <a className="nav-link" href="#">Work</a>
+        <a className="nav-link" href="#">Contatti</a>
+        <button className="nav-cta">Parliamone</button>
+      </div>
+    </nav>
+
+    {/* HERO */}
+    <header className="cs-hero">
+      <div className="cs-hero-content">
+        <a className="cs-hero-back" href="#">{"\u2190"} Tutti i case study</a>
+        <div className="cs-hero-badge">Case Study</div>
+        <h1>VG Informatica</h1>
+        <p className="cs-hero-sub">Da azienda IT locale a leader nella lead generation B2B. Strategia Google Ads con funnel multi-step che ha triplicato i contatti qualificati.</p>
+      </div>
+      <div className="cs-hero-logo">VG</div>
+    </header>
+
+    {/* KPI STRIP */}
+    <div className="kpi-strip">
+      <Reveal><div className="kpi-grid">
+        <div className="kpi-card"><div className="kpi-value" style={{color:"var(--vg)"}}>+<AnimCounter end={320}/>%</div><div className="kpi-label">Lead qualificati</div></div>
+        <div className="kpi-card"><div className="kpi-value" style={{color:"var(--vg)"}}>-<AnimCounter end={45}/>%</div><div className="kpi-label">Costo per lead</div></div>
+        <div className="kpi-card"><div className="kpi-value" style={{color:"var(--vg)"}}><AnimCounter end={8}/>.2x</div><div className="kpi-label">ROI campagne</div></div>
+        <div className="kpi-card"><div className="kpi-value" style={{color:"var(--vg)"}}><AnimCounter end={1247}/></div><div className="kpi-label">Lead generati</div></div>
+      </div></Reveal>
+    </div>
+
+    {/* CONTENT */}
+    <div className="cs-content">
+      <div className="cs-grid">
+        <div className="cs-main">
+
+          {/* LA SFIDA */}
+          <Reveal><div className="cs-block">
+            <div className="cs-block-label">La sfida</div>
+            <h2>Un{"\u2019"}azienda IT con tanto potenziale e zero visibilit{"\u00E0"} online</h2>
+            <p>VG Informatica {"\u00E8"} un{"\u2019"}azienda B2B specializzata in soluzioni IT, networking e sicurezza informatica per PMI e professionisti. Quando ci hanno contattato, il problema era chiaro: <strong>i lead arrivavano quasi esclusivamente dal passaparola</strong>, con volumi insufficienti per sostenere la crescita.</p>
+            <p>Il sito generava traffico generico ma <strong>zero conversioni qualificate</strong>. Non esisteva un funnel strutturato, n{"\u00E9"} landing page dedicate, n{"\u00E9"} una strategia paid. L{"\u2019"}obiettivo: costruire una macchina di lead generation prevedibile e scalabile.</p>
+          </div></Reveal>
+
+          {/* PLACEHOLDER: Screenshot sito prima */}
+          <Reveal delay={.1}><div className="ph-img">
+            <div className="ph-img-inner" style={{background:"linear-gradient(135deg,#1a1a2e,#16213e)",aspectRatio:"16/9"}}>
+              <div className="ph-img-tag">Placeholder</div>
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.3)" strokeWidth="1.5"><rect x="2" y="3" width="20" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-3.09-3.09a2 2 0 0 0-2.82 0L6 21"/></svg>
+              <div className="ph-img-label">Screenshot sito VG Informatica</div>
+              <div className="ph-img-hint">1440 x 800px &middot; Inserisci screenshot reale</div>
+            </div>
+          </div></Reveal>
+
+          {/* LA STRATEGIA */}
+          <Reveal><div className="cs-block">
+            <div className="cs-block-label">La strategia</div>
+            <h2>Funnel multi-step con Google Ads al centro</h2>
+            <p>Abbiamo costruito l{"\u2019"}intera strategia su <strong>Google Ads</strong>, il canale ideale per il B2B dove il cliente cerca attivamente una soluzione. L{"\u2019"}approccio si {"\u00E8"} articolato in tre fasi:</p>
+          </div></Reveal>
+
+          {/* TIMELINE */}
+          <Reveal delay={.1}><div className="timeline">
+            <div className="timeline-item">
+              <div className="timeline-dot"/>
+              <div className="timeline-phase">Fase 1 &mdash; Mese 1-2</div>
+              <div className="timeline-title">Audit e ristrutturazione</div>
+              <div className="timeline-desc">Analisi completa del mercato IT locale, ricerca keyword B2B ad alta intenzione, creazione di landing page dedicate per ogni servizio (networking, sicurezza, cloud, assistenza).</div>
+            </div>
+            <div className="timeline-item">
+              <div className="timeline-dot"/>
+              <div className="timeline-phase">Fase 2 &mdash; Mese 3-5</div>
+              <div className="timeline-title">Lancio campagne e ottimizzazione</div>
+              <div className="timeline-desc">Campagne Google Search su keyword transazionali, con form multi-step per qualificare i lead in ingresso. A/B test continui su copy, CTA e layout delle landing page.</div>
+            </div>
+            <div className="timeline-item">
+              <div className="timeline-dot"/>
+              <div className="timeline-phase">Fase 3 &mdash; Mese 6+</div>
+              <div className="timeline-title">Scaling e automazione</div>
+              <div className="timeline-desc">Espansione su keyword long-tail, remarketing su visitatori non convertiti, scoring automatico dei lead e integrazione con il CRM del cliente per tracciare il valore reale di ogni conversione.</div>
+            </div>
+          </div></Reveal>
+
+          {/* PLACEHOLDER: Screenshot campagne Google Ads */}
+          <Reveal delay={.1}><div className="ph-img">
+            <div className="ph-img-inner" style={{background:"linear-gradient(135deg,#0f172a,#1e293b)"}}>
+              <div className="ph-img-tag">Placeholder</div>
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.3)" strokeWidth="1.5"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+              <div className="ph-img-label">Dashboard Google Ads</div>
+              <div className="ph-img-hint">1200 x 700px &middot; Screenshot campagne reale</div>
+            </div>
+          </div></Reveal>
+
+          {/* MOCK DASHBOARD */}
+          <Reveal delay={.15}><DashMock/></Reveal>
+
+          {/* I RISULTATI */}
+          <Reveal><div className="cs-block" style={{marginTop:56}}>
+            <div className="cs-block-label">I risultati</div>
+            <h2>Numeri che parlano da soli</h2>
+            <p>In 12 mesi di collaborazione, abbiamo trasformato la lead generation di VG Informatica da un processo casuale a una <strong>macchina prevedibile e scalabile</strong>.</p>
+          </div></Reveal>
+
+          <Reveal delay={.1}><div className="results-grid">
+            <div className="result-card"><div className="result-card-v" style={{color:"var(--vg)"}}>+320%</div><div className="result-card-l">Lead qualificati</div><div className="result-card-d">Da ~25 a oltre 100 lead qualificati al mese</div></div>
+            <div className="result-card"><div className="result-card-v" style={{color:"var(--vg)"}}>-45%</div><div className="result-card-l">Costo per lead</div><div className="result-card-d">CPL ridotto da {"\u20AC"}33 a {"\u20AC"}18 in 6 mesi</div></div>
+            <div className="result-card"><div className="result-card-v" style={{color:"var(--vg)"}}>8.2x</div><div className="result-card-l">ROI campagne</div><div className="result-card-d">Ogni euro investito ne genera 8.2 in contratti</div></div>
+            <div className="result-card"><div className="result-card-v" style={{color:"var(--vg)"}}>62%</div><div className="result-card-l">Tasso qualifica</div><div className="result-card-d">Lead qualificati sul totale contatti generati</div></div>
+          </div></Reveal>
+
+          {/* PLACEHOLDER: Screenshot landing page */}
+          <Reveal delay={.1}><div className="ph-img">
+            <div className="ph-img-inner" style={{background:"linear-gradient(135deg,#059669,#0d9488)"}}>
+              <div className="ph-img-tag">Placeholder</div>
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.3)" strokeWidth="1.5"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 21V7m0 0 4-4 4 4"/></svg>
+              <div className="ph-img-label">Landing page ottimizzata</div>
+              <div className="ph-img-hint">1200 x 800px &middot; Screenshot landing reale</div>
+            </div>
+          </div></Reveal>
+
+          {/* TESTIMONIAL */}
+          <Reveal delay={.1}><div className="cs-quote">
+            <p>Avevamo bisogno di lead qualificati, non di traffico generico. Orizon ha costruito un funnel che ha triplicato i nostri contatti riducendo drasticamente i costi. Il bello {"\u00E8"} che ogni lead viene gi{"\u00E0"} qualificato prima di arrivarci.</p>
+            <div className="cs-quote-author">VG Informatica &mdash; Direzione Commerciale</div>
+          </div></Reveal>
+
+        </div>
+
+        {/* SIDEBAR */}
+        <div className="cs-sidebar">
+          <Reveal delay={.1}><div className="side-panel">
+            <div className="side-panel-label">Dettagli progetto</div>
+            <div className="side-panel-title">Overview</div>
+            <div className="side-detail"><span className="side-detail-label">Cliente</span><span className="side-detail-value">VG Informatica</span></div>
+            <div className="side-detail"><span className="side-detail-label">Settore</span><span className="side-detail-value">Tech & B2B</span></div>
+            <div className="side-detail"><span className="side-detail-label">Durata</span><span className="side-detail-value">12+ mesi</span></div>
+            <div className="side-detail"><span className="side-detail-label">Modello</span><span className="side-detail-value">Fee + Performance</span></div>
+            <div className="side-detail"><span className="side-detail-label">Budget gestito</span><span className="side-detail-value">{"\u20AC"}3-5K / mese</span></div>
+          </div></Reveal>
+
+          <Reveal delay={.15}><div className="side-panel">
+            <div className="side-panel-label">Servizi erogati</div>
+            <div className="side-tags">
+              {["Google Ads","Landing Pages","Funnel Design","A/B Testing","CRO","Lead Scoring","Form Multi-step","Remarketing"].map(t=><span key={t} className="side-tag">{t}</span>)}
+            </div>
+          </div></Reveal>
+
+          <Reveal delay={.2}><div className="side-panel">
+            <div className="side-panel-label">Strumenti</div>
+            <div className="side-tags">
+              {["Google Ads","Google Analytics","Tag Manager","Hotjar","Unbounce","HubSpot"].map(t=><span key={t} className="side-tag">{t}</span>)}
+            </div>
+          </div></Reveal>
+
+          <Reveal delay={.25}><div className="side-panel" style={{background:"linear-gradient(135deg,var(--vg),var(--vg-d))",border:"none"}}>
+            <div style={{fontSize:11,fontWeight:700,letterSpacing:".1em",textTransform:"uppercase",color:"rgba(255,255,255,.6)",marginBottom:12}}>Risultato chiave</div>
+            <div style={{fontSize:28,fontWeight:700,color:"white",letterSpacing:"-.02em",marginBottom:6}}>+320%</div>
+            <div style={{fontSize:14,color:"rgba(255,255,255,.7)",lineHeight:1.6}}>Lead qualificati generati rispetto alla situazione pre-Orizon</div>
+          </div></Reveal>
+        </div>
+      </div>
+    </div>
+
+    {/* CTA */}
+    <section className="cs-cta">
+      <Reveal><h2>Vuoi risultati simili?</h2></Reveal>
+      <Reveal delay={.08}><p>Raccontaci il tuo progetto. Ti diremo esattamente cosa possiamo fare per te.</p></Reveal>
+      <Reveal delay={.14}><div>
+        <button className="cs-cta-btn">Parliamone {"\u2192"}</button>
+        <a className="cs-cta-link" href="#">Torna ai case study {"\u2192"}</a>
+      </div></Reveal>
+    </section>
+
+    {/* FOOTER */}
+    <footer className="footer">
+      <div className="footer-top">
+        <div className="footer-brand">
+          <div className="footer-logo">orizon</div>
+          <div className="footer-tagline">Performance Marketing, Web Development e AI per la crescita del tuo business.</div>
+          <div style={{marginTop:20}}>
+            <a className="footer-contact-item" href="mailto:antonio@orizonadv.it"><IconMail/> antonio@orizonadv.it</a>
+            <a className="footer-contact-item" href="tel:+393347113332"><IconPhone/> 334 711 3332</a>
+            <a className="footer-contact-item" href="https://maps.google.com/?q=Corso+Umberto+I+153+Napoli" target="_blank" rel="noopener"><IconPin/> Corso Umberto I, 153 — Napoli</a>
+          </div>
+        </div>
+        <div className="footer-col"><h4>Navigazione</h4><a href="#">Home</a><a href="#">Servizi</a><a href="#">Work</a><a href="#">Contatti</a></div>
+        <div className="footer-col"><h4>Servizi</h4><a href="#">Performance Marketing</a><a href="#">Web Development</a><a href="#">AI Development</a></div>
+        <div className="footer-col"><h4>Social</h4><a href="https://www.linkedin.com/in/antoniopratola/" target="_blank" rel="noopener">LinkedIn</a><a href="https://instagram.com/pratolads" target="_blank" rel="noopener">Instagram</a><a href="https://facebook.com/antoniopratola" target="_blank" rel="noopener">Facebook</a></div>
+      </div>
+      <div className="footer-bottom">{"\u00A9"} {new Date().getFullYear()} Orizon ADV — Tutti i diritti riservati</div>
+    </footer>
+
+  </React.Fragment>;
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+</script>
+</body>
+</html>

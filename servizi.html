@@ -4,10 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Orizon ADV — Servizi</title>
-<meta name="description" content="Orizon ADV - Performance Marketing, Web Development e AI per la crescita del tuo business.">
-<link rel="icon" type="image/png" href="/images/logo-orizon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
@@ -517,676 +513,654 @@ body {
   .divider { padding: 0 20px; }
   .footer { padding: 24px 20px; flex-direction: column; gap: 16px; text-align: center; }
 }
+
+/* MODAL POPUP */
+.modal-overlay{position:fixed;inset:0;z-index:2000;background:rgba(12,23,19,.7);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:40px;opacity:0;pointer-events:none;transition:opacity .35s cubic-bezier(.22,1,.36,1)}
+.modal-overlay.open{opacity:1;pointer-events:auto}
+.modal{background:var(--white);border-radius:28px;max-width:720px;width:100%;max-height:85vh;overflow-y:auto;position:relative;transform:translateY(20px) scale(.97);transition:transform .4s cubic-bezier(.22,1,.36,1);box-shadow:0 40px 100px rgba(0,0,0,.15)}
+.modal-overlay.open .modal{transform:translateY(0) scale(1)}
+.modal-close{position:absolute;top:20px;right:20px;width:40px;height:40px;border-radius:50%;background:rgba(0,0,0,.05);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:1;transition:all .3s}
+.modal-close:hover{background:rgba(0,0,0,.1)}
+.modal-close svg{width:18px;height:18px;stroke:var(--black-m);stroke-width:2;fill:none;stroke-linecap:round}
+.modal-hero{padding:40px 40px 0;position:relative}
+.modal-badge{display:inline-block;padding:5px 14px;border-radius:100px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px}
+.modal-hero h2{font-size:28px;font-weight:700;letter-spacing:-.03em;margin-bottom:10px}
+.modal-hero p{font-size:15px;color:var(--black-m);line-height:1.7;max-width:580px}
+.modal-body{padding:32px 40px 40px}
+.modal-section{margin-bottom:28px}
+.modal-section-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
+.modal-features{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.modal-feat{padding:16px;border-radius:14px;background:var(--gray);border:1px solid rgba(55,80,247,.03);transition:all .3s}
+.modal-feat:hover{background:var(--white);box-shadow:0 4px 16px rgba(0,0,0,.04)}
+.modal-feat-icon{font-size:20px;margin-bottom:8px}
+.modal-feat h4{font-size:13px;font-weight:700;margin-bottom:4px}
+.modal-feat p{font-size:12px;color:var(--black-m);line-height:1.5;margin:0}
+.modal-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.modal-stat{text-align:center;padding:18px 12px;border-radius:14px;background:var(--gray)}
+.modal-stat-v{font-size:24px;font-weight:700;color:var(--blue);letter-spacing:-.02em}
+.modal-stat-l{font-size:10px;color:var(--black-l);font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-top:4px}
+.modal-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
+.modal-tag{padding:6px 14px;border-radius:100px;font-size:11px;font-weight:600;background:var(--gray);color:var(--black-m);border:1px solid rgba(55,80,247,.05)}
+.modal-cta{display:inline-block;padding:14px 36px;background:var(--blue);color:var(--white);border-radius:100px;font-size:15px;font-weight:700;text-decoration:none;transition:all .4s;border:none;cursor:pointer;font-family:inherit}
+.modal-cta:hover{background:var(--blue-d);transform:translateY(-2px);box-shadow:0 12px 36px rgba(55,80,247,.2)}
+.modal-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(55,80,247,.08),transparent);margin:24px 0}
+@media(max-width:768px){.modal-overlay{padding:16px}.modal{border-radius:20px;max-height:90vh}.modal-hero,.modal-body{padding-left:24px;padding-right:24px}.modal-features{grid-template-columns:1fr}.modal-stats{grid-template-columns:1fr 1fr}}
+
 </style>
 </head>
 <body>
 <div id="root"></div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
-<script>const {
-  useState,
-  useEffect,
-  useRef,
-  useCallback
-} = React;
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
+<script type="text/babel" data-type="module">
+const { useState, useEffect, useRef, useCallback } = React;
 
 /* ── Reveal on scroll ── */
-const Reveal = ({
-  children,
-  delay = 0
-}) => {
+const Reveal = ({ children, delay = 0 }) => {
   const ref = useRef(null);
   const [vis, setVis] = useState(false);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const obs = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) {
-        setVis(true);
-        obs.unobserve(el);
-      }
-    }, {
-      threshold: 0.06
-    });
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { setVis(true); obs.unobserve(el); } },
+      { threshold: 0.06 }
+    );
     obs.observe(el);
     return () => obs.disconnect();
   }, []);
-  return /*#__PURE__*/React.createElement("div", {
-    ref: ref,
-    className: "rv " + (vis ? "v" : ""),
-    style: {
-      transitionDelay: delay + "s"
-    }
-  }, children);
+  return (
+    <div ref={ref} className={"rv " + (vis ? "v" : "")} style={{ transitionDelay: delay + "s" }}>
+      {children}
+    </div>
+  );
 };
 
 /* ── Logo SVG (inline orizon wordmark) ── */
-const Logo = () => /*#__PURE__*/React.createElement("svg", {
-  viewBox: "0 0 140 32",
-  fill: "none",
-  xmlns: "http://www.w3.org/2000/svg",
-  style: {
-    height: 26,
-    width: 'auto'
-  }
-}, /*#__PURE__*/React.createElement("text", {
-  x: "0",
-  y: "24",
-  fontFamily: "IBM Plex Sans",
-  fontWeight: "700",
-  fontSize: "26",
-  fill: "#3750F7",
-  letterSpacing: "-1"
-}, "orizon"));
+const Logo = () => (
+  <svg viewBox="0 0 140 32" fill="none" xmlns="http://www.w3.org/2000/svg" style={{height: 26, width: 'auto'}}>
+    <text x="0" y="24" fontFamily="IBM Plex Sans" fontWeight="700" fontSize="26" fill="#3750F7" letterSpacing="-1">orizon</text>
+  </svg>
+);
 
 /* ── SVG Icons ── */
-const IconMail = () => /*#__PURE__*/React.createElement("svg", {
-  viewBox: "0 0 24 24",
-  fill: "none",
-  stroke: "currentColor",
-  strokeWidth: "2"
-}, /*#__PURE__*/React.createElement("rect", {
-  x: "2",
-  y: "4",
-  width: "20",
-  height: "16",
-  rx: "2"
-}), /*#__PURE__*/React.createElement("path", {
-  d: "m2 4 10 8 10-8"
-}));
-const IconPhone = () => /*#__PURE__*/React.createElement("svg", {
-  viewBox: "0 0 24 24",
-  fill: "none",
-  stroke: "currentColor",
-  strokeWidth: "2"
-}, /*#__PURE__*/React.createElement("path", {
-  d: "M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3.09 5.18 2 2 0 0 1 5.08 3h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 11.87a16 16 0 0 0 6.04 6.04l2.23-2.23a2 2 0 0 1 2.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0 1 22 16.92z"
-}));
-const IconPin = () => /*#__PURE__*/React.createElement("svg", {
-  viewBox: "0 0 24 24",
-  fill: "none",
-  stroke: "currentColor",
-  strokeWidth: "2"
-}, /*#__PURE__*/React.createElement("path", {
-  d: "M21 10c0 6-9 13-9 13s-9-7-9-13a9 9 0 1 1 18 0z"
-}), /*#__PURE__*/React.createElement("circle", {
-  cx: "12",
-  cy: "10",
-  r: "3"
-}));
-const IconLinkedin = () => /*#__PURE__*/React.createElement("svg", {
-  viewBox: "0 0 24 24",
-  fill: "currentColor"
-}, /*#__PURE__*/React.createElement("path", {
-  d: "M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"
-}));
+const IconMail = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 4 10 8 10-8"/></svg>;
+const IconPhone = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3.09 5.18 2 2 0 0 1 5.08 3h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 11.87a16 16 0 0 0 6.04 6.04l2.23-2.23a2 2 0 0 1 2.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0 1 22 16.92z"/></svg>;
+const IconPin = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 6-9 13-9 13s-9-7-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>;
+const IconLinkedin = () => <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>;
+
 function App() {
   const [active, setActive] = useState("perf");
+  const [modal, setModal] = useState(null);
   const [scrolled, setScrolled] = useState(false);
-  const scrollTo = useCallback(id => {
+
+  const scrollTo = useCallback((id) => {
     setActive(id);
-    document.getElementById(id)?.scrollIntoView({
-      behavior: "smooth"
-    });
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  }, []);
+
+  useEffect(() => {
+    const onEsc = (e) => { if(e.key === "Escape") setModal(null); };
+    window.addEventListener("keydown", onEsc);
+    return () => window.removeEventListener("keydown", onEsc);
   }, []);
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll, {
-      passive: true
-    });
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
   useEffect(() => {
     const ids = ["perf", "web", "ai"];
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) setActive(e.target.id);
-      });
-    }, {
-      threshold: 0.25,
-      rootMargin: "-140px 0px -40% 0px"
-    });
-    ids.forEach(id => {
-      const el = document.getElementById(id);
-      if (el) obs.observe(el);
-    });
+    const obs = new IntersectionObserver(
+      (entries) => { entries.forEach((e) => { if (e.isIntersecting) setActive(e.target.id); }); },
+      { threshold: 0.25, rootMargin: "-140px 0px -40% 0px" }
+    );
+    ids.forEach((id) => { const el = document.getElementById(id); if (el) obs.observe(el); });
     return () => obs.disconnect();
   }, []);
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("nav", {
-    className: "nav" + (scrolled ? " scrolled" : "")
-  }, /*#__PURE__*/React.createElement("a", {
-    className: "nav-logo",
-    href: "/index.html"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "nav-logo-text"
-  }, "orizon")), /*#__PURE__*/React.createElement("div", {
-    className: "nav-links"
-  }, /*#__PURE__*/React.createElement("a", {
-    className: "nav-link",
-    href: "/index.html"
-  }, "Home"), /*#__PURE__*/React.createElement("a", {
-    className: "nav-link active",
-    href: "/servizi.html"
-  }, "Servizi"), /*#__PURE__*/React.createElement("a", {
-    className: "nav-link",
-    href: "/work.html"
-  }, "Clienti"), /*#__PURE__*/React.createElement("a", {
-    className: "nav-link",
-    href: "/work.html"
-  }, "Work"), /*#__PURE__*/React.createElement("button", {
-    className: "nav-cta",
-    onClick: () => scrollTo("cta")
-  }, "Contattaci"))), /*#__PURE__*/React.createElement("header", {
-    className: "hero"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "hero-float",
-    "aria-hidden": "true"
-  }), /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("p", {
-    className: "hero-eyebrow"
-  }, "I nostri servizi")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .08
-  }, /*#__PURE__*/React.createElement("h1", null, "Tre leve per la tua", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("em", null, "crescita digitale."))), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .16
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "hero-desc"
-  }, "Non facciamo tutto per tutti. Facciamo tre cose, e le facciamo ", /*#__PURE__*/React.createElement("strong", null, "dannatamente bene"), ". Ogni servizio ha un solo obiettivo: far crescere il tuo fatturato."))), /*#__PURE__*/React.createElement("div", {
-    className: "anchors"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "anchors-inner"
-  }, /*#__PURE__*/React.createElement("button", {
-    className: "anchor-btn" + (active === "perf" ? " active" : ""),
-    onClick: () => scrollTo("perf")
-  }, "01 Performance Marketing"), /*#__PURE__*/React.createElement("button", {
-    className: "anchor-btn" + (active === "web" ? " active" : ""),
-    onClick: () => scrollTo("web")
-  }, "02 Web Development"), /*#__PURE__*/React.createElement("button", {
-    className: "anchor-btn" + (active === "ai" ? " active" : ""),
-    onClick: () => scrollTo("ai")
-  }, "03 AI Development"))), /*#__PURE__*/React.createElement("section", {
-    className: "svc",
-    id: "perf"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "svc-grid"
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("div", {
-    className: "svc-number"
-  }, "01")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .04
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "svc-badge",
-    style: {
-      background: "var(--blue-ll)",
-      color: "var(--blue)"
-    }
-  }, "Revenue-Driven")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .08
-  }, /*#__PURE__*/React.createElement("h2", {
-    className: "svc-title"
-  }, "Performance Marketing")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .12
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "svc-desc"
-  }, "Gestiamo tutti i canali paid con un unico obiettivo: ", /*#__PURE__*/React.createElement("strong", null, "il tuo utile netto"), ". Non inseguiamo vanity metrics. Non ti vendiamo impressions. Ottimizziamo il ", /*#__PURE__*/React.createElement("strong", null, "MER complessivo"), " (Marketing Efficiency Ratio) per garantirti che ogni euro investito generi profitto reale.")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .16
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "callout"
-  }, /*#__PURE__*/React.createElement("p", null, "Non lavoriamo a fee fisso. Il nostro modello si basa sul ", /*#__PURE__*/React.createElement("strong", null, "Revenue Sharing"), ": guadagniamo solo quando guadagni tu. Se non portiamo risultati, non ci paghi. Punto."))), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .2
-  }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      fontSize: 12,
-      fontWeight: 700,
-      letterSpacing: ".12em",
-      textTransform: "uppercase",
-      color: "var(--black-l)",
-      marginBottom: 12
-    }
-  }, "Canali che gestiamo"), /*#__PURE__*/React.createElement("div", {
-    className: "pills"
-  }, ["Meta Ads", "Google Ads", "TikTok Ads", "Bing Ads", "Native Ads", "Criteo", "Programmatic"].map(c => /*#__PURE__*/React.createElement("span", {
-    key: c,
-    className: "pill"
-  }, c)))), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .24
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "features"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "feat"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "feat-icon",
-    style: {
-      background: "var(--blue)"
-    }
-  }, "\u20AC"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h4", null, "MER-first approach"), /*#__PURE__*/React.createElement("p", null, "Ottimizziamo il rapporto tra spesa totale e revenue totale, non il singolo canale in isolamento."))), /*#__PURE__*/React.createElement("div", {
-    className: "feat"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "feat-icon",
-    style: {
-      background: "var(--blue)"
-    }
-  }, "\u21C6"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h4", null, "Gestione multicanale integrata"), /*#__PURE__*/React.createElement("p", null, "Meta, Google, TikTok, Bing, Native e Criteo gestiti come un ecosistema unico."))), /*#__PURE__*/React.createElement("div", {
-    className: "feat"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "feat-icon",
-    style: {
-      background: "var(--blue)"
-    }
-  }, "\u2713"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h4", null, "Revenue Sharing model"), /*#__PURE__*/React.createElement("p", null, "Guadagniamo una percentuale sulla crescita incrementale. Zero rischio per te."))))), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .28
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "rs-card"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "rs-tag"
-  }, "Il nostro modello"), /*#__PURE__*/React.createElement("h3", null, "Guadagniamo solo se guadagni tu."), /*#__PURE__*/React.createElement("p", null, "Niente fee mensili gonfiati. Niente contratti annuali blindati. Lavoriamo in ", /*#__PURE__*/React.createElement("strong", null, "revenue sharing"), ": prendiamo una percentuale sulla crescita incrementale che generiamo. Se il tuo fatturato non sale, noi non guadagniamo.")))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Reveal, {
-    delay: .15
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "side-panel"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "sp-head"
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "sp-eyebrow"
-  }, "Risultati reali"), /*#__PURE__*/React.createElement("h3", {
-    className: "sp-title"
-  }, "Case Studies")), /*#__PURE__*/React.createElement("div", {
-    className: "sp-body"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-top"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-dot",
-    style: {
-      background: "linear-gradient(135deg,#0284C7,#0EA5E9)"
-    }
-  }, "C"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-    className: "cs-name"
-  }, "Climando / Buytutto"), /*#__PURE__*/React.createElement("div", {
-    className: "cs-tag"
-  }, "E-Commerce multicanale"))), /*#__PURE__*/React.createElement("div", {
-    className: "cs-kpis"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-kpi"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-kpi-v"
-  }, "\u20AC5.96M"), /*#__PURE__*/React.createElement("div", {
-    className: "cs-kpi-l"
-  }, "Sales")), /*#__PURE__*/React.createElement("div", {
-    className: "cs-kpi"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-kpi-v"
-  }, "35.34x"), /*#__PURE__*/React.createElement("div", {
-    className: "cs-kpi-l"
-  }, "ROAS")), /*#__PURE__*/React.createElement("div", {
-    className: "cs-kpi"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-kpi-v"
-  }, "45.4K"), /*#__PURE__*/React.createElement("div", {
-    className: "cs-kpi-l"
-  }, "Conversions")), /*#__PURE__*/React.createElement("div", {
-    className: "cs-kpi"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-kpi-v"
-  }, "\u20AC169K"), /*#__PURE__*/React.createElement("div", {
-    className: "cs-kpi-l"
-  }, "Ad Spend"))), /*#__PURE__*/React.createElement("p", {
-    className: "cs-desc"
-  }, "\u20AC", "169K di investimento trasformati in quasi ", "\u20AC", "6M di vendite con gestione multicanale Meta e Google Ads."), /*#__PURE__*/React.createElement("a", {
-    className: "cs-link",
-    href: "/case-study/vg-informatica.html"
-  }, "Vedi case study ", "\u2192")), /*#__PURE__*/React.createElement("div", {
-    className: "cs-sep"
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "cs"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-top"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-dot",
-    style: {
-      background: "linear-gradient(135deg,#4F46E5,#7C3AED)"
-    }
-  }, "B"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-    className: "cs-name"
-  }, "Bidoo"), /*#__PURE__*/React.createElement("div", {
-    className: "cs-tag"
-  }, "Aste online & E-Commerce"))), /*#__PURE__*/React.createElement("div", {
-    className: "cs-kpis"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-kpi"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-kpi-v"
-  }, "\u20AC3.25M"), /*#__PURE__*/React.createElement("div", {
-    className: "cs-kpi-l"
-  }, "Fatturato")), /*#__PURE__*/React.createElement("div", {
-    className: "cs-kpi"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-kpi-v"
-  }, "3.41x"), /*#__PURE__*/React.createElement("div", {
-    className: "cs-kpi-l"
-  }, "ROAS")), /*#__PURE__*/React.createElement("div", {
-    className: "cs-kpi"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-kpi-v"
-  }, "192K"), /*#__PURE__*/React.createElement("div", {
-    className: "cs-kpi-l"
-  }, "Purchases")), /*#__PURE__*/React.createElement("div", {
-    className: "cs-kpi"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-kpi-v"
-  }, "561K"), /*#__PURE__*/React.createElement("div", {
-    className: "cs-kpi-l"
-  }, "Registrazioni"))), /*#__PURE__*/React.createElement("p", {
-    className: "cs-desc"
-  }, "\u20AC", "953K di budget \u2192 192K acquisti, 561K registrazioni e ", "\u20AC", "3.25M di fatturato generato."), /*#__PURE__*/React.createElement("a", {
-    className: "cs-link",
-    href: "/case-study/vg-informatica.html"
-  }, "Vedi case study ", "\u2192")), /*#__PURE__*/React.createElement("div", {
-    className: "cs-sep"
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "cs"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-top"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-dot",
-    style: {
-      background: "linear-gradient(135deg,#D97706,#F59E0B)"
-    }
-  }, "A"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-    className: "cs-name"
-  }, "L", "\u2019", "Arcolaio"), /*#__PURE__*/React.createElement("div", {
-    className: "cs-tag"
-  }, "Food & Artigianato"))), /*#__PURE__*/React.createElement("div", {
-    className: "cs-kpis"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-kpi"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-kpi-v"
-  }, "\u20AC0\u2192\u20AC2M"), /*#__PURE__*/React.createElement("div", {
-    className: "cs-kpi-l"
-  }, "In 2 anni")), /*#__PURE__*/React.createElement("div", {
-    className: "cs-kpi"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cs-kpi-v"
-  }, "x13"), /*#__PURE__*/React.createElement("div", {
-    className: "cs-kpi-l"
-  }, "MER"))), /*#__PURE__*/React.createElement("p", {
-    className: "cs-desc"
-  }, "Da zero a ", "\u20AC", "2M in 2 anni. Gestione completa: Marketplace, Meta, Google, TikTok, Branding e Sito."), /*#__PURE__*/React.createElement("div", {
-    className: "cs-tags"
-  }, ["Marketplace", "Meta", "Google", "TikTok", "Branding", "Sito"].map(t => /*#__PURE__*/React.createElement("span", {
-    key: t,
-    className: "cs-micro-tag",
-    style: {
-      background: "rgba(217,119,6,.08)",
-      color: "#B45309"
-    }
-  }, t))), /*#__PURE__*/React.createElement("span", {
-    className: "cs-rs-tag"
-  }, "REVENUE SHARING"), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("a", {
-    className: "cs-link",
-    href: "/case-study/vg-informatica.html"
-  }, "Vedi case study ", "\u2192")))))))), /*#__PURE__*/React.createElement("div", {
-    className: "divider"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "divider-line"
-  })), /*#__PURE__*/React.createElement("section", {
-    className: "svc",
-    id: "web"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "svc-grid"
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("div", {
-    className: "svc-number"
-  }, "02")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .04
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "svc-badge",
-    style: {
-      background: "var(--green-l)",
-      color: "var(--green-d)"
-    }
-  }, "Shopify Partners")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .08
-  }, /*#__PURE__*/React.createElement("h2", {
-    className: "svc-title"
-  }, "Web Development")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .12
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "svc-desc"
-  }, "Il tuo sito non \xE8 una vetrina. \xC8 la tua ", /*#__PURE__*/React.createElement("strong", null, "macchina di conversione"), ". Lo costruiamo e ottimizziamo con un unico KPI in testa: ", /*#__PURE__*/React.createElement("strong", null, "il conversion rate"), ". Ogni pixel, ogni interazione, ogni flusso \xE8 pensato per trasformare visitatori in clienti.")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .16
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "callout",
-    style: {
-      borderLeftColor: "var(--green-d)"
-    }
-  }, /*#__PURE__*/React.createElement("p", null, "Siamo ", /*#__PURE__*/React.createElement("strong", {
-    style: {
-      color: "var(--green-d)"
-    }
-  }, "Shopify Partners"), " certificati. Costruiamo landing page ad alta conversione sia per e-commerce che per lead generation, testate con A/B test continui e ottimizzate su dati reali."))), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .2
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "features"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "feat"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "feat-icon",
-    style: {
-      background: "var(--green-d)"
-    }
-  }, "%"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h4", null, "CRO-first design"), /*#__PURE__*/React.createElement("p", null, "Ogni elemento \xE8 progettato per massimizzare il tasso di conversione, non per vincere premi di design."))), /*#__PURE__*/React.createElement("div", {
-    className: "feat"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "feat-icon",
-    style: {
-      background: "var(--green-d)"
-    }
-  }, "\u26A1"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h4", null, "Landing page ad alta conversione"), /*#__PURE__*/React.createElement("p", null, "Pagine specifiche per campagne paid, ottimizzate con heatmap, session recording e A/B test."))), /*#__PURE__*/React.createElement("div", {
-    className: "feat"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "feat-icon",
-    style: {
-      background: "var(--green-d)"
-    }
-  }, "\uD83D\uDED2"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h4", null, "E-Commerce & Lead Gen"), /*#__PURE__*/React.createElement("p", null, "Shopify stores completi o funnel di lead generation con form multi-step e scoring automatico."))), /*#__PURE__*/React.createElement("div", {
-    className: "feat"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "feat-icon",
-    style: {
-      background: "var(--green-d)"
-    }
-  }, "\uD83D\uDCC8"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h4", null, "Ottimizzazione continua"), /*#__PURE__*/React.createElement("p", null, "Non consegniamo e spartiamo. Monitoriamo, testiamo e miglioriamo ogni settimana."))))), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .24
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "pills"
-  }, ["Shopify", "Shopify Plus", "Landing Pages", "A/B Testing", "Heatmaps", "Speed Optimization", "Checkout Optimization"].map(c => /*#__PURE__*/React.createElement("span", {
-    key: c,
-    className: "pill"
-  }, c))))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Reveal, {
-    delay: .15
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "side-panel"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "sp-head"
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "sp-eyebrow"
-  }, "Portfolio"), /*#__PURE__*/React.createElement("h3", {
-    className: "sp-title"
-  }, "Siti realizzati")), /*#__PURE__*/React.createElement("div", {
-    className: "sp-body",
-    style: {
-      padding: 8
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "site-card",
-    onClick: () => window.open("https://larcolaio.com", "_blank")
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "site-card-visual",
-    style: {
-      background: "linear-gradient(135deg,#FEF3C7,#F59E0B)"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "site-card-visual-name",
-    style: {
-      color: "#92400E"
-    }
-  }, "L", "\u2019", "Arcolaio"), /*#__PURE__*/React.createElement("span", {
-    className: "site-card-visual-url",
-    style: {
-      color: "#B45309"
-    }
-  }, "larcolaio.com")), /*#__PURE__*/React.createElement("div", {
-    className: "site-card-body"
-  }, /*#__PURE__*/React.createElement("h4", null, "L", "\u2019", "Arcolaio"), /*#__PURE__*/React.createElement("p", null, "E-commerce food & artigianato. Shopify store ottimizzato per conversione con UX pensata per il percorso d", "\u2019", "acquisto."), /*#__PURE__*/React.createElement("span", {
-    className: "url-link"
-  }, "larcolaio.com ", "\u2192"))), /*#__PURE__*/React.createElement("div", {
-    className: "site-card",
-    onClick: () => window.open("https://manfrellotti.it", "_blank")
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "site-card-visual",
-    style: {
-      background: "linear-gradient(135deg,#FDE68A,#78350F)"
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "site-card-visual-name",
-    style: {
-      color: "white"
-    }
-  }, "Manfrellotti"), /*#__PURE__*/React.createElement("span", {
-    className: "site-card-visual-url",
-    style: {
-      color: "rgba(255,255,255,.7)"
-    }
-  }, "manfrellotti.it")), /*#__PURE__*/React.createElement("div", {
-    className: "site-card-body"
-  }, /*#__PURE__*/React.createElement("h4", null, "Manfrellotti"), /*#__PURE__*/React.createElement("p", null, "Eccellenza alimentare italiana. Sito e-commerce con focus su storytelling del prodotto e checkout ottimizzato."), /*#__PURE__*/React.createElement("span", {
-    className: "url-link"
-  }, "manfrellotti.it ", "\u2192"))))))))), /*#__PURE__*/React.createElement("div", {
-    className: "divider"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "divider-line"
-  })), /*#__PURE__*/React.createElement("section", {
-    className: "svc",
-    id: "ai"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "svc-grid"
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("div", {
-    className: "svc-number"
-  }, "03")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .04
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "svc-badge",
-    style: {
-      background: "var(--pink)",
-      color: "#E53E3E"
-    }
-  }, "AI-Powered")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .08
-  }, /*#__PURE__*/React.createElement("h2", {
-    className: "svc-title"
-  }, "AI Development")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .12
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "svc-desc"
-  }, "L", "\u2019", "AI non \xE8 il futuro, \xE8 il presente. La usiamo in due modi: creiamo ", /*#__PURE__*/React.createElement("strong", null, "SaaS personalizzati"), " per automatizzare i processi aziendali dei nostri clienti, e sfruttiamo tutti i modelli generativi per ", /*#__PURE__*/React.createElement("strong", null, "potenziare le creative"), " delle campagne a una velocit\xE0 impossibile per un team umano.")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .16
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "features"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "feat"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "feat-icon",
-    style: {
-      background: "#E53E3E"
-    }
-  }, "\uD83E\uDD16"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h4", null, "SaaS su misura"), /*#__PURE__*/React.createElement("p", null, "Piattaforme custom con AI integrata per automatizzare workflow, analisi dati e processi ripetitivi."))), /*#__PURE__*/React.createElement("div", {
-    className: "feat"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "feat-icon",
-    style: {
-      background: "#E53E3E"
-    }
-  }, "\uD83C\uDFA8"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h4", null, "AI Creative Engine"), /*#__PURE__*/React.createElement("p", null, "Generiamo varianti creative 10x pi\xF9 veloce: copy, immagini, video con i migliori modelli generativi."))), /*#__PURE__*/React.createElement("div", {
-    className: "feat"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "feat-icon",
-    style: {
-      background: "#E53E3E"
-    }
-  }, "\u2699\uFE0F"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h4", null, "Automazione processi"), /*#__PURE__*/React.createElement("p", null, "Chatbot intelligenti, pipeline automatiche, report AI-generated e sistemi di supporto decisionale."))))), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .2
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "pills"
-  }, ["GPT-4o / Claude", "Midjourney", "Stable Diffusion", "Runway", "Custom LLM", "API Integration", "Automation"].map(c => /*#__PURE__*/React.createElement("span", {
-    key: c,
-    className: "pill"
-  }, c))))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Reveal, {
-    delay: .15
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "side-panel"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "sp-head"
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "sp-eyebrow"
-  }, "Prodotti"), /*#__PURE__*/React.createElement("h3", {
-    className: "sp-title"
-  }, "I nostri SaaS")), /*#__PURE__*/React.createElement("div", {
-    className: "sp-body"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "saas"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "saas-badge",
-    style: {
-      background: "rgba(139,92,246,.08)",
-      color: "#7C3AED"
-    }
-  }, "SaaS"), /*#__PURE__*/React.createElement("h3", null, "Orizon Script Generator"), /*#__PURE__*/React.createElement("p", null, "Crea script ADV ad alta conversione per e-commerce e lead generation. Hook, body e CTA ottimizzate per Meta e TikTok con framework di copywriting collaudati."), /*#__PURE__*/React.createElement("div", {
-    className: "saas-feats"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "saas-f"
-  }, "Script video per Meta & TikTok"), /*#__PURE__*/React.createElement("span", {
-    className: "saas-f"
-  }, "Variazioni hook automatiche"), /*#__PURE__*/React.createElement("span", {
-    className: "saas-f"
-  }, "Framework di conversione integrati"), /*#__PURE__*/React.createElement("span", {
-    className: "saas-f"
-  }, "Performance prediction AI"), /*#__PURE__*/React.createElement("span", {
-    className: "saas-f"
-  }, "E-Commerce & Lead Gen templates")), /*#__PURE__*/React.createElement("button", {
-    className: "saas-btn"
-  }, "Scopri di pi\xF9 ", "\u2192")), /*#__PURE__*/React.createElement("div", {
-    className: "saas"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "saas-badge",
-    style: {
-      background: "rgba(96,231,135,.08)",
-      color: "var(--green-d)"
-    }
-  }, "SaaS"), /*#__PURE__*/React.createElement("h3", null, "Orizon Shipping Optimizer"), /*#__PURE__*/React.createElement("p", null, "Compara in tempo reale i contratti di tutti gli spedizionieri e indica il corriere pi\xF9 conveniente per ogni singolo ordine. Trasparenza totale su costi nascosti."), /*#__PURE__*/React.createElement("div", {
-    className: "saas-feats"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "saas-f"
-  }, "Comparazione real-time corrieri"), /*#__PURE__*/React.createElement("span", {
-    className: "saas-f"
-  }, "Calcolo costi nascosti incluso"), /*#__PURE__*/React.createElement("span", {
-    className: "saas-f"
-  }, "Integrazione con e-commerce"), /*#__PURE__*/React.createElement("span", {
-    className: "saas-f"
-  }, "Risparmio medio 15-30% su spedizioni"), /*#__PURE__*/React.createElement("span", {
-    className: "saas-f"
-  }, "Dashboard costi & analytics")), /*#__PURE__*/React.createElement("button", {
-    className: "saas-btn"
-  }, "Scopri di pi\xF9 ", "\u2192")))))))), /*#__PURE__*/React.createElement("section", {
-    className: "cta-section",
-    id: "cta"
-  }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("h2", null, "Pronto a crescere?")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .08
-  }, /*#__PURE__*/React.createElement("p", null, "Raccontaci il tuo progetto. Ti diremo esattamente cosa possiamo fare per te, senza giri di parole.")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: .14
-  }, /*#__PURE__*/React.createElement("a", {className: "cta-btn", href: "/contatti.html", style: {display: "inline-block", textDecoration: "none"}}, "Parliamone ", "\u2192"))), /*#__PURE__*/React.createElement("footer", {
-    className: "footer"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "footer-left"
-  }, "\u00A9", " ", new Date().getFullYear(), " Orizon ADV \u2014 Tutti i diritti riservati")));
+
+  return (
+    <React.Fragment>
+
+      {/* ─── NAV ─── */}
+      <nav className={"nav" + (scrolled ? " scrolled" : "")}>
+        <a className="nav-logo" href="#">
+          <span className="nav-logo-text">orizon</span>
+        </a>
+        <div className="nav-links">
+          <a className="nav-link" href="#">Home</a>
+          <a className="nav-link active" href="#">Servizi</a>
+          <a className="nav-link" href="#">Clienti</a>
+          <a className="nav-link" href="#">Work</a>
+          <button className="nav-cta" onClick={() => scrollTo("cta")}>Contattaci</button>
+        </div>
+      </nav>
+
+      {/* ─── HERO ─── */}
+      <header className="hero">
+        <div className="hero-float" aria-hidden="true" />
+        <Reveal><p className="hero-eyebrow">I nostri servizi</p></Reveal>
+        <Reveal delay={.08}><h1>Tre leve per la tua<br /><em>crescita digitale.</em></h1></Reveal>
+        <Reveal delay={.16}><p className="hero-desc">Non facciamo tutto per tutti. Facciamo tre cose, e le facciamo <strong>dannatamente bene</strong>. Ogni servizio ha un solo obiettivo: far crescere il tuo fatturato.</p></Reveal>
+      </header>
+
+      {/* ─── ANCHORS ─── */}
+      <div className="anchors">
+        <div className="anchors-inner">
+          <button className={"anchor-btn" + (active === "perf" ? " active" : "")} onClick={() => scrollTo("perf")}>01 Performance Marketing</button>
+          <button className={"anchor-btn" + (active === "web" ? " active" : "")} onClick={() => scrollTo("web")}>02 Web Development</button>
+          <button className={"anchor-btn" + (active === "ai" ? " active" : "")} onClick={() => scrollTo("ai")}>03 AI Development</button>
+        </div>
+      </div>
+
+      {/* ══════════════ 01 PERFORMANCE MARKETING ══════════════ */}
+      <section className="svc" id="perf">
+        <div className="svc-grid">
+          <div>
+            <Reveal><div className="svc-number">01</div></Reveal>
+            <Reveal delay={.04}><span className="svc-badge" style={{ background: "var(--blue-ll)", color: "var(--blue)" }}>Revenue-Driven</span></Reveal>
+            <Reveal delay={.08}><h2 className="svc-title">Performance Marketing</h2></Reveal>
+            <Reveal delay={.12}>
+              <p className="svc-desc">Gestiamo tutti i canali paid con un unico obiettivo: <strong>il tuo utile netto</strong>. Non inseguiamo vanity metrics. Non ti vendiamo impressions. Ottimizziamo il <strong>MER complessivo</strong> (Marketing Efficiency Ratio) per garantirti che ogni euro investito generi profitto reale.</p>
+            </Reveal>
+
+            <Reveal delay={.16}>
+              <div className="callout">
+                <p>Non lavoriamo a fee fisso. Il nostro modello si basa sul <strong>Revenue Sharing</strong>: guadagniamo solo quando guadagni tu. Se non portiamo risultati, non ci paghi. Punto.</p>
+              </div>
+            </Reveal>
+
+            <Reveal delay={.2}>
+              <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".12em", textTransform: "uppercase", color: "var(--black-l)", marginBottom: 12 }}>Canali che gestiamo</p>
+              <div className="pills">
+                {["Meta Ads", "Google Ads", "TikTok Ads", "Bing Ads", "Native Ads", "Criteo", "Programmatic"].map((c) => <span key={c} className="pill">{c}</span>)}
+              </div>
+            </Reveal>
+
+            <Reveal delay={.24}>
+              <div className="features">
+                <div className="feat">
+                  <div className="feat-icon" style={{ background: "var(--blue)" }}>{"\u20AC"}</div>
+                  <div><h4>MER-first approach</h4><p>Ottimizziamo il rapporto tra spesa totale e revenue totale, non il singolo canale in isolamento.</p></div>
+                </div>
+                <div className="feat">
+                  <div className="feat-icon" style={{ background: "var(--blue)" }}>{"\u21C6"}</div>
+                  <div><h4>Gestione multicanale integrata</h4><p>Meta, Google, TikTok, Bing, Native e Criteo gestiti come un ecosistema unico.</p></div>
+                </div>
+                <div className="feat">
+                  <div className="feat-icon" style={{ background: "var(--blue)" }}>{"\u2713"}</div>
+                  <div><h4>Revenue Sharing model</h4><p>Guadagniamo una percentuale sulla crescita incrementale. Zero rischio per te.</p></div>
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={.28}>
+              <div className="rs-card">
+                <span className="rs-tag">Il nostro modello</span>
+                <h3>Guadagniamo solo se guadagni tu.</h3>
+                <p>Niente fee mensili gonfiati. Niente contratti annuali blindati. Lavoriamo in <strong>revenue sharing</strong>: prendiamo una percentuale sulla crescita incrementale che generiamo. Se il tuo fatturato non sale, noi non guadagniamo.</p>
+              </div>
+            </Reveal>
+          </div>
+
+          <div>
+            <Reveal delay={.15}>
+              <div className="side-panel">
+                <div className="sp-head">
+                  <p className="sp-eyebrow">Risultati reali</p>
+                  <h3 className="sp-title">Case Studies</h3>
+                </div>
+                <div className="sp-body">
+
+                  {/* CLIMANDO / BUYTUTTO */}
+                  <div className="cs">
+                    <div className="cs-top">
+                      <div className="cs-dot" style={{ background: "linear-gradient(135deg,#0284C7,#0EA5E9)" }}>C</div>
+                      <div><div className="cs-name">Climando / Buytutto</div><div className="cs-tag">E-Commerce multicanale</div></div>
+                    </div>
+                    <div className="cs-kpis">
+                      <div className="cs-kpi"><div className="cs-kpi-v">{"\u20AC5.96M"}</div><div className="cs-kpi-l">Sales</div></div>
+                      <div className="cs-kpi"><div className="cs-kpi-v">50x</div><div className="cs-kpi-l">ROAS</div></div>
+                      <div className="cs-kpi"><div className="cs-kpi-v">8.7K</div><div className="cs-kpi-l">Conversions</div></div>
+                      <div className="cs-kpi"><div className="cs-kpi-v">{"\u20AC169K"}</div><div className="cs-kpi-l">Ad Spend</div></div>
+                    </div>
+                    <p className="cs-desc">{"\u20AC"}169K di investimento trasformati in quasi {"\u20AC"}6M di vendite con gestione multicanale Meta e Google Ads.</p>
+                    <a className="cs-link" href="#">Vedi case study {"\u2192"}</a>
+                  </div>
+
+                  <div className="cs-sep" />
+
+                  {/* BIDOO */}
+                  <div className="cs">
+                    <div className="cs-top">
+                      <div className="cs-dot" style={{ background: "linear-gradient(135deg,#4F46E5,#7C3AED)" }}>B</div>
+                      <div><div className="cs-name">Aste Online</div><div className="cs-tag">Aste online & E-Commerce</div></div>
+                    </div>
+                    <div className="cs-kpis">
+                      <div className="cs-kpi"><div className="cs-kpi-v">{"\u20AC3.25M"}</div><div className="cs-kpi-l">Fatturato</div></div>
+                      <div className="cs-kpi"><div className="cs-kpi-v">3.41x</div><div className="cs-kpi-l">ROAS</div></div>
+                      <div className="cs-kpi"><div className="cs-kpi-v">192K</div><div className="cs-kpi-l">Purchases</div></div>
+                      <div className="cs-kpi"><div className="cs-kpi-v">561K</div><div className="cs-kpi-l">Registrazioni</div></div>
+                    </div>
+                    <p className="cs-desc">{"\u20AC"}953K di budget → 192K acquisti, 561K registrazioni e {"\u20AC"}3.25M di fatturato generato.</p>
+                    <a className="cs-link" href="#">Vedi case study {"\u2192"}</a>
+                  </div>
+
+                  <div className="cs-sep" />
+
+                  {/* L'ARCOLAIO */}
+                  <div className="cs">
+                    <div className="cs-top">
+                      <div className="cs-dot" style={{ background: "linear-gradient(135deg,#D97706,#F59E0B)" }}>A</div>
+                      <div><div className="cs-name">L{"\u2019"}Arcolaio</div><div className="cs-tag">Food & Artigianato</div></div>
+                    </div>
+                    <div className="cs-kpis">
+                      <div className="cs-kpi"><div className="cs-kpi-v">{"\u20AC0\u2192\u20AC2M"}</div><div className="cs-kpi-l">In 2 anni</div></div>
+                      <div className="cs-kpi"><div className="cs-kpi-v">x13</div><div className="cs-kpi-l">MER</div></div>
+                    </div>
+                    <p className="cs-desc">Da zero a {"\u20AC"}2M in 2 anni. Gestione completa: Marketplace, Meta, Google, TikTok, Branding e Sito.</p>
+                    <div className="cs-tags">
+                      {["Marketplace", "Meta", "Google", "TikTok", "Branding", "Sito"].map((t) => <span key={t} className="cs-micro-tag" style={{ background: "rgba(217,119,6,.08)", color: "#B45309" }}>{t}</span>)}
+                    </div>
+                    <span className="cs-rs-tag">REVENUE SHARING</span>
+                    <br /><a className="cs-link" href="#">Vedi case study {"\u2192"}</a>
+                  </div>
+
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      <div className="divider"><div className="divider-line" /></div>
+
+      {/* ══════════════ 02 WEB DEVELOPMENT ══════════════ */}
+      <section className="svc" id="web">
+        <div className="svc-grid">
+          <div>
+            <Reveal><div className="svc-number">02</div></Reveal>
+            <Reveal delay={.04}><span className="svc-badge" style={{ background: "var(--green-l)", color: "var(--green-d)" }}>Shopify Partners</span></Reveal>
+            <Reveal delay={.08}><h2 className="svc-title">Web Development</h2></Reveal>
+            <Reveal delay={.12}>
+              <p className="svc-desc">Il tuo sito non è una vetrina. È la tua <strong>macchina di conversione</strong>. Lo costruiamo e ottimizziamo con un unico KPI in testa: <strong>il conversion rate</strong>. Ogni pixel, ogni interazione, ogni flusso è pensato per trasformare visitatori in clienti.</p>
+            </Reveal>
+
+            <Reveal delay={.16}>
+              <div className="callout" style={{ borderLeftColor: "var(--green-d)" }}>
+                <p>Siamo <strong style={{ color: "var(--green-d)" }}>Shopify Partners</strong> certificati. Costruiamo landing page ad alta conversione sia per e-commerce che per lead generation, testate con A/B test continui e ottimizzate su dati reali.</p>
+              </div>
+            </Reveal>
+
+            <Reveal delay={.2}>
+              <div className="features">
+                <div className="feat">
+                  <div className="feat-icon" style={{ background: "var(--green-d)" }}>%</div>
+                  <div><h4>CRO-first design</h4><p>Ogni elemento è progettato per massimizzare il tasso di conversione, non per vincere premi di design.</p></div>
+                </div>
+                <div className="feat">
+                  <div className="feat-icon" style={{ background: "var(--green-d)" }}>{"\u26A1"}</div>
+                  <div><h4>Landing page ad alta conversione</h4><p>Pagine specifiche per campagne paid, ottimizzate con heatmap, session recording e A/B test.</p></div>
+                </div>
+                <div className="feat">
+                  <div className="feat-icon" style={{ background: "var(--green-d)" }}>{"\uD83D\uDED2"}</div>
+                  <div><h4>E-Commerce & Lead Gen</h4><p>Shopify stores completi o funnel di lead generation con form multi-step e scoring automatico.</p></div>
+                </div>
+                <div className="feat">
+                  <div className="feat-icon" style={{ background: "var(--green-d)" }}>{"\uD83D\uDCC8"}</div>
+                  <div><h4>Ottimizzazione continua</h4><p>Non consegniamo e spartiamo. Monitoriamo, testiamo e miglioriamo ogni settimana.</p></div>
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={.24}>
+              <div className="pills">
+                {["Shopify", "Shopify Plus", "Landing Pages", "A/B Testing", "Heatmaps", "Speed Optimization", "Checkout Optimization"].map((c) => <span key={c} className="pill">{c}</span>)}
+              </div>
+            </Reveal>
+          </div>
+
+          <div>
+            <Reveal delay={.15}>
+              <div className="side-panel">
+                <div className="sp-head">
+                  <p className="sp-eyebrow">Portfolio</p>
+                  <h3 className="sp-title">Siti realizzati</h3>
+                </div>
+                <div className="sp-body" style={{ padding: 8 }}>
+
+                  <div className="site-card" onClick={() => window.open("https://larcolaio.com", "_blank")}>
+                    <div className="site-card-visual" style={{ background: "linear-gradient(135deg,#FEF3C7,#F59E0B)" }}>
+                      <span className="site-card-visual-name" style={{ color: "#92400E" }}>L{"\u2019"}Arcolaio</span>
+                      <span className="site-card-visual-url" style={{ color: "#B45309" }}>larcolaio.com</span>
+                    </div>
+                    <div className="site-card-body">
+                      <h4>L{"\u2019"}Arcolaio</h4>
+                      <p>E-commerce food & artigianato. Shopify store ottimizzato per conversione con UX pensata per il percorso d{"\u2019"}acquisto.</p>
+                      <span className="url-link">larcolaio.com {"\u2192"}</span>
+                    </div>
+                  </div>
+
+                  <div className="site-card" onClick={() => window.open("https://manfrellotti.it", "_blank")}>
+                    <div className="site-card-visual" style={{ background: "linear-gradient(135deg,#FDE68A,#78350F)" }}>
+                      <span className="site-card-visual-name" style={{ color: "white" }}>Manfrellotti</span>
+                      <span className="site-card-visual-url" style={{ color: "rgba(255,255,255,.7)" }}>manfrellotti.it</span>
+                    </div>
+                    <div className="site-card-body">
+                      <h4>Manfrellotti</h4>
+                      <p>Eccellenza alimentare italiana. Sito e-commerce con focus su storytelling del prodotto e checkout ottimizzato.</p>
+                      <span className="url-link">manfrellotti.it {"\u2192"}</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      <div className="divider"><div className="divider-line" /></div>
+
+      {/* ══════════════ 03 AI DEVELOPMENT ══════════════ */}
+      <section className="svc" id="ai">
+        <div className="svc-grid">
+          <div>
+            <Reveal><div className="svc-number">03</div></Reveal>
+            <Reveal delay={.04}><span className="svc-badge" style={{ background: "var(--pink)", color: "#E53E3E" }}>AI-Powered</span></Reveal>
+            <Reveal delay={.08}><h2 className="svc-title">AI Development</h2></Reveal>
+            <Reveal delay={.12}>
+              <p className="svc-desc">L{"\u2019"}AI non è il futuro, è il presente. La usiamo in due modi: creiamo <strong>SaaS personalizzati</strong> per automatizzare i processi aziendali dei nostri clienti, e sfruttiamo tutti i modelli generativi per <strong>potenziare le creative</strong> delle campagne a una velocità impossibile per un team umano.</p>
+            </Reveal>
+
+            <Reveal delay={.16}>
+              <div className="features">
+                <div className="feat">
+                  <div className="feat-icon" style={{ background: "#E53E3E" }}>{"\uD83E\uDD16"}</div>
+                  <div><h4>SaaS su misura</h4><p>Piattaforme custom con AI integrata per automatizzare workflow, analisi dati e processi ripetitivi.</p></div>
+                </div>
+                <div className="feat">
+                  <div className="feat-icon" style={{ background: "#E53E3E" }}>{"\uD83C\uDFA8"}</div>
+                  <div><h4>AI Creative Engine</h4><p>Generiamo varianti creative 10x più veloce: copy, immagini, video con i migliori modelli generativi.</p></div>
+                </div>
+                <div className="feat">
+                  <div className="feat-icon" style={{ background: "#E53E3E" }}>{"\u2699\uFE0F"}</div>
+                  <div><h4>Automazione processi</h4><p>Chatbot intelligenti, pipeline automatiche, report AI-generated e sistemi di supporto decisionale.</p></div>
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={.2}>
+              <div className="pills">
+                {["GPT-4o / Claude", "Midjourney", "Stable Diffusion", "Runway", "Custom LLM", "API Integration", "Automation"].map((c) => <span key={c} className="pill">{c}</span>)}
+              </div>
+            </Reveal>
+          </div>
+
+          <div>
+            <Reveal delay={.15}>
+              <div className="side-panel">
+                <div className="sp-head">
+                  <p className="sp-eyebrow">Prodotti</p>
+                  <h3 className="sp-title">I nostri SaaS</h3>
+                </div>
+                <div className="sp-body">
+
+                  <div className="saas">
+                    <span className="saas-badge" style={{ background: "rgba(139,92,246,.08)", color: "#7C3AED" }}>SaaS</span>
+                    <h3>Orizon Script Generator</h3>
+                    <p>Crea script ADV ad alta conversione per e-commerce e lead generation. Hook, body e CTA ottimizzate per Meta e TikTok con framework di copywriting collaudati.</p>
+                    <div className="saas-feats">
+                      <span className="saas-f">Script video per Meta & TikTok</span>
+                      <span className="saas-f">Variazioni hook automatiche</span>
+                      <span className="saas-f">Framework di conversione integrati</span>
+                      <span className="saas-f">Performance prediction AI</span>
+                      <span className="saas-f">E-Commerce & Lead Gen templates</span>
+                    </div>
+                    <button className="saas-btn">Scopri di più {"\u2192"}</button>
+                  </div>
+
+                  <div className="saas">
+                    <span className="saas-badge" style={{ background: "rgba(96,231,135,.08)", color: "var(--green-d)" }}>SaaS</span>
+                    <h3>Orizon Shipping Optimizer</h3>
+                    <p>Compara in tempo reale i contratti di tutti gli spedizionieri e indica il corriere più conveniente per ogni singolo ordine. Trasparenza totale su costi nascosti.</p>
+                    <div className="saas-feats">
+                      <span className="saas-f">Comparazione real-time corrieri</span>
+                      <span className="saas-f">Calcolo costi nascosti incluso</span>
+                      <span className="saas-f">Integrazione con e-commerce</span>
+                      <span className="saas-f">Risparmio medio 15-30% su spedizioni</span>
+                      <span className="saas-f">Dashboard costi & analytics</span>
+                    </div>
+                    <button className="saas-btn">Scopri di più {"\u2192"}</button>
+                  </div>
+
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── CTA FINALE ─── */}
+      <section className="cta-section" id="cta">
+        <Reveal><h2>Pronto a crescere?</h2></Reveal>
+        <Reveal delay={.08}><p>Raccontaci il tuo progetto. Ti diremo esattamente cosa possiamo fare per te, senza giri di parole.</p></Reveal>
+        <Reveal delay={.14}><button className="cta-btn">Parliamone {"\u2192"}</button></Reveal>
+      </section>
+
+      {/* ─── FOOTER ─── */}
+      <footer className="footer">
+        <div className="footer-left">{"\u00A9"} {new Date().getFullYear()} Orizon ADV — Tutti i diritti riservati</div>
+      </footer>
+
+    </React.Fragment>
+  );
 }
-ReactDOM.createRoot(document.getElementById("root")).render(/*#__PURE__*/React.createElement(App, null));</script>
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+
+<!-- MODAL: Script Generator -->
+<div class="modal-overlay" id="modal-scriptgen">
+  <div class="modal">
+    <button class="modal-close"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <div class="modal-hero">
+      <span class="modal-badge" style="background:rgba(139,92,246,.08);color:#7C3AED">SaaS &middot; AI-Powered</span>
+      <h2>Orizon Script Generator</h2>
+      <p>Il motore AI che genera script video ads ad alta conversione. 24 framework di copywriting, 12 pattern visual hook, copy ottimizzati per ogni piattaforma. Usato internamente su 40+ clienti.</p>
+    </div>
+    <div class="modal-body">
+      <div class="modal-stats">
+        <div class="modal-stat"><div class="modal-stat-v">24</div><div class="modal-stat-l">Framework</div></div>
+        <div class="modal-stat"><div class="modal-stat-v">12</div><div class="modal-stat-l">Visual Hook</div></div>
+        <div class="modal-stat"><div class="modal-stat-v">40+</div><div class="modal-stat-l">Clienti attivi</div></div>
+      </div>
+      
+      <div class="modal-section">
+        <div class="modal-section-label">Come funziona</div>
+        <div class="modal-features">
+          <div class="modal-feat">
+            <div class="modal-feat-icon">🎬</div>
+            <h4>3 varianti per script</h4>
+            <p>Ogni generazione produce 3 script con framework diversi per massimizzare il testing.</p>
+          </div>
+          <div class="modal-feat">
+            <div class="modal-feat-icon">🎯</div>
+            <h4>Framework automatico</h4>
+            <p>L'AI seleziona il framework migliore in base al prodotto, al target e alla piattaforma.</p>
+          </div>
+          <div class="modal-feat">
+            <div class="modal-feat-icon">🪝</div>
+            <h4>Hook ottimizzati</h4>
+            <p>Visual hook + audio hook separati. 12 pattern testati su milioni di impression.</p>
+          </div>
+          <div class="modal-feat">
+            <div class="modal-feat-icon">📱</div>
+            <h4>Copy per piattaforma</h4>
+            <p>Copy ads specifici per Meta, Instagram e TikTok. 2-3 varianti con opening pattern diversi.</p>
+          </div>
+          <div class="modal-feat">
+            <div class="modal-feat-icon">⏱️</div>
+            <h4>Word count controllato</h4>
+            <p>Max 75 parole per video 30s. Lo script rispetta i tempi reali di lettura.</p>
+          </div>
+          <div class="modal-feat">
+            <div class="modal-feat-icon">📊</div>
+            <h4>Framework tracking</h4>
+            <p>Traccia quali framework hai usato per ogni cliente. Alert se superi il 50% su uno solo.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-divider"></div>
+
+      <div class="modal-section">
+        <div class="modal-section-label">Framework disponibili</div>
+        <div class="modal-tags">
+          <span class="modal-tag">Problem-Solution</span>
+          <span class="modal-tag">Pain Amplifier</span>
+          <span class="modal-tag">Before/After</span>
+          <span class="modal-tag">Social Proof</span>
+          <span class="modal-tag">Tech Spec Showdown</span>
+          <span class="modal-tag">Sustainability</span>
+          <span class="modal-tag">Curiosity Gap</span>
+          <span class="modal-tag">Us vs Them</span>
+          <span class="modal-tag">Direct Offer</span>
+          <span class="modal-tag">Scenario Hook</span>
+          <span class="modal-tag">+14 altri</span>
+        </div>
+      </div>
+
+      <div class="modal-divider"></div>
+
+      <div class="modal-section">
+        <div class="modal-section-label">Opening pattern per Copy Ads</div>
+        <div class="modal-tags">
+          <span class="modal-tag">Number Lead</span>
+          <span class="modal-tag">Pain Statement</span>
+          <span class="modal-tag">Price Shock</span>
+          <span class="modal-tag">Us vs Them</span>
+          <span class="modal-tag">Curiosity Gap</span>
+          <span class="modal-tag">Direct Offer</span>
+          <span class="modal-tag">Testimonial Lead</span>
+          <span class="modal-tag">Belief Statement</span>
+          <span class="modal-tag">Scenario Hook</span>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:32px">
+        <button class="modal-cta" onclick="this.closest('.modal-overlay').classList.remove('open');document.body.style.overflow='';document.getElementById('cta')?.scrollIntoView({behavior:'smooth'})">Richiedi accesso &rarr;</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: Shipping Optimizer -->
+<div class="modal-overlay" id="modal-shipping">
+  <div class="modal">
+    <button class="modal-close"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <div class="modal-hero">
+      <span class="modal-badge" style="background:rgba(96,231,135,.08);color:#059669">SaaS &middot; E-Commerce</span>
+      <h2>Orizon Shipping Optimizer</h2>
+      <p>Compara in tempo reale tutti gli spedizionieri e trova il corriere pi&ugrave; conveniente per ogni singolo ordine. Trasparenza totale, costi nascosti inclusi.</p>
+    </div>
+    <div class="modal-body">
+      <div class="modal-stats">
+        <div class="modal-stat"><div class="modal-stat-v">15-30%</div><div class="modal-stat-l">Risparmio medio</div></div>
+        <div class="modal-stat"><div class="modal-stat-v">Real-time</div><div class="modal-stat-l">Comparazione</div></div>
+        <div class="modal-stat"><div class="modal-stat-v">&infin;</div><div class="modal-stat-l">Corrieri supportati</div></div>
+      </div>
+      
+      <div class="modal-section">
+        <div class="modal-section-label">Funzionalit&agrave;</div>
+        <div class="modal-features">
+          <div class="modal-feat">
+            <div class="modal-feat-icon">📦</div>
+            <h4>Comparazione real-time</h4>
+            <p>Confronta prezzi di tutti i corrieri disponibili per ogni ordine in tempo reale.</p>
+          </div>
+          <div class="modal-feat">
+            <div class="modal-feat-icon">💰</div>
+            <h4>Costi nascosti inclusi</h4>
+            <p>Calcola supplementi carburante, supplementi zona disagiata, assicurazione e gestione reso.</p>
+          </div>
+          <div class="modal-feat">
+            <div class="modal-feat-icon">🔌</div>
+            <h4>Integrazione e-commerce</h4>
+            <p>Si collega a Shopify, WooCommerce e qualsiasi piattaforma via API.</p>
+          </div>
+          <div class="modal-feat">
+            <div class="modal-feat-icon">📊</div>
+            <h4>Dashboard analytics</h4>
+            <p>Monitora costi spedizione, risparmio generato e performance per corriere.</p>
+          </div>
+          <div class="modal-feat">
+            <div class="modal-feat-icon">⚡</div>
+            <h4>Scelta automatica</h4>
+            <p>Imposta regole (pi&ugrave; veloce, pi&ugrave; economico, miglior servizio) e il sistema sceglie per te.</p>
+          </div>
+          <div class="modal-feat">
+            <div class="modal-feat-icon">🔄</div>
+            <h4>Multi-contratto</h4>
+            <p>Gestisci pi&ugrave; contratti con lo stesso corriere e confronta le tariffe negoziate.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:32px">
+        <button class="modal-cta" onclick="this.closest('.modal-overlay').classList.remove('open');document.body.style.overflow='';document.getElementById('cta')?.scrollIntoView({behavior:'smooth'})">Richiedi accesso &rarr;</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+;(function(){
+  setTimeout(function(){
+    // Find all saas-btn buttons
+    var btns = document.querySelectorAll('.saas-btn');
+    if(btns.length >= 1) btns[0].addEventListener('click', function(e){
+      e.preventDefault();
+      document.getElementById('modal-scriptgen').classList.add('open');
+      document.body.style.overflow='hidden';
+    });
+    if(btns.length >= 2) btns[1].addEventListener('click', function(e){
+      e.preventDefault();
+      document.getElementById('modal-shipping').classList.add('open');
+      document.body.style.overflow='hidden';
+    });
+    
+    // Close modals
+    document.querySelectorAll('.modal-overlay').forEach(function(m){
+      m.addEventListener('click', function(e){
+        if(e.target === m){
+          m.classList.remove('open');
+          document.body.style.overflow='';
+        }
+      });
+      m.querySelector('.modal-close').addEventListener('click', function(){
+        m.classList.remove('open');
+        document.body.style.overflow='';
+      });
+    });
+    
+    // ESC key
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){
+        document.querySelectorAll('.modal-overlay.open').forEach(function(m){
+          m.classList.remove('open');
+          document.body.style.overflow='';
+        });
+      }
+    });
+  }, 200);
+})();
+
+</script>
+
 </body>
 </html>

@@ -1,19 +1,4 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false,
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "DENY" }
-      ]
-    }
-  ],
-  "rewrites": [
-    { "source": "/servizi", "destination": "/servizi.html" },
-    { "source": "/work", "destination": "/work.html" },
-    { "source": "/contatti", "destination": "/contatti.html" },
-    { "source": "/case-study/vg-informatica", "destination": "/case-study/vg-informatica.html" }
-  ]
+  "trailingSlash": false
 }
