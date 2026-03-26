@@ -224,13 +224,13 @@ function App(){
 
     {/* NAV */}
     <nav className={"nav"+(scrolled?" scrolled":"")}>
-      <a className="nav-logo" href="#">orizon</a>
+      <a className="nav-logo" href="/">orizon</a>
       <div className="nav-links">
-        <a className="nav-link" href="#">Home</a>
-        <a className="nav-link" href="#">Servizi</a>
-        <a className="nav-link active" href="#">Work</a>
-        <a className="nav-link" href="#">Contatti</a>
-        <button className="nav-cta">Parliamone</button>
+        <a className="nav-link" href="/index.html">Home</a>
+        <a className="nav-link" href="/servizi.html">Servizi</a>
+        <a className="nav-link active" href="/work.html">Work</a>
+        <a className="nav-link" href="/contatti.html">Contatti</a>
+        <a className="nav-cta" href="/contatti">Parliamone</a>
       </div>
     </nav>
 
@@ -289,7 +289,7 @@ function App(){
 
       <div className="cases-grid-big">
         {/* CLIMANDO */}
-        <Reveal delay={.1}><a className="case-big" href="#">
+        <Reveal delay={.1}><a className="case-big" href="/case-study/climando">
           <div className="case-visual" style={{background:"linear-gradient(135deg,#0284C7,#0EA5E9)"}}>
             <span className="case-visual-name" style={{color:"white"}}>Climando</span>
             <span className="case-visual-sub" style={{color:"rgba(255,255,255,.6)"}}>Buytutto</span>
@@ -299,21 +299,21 @@ function App(){
           <div className="case-body">
             <div className="case-head"><div className="case-brand">E-Commerce</div><div className="case-cat">E-Commerce multicanale</div></div>
             <div className="case-kpis-grid">
-              <div className="case-kpi"><div className="case-kpi-v">{"\u20AC"}5.96M</div><div className="case-kpi-l">Sales</div></div>
+              <div className="case-kpi"><div className="case-kpi-v">{"\u20AC"}5.34M</div><div className="case-kpi-l">Sales</div></div>
               <div className="case-kpi"><div className="case-kpi-v">50x</div><div className="case-kpi-l">ROAS</div></div>
               <div className="case-kpi"><div className="case-kpi-v">8.7K</div><div className="case-kpi-l">Conversions</div></div>
-              <div className="case-kpi"><div className="case-kpi-v">{"\u20AC"}169K</div><div className="case-kpi-l">Ad Spend</div></div>
+              <div className="case-kpi"><div className="case-kpi-v">{"\u20AC"}106K</div><div className="case-kpi-l">Ad Spend</div></div>
             </div>
             <div className="case-tags">
               {["Meta Ads","Google Ads","Multicanale","Revenue Sharing"].map(t=><span key={t} className="case-tag" style={{background:"rgba(2,132,199,.08)",color:"#0284C7"}}>{t}</span>)}
             </div>
-            <p className="case-text">{"\u20AC"}169K di investimento trasformati in quasi {"\u20AC"}6M di vendite. Gestione multicanale Meta e Google Ads con ottimizzazione su MER complessivo e modello revenue sharing attivo.</p>
+            <p className="case-text">{"\u20AC"}106K di investimento trasformati in quasi {"\u20AC"}6M di vendite. Gestione multicanale Meta e Google Ads con ottimizzazione su MER complessivo e modello revenue sharing attivo.</p>
             <span className="case-link">Vedi case study completo {"\u2192"}</span>
           </div>
         </a></Reveal>
 
         {/* L'ARCOLAIO */}
-        <Reveal delay={.18}><a className="case-big" href="#">
+        <Reveal delay={.18}><a className="case-big" href="/case-study/arcolaio">
           <div className="case-visual" style={{background:"linear-gradient(135deg,#FEF3C7,#F59E0B)"}}>
             <span className="case-visual-name" style={{color:"#92400E"}}>L{"\u2019"}Arcolaio</span>
             <span className="case-visual-sub" style={{color:"#B45309"}}>larcolaio.com</span>
@@ -335,7 +335,7 @@ function App(){
         </a></Reveal>
 
         {/* LONDONSTORE */}
-        <Reveal delay={.1}><a className="case-big" href="#">
+        <Reveal delay={.1}><a className="case-big" href="/case-study/londonstore">
           <div className="case-visual" style={{background:"linear-gradient(135deg,#1E1E1E,#DC2626)"}}>
             <span className="case-visual-name" style={{color:"white"}}>Londonstore</span>
             <span className="case-visual-sub" style={{color:"rgba(255,255,255,.5)"}}>londonstore.it</span>
@@ -357,7 +357,7 @@ function App(){
         </a></Reveal>
 
         {/* B-POWER */}
-        <Reveal delay={.18}><a className="case-big" href="#">
+        <Reveal delay={.18}><a className="case-big" href="/work">
           <div className="case-visual" style={{background:"linear-gradient(135deg,#0F766E,#2DD4BF)"}}>
             <span className="case-visual-name" style={{color:"white"}}>B-Power</span>
             <span className="case-visual-sub" style={{color:"rgba(255,255,255,.5)"}}>Energia & Servizi</span>
@@ -386,7 +386,7 @@ function App(){
       <div className="cases-grid-compact">
 
         {/* VG INFORMATICA */}
-        <Reveal delay={.06}><a className="case-compact" href="#">
+        <Reveal delay={.06}><a className="case-compact" href="/work">
           <div className="case-compact-visual" style={{background:"linear-gradient(135deg,#059669,#34D399)"}}>
             <span className="case-compact-visual-name" style={{color:"white"}}>VG Informatica</span>
             <span className="case-compact-visual-sub" style={{color:"rgba(255,255,255,.5)"}}>Tech & B2B</span>
@@ -403,7 +403,7 @@ function App(){
         </a></Reveal>
 
         {/* ASTE ONLINE */}
-        <Reveal delay={.12}><a className="case-compact" href="#">
+        <Reveal delay={.12}><a className="case-compact" href="/work">
           <div className="case-compact-visual" style={{background:"linear-gradient(135deg,#4F46E5,#7C3AED)"}}>
             <span className="case-compact-visual-name" style={{color:"white"}}>Aste Online</span>
             <span className="case-compact-visual-sub" style={{color:"rgba(255,255,255,.5)"}}>Aste & E-Commerce</span>
@@ -420,7 +420,7 @@ function App(){
         </a></Reveal>
 
         {/* F.LLI FONTANA */}
-        <Reveal delay={.18}><a className="case-compact" href="#">
+        <Reveal delay={.18}><a className="case-compact" href="/work">
           <div className="case-compact-visual" style={{background:"linear-gradient(135deg,#7E22CE,#C084FC)"}}>
             <span className="case-compact-visual-name" style={{color:"white"}}>F.lli Fontana</span>
             <span className="case-compact-visual-sub" style={{color:"rgba(255,255,255,.5)"}}>Hotellerie</span>
@@ -437,7 +437,7 @@ function App(){
         </a></Reveal>
 
         {/* MANFRELLOTTI */}
-        <Reveal delay={.06}><a className="case-compact" href="#">
+        <Reveal delay={.06}><a className="case-compact" href="/work">
           <div className="case-compact-visual" style={{background:"linear-gradient(135deg,#78350F,#D97706)"}}>
             <span className="case-compact-visual-name" style={{color:"white"}}>Manfrellotti</span>
             <span className="case-compact-visual-sub" style={{color:"rgba(255,255,255,.6)"}}>manfrellotti.it</span>
@@ -454,7 +454,7 @@ function App(){
         </a></Reveal>
 
         {/* DE MATTEO HOME */}
-        <Reveal delay={.12}><a className="case-compact" href="#">
+        <Reveal delay={.12}><a className="case-compact" href="/work">
           <div className="case-compact-visual" style={{background:"linear-gradient(135deg,#6D28D9,#A78BFA)"}}>
             <span className="case-compact-visual-name" style={{color:"white"}}>De Matteo Home</span>
             <span className="case-compact-visual-sub" style={{color:"rgba(255,255,255,.5)"}}>Home & Design</span>
@@ -487,7 +487,7 @@ function App(){
       <Reveal delay={.08}><p>Ti diremo esattamente cosa possiamo fare per te, senza giri di parole.</p></Reveal>
       <Reveal delay={.14}><div className="cta-glass">
         <span>Raccontaci il tuo progetto</span>
-        <a className="cta-glass-btn" href="#">Parliamone {"\u2192"}</a>
+        <a className="cta-glass-btn" href="/contatti">Parliamone {"\u2192"}</a>
       </div></Reveal>
       <Reveal delay={.2}><p className="cta-sub">Zero vincoli {"\u00B7"} Revenue sharing {"\u00B7"} Risposta in 24h</p></Reveal>
     </section>
@@ -504,8 +504,8 @@ function App(){
             <a className="footer-contact-item" href="https://maps.google.com/?q=Corso+Umberto+I+153+Napoli" target="_blank" rel="noopener"><IconPin/> Corso Umberto I, 153 — Napoli</a>
           </div>
         </div>
-        <div className="footer-col"><h4>Navigazione</h4><a href="#">Home</a><a href="#">Servizi</a><a href="#">Work</a><a href="#">Contatti</a></div>
-        <div className="footer-col"><h4>Servizi</h4><a href="#">Performance Marketing</a><a href="#">Web Development</a><a href="#">AI Development</a></div>
+        <div className="footer-col"><h4>Navigazione</h4><a href="/index.html">Home</a><a href="/servizi.html">Servizi</a><a href="/work.html">Work</a><a href="/contatti.html">Contatti</a></div>
+        <div className="footer-col"><h4>Servizi</h4><a href="/servizi#perf">Performance Marketing</a><a href="/servizi#web">Web Development</a><a href="/servizi#ai">AI Development</a></div>
         <div className="footer-col"><h4>Social</h4><a href="https://www.linkedin.com/in/antoniopratola/" target="_blank" rel="noopener">LinkedIn</a><a href="https://instagram.com/pratolads" target="_blank" rel="noopener">Instagram</a><a href="https://facebook.com/antoniopratola" target="_blank" rel="noopener">Facebook</a></div>
       </div>
       <div className="footer-bottom">{"\u00A9"} {new Date().getFullYear()} Orizon ADV — Tutti i diritti riservati</div>

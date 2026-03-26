@@ -546,6 +546,26 @@ body {
 .modal-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(55,80,247,.08),transparent);margin:24px 0}
 @media(max-width:768px){.modal-overlay{padding:16px}.modal{border-radius:20px;max-height:90vh}.modal-hero,.modal-body{padding-left:24px;padding-right:24px}.modal-features{grid-template-columns:1fr}.modal-stats{grid-template-columns:1fr 1fr}}
 
+
+.nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:1001}
+.nav-hamburger svg{width:24px;height:24px;stroke:var(--black);stroke-width:2;fill:none;stroke-linecap:round}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:999;background:rgba(255,255,255,.98);backdrop-filter:blur(24px);flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:0;pointer-events:none;transition:opacity .3s}
+.mobile-menu.open{opacity:1;pointer-events:auto}
+.mobile-menu a{font-size:20px;font-weight:600;color:var(--black-m);text-decoration:none;padding:14px 40px;border-radius:100px;transition:all .3s}
+.mobile-menu a:hover,.mobile-menu a.active{color:var(--blue);background:rgba(55,80,247,.05)}
+.mobile-close{position:absolute;top:20px;right:24px;background:none;border:none;cursor:pointer;padding:8px}
+.mobile-close svg{width:24px;height:24px;stroke:var(--black);stroke-width:2;fill:none;stroke-linecap:round}
+@media(max-width:768px){.nav-hamburger{display:block}.nav-links{display:none}.mobile-menu{display:flex}}
+
+.hero-bg{position:fixed;top:0;left:0;width:100%;height:100vh;pointer-events:none;z-index:0;overflow:hidden}
+.hero-bg .orb{position:absolute;border-radius:50%;filter:blur(120px);opacity:.3;animation:orbFloat 25s ease-in-out infinite}
+.hero-orb-1{width:500px;height:500px;background:rgba(55,80,247,.08);top:-150px;right:-80px}
+.hero-orb-2{width:350px;height:350px;background:rgba(96,231,135,.1);bottom:0;left:-80px;animation-delay:-8s}
+.hero-orb-3{width:400px;height:400px;background:rgba(55,80,247,.05);top:40%;left:30%;animation-delay:-16s}
+@keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(30px,-20px) scale(1.05)}50%{transform:translate(-20px,30px) scale(.95)}75%{transform:translate(20px,20px) scale(1.02)}}
+.hero-o-pattern{position:fixed;top:0;left:0;width:100%;height:100vh;pointer-events:none;z-index:0;overflow:hidden}
+.hero-o-pattern .o-shape{position:absolute;animation:oFade 1.8s ease-out forwards;opacity:0}
+@keyframes oFade{0%{opacity:0;transform:scale(.85)}100%{opacity:var(--o-op);transform:scale(1)}}
 </style>
 </head>
 <body>
@@ -627,14 +647,14 @@ function App() {
 
       {/* ─── NAV ─── */}
       <nav className={"nav" + (scrolled ? " scrolled" : "")}>
-        <a className="nav-logo" href="#">
+        <a className="nav-logo" href="/">
           <span className="nav-logo-text">orizon</span>
         </a>
         <div className="nav-links">
-          <a className="nav-link" href="#">Home</a>
-          <a className="nav-link active" href="#">Servizi</a>
-          <a className="nav-link" href="#">Clienti</a>
-          <a className="nav-link" href="#">Work</a>
+          <a className="nav-link" href="/index.html">Home</a>
+          <a className="nav-link active" href="/servizi.html">Servizi</a>
+          <a className="nav-link" href="/work.html">Work</a>
+          <a className="nav-link" href="/work.html">Work</a>
           <button className="nav-cta" onClick={() => scrollTo("cta")}>Contattaci</button>
         </div>
       </nav>
@@ -722,13 +742,13 @@ function App() {
                       <div><div className="cs-name">Climando / Buytutto</div><div className="cs-tag">E-Commerce multicanale</div></div>
                     </div>
                     <div className="cs-kpis">
-                      <div className="cs-kpi"><div className="cs-kpi-v">{"\u20AC5.96M"}</div><div className="cs-kpi-l">Sales</div></div>
+                      <div className="cs-kpi"><div className="cs-kpi-v">{"\u20AC5.34M"}</div><div className="cs-kpi-l">Sales</div></div>
                       <div className="cs-kpi"><div className="cs-kpi-v">50x</div><div className="cs-kpi-l">ROAS</div></div>
                       <div className="cs-kpi"><div className="cs-kpi-v">8.7K</div><div className="cs-kpi-l">Conversions</div></div>
-                      <div className="cs-kpi"><div className="cs-kpi-v">{"\u20AC169K"}</div><div className="cs-kpi-l">Ad Spend</div></div>
+                      <div className="cs-kpi"><div className="cs-kpi-v">{"\u20AC106K"}</div><div className="cs-kpi-l">Ad Spend</div></div>
                     </div>
-                    <p className="cs-desc">{"\u20AC"}169K di investimento trasformati in quasi {"\u20AC"}6M di vendite con gestione multicanale Meta e Google Ads.</p>
-                    <a className="cs-link" href="#">Vedi case study {"\u2192"}</a>
+                    <p className="cs-desc">{"\u20AC"}106K di investimento trasformati in quasi {"\u20AC"}6M di vendite con gestione multicanale Meta e Google Ads.</p>
+                    <a className="cs-link" href="/case-study/climando">Vedi case study {"\u2192"}</a>
                   </div>
 
                   <div className="cs-sep" />
@@ -746,7 +766,7 @@ function App() {
                       <div className="cs-kpi"><div className="cs-kpi-v">561K</div><div className="cs-kpi-l">Registrazioni</div></div>
                     </div>
                     <p className="cs-desc">{"\u20AC"}953K di budget → 192K acquisti, 561K registrazioni e {"\u20AC"}3.25M di fatturato generato.</p>
-                    <a className="cs-link" href="#">Vedi case study {"\u2192"}</a>
+                    <a className="cs-link" href="/case-study/climando">Vedi case study {"\u2192"}</a>
                   </div>
 
                   <div className="cs-sep" />
@@ -766,7 +786,7 @@ function App() {
                       {["Marketplace", "Meta", "Google", "TikTok", "Branding", "Sito"].map((t) => <span key={t} className="cs-micro-tag" style={{ background: "rgba(217,119,6,.08)", color: "#B45309" }}>{t}</span>)}
                     </div>
                     <span className="cs-rs-tag">REVENUE SHARING</span>
-                    <br /><a className="cs-link" href="#">Vedi case study {"\u2192"}</a>
+                    <br /><a className="cs-link" href="/case-study/climando">Vedi case study {"\u2192"}</a>
                   </div>
 
                 </div>

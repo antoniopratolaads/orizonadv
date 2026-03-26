@@ -134,7 +134,7 @@ body{font-family:'IBM Plex Sans',sans-serif;color:var(--black);background:var(--
 .footer-bottom{padding-top:24px;border-top:1px solid rgba(55,80,247,.04);font-size:12px;color:var(--black-l);font-weight:500;text-align:center}
 
 /* REVEAL */
-.rv{opacity:0;transform:translateY(20px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1)}
+.rv{opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1)}
 .rv.v{opacity:1;transform:translateY(0)}
 
 /* RESPONSIVE */
@@ -198,12 +198,12 @@ function App(){
 
     {/* NAV */}
     <nav className={"nav"+(scrolled?" scrolled":"")}>
-      <a className="nav-logo" href="#">orizon</a>
+      <a className="nav-logo" href="/">orizon</a>
       <div className="nav-links">
-        <a className="nav-link" href="#">Home</a>
-        <a className="nav-link" href="#">Servizi</a>
-        <a className="nav-link" href="#">Work</a>
-        <a className="nav-link" href="#">Contatti</a>
+        <a className="nav-link" href="/index.html">Home</a>
+        <a className="nav-link" href="/servizi.html">Servizi</a>
+        <a className="nav-link" href="/work.html">Work</a>
+        <a className="nav-link" href="/contatti.html">Contatti</a>
         <button className="nav-cta">Parliamone</button>
       </div>
     </nav>
@@ -211,7 +211,7 @@ function App(){
     {/* HERO */}
     <header className="cs-hero">
       <div className="cs-hero-content">
-        <a className="cs-hero-back" href="#">{"\u2190"} Tutti i case study</a>
+        <a className="cs-hero-back" href="/work">{"\u2190"} Tutti i case study</a>
         <div className="cs-hero-badge">Case Study</div>
         <h1>VG Informatica</h1>
         <p className="cs-hero-sub">Da azienda IT locale a leader nella lead generation B2B. Strategia Google Ads con funnel multi-step che ha triplicato i contatti qualificati.</p>
@@ -367,7 +367,7 @@ function App(){
       <Reveal delay={.08}><p>Raccontaci il tuo progetto. Ti diremo esattamente cosa possiamo fare per te.</p></Reveal>
       <Reveal delay={.14}><div>
         <button className="cs-cta-btn">Parliamone {"\u2192"}</button>
-        <a className="cs-cta-link" href="#">Torna ai case study {"\u2192"}</a>
+        <a className="cs-cta-link" href="/work">Torna ai case study {"\u2192"}</a>
       </div></Reveal>
     </section>
 
@@ -383,8 +383,8 @@ function App(){
             <a className="footer-contact-item" href="https://maps.google.com/?q=Corso+Umberto+I+153+Napoli" target="_blank" rel="noopener"><IconPin/> Corso Umberto I, 153 — Napoli</a>
           </div>
         </div>
-        <div className="footer-col"><h4>Navigazione</h4><a href="#">Home</a><a href="#">Servizi</a><a href="#">Work</a><a href="#">Contatti</a></div>
-        <div className="footer-col"><h4>Servizi</h4><a href="#">Performance Marketing</a><a href="#">Web Development</a><a href="#">AI Development</a></div>
+        <div className="footer-col"><h4>Navigazione</h4><a href="/index.html">Home</a><a href="/servizi.html">Servizi</a><a href="/work.html">Work</a><a href="/contatti.html">Contatti</a></div>
+        <div className="footer-col"><h4>Servizi</h4><a href="/servizi#perf">Performance Marketing</a><a href="/servizi#web">Web Development</a><a href="/servizi#ai">AI Development</a></div>
         <div className="footer-col"><h4>Social</h4><a href="https://www.linkedin.com/in/antoniopratola/" target="_blank" rel="noopener">LinkedIn</a><a href="https://instagram.com/pratolads" target="_blank" rel="noopener">Instagram</a><a href="https://facebook.com/antoniopratola" target="_blank" rel="noopener">Facebook</a></div>
       </div>
       <div className="footer-bottom">{"\u00A9"} {new Date().getFullYear()} Orizon ADV — Tutti i diritti riservati</div>

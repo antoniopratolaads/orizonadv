@@ -139,13 +139,17 @@ body{font-family:'IBM Plex Sans',sans-serif;color:var(--black);background:var(--
 .testi-name{font-size:14px;font-weight:700}
 .testi-company{font-size:12px;color:var(--black-l)}
 
-/* ── CTA ── */
-.cta{padding:100px 56px;text-align:center;position:relative}
-.cta::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(55,80,247,.04),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
-.cta h2{font-size:clamp(30px,4vw,52px);font-weight:700;letter-spacing:-.035em;margin-bottom:18px;position:relative}
-.cta>p{font-size:18px;color:var(--black-m);margin-bottom:40px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7;position:relative}
-.cta-btn{padding:18px 48px;background:var(--blue);color:var(--white);border:none;border-radius:100px;font-family:inherit;font-size:17px;font-weight:700;cursor:pointer;transition:all .4s;position:relative}
-.cta-btn:hover{transform:translateY(-3px);box-shadow:0 20px 56px rgba(55,80,247,.22);background:var(--blue-d)}
+/* CTA GRADIENT GLASSMORPHISM */
+.cta-gm{position:relative;overflow:hidden;border-radius:28px;padding:80px 60px;text-align:center;background:linear-gradient(135deg,var(--blue),var(--blue-d));margin:0 56px}
+.cta-gm::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 100 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z' fill='white' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");background-size:120px 96px;opacity:.6}
+.cta-gm::after{content:'';position:absolute;bottom:-200px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(96,231,135,.15),transparent 70%)}
+.cta-gm h2{font-size:clamp(30px,4vw,52px);font-weight:700;letter-spacing:-.04em;color:white;margin-bottom:16px;position:relative;z-index:1}
+.cta-gm>p{font-size:18px;color:rgba(255,255,255,.6);margin-bottom:36px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7;position:relative;z-index:1}
+.cta-glass{display:inline-flex;align-items:center;gap:24px;padding:10px 10px 10px 36px;border-radius:100px;background:rgba(255,255,255,.1);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.15);position:relative;z-index:1}
+.cta-glass span{font-size:15px;font-weight:600;color:rgba(255,255,255,.9)}
+.cta-glass-btn{padding:14px 36px;background:white;color:var(--blue);border-radius:100px;font-size:15px;font-weight:700;text-decoration:none;transition:all .3s;display:inline-block}
+.cta-glass-btn:hover{transform:scale(1.04);box-shadow:0 8px 24px rgba(0,0,0,.15)}
+.cta-sub{margin-top:20px;font-size:13px;color:rgba(255,255,255,.35);position:relative;z-index:1}
 
 /* ── FOOTER ── */
 .footer{border-top:1px solid rgba(55,80,247,.04);padding:56px 56px 40px;max-width:1440px;margin:0 auto}
@@ -236,7 +240,7 @@ const IconLinkedin=()=><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20
 const IconInstagram=()=><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>;
 const IconFacebook=()=><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>;
 
-const clients=["Climando","Buytutto","L\u2019Arcolaio","Bidoo","Londonstore","VG Informatica","Manfrellotti"];
+const clients=["Climando","Buytutto","L\u2019Arcolaio","Aste Online","Londonstore","VG Informatica","Manfrellotti"];
 
 function App(){
   const[scrolled,setScrolled]=useState(false);
@@ -246,14 +250,14 @@ function App(){
 
     {/* ═══ NAV ═══ */}
     <nav className={"nav"+(scrolled?" scrolled":"")}>
-      <a className="nav-logo" href="#">orizon</a>
+      <a className="nav-logo" href="/">orizon</a>
       <div className="nav-links">
-        <a className="nav-link active" href="#">Home</a>
-        <a className="nav-link" href="#">Servizi</a>
-        <a className="nav-link" href="#">Clienti</a>
-        <a className="nav-link" href="#">Work</a>
-        <a className="nav-link" href="#">Contatti</a>
-        <button className="nav-cta">Parliamone</button>
+        <a className="nav-link active" href="/index.html">Home</a>
+        <a className="nav-link" href="/servizi.html">Servizi</a>
+        <a className="nav-link" href="/work.html">Work</a>
+        <a className="nav-link" href="/work.html">Work</a>
+        <a className="nav-link" href="/contatti.html">Contatti</a>
+        <a className="nav-cta" href="/contatti">Parliamone</a>
       </div>
     </nav>
 
@@ -272,7 +276,7 @@ function App(){
       <Reveal delay={.16}><p className="hero-desc">Non vendiamo impressions. Non inseguiamo vanity metrics. <strong>Guadagniamo solo quando guadagni tu</strong> — con un modello a revenue sharing che allinea i nostri incentivi ai tuoi al 100%.</p></Reveal>
       <Reveal delay={.24}><div className="hero-actions">
         <button className="hero-btn hero-btn-primary">Parliamone {"\u2192"}</button>
-        <button className="hero-btn hero-btn-secondary">Scopri i servizi</button>
+        <a className="hero-btn hero-btn-secondary" href="/servizi">Scopri i servizi</a>
       </div></Reveal>
     </header>
 
@@ -366,13 +370,13 @@ function App(){
           <div className="case-body">
             <div className="case-head"><div className="case-brand">Climando / Buytutto</div><div className="case-cat">E-Commerce multicanale</div></div>
             <div className="case-kpis-grid">
-              <div className="case-kpi"><div className="case-kpi-v">{"\u20AC"}5.96M</div><div className="case-kpi-l">Sales</div></div>
+              <div className="case-kpi"><div className="case-kpi-v">{"\u20AC"}5.34M</div><div className="case-kpi-l">Sales</div></div>
               <div className="case-kpi"><div className="case-kpi-v">50x</div><div className="case-kpi-l">ROAS</div></div>
               <div className="case-kpi"><div className="case-kpi-v">8.7K</div><div className="case-kpi-l">Conversions</div></div>
-              <div className="case-kpi"><div className="case-kpi-v">{"\u20AC"}169K</div><div className="case-kpi-l">Ad Spend</div></div>
+              <div className="case-kpi"><div className="case-kpi-v">{"\u20AC"}106K</div><div className="case-kpi-l">Ad Spend</div></div>
             </div>
-            <p className="case-text">{"\u20AC"}169K di investimento trasformati in quasi {"\u20AC"}6M di vendite con gestione multicanale Meta e Google Ads.</p>
-            <a className="case-link" href="#">Vedi case study {"\u2192"}</a>
+            <p className="case-text">{"\u20AC"}106K di investimento trasformati in quasi {"\u20AC"}6M di vendite con gestione multicanale Meta e Google Ads.</p>
+            <a className="case-link" href="/case-study/climando">Vedi case study {"\u2192"}</a>
           </div>
         </div></Reveal>
 
@@ -389,7 +393,7 @@ function App(){
               <div className="case-kpi"><div className="case-kpi-v">x13</div><div className="case-kpi-l">MER</div></div>
             </div>
             <p className="case-text">Da zero a {"\u20AC"}2M in 2 anni. Gestione completa: Marketplace, Meta, Google, TikTok, Branding e Sito.</p>
-            <a className="case-link" href="#">Vedi case study {"\u2192"}</a>
+            <a className="case-link" href="/case-study/climando">Vedi case study {"\u2192"}</a>
           </div>
         </div></Reveal>
 
@@ -406,7 +410,7 @@ function App(){
               <div className="case-kpi"><div className="case-kpi-v">4.2x</div><div className="case-kpi-l">ROAS</div></div>
             </div>
             <p className="case-text">Crescita significativa del fatturato con ottimizzazione multicanale e strategia creativa basata su AI.</p>
-            <a className="case-link" href="#">Vedi case study {"\u2192"}</a>
+            <a className="case-link" href="/case-study/climando">Vedi case study {"\u2192"}</a>
           </div>
         </div></Reveal>
 
@@ -423,7 +427,7 @@ function App(){
               <div className="case-kpi"><div className="case-kpi-v">-45%</div><div className="case-kpi-l">CPL</div></div>
             </div>
             <p className="case-text">Strategia lead generation B2B con funnel multi-step e landing page ottimizzate per conversione.</p>
-            <a className="case-link" href="#">Vedi case study {"\u2192"}</a>
+            <a className="case-link" href="/case-study/climando">Vedi case study {"\u2192"}</a>
           </div>
         </div></Reveal>
       </div>
@@ -515,8 +519,8 @@ function App(){
             <a className="footer-contact-item" href="https://maps.google.com/?q=Corso+Umberto+I+153+Napoli" target="_blank" rel="noopener"><IconPin/> Corso Umberto I, 153 — Napoli</a>
           </div>
         </div>
-        <div className="footer-col"><h4>Navigazione</h4><a href="#">Home</a><a href="#">Servizi</a><a href="#">Clienti</a><a href="#">Work</a><a href="#">Contatti</a></div>
-        <div className="footer-col"><h4>Servizi</h4><a href="#">Performance Marketing</a><a href="#">Web Development</a><a href="#">AI Development</a></div>
+        <div className="footer-col"><h4>Navigazione</h4><a href="/index.html">Home</a><a href="/servizi.html">Servizi</a><a href="/work.html">Work</a><a href="/work.html">Work</a><a href="/contatti.html">Contatti</a></div>
+        <div className="footer-col"><h4>Servizi</h4><a href="/servizi#perf">Performance Marketing</a><a href="/servizi#web">Web Development</a><a href="/servizi#ai">AI Development</a></div>
         <div className="footer-col"><h4>Social</h4><a href="https://www.linkedin.com/in/antoniopratola/" target="_blank" rel="noopener">LinkedIn</a><a href="https://instagram.com/pratolads" target="_blank" rel="noopener">Instagram</a><a href="https://facebook.com/antoniopratola" target="_blank" rel="noopener">Facebook</a></div>
       </div>
       <div className="footer-bottom">{"\u00A9"} {new Date().getFullYear()} Orizon ADV — Tutti i diritti riservati</div>

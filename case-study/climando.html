@@ -251,12 +251,12 @@ function App(){
   return<React.Fragment>
 
     <nav className={"nav"+(scrolled?" scrolled":"")}>
-      <a className="nav-logo" href="#">orizon</a>
+      <a className="nav-logo" href="/">orizon</a>
       <div className="nav-links">
-        <a className="nav-link" href="#">Home</a>
-        <a className="nav-link" href="#">Servizi</a>
-        <a className="nav-link active" href="#">Work</a>
-        <a className="nav-link" href="#">Contatti</a>
+        <a className="nav-link" href="/index.html">Home</a>
+        <a className="nav-link" href="/servizi.html">Servizi</a>
+        <a className="nav-link active" href="/work.html">Work</a>
+        <a className="nav-link" href="/contatti.html">Contatti</a>
         <button className="nav-cta">Parliamone</button>
       </div>
     </nav>
@@ -295,7 +295,7 @@ function App(){
       </div>
       <div className="cs-hero-content">
         <div className="cs-hero-text">
-          <a className="cs-hero-back" href="#">{"←"} Work</a>
+          <a className="cs-hero-back" href="/work">{"←"} Work</a>
           <div className="cs-hero-sector">E-Commerce &middot; Climatizzazione</div>
           <h1>Climando</h1>
           <p className="cs-hero-sub">Da ROAS 18 a ROAS 50. Come abbiamo trasformato un e-commerce di climatizzazione in una macchina da {"€"}5.34M di fatturato con Meta e Google Ads.</p>
@@ -491,8 +491,8 @@ function App(){
       <Reveal><h2>Vuoi risultati simili?</h2></Reveal>
       <Reveal delay={.08}><p>Raccontaci il tuo progetto. Ti diremo esattamente cosa possiamo fare per te.</p></Reveal>
       <Reveal delay={.14}><div>
-        <a className="cs-cta-btn" href="#">Parliamone {"→"}</a>
-        <a className="cs-cta-link" href="#">Torna ai case study {"→"}</a>
+        <a className="cs-cta-btn" href="/contatti">Parliamone {"→"}</a>
+        <a className="cs-cta-link" href="/work">Torna ai case study {"→"}</a>
       </div></Reveal>
     </section>
 
@@ -507,8 +507,8 @@ function App(){
             <a className="footer-contact-item" href="https://maps.google.com/?q=Corso+Umberto+I+153+Napoli" target="_blank" rel="noopener"><IconPin/> Corso Umberto I, 153 {"—"} Napoli</a>
           </div>
         </div>
-        <div className="footer-col"><h4>Navigazione</h4><a href="#">Home</a><a href="#">Servizi</a><a href="#">Work</a><a href="#">Contatti</a></div>
-        <div className="footer-col"><h4>Servizi</h4><a href="#">Performance Marketing</a><a href="#">Web Development</a><a href="#">AI Development</a></div>
+        <div className="footer-col"><h4>Navigazione</h4><a href="/index.html">Home</a><a href="/servizi.html">Servizi</a><a href="/work.html">Work</a><a href="/contatti.html">Contatti</a></div>
+        <div className="footer-col"><h4>Servizi</h4><a href="/servizi#perf">Performance Marketing</a><a href="/servizi#web">Web Development</a><a href="/servizi#ai">AI Development</a></div>
         <div className="footer-col"><h4>Social</h4><a href="https://www.linkedin.com/in/antoniopratola/" target="_blank" rel="noopener">LinkedIn</a><a href="https://instagram.com/pratolads" target="_blank" rel="noopener">Instagram</a><a href="https://facebook.com/antoniopratola" target="_blank" rel="noopener">Facebook</a></div>
       </div>
       <div className="footer-bottom">{"©"} {new Date().getFullYear()} Orizon ADV {"—"} Tutti i diritti riservati</div>

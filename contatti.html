@@ -108,7 +108,7 @@ textarea.form-input{resize:vertical;min-height:120px;line-height:1.6}
 .footer-col a:hover{color:var(--blue)}
 .footer-bottom{margin-top:40px;padding-top:24px;border-top:1px solid rgba(55,80,247,.04);font-size:12px;color:var(--black-l);font-weight:500;text-align:center}
 
-.rv{opacity:0;transform:translateY(20px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1)}
+.rv{opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1)}
 .rv.v{opacity:1;transform:translateY(0)}
 
 @media(max-width:1100px){.nav{padding:0 32px}.hero{padding:120px 32px 40px;grid-template-columns:1fr;gap:36px}.map-strip{padding:0 32px 40px}.form-section{padding:0 32px 64px}.footer{padding:40px 32px 32px}}
@@ -210,7 +210,22 @@ function MultiStepForm(){
       <h3 className="step-title">Raccontaci il tuo progetto</h3>
       <p className="step-desc">Più dettagli ci dai, più saremo precisi. Ma anche due righe vanno bene.</p>
       <div className="form-group"><label className="form-label">Messaggio</label><textarea className="form-input" placeholder="Descrivi brevemente il tuo progetto, i tuoi obiettivi, o semplicemente dicci ciao..." value={data.messaggio} onChange={e=>setData(p=>({...p,messaggio:e.target.value}))}/></div>
-      <div className="form-buttons"><button className="btn-back" onClick={()=>setStep(3)}>{"\u2190"} Indietro</button><button className="btn-submit" onClick={()=>setSubmitted(true)}>Invia messaggio {"\u2192"}</button></div>
+      <div className="form-buttons"><button className="btn-back" onClick={()=>setStep(3)}>{"\u2190"} Indietro</button><button className="btn-submit" onClick={()=>{
+      fetch('https://formspree.io/f/xreobbbz',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({
+          servizi:data.services.join(', '),
+          budget:data.budget,
+          nome:data.nome,
+          cognome:data.cognome,
+          email:data.email,
+          telefono:data.telefono,
+          azienda:data.azienda,
+          messaggio:data.messaggio
+        })
+      }).then(function(r){if(r.ok)setSubmitted(true);else alert('Errore. Riprova.')}).catch(function(){alert('Errore di rete.')})
+    }}>Invia messaggio {"\u2192"}</button></div>
     </div>}
   </div>;
 }
@@ -221,12 +236,12 @@ function App(){
 
   return<React.Fragment>
     <nav className={"nav"+(scrolled?" scrolled":"")}>
-      <a className="nav-logo" href="#">orizon</a>
+      <a className="nav-logo" href="/">orizon</a>
       <div className="nav-links">
-        <a className="nav-link" href="#">Home</a>
-        <a className="nav-link" href="#">Servizi</a>
-        <a className="nav-link" href="#">Work</a>
-        <a className="nav-link active" href="#">Contatti</a>
+        <a className="nav-link" href="/index.html">Home</a>
+        <a className="nav-link" href="/servizi.html">Servizi</a>
+        <a className="nav-link" href="/work.html">Work</a>
+        <a className="nav-link active" href="/contatti.html">Contatti</a>
       </div>
     </nav>
 
@@ -271,8 +286,8 @@ function App(){
     <footer className="footer">
       <div className="footer-inner">
         <div className="footer-brand"><div className="footer-logo">orizon</div><div className="footer-tagline">Performance Marketing, Web Development e AI per la crescita del tuo business.</div></div>
-        <div className="footer-col"><h4>Navigazione</h4><a href="#">Home</a><a href="#">Servizi</a><a href="#">Clienti</a><a href="#">Work</a><a href="#">Contatti</a></div>
-        <div className="footer-col"><h4>Servizi</h4><a href="#">Performance Marketing</a><a href="#">Web Development</a><a href="#">AI Development</a></div>
+        <div className="footer-col"><h4>Navigazione</h4><a href="/index.html">Home</a><a href="/servizi.html">Servizi</a><a href="/work.html">Work</a><a href="/work.html">Work</a><a href="/contatti.html">Contatti</a></div>
+        <div className="footer-col"><h4>Servizi</h4><a href="/servizi#perf">Performance Marketing</a><a href="/servizi#web">Web Development</a><a href="/servizi#ai">AI Development</a></div>
         <div className="footer-col"><h4>Social</h4><a href="https://www.linkedin.com/in/antoniopratola/" target="_blank" rel="noopener">LinkedIn</a><a href="https://instagram.com/pratolads" target="_blank" rel="noopener">Instagram</a><a href="https://facebook.com/antoniopratola" target="_blank" rel="noopener">Facebook</a></div>
       </div>
       <div className="footer-bottom">{"\u00A9"} {new Date().getFullYear()} Orizon ADV — Tutti i diritti riservati</div>
