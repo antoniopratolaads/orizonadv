@@ -255,7 +255,6 @@ function App(){
         <a className="nav-link active" href="/index.html">Home</a>
         <a className="nav-link" href="/servizi.html">Servizi</a>
         <a className="nav-link" href="/work.html">Work</a>
-        <a className="nav-link" href="/work.html">Work</a>
         <a className="nav-link" href="/contatti.html">Contatti</a>
         <a className="nav-cta" href="/contatti">Parliamone</a>
       </div>
@@ -275,7 +274,7 @@ function App(){
       <Reveal delay={.08}><h1>Il tuo fatturato<br/>è il nostro unico <em>KPI.</em></h1></Reveal>
       <Reveal delay={.16}><p className="hero-desc">Non vendiamo impressions. Non inseguiamo vanity metrics. <strong>Guadagniamo solo quando guadagni tu</strong> — con un modello a revenue sharing che allinea i nostri incentivi ai tuoi al 100%.</p></Reveal>
       <Reveal delay={.24}><div className="hero-actions">
-        <button className="hero-btn hero-btn-primary">Parliamone {"\u2192"}</button>
+        <a className="hero-btn hero-btn-primary" href="/contatti">Parliamone {"\u2192"}</a>
         <a className="hero-btn hero-btn-secondary" href="/servizi">Scopri i servizi</a>
       </div></Reveal>
     </header>
@@ -501,10 +500,14 @@ function App(){
     </section>
 
     {/* ═══ CTA ═══ */}
-    <section className="cta">
+    <section className="cta-gm">
       <Reveal><h2>Pronto a crescere?</h2></Reveal>
-      <Reveal delay={.08}><p>Raccontaci il tuo progetto. Ti diremo esattamente cosa possiamo fare per te, senza giri di parole.</p></Reveal>
-      <Reveal delay={.14}><button className="cta-btn">Parliamone {"\u2192"}</button></Reveal>
+      <Reveal delay={.08}><p>Ti diremo esattamente cosa possiamo fare per te, senza giri di parole.</p></Reveal>
+      <Reveal delay={.14}><div className="cta-glass">
+        <span>Raccontaci il tuo progetto</span>
+        <a className="cta-glass-btn" href="/contatti">Parliamone {"\u2192"}</a>
+      </div></Reveal>
+      <Reveal delay={.2}><p className="cta-sub">Zero vincoli {"\u00B7"} Revenue sharing {"\u00B7"} Risposta in 24h</p></Reveal>
     </section>
 
     {/* ═══ FOOTER ═══ */}
@@ -519,7 +522,7 @@ function App(){
             <a className="footer-contact-item" href="https://maps.google.com/?q=Corso+Umberto+I+153+Napoli" target="_blank" rel="noopener"><IconPin/> Corso Umberto I, 153 — Napoli</a>
           </div>
         </div>
-        <div className="footer-col"><h4>Navigazione</h4><a href="/index.html">Home</a><a href="/servizi.html">Servizi</a><a href="/work.html">Work</a><a href="/work.html">Work</a><a href="/contatti.html">Contatti</a></div>
+        <div className="footer-col"><h4>Navigazione</h4><a href="/index.html">Home</a><a href="/servizi.html">Servizi</a><a href="/work.html">Work</a><a href="/contatti.html">Contatti</a></div>
         <div className="footer-col"><h4>Servizi</h4><a href="/servizi#perf">Performance Marketing</a><a href="/servizi#web">Web Development</a><a href="/servizi#ai">AI Development</a></div>
         <div className="footer-col"><h4>Social</h4><a href="https://www.linkedin.com/in/antoniopratola/" target="_blank" rel="noopener">LinkedIn</a><a href="https://instagram.com/pratolads" target="_blank" rel="noopener">Instagram</a><a href="https://facebook.com/antoniopratola" target="_blank" rel="noopener">Facebook</a></div>
       </div>
