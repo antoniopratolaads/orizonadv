@@ -124,6 +124,38 @@ textarea.form-input{resize:vertical;min-height:120px;line-height:1.6}
 .mobile-close{position:absolute;top:20px;right:24px;background:none;border:none;cursor:pointer;padding:8px}
 .mobile-close svg{width:24px;height:24px;stroke:var(--black);stroke-width:2;fill:none;stroke-linecap:round}
 @media(max-width:768px){.nav-hamburger{display:block}.mobile-menu{display:flex}}
+
+/* SMART NAV */
+.nav{transition:transform .35s cubic-bezier(.22,1,.36,1),background .3s,box-shadow .3s!important}
+.nav-logo img{height:44px;width:auto}
+/* HAMBURGER */
+.nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:1001}
+.nav-hamburger svg{width:24px;height:24px;stroke:var(--black);stroke-width:2;fill:none;stroke-linecap:round}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:9999;background:rgba(255,255,255,.98);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:0;pointer-events:none;transition:opacity .3s}
+.mobile-menu.open{opacity:1;pointer-events:auto}
+.mobile-menu a{font-size:20px;font-weight:600;color:var(--black-m);text-decoration:none;padding:14px 40px;border-radius:100px;transition:all .3s}
+.mobile-menu a:hover,.mobile-menu a.active{color:var(--blue);background:rgba(55,80,247,.05)}
+.mobile-menu .mobile-cta{margin-top:16px;padding:16px 40px;background:var(--blue);color:var(--white);border-radius:100px;font-size:16px;font-weight:700;text-decoration:none}
+.mobile-close{position:absolute;top:20px;right:24px;background:none;border:none;cursor:pointer;padding:8px}
+.mobile-close svg{width:24px;height:24px;stroke:var(--black);stroke-width:2;fill:none;stroke-linecap:round}
+@media(max-width:768px){
+.nav-hamburger{display:block}.nav-links{display:none!important}.mobile-menu{display:flex}
+.hero h1{font-size:clamp(28px,7vw,42px)!important}
+.hero-desc{font-size:16px!important}
+.hero-actions{flex-direction:column;align-items:stretch!important}
+.hero-btn{text-align:center;padding:14px 32px!important}
+.cta-gm{margin:0 20px!important;padding:48px 24px!important;border-radius:20px!important}
+.cta-glass{flex-direction:column;border-radius:20px!important;padding:20px!important;gap:14px!important}
+.svc-grid,.cases-grid,.cases-grid-big,.testi-grid{grid-template-columns:1fr!important}
+.stats-grid{grid-template-columns:1fr 1fr!important}
+.founder-grid{grid-template-columns:1fr!important}
+.footer-top{grid-template-columns:1fr!important}
+}
+@media(max-width:480px){
+.nav{padding:0 16px!important}
+.hero{padding:100px 16px 40px!important}
+.cta-gm{margin:0 16px!important}
+}
 </style>
 </head>
 <body>
@@ -232,18 +264,45 @@ function MultiStepForm(){
 
 function App(){
   const[scrolled,setScrolled]=useState(false);
-  useEffect(()=>{const fn=()=>setScrolled(window.scrollY>20);window.addEventListener("scroll",fn,{passive:true});return()=>window.removeEventListener("scroll",fn)},[]);
+  useEffect(()=>{const fn=()=>{
+      var st=window.pageYOffset;
+      setScrolled(st>20);
+      var nav=document.querySelector('.nav');
+      if(nav){
+        if(st>200 && st>window._lastST){
+          nav.style.transform='translateY(-100%)';
+        }else{
+          nav.style.transform='translateY(0)';
+        }
+        window._lastST=st;
+      }
+    };
+    window._lastST=0;window.addEventListener("scroll",fn,{passive:true});return()=>window.removeEventListener("scroll",fn)},[]);
 
   return<React.Fragment>
     <nav className={"nav"+(scrolled?" scrolled":"")}>
-      <a className="nav-logo" href="/">orizon</a>
+      <a className="nav-logo" href="/"><img src="data:image/png;base64,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" alt="Orizon ADV" style={{height:44,width:"auto"}}/></a>
       <div className="nav-links">
         <a className="nav-link" href="/index.html">Home</a>
         <a className="nav-link" href="/servizi.html">Servizi</a>
         <a className="nav-link" href="/work.html">Work</a>
         <a className="nav-link active" href="/contatti.html">Contatti</a>
       </div>
+        <button className="nav-hamburger" onClick={()=>{var m=document.querySelector('.mobile-menu');if(m){m.classList.add('open');document.body.style.overflow='hidden'}}}>
+          <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
     </nav>
+    <div className="mobile-menu">
+      <button className="mobile-close" onClick={()=>{var m=document.querySelector('.mobile-menu');if(m){m.classList.remove('open');document.body.style.overflow=''}}}>
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <a href="/">Home</a>
+      <a href="/servizi">Servizi</a>
+      <a href="/work">Work</a>
+      <a href="/contatti">Contatti</a>
+      <a className="mobile-cta" href="/contatti">Parliamone</a>
+    </div>
+
 
     <div className="hero-bg" aria-hidden="true">
       <div className="orb hero-orb-1"/>
@@ -251,7 +310,7 @@ function App(){
       <div className="orb hero-orb-3"/>
     </div>
     <div className="hero-o-pattern" aria-hidden="true">
-      <div className="o-shape" style={{position:"absolute",left:"5%",top:"8%",width:110,height:88,"--o-op":0.07,transform:"rotate(-12deg)",animationDelay:"0s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.07" fillRule="evenodd"/></svg></div><div className="o-shape" style={{position:"absolute",left:"22%",top:"-5%",width:75,height:60,"--o-op":0.09,transform:"rotate(15deg)",animationDelay:"0.1s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.07" fillRule="evenodd"/></svg></div><div className="o-shape" style={{position:"absolute",left:"42%",top:"10%",width:130,height:104,"--o-op":0.05,transform:"rotate(-6deg)",animationDelay:"0.2s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.07" fillRule="evenodd"/></svg></div><div className="o-shape" style={{position:"absolute",left:"65%",top:"-3%",width:60,height:48,"--o-op":0.1,transform:"rotate(22deg)",animationDelay:"0.15s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.07" fillRule="evenodd"/></svg></div><div className="o-shape" style={{position:"absolute",left:"85%",top:"8%",width:95,height:76,"--o-op":0.06,transform:"rotate(-18deg)",animationDelay:"0.05s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.07" fillRule="evenodd"/></svg></div><div className="o-shape" style={{position:"absolute",left:"10%",top:"50%",width:80,height:64,"--o-op":0.07,transform:"rotate(-25deg)",animationDelay:"0.3s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.07" fillRule="evenodd"/></svg></div><div className="o-shape" style={{position:"absolute",left:"35%",top:"55%",width:50,height:40,"--o-op":0.1,transform:"rotate(8deg)",animationDelay:"0.2s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.07" fillRule="evenodd"/></svg></div><div className="o-shape" style={{position:"absolute",left:"55%",top:"48%",width:110,height:88,"--o-op":0.04,transform:"rotate(-10deg)",animationDelay:"0.1s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.07" fillRule="evenodd"/></svg></div><div className="o-shape" style={{position:"absolute",left:"78%",top:"55%",width:65,height:52,"--o-op":0.08,transform:"rotate(16deg)",animationDelay:"0.35s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.07" fillRule="evenodd"/></svg></div><div className="o-shape" style={{position:"absolute",left:"20%",top:"80%",width:55,height:44,"--o-op":0.09,transform:"rotate(28deg)",animationDelay:"0.4s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.07" fillRule="evenodd"/></svg></div><div className="o-shape" style={{position:"absolute",left:"50%",top:"78%",width:90,height:72,"--o-op":0.05,transform:"rotate(-14deg)",animationDelay:"0.25s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.07" fillRule="evenodd"/></svg></div><div className="o-shape" style={{position:"absolute",left:"80%",top:"82%",width:45,height:36,"--o-op":0.1,transform:"rotate(6deg)",animationDelay:"0.3s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.07" fillRule="evenodd"/></svg></div>
+      <div className="o-shape" style={{position:"absolute",left:"5%",top:"8%",width:110,height:88,"--o-op":0.07,transform:"rotate(-12deg)",animationDelay:"0s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.14" fillRule="evenodd"/></svg></div><div className="o-shape" style={{position:"absolute",left:"22%",top:"-5%",width:75,height:60,"--o-op":0.09,transform:"rotate(15deg)",animationDelay:"0.1s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.14" fillRule="evenodd"/></svg></div><div className="o-shape" style={{position:"absolute",left:"42%",top:"10%",width:130,height:104,"--o-op":0.05,transform:"rotate(-6deg)",animationDelay:"0.2s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.14" fillRule="evenodd"/></svg></div><div className="o-shape" style={{position:"absolute",left:"65%",top:"-3%",width:60,height:48,"--o-op":0.1,transform:"rotate(22deg)",animationDelay:"0.15s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.14" fillRule="evenodd"/></svg></div><div className="o-shape" style={{position:"absolute",left:"85%",top:"8%",width:95,height:76,"--o-op":0.06,transform:"rotate(-18deg)",animationDelay:"0.05s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.14" fillRule="evenodd"/></svg></div><div className="o-shape" style={{position:"absolute",left:"10%",top:"50%",width:80,height:64,"--o-op":0.07,transform:"rotate(-25deg)",animationDelay:"0.3s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.14" fillRule="evenodd"/></svg></div><div className="o-shape" style={{position:"absolute",left:"35%",top:"55%",width:50,height:40,"--o-op":0.1,transform:"rotate(8deg)",animationDelay:"0.2s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.14" fillRule="evenodd"/></svg></div><div className="o-shape" style={{position:"absolute",left:"55%",top:"48%",width:110,height:88,"--o-op":0.04,transform:"rotate(-10deg)",animationDelay:"0.1s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.14" fillRule="evenodd"/></svg></div><div className="o-shape" style={{position:"absolute",left:"78%",top:"55%",width:65,height:52,"--o-op":0.08,transform:"rotate(16deg)",animationDelay:"0.35s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.14" fillRule="evenodd"/></svg></div><div className="o-shape" style={{position:"absolute",left:"20%",top:"80%",width:55,height:44,"--o-op":0.09,transform:"rotate(28deg)",animationDelay:"0.4s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.14" fillRule="evenodd"/></svg></div><div className="o-shape" style={{position:"absolute",left:"50%",top:"78%",width:90,height:72,"--o-op":0.05,transform:"rotate(-14deg)",animationDelay:"0.25s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.14" fillRule="evenodd"/></svg></div><div className="o-shape" style={{position:"absolute",left:"80%",top:"82%",width:45,height:36,"--o-op":0.1,transform:"rotate(6deg)",animationDelay:"0.3s"}}><svg viewBox="0 0 100 80" style={{width:"100%",height:"100%"}}><path d="M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z" fill="var(--blue)" fillOpacity="0.14" fillRule="evenodd"/></svg></div>
     </div>
     <header className="hero">
       <div>
@@ -296,6 +355,39 @@ function App(){
 }
 
 ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+</script>
+
+<script>
+(function(){
+  var nav = document.querySelector('.nav');
+  var lastScroll = 0;
+  window.addEventListener('scroll', function(){
+    var st = window.pageYOffset;
+    if(st > 80){
+      nav.classList.add('scrolled');
+      if(st > lastScroll && st > 200){
+        nav.style.transform = 'translateY(-100%)';
+      } else {
+        nav.style.transform = 'translateY(0)';
+      }
+    } else {
+      nav.classList.remove('scrolled');
+      nav.style.transform = 'translateY(0)';
+    }
+    lastScroll = st;
+  });
+  // Hamburger
+  setTimeout(function(){
+    var h = document.querySelector('.nav-hamburger');
+    var m = document.querySelector('.mobile-menu');
+    var c = document.querySelector('.mobile-close');
+    if(h&&m){
+      h.onclick=function(){m.classList.add('open');document.body.style.overflow='hidden'};
+      if(c) c.onclick=function(){m.classList.remove('open');document.body.style.overflow=''};
+      m.querySelectorAll('a').forEach(function(a){a.onclick=function(){m.classList.remove('open');document.body.style.overflow=''}});
+    }
+  },300);
+})();
 </script>
 </body>
 </html>
