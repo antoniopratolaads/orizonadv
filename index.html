@@ -76,7 +76,68 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .scan input::placeholder{color:var(--black-m)}
 .scan button{height:44px;padding:0 18px;border-radius:7px;background:var(--blue);color:var(--white);border:0;cursor:pointer;font:inherit;font-weight:600;font-size:15px;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;transition:background .2s}
 .scan button:hover{background:var(--blue-d)}
-.scan-meta{margin:12px auto 0;font-size:14px;color:var(--black-m);max-width:560px}
+.scan-meta{margin:12px auto 0;font-size:14px;color:var(--black-m);max-width:600px}
+.scan-meta b{color:var(--black);font-weight:600}
+.scan-k{margin:34px auto 0;max-width:640px;font-size:17px;color:var(--black);font-weight:600}
+.scan-k span{font-weight:400;color:var(--black-m)}
+.scan.big{max-width:640px;margin-top:14px;padding:5px;border-radius:12px}
+.scan.big input{height:52px;font-size:17px;padding:0 18px}
+.scan.big button{height:52px;padding:0 22px;font-size:16px;border-radius:9px}
+/* ── l'androide al lavoro ── */
+.gos{margin:56px auto 0;max-width:1180px;text-align:left;background:var(--white);border:1px solid var(--line-2);border-radius:16px;box-shadow:0 2px 6px rgba(12,23,19,.04),0 30px 80px -24px rgba(55,80,247,.26),0 12px 0 -6px var(--white),0 12px 0 -5px var(--line-2),0 24px 0 -12px var(--white),0 24px 0 -11px var(--line);overflow:hidden}
+.gos-head{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 22px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.gos-k{display:block;font-weight:600;font-size:17px;letter-spacing:-.015em}
+.gos-k em{font-style:normal;font-weight:600;font-size:11px;color:var(--blue);background:var(--blue-ll);border-radius:999px;padding:3px 9px;margin-left:8px;vertical-align:2px}
+.gos-s{display:block;font-size:13.5px;color:var(--black-m);margin-top:3px}
+.gos-s b{color:var(--black);font-weight:600}
+.gos-play{font:inherit;font-weight:600;font-size:13.5px;color:var(--black);background:var(--white);border:1px solid var(--line-2);border-radius:8px;padding:9px 14px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;transition:border-color .2s,color .2s}
+.gos-play:hover{border-color:var(--blue);color:var(--blue)}
+.gos-play .ico{width:14px;height:14px;stroke:none}
+.gos-play:disabled{opacity:.5;cursor:default}
+.gos-body{display:grid;grid-template-columns:400px 1fr}
+.gos-log{background:var(--black);color:var(--white);padding:20px 22px 22px;display:flex;flex-direction:column}
+.gos-log-h{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.gos-log-h i{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(96,231,135,.2)}
+.gos-log ol{list-style:none;display:grid;gap:9px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12.5px;line-height:1.45;color:rgba(255,255,255,.85)}
+.gos-log li{position:relative;padding-left:20px}
+.gos-log li::before{content:'';position:absolute;left:0;top:6px;width:9px;height:9px;border-radius:50%;background:var(--blue)}
+.gos-log li:last-child{color:var(--green);font-weight:600}
+.gos-log li:last-child::before{background:var(--green)}
+.gos-log.run li{opacity:0;transform:translateY(4px);transition:opacity .35s var(--ease),transform .35s var(--ease)}
+.gos-log.run li.on{opacity:1;transform:none}
+.gos-log.run li.cur::before{animation:blink .8s steps(2) infinite}
+@keyframes blink{to{opacity:.2}}
+.gos-reads{margin-top:auto;padding-top:16px;border-top:1px solid rgba(255,255,255,.14);font-size:12.5px;line-height:1.5;color:rgba(255,255,255,.7)}
+.gos-reads b{display:block;color:var(--white);font-weight:600;margin-bottom:3px}
+.gos-res{padding:20px 24px 22px;transition:opacity .5s var(--ease),filter .5s var(--ease)}
+.gos-res.wait{opacity:.18;filter:blur(3px);pointer-events:none}
+.gos-score{display:grid;grid-template-columns:auto 1fr;column-gap:14px;align-items:baseline}
+.gos-score>span{font-size:13px;color:var(--black-m);grid-column:1/-1}
+.gos-score>b{font-size:20px;font-weight:600;color:var(--black-m);letter-spacing:-.02em;line-height:1}
+.gos-score>b em{font-style:normal;font-size:44px;color:var(--black);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.gos-sbar{display:block;height:8px;border-radius:999px;background:var(--black-ll);overflow:hidden;align-self:center}
+.gos-sbar i{display:block;height:100%;border-radius:999px;background:var(--blue)}
+.gos-score small{grid-column:1/-1;margin-top:8px;font-size:14.5px;color:var(--black);line-height:1.45}
+.gos-aree{margin-top:16px;display:grid;gap:7px;padding-top:14px;border-top:1px solid var(--line)}
+.ga{display:grid;grid-template-columns:150px 1fr 34px;column-gap:12px;align-items:center;font-size:13.5px}
+.ga-n{font-weight:600;color:var(--black)}
+.ga-bar{display:block;height:7px;border-radius:999px;background:var(--bg-2);overflow:hidden}
+.ga-bar i{display:block;height:100%;width:var(--v);border-radius:999px;background:var(--blue)}
+.ga.male .ga-bar i{background:var(--black-l)}
+.ga>b{font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+.ga.male>b{color:var(--black-m)}
+.ga small{grid-column:1/-1;font-size:12px;color:var(--black-m);margin-top:-2px}
+.gos-cols{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);display:grid;grid-template-columns:1.25fr 1fr;gap:22px}
+.gos-cols h3{font-size:12.5px;font-weight:600;color:var(--black-m);margin-bottom:8px}
+.gos-probs{list-style:none;display:grid;gap:9px;counter-reset:gp}
+.gos-probs li{counter-increment:gp;position:relative;padding-left:26px;font-size:13px;line-height:1.4;color:var(--black-m)}
+.gos-probs li::before{content:counter(gp);position:absolute;left:0;top:1px;width:18px;height:18px;border-radius:50%;background:var(--bg-2);border:1px solid var(--line);font-size:10.5px;font-weight:600;color:var(--black);display:flex;align-items:center;justify-content:center}
+.gos-probs b{display:block;color:var(--black);font-weight:600}
+.gos-probs strong{color:var(--black);font-weight:600}
+.gos-porte{display:flex;flex-wrap:wrap;gap:6px}
+.gos-porte i{font-style:normal;font-size:12.5px;color:var(--black);border:1px dashed var(--black-l);border-radius:999px;padding:4px 10px}
+.gos-doc{margin-top:14px;font-size:13px;color:var(--black-m);line-height:1.45}
+.gos-doc b{color:var(--black);font-weight:600}
 .shot-wrap{margin:56px auto 0;max-width:1180px;position:relative;text-align:left}
 .shot-tag{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:var(--black-m);background:var(--white);border:1px solid var(--line);border-radius:999px;padding:6px 12px 6px 8px;margin-bottom:14px}
 .shot-tag i{width:8px;height:8px;border-radius:50%;background:var(--blue);display:inline-block}
@@ -565,6 +626,17 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .hero h1 br{display:none}
   .hero .sub{font-size:17px}
   .scan{flex-direction:column;padding:6px}
+  .scan.big input,.scan.big button{height:48px}
+  .scan-k{margin-top:26px;font-size:16px}
+  .gos{margin-top:36px}
+  .gos-head{padding:14px 16px}
+  .gos-body{grid-template-columns:1fr}
+  .gos-log{padding:16px 16px 18px}
+  .gos-log ol{font-size:12px}
+  .gos-res{padding:16px 16px 18px}
+  .gos-score>b em{font-size:36px}
+  .ga{grid-template-columns:118px 1fr 30px;font-size:12.5px}
+  .gos-cols{grid-template-columns:1fr;gap:16px}
   .scan button{justify-content:center}
   .growth{margin-top:36px;padding:18px 16px 14px}
   .growth-stats{gap:16px}
@@ -643,6 +715,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .js .fx{opacity:1;transform:none;transition:none}
   .js .chart .bars rect,.js .chart-m .bars rect{transform:none;transition:none}
   .js .lr i{transform:none;transition:none}
+  .gos-log.run li{opacity:1;transform:none;transition:none}
   .js .bars i{transform:none;transition:none}
 }
 </style>
@@ -679,11 +752,35 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   <div class="wrap">
     <h1 class="fx">Il tuo e-commerce ha già tutto. <br><span>Noi lo accendiamo.</span></h1>
     <p class="sub fx">Orizon Ignition riscrive le schede, traduce in ogni lingua, completa dati e feed di tutto il catalogo. <strong>Noi gestiamo le campagne a percentuale sul venduto</strong> — e possiamo permettercelo perché la macchina è nostra.</p>
-    <form class="scan fx" id="scan" action="/contatti" method="get">
+    <p class="scan-k fx">Prima, lo scan. <span>Orizon GOS legge il tuo negozio da fuori e ti dice dove sta il fatturato che il catalogo lascia sul tavolo.</span></p>
+    <form class="scan big fx" id="scan" action="/contatti" method="get">
       <input type="text" name="sito" placeholder="www.iltuonegozio.it" autocomplete="url" inputmode="url" aria-label="Indirizzo del tuo negozio online">
       <button type="submit">Fai lo scan <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></button>
     </form>
-    <p class="scan-meta fx">Growth Opportunity Scan: dove sta il fatturato che il tuo catalogo lascia sul tavolo. Ti scriviamo noi.</p>
+    <p class="scan-meta fx">Gratis, senza accessi: legge solo quello che il negozio pubblica. <b>Entro 24 ore</b> ti scriviamo noi con l'indice di accensione e le prime tre cose da accendere.</p>
+
+    <!-- ── Orizon GOS: l'androide al lavoro, su un negozio vero ── -->
+    <div class="gos fx" id="gos">
+      <div class="gos-head">
+        <div><span class="gos-k">Orizon GOS <em>Growth Opportunity Scan</em></span><span class="gos-s">Così legge un negozio. Questo è vero: <b>Manfrellotti</b>, moda, letto il 20 settembre 2026.</span></div>
+        <button type="button" class="gos-play" id="gos-play"><svg class="ico" aria-hidden="true" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor" stroke="none"/></svg> Guarda come legge</button>
+      </div>
+      <div class="gos-body">
+        <div class="gos-log" id="gos-log" aria-label="Il registro di lettura dello scan">
+          <div class="gos-log-h"><i></i>OrizonScan · manfrellotti.it</div>
+          <ol id="gos-steps"><li>Leggo www.manfrellotti.it da fuori: nessun accesso, nessuna credenziale</li><li>Sto leggendo il catalogo: pagina 70 (17432 prodotti)…</li><li>Apro 25 pagine prodotto e le fotografo…</li><li>Controllo feed, attributi, codici a barre, lingue, tracciamento</li><li>Preparo il documento…</li><li>Pronta: indice 38 su 100, quattro fogli.</li></ol>
+          <div class="gos-reads"><b>Cosa guarda, da fuori</b><span>17.432 prodotti e 70.099 varianti del catalogo pubblico · 25 pagine prodotto aperte e fotografate · marca, categoria, colore, taglia, codici a barre, peso · titoli e descrizioni per Google · tracciamento e consenso · lingue, recensioni, pagine marca.</span></div>
+        </div>
+        <div class="gos-res" id="gos-res">
+          <div class="gos-score"><span>Indice di accensione</span><b><em>38</em>/100</b><i class="gos-sbar"><i style="width:38%"></i></i><small>Il catalogo è caricato, ma spento: 14.763 prodotti su 17.432 non hanno un testo che Google possa preferire al vostro concorrente.</small></div>
+          <div class="gos-aree"><div class="ga male"><span class="ga-n">Schede prodotto</span><i class="ga-bar"><i style="--v:15%"></i></i><b>15</b><small>14.763 schede su 17.432 non hanno testo utile o sono gemelle di altre</small></div><div class="ga medio"><span class="ga-n">Feed e attributi</span><i class="ga-bar"><i style="--v:45%"></i></i><b>45</b><small>manca del tutto codice a barre valido per google e peso</small></div><div class="ga medio"><span class="ga-n">Testo per Google</span><i class="ga-bar"><i style="--v:60%"></i></i><b>60</b><small>15 pagine su 25 senza una descrizione scritta apposta</small></div><div class="ga male"><span class="ga-n">Catalogo vivo</span><i class="ga-bar"><i style="--v:32%"></i></i><b>32</b><small>11.932 prodotti online ma esauriti in ogni taglia</small></div><div class="ga medio"><span class="ga-n">Tracciamento</span><i class="ga-bar"><i style="--v:67%"></i></i><b>67</b><small>manca Meta</small></div></div>
+          <div class="gos-cols">
+            <div><h3>I tre problemi che costano di più</h3><ol class="gos-probs"><li><b>Le schede sono quelle del fornitore</b><span>13.788 sotto le 60 parole e <strong>784 identiche ad altre</strong> del vostro stesso catalogo.</span></li><li><b>Una parte della vetrina è vuota</b><span><strong>11.932 prodotti</strong> sono online ma esauriti in ogni taglia.</span></li><li><b>Al feed di Google mancano gli attributi</b><span>Su 12 attributi da cui dipende il feed, i più scoperti sono <strong>codice a barre valido per google</strong>, <strong>peso</strong>, fascia d'età al 16% e descrizione utilizzabile al 31%.</span></li></ol></div>
+            <div><h3>Porte chiuse, non difetti</h3><div class="gos-porte"><i>Nessun mercato estero attivo</i><i>Nessuna recensione visibile a Google</i><i>198 marche senza una pagina propria</i></div><p class="gos-doc">Ne esce un documento di <b>quattro fogli</b>: la diagnosi, la pagella, i tre problemi con cosa si fa, quello che da fuori non si vede. <b>Entro 24 ore</b>, senza impegno.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="growth fx" id="growth">
       <div class="growth-head">
@@ -1395,6 +1492,20 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     rows.forEach(function(r){ r.addEventListener('click', syncChips); r.addEventListener('keydown', function(){ setTimeout(syncChips, 0); }); });
     document.getElementById('all').addEventListener('click', function(){ var n = 0; KEYS.forEach(function(k, i){ setTimeout(syncChips, reduce ? 0 : i * 200 + 20); }); });
   }
+  /* ── Orizon GOS: «Guarda come legge» rifà la lettura, a richiesta ── */
+  var gplay = document.getElementById('gos-play'), glog = document.getElementById('gos-log'), gres = document.getElementById('gos-res');
+  if (gplay && glog && gres) gplay.addEventListener('click', function(){
+    var li = Array.prototype.slice.call(glog.querySelectorAll('li')), i = 0;
+    if (reduce) return;
+    gplay.disabled = true; glog.classList.add('run'); gres.classList.add('wait');
+    li.forEach(function(x){ x.classList.remove('on', 'cur'); });
+    (function passo(){
+      if (i > 0) li[i - 1].classList.remove('cur');
+      if (i >= li.length) { gres.classList.remove('wait'); gplay.disabled = false; glog.classList.remove('run'); return; }
+      li[i].classList.add('on', 'cur'); i++;
+      setTimeout(passo, i === li.length ? 500 : 650);
+    })();
+  });
   var b = document.querySelector('.burger'), m = document.querySelector('.mobile-menu'), c = document.querySelector('.mobile-close');
   function closeMenu(){ m.classList.remove('open'); document.body.style.overflow = ''; b.setAttribute('aria-expanded', 'false'); }
   if (b && m) {
