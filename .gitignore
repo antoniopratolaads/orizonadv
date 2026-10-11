@@ -1,0 +1,8 @@
+# file di lavoro della skill impeccable: catture, bozzetti, pagine-decisione
+.impeccable/review/
+.impeccable/mocks/
+.impeccable/questions/
+.impeccable/live/
+# sistema
+.DS_Store
+Thumbs.db

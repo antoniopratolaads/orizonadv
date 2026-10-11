@@ -179,7 +179,7 @@ const IconCheck=()=><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" s
 function MultiStepForm(){
   const[step,setStep]=useState(1);
   const[submitted,setSubmitted]=useState(false);
-  const[data,setData]=useState({services:[],budget:'',nome:'',cognome:'',email:'',telefono:'',azienda:'',messaggio:''});
+  const[data,setData]=useState({services:[],budget:'',nome:'',cognome:'',email:'',telefono:'',azienda:'',messaggio:(function(){var q=new URLSearchParams(location.search).get('sito');return q?'Vorrei il Growth Opportunity Scan per: '+q:''})()});
   const toggle=s=>setData(p=>({...p,services:p.services.includes(s)?p.services.filter(x=>x!==s):[...p.services,s]}));
   const canNext=()=>{if(step===1)return data.services.length>0;if(step===2)return data.budget!=='';if(step===3)return data.nome&&data.email;return true};
 
