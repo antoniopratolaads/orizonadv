@@ -158,12 +158,13 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .zone code,.ev-detail dt{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:10.5px;color:var(--black-m);background:var(--white);border:1px solid var(--line);border-radius:5px;padding:1px 6px;white-space:nowrap;align-self:start;justify-self:start;line-height:1.5}
 /* etichette: chip + perché */
 .lbl{gap:5px}
-.lbl div{display:grid;grid-template-columns:100px 1fr;gap:10px;font-size:12px;line-height:1.4;opacity:0;transform:translateX(6px);transition:opacity .35s var(--ease),transform .35s var(--ease)}
+.lbl div{display:grid;grid-template-columns:112px 1fr;gap:10px;font-size:12px;line-height:1.4;opacity:0;transform:translateX(6px);transition:opacity .35s var(--ease),transform .35s var(--ease)}
 .card.on-labels .lbl div{opacity:1;transform:none}
-.card.on-labels .lbl div:nth-child(1){transition-delay:90ms}.card.on-labels .lbl div:nth-child(2){transition-delay:180ms}.card.on-labels .lbl div:nth-child(3){transition-delay:270ms}.card.on-labels .lbl div:nth-child(4){transition-delay:360ms}.card.on-labels .lbl div:nth-child(5){transition-delay:450ms}
-.lbl b{font-weight:500;font-size:11.5px;color:var(--black);background:var(--bg-2);border:1px solid var(--line);border-radius:6px;padding:2px 8px;align-self:start;justify-self:start;white-space:nowrap}
+.card.on-labels .lbl div:nth-child(1){transition-delay:90ms}.card.on-labels .lbl div:nth-child(2){transition-delay:180ms}.card.on-labels .lbl div:nth-child(3){transition-delay:270ms}.card.on-labels .lbl div:nth-child(4){transition-delay:360ms}
+.lbl b{display:inline-block;font-weight:600;font-size:11.5px;color:var(--black);background:var(--white);border:1px solid var(--line-2);border-radius:6px;padding:1px 7px;margin:0 6px 3px 0;white-space:nowrap;vertical-align:baseline}
 .lbl span{color:var(--black-m)}
 .lbl .go b{background:var(--blue);color:var(--white);border-color:var(--blue)}
+.lbl .go code{background:var(--black);color:var(--white);border-color:var(--black)}
 .lbl .go span{color:var(--black)}
 /* feed: attributo di Google → valore letto dal prodotto */
 .feedt{gap:4px}
@@ -434,14 +435,13 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
             <div class="miss"><span>GTIN</span><span>manca → proposto</span></div>
           </div>
           <div class="zone extra" id="z-labels">
-            <span class="zl">Etichette per Google Ads<b class="zon-i">e il perché di ognuna</b></span>
+            <span class="zl">Etichette per Google Ads<b class="zon-i">tre per prodotto, col perché</b></span>
             <p class="zoff">Nessuna: in campagna questa padella vale quanto la pentola che non vende.</p>
             <div class="zon lbl">
-              <div><b>margine alto</b><span>29,90 € di prezzo contro il costo d'acquisto a listino: sopra la soglia del catalogo</span></div>
-              <div><b>speso basso</b><span>negli ultimi 30 giorni Google ci ha speso poco: il prodotto resta fuori dalle aste</span></div>
-              <div><b>ritorno alto</b><span>le volte che è uscito ha venduto: ritorno sopra la media del catalogo</span></div>
-              <div><b>misure piene</b><span>24, 28 e 32 cm tutte in stock, nessuna variante esaurita</span></div>
-              <div class="go"><b>→ spingere</b><span>in Google Ads va nel gruppo che prende più budget. «Margine basso» o «misure scarse» l'avrebbero fermata.</span></div>
+              <div><code>custom_label_0</code><span><b>margine_alto</b>prezzo − costo d'acquisto − IVA − resi attesi = margine netto. Sopra la soglia del catalogo.</span></div>
+              <div><code>custom_label_1</code><span><b>win</b>29,90 € sta sotto il benchmark che Google calcola sui concorrenti dello stesso prodotto.</span></div>
+              <div><code>custom_label_2</code><span><b>supercompetitivo</b>sotto il benchmark e converte: ROAS sopra il target 12 negli ultimi 20 giorni, con almeno 5 click.</span></div>
+              <div class="go"><code>Google Ads</code><span><b>gruppo «supercompetitivo»</b>il budget più alto. Con «supercaro_brucia_budget» sarebbe esclusa finché il prezzo non torna in linea.</span></div>
             </div>
           </div>
           <div class="zone extra" id="z-feed">
@@ -535,7 +535,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
           <div>
             <h3>Etichette per le campagne <em>Google Ads</em></h3>
             <p class="off">Oggi: in campagna la padella vale quanto la pentola che non vende. Il budget si spalma su tutto.</p>
-            <p class="fact">Ogni prodotto marcato da <b>speso, margine e ritorno</b> sulla spesa Google, più la copertura delle misure: <b><mark>etichette</mark> nel feed</b> che in Google Ads diventano gruppi di budget. Sulla scheda, <b>accanto a ogni etichetta il perché</b>: si spinge quello che rende, si ferma quello che non ha margine o non ha taglie.</p>
+            <p class="fact"><b><mark>Tre etichette</mark> per prodotto, scritte nel feed</b>: il <b>margine netto</b> (prezzo − costo d'acquisto − IVA − resi), il <b>prezzo contro il benchmark di Google</b> (win o lose) e il <b>bucket di performance</b> — nove classi, da «supercompetitivo» a «supercaro, brucia budget» — calcolato su 20 giorni di Google Ads con ROAS target 12. In Ads diventano gruppi: budget a chi vince l'asta e rende, stop a chi brucia. Sulla scheda, il perché di ognuna.</p>
           </div>
         </div>
 
@@ -558,7 +558,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         </div>
 
         <div class="done" id="done" aria-live="polite">
-          <div><b>100 su 100, su un prodotto.</b><span>2 testi per Google · 1 scheda · 24 testi in 4 lingue · 7 campi · 11 attributi nel feed · 4 etichette col perché · acquisto tracciato dal server. Il catalogo di F.lli Fontana Hotellerie ne ha 1.446: Ignition li tratta tutti così, col nostro sì prima di pubblicare.</span></div>
+          <div><b>100 su 100, su un prodotto.</b><span>2 testi per Google · 1 scheda · 24 testi in 4 lingue · 7 campi · 11 attributi nel feed · 3 etichette col perché · acquisto tracciato dal server. Il catalogo di F.lli Fontana Hotellerie ne ha 1.446: Ignition li tratta tutti così, col nostro sì prima di pubblicare.</span></div>
           <div class="n">× 1.446</div>
         </div>
       </div>
