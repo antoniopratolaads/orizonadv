@@ -282,6 +282,53 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .how-item .read b{display:block;font-weight:600;font-size:19px;letter-spacing:-.02em;color:var(--blue);margin-bottom:3px}
 .how-line{margin-top:24px;font-size:17px;color:var(--black);max-width:760px}
 .how-line strong{font-weight:600}
+/* i tre strumenti */
+.tools{margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.tool{background:var(--white);border:1px solid var(--line-2);border-radius:16px;padding:22px 24px 20px;box-shadow:0 1px 2px rgba(12,23,19,.04),0 18px 44px -20px rgba(12,23,19,.2)}
+.tool.wide{grid-column:1/-1}
+.tool header{display:flex;gap:14px;align-items:center}
+.tico{width:40px;height:40px;border-radius:10px;background:var(--bg-2);border:1px solid var(--line);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--blue)}
+.tico svg{width:22px;height:22px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.tool h3{font-size:19px;line-height:1.2;letter-spacing:-.02em}
+.tool header span{display:block;font-size:13px;color:var(--black-m);margin-top:2px}
+.tnote{margin-top:16px;padding-top:12px;border-top:1px solid var(--line);font-size:14px;color:var(--black-m);line-height:1.45}
+.tnote strong{color:var(--black);font-weight:600}
+/* conto economico a barre */
+.ledger{margin-top:18px}
+.lr{display:grid;grid-template-columns:156px 1fr 92px;gap:12px;align-items:center;padding:6px 0;font-size:14px;color:var(--black)}
+.lr span small{display:block;font-size:11.5px;color:var(--black-m);font-weight:400}
+.lr i{display:block;height:12px;border-radius:4px;background:var(--blue);width:var(--w);transform-origin:0 50%}
+.lr.m i{background:var(--black-ll)}
+.lr.m span,.lr.r span{color:var(--black-m)}
+.lr.tot{border-top:1px solid var(--line);margin-top:4px;padding-top:10px;font-weight:600}
+.lr.tot i{background:var(--blue-d)}
+.lr.r i{background:var(--blue-ll)}
+.lr b{text-align:right;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.lr.next{grid-template-columns:1fr 92px;border-top:1px dashed var(--line-2);margin-top:6px;padding-top:10px;color:var(--black-m)}
+.lr.next b{color:var(--blue)}
+.js .lr i{transform:scaleX(0);transition:transform .8s var(--ease)}
+.js .tool.in .lr i{transform:scaleX(1)}
+.js .tool.in .lr:nth-child(2) i{transition-delay:.08s}.js .tool.in .lr:nth-child(3) i{transition-delay:.16s}.js .tool.in .lr:nth-child(4) i{transition-delay:.24s}.js .tool.in .lr:nth-child(5) i{transition-delay:.32s}
+/* benchmark: una barra in tre */
+.bench{display:flex;height:48px;border-radius:9px;overflow:hidden;margin-top:18px}
+.bench i{display:flex;flex-direction:column;justify-content:center;padding:0 12px;font-style:normal;font-size:11px;color:var(--white);line-height:1.15;white-space:nowrap;overflow:hidden;min-width:0}
+.bench i b{font-size:16px;font-weight:600;letter-spacing:-.01em}
+.bench .w{background:var(--blue)}.bench .e{background:var(--blue-s);color:var(--black)}.bench .l{background:var(--black-m)}
+.dec{list-style:none;margin-top:16px;display:grid;gap:9px}
+.dec li{display:grid;grid-template-columns:56px 1fr;gap:10px;align-items:baseline;font-size:14px;color:var(--black-m);line-height:1.4}
+.dec b{font-size:24px;font-weight:600;color:var(--black);letter-spacing:-.025em;line-height:1}
+.dec strong{color:var(--black);font-weight:600}
+/* magazzino: tre numeri, due prodotti veri */
+.mag{margin-top:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.mk{padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--bg-2)}
+.mk b{display:block;font-size:28px;font-weight:600;letter-spacing:-.03em;color:var(--blue);line-height:1}
+.mk span{display:block;margin-top:6px;font-size:13.5px;color:var(--black-m);line-height:1.35}
+.mag-items{margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mp{display:grid;grid-template-columns:76px 1fr;gap:14px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:12px}
+.mp img{width:76px;height:76px;object-fit:contain;background:var(--white);border-radius:8px;border:1px solid var(--line)}
+.mp em{font-style:normal;font-size:11.5px;font-weight:600;color:var(--blue);display:block}
+.mp b{display:block;font-size:14.5px;font-weight:600;line-height:1.3;margin-top:2px}
+.mp span{display:block;font-size:13px;color:var(--black-m);margin-top:4px;line-height:1.4}
 /* ── CHI GUIDA ── */
 .who{padding:112px 0;background:var(--white)}
 .who-grid{display:grid;grid-template-columns:300px 1fr;gap:48px;align-items:center}
@@ -325,6 +372,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .panel{order:-1}
   .res-grid{grid-template-columns:1fr}
   .how-grid{grid-template-columns:1fr}
+  .tools{grid-template-columns:1fr}
   .who-grid{grid-template-columns:1fr}
   .who-photo{max-width:300px}
   .after{grid-template-columns:1fr}
@@ -395,6 +443,18 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .fig b{font-size:30px}
   .fig span{font-size:14px}
   .feat{padding:80px 0}
+  .how{padding:72px 0}
+  .tools{margin-top:28px;gap:14px}
+  .tool{padding:18px 16px 16px}
+  .lr{grid-template-columns:112px 1fr 82px;gap:8px;font-size:13px}
+  .lr.next{grid-template-columns:1fr 82px}
+  .bench i{padding:0 8px;font-size:10px}
+  .bench i b{font-size:14px}
+  .mag{grid-template-columns:1fr;gap:8px}
+  .mk{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:baseline;padding:10px 14px}
+  .mk b{font-size:22px}
+  .mk span{margin-top:0}
+  .mag-items{grid-template-columns:1fr}
   .totale{grid-template-columns:1fr}
   .lingue{grid-template-columns:1fr}
   .foot{grid-template-columns:1fr}
@@ -403,6 +463,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   html{scroll-behavior:auto}
   .js .fx{opacity:1;transform:none;transition:none}
   .js .chart .bars rect,.js .chart-m .bars rect{transform:none;transition:none}
+  .js .lr i{transform:none;transition:none}
 }
 </style>
 </head>
@@ -795,31 +856,56 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   </div>
 </section>
 
-<!-- ═══ COME LAVORIAMO ═══ -->
+<!-- ═══ COME LAVORIAMO: tre strumenti coi numeri veri ═══ -->
 <section class="how" id="come-lavoriamo">
   <div class="wrap">
-    <div class="sec-head">
-      <h2>Teniamo in mente quello che gli altri non guardano.</h2>
-      <p>Lavoriamo a percentuale su quello che vendi. Per permettercelo dobbiamo <strong>conoscere il tuo business meglio di un fornitore</strong>: non le impressioni, il conto economico. Sotto ogni punto, una lettura vera di oggi.</p>
+    <div class="sec-head fx">
+      <h2>Guardiamo i numeri <span>che gli altri non guardano.</span></h2>
+      <p>Lavoriamo a percentuale su quello che vendi. Per permettercelo leggiamo <strong>il tuo conto economico ogni mattina</strong>, non le impressioni. Tre strumenti, con i numeri veri di Climando letti oggi.</p>
     </div>
-    <div class="how-grid">
-      <div class="how-item fx">
-        <h3><mark>L'utile</mark>, non il fatturato.</h3>
-        <p>Facciamo il controllo di gestione del negozio: <strong>venduto netto, resi, IVA, spedizioni e costo d'acquisto per prodotto</strong>. Se un prodotto vende e non guadagna, lo sappiamo prima di te — e smettiamo di spingerlo.</p>
-        <div class="read"><b>801.290 → 664.610 €</b>dal lordo all'imponibile, con 147.854 € di resi (15,6%) letti sul giorno del reso — Climando, ultimi 30 giorni</div>
-      </div>
-      <div class="how-item fx">
-        <h3>Spendiamo <mark>dove si guadagna</mark>.</h3>
-        <p>Niente fatturato gonfiato sui prodotti strascontati. Il budget segue <strong>stagionalità, categorie e margine</strong>, con un forecast di spesa che cambia ogni mese, non un fisso che si ripete.</p>
-        <div class="read"><b>x50</b>vendite per euro speso: 106 K€ fra Meta e Google per 5,34 M€ di vendite, con il budget spostato mese per mese sulle categorie in stagione</div>
-      </div>
-      <div class="how-item fx">
-        <h3>Il <mark>magazzino</mark> è un costo.</h3>
-        <p>La merce ferma è denaro fermo. Leggiamo <strong>giacenze, taglie e ritmo di vendita</strong> ogni giorno e costruiamo <strong>campagne ad hoc sulle rimanenze</strong>, prima che diventino uno sconto — e segnaliamo cosa riordinare prima che finisca.</p>
-        <div class="read"><b>418.538 €</b>di merce ferma da 60 giorni su 6.502 articoli, 22 prodotti da riordinare, 57.655 € a rischio nei prossimi 90 giorni — Climando, letto oggi</div>
-      </div>
+
+    <div class="tools">
+      <article class="tool fx" aria-labelledby="t-utile">
+        <header><i class="tico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v17l-3-2-3 2-3-2-3 2V4a1 1 0 0 1 1-1z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></i><div><h3 id="t-utile">L'utile, non il fatturato</h3><span>un mese di Climando · 11 settembre – 11 ottobre 2026</span></div></header>
+        <div class="ledger">
+          <div class="lr"><span>Incassato, lordo</span><i style="--w:100%"></i><b>350.095 €</b></div>
+          <div class="lr m"><span>− IVA</span><i style="--w:17.6%"></i><b>61.608 €</b></div>
+          <div class="lr m"><span>− Spedizioni</span><i style="--w:4.4%"></i><b>15.275 €</b></div>
+          <div class="lr tot"><span>Merce netta</span><i style="--w:78%"></i><b>273.211 €</b></div>
+          <div class="lr r"><span>− Resi <small>11,4% del lordo, letti il giorno del reso</small></span><i style="--w:11.4%"></i><b>39.913 €</b></div>
+          <div class="lr next"><span>− Costo d'acquisto, prodotto per prodotto</span><b>= l'utile</b></div>
+        </div>
+        <p class="tnote">374 ordini · 269 clienti nuovi, 81 di ritorno. <strong>Se un prodotto vende e non guadagna, lo sappiamo prima di te</strong> — e smettiamo di spingerlo.</p>
+      </article>
+
+      <article class="tool fx" aria-labelledby="t-spesa">
+        <header><i class="tico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></i><div><h3 id="t-spesa">Spendiamo dove si guadagna</h3><span>750 prodotti di Climando contro il benchmark di Google, ogni mattina</span></div></header>
+        <div class="bench" role="img" aria-label="336 prodotti sotto il benchmark, 63 pari, 351 sopra">
+          <i class="w" style="width:44.8%"><b>336</b>sotto il benchmark</i><i class="e" style="width:8.4%"><b>63</b>pari</i><i class="l" style="width:46.8%"><b>351</b>sopra il benchmark</i>
+        </div>
+        <ul class="dec">
+          <li><b>12</b><span>sopra il benchmark e non convertono: <strong>bruciano budget, fermati</strong></span></li>
+          <li><b>4</b><span>sotto il benchmark e vendono: <strong>supercompetitivi, spinti</strong></span></li>
+          <li><b>256</b><span>cari e senza impressioni: <strong>è il prezzo, non il budget</strong></span></li>
+        </ul>
+        <p class="tnote">Il budget segue stagionalità, categorie e margine, con un forecast rifatto ogni mese. <strong>Niente fatturato gonfiato sui prodotti strascontati.</strong></p>
+      </article>
+
+      <article class="tool wide fx" aria-labelledby="t-mag">
+        <header><i class="tico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8l9-4 9 4-9 4-9-4z"/><path d="M3 8v8l9 4 9-4V8"/><path d="M12 12v8"/></svg></i><div><h3 id="t-mag">Il magazzino è un costo</h3><span>giacenze, ritmo di vendita e stagione dell'anno scorso, letti oggi sul negozio di Climando</span></div></header>
+        <div class="mag">
+          <div class="mk"><b>418.538 €</b><span>di merce ferma da 60 giorni, su 6.502 articoli</span></div>
+          <div class="mk"><b>22</b><span>prodotti da riordinare prima che finiscano</span></div>
+          <div class="mk"><b>57.655 €</b><span>di vendite a rischio nei prossimi 90 giorni</span></div>
+        </div>
+        <div class="mag-items">
+          <div class="mp"><img src="images/magazzino/dab-multi-inox.jpg" alt="" width="240" height="240" loading="lazy"><div><em>Ferma</em><b>Elettropompa Dab Multi Inox 3M</b><span>398 pezzi, 94.457 € fermi da 60 giorni → campagna ad hoc adesso, prima che diventi uno sconto</span></div></div>
+          <div class="mp"><img src="images/magazzino/accoroni-ghibli.jpg" alt="" width="240" height="157" loading="lazy"><div><em>Da riordinare</em><b>Radiatore a gas Accoroni Ghibli Elite 6</b><span>giacenza zero; l'anno scorso in questi mesi 8 pezzi, 6.192 € → riordina ora, non a dicembre</span></div></div>
+        </div>
+      </article>
     </div>
-    <p class="how-line">È il motivo per cui possiamo farci pagare <strong>solo su quello che vendi in più</strong>: il rischio è dell'impresa, e lo sappiamo.</p>
+
+    <p class="how-line fx">È il motivo per cui possiamo farci pagare <strong>solo su quello che vendi in più</strong>: il rischio è dell'impresa, e lo sappiamo.</p>
   </div>
 </section>
 
