@@ -368,6 +368,44 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .vs-why li b{color:var(--black);font-weight:600}
 .vs-why li strong{color:var(--black);font-weight:600}
 .vs-note{margin-top:16px;padding-top:12px;border-top:1px solid var(--line);font-size:12.5px;color:var(--black-l);line-height:1.45}
+.vs-sec.alt{background:var(--bg-2);position:relative;overflow:hidden}
+.vs-sec.alt::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(12,23,19,.11) 1px,transparent 1.2px);background-size:22px 22px;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse 40% 45% at 90% 10%,#000 10%,transparent 70%);mask-image:radial-gradient(ellipse 40% 45% at 90% 10%,#000 10%,transparent 70%)}
+.vs-sec.alt .wrap{position:relative;z-index:1}
+.vs-grid.flip>.vs{order:2}
+.vs.two .vr{grid-template-columns:1.7fr 1fr}
+.vr.sub{font-weight:600;background:var(--bg-2)}
+.vr.sub>span.b{font-weight:600}
+.vs.three .vr{grid-template-columns:1.45fr .55fr 1.3fr}
+.vs.three .vr>span.n{text-align:right;font-weight:600;font-variant-numeric:tabular-nums;padding-right:12px}
+.vs.three .vr>span.b{text-align:left;font-weight:400}
+.vs.three .vr>span:first-child b{font-weight:600;color:var(--black)}
+.vs.three .vr.m>span:first-child b{color:var(--black)}
+.vs.three .vr>span:first-child small{color:var(--black-m)}
+.vs.three .vr>span.b strong,.vs.four .vr>span.b strong{color:var(--black);font-weight:600}
+.vr.up>span.n{color:var(--blue)}
+.vr.down>span.n{color:var(--black-m)}
+.vr.up>span:first-child b::before,.vr.down>span:first-child b::before{content:'';display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;vertical-align:1px;background:var(--blue)}
+.vr.down>span:first-child b::before{background:var(--black-l)}
+.vs.three .vr.tot>span.n b,.vs.four .vr.tot>span.va b{display:block;font-size:22px;font-weight:600;letter-spacing:-.03em;line-height:1}
+.vs.three .vr.tot>span.b b{font-size:22px;color:var(--white)}
+.vs.three .vr.tot>span.b,.vs.four .vr.tot>span.b{text-align:left}
+.vs.four .vr{grid-template-columns:56px 1.3fr .9fr 1.4fr;gap:0 14px}
+.vs.four .vr.head{grid-template-columns:56px 1.3fr .9fr 1.4fr}
+.vs.four .vr.head>span:first-child{grid-column:1/3}
+.vs.four .vr img{width:56px;height:56px;object-fit:contain;border-radius:8px;border:1px solid var(--line);background:var(--white)}
+.vs.four .vr>span.nm{text-align:left;font-weight:400}
+.vs.four .vr>span.nm b{font-weight:600;color:var(--black);display:block;line-height:1.3}
+.vs.four .vr>span.va{text-align:left;font-weight:400}
+.vs.four .vr>span.va b{font-weight:600;color:var(--black);display:block}
+.vs.four .vr>span.b{text-align:left;font-weight:400;font-size:14px;line-height:1.4}
+.vs.four .vr.tot{grid-template-columns:1.3fr 1fr 1.4fr}
+.vs.four .vr.tot>span.va b{color:var(--white)}
+.vs.four .vr.tot>span.b b{display:block;font-size:22px;color:var(--white);line-height:1}
+.mks{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:22px}
+.mks div{padding:16px 18px;border:1px solid var(--line);border-radius:12px;background:var(--white)}
+.mks b{display:block;font-size:30px;font-weight:600;letter-spacing:-.035em;color:var(--blue);line-height:1}
+.mks span{display:block;margin-top:6px;font-size:13.5px;color:var(--black-m);line-height:1.35}
+.vs-why .how-line{margin-top:22px;font-size:16px}
 /* ── CHI GUIDA ── */
 .who{padding:112px 0;background:var(--white)}
 .who-grid{display:grid;grid-template-columns:300px 1fr;gap:48px;align-items:center}
@@ -413,6 +451,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .how-grid{grid-template-columns:1fr}
   .tools{grid-template-columns:1fr}
   .vs-grid{grid-template-columns:1fr;gap:20px}
+  .vs-grid.flip>.vs{order:0}
   .who-grid{grid-template-columns:1fr}
   .who-photo{max-width:300px}
   .after{grid-template-columns:1fr}
@@ -496,6 +535,22 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .vr{grid-template-columns:1.05fr 1fr 1.05fr}
   .vr.tot em{top:-12px;right:8px;font-size:11.5px}
   .bars{height:160px}
+  .vs.two .vr{grid-template-columns:1.4fr 1fr}
+  .vs.three .vr{grid-template-columns:1.3fr .45fr 1.1fr;font-size:12.5px}
+  .vs.four .vr{grid-template-columns:44px 1fr auto;grid-template-areas:"im nm va" "im ac ac";gap:4px 10px;font-size:12.5px}
+  .vs.four .vr img{grid-area:im;width:44px;height:44px}
+  .vs.four .vr>span.nm{grid-area:nm}
+  .vs.four .vr>span.va{grid-area:va;text-align:right}
+  .vs.four .vr>span.b.ac{grid-area:ac;margin:0;padding:6px 8px;border-left:0;border-radius:6px;font-size:12.5px}
+  .vs.four .vr.head{grid-template-columns:1fr auto;grid-template-areas:none}
+  .vs.four .vr.head>span:first-child{grid-column:auto}
+  .vs.four .vr.head>span:nth-child(2){display:none}
+  .vs.four .vr.tot{grid-template-columns:1fr 1fr;grid-template-areas:none}
+  .vs.four .vr.tot>span{grid-area:auto}
+  .vs.four .vr.tot>span:first-child{grid-column:1/-1;margin-bottom:8px}
+  .vs.four .vr.tot>span.va{text-align:left}
+  .mks{gap:8px}
+  .mks b{font-size:24px}
   .tools{margin-top:28px;gap:14px}
   .tool{padding:18px 16px 16px}
   .lr{grid-template-columns:112px 1fr 82px;gap:8px;font-size:13px}
@@ -909,56 +964,40 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   </div>
 </section>
 
-<!-- ═══ COME LAVORIAMO: tre strumenti coi numeri veri ═══ -->
-<section class="how" id="come-lavoriamo">
+<!-- ═══ L'UTILE ═══ -->
+<section class="vs-sec" id="come-lavoriamo">
   <div class="wrap">
     <div class="sec-head fx">
-      <h2>Guardiamo i numeri <span>che gli altri non guardano.</span></h2>
-      <p>Lavoriamo a percentuale su quello che vendi. Per permettercelo leggiamo <strong>il tuo conto economico ogni mattina</strong>, non le impressioni. Tre strumenti, con i numeri veri di Climando letti oggi.</p>
+      <h2>Il fatturato è un numero. <span>L'utile è quello che resta.</span></h2>
+      <p>Il «venduto» che vedi in Shopify ha dentro l'IVA, le spedizioni e i resi che devono ancora tornare. Noi lo smontiamo riga per riga, ogni mattina. <strong>Un mese vero di Climando</strong>, 11 settembre – 11 ottobre 2026.</p>
     </div>
-
-    <div class="tools">
-      <article class="tool fx" aria-labelledby="t-utile">
-        <header><i class="tico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v17l-3-2-3 2-3-2-3 2V4a1 1 0 0 1 1-1z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></i><div><h3 id="t-utile">L'utile, non il fatturato</h3><span>un mese di Climando · 11 settembre – 11 ottobre 2026</span></div></header>
-        <div class="ledger">
-          <div class="lr"><span>Incassato, lordo</span><i style="--w:100%"></i><b>350.095 €</b></div>
-          <div class="lr m"><span>− IVA</span><i style="--w:17.6%"></i><b>61.608 €</b></div>
-          <div class="lr m"><span>− Spedizioni</span><i style="--w:4.4%"></i><b>15.275 €</b></div>
-          <div class="lr tot"><span>Merce netta</span><i style="--w:78%"></i><b>273.211 €</b></div>
-          <div class="lr r"><span>− Resi <small>11,4% del lordo, letti il giorno del reso</small></span><i style="--w:11.4%"></i><b>39.913 €</b></div>
-          <div class="lr next"><span>− Costo d'acquisto, prodotto per prodotto</span><b><a href="#roas-o-utile">= l'utile ↓</a></b></div>
+    <div class="vs-grid">
+      <div class="vs two fx" role="table" aria-label="Il conto economico di un mese di Climando, riga per riga">
+        <div class="vr head" role="row"><span role="columnheader">Un mese di Climando</span><span class="b" role="columnheader">letto oggi dal suo Shopify</span></div>
+        <div class="vr" role="row"><span>Venduto in Shopify, lordo <small>374 ordini</small></span><span class="b">350.095 €</span></div>
+        <div class="vr m" role="row"><span>− IVA 22% <small>non è tua, la giri allo Stato</small></span><span class="b">61.608 €</span></div>
+        <div class="vr m" role="row"><span>− Spedizioni <small>incassate dai clienti, girate al corriere</small></span><span class="b">15.275 €</span></div>
+        <div class="vr sub" role="row"><span>= Merce netta, prima dei resi</span><span class="b">273.211 €</span></div>
+        <div class="vr m" role="row"><span>− Resi, netti IVA <small>11,4% del lordo, letti il giorno del reso, non a fine mese</small></span><span class="b">32.715 €</span></div>
+        <div class="vr sub" role="row"><span>= Merce netta dopo i resi</span><span class="b">240.496 €</span></div>
+        <div class="vr m" role="row"><span>− Costo d'acquisto <small>prodotto per prodotto: due articoli allo stesso prezzo possono lasciare 5 € o 50 €</small></span><span class="b">lo carichiamo con te</span></div>
+        <div class="vr m" role="row"><span>− Pubblicità <small>Meta e Google, letti ogni mattina dagli account</small></span><span class="b">dai tuoi account</span></div>
+        <div class="vr tot" role="row"><span>= Utile del mese</span><span class="b"><b>quello che resta</b><small>l'unico numero su cui ci paghi</small></span></div>
+      </div>
+      <div class="vs-why fx">
+        <div class="bars" aria-hidden="true">
+          <div><i style="--h:100%"></i><b>350.095 €</b><span>il «venduto» in Shopify</span></div>
+          <div class="on"><i style="--h:69%"></i><b>240.496 €</b><span>davvero tuo, prima del costo d'acquisto</span></div>
         </div>
-        <p class="tnote">374 ordini · 269 clienti nuovi, 81 di ritorno. <strong>Se un prodotto vende e non guadagna, lo sappiamo prima di te</strong> — e smettiamo di spingerlo.</p>
-      </article>
-
-      <article class="tool fx" aria-labelledby="t-spesa">
-        <header><i class="tico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></i><div><h3 id="t-spesa">Spendiamo dove si guadagna</h3><span>750 prodotti di Climando contro il benchmark di Google, ogni mattina</span></div></header>
-        <div class="bench" role="img" aria-label="336 prodotti sotto il benchmark, 63 pari, 351 sopra">
-          <i class="w" style="width:44.8%"><b>336</b>sotto il benchmark</i><i class="e" style="width:8.4%"><b>63</b>pari</i><i class="l" style="width:46.8%"><b>351</b>sopra il benchmark</i>
-        </div>
-        <ul class="dec">
-          <li><b>12</b><span>sopra il benchmark e non convertono: <strong>bruciano budget, fermati</strong></span></li>
-          <li><b>4</b><span>sotto il benchmark e vendono: <strong>supercompetitivi, spinti</strong></span></li>
-          <li><b>256</b><span>cari e senza impressioni: <strong>è il prezzo, non il budget</strong></span></li>
-        </ul>
-        <p class="tnote">Il budget segue stagionalità, categorie e margine, con un forecast rifatto ogni mese. <strong>Niente fatturato gonfiato sui prodotti strascontati.</strong></p>
-      </article>
-
-      <article class="tool wide fx" aria-labelledby="t-mag">
-        <header><i class="tico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8l9-4 9 4-9 4-9-4z"/><path d="M3 8v8l9 4 9-4V8"/><path d="M12 12v8"/></svg></i><div><h3 id="t-mag">Il magazzino è un costo</h3><span>giacenze, ritmo di vendita e stagione dell'anno scorso, letti oggi sul negozio di Climando</span></div></header>
-        <div class="mag">
-          <div class="mk"><b>418.538 €</b><span>di merce ferma da 60 giorni, su 6.502 articoli</span></div>
-          <div class="mk"><b>22</b><span>prodotti da riordinare prima che finiscano</span></div>
-          <div class="mk"><b>57.655 €</b><span>di vendite a rischio nei prossimi 90 giorni</span></div>
-        </div>
-        <div class="mag-items">
-          <div class="mp"><img src="images/magazzino/dab-multi-inox.jpg" alt="" width="240" height="240" loading="lazy"><div><em>Ferma</em><b>Elettropompa Dab Multi Inox 3M</b><span>398 pezzi, 94.457 € fermi da 60 giorni → campagna ad hoc adesso, prima che diventi uno sconto</span></div></div>
-          <div class="mp"><img src="images/magazzino/accoroni-ghibli.jpg" alt="" width="240" height="157" loading="lazy"><div><em>Da riordinare</em><b>Radiatore a gas Accoroni Ghibli Elite 6</b><span>giacenza zero; l'anno scorso in questi mesi 8 pezzi, 6.192 € → riordina ora, non a dicembre</span></div></div>
-        </div>
-      </article>
+        <h3>Perché conta</h3>
+        <ol>
+          <li><b>Il 31% del «venduto» non è tuo.</b> IVA, spedizioni e resi: 109.599 € in un mese che un report sul fatturato ti mostra come incasso.</li>
+          <li><b>I resi tornano dopo.</b> Un mese che sembrava buono si riapre tre settimane più tardi. Li leggiamo il giorno in cui arrivano, prodotto per prodotto, e li togliamo dal budget di quel prodotto.</li>
+          <li><b>Il costo d'acquisto decide tutto.</b> È l'unico numero che non sta in Shopify: lo carichiamo con te, prodotto per prodotto, e da lì in poi ogni decisione di spesa parte dal margine, non dal prezzo.</li>
+        </ol>
+        <p class="vs-note">Numeri letti l'11 ottobre 2026 dal pannello Shopify di Climando: 374 ordini, 269 clienti nuovi e 81 di ritorno. Il costo d'acquisto non è ancora caricato: per questo l'utile qui non ha una cifra.</p>
+      </div>
     </div>
-
-    <p class="how-line fx">È il motivo per cui possiamo farci pagare <strong>solo su quello che vendi in più</strong>: il rischio è dell'impresa, e lo sappiamo.</p>
   </div>
 </section>
 
@@ -997,6 +1036,78 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
           <li><b>Per questo spendiamo di più e accettiamo un ROAS più basso.</b> Dieci mila euro in più di pubblicità, quarantamila di vendite in meno, <strong>il doppio dell'utile</strong>. Ed è l'unico numero su cui ci paghi.</li>
         </ol>
         <p class="vs-note">Numeri tondi di un mese tipo, stesso negozio: cambia solo dove va il budget. IVA 22%, resi 11,4% (il ritmo vero di Climando), spedizioni 3,5%, commissioni 1,5%; costo d'acquisto 80% del venduto sui prodotti «da ROAS», 66% su quelli scelti per margine.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ IL BUDGET ═══ -->
+<section class="vs-sec alt" id="budget">
+  <div class="wrap">
+    <div class="sec-head fx">
+      <h2>Il budget va <span>dove si vince l'asta.</span></h2>
+      <p>Ogni mattina leggiamo ogni prodotto in campagna contro il <strong>benchmark di prezzo di Google</strong> e contro venti giorni di Google Ads. Ne esce una classe, e la classe decide cosa fare del budget. <strong>750 prodotti di Climando, oggi.</strong></p>
+    </div>
+    <div class="vs-grid flip">
+      <div class="vs three fx" role="table" aria-label="Le classi del labelizer sui 750 prodotti di Climando e cosa facciamo per ognuna">
+        <div class="vr head" role="row"><span role="columnheader">Classe</span><span class="n" role="columnheader">Prodotti</span><span class="b" role="columnheader">Cosa facciamo</span></div>
+        <div class="vr up" role="row"><span><b>supercompetitivo</b><small>sotto il benchmark e vende</small></span><span class="n">4</span><span class="b"><strong>budget in più</strong></span></div>
+        <div class="vr up" role="row"><span><b>competitivo, poco visibile</b><small>prezzo buono, pochi click</small></span><span class="n">276</span><span class="b"><strong>si spinge: è qui che si cresce</strong></span></div>
+        <div class="vr " role="row"><span><b>competitivo ok</b><small>prezzo pari al benchmark e vende</small></span><span class="n">1</span><span class="b">si mantiene</span></div>
+        <div class="vr " role="row"><span><b>da controllare</b><small>sotto il benchmark ma non vende</small></span><span class="n">20</span><span class="b">scheda o feed, <strong>non budget</strong></span></div>
+        <div class="vr " role="row"><span><b>da monitorare</b><small>ai margini delle soglie</small></span><span class="n">25</span><span class="b">si osserva, nessuna mossa</span></div>
+        <div class="vr " role="row"><span><b>sopra il benchmark ma converte</b><small>caro, ma vende lo stesso</small></span><span class="n">0</span><span class="b">si lascia, si guarda il margine</span></div>
+        <div class="vr down" role="row"><span><b>supercaro, brucia budget</b><small>sopra il benchmark e non vende</small></span><span class="n">12</span><span class="b"><strong>fermato</strong></span></div>
+        <div class="vr down" role="row"><span><b>supercaro, nascosto</b><small>caro e senza impressioni</small></span><span class="n">256</span><span class="b"><strong>è il prezzo, non il budget</strong></span></div>
+        <div class="vr down" role="row"><span><b>senza impressioni</b><small>Google non lo mostra proprio</small></span><span class="n">156</span><span class="b">fuori dalla campagna</span></div>
+        <div class="vr tot" role="row"><span>750 prodotti in campagna</span><span class="n"><b>336</b><small>sotto il benchmark</small></span><span class="b"><b>351</b><small>sopra il benchmark: lì non si spinge</small></span></div>
+      </div>
+      <div class="vs-why fx">
+        <div class="bench" role="img" aria-label="336 prodotti sotto il benchmark, 63 pari, 351 sopra">
+          <i class="w" style="width:44.8%"><b>336</b>sotto il benchmark</i><i class="e" style="width:8.4%"><b>63</b>pari</i><i class="l" style="width:46.8%"><b>351</b>sopra</i>
+        </div>
+        <h3>Perché succede</h3>
+        <ol>
+          <li><b>Google decide l'asta anche sul prezzo.</b> 351 prodotti stanno sopra il benchmark dei concorrenti: per quanto budget ci metti, non vincono. Lì il problema è il prezzo, e lo diciamo.</li>
+          <li><b>Le classi finiscono nel feed, come etichette.</b> In Google Ads diventano gruppi: il budget va a chi vince e rende, zero a chi brucia. Non è una regola scritta una volta: si rifà ogni mattina.</li>
+          <li><b>Il margine entra nella stessa lettura.</b> Un prodotto «supercompetitivo» con margine zero non si spinge comunque: la classe dice se può vincere, il margine dice se conviene.</li>
+        </ol>
+        <p class="vs-note">Letto l'11 ottobre 2026 sui prodotti di Climando in campagna: 20 giorni di Google Ads, ROAS target 12, almeno 5 click per giudicare. Le classi cambiano ogni giorno, e con loro i gruppi in Ads.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ IL MAGAZZINO ═══ -->
+<section class="vs-sec" id="magazzino">
+  <div class="wrap">
+    <div class="sec-head fx">
+      <h2>La merce ferma <span>è denaro fermo.</span></h2>
+      <p>Giacenze, ritmo di vendita degli ultimi 30 giorni e la stagione dell'anno scorso, letti ogni giorno sul negozio. Ne escono due liste: <strong>cosa muovere prima che diventi uno sconto</strong> e <strong>cosa riordinare prima che finisca</strong>. Climando, oggi.</p>
+    </div>
+    <div class="vs-grid">
+      <div class="vs four fx" role="table" aria-label="I prodotti fermi e quelli da riordinare di Climando, con la mossa per ognuno">
+        <div class="vr head" role="row"><span role="columnheader">Prodotto</span><span role="columnheader">Giacenza</span><span class="b" role="columnheader">La mossa</span></div>
+        <div class="vr p down" role="row"><img src="images/magazzino/dab-multi-inox.jpg" alt="" width="240" height="240" loading="lazy"><span class="nm"><b>Elettropompa Dab Multi Inox 3M</b><small>termoidraulica</small></span><span class="va"><b>398 pezzi</b><small>94.457 € fermi</small></span><span class="b ac">ferma da 60 giorni → <strong>campagna ad hoc adesso</strong>, prima che diventi uno sconto</span></div>
+        <div class="vr p down" role="row"><img src="images/magazzino/edilkamin-blade.jpg" alt="" width="240" height="240" loading="lazy"><span class="nm"><b>Stufa a pellet EdilKamin Blade 12++ Evo</b><small>riscaldamento</small></span><span class="va"><b>28 pezzi</b><small>79.800 € fermi</small></span><span class="b ac">ferma, ma la stagione arriva → <strong>campagna sul freddo</strong>, non sconto</span></div>
+        <div class="vr p down" role="row"><img src="images/magazzino/climaveneta-ilife2.jpg" alt="" width="240" height="240" loading="lazy"><span class="nm"><b>Fan coil Climaveneta i-LIFE2 Slim</b><small>condizionamento</small></span><span class="va"><b>99 pezzi</b><small>70.340 € fermi</small></span><span class="b ac">ferma, fuori stagione → <strong>bundle con le installazioni</strong></span></div>
+        <div class="vr p up" role="row"><img src="images/magazzino/accoroni-ghibli.jpg" alt="" width="240" height="240" loading="lazy"><span class="nm"><b>Radiatore a gas Accoroni Ghibli Elite 6</b><small>riscaldamento</small></span><span class="va"><b>giacenza 0</b><small>8 pezzi l'anno scorso</small></span><span class="b ac"><strong>riordina ora</strong>: 6.192 € a rischio in questi mesi</span></div>
+        <div class="vr p up" role="row"><img src="images/magazzino/baxi-duotec.jpg" alt="" width="240" height="240" loading="lazy"><span class="nm"><b>Caldaia Baxi Duo-Tec Compact 24 kW</b><small>riscaldamento</small></span><span class="va"><b>giacenza 0</b><small>8 pezzi l'anno scorso</small></span><span class="b ac"><strong>riordina ora</strong>: 5.785 € a rischio</span></div>
+        <div class="vr tot" role="row"><span>Oggi, su tutto il catalogo</span><span class="va"><b>6.502</b><small>articoli fermi da 60 giorni</small></span><span class="b"><b>22</b><small>prodotti da riordinare</small></span></div>
+      </div>
+      <div class="vs-why fx">
+        <div class="mks">
+          <div><b>418.538 €</b><span>di merce ferma da 60 giorni</span></div>
+          <div><b>57.655 €</b><span>di vendite a rischio nei prossimi 90 giorni, se non si riordina</span></div>
+        </div>
+        <h3>Perché conta</h3>
+        <ol>
+          <li><b>La merce ferma è cassa ferma.</b> 418 mila euro che non girano: una campagna ad hoc oggi li muove a prezzo pieno, uno sconto a gennaio li muove in perdita.</li>
+          <li><b>Il riordino si decide sulla stagione dell'anno scorso.</b> Quel radiatore in questi mesi ne ha venduti 8; oggi ha giacenza zero. Ogni settimana senza riordinare è una vendita persa a un cliente che la trova altrove.</li>
+          <li><b>Lo leggiamo dal negozio, non da un foglio.</b> Giacenze e vendite ogni giorno, con la mossa scritta accanto: è nel report di ogni settimana, non in una riunione a fine trimestre.</li>
+        </ol>
+        <p class="vs-note">Letto l'11 ottobre 2026 sul negozio Shopify di Climando: stagione di confronto 11 ottobre 2025 – 9 gennaio 2026. Foto dei prodotti dal suo catalogo.</p>
+        <p class="how-line">È il motivo per cui possiamo farci pagare <strong>solo su quello che vendi in più</strong>: il rischio è dell'impresa, e lo sappiamo.</p>
       </div>
     </div>
   </div>
