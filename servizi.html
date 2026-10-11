@@ -69,9 +69,10 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .scan-meta{margin:12px auto 0;font-size:14px;color:var(--black-m);max-width:560px}
 
 /* ── TESTA ── */
-.chead{padding:132px 0 40px;position:relative}
+.chead{padding:132px 0 40px;position:relative;overflow:hidden}
 .chead::before{content:'';position:absolute;left:50%;top:-120px;width:1100px;height:600px;transform:translateX(-50%);background:radial-gradient(ellipse at center,rgba(55,80,247,.12),rgba(55,80,247,0) 62%);pointer-events:none}
-.chead .wrap{position:relative}
+.chead::after{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(12,23,19,.11) 1px,transparent 1.2px);background-size:22px 22px;-webkit-mask-image:radial-gradient(ellipse 60% 70% at 50% 40%,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse 60% 70% at 50% 40%,#000 20%,transparent 75%);pointer-events:none}
+.chead .wrap{position:relative;z-index:1}
 .chead h1{font-size:clamp(36px,4.6vw,56px);line-height:1.06;letter-spacing:-.035em;max-width:820px;text-wrap:balance}
 .chead h1 span{color:var(--blue)}
 .chead .sub{margin-top:16px;font-size:18px;color:var(--black-m);max-width:640px;text-wrap:pretty}
@@ -99,7 +100,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .chips{margin-top:18px;display:flex;flex-wrap:wrap;gap:6px}
 .chips i{font-style:normal;font-size:13px;color:var(--black-m);border:1px solid var(--line);border-radius:999px;padding:5px 11px;background:var(--white)}
 .more{margin-top:22px;font-size:15.5px;color:var(--black);max-width:620px}
-.more a{color:var(--blue);font-weight:600;text-decoration:none;white-space:nowrap}
+.more a{color:var(--blue);font-weight:600;text-decoration:none}
 .more a:hover{text-decoration:underline;text-underline-offset:3px}
 .pbox{background:var(--white);border:1px solid var(--line-2);border-radius:16px;padding:20px 22px;box-shadow:0 24px 70px -28px rgba(12,23,19,.22)}
 .pbox h3{font-size:13.5px;font-weight:600;color:var(--black-m)}
@@ -129,13 +130,14 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 /* ── SCAN FINALE ── */
 .end{padding:112px 0;background:var(--bg-2);border-top:1px solid var(--line);text-align:center;position:relative;overflow:hidden}
 .end::before{content:'';position:absolute;left:50%;top:-200px;width:900px;height:600px;transform:translateX(-50%);background:radial-gradient(ellipse at center,rgba(55,80,247,.12),rgba(55,80,247,0) 62%);pointer-events:none}
-.end .wrap{position:relative}
+.end::after{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(12,23,19,.11) 1px,transparent 1.2px);background-size:22px 22px;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse 50% 55% at 50% 30%,#000 10%,transparent 70%);mask-image:radial-gradient(ellipse 50% 55% at 50% 30%,#000 10%,transparent 70%)}
+.end .wrap{position:relative;z-index:1}
 .end h2{font-size:clamp(34px,4.4vw,56px);line-height:1.05;letter-spacing:-.035em;max-width:760px;margin:0 auto;text-wrap:balance}
 .end h2 span{color:var(--blue)}
 .end .sub{margin:18px auto 0;font-size:18px;color:var(--black-m);max-width:600px}
 .end .scan{margin-top:28px}
 .after{margin:28px auto 0;max-width:820px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;text-align:left}
-.after div{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:14px;color:var(--black-m);line-height:1.45}
+.after div{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:14px;color:var(--black-m);line-height:1.45;box-shadow:0 1px 2px rgba(12,23,19,.04),0 12px 30px -18px rgba(12,23,19,.16)}
 .after div b{display:block;color:var(--black);font-weight:600;margin-bottom:2px}
 
 /* ── FOOTER ── */
