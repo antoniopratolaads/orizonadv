@@ -3,500 +3,501 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Orizon ADV — VG Informatica Case Study</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<title>VG Informatica: quattro volte le richieste, a metà del costo — Orizon ADV</title>
+<meta name="description" content="Il caso VG Informatica: lead generation B2B su Google Ads, +320% di richieste qualificate e −45% di costo per richiesta, con una landing per servizio e un modulo che qualifica.">
+<link rel="canonical" href="https://www.orizonadv.it/case-study/vg-informatica">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VG Informatica: quattro volte le richieste, a metà del costo — Orizon ADV">
+<meta property="og:description" content="Il caso VG Informatica: lead generation B2B su Google Ads, +320% di richieste qualificate e −45% di costo per richiesta, con una landing per servizio e un modulo che qualifica.">
+<meta property="og:url" content="https://www.orizonadv.it/case-study/vg-informatica">
+<meta property="og:locale" content="it_IT">
+<meta property="og:site_name" content="Orizon ADV">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="/images/brand/mark-blu.svg" type="image/svg+xml">
+<link rel="preload" href="/fonts/IBMPlexSans.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.add('js')</script>
 <style>
-:root{--blue:#3750F7;--blue-d:#233BD9;--blue-l:#6377FD;--blue-s:#9FABFF;--blue-ll:#D2D8FF;--green:#60E787;--green-d:#4CCB70;--green-l:#A1F9BA;--pink:#FEEAEE;--black:#0C1713;--black-m:#5A625F;--black-l:#A8ACAB;--black-ll:#D9D9D9;--gray:#F4F5F7;--white:#FFFFFF;--vg:#059669;--vg-l:#34D399;--vg-ll:#D1FAE5;--vg-d:#047857}
-*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-body{font-family:'IBM Plex Sans',sans-serif;color:var(--black);background:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-::selection{background:var(--blue-ll);color:var(--blue-d)}
+@font-face{font-family:'IBM Plex Sans';font-weight:100 700;font-style:normal;font-display:swap;src:url(/fonts/IBMPlexSans.woff2) format('woff2-variations'),url(/fonts/IBMPlexSans.woff2) format('woff2')}
 
-/* NAV */
-.nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:0 56px;height:72px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);background:rgba(255,255,255,.88);border-bottom:1px solid rgba(55,80,247,.05);transition:all .4s}
-.nav.scrolled{box-shadow:0 1px 20px rgba(55,80,247,.04)}
-.nav-logo{font-size:21px;font-weight:700;color:var(--blue);letter-spacing:-.04em;text-decoration:none}
-.nav-links{display:flex;gap:8px;align-items:center}
-.nav-link{padding:8px 18px;border-radius:100px;font-size:14px;font-weight:500;color:var(--black-m);text-decoration:none;transition:all .3s;border:1px solid transparent}
-.nav-link:hover{color:var(--black);background:var(--gray)}
-.nav-cta{padding:9px 22px;border-radius:100px;font-size:14px;font-weight:600;color:var(--white);background:var(--blue);text-decoration:none;transition:all .35s;border:none;cursor:pointer;font-family:inherit}
-.nav-cta:hover{background:var(--blue-d);transform:translateY(-1px);box-shadow:0 8px 24px rgba(55,80,247,.2)}
-
-/* HERO */
-.cs-hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#059669,#34D399);padding:140px 56px 80px;min-height:480px;display:flex;align-items:flex-end}
-.cs-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
-.cs-hero::after{content:'';position:absolute;bottom:-120px;right:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.08),transparent 70%);pointer-events:none}
-.cs-hero-content{position:relative;max-width:1440px;width:100%;margin:0 auto}
-.cs-hero-back{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:rgba(255,255,255,.7);text-decoration:none;margin-bottom:32px;transition:all .3s;padding:8px 16px;border-radius:100px;background:rgba(255,255,255,.1);backdrop-filter:blur(8px)}
-.cs-hero-back:hover{background:rgba(255,255,255,.2);color:white}
-.cs-hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:100px;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:white;margin-bottom:20px}
-.cs-hero h1{font-size:clamp(36px,5vw,60px);font-weight:700;letter-spacing:-.045em;line-height:1.06;color:white;margin-bottom:12px;max-width:700px}
-.cs-hero-sub{font-size:18px;color:rgba(255,255,255,.7);max-width:500px;line-height:1.6}
-.cs-hero-logo{position:absolute;top:160px;right:56px;width:120px;height:120px;border-radius:28px;background:rgba(255,255,255,.12);backdrop-filter:blur(16px);display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:700;color:white;letter-spacing:-.02em;border:1px solid rgba(255,255,255,.15)}
-
-/* KPI STRIP */
-.kpi-strip{max-width:1440px;margin:-48px auto 0;padding:0 56px;position:relative;z-index:10}
-.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.kpi-card{background:var(--white);border-radius:20px;padding:28px 24px;box-shadow:0 8px 40px rgba(0,0,0,.06);border:1px solid rgba(55,80,247,.04);text-align:center;transition:all .4s}
-.kpi-card:hover{transform:translateY(-3px);box-shadow:0 16px 48px rgba(0,0,0,.08)}
-.kpi-value{font-size:clamp(28px,3vw,38px);font-weight:700;letter-spacing:-.03em;margin-bottom:4px}
-.kpi-label{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--black-l)}
-
-/* CONTENT */
-.cs-content{max-width:1440px;margin:0 auto;padding:80px 56px}
-.cs-grid{display:grid;grid-template-columns:1fr 380px;gap:64px;align-items:flex-start}
-.cs-main{min-width:0}
-.cs-sidebar{position:sticky;top:96px}
-
-/* SECTION BLOCKS */
-.cs-block{margin-bottom:56px}
-.cs-block-label{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--vg);margin-bottom:14px;display:flex;align-items:center;gap:10px}
-.cs-block-label::before{content:'';width:24px;height:2px;background:var(--vg);border-radius:1px}
-.cs-block h2{font-size:clamp(24px,3vw,32px);font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-bottom:16px}
-.cs-block p{font-size:16px;line-height:1.8;color:var(--black-m);margin-bottom:16px}
-.cs-block p strong{color:var(--black);font-weight:600}
-
-/* PLACEHOLDER IMAGES */
-.ph-img{border-radius:20px;overflow:hidden;position:relative;margin-bottom:24px;border:1px solid rgba(55,80,247,.04)}
-.ph-img-inner{width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;position:relative}
-.ph-img-tag{position:absolute;top:14px;left:14px;padding:5px 12px;border-radius:100px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.9);color:var(--black-m);backdrop-filter:blur(8px)}
-.ph-img-label{font-size:14px;font-weight:600;color:rgba(255,255,255,.8)}
-.ph-img-hint{font-size:11px;color:rgba(255,255,255,.45)}
-
-/* DASHBOARD MOCK */
-.dash-mock{padding:24px;border-radius:16px;background:var(--gray);position:relative;overflow:hidden}
-.dash-mock-bar{height:8px;border-radius:4px;margin-bottom:12px}
-.dash-mock-row{display:flex;gap:12px;margin-bottom:12px}
-.dash-mock-cell{flex:1;height:60px;border-radius:10px;background:var(--white);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:2px}
-.dash-mock-cell-v{font-size:18px;font-weight:700;color:var(--vg)}
-.dash-mock-cell-l{font-size:9px;color:var(--black-l);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
-.dash-mock-chart{height:120px;border-radius:12px;background:var(--white);position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:12px 16px;gap:6px}
-.dash-mock-chart-bar{flex:1;border-radius:4px 4px 0 0;background:linear-gradient(180deg,var(--vg),var(--vg-l));transition:height .6s cubic-bezier(.22,1,.36,1)}
-
-/* SIDEBAR PANELS */
-.side-panel{background:var(--gray);border-radius:22px;padding:28px;margin-bottom:20px;border:1px solid rgba(55,80,247,.03)}
-.side-panel-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--vg);margin-bottom:12px}
-.side-panel-title{font-size:18px;font-weight:700;letter-spacing:-.02em;margin-bottom:16px}
-.side-detail{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(55,80,247,.04)}
-.side-detail:last-child{border-bottom:none}
-.side-detail-label{font-size:13px;color:var(--black-m)}
-.side-detail-value{font-size:13px;font-weight:700}
-.side-tags{display:flex;flex-wrap:wrap;gap:6px}
-.side-tag{padding:6px 14px;border-radius:100px;font-size:12px;font-weight:600;border:1px solid rgba(5,150,105,.12);color:var(--vg-d);background:var(--vg-ll);transition:all .3s}
-.side-tag:hover{background:var(--vg);color:white}
-
-/* RESULTS GRID */
-.results-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
-.result-card{padding:22px;border-radius:16px;background:var(--gray);border:1px solid rgba(55,80,247,.03);text-align:center}
-.result-card-v{font-size:28px;font-weight:700;letter-spacing:-.02em;margin-bottom:4px}
-.result-card-l{font-size:11px;color:var(--black-l);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
-.result-card-d{font-size:12px;color:var(--black-m);margin-top:6px;line-height:1.5}
-
-/* TIMELINE */
-.timeline{position:relative;padding-left:28px;margin-bottom:24px}
-.timeline::before{content:'';position:absolute;left:6px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--vg),var(--vg-l));border-radius:1px}
-.timeline-item{position:relative;margin-bottom:28px}
-.timeline-item:last-child{margin-bottom:0}
-.timeline-dot{position:absolute;left:-28px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--vg);border:3px solid var(--white);box-shadow:0 0 0 2px var(--vg)}
-.timeline-phase{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--vg);margin-bottom:4px}
-.timeline-title{font-size:16px;font-weight:700;margin-bottom:4px}
-.timeline-desc{font-size:14px;color:var(--black-m);line-height:1.6}
-
-/* QUOTE */
-.cs-quote{padding:32px;border-radius:22px;background:linear-gradient(135deg,var(--vg),var(--vg-d));position:relative;overflow:hidden;margin-bottom:24px}
-.cs-quote::before{content:'\201C';position:absolute;top:-10px;left:20px;font-size:120px;font-weight:700;color:rgba(255,255,255,.08);line-height:1;pointer-events:none}
-.cs-quote p{font-size:17px;line-height:1.7;color:white;font-style:italic;position:relative}
-.cs-quote-author{margin-top:16px;font-size:13px;font-weight:700;color:rgba(255,255,255,.7);position:relative}
-
-/* CTA BOTTOM */
-.cs-cta{text-align:center;padding:80px 56px 100px;position:relative}
-.cs-cta::before{content:'';position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(55,80,247,.04),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
-.cs-cta h2{font-size:clamp(28px,4vw,44px);font-weight:700;letter-spacing:-.035em;margin-bottom:14px;position:relative}
-.cs-cta p{font-size:17px;color:var(--black-m);margin-bottom:32px;max-width:460px;margin-left:auto;margin-right:auto;line-height:1.7;position:relative}
-.cs-cta-btn{padding:18px 44px;background:var(--blue);color:var(--white);border:none;border-radius:100px;font-family:inherit;font-size:16px;font-weight:700;cursor:pointer;transition:all .4s;position:relative}
-.cs-cta-btn:hover{transform:translateY(-3px);box-shadow:0 20px 48px rgba(55,80,247,.22);background:var(--blue-d)}
-.cs-cta-link{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--blue);text-decoration:none;margin-left:24px;transition:gap .3s}
-.cs-cta-link:hover{gap:12px}
-
-/* FOOTER */
-.footer{border-top:1px solid rgba(55,80,247,.04);padding:56px 56px 40px;max-width:1440px;margin:0 auto}
-.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;margin-bottom:48px}
-.footer-brand{max-width:280px}
-.footer-logo{font-size:20px;font-weight:700;color:var(--blue);letter-spacing:-.04em;margin-bottom:12px}
-.footer-tagline{font-size:13px;color:var(--black-l);line-height:1.6;margin-bottom:20px}
-.footer-contact-item{font-size:13px;color:var(--black-m);margin-bottom:8px;display:flex;align-items:center;gap:8px;text-decoration:none;transition:color .3s}
-.footer-contact-item:hover{color:var(--blue)}
-.footer-contact-item svg{width:14px;height:14px;opacity:.5;flex-shrink:0}
-.footer-col h4{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--black-l);margin-bottom:16px}
-.footer-col a{display:block;font-size:14px;font-weight:500;color:var(--black-m);text-decoration:none;margin-bottom:10px;transition:color .3s}
-.footer-col a:hover{color:var(--blue)}
-.footer-bottom{padding-top:24px;border-top:1px solid rgba(55,80,247,.04);font-size:12px;color:var(--black-l);font-weight:500;text-align:center}
-
-/* REVEAL */
-.rv{opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1)}
-.rv.v{opacity:1;transform:translateY(0)}
-
-/* RESPONSIVE */
-@media(max-width:1100px){
-.nav{padding:0 32px}.cs-hero{padding:120px 32px 64px}.cs-hero-logo{display:none}
-.kpi-strip{padding:0 32px}.kpi-grid{grid-template-columns:1fr 1fr}
-.cs-content{padding:64px 32px}.cs-grid{grid-template-columns:1fr;gap:48px}.cs-sidebar{position:static}
-.cs-cta{padding:64px 32px 80px}.footer{padding:40px 32px 32px}.footer-top{grid-template-columns:1fr 1fr;gap:32px}
+:root{
+  --blue:#3750F7;--blue-d:#233BD9;--blue-l:#6377FD;--blue-s:#9FABFF;--blue-ll:#D2D8FF;
+  --green:#60E787;--black:#0C1713;--black-m:#5A625F;--black-l:#A8ACAB;--black-ll:#D9D9D9;--white:#FFFFFF;
+  --bg-2:#F7F8FA;--line:rgba(12,23,19,.09);--line-2:rgba(12,23,19,.14);
+  --font:'IBM Plex Sans',Arial,Helvetica,sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
 }
-@media(max-width:768px){
-.nav{padding:0 20px;height:64px}.nav-links{display:none}
-.cs-hero{padding:100px 20px 56px;min-height:auto}.kpi-strip{padding:0 20px}.kpi-grid{grid-template-columns:1fr 1fr}
-.cs-content{padding:48px 20px}.results-grid{grid-template-columns:1fr}
-.cs-cta{padding:48px 20px 64px}.footer{padding:32px 20px 24px}.footer-top{grid-template-columns:1fr;gap:28px}
-}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--white);color-scheme:light;scrollbar-color:var(--black-ll) var(--white)}
+body{font-family:var(--font);font-size:17px;line-height:1.55;color:var(--black);background:var(--white);-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums;overflow-x:hidden}
+::selection{background:var(--blue-ll);color:var(--black)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px}
+a{color:inherit}
+img{display:block;max-width:100%}
+h1,h2,h3{font-weight:600;letter-spacing:-.025em}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.ico{width:1em;height:1em;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;display:inline-block;vertical-align:-.12em}
 
-.cta-gm{position:relative;overflow:hidden;border-radius:28px;padding:80px 60px;text-align:center;background:linear-gradient(135deg,#3750F7,#233BD9);margin:0 56px}
-.cta-gm::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 100 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z' fill='white' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");background-size:120px 96px;opacity:.6}
-.cta-gm::after{content:'';position:absolute;bottom:-200px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(96,231,135,.15),transparent 70%)}
-.cta-gm h2{font-size:clamp(30px,4vw,52px);font-weight:700;letter-spacing:-.04em;color:white;margin-bottom:16px;position:relative;z-index:1}
-.cta-gm>p{font-size:18px;color:rgba(255,255,255,.6);margin-bottom:36px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7;position:relative;z-index:1}
-.cta-glass{display:inline-flex;align-items:center;gap:24px;padding:10px 10px 10px 36px;border-radius:100px;background:rgba(255,255,255,.1);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.15);position:relative;z-index:1}
-.cta-glass span{font-size:15px;font-weight:600;color:rgba(255,255,255,.9)}
-.cta-glass-btn{padding:14px 36px;background:white;color:#3750F7;border-radius:100px;font-size:15px;font-weight:700;text-decoration:none;transition:all .3s;display:inline-block}
-.cta-glass-btn:hover{transform:scale(1.04);box-shadow:0 8px 24px rgba(0,0,0,.15)}
-.cta-sub{margin-top:20px;font-size:13px;color:rgba(255,255,255,.35);position:relative;z-index:1}
-
-/* SMART NAV */
-.nav{transition:transform .35s cubic-bezier(.22,1,.36,1),background .3s,box-shadow .3s!important}
-.nav-logo img{height:44px;width:auto}
-/* HAMBURGER */
-.nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:1001}
-.nav-hamburger svg{width:24px;height:24px;stroke:var(--black);stroke-width:2;fill:none;stroke-linecap:round}
-.mobile-menu{display:none;position:fixed;inset:0;z-index:9999;background:rgba(255,255,255,.98);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:0;pointer-events:none;transition:opacity .3s}
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:60px;background:rgba(255,255,255,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;height:100%}
+.brand img{height:22px;width:auto}
+.nav-links{display:flex;gap:28px}
+.nav-links a{font-weight:500;font-size:14px;color:var(--black-m);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--black)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:14px;line-height:1;padding:10px 16px;border-radius:8px;text-decoration:none;cursor:pointer;border:1px solid transparent;transition:background .2s,color .2s,border-color .2s}
+.btn-primary{background:var(--blue);color:var(--white)}
+.btn-primary:hover{background:var(--blue-d)}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:8px;color:var(--black)}
+.burger svg{width:24px;height:24px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:99;background:var(--white);padding:92px 32px 32px;flex-direction:column;gap:2px;opacity:0;pointer-events:none;transition:opacity .25s}
 .mobile-menu.open{opacity:1;pointer-events:auto}
-.mobile-menu a{font-size:20px;font-weight:600;color:var(--black-m);text-decoration:none;padding:14px 40px;border-radius:100px;transition:all .3s}
-.mobile-menu a:hover,.mobile-menu a.active{color:var(--blue);background:rgba(55,80,247,.05)}
-.mobile-menu .mobile-cta{margin-top:16px;padding:16px 40px;background:var(--blue);color:var(--white);border-radius:100px;font-size:16px;font-weight:700;text-decoration:none}
-.mobile-close{position:absolute;top:20px;right:24px;background:none;border:none;cursor:pointer;padding:8px}
-.mobile-close svg{width:24px;height:24px;stroke:var(--black);stroke-width:2;fill:none;stroke-linecap:round}
-@media(max-width:768px){
-.nav-hamburger{display:block}.nav-links{display:none!important}.mobile-menu{display:flex}
-.hero h1{font-size:clamp(28px,7vw,42px)!important}
-.hero-desc{font-size:16px!important}
-.hero-actions{flex-direction:column;align-items:stretch!important}
-.hero-btn{text-align:center;padding:14px 32px!important}
-.cta-gm{margin:0 20px!important;padding:48px 24px!important;border-radius:20px!important}
-.cta-glass{flex-direction:column;border-radius:20px!important;padding:20px!important;gap:14px!important}
-.svc-grid,.cases-grid,.cases-grid-big,.testi-grid{grid-template-columns:1fr!important}
-.stats-grid{grid-template-columns:1fr 1fr!important}
-.founder-grid{grid-template-columns:1fr!important}
-.footer-top{grid-template-columns:1fr!important}
+.mobile-menu a{font-weight:600;font-size:24px;color:var(--black);text-decoration:none;padding:12px 0;border-bottom:1px solid var(--line)}
+.mobile-close{position:absolute;top:14px;right:22px;background:none;border:0;cursor:pointer;padding:8px;color:var(--black)}
+.mobile-close svg{width:24px;height:24px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round}
+
+/* ── comparsa morbida ── */
+.js .fx{opacity:0;transform:translateY(10px);transition:opacity .7s var(--ease),transform .9s var(--ease)}
+.js .fx.in{opacity:1;transform:none}
+
+.scan{margin:30px auto 0;display:flex;max-width:560px;border:1px solid var(--line-2);border-radius:10px;background:var(--white);padding:4px;box-shadow:0 1px 2px rgba(12,23,19,.04);transition:box-shadow .2s,border-color .2s}
+.scan:focus-within{border-color:var(--blue);box-shadow:0 0 0 4px rgba(55,80,247,.14)}
+.scan input{flex:1;min-width:0;height:44px;padding:0 14px;background:transparent;border:0;color:var(--black);font:inherit;font-size:16px;outline:none}
+.scan input::placeholder{color:var(--black-m)}
+.scan button{height:44px;padding:0 18px;border-radius:7px;background:var(--blue);color:var(--white);border:0;cursor:pointer;font:inherit;font-weight:600;font-size:15px;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;transition:background .2s}
+.scan button:hover{background:var(--blue-d)}
+.scan-meta{margin:12px auto 0;font-size:14px;color:var(--black-m);max-width:560px}
+.growth{margin:56px auto 0;max-width:1180px;text-align:left;background:var(--white);border:1px solid var(--line-2);border-radius:16px;padding:24px 28px 20px;box-shadow:0 2px 6px rgba(12,23,19,.04),0 30px 80px -24px rgba(55,80,247,.26),0 12px 0 -6px var(--white),0 12px 0 -5px var(--line-2),0 24px 0 -12px var(--white),0 24px 0 -11px var(--line)}
+.growth-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:18px}
+.growth-k{display:block;font-weight:600;font-size:18px;letter-spacing:-.01em}
+.growth-s{display:block;font-size:13px;color:var(--black-m);margin-top:2px;max-width:560px}
+.growth-s b{color:var(--black);font-weight:600}
+.growth-stats{display:flex;gap:28px}
+.growth-stats div{display:flex;flex-direction:column}
+.growth-stats b{font-weight:600;font-size:30px;letter-spacing:-.03em;line-height:1;color:var(--blue)}
+.growth-stats span{font-size:12px;color:var(--black-m);margin-top:5px;line-height:1.3}
+.chart,.chart-m{width:100%;height:auto;display:block;font-family:var(--font)}
+.chart-m{display:none;max-width:420px}
+.chart .grid line{stroke:var(--line);stroke-width:1}
+.chart .lab text{font-size:12px;fill:var(--black-m)}
+.chart .lab text.v{font-size:11px;font-weight:600;fill:var(--black)}
+.chart .lab text.yoy{font-size:17px;font-weight:600;fill:var(--blue)}
+.chart .lab text.yoy.big,.chart-m .lab text.yoy.big{fill:var(--white)}
+.chart .pill,.chart-m .pill{fill:var(--blue)}
+.chart .lab text.ax{font-size:10.5px;fill:var(--black-l)}
+.chart .lab text.yoy.n,.chart-m .lab text.yoy.n{fill:var(--black-m)}
+.chart .lab text.k{font-size:11.5px;fill:var(--black-l)}
+.chart-m .lab text{font-size:12px;fill:var(--black-m)}
+.chart-m .lab text.v{font-size:10.5px;font-weight:600;fill:var(--black)}
+.chart-m .lab text.yoy{font-size:15px;font-weight:600;fill:var(--blue)}
+.chart-m .b1{fill:var(--blue-ll)}.chart-m .b2{fill:var(--blue)}
+.chart .b1{fill:var(--blue-ll)}.chart .b2{fill:var(--blue)}.chart .b3{fill:var(--blue-d)}
+.js .chart .bars rect{transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(0);transition:transform .9s var(--ease);transition-delay:calc(var(--i) * 22ms)}
+.js .growth.in .chart .bars rect{transform:scaleY(1)}
+.js .chart-m .bars rect{transform-box:fill-box;transform-origin:0 50%;transform:scaleX(0);transition:transform .8s var(--ease);transition-delay:calc(var(--i) * 22ms)}
+.js .growth.in .chart-m .bars rect{transform:scaleX(1)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px;font-size:12px;color:var(--black-m)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.legend .l1{background:var(--blue-ll)}.legend .l2{background:var(--blue)}.legend .l4{background:none;width:auto;height:auto;font-weight:600;color:var(--blue);font-size:12px;margin-right:4px}.legend .l4::before{content:'+309%'}
+.sec-head{max-width:760px}
+.sec-head h2{font-size:clamp(30px,3.6vw,46px);line-height:1.1;letter-spacing:-.03em;text-wrap:balance}
+.sec-head p{margin-top:16px;font-size:18px;color:var(--black-m);max-width:640px}
+.sec-head p strong{color:var(--black);font-weight:600}
+.sec-head h2 span{color:var(--blue)}
+/* ── ROAS o utile: lo stesso mese, due modi ── */
+.vs-sec{padding:112px 0;background:var(--white);border-bottom:1px solid var(--line)}
+.vs-grid{margin-top:44px;display:grid;grid-template-columns:1.25fr 1fr;gap:28px;align-items:start}
+.vs{background:var(--white);border:1px solid var(--line-2);border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(12,23,19,.04),0 24px 60px -24px rgba(12,23,19,.22)}
+.vr{display:grid;grid-template-columns:1.35fr 1fr 1fr;align-items:center;padding:10px 20px;border-top:1px solid var(--line);font-size:15px;color:var(--black)}
+.vr>span{display:block}
+.vr>span:nth-child(2),.vr>span:nth-child(3){text-align:right;font-variant-numeric:tabular-nums;font-weight:500}
+.vr>span:nth-child(2){padding-right:20px}
+.vr.head>span:nth-child(2){padding-right:20px}
+.vr>span.b{background:rgba(55,80,247,.05);margin:-10px -20px -10px 0;padding:10px 20px 10px 12px;border-left:1px solid rgba(55,80,247,.15)}
+.vr small{display:block;font-size:11.5px;color:var(--black-m);font-weight:400;line-height:1.3;margin-top:1px}
+.vr.head{border-top:0;background:var(--bg-2);font-size:12.5px;font-weight:600;color:var(--black-m);padding:12px 20px}
+.vr.head>span.b{color:var(--blue);background:rgba(55,80,247,.08)}
+.vr.m{color:var(--black-m)}
+.vr.m>span:nth-child(2),.vr.m>span:nth-child(3){font-weight:400;color:var(--black)}
+.vr.big>span b{font-size:26px;font-weight:600;letter-spacing:-.03em;line-height:1}
+.vr.big>span.b b{color:var(--blue)}
+.vr.tot{background:var(--black);color:var(--white);padding:16px 20px;border-top:0}
+.vr.tot>span.b{background:rgba(255,255,255,.08);border-left-color:rgba(255,255,255,.14);margin:-16px -20px -16px 0;padding:16px 20px 16px 12px;position:relative}
+.vr.tot b{display:block;font-size:30px;font-weight:600;letter-spacing:-.035em;line-height:1}
+.vr.tot>span.b b{color:var(--green)}
+.vr.tot small{color:rgba(255,255,255,.7)}
+.vr.tot em{position:absolute;top:-14px;right:14px;font-style:normal;font-size:12.5px;font-weight:600;color:var(--black);background:var(--green);border-radius:999px;padding:4px 10px;white-space:nowrap}
+.vs-why{padding-top:4px}
+.bars{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:end;height:210px;margin-bottom:22px;padding:0 8px}
+.bars div{display:flex;flex-direction:column;justify-content:flex-end;height:100%;text-align:center}
+.bars i{display:block;height:var(--h);border-radius:8px 8px 4px 4px;background:var(--black-ll);transform-origin:50% 100%}
+.bars .on i{background:var(--blue)}
+.bars b{font-weight:600;font-size:18px;letter-spacing:-.02em;margin-top:8px;order:-1}
+.bars span{font-size:12.5px;color:var(--black-m);margin-top:6px;order:1}
+.js .bars i{transform:scaleY(0);transition:transform .9s var(--ease) .1s}
+.js .vs-why.in .bars i{transform:scaleY(1)}
+.vs-why h3{font-size:15px;font-weight:600;color:var(--black-m);margin-bottom:8px}
+.vs-why ol{list-style:none;counter-reset:n;display:grid;gap:12px}
+.vs-why li{counter-increment:n;position:relative;padding-left:36px;font-size:15px;color:var(--black-m);line-height:1.5}
+.vs-why li::before{content:counter(n);position:absolute;left:0;top:1px;width:24px;height:24px;border-radius:50%;background:var(--bg-2);border:1px solid var(--line);font-size:12px;font-weight:600;color:var(--black);display:flex;align-items:center;justify-content:center}
+.vs-why li b{color:var(--black);font-weight:600}
+.vs-why li strong{color:var(--black);font-weight:600}
+.vs-note{margin-top:16px;padding-top:12px;border-top:1px solid var(--line);font-size:12.5px;color:var(--black-l);line-height:1.45}
+.vs-sec.alt{background:var(--bg-2);position:relative;overflow:hidden}
+.vs-sec.alt::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(12,23,19,.11) 1px,transparent 1.2px);background-size:22px 22px;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse 40% 45% at 90% 10%,#000 10%,transparent 70%);mask-image:radial-gradient(ellipse 40% 45% at 90% 10%,#000 10%,transparent 70%)}
+.vs-sec.alt .wrap{position:relative;z-index:1}
+.vs-grid.flip>.vs{order:2}
+.vs.two .vr{grid-template-columns:1.7fr 1fr}
+.vr.sub{font-weight:600;background:var(--bg-2)}
+.vr.sub>span.b{font-weight:600}
+.vs.three .vr{grid-template-columns:1.45fr .55fr 1.3fr}
+.vs.three .vr>span.n{text-align:right;font-weight:600;font-variant-numeric:tabular-nums;padding-right:12px}
+.vs.three .vr>span.b{text-align:left;font-weight:400}
+.vs.three .vr>span:first-child b{font-weight:600;color:var(--black)}
+.vs.three .vr.m>span:first-child b{color:var(--black)}
+.vs.three .vr>span:first-child small{color:var(--black-m)}
+.vs.three .vr>span.b strong,.vs.four .vr>span.b strong{color:var(--black);font-weight:600}
+.vr.up>span.n{color:var(--blue)}
+.vr.down>span.n{color:var(--black-m)}
+.vr.up>span:first-child b::before,.vr.down>span:first-child b::before{content:'';display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;vertical-align:1px;background:var(--blue)}
+.vr.down>span:first-child b::before{background:var(--black-l)}
+.vs.three .vr.tot>span.n b,.vs.four .vr.tot>span.va b{display:block;font-size:22px;font-weight:600;letter-spacing:-.03em;line-height:1}
+.vs.three .vr.tot>span.b b{font-size:22px;color:var(--white)}
+.vs.three .vr.tot>span.b,.vs.four .vr.tot>span.b{text-align:left}
+.vs.four .vr{grid-template-columns:56px 1.25fr .8fr .7fr 1.45fr;gap:0 14px}
+.vs.four .vr.head{grid-template-columns:56px 1.25fr .8fr .7fr 1.45fr}
+.vs.four .vr>span.ve{text-align:left;font-weight:400;padding-right:0}
+.vs.four .vr>span.ve b{font-weight:600;color:var(--black);display:block}
+.vs.four .vr.down>span.ve b{color:var(--blue)}
+.vs.four .vr.head>span.ve{text-align:left}
+.vs.four .vr.head>span:first-child{grid-column:1/3}
+.vs.four .vr img{width:56px;height:56px;object-fit:contain;border-radius:8px;border:1px solid var(--line);background:var(--white)}
+.vs.four .vr>span.nm{text-align:left;font-weight:400}
+.vs.four .vr>span.nm b{font-weight:600;color:var(--black);display:block;line-height:1.3}
+.vs.four .vr>span.va{text-align:left;font-weight:400}
+.vs.four .vr>span.va b{font-weight:600;color:var(--black);display:block}
+.vs.four .vr>span.b{text-align:left;font-weight:400;font-size:14px;line-height:1.4}
+.vs.four .vr.tot{grid-template-columns:1.25fr 1.1fr 1.45fr}
+.vs.four .vr.tot>span.va b{color:var(--white)}
+.vs.four .vr.tot>span.b b{display:block;font-size:22px;color:var(--white);line-height:1}
+.mks{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:22px}
+.mks div{padding:16px 18px;border:1px solid var(--line);border-radius:12px;background:var(--white)}
+.mks b{display:block;font-size:30px;font-weight:600;letter-spacing:-.035em;color:var(--blue);line-height:1}
+.mks span{display:block;margin-top:6px;font-size:13.5px;color:var(--black-m);line-height:1.35}
+.vs-why .how-line{margin-top:22px;font-size:16px}
+
+/* ── TESTA DEL CASO ── */
+.chead{padding:124px 0 40px;position:relative;overflow:hidden}
+.chead::before{content:'';position:absolute;left:50%;top:-120px;width:1100px;height:600px;transform:translateX(-50%);background:radial-gradient(ellipse at center,rgba(55,80,247,.12),rgba(55,80,247,0) 62%);pointer-events:none}
+.chead::after{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(12,23,19,.11) 1px,transparent 1.2px);background-size:22px 22px;-webkit-mask-image:radial-gradient(ellipse 60% 70% at 50% 40%,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse 60% 70% at 50% 40%,#000 20%,transparent 75%);pointer-events:none}
+.chead .wrap{position:relative;z-index:1}
+.back{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:var(--black-m);text-decoration:none;margin-bottom:22px}
+.back:hover{color:var(--blue)}
+.back .ico{transform:rotate(180deg)}
+.chead .kind{font-size:14px;color:var(--black-m);margin-bottom:10px}
+.chead .kind b{color:var(--black);font-weight:600}
+.chead h1{font-size:clamp(36px,4.6vw,56px);line-height:1.06;letter-spacing:-.035em;max-width:900px;text-wrap:balance}
+.chead h1 span{color:var(--blue)}
+.chead .sub{margin-top:16px;font-size:18px;color:var(--black-m);max-width:680px;text-wrap:pretty}
+.chead .sub strong{color:var(--black);font-weight:600}
+.kpis{margin-top:36px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.kpis div{background:var(--white);border:1px solid var(--line-2);border-radius:14px;padding:18px 20px;box-shadow:0 1px 2px rgba(12,23,19,.04),0 14px 34px -18px rgba(12,23,19,.16)}
+.kpis b{display:block;font-weight:600;font-size:32px;letter-spacing:-.035em;line-height:1;color:var(--blue)}
+.kpis span{display:block;margin-top:6px;font-size:13.5px;color:var(--black-m);line-height:1.35}
+.vs.three.pd .vr{grid-template-columns:1fr 1.1fr 1.1fr}
+.vs.three.pd .vr>span:nth-child(2){text-align:left;font-weight:400;color:var(--black-m);padding-right:16px}
+.vs.three.pd .vr>span.b{text-align:left;font-weight:500}
+.vs.three.pd .vr.head>span:nth-child(2){color:var(--black-m)}
+.vs.three.pd .vr.tot>span:nth-child(2){color:rgba(255,255,255,.7)}
+.vs.three.pd .vr.tot>span:nth-child(2) b{display:block;font-size:26px;color:rgba(255,255,255,.55);text-decoration:line-through;text-decoration-thickness:2px}
+.vs.three.pd .vr.tot>span.b b{display:block;font-size:30px}
+.shots{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.proof{border:1px solid var(--line-2);border-radius:14px;overflow:hidden;background:var(--white);box-shadow:0 2px 6px rgba(12,23,19,.04),0 24px 60px -24px rgba(12,23,19,.2)}
+.proof img{width:100%;height:auto;display:block}
+.proof-cap{padding:12px 16px;border-top:1px solid var(--line);font-size:13px;color:var(--black-m);line-height:1.45}
+.proof-cap b{color:var(--black);font-weight:600}
+.oggi{margin-top:36px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.oggi a{display:block;background:var(--white);border:1px solid var(--line-2);border-radius:14px;padding:20px 22px;text-decoration:none;color:var(--black);box-shadow:0 1px 2px rgba(12,23,19,.04),0 14px 34px -18px rgba(12,23,19,.16);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.oggi a:hover{transform:translateY(-2px);box-shadow:0 1px 2px rgba(12,23,19,.04),0 24px 50px -20px rgba(12,23,19,.22)}
+.oggi b{display:block;font-weight:600;font-size:28px;letter-spacing:-.03em;line-height:1;color:var(--blue)}
+.oggi span{display:block;margin-top:6px;font-size:14px;color:var(--black-m);line-height:1.4}
+.oggi em{display:block;margin-top:12px;font-style:normal;font-size:13.5px;font-weight:600;color:var(--blue)}
+.fasi{list-style:none;counter-reset:f;display:grid;gap:14px}
+.fasi li{counter-increment:f;position:relative;padding:18px 20px 18px 62px;background:var(--white);border:1px solid var(--line-2);border-radius:14px;box-shadow:0 1px 2px rgba(12,23,19,.04),0 14px 34px -18px rgba(12,23,19,.14)}
+.fasi li::before{content:counter(f);position:absolute;left:18px;top:18px;width:30px;height:30px;border-radius:50%;background:var(--black);color:var(--white);font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center}
+.fasi b{display:block;font-weight:600;font-size:17px;letter-spacing:-.015em}
+.fasi small{display:block;font-size:12.5px;color:var(--blue);font-weight:600;margin-bottom:4px}
+.fasi p{margin-top:6px;font-size:15px;color:var(--black-m);line-height:1.5}
+.fasi p strong{color:var(--black);font-weight:600}
+/* ── SCAN FINALE ── */
+.end{padding:112px 0;background:var(--bg-2);border-top:1px solid var(--line);text-align:center;position:relative;overflow:hidden}
+.end::before{content:'';position:absolute;left:50%;top:-200px;width:900px;height:600px;transform:translateX(-50%);background:radial-gradient(ellipse at center,rgba(55,80,247,.12),rgba(55,80,247,0) 62%);pointer-events:none}
+.end::after{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(12,23,19,.11) 1px,transparent 1.2px);background-size:22px 22px;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse 50% 55% at 50% 30%,#000 10%,transparent 70%);mask-image:radial-gradient(ellipse 50% 55% at 50% 30%,#000 10%,transparent 70%)}
+.end .wrap{position:relative;z-index:1}
+.end h2{font-size:clamp(34px,4.4vw,56px);line-height:1.05;letter-spacing:-.035em;max-width:760px;margin:0 auto;text-wrap:balance}
+.end h2 span{color:var(--blue)}
+.end .sub{margin:18px auto 0;font-size:18px;color:var(--black-m);max-width:600px}
+.end .scan{margin-top:28px}
+.after{margin:28px auto 0;max-width:820px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;text-align:left}
+.after div{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:14px;color:var(--black-m);line-height:1.45;box-shadow:0 1px 2px rgba(12,23,19,.04),0 12px 30px -18px rgba(12,23,19,.16)}
+.after div b{display:block;color:var(--black);font-weight:600;margin-bottom:2px}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--white)}
+.foot{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:32px}
+.foot .brand{height:auto}
+.foot .brand img{height:20px}
+.foot p{font-size:14px;color:var(--black-m);margin-top:12px;max-width:300px}
+.foot h4{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--black-l);margin-bottom:12px}
+.foot a{display:block;font-size:14px;color:var(--black-m);text-decoration:none;margin-bottom:8px;transition:color .2s}
+.foot a:hover{color:var(--black)}
+.foot-bottom{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--black-l)}
+
+
+/* ── RESPONSIVE ── */
+@media(max-width:1000px){
+  .vs-grid{grid-template-columns:1fr;gap:20px}
+  .vs-grid.flip>.vs{order:0}
+  .kpis{grid-template-columns:1fr 1fr}
+  .shots{grid-template-columns:1fr}
+  .oggi{grid-template-columns:1fr}
+  .after{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr 1fr}
 }
-@media(max-width:480px){
-.nav{padding:0 16px!important}
-.hero{padding:100px 16px 40px!important}
-.cta-gm{margin:0 16px!important}
+@media(max-width:768px){
+  .wrap{padding:0 20px}
+  .nav-links,.nav .btn{display:none}
+  .burger{display:block}
+  .mobile-menu{display:flex}
+  .scan{flex-direction:column;padding:6px}
+  .scan button{justify-content:center}
+  .growth{margin-top:36px;padding:18px 16px 14px}
+  .growth-stats{gap:16px}
+  .growth-stats b{font-size:24px}
+  .chart{display:none}
+  .chart-m{display:block}
+  .vs-sec{padding:72px 0}
+  .vs-grid{margin-top:28px}
+  .vr{padding:9px 12px;font-size:13px}
+  .vr>span.b{margin:-9px -12px -9px 0;padding:9px 12px 9px 8px}
+  .vr.head{padding:10px 12px;font-size:11.5px}
+  .vr.big>span b{font-size:22px}
+  .vr.tot{padding:14px 12px}
+  .vr.tot>span.b{margin:-14px -12px -14px 0;padding:14px 12px 14px 8px}
+  .vr.tot b{font-size:19px;white-space:nowrap}
+  .vr{grid-template-columns:1.05fr 1fr 1.05fr}
+  .vr.tot em{top:-12px;right:8px;font-size:11.5px}
+  .bars{height:160px}
+  .vs.two .vr{grid-template-columns:1.4fr 1fr}
+  .vs.three .vr{grid-template-columns:1.3fr .45fr 1.1fr;font-size:12.5px}
+  .vs.four .vr{grid-template-columns:44px 1fr auto;grid-template-areas:"im nm va" "im ve ve" "ac ac ac";gap:4px 10px;font-size:12.5px}
+  .vs.four .vr>span.ve{grid-area:ve;display:flex;gap:6px;align-items:baseline}
+  .vs.four .vr>span.ve b{display:inline}
+  .vs.four .vr.head>span.ve{display:none}
+  .vs.four .vr img{grid-area:im;width:44px;height:44px}
+  .vs.four .vr>span.nm{grid-area:nm}
+  .vs.four .vr>span.va{grid-area:va;text-align:right}
+  .vs.four .vr>span.b.ac{grid-area:ac;margin:0;padding:6px 8px;border-left:0;border-radius:6px;font-size:12.5px}
+  .vs.four .vr.head{grid-template-columns:1fr auto;grid-template-areas:none}
+  .vs.four .vr.head>span:first-child{grid-column:auto}
+  .vs.four .vr.head>span:nth-child(2){display:none}
+  .vs.four .vr.tot{grid-template-columns:1fr 1fr;grid-template-areas:none}
+  .vs.four .vr.tot>span{grid-area:auto}
+  .vs.four .vr.tot>span:first-child{grid-column:1/-1;margin-bottom:8px}
+  .vs.four .vr.tot>span.va{text-align:left}
+  .mks{gap:8px}
+  .mks b{font-size:24px}
+  .bench i{padding:0 8px;font-size:10px}
+  .bench i b{font-size:14px}
+  .foot{grid-template-columns:1fr}
+  .chead{padding:100px 0 28px}
+  .chead h1{font-size:clamp(32px,8.6vw,40px)}
+  .chead .sub{font-size:16px}
+  .kpis{gap:8px;margin-top:24px}
+  .kpis div{padding:14px 16px}
+  .kpis b{font-size:26px}
+  .vs.three.pd .vr{grid-template-columns:1fr 1fr 1fr}
+  .vs.three.pd .vr.tot>span:nth-child(2) b{font-size:18px}
+  .vs.three.pd .vr.tot>span.b b{font-size:20px}
+  .fasi li{padding:16px 16px 16px 54px}
+  .fasi li::before{left:14px;top:16px;width:26px;height:26px;font-size:12px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .fx{opacity:1;transform:none;transition:none}
+  .js .chart .bars rect,.js .chart-m .bars rect{transform:none;transition:none}
+  .js .bars i{transform:none;transition:none}
 }
 </style>
 </head>
 <body>
-<div id="root"></div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
-<script type="text/babel" data-type="module">
-const{useState,useEffect,useRef}=React;
 
-const Reveal=({children,delay=0})=>{const ref=useRef(null);const[vis,setVis]=useState(false);useEffect(()=>{const el=ref.current;if(!el)return;const obs=new IntersectionObserver(([e])=>{if(e.isIntersecting){setVis(true);obs.unobserve(el)}},{threshold:.06});obs.observe(el);return()=>obs.disconnect()},[]);return<div ref={ref} className={"rv "+(vis?"v":"")} style={{transitionDelay:delay+"s"}}>{children}</div>};
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol></defs></svg>
 
-function AnimCounter({end,prefix="",suffix="",duration=2000}){
-  const[val,setVal]=useState(0);const ref=useRef(null);const started=useRef(false);
-  useEffect(()=>{const el=ref.current;if(!el)return;
-    const obs=new IntersectionObserver(([e])=>{if(e.isIntersecting&&!started.current){started.current=true;
-      const start=performance.now();const step=(now)=>{const p=Math.min((now-start)/duration,1);const eased=1-Math.pow(1-p,3);
-      setVal(Math.round(eased*end));if(p<1)requestAnimationFrame(step)};requestAnimationFrame(step);obs.unobserve(el)}},{threshold:.3});
-    obs.observe(el);return()=>obs.disconnect()},[end,duration]);
-  return<span ref={ref}>{prefix}{val.toLocaleString('it-IT')}{suffix}</span>}
-
-const IconMail=()=><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 4 10 8 10-8"/></svg>;
-const IconPhone=()=><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3.09 5.18 2 2 0 0 1 5.08 3h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 11.87a16 16 0 0 0 6.04 6.04l2.23-2.23a2 2 0 0 1 2.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0 1 22 16.92z"/></svg>;
-const IconPin=()=><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 6-9 13-9 13s-9-7-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>;
-
-function DashMock(){
-  const bars=[65,82,48,91,73,88,55,95,68,78,84,92];
-  return<div className="dash-mock">
-    <div className="dash-mock-bar" style={{background:"linear-gradient(90deg,var(--vg),var(--vg-l))",width:"60%"}}/>
-    <div className="dash-mock-row">
-      <div className="dash-mock-cell"><div className="dash-mock-cell-v">1,247</div><div className="dash-mock-cell-l">Lead totali</div></div>
-      <div className="dash-mock-cell"><div className="dash-mock-cell-v">{"\u20AC"}18.40</div><div className="dash-mock-cell-l">CPL medio</div></div>
-      <div className="dash-mock-cell"><div className="dash-mock-cell-v">8.2%</div><div className="dash-mock-cell-l">Conv. rate</div></div>
+<!-- ═══ NAV ═══ -->
+<nav class="nav" aria-label="Principale">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Orizon ADV — home"><img src="/images/brand/logo-blu.svg" alt="Orizon" width="720" height="182"></a>
+    <div class="nav-links">
+      <a href="/#ignition">Ignition</a>
+      <a href="/#risultati">Risultati</a>
+      <a href="/#come-lavoriamo">Come lavoriamo</a>
+      <a href="/#chi-guida">Chi guida</a>
     </div>
-    <div className="dash-mock-chart">
-      {bars.map((h,i)=><div key={i} className="dash-mock-chart-bar" style={{height:h+"%",animationDelay:i*.08+"s"}}/>)}
+    <a class="btn btn-primary" href="#scan-finale">Fai lo scan</a>
+    <button class="burger" aria-label="Apri il menu" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <button class="mobile-close" aria-label="Chiudi il menu"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  <a href="/#ignition">Ignition</a>
+  <a href="/#risultati">Risultati</a>
+  <a href="/#come-lavoriamo">Come lavoriamo</a>
+  <a href="/#chi-guida">Chi guida</a>
+  <a href="#scan-finale" style="color:var(--blue)">Fai lo scan</a>
+</div>
+
+
+<header class="chead">
+  <div class="wrap">
+    <a class="back" href="/work"><svg class="ico" aria-hidden="true"><use href="#arrow"/></svg> Work</a>
+    <p class="kind"><b>VG Informatica</b> · soluzioni IT, reti e sicurezza per aziende e professionisti · B2B · lead generation su Google Ads</p>
+    <h1 class="fx">Quattro volte le richieste, <span>a metà del costo.</span></h1>
+    <p class="sub fx">Niente e-commerce: qui si vendono preventivi. Quando ci hanno chiamati i contatti arrivavano <strong>quasi solo dal passaparola</strong>, il sito portava traffico ma zero richieste. Abbiamo costruito una macchina che ne porta più di cento al mese, già qualificate.</p>
+    <div class="kpis fx">
+      <div><b>+320%</b><span>richieste qualificate al mese: da circa 25 a oltre 100</span></div>
+      <div><b>−45%</b><span>costo per richiesta: da 33 € a 18 €, in sei mesi</span></div>
+      <div><b>1.247</b><span>richieste in dodici mesi, con un budget da 3 a 5 mila euro al mese</span></div>
+      <div><b>1 per servizio</b><span>landing dedicate: reti, sicurezza, cloud, assistenza</span></div>
     </div>
   </div>
-}
+</header>
 
-function App(){
-  const[scrolled,setScrolled]=useState(false);
-  useEffect(()=>{const fn=()=>{
-      var st=window.pageYOffset;
-      setScrolled(st>20);
-      var nav=document.querySelector('.nav');
-      if(nav){
-        if(st>200 && st>window._lastST){
-          nav.style.transform='translateY(-100%)';
-        }else{
-          nav.style.transform='translateY(0)';
-        }
-        window._lastST=st;
-      }
-    };
-    window._lastST=0;window.addEventListener("scroll",fn,{passive:true});return()=>window.removeEventListener("scroll",fn)},[]);
-
-  return<React.Fragment>
-
-    {/* NAV */}
-    <nav className={"nav"+(scrolled?" scrolled":"")}>
-      <a className="nav-logo" href="/"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAABYCAIAAAD+96djAAAH70lEQVR42u3ba4xV1RUH8P9a+5xznzMwwwyCw3RUwCoWqwKmFPoQq622trQ2lYbG2oj10VQbagp9iNX2A1bEJqTlQyltYmqKlLbpA9Km2KISBE19JFSDDuBMZ0BgmHvnzn2cx16rH+7MMDyaMBaNKXt/POfcffb5nb3WXvvmXhIRnPWNiNgp1JuDcBAOwkE4CAfhIByEg3AQDsJBOAgH4SAchINwEA7CQTgIB+EgHISDcBAOwkE4CAfxvzRVBwEoiJkAOqshiJQpPnhokCgmorMUQhVRHN636vB1X4mWPzRYC+27KkbeIQgRMNMrr0cbt+QyufymvwQvvRox493zuyXvLT2Vqp44tRWAghmjj6sOPaoqVDF5ot/RVnu1M76gw7ZNZlUVoRPmBTH4pB7qfaqCCMynUK6fOuUYTjdsx/pjMlEyDEAAOX5CKUAAW1EeHjczATp8igB7tBhtf54+cIVpbWJVPmnEVIeuHxeBMQTIqB7IWh2xUAWImDB8TX2OH3fN6SUvGjMEkby4u/TkjuTNw6zDb1NBuSy/f4Ze95FcOuVbAQHM6Dta3fZcdbDiERB4uOZDwVM7w1gMVG+4Oqcab9pSTmzApABEwSTzZvtTOzIiAIgZXT2DW/4R7u1mgNom6zXzUhdPy4gQUR0aQLLt2fL2f9pCkQOfLpqq1y/INI9LjcyjMwyhWp8+tYfW9m/cnI5sKk6GDg7FmAcie/HUcOW3/AvPb1ClN3oKt3+nur+3kQhhiHF52bCWv7os6uwKzmmRrY9nJal9dFFYqqY9IyIwTMxozMdrf+Bd8b4ckWza3LfqZ6ZYTieWVMn3NO3HS26Su25usNYQUbVWWbGquOWZHODFCXkGgJ0yKXn4295lM3LW4jTnBRF5p5/zjYlXr+tfv6mxpdnzEts2yaYCVgEIUD3Up+Wa2bMvd8+DlcceiVua/Q1/jDq7x09uVWbNpTmXhe9hfCO3TuDm8SCC59HUDlSqBHAmxeXQlqtcKKZ+sTGZNVP/9nT/fav9XD6XDpJJE9U30n2QfD+1en2cy1W+fGMekDXrS7/fOm5iC8eJbZ+EowWp1szBPn/5j2ob1kSN+aCeO85YshSFMbS3q/LrPwctzZ5qeP836Jr5WWYiGorNngPhsoernV2Z/d3px/+Q3H2LOdgXZDIYGNQHlvK181KiEInDMBaBCMWJTGhMr384AHE+q3v3l+77cVIo5ZhVwEC49leazmRsHC36DN+xOBV49JvNg4+ul6Ymf90T0cKPJ2LjP23zmpu9JIm/dzeu/3D6jd7w3h+GB46k3ujx/r4jXnitby0Zc+aWTxUAeO5lqdZS1ap8bL65YUE25XPgkW/I98gwndee+eatfhLHQRo7XxbA+oZUAKLJrV42w/ks80mpsanRa2qwW7b23bUi6ezKJ7ECcsvnvZ4Dyf5eH0B7G+69LWjMmXRgvvTZ7OyZNo60v2BeeV0KA7ZcNWFkZ1zIC68ODNP0jvTnrtNKRdhQ90Ezpvp1DLl1oGQInIhe0E6J5TiGCKzACkSRWLSdY/IZC6VKxQBmaD0D4lhH1tHRuETU82bpnu8fWb4q1T+QL1eS89pl3Urvyku93kOkynGibZPAZOIEUSxW/I42xIkKcLRkmAGFCtJpEjWJVVGkAhAAhY5xCR1DHTGhSQHxDe/ek3hGYU5EfH1fpVQJiNDYoICq1N+IEp0YqKrqB3z46OBty8p7e8ePbwBzsuQmvn1xypAB0NJEgScg7O9CLYzSqRRAQLSnMwr8TJxEE5tUhIZuoMoEqq+jAh2O1jMPUc+9V15mGnKxReapXbR+Y/FTV6U9AxpaQ3lfV+2RdZpOB4WinTdHAVj5r3PTCnIZbHoy6uxqaG2BjeOlS+Kr5gb/7q3GiY5vMO1t3rSOaPceOnAE9z9a+frN4gf6+O8GXtqT9Yw0j8Ml02lflzK9s5UlEazVKZOyt35hYOXauLnZX/NLfuy3oe9rvaZTRbHEqvlSxc68yH7xkxmAPQ/GwBxf5xmGYRgDVYxrMFZElI0xP30Mq9aJ72lhAIs/rcvvzH7t5viO74Yepf76DO94IWaWwkA+8E1hQJbfaTIpL0lgPBg9bo0kGup8rMXl6YYGM6zwkkV5K+WfPxHXEu45HKgMLRoEGAPPk/mz5MGlqYasD9hKVQsDalji5FhEFAe1WILvaWlQr5qbWfDB8rZd5Bm21meC8dBfQC0SQOdekVu9YnDlT6Lew+bNPl8B30g+Yx9Yam78RBogUSkOaBRrpXxsnFGkhaICCMORivZtKLFViVn3dYfbdunhIxjZbwiQz+HyGZh7uQE8a8GsL/wrPHjIA9nZM01rsw9onETbn7fV0A8CO3+Wn05RkiQ7XkrKgx4Pv8Y4RscUuWR6ylp4BsVS9PROea1LrdB7zqX5c+jcVt9aMoz+gdqzL5IotzZhzqW+KAxhf0+4+zUFzLQOfe/5vuhpbfffSok9XP+fjK0AqerItBw1hKFanAijPqWi9f0VnUpcR90Lw9mPAB2pF0f3NlLsn3zTt2uvUa+vVE6dSkaHa31TWA+rkeHZ4Q1Ufc1RQGRUkqf6d1jHNqAnrLujuxo5Nfq+xw4ev4t9WyD+/5r7K5P7Ot9BOAgH4SAchINwEA7CQTgIB+EgHISDcBAOwkE4CAfhIByEg3AQDsJBOAgH4SAchINwEA7CQZytjfTd+TfMd7z9BwOy3v7g3oeZAAAAAElFTkSuQmCC" alt="Orizon ADV" style={{height:44,width:"auto"}}/></a>
-      <div className="nav-links">
-        <a className="nav-link" href="/index.html">Home</a>
-        <a className="nav-link" href="/servizi.html">Servizi</a>
-        <a className="nav-link" href="/work.html">Work</a>
-        <a className="nav-link" href="/contatti.html">Contatti</a>
-        <button className="nav-hamburger" onClick={()=>{document.querySelector('.mobile-menu').classList.add('open');document.body.style.overflow='hidden'}}>
-          <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        </button>
-        <a className="nav-cta" href="/contatti">Parliamone</a>
-      </div>
-    </nav>
-    <div className="mobile-menu">
-      <button className="mobile-close" onClick={()=>{document.querySelector('.mobile-menu').classList.remove('open');document.body.style.overflow=''}}>
-        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-      <a href="/">Home</a>
-      <a href="/servizi">Servizi</a>
-      <a href="/work">Work</a>
-      <a href="/contatti">Contatti</a>
-      <a className="mobile-cta" href="/contatti">Parliamone</a>
+<!-- ═══ PARTENZA ═══ -->
+<section class="vs-sec" id="partenza">
+  <div class="wrap">
+    <div class="sec-head fx">
+      <h2>Traffico sì, <span>richieste no.</span></h2>
+      <p>Il sito riceveva visite generiche e non convertiva: nessuna pagina pensata per chi cerca un fornitore, un solo modulo «contattaci», nessun modo di sapere quali richieste diventavano contratti. <strong>Nel B2B la gente cerca su Google con un problema preciso</strong>: va presa lì, con una pagina che parla di quel problema.</p>
     </div>
-
-    {/* HERO */}
-    <header className="cs-hero">
-      <div className="cs-hero-content">
-        <a className="cs-hero-back" href="/work">{"\u2190"} Tutti i case study</a>
-        <div className="cs-hero-badge">Case Study</div>
-        <h1>VG Informatica</h1>
-        <p className="cs-hero-sub">Da azienda IT locale a leader nella lead generation B2B. Strategia Google Ads con funnel multi-step che ha triplicato i contatti qualificati.</p>
+    <div class="vs-grid">
+      <div class="vs three pd fx" role="table" aria-label="Com'era prima e com'è con Orizon">
+        <div class="vr head" role="row"><span role="columnheader">&nbsp;</span><span role="columnheader">Prima</span><span class="b" role="columnheader">Con Orizon</span></div>
+        <div class="vr" role="row"><span>Da dove arrivano</span><span>passaparola</span><span class="b">Google Ads su ricerche con intenzione: «assistenza server», «rete aziendale», «sicurezza informatica»</span></div>
+        <div class="vr" role="row"><span>Dove atterrano</span><span>la home del sito</span><span class="b">una landing per servizio, con i casi, i tempi e il modulo in alto</span></div>
+        <div class="vr" role="row"><span>Il modulo</span><span>nome, email, messaggio</span><span class="b">in più passi: azienda, dimensione, urgenza — la richiesta arriva già qualificata</span></div>
+        <div class="vr" role="row"><span>Chi non compila</span><span>perso</span><span class="b">remarketing su chi ha visto la pagina e non ha scritto</span></div>
+        <div class="vr" role="row"><span>Cosa si misura</span><span>i click</span><span class="b">le richieste chiuse nel CRM del cliente: ogni campagna letta sul valore dei contratti</span></div>
+        <div class="vr tot" role="row"><span>Richieste al mese</span><span><b>~25</b>dal passaparola</span><span class="b"><b>100+</b><small>qualificate, a 18 € l'una</small></span></div>
       </div>
-      <div className="cs-hero-logo">VG</div>
-    </header>
-
-    {/* KPI STRIP */}
-    <div className="kpi-strip">
-      <Reveal><div className="kpi-grid">
-        <div className="kpi-card"><div className="kpi-value" style={{color:"var(--vg)"}}>+<AnimCounter end={320}/>%</div><div className="kpi-label">Lead qualificati</div></div>
-        <div className="kpi-card"><div className="kpi-value" style={{color:"var(--vg)"}}>-<AnimCounter end={45}/>%</div><div className="kpi-label">Costo per lead</div></div>
-        <div className="kpi-card"><div className="kpi-value" style={{color:"var(--vg)"}}><AnimCounter end={8}/>.2x</div><div className="kpi-label">ROI campagne</div></div>
-        <div className="kpi-card"><div className="kpi-value" style={{color:"var(--vg)"}}><AnimCounter end={1247}/></div><div className="kpi-label">Lead generati</div></div>
-      </div></Reveal>
-    </div>
-
-    {/* CONTENT */}
-    <div className="cs-content">
-      <div className="cs-grid">
-        <div className="cs-main">
-
-          {/* LA SFIDA */}
-          <Reveal><div className="cs-block">
-            <div className="cs-block-label">La sfida</div>
-            <h2>Un{"\u2019"}azienda IT con tanto potenziale e zero visibilit{"\u00E0"} online</h2>
-            <p>VG Informatica {"\u00E8"} un{"\u2019"}azienda B2B specializzata in soluzioni IT, networking e sicurezza informatica per PMI e professionisti. Quando ci hanno contattato, il problema era chiaro: <strong>i lead arrivavano quasi esclusivamente dal passaparola</strong>, con volumi insufficienti per sostenere la crescita.</p>
-            <p>Il sito generava traffico generico ma <strong>zero conversioni qualificate</strong>. Non esisteva un funnel strutturato, n{"\u00E9"} landing page dedicate, n{"\u00E9"} una strategia paid. L{"\u2019"}obiettivo: costruire una macchina di lead generation prevedibile e scalabile.</p>
-          </div></Reveal>
-
-          {/* PLACEHOLDER: Screenshot sito prima */}
-          <Reveal delay={.1}><div className="ph-img">
-            <div className="ph-img-inner" style={{background:"linear-gradient(135deg,#1a1a2e,#16213e)",aspectRatio:"16/9"}}>
-              <div className="ph-img-tag">Placeholder</div>
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.3)" strokeWidth="1.5"><rect x="2" y="3" width="20" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-3.09-3.09a2 2 0 0 0-2.82 0L6 21"/></svg>
-              <div className="ph-img-label">Screenshot sito VG Informatica</div>
-              <div className="ph-img-hint">1440 x 800px &middot; Inserisci screenshot reale</div>
-            </div>
-          </div></Reveal>
-
-          {/* LA STRATEGIA */}
-          <Reveal><div className="cs-block">
-            <div className="cs-block-label">La strategia</div>
-            <h2>Funnel multi-step con Google Ads al centro</h2>
-            <p>Abbiamo costruito l{"\u2019"}intera strategia su <strong>Google Ads</strong>, il canale ideale per il B2B dove il cliente cerca attivamente una soluzione. L{"\u2019"}approccio si {"\u00E8"} articolato in tre fasi:</p>
-          </div></Reveal>
-
-          {/* TIMELINE */}
-          <Reveal delay={.1}><div className="timeline">
-            <div className="timeline-item">
-              <div className="timeline-dot"/>
-              <div className="timeline-phase">Fase 1 &mdash; Mese 1-2</div>
-              <div className="timeline-title">Audit e ristrutturazione</div>
-              <div className="timeline-desc">Analisi completa del mercato IT locale, ricerca keyword B2B ad alta intenzione, creazione di landing page dedicate per ogni servizio (networking, sicurezza, cloud, assistenza).</div>
-            </div>
-            <div className="timeline-item">
-              <div className="timeline-dot"/>
-              <div className="timeline-phase">Fase 2 &mdash; Mese 3-5</div>
-              <div className="timeline-title">Lancio campagne e ottimizzazione</div>
-              <div className="timeline-desc">Campagne Google Search su keyword transazionali, con form multi-step per qualificare i lead in ingresso. A/B test continui su copy, CTA e layout delle landing page.</div>
-            </div>
-            <div className="timeline-item">
-              <div className="timeline-dot"/>
-              <div className="timeline-phase">Fase 3 &mdash; Mese 6+</div>
-              <div className="timeline-title">Scaling e automazione</div>
-              <div className="timeline-desc">Espansione su keyword long-tail, remarketing su visitatori non convertiti, scoring automatico dei lead e integrazione con il CRM del cliente per tracciare il valore reale di ogni conversione.</div>
-            </div>
-          </div></Reveal>
-
-          {/* PLACEHOLDER: Screenshot campagne Google Ads */}
-          <Reveal delay={.1}><div className="ph-img">
-            <div className="ph-img-inner" style={{background:"linear-gradient(135deg,#0f172a,#1e293b)"}}>
-              <div className="ph-img-tag">Placeholder</div>
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.3)" strokeWidth="1.5"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
-              <div className="ph-img-label">Dashboard Google Ads</div>
-              <div className="ph-img-hint">1200 x 700px &middot; Screenshot campagne reale</div>
-            </div>
-          </div></Reveal>
-
-          {/* MOCK DASHBOARD */}
-          <Reveal delay={.15}><DashMock/></Reveal>
-
-          {/* I RISULTATI */}
-          <Reveal><div className="cs-block" style={{marginTop:56}}>
-            <div className="cs-block-label">I risultati</div>
-            <h2>Numeri che parlano da soli</h2>
-            <p>In 12 mesi di collaborazione, abbiamo trasformato la lead generation di VG Informatica da un processo casuale a una <strong>macchina prevedibile e scalabile</strong>.</p>
-          </div></Reveal>
-
-          <Reveal delay={.1}><div className="results-grid">
-            <div className="result-card"><div className="result-card-v" style={{color:"var(--vg)"}}>+320%</div><div className="result-card-l">Lead qualificati</div><div className="result-card-d">Da ~25 a oltre 100 lead qualificati al mese</div></div>
-            <div className="result-card"><div className="result-card-v" style={{color:"var(--vg)"}}>-45%</div><div className="result-card-l">Costo per lead</div><div className="result-card-d">CPL ridotto da {"\u20AC"}33 a {"\u20AC"}18 in 6 mesi</div></div>
-            <div className="result-card"><div className="result-card-v" style={{color:"var(--vg)"}}>8.2x</div><div className="result-card-l">ROI campagne</div><div className="result-card-d">Ogni euro investito ne genera 8.2 in contratti</div></div>
-            <div className="result-card"><div className="result-card-v" style={{color:"var(--vg)"}}>62%</div><div className="result-card-l">Tasso qualifica</div><div className="result-card-d">Lead qualificati sul totale contatti generati</div></div>
-          </div></Reveal>
-
-          {/* PLACEHOLDER: Screenshot landing page */}
-          <Reveal delay={.1}><div className="ph-img">
-            <div className="ph-img-inner" style={{background:"linear-gradient(135deg,#059669,#0d9488)"}}>
-              <div className="ph-img-tag">Placeholder</div>
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.3)" strokeWidth="1.5"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 21V7m0 0 4-4 4 4"/></svg>
-              <div className="ph-img-label">Landing page ottimizzata</div>
-              <div className="ph-img-hint">1200 x 800px &middot; Screenshot landing reale</div>
-            </div>
-          </div></Reveal>
-
-          {/* TESTIMONIAL */}
-          <Reveal delay={.1}><div className="cs-quote">
-            <p>Avevamo bisogno di lead qualificati, non di traffico generico. Orizon ha costruito un funnel che ha triplicato i nostri contatti riducendo drasticamente i costi. Il bello {"\u00E8"} che ogni lead viene gi{"\u00E0"} qualificato prima di arrivarci.</p>
-            <div className="cs-quote-author">VG Informatica &mdash; Direzione Commerciale</div>
-          </div></Reveal>
-
-        </div>
-
-        {/* SIDEBAR */}
-        <div className="cs-sidebar">
-          <Reveal delay={.1}><div className="side-panel">
-            <div className="side-panel-label">Dettagli progetto</div>
-            <div className="side-panel-title">Overview</div>
-            <div className="side-detail"><span className="side-detail-label">Cliente</span><span className="side-detail-value">VG Informatica</span></div>
-            <div className="side-detail"><span className="side-detail-label">Settore</span><span className="side-detail-value">Tech & B2B</span></div>
-            <div className="side-detail"><span className="side-detail-label">Durata</span><span className="side-detail-value">12+ mesi</span></div>
-            <div className="side-detail"><span className="side-detail-label">Modello</span><span className="side-detail-value">Fee + Performance</span></div>
-            <div className="side-detail"><span className="side-detail-label">Budget gestito</span><span className="side-detail-value">{"\u20AC"}3-5K / mese</span></div>
-          </div></Reveal>
-
-          <Reveal delay={.15}><div className="side-panel">
-            <div className="side-panel-label">Servizi erogati</div>
-            <div className="side-tags">
-              {["Google Ads","Landing Pages","Funnel Design","A/B Testing","CRO","Lead Scoring","Form Multi-step","Remarketing"].map(t=><span key={t} className="side-tag">{t}</span>)}
-            </div>
-          </div></Reveal>
-
-          <Reveal delay={.2}><div className="side-panel">
-            <div className="side-panel-label">Strumenti</div>
-            <div className="side-tags">
-              {["Google Ads","Google Analytics","Tag Manager","Hotjar","Unbounce","HubSpot"].map(t=><span key={t} className="side-tag">{t}</span>)}
-            </div>
-          </div></Reveal>
-
-          <Reveal delay={.25}><div className="side-panel" style={{background:"linear-gradient(135deg,var(--vg),var(--vg-d))",border:"none"}}>
-            <div style={{fontSize:11,fontWeight:700,letterSpacing:".1em",textTransform:"uppercase",color:"rgba(255,255,255,.6)",marginBottom:12}}>Risultato chiave</div>
-            <div style={{fontSize:28,fontWeight:700,color:"white",letterSpacing:"-.02em",marginBottom:6}}>+320%</div>
-            <div style={{fontSize:14,color:"rgba(255,255,255,.7)",lineHeight:1.6}}>Lead qualificati generati rispetto alla situazione pre-Orizon</div>
-          </div></Reveal>
-        </div>
+      <div class="vs-why fx">
+        <h3>Perché ha funzionato</h3>
+        <ol>
+          <li><b>Una pagina per ogni problema.</b> Chi cerca «sicurezza informatica» non vuole la home di un'azienda IT: vuole la pagina che parla di sicurezza, con i tempi e un modulo subito. Il tasso di richiesta sale e il costo per richiesta scende.</li>
+          <li><b>Il modulo qualifica prima di far perdere tempo.</b> Azienda, dimensione, urgenza: chi arriva al commerciale è già una richiesta vera, non un curioso. Il costo per contatto scende anche così.</li>
+          <li><b>Le campagne imparano dai contratti, non dai click.</b> Il valore delle richieste chiuse torna dal CRM a Google Ads: il budget va alle parole che portano contratti, non a quelle che portano moduli.</li>
+        </ol>
+        <p class="vs-note">Numeri letti dal pannello Google Ads e dal CRM del cliente su dodici mesi di lavoro. Budget gestito tra 3 e 5 mila euro al mese.</p>
       </div>
     </div>
+  </div>
+</section>
 
-    {/* CTA */}
-        <section className="cta-gm" style={{margin:"0 56px"}}>
-      <Reveal><h2>Pronto a crescere?</h2></Reveal>
-      <Reveal delay={.08}><p>Ti diremo esattamente cosa possiamo fare per te, senza giri di parole.</p></Reveal>
-      <Reveal delay={.14}><div className="cta-glass">
-        <span>Raccontaci il tuo progetto</span>
-        <a className="cta-glass-btn" href="/contatti">Parliamone {"→"}</a>
-      </div></Reveal>
-      <Reveal delay={.2}><p className="cta-sub">Zero vincoli {"·"} Revenue sharing {"·"} Risposta in 24h</p></Reveal>
-    </section>
-
-    {/* FOOTER */}
-    <footer className="footer">
-      <div className="footer-top">
-        <div className="footer-brand">
-          <div className="footer-logo">orizon</div>
-          <div className="footer-tagline">Performance Marketing, Web Development e AI per la crescita del tuo business.</div>
-          <div style={{marginTop:20}}>
-            <a className="footer-contact-item" href="mailto:antonio@orizonadv.it"><IconMail/> antonio@orizonadv.it</a>
-            <a className="footer-contact-item" href="tel:+393347113332"><IconPhone/> 334 711 3332</a>
-            <a className="footer-contact-item" href="https://maps.google.com/?q=Corso+Umberto+I+153+Napoli" target="_blank" rel="noopener"><IconPin/> Corso Umberto I, 153 — Napoli</a>
-          </div>
-        </div>
-        <div className="footer-col"><h4>Navigazione</h4><a href="/index.html">Home</a><a href="/servizi.html">Servizi</a><a href="/work.html">Work</a><a href="/contatti.html">Contatti</a></div>
-        <div className="footer-col"><h4>Servizi</h4><a href="/servizi#perf">Performance Marketing</a><a href="/servizi#web">Web Development</a><a href="/servizi#ai">AI Development</a></div>
-        <div className="footer-col"><h4>Social</h4><a href="https://www.linkedin.com/in/antoniopratola/" target="_blank" rel="noopener">LinkedIn</a><a href="https://instagram.com/pratolads" target="_blank" rel="noopener">Instagram</a><a href="https://facebook.com/antoniopratola" target="_blank" rel="noopener">Facebook</a></div>
+<!-- ═══ COSA ABBIAMO FATTO ═══ -->
+<section class="vs-sec alt" id="cosa">
+  <div class="wrap">
+    <div class="sec-head fx">
+      <h2>Cosa abbiamo fatto, <span>in ordine.</span></h2>
+      <p>Tre fasi in sei mesi, poi il sistema gira da solo e si allarga.</p>
+    </div>
+    <div class="vs-grid">
+      <ol class="fasi fx">
+        <li><small>Fase 1 · mesi 1–2</small><b>Le parole e le pagine</b><p>Analisi del mercato IT locale, <strong>ricerca delle parole con intenzione d'acquisto</strong>, una landing per ogni servizio — reti, sicurezza, cloud, assistenza — con il modulo in più passi.</p></li>
+        <li><small>Fase 2 · mesi 3–5</small><b>Campagne e prove</b><p>Google Search sulle ricerche transazionali, <strong>test continui</strong> su titoli, bottoni e ordine delle pagine. Il costo per richiesta scende da 33 a 18 euro.</p></li>
+        <li><small>Fase 3 · dal sesto mese</small><b>Allargare e automatizzare</b><p>Parole più lunghe e specifiche, remarketing su chi non ha scritto, <strong>punteggio automatico delle richieste</strong> e collegamento al CRM per leggere il valore vero di ogni conversione.</p></li>
+      </ol>
+      <div class="vs-why fx">
+        <h3>Cosa resta da dire</h3>
+        <ol>
+          <li><b>Non è un e-commerce, e si vede.</b> Niente ROAS, niente carrello: qui si misura il costo di una richiesta e quante diventano contratti. Lo stesso metodo — numeri veri, pagine dedicate, budget dove rende — vale anche senza prodotti a catalogo.</li>
+          <li><b>Il modello qui è a fee più performance.</b> Nel B2B il venduto si chiude fuori dal sito: la percentuale pura non si può misurare, e lo diciamo.</li>
+          <li><b>Le pagine le abbiamo costruite noi.</b> Landing, modulo in più passi, tracciamento delle richieste: è il pezzo «siti e CRO» dei nostri servizi, usato per la lead generation.</li>
+        </ol>
+        <p class="vs-note">Screenshot dei pannelli non pubblicati per accordo col cliente: i numeri sono quelli del suo Google Ads e del suo CRM.</p>
       </div>
-      <div className="footer-bottom">{"\u00A9"} {new Date().getFullYear()} Orizon ADV — Tutti i diritti riservati</div>
-    </footer>
+    </div>
+  </div>
+</section>
 
-  </React.Fragment>;
-}
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
-</script>
+<!-- ═══ SCAN FINALE ═══ -->
+<section class="end" id="scan-finale">
+  <div class="wrap">
+    <h2 class="fx">Vediamo cosa c'è da accendere <span>nel tuo negozio.</span></h2>
+    <p class="sub fx">Mettici l'indirizzo. Ti diciamo dove sta il fatturato che il catalogo lascia sul tavolo, e se vale la pena lavorare insieme.</p>
+    <form class="scan fx" action="/contatti" method="get">
+      <input type="text" name="sito" placeholder="www.iltuonegozio.it" autocomplete="url" inputmode="url" aria-label="Indirizzo del tuo negozio online">
+      <button type="submit">Fai lo scan <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></button>
+    </form>
+    <div class="after fx">
+      <div><b>Entro 24 ore</b>ti scriviamo noi, con il tuo indice di accensione e le prime tre cose da accendere.</div>
+      <div><b>Nessuna fee fissa</b>una percentuale su quello che vendi in più. Il rischio è dell'impresa, e lo sappiamo.</div>
+      <div><b>Non lavoriamo con tutti</b>se il tuo catalogo non è pronto o non siamo la scelta giusta, te lo diciamo.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="/" aria-label="Orizon ADV — home"><img src="/images/brand/logo-blu.svg" alt="Orizon" width="720" height="182"></a>
+        <p>Performance marketing a percentuale, Orizon Ignition e sviluppo web per e-commerce che vogliono crescere con margine.</p>
+      </div>
+      <div>
+        <h4>Contatti</h4>
+        <a href="mailto:antonio@orizonadv.it">antonio@orizonadv.it</a>
+        <a href="tel:+393347113332">334 711 3332</a>
+        <a href="https://maps.google.com/?q=Corso+Umberto+I+153+Napoli" target="_blank" rel="noopener">Corso Umberto I, 153 — Napoli</a>
+      </div>
+      <div>
+        <h4>Pagine</h4>
+        <a href="/servizi">Servizi</a>
+        <a href="/work">Work</a>
+        <a href="/contatti">Contatti</a>
+      </div>
+      <div>
+        <h4>Social</h4>
+        <a href="https://www.linkedin.com/in/antoniopratola/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://instagram.com/pratolads" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://facebook.com/antoniopratola" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+    <div class="foot-bottom"><span>© <span id="y">2026</span> Orizon ADV — Tutti i diritti riservati</span><span>Napoli, Italia</span></div>
+  </div>
+</footer>
 
 <script>
 (function(){
-  var nav = document.querySelector('.nav');
-  var lastScroll = 0;
-  window.addEventListener('scroll', function(){
-    var st = window.pageYOffset;
-    if(st > 80){
-      nav.classList.add('scrolled');
-      if(st > lastScroll && st > 200){
-        nav.style.transform = 'translateY(-100%)';
-      } else {
-        nav.style.transform = 'translateY(0)';
-      }
-    } else {
-      nav.classList.remove('scrolled');
-      nav.style.transform = 'translateY(0)';
-    }
-    lastScroll = st;
-  });
-  // Hamburger
-  setTimeout(function(){
-    var h = document.querySelector('.nav-hamburger');
-    var m = document.querySelector('.mobile-menu');
-    var c = document.querySelector('.mobile-close');
-    if(h&&m){
-      h.onclick=function(){m.classList.add('open');document.body.style.overflow='hidden'};
-      if(c) c.onclick=function(){m.classList.remove('open');document.body.style.overflow=''};
-      m.querySelectorAll('a').forEach(function(a){a.onclick=function(){m.classList.remove('open');document.body.style.overflow=''}});
-    }
-  },300);
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var y = document.getElementById('y'); if (y) y.textContent = new Date().getFullYear();
+  var els = document.querySelectorAll('.fx');
+  if ('IntersectionObserver' in window && !reduce) {
+    var obs = new IntersectionObserver(function(entries){ entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } }); }, { threshold: .1 });
+    els.forEach(function(el, i){ el.style.transitionDelay = (Math.min(i, 5) * 70) + 'ms'; obs.observe(el); });
+  } else els.forEach(function(el){ el.classList.add('in'); });
+  var b = document.querySelector('.burger'), m = document.querySelector('.mobile-menu'), c = document.querySelector('.mobile-close');
+  function closeMenu(){ m.classList.remove('open'); document.body.style.overflow = ''; b.setAttribute('aria-expanded', 'false'); }
+  if (b && m) {
+    b.addEventListener('click', function(){ m.classList.add('open'); document.body.style.overflow = 'hidden'; b.setAttribute('aria-expanded', 'true'); });
+    if (c) c.addEventListener('click', closeMenu);
+    m.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && m.classList.contains('open')) closeMenu(); });
+  }
 })();
 </script>
+
 </body>
 </html>
