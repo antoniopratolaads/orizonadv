@@ -312,7 +312,9 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .js .tool.in .lr i{transform:scaleX(1)}
 .js .tool.in .lr:nth-child(2) i{transition-delay:.08s}.js .tool.in .lr:nth-child(3) i{transition-delay:.16s}.js .tool.in .lr:nth-child(4) i{transition-delay:.24s}.js .tool.in .lr:nth-child(5) i{transition-delay:.32s}
 /* benchmark: una barra in tre */
-.bench{display:flex;height:48px;border-radius:9px;overflow:hidden;margin-top:18px}
+.bench{display:flex;height:56px;border-radius:10px;overflow:hidden;margin-top:0;box-shadow:0 1px 2px rgba(12,23,19,.06)}
+.bench-cap{margin:10px 0 24px;font-size:13.5px;color:var(--black-m);line-height:1.45}
+.bench-cap b{color:var(--black);font-weight:600}
 .bench i{display:flex;flex-direction:column;justify-content:center;padding:0 12px;font-style:normal;font-size:11px;color:var(--white);line-height:1.15;white-space:nowrap;overflow:hidden;min-width:0}
 .bench i b{font-size:16px;font-weight:600;letter-spacing:-.01em}
 .bench .w{background:var(--blue)}.bench .e{background:var(--blue-s);color:var(--black)}.bench .l{background:var(--black-m)}
@@ -338,6 +340,8 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .vr{display:grid;grid-template-columns:1.35fr 1fr 1fr;align-items:center;padding:10px 20px;border-top:1px solid var(--line);font-size:15px;color:var(--black)}
 .vr>span{display:block}
 .vr>span:nth-child(2),.vr>span:nth-child(3){text-align:right;font-variant-numeric:tabular-nums;font-weight:500}
+.vr>span:nth-child(2){padding-right:20px}
+.vr.head>span:nth-child(2){padding-right:20px}
 .vr>span.b{background:rgba(55,80,247,.05);margin:-10px -20px -10px 0;padding:10px 20px 10px 12px;border-left:1px solid rgba(55,80,247,.15)}
 .vr small{display:block;font-size:11.5px;color:var(--black-m);font-weight:400;line-height:1.3;margin-top:1px}
 .vr.head{border-top:0;background:var(--bg-2);font-size:12.5px;font-weight:600;color:var(--black-m);padding:12px 20px}
@@ -389,8 +393,12 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .vs.three .vr.tot>span.n b,.vs.four .vr.tot>span.va b{display:block;font-size:22px;font-weight:600;letter-spacing:-.03em;line-height:1}
 .vs.three .vr.tot>span.b b{font-size:22px;color:var(--white)}
 .vs.three .vr.tot>span.b,.vs.four .vr.tot>span.b{text-align:left}
-.vs.four .vr{grid-template-columns:56px 1.3fr .9fr 1.4fr;gap:0 14px}
-.vs.four .vr.head{grid-template-columns:56px 1.3fr .9fr 1.4fr}
+.vs.four .vr{grid-template-columns:56px 1.25fr .8fr .7fr 1.45fr;gap:0 14px}
+.vs.four .vr.head{grid-template-columns:56px 1.25fr .8fr .7fr 1.45fr}
+.vs.four .vr>span.ve{text-align:left;font-weight:400;padding-right:0}
+.vs.four .vr>span.ve b{font-weight:600;color:var(--black);display:block}
+.vs.four .vr.down>span.ve b{color:var(--blue)}
+.vs.four .vr.head>span.ve{text-align:left}
 .vs.four .vr.head>span:first-child{grid-column:1/3}
 .vs.four .vr img{width:56px;height:56px;object-fit:contain;border-radius:8px;border:1px solid var(--line);background:var(--white)}
 .vs.four .vr>span.nm{text-align:left;font-weight:400}
@@ -398,7 +406,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .vs.four .vr>span.va{text-align:left;font-weight:400}
 .vs.four .vr>span.va b{font-weight:600;color:var(--black);display:block}
 .vs.four .vr>span.b{text-align:left;font-weight:400;font-size:14px;line-height:1.4}
-.vs.four .vr.tot{grid-template-columns:1.3fr 1fr 1.4fr}
+.vs.four .vr.tot{grid-template-columns:1.25fr 1.1fr 1.45fr}
 .vs.four .vr.tot>span.va b{color:var(--white)}
 .vs.four .vr.tot>span.b b{display:block;font-size:22px;color:var(--white);line-height:1}
 .mks{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:22px}
@@ -537,7 +545,10 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .bars{height:160px}
   .vs.two .vr{grid-template-columns:1.4fr 1fr}
   .vs.three .vr{grid-template-columns:1.3fr .45fr 1.1fr;font-size:12.5px}
-  .vs.four .vr{grid-template-columns:44px 1fr auto;grid-template-areas:"im nm va" "im ac ac";gap:4px 10px;font-size:12.5px}
+  .vs.four .vr{grid-template-columns:44px 1fr auto;grid-template-areas:"im nm va" "im ve ve" "ac ac ac";gap:4px 10px;font-size:12.5px}
+  .vs.four .vr>span.ve{grid-area:ve;display:flex;gap:6px;align-items:baseline}
+  .vs.four .vr>span.ve b{display:inline}
+  .vs.four .vr.head>span.ve{display:none}
   .vs.four .vr img{grid-area:im;width:44px;height:44px}
   .vs.four .vr>span.nm{grid-area:nm}
   .vs.four .vr>span.va{grid-area:va;text-align:right}
@@ -1066,6 +1077,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         <div class="bench" role="img" aria-label="336 prodotti sotto il benchmark, 63 pari, 351 sopra">
           <i class="w" style="width:44.8%"><b>336</b>sotto il benchmark</i><i class="e" style="width:8.4%"><b>63</b>pari</i><i class="l" style="width:46.8%"><b>351</b>sopra</i>
         </div>
+        <p class="bench-cap">I 750 prodotti in campagna, contro il prezzo che Google vede dai concorrenti: <b>44,8%</b> sotto, 8,4% pari, <b>46,8%</b> sopra. Si vince l'asta solo nella parte blu.</p>
         <h3>Perché succede</h3>
         <ol>
           <li><b>Google decide l'asta anche sul prezzo.</b> 351 prodotti stanno sopra il benchmark dei concorrenti: per quanto budget ci metti, non vincono. Lì il problema è il prezzo, e lo diciamo.</li>
@@ -1083,28 +1095,28 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   <div class="wrap">
     <div class="sec-head fx">
       <h2>La merce ferma <span>è denaro fermo.</span></h2>
-      <p>Giacenze, ritmo di vendita degli ultimi 30 giorni e la stagione dell'anno scorso, letti ogni giorno sul negozio. Ne escono due liste: <strong>cosa muovere prima che diventi uno sconto</strong> e <strong>cosa riordinare prima che finisca</strong>. Climando, oggi.</p>
+      <p>Giacenze, vendite degli ultimi 60 giorni e la stagione dell'anno scorso, letti ogni giorno sul negozio. I prodotti con <strong>tanto stock e poche vendite</strong> non si lasciano lì: si spingono in una campagna apposita, <strong>con un obiettivo di ritorno più basso</strong>, perché liberare il magazzino vale più del ROAS di quel prodotto. E quello che sta per finire si riordina prima. Climando, oggi.</p>
     </div>
     <div class="vs-grid">
       <div class="vs four fx" role="table" aria-label="I prodotti fermi e quelli da riordinare di Climando, con la mossa per ognuno">
-        <div class="vr head" role="row"><span role="columnheader">Prodotto</span><span role="columnheader">Giacenza</span><span class="b" role="columnheader">La mossa</span></div>
-        <div class="vr p down" role="row"><img src="images/magazzino/dab-multi-inox.jpg" alt="" width="240" height="240" loading="lazy"><span class="nm"><b>Elettropompa Dab Multi Inox 3M</b><small>termoidraulica</small></span><span class="va"><b>398 pezzi</b><small>94.457 € fermi</small></span><span class="b ac">ferma da 60 giorni → <strong>campagna ad hoc adesso</strong>, prima che diventi uno sconto</span></div>
-        <div class="vr p down" role="row"><img src="images/magazzino/edilkamin-blade.jpg" alt="" width="240" height="240" loading="lazy"><span class="nm"><b>Stufa a pellet EdilKamin Blade 12++ Evo</b><small>riscaldamento</small></span><span class="va"><b>28 pezzi</b><small>79.800 € fermi</small></span><span class="b ac">ferma, ma la stagione arriva → <strong>campagna sul freddo</strong>, non sconto</span></div>
-        <div class="vr p down" role="row"><img src="images/magazzino/climaveneta-ilife2.jpg" alt="" width="240" height="240" loading="lazy"><span class="nm"><b>Fan coil Climaveneta i-LIFE2 Slim</b><small>condizionamento</small></span><span class="va"><b>99 pezzi</b><small>70.340 € fermi</small></span><span class="b ac">ferma, fuori stagione → <strong>bundle con le installazioni</strong></span></div>
-        <div class="vr p up" role="row"><img src="images/magazzino/accoroni-ghibli.jpg" alt="" width="240" height="240" loading="lazy"><span class="nm"><b>Radiatore a gas Accoroni Ghibli Elite 6</b><small>riscaldamento</small></span><span class="va"><b>giacenza 0</b><small>8 pezzi l'anno scorso</small></span><span class="b ac"><strong>riordina ora</strong>: 6.192 € a rischio in questi mesi</span></div>
-        <div class="vr p up" role="row"><img src="images/magazzino/baxi-duotec.jpg" alt="" width="240" height="240" loading="lazy"><span class="nm"><b>Caldaia Baxi Duo-Tec Compact 24 kW</b><small>riscaldamento</small></span><span class="va"><b>giacenza 0</b><small>8 pezzi l'anno scorso</small></span><span class="b ac"><strong>riordina ora</strong>: 5.785 € a rischio</span></div>
-        <div class="vr tot" role="row"><span>Oggi, su tutto il catalogo</span><span class="va"><b>6.502</b><small>articoli fermi da 60 giorni</small></span><span class="b"><b>22</b><small>prodotti da riordinare</small></span></div>
+        <div class="vr head" role="row"><span role="columnheader">Prodotto</span><span role="columnheader">In magazzino</span><span class="ve" role="columnheader">Venduti</span><span class="b" role="columnheader">La mossa</span></div>
+        <div class="vr p down" role="row"><img src="images/magazzino/dab-multi-inox.jpg" alt="" width="240" height="240" loading="lazy"><span class="nm"><b>Elettropompa Dab Multi Inox 3M</b><small>termoidraulica</small></span><span class="va"><b>398 pezzi</b><small>94.457 €</small></span><span class="ve"><b>0</b><small>in 60 giorni</small></span><span class="b ac">campagna dedicata con <strong>ROAS obiettivo 6, non 12</strong>: libera 94 mila € di cassa, a prezzo pieno</span></div>
+        <div class="vr p down" role="row"><img src="images/magazzino/edilkamin-blade.jpg" alt="" width="240" height="240" loading="lazy"><span class="nm"><b>Stufa a pellet EdilKamin Blade 12++ Evo</b><small>riscaldamento</small></span><span class="va"><b>28 pezzi</b><small>79.800 €</small></span><span class="ve"><b>0</b><small>in 60 giorni</small></span><span class="b ac">la stagione arriva: <strong>spinta ora a obiettivo basso</strong>, prima dello sconto di gennaio</span></div>
+        <div class="vr p down" role="row"><img src="images/magazzino/climaveneta-ilife2.jpg" alt="" width="240" height="240" loading="lazy"><span class="nm"><b>Fan coil Climaveneta i-LIFE2 Slim</b><small>condizionamento</small></span><span class="va"><b>99 pezzi</b><small>70.340 €</small></span><span class="ve"><b>0</b><small>in 60 giorni</small></span><span class="b ac">fuori stagione: <strong>bundle con le installazioni</strong>, obiettivo sul magazzino, non sul ritorno</span></div>
+        <div class="vr p up" role="row"><img src="images/magazzino/accoroni-ghibli.jpg" alt="" width="240" height="240" loading="lazy"><span class="nm"><b>Radiatore a gas Accoroni Ghibli Elite 6</b><small>riscaldamento</small></span><span class="va"><b>giacenza 0</b><small>niente da vendere</small></span><span class="ve"><b>8</b><small>l'anno scorso, in questi mesi</small></span><span class="b ac"><strong>riordina ora</strong>: 6.192 € a rischio se aspetti dicembre</span></div>
+        <div class="vr p up" role="row"><img src="images/magazzino/baxi-duotec.jpg" alt="" width="240" height="240" loading="lazy"><span class="nm"><b>Caldaia Baxi Duo-Tec Compact 24 kW</b><small>riscaldamento</small></span><span class="va"><b>giacenza 0</b><small>niente da vendere</small></span><span class="ve"><b>8</b><small>l'anno scorso, in questi mesi</small></span><span class="b ac"><strong>riordina ora</strong>: 5.785 € a rischio</span></div>
+        <div class="vr tot" role="row"><span>Oggi, su tutto il catalogo</span><span class="va"><b>6.502</b><small>articoli con stock e zero vendite in 60 giorni</small></span><span class="b"><b>22</b><small>prodotti da riordinare prima della stagione</small></span></div>
       </div>
       <div class="vs-why fx">
         <div class="mks">
-          <div><b>418.538 €</b><span>di merce ferma da 60 giorni</span></div>
+          <div><b>418.538 €</b><span>di merce con stock alto e zero vendite in 60 giorni</span></div>
           <div><b>57.655 €</b><span>di vendite a rischio nei prossimi 90 giorni, se non si riordina</span></div>
         </div>
         <h3>Perché conta</h3>
         <ol>
-          <li><b>La merce ferma è cassa ferma.</b> 418 mila euro che non girano: una campagna ad hoc oggi li muove a prezzo pieno, uno sconto a gennaio li muove in perdita.</li>
+          <li><b>Alto stock, basse vendite: si spinge con un obiettivo più basso.</b> Un prodotto fermo che vende a ROAS 6 libera cassa che a ROAS 12 non uscirebbe mai. Ha una campagna sua, con un obiettivo suo, separata da quella dei prodotti che rendono: così non sporca il resto.</li>
           <li><b>Il riordino si decide sulla stagione dell'anno scorso.</b> Quel radiatore in questi mesi ne ha venduti 8; oggi ha giacenza zero. Ogni settimana senza riordinare è una vendita persa a un cliente che la trova altrove.</li>
-          <li><b>Lo leggiamo dal negozio, non da un foglio.</b> Giacenze e vendite ogni giorno, con la mossa scritta accanto: è nel report di ogni settimana, non in una riunione a fine trimestre.</li>
+          <li><b>Lo sconto è l'ultima mossa, non la prima.</b> 418 mila euro fermi oggi si muovono a prezzo pieno con la campagna giusta; a gennaio si muovono in perdita. Lo leggiamo dal negozio ogni giorno, con la mossa scritta accanto, nel report di ogni settimana.</li>
         </ol>
         <p class="vs-note">Letto l'11 ottobre 2026 sul negozio Shopify di Climando: stagione di confronto 11 ottobre 2025 – 9 gennaio 2026. Foto dei prodotti dal suo catalogo.</p>
         <p class="how-line">È il motivo per cui possiamo farci pagare <strong>solo su quello che vendi in più</strong>: il rischio è dell'impresa, e lo sappiamo.</p>
