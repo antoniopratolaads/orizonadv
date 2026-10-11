@@ -3,1288 +3,409 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Orizon ADV — Servizi</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<title>Servizi — Orizon ADV</title>
+<meta name="description" content="Campagne a percentuale sul venduto, Orizon Ignition sul catalogo, siti Shopify costruiti per convertire. Il numero che conta è uno: quanto vendi in più, con margine.">
+<link rel="canonical" href="https://www.orizonadv.it/servizi">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Servizi — Orizon ADV">
+<meta property="og:description" content="Campagne a percentuale sul venduto, Orizon Ignition sul catalogo, siti costruiti per convertire.">
+<meta property="og:url" content="https://www.orizonadv.it/servizi">
+<meta property="og:locale" content="it_IT">
+<meta property="og:site_name" content="Orizon ADV">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="images/brand/mark-blu.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/IBMPlexSans.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.add('js')</script>
 <style>
-:root {
-  --blue: #3750F7;
-  --blue-d: #233BD9;
-  --blue-l: #6377FD;
-  --blue-s: #9FABFF;
-  --blue-ll: #D2D8FF;
-  --green: #60E787;
-  --green-d: #4CCB70;
-  --green-l: #A1F9BA;
-  --pink: #FEEAEE;
-  --black: #0C1713;
-  --black-m: #5A625F;
-  --black-l: #A8ACAB;
-  --black-ll: #D9D9D9;
-  --gray: #F4F5F7;
-  --white: #FFFFFF;
-  --radius-xl: 28px;
-  --radius-lg: 20px;
-  --radius-md: 14px;
-  --radius-sm: 10px;
-}
+@font-face{font-family:'IBM Plex Sans';font-weight:100 700;font-style:normal;font-display:swap;src:url(fonts/IBMPlexSans.woff2) format('woff2-variations'),url(fonts/IBMPlexSans.woff2) format('woff2')}
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+:root{
+  --blue:#3750F7;--blue-d:#233BD9;--blue-l:#6377FD;--blue-s:#9FABFF;--blue-ll:#D2D8FF;
+  --green:#60E787;--black:#0C1713;--black-m:#5A625F;--black-l:#A8ACAB;--black-ll:#D9D9D9;--white:#FFFFFF;
+  --bg-2:#F7F8FA;--line:rgba(12,23,19,.09);--line-2:rgba(12,23,19,.14);
+  --font:'IBM Plex Sans',Arial,Helvetica,sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--white);color-scheme:light;scrollbar-color:var(--black-ll) var(--white)}
+body{font-family:var(--font);font-size:17px;line-height:1.55;color:var(--black);background:var(--white);-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums;overflow-x:hidden}
+::selection{background:var(--blue-ll);color:var(--black)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px}
+a{color:inherit}
+img{display:block;max-width:100%}
+h1,h2,h3{font-weight:600;letter-spacing:-.025em}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.ico{width:1em;height:1em;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;display:inline-block;vertical-align:-.12em}
 
-body {
-  font-family: 'IBM Plex Sans', sans-serif;
-  color: var(--black);
-  background: var(--white);
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-::selection { background: var(--blue-ll); color: var(--blue-d); }
-
-/* ─── NAV ─── */
-.nav {
-  position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
-  padding: 0 56px; height: 72px;
-  display: flex; align-items: center; justify-content: space-between;
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  background: rgba(255,255,255,.88);
-  border-bottom: 1px solid rgba(55,80,247,.05);
-  transition: all .4s;
-}
-.nav.scrolled { box-shadow: 0 1px 20px rgba(55,80,247,.04); }
-
-.nav-logo {
-  display: flex; align-items: center; gap: 10px;
-  text-decoration: none;
-}
-.nav-logo img { height: 28px; width: auto; }
-.nav-logo-text {
-  font-size: 21px; font-weight: 700; color: var(--blue);
-  letter-spacing: -.04em;
-}
-
-.nav-links { display: flex; gap: 8px; align-items: center; }
-.nav-link {
-  padding: 8px 18px; border-radius: 100px;
-  font-size: 14px; font-weight: 500; color: var(--black-m);
-  text-decoration: none; transition: all .3s;
-  border: 1px solid transparent;
-}
-.nav-link:hover { color: var(--black); background: var(--gray); }
-.nav-link.active { color: var(--blue); background: rgba(55,80,247,.05); }
-.nav-cta {
-  padding: 9px 22px; border-radius: 100px;
-  font-size: 14px; font-weight: 600; color: var(--white);
-  background: var(--blue); text-decoration: none;
-  transition: all .35s; border: none; cursor: pointer;
-  font-family: inherit;
-}
-.nav-cta:hover { background: var(--blue-d); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(55,80,247,.2); }
-
-/* ─── HERO ─── */
-.hero {
-  padding: 160px 56px 100px;
-  max-width: 1440px; margin: 0 auto;
-  position: relative;
-}
-.hero-eyebrow {
-  font-size: 12px; font-weight: 700; letter-spacing: .2em;
-  text-transform: uppercase; color: var(--blue);
-  margin-bottom: 24px;
-  display: flex; align-items: center; gap: 14px;
-}
-.hero-eyebrow::before {
-  content: ''; width: 36px; height: 2px;
-  background: linear-gradient(90deg, var(--green), var(--blue));
-  border-radius: 1px;
-}
-.hero h1 {
-  font-size: clamp(40px, 5.2vw, 72px);
-  font-weight: 700; letter-spacing: -.045em;
-  line-height: 1.02; margin-bottom: 28px;
-  max-width: 800px;
-}
-.hero h1 em {
-  font-style: normal;
-  background: linear-gradient(135deg, var(--blue), var(--blue-l));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.hero-desc {
-  font-size: 19px; line-height: 1.75; color: var(--black-m);
-  max-width: 560px; font-weight: 400;
-}
-.hero-desc strong { color: var(--black); font-weight: 600; }
-
-.hero-float {
-  position: absolute; right: 56px; top: 200px;
-  width: 340px; height: 340px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, var(--blue-ll), rgba(55,80,247,.04) 70%);
-  filter: blur(60px);
-  pointer-events: none;
-  animation: floatBlob 8s ease-in-out infinite alternate;
-}
-@keyframes floatBlob {
-  0% { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(-20px, 30px) scale(1.1); }
-}
-
-/* ─── STICKY ANCHORS ─── */
-.anchors {
-  position: sticky; top: 72px; z-index: 100;
-  background: rgba(255,255,255,.92);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(55,80,247,.05);
-  padding: 0 56px;
-}
-.anchors-inner {
-  max-width: 1440px; margin: 0 auto;
-  display: flex; gap: 0;
-}
-.anchor-btn {
-  padding: 18px 28px;
-  font-size: 14px; font-weight: 600;
-  color: var(--black-l); cursor: pointer;
-  border: none; background: none;
-  font-family: inherit; position: relative;
-  transition: all .3s ease;
-  white-space: nowrap;
-}
-.anchor-btn:hover { color: var(--black-m); }
-.anchor-btn.active { color: var(--blue); }
-.anchor-btn.active::after {
-  content: ''; position: absolute;
-  bottom: 0; left: 20px; right: 20px;
-  height: 2.5px; background: var(--blue);
-  border-radius: 2px 2px 0 0;
-}
-
-/* ─── SERVICE SECTION ─── */
-.svc {
-  padding: 120px 56px;
-  max-width: 1440px; margin: 0 auto;
-  scroll-margin-top: 150px;
-}
-.svc-grid {
-  display: grid;
-  grid-template-columns: 1fr 440px;
-  gap: 72px;
-  align-items: start;
-}
-
-/* Left column */
-.svc-number {
-  font-size: 110px; font-weight: 700;
-  letter-spacing: -.06em; line-height: .8;
-  margin-bottom: 28px;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 1.5px var(--blue-ll);
-  opacity: .6;
-}
-.svc-badge {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 5px 14px; border-radius: 100px;
-  font-size: 11px; font-weight: 700;
-  letter-spacing: .1em; text-transform: uppercase;
-  margin-bottom: 16px;
-}
-.svc-title {
-  font-size: clamp(30px, 3.6vw, 48px);
-  font-weight: 700; letter-spacing: -.035em;
-  line-height: 1.08; margin-bottom: 24px;
-}
-.svc-desc {
-  font-size: 17px; line-height: 1.8;
-  color: var(--black-m); margin-bottom: 36px;
-  max-width: 540px;
-}
-.svc-desc strong { color: var(--black); font-weight: 600; }
-
-/* Callout box */
-.callout {
-  background: var(--gray); border-radius: var(--radius-lg);
-  padding: 28px 32px; margin-bottom: 36px;
-  border-left: 3px solid var(--blue);
-  position: relative;
-}
-.callout p {
-  font-size: 15px; line-height: 1.75; color: var(--black-m);
-}
-.callout strong { color: var(--blue); font-weight: 700; }
-
-/* Channel pills */
-.pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 36px; }
-.pill {
-  padding: 7px 16px; border-radius: 100px;
-  font-size: 13px; font-weight: 600;
-  border: 1px solid rgba(55,80,247,.08);
-  color: var(--black-m); background: var(--white);
-  transition: all .3s ease; cursor: default;
-}
-.pill:hover {
-  border-color: var(--blue); color: var(--blue);
-  background: rgba(55,80,247,.03);
-}
-
-/* Feature rows */
-.features { display: flex; flex-direction: column; gap: 18px; margin-bottom: 36px; }
-.feat {
-  display: flex; gap: 16px; align-items: flex-start;
-}
-.feat-icon {
-  width: 36px; height: 36px; border-radius: var(--radius-sm);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; font-size: 15px; font-weight: 700; color: white;
-}
-.feat h4 { font-size: 15px; font-weight: 700; margin-bottom: 3px; }
-.feat p { font-size: 13px; color: var(--black-m); line-height: 1.55; }
-
-/* Revenue sharing dark card */
-.rs-card {
-  background: var(--black); border-radius: var(--radius-xl);
-  padding: 36px 36px; position: relative; overflow: hidden;
-  margin-top: 8px;
-}
-.rs-card::before {
-  content: ''; position: absolute;
-  width: 240px; height: 240px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(96,231,135,.12), transparent 70%);
-  top: -100px; right: -80px; pointer-events: none;
-}
-.rs-card::after {
-  content: ''; position: absolute;
-  width: 160px; height: 160px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(55,80,247,.1), transparent 70%);
-  bottom: -60px; left: -40px; pointer-events: none;
-}
-.rs-tag {
-  display: inline-block; padding: 5px 14px; border-radius: 100px;
-  background: rgba(96,231,135,.1); color: var(--green);
-  font-size: 10px; font-weight: 700; letter-spacing: .12em;
-  text-transform: uppercase; margin-bottom: 16px;
-}
-.rs-card h3 {
-  font-size: 22px; font-weight: 700; color: var(--white);
-  margin-bottom: 12px; letter-spacing: -.02em;
-  position: relative;
-}
-.rs-card > p {
-  font-size: 14px; color: rgba(255,255,255,.5);
-  line-height: 1.75; position: relative;
-}
-.rs-card strong { color: var(--green); font-weight: 700; }
-
-/* ─── SIDE PANELS ─── */
-.side-panel {
-  background: var(--gray); border-radius: var(--radius-xl);
-  overflow: hidden; border: 1px solid rgba(55,80,247,.03);
-  position: sticky; top: 160px;
-}
-.sp-head {
-  padding: 24px 28px 18px;
-  border-bottom: 1px solid rgba(55,80,247,.05);
-}
-.sp-eyebrow {
-  font-size: 10px; font-weight: 700; letter-spacing: .15em;
-  text-transform: uppercase; color: var(--blue); margin-bottom: 4px;
-}
-.sp-title { font-size: 19px; font-weight: 700; letter-spacing: -.02em; }
-.sp-body { padding: 8px; }
-
-/* Case study mini cards */
-.cs {
-  padding: 20px; border-radius: 16px;
-  cursor: pointer; transition: all .35s;
-  background: transparent; position: relative;
-}
-.cs:hover { background: var(--white); box-shadow: 0 4px 24px rgba(55,80,247,.05); }
-.cs-top { display: flex; gap: 14px; align-items: center; margin-bottom: 14px; }
-.cs-dot {
-  width: 42px; height: 42px; border-radius: 12px;
-  flex-shrink: 0; display: flex; align-items: center;
-  justify-content: center; font-size: 15px; font-weight: 700; color: white;
-}
-.cs-name { font-size: 15px; font-weight: 700; }
-.cs-tag { font-size: 11px; color: var(--black-l); font-weight: 500; }
-.cs-kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
-.cs-kpi { background: var(--white); border-radius: var(--radius-sm); padding: 10px 14px; }
-.cs-kpi-v { font-size: 19px; font-weight: 700; color: var(--green-d); }
-.cs-kpi-l {
-  font-size: 9.5px; color: var(--black-l); font-weight: 600;
-  letter-spacing: .05em; text-transform: uppercase; margin-top: 2px;
-}
-.cs-desc { font-size: 13px; color: var(--black-m); line-height: 1.55; }
-.cs-link {
-  display: inline-flex; align-items: center; gap: 6px;
-  font-size: 12px; font-weight: 700; color: var(--blue);
-  margin-top: 10px; text-decoration: none; transition: gap .3s;
-}
-.cs-link:hover { gap: 10px; }
-.cs-sep { height: 1px; background: rgba(55,80,247,.05); margin: 2px 20px; }
-
-/* Micro tag pills inside case studies */
-.cs-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 10px; }
-.cs-micro-tag {
-  font-size: 10px; font-weight: 700; padding: 3px 8px;
-  border-radius: 100px;
-}
-.cs-rs-tag {
-  font-size: 10px; font-weight: 700; padding: 3px 10px;
-  border-radius: 100px; background: rgba(96,231,135,.1);
-  color: var(--green-d); margin-top: 6px; display: inline-block;
-}
-
-/* Site preview cards */
-.site-card {
-  margin: 8px; border-radius: 18px; overflow: hidden;
-  border: 1px solid rgba(55,80,247,.04);
-  transition: all .4s; cursor: pointer; background: var(--white);
-}
-.site-card:hover {
-  border-color: var(--blue);
-  box-shadow: 0 12px 36px rgba(55,80,247,.07);
-  transform: translateY(-2px);
-}
-.site-card-visual {
-  width: 100%; height: 160px;
-  display: flex; align-items: center; justify-content: center;
-  flex-direction: column; gap: 6px;
-}
-.site-card-visual-name {
-  font-size: 26px; font-weight: 700; letter-spacing: -.02em;
-}
-.site-card-visual-url {
-  font-size: 11px; font-weight: 600; opacity: .7;
-}
-.site-card-body { padding: 16px 20px; }
-.site-card-body h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
-.site-card-body p { font-size: 12px; color: var(--black-m); line-height: 1.5; }
-.site-card-body .url-link {
-  font-size: 11px; color: var(--blue); font-weight: 600;
-  margin-top: 6px; display: block; text-decoration: none;
-}
-
-/* SaaS product cards */
-.saas {
-  padding: 24px; border-radius: 18px; margin: 8px;
-  background: var(--white); border: 1px solid rgba(55,80,247,.04);
-  transition: all .4s; cursor: default;
-}
-.saas:hover {
-  border-color: var(--blue);
-  box-shadow: 0 12px 36px rgba(55,80,247,.06);
-  transform: translateY(-2px);
-}
-.saas-badge {
-  display: inline-block; padding: 4px 12px; border-radius: 100px;
-  font-size: 10px; font-weight: 700; letter-spacing: .1em;
-  text-transform: uppercase; margin-bottom: 14px;
-}
-.saas h3 { font-size: 17px; font-weight: 700; letter-spacing: -.01em; margin-bottom: 8px; }
-.saas > p { font-size: 13px; color: var(--black-m); line-height: 1.65; margin-bottom: 16px; }
-.saas-feats { display: flex; flex-direction: column; gap: 6px; }
-.saas-f {
-  font-size: 12px; font-weight: 600; color: var(--black-m);
-  display: flex; align-items: center; gap: 8px;
-}
-.saas-f::before {
-  content: ''; width: 5px; height: 5px; border-radius: 50%;
-  background: var(--blue); flex-shrink: 0;
-}
-.saas-btn {
-  margin-top: 16px; padding: 10px 22px; border-radius: 100px;
-  border: 1.5px solid var(--blue); background: transparent;
-  color: var(--blue); font-family: inherit; font-size: 13px;
-  font-weight: 700; cursor: pointer; transition: all .3s;
-}
-.saas-btn:hover { background: var(--blue); color: white; }
-
-/* ─── DIVIDER ─── */
-.divider {
-  max-width: 1440px; margin: 0 auto; padding: 0 56px;
-}
-.divider-line {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(55,80,247,.07), transparent);
-}
-
-/* ─── CTA BOTTOM ─── */
-.cta-section {
-  padding: 120px 56px;
-  text-align: center;
-  position: relative;
-}
-.cta-section::before {
-  content: ''; position: absolute;
-  width: 600px; height: 600px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(55,80,247,.04), transparent 70%);
-  top: 50%; left: 50%; transform: translate(-50%, -50%);
-  pointer-events: none;
-}
-.cta-section h2 {
-  font-size: clamp(30px, 4vw, 52px);
-  font-weight: 700; letter-spacing: -.035em;
-  margin-bottom: 18px; position: relative;
-}
-.cta-section > p {
-  font-size: 18px; color: var(--black-m);
-  margin-bottom: 40px; max-width: 480px;
-  margin-left: auto; margin-right: auto;
-  line-height: 1.7; position: relative;
-}
-.cta-btn {
-  padding: 18px 48px; background: var(--blue);
-  color: var(--white); border: none; border-radius: 100px;
-  font-family: inherit; font-size: 17px; font-weight: 700;
-  cursor: pointer; transition: all .4s; position: relative;
-}
-.cta-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 20px 56px rgba(55,80,247,.22);
-  background: var(--blue-d);
-}
-
-.cta-contacts {
-  margin-top: 48px; display: flex;
-  justify-content: center; gap: 36px; flex-wrap: wrap;
-  position: relative;
-}
-.cta-contact {
-  font-size: 13px; color: var(--black-l); font-weight: 500;
-  text-decoration: none; transition: color .3s;
-  display: flex; align-items: center; gap: 6px;
-}
-.cta-contact:hover { color: var(--blue); }
-.cta-contact svg { width: 14px; height: 14px; opacity: .5; }
-
-/* ─── FOOTER ─── */
-.footer {
-  padding: 40px 56px;
-  border-top: 1px solid rgba(55,80,247,.04);
-  display: flex; align-items: center; justify-content: space-between;
-  max-width: 1440px; margin: 0 auto;
-}
-.footer-left { font-size: 12px; color: var(--black-l); font-weight: 500; }
-.footer-links { display: flex; gap: 20px; }
-.footer-link {
-  font-size: 12px; color: var(--black-l); text-decoration: none;
-  font-weight: 500; transition: color .3s;
-}
-.footer-link:hover { color: var(--blue); }
-
-/* ─── REVEAL ANIMATION ─── */
-.rv {
-  opacity: 0; transform: translateY(20px);
-  transition: opacity .65s cubic-bezier(.22,1,.36,1),
-              transform .65s cubic-bezier(.22,1,.36,1);
-}
-.rv.v { opacity: 1; transform: translateY(0); }
-
-/* ─── RESPONSIVE ─── */
-@media (max-width: 1100px) {
-  .nav { padding: 0 32px; }
-  .hero { padding: 140px 32px 80px; }
-  .hero-float { display: none; }
-  .svc { padding: 80px 32px; }
-  .svc-grid { grid-template-columns: 1fr; gap: 48px; }
-  .side-panel { position: static; }
-  .anchors { padding: 0 32px; }
-  .svc-number { font-size: 80px; }
-  .cta-section { padding: 80px 32px; }
-  .divider { padding: 0 32px; }
-  .footer { padding: 32px 32px; }
-}
-@media (max-width: 768px) {
-  .nav { padding: 0 20px; height: 64px; }
-  .nav-links { display: none; }
-  .hero { padding: 110px 20px 60px; }
-  .svc { padding: 64px 20px; }
-  .anchors { padding: 0 20px; overflow-x: auto; }
-  .anchor-btn { padding: 14px 18px; font-size: 13px; }
-  .svc-number { font-size: 60px; }
-  .cta-section { padding: 64px 20px; }
-  .cta-contacts { gap: 20px; }
-  .divider { padding: 0 20px; }
-  .footer { padding: 24px 20px; flex-direction: column; gap: 16px; text-align: center; }
-}
-
-/* MODAL POPUP */
-.modal-overlay{position:fixed;inset:0;z-index:2000;background:rgba(12,23,19,.7);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:40px;opacity:0;pointer-events:none;transition:opacity .35s cubic-bezier(.22,1,.36,1)}
-.modal-overlay.open{opacity:1;pointer-events:auto}
-.modal{background:var(--white);border-radius:28px;max-width:720px;width:100%;max-height:85vh;overflow-y:auto;position:relative;transform:translateY(20px) scale(.97);transition:transform .4s cubic-bezier(.22,1,.36,1);box-shadow:0 40px 100px rgba(0,0,0,.15)}
-.modal-overlay.open .modal{transform:translateY(0) scale(1)}
-.modal-close{position:absolute;top:20px;right:20px;width:40px;height:40px;border-radius:50%;background:rgba(0,0,0,.05);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:1;transition:all .3s}
-.modal-close:hover{background:rgba(0,0,0,.1)}
-.modal-close svg{width:18px;height:18px;stroke:var(--black-m);stroke-width:2;fill:none;stroke-linecap:round}
-.modal-hero{padding:40px 40px 0;position:relative}
-.modal-badge{display:inline-block;padding:5px 14px;border-radius:100px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px}
-.modal-hero h2{font-size:28px;font-weight:700;letter-spacing:-.03em;margin-bottom:10px}
-.modal-hero p{font-size:15px;color:var(--black-m);line-height:1.7;max-width:580px}
-.modal-body{padding:32px 40px 40px}
-.modal-section{margin-bottom:28px}
-.modal-section-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
-.modal-features{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.modal-feat{padding:16px;border-radius:14px;background:var(--gray);border:1px solid rgba(55,80,247,.03);transition:all .3s}
-.modal-feat:hover{background:var(--white);box-shadow:0 4px 16px rgba(0,0,0,.04)}
-.modal-feat-icon{font-size:20px;margin-bottom:8px}
-.modal-feat h4{font-size:13px;font-weight:700;margin-bottom:4px}
-.modal-feat p{font-size:12px;color:var(--black-m);line-height:1.5;margin:0}
-.modal-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
-.modal-stat{text-align:center;padding:18px 12px;border-radius:14px;background:var(--gray)}
-.modal-stat-v{font-size:24px;font-weight:700;color:var(--blue);letter-spacing:-.02em}
-.modal-stat-l{font-size:10px;color:var(--black-l);font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-top:4px}
-.modal-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
-.modal-tag{padding:6px 14px;border-radius:100px;font-size:11px;font-weight:600;background:var(--gray);color:var(--black-m);border:1px solid rgba(55,80,247,.05)}
-.modal-cta{display:inline-block;padding:14px 36px;background:var(--blue);color:var(--white);border-radius:100px;font-size:15px;font-weight:700;text-decoration:none;transition:all .4s;border:none;cursor:pointer;font-family:inherit}
-.modal-cta:hover{background:var(--blue-d);transform:translateY(-2px);box-shadow:0 12px 36px rgba(55,80,247,.2)}
-.modal-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(55,80,247,.08),transparent);margin:24px 0}
-@media(max-width:768px){.modal-overlay{padding:16px}.modal{border-radius:20px;max-height:90vh}.modal-hero,.modal-body{padding-left:24px;padding-right:24px}.modal-features{grid-template-columns:1fr}.modal-stats{grid-template-columns:1fr 1fr}}
-
-
-.nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:1001}
-.nav-hamburger svg{width:24px;height:24px;stroke:var(--black);stroke-width:2;fill:none;stroke-linecap:round}
-.mobile-menu{display:none;position:fixed;inset:0;z-index:999;background:rgba(255,255,255,.98);backdrop-filter:blur(24px);flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:0;pointer-events:none;transition:opacity .3s}
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:60px;background:rgba(255,255,255,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;height:100%}
+.brand img{height:22px;width:auto}
+.nav-links{display:flex;gap:28px}
+.nav-links a{font-weight:500;font-size:14px;color:var(--black-m);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--black)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:14px;line-height:1;padding:10px 16px;border-radius:8px;text-decoration:none;cursor:pointer;border:1px solid transparent;transition:background .2s,color .2s,border-color .2s}
+.btn-primary{background:var(--blue);color:var(--white)}
+.btn-primary:hover{background:var(--blue-d)}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:8px;color:var(--black)}
+.burger svg{width:24px;height:24px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:99;background:var(--white);padding:92px 32px 32px;flex-direction:column;gap:2px;opacity:0;pointer-events:none;transition:opacity .25s}
 .mobile-menu.open{opacity:1;pointer-events:auto}
-.mobile-menu a{font-size:20px;font-weight:600;color:var(--black-m);text-decoration:none;padding:14px 40px;border-radius:100px;transition:all .3s}
-.mobile-menu a:hover,.mobile-menu a.active{color:var(--blue);background:rgba(55,80,247,.05)}
-.mobile-close{position:absolute;top:20px;right:24px;background:none;border:none;cursor:pointer;padding:8px}
-.mobile-close svg{width:24px;height:24px;stroke:var(--black);stroke-width:2;fill:none;stroke-linecap:round}
-@media(max-width:768px){.nav-hamburger{display:block}.nav-links{display:none}.mobile-menu{display:flex}}
+.mobile-menu a{font-weight:600;font-size:24px;color:var(--black);text-decoration:none;padding:12px 0;border-bottom:1px solid var(--line)}
+.mobile-close{position:absolute;top:14px;right:22px;background:none;border:0;cursor:pointer;padding:8px;color:var(--black)}
+.mobile-close svg{width:24px;height:24px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round}
 
-.hero-bg{position:fixed;top:0;left:0;width:100%;height:100vh;pointer-events:none;z-index:0;overflow:hidden}
-.hero-bg .orb{position:absolute;border-radius:50%;filter:blur(120px);opacity:.3;animation:orbFloat 25s ease-in-out infinite}
-.hero-orb-1{width:500px;height:500px;background:rgba(55,80,247,.08);top:-150px;right:-80px}
-.hero-orb-2{width:350px;height:350px;background:rgba(96,231,135,.1);bottom:0;left:-80px;animation-delay:-8s}
-.hero-orb-3{width:400px;height:400px;background:rgba(55,80,247,.05);top:40%;left:30%;animation-delay:-16s}
-@keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(30px,-20px) scale(1.05)}50%{transform:translate(-20px,30px) scale(.95)}75%{transform:translate(20px,20px) scale(1.02)}}
-.hero-o-pattern{position:fixed;top:0;left:0;width:100%;height:100vh;pointer-events:none;z-index:0;overflow:hidden}
-.hero-o-pattern .o-shape{position:absolute;animation:oFade 1.8s ease-out forwards;opacity:0}
-@keyframes oFade{0%{opacity:0;transform:scale(.85)}100%{opacity:var(--o-op);transform:scale(1)}}
+/* ── comparsa morbida ── */
+.js .fx{opacity:0;transform:translateY(10px);transition:opacity .7s var(--ease),transform .9s var(--ease)}
+.js .fx.in{opacity:1;transform:none}
 
-.cta-gm{position:relative;overflow:hidden;border-radius:28px;padding:80px 60px;text-align:center;background:linear-gradient(135deg,var(--blue),var(--blue-d))}
-.cta-gm::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 100 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40,0 L60,0 C82,0 100,18 100,40 C100,62 82,80 60,80 L40,80 C18,80 0,62 0,40 C0,18 18,0 40,0 Z M40,22 C30,22 22,30 22,40 C22,50 30,58 40,58 L60,58 C70,58 78,50 78,40 C78,30 70,22 60,22 L40,22 Z' fill='white' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");background-size:120px 96px;opacity:.6}
-.cta-gm::after{content:'';position:absolute;bottom:-200px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(96,231,135,.15),transparent 70%)}
-.cta-gm h2{font-size:clamp(30px,4vw,52px);font-weight:700;letter-spacing:-.04em;color:white;margin-bottom:16px;position:relative;z-index:1}
-.cta-gm>p{font-size:18px;color:rgba(255,255,255,.6);margin-bottom:36px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7;position:relative;z-index:1}
-.cta-glass{display:inline-flex;align-items:center;gap:24px;padding:10px 10px 10px 36px;border-radius:100px;background:rgba(255,255,255,.1);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.15);position:relative;z-index:1}
-.cta-glass span{font-size:15px;font-weight:600;color:rgba(255,255,255,.9)}
-.cta-glass-btn{padding:14px 36px;background:white;color:var(--blue);border-radius:100px;font-size:15px;font-weight:700;text-decoration:none;transition:all .3s;display:inline-block}
-.cta-glass-btn:hover{transform:scale(1.04);box-shadow:0 8px 24px rgba(0,0,0,.15)}
-.cta-sub{margin-top:20px;font-size:13px;color:rgba(255,255,255,.35);position:relative;z-index:1}
+.scan{margin:30px auto 0;display:flex;max-width:560px;border:1px solid var(--line-2);border-radius:10px;background:var(--white);padding:4px;box-shadow:0 1px 2px rgba(12,23,19,.04);transition:box-shadow .2s,border-color .2s}
+.scan:focus-within{border-color:var(--blue);box-shadow:0 0 0 4px rgba(55,80,247,.14)}
+.scan input{flex:1;min-width:0;height:44px;padding:0 14px;background:transparent;border:0;color:var(--black);font:inherit;font-size:16px;outline:none}
+.scan input::placeholder{color:var(--black-m)}
+.scan button{height:44px;padding:0 18px;border-radius:7px;background:var(--blue);color:var(--white);border:0;cursor:pointer;font:inherit;font-weight:600;font-size:15px;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;transition:background .2s}
+.scan button:hover{background:var(--blue-d)}
+.scan-meta{margin:12px auto 0;font-size:14px;color:var(--black-m);max-width:560px}
 
-/* SMART NAV */
-.nav{transition:transform .35s cubic-bezier(.22,1,.36,1),background .3s,box-shadow .3s!important}
-.nav-logo img{height:44px;width:auto}
-/* HAMBURGER */
-.nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;z-index:1001}
-.nav-hamburger svg{width:24px;height:24px;stroke:var(--black);stroke-width:2;fill:none;stroke-linecap:round}
-.mobile-menu{display:none;position:fixed;inset:0;z-index:9999;background:rgba(255,255,255,.98);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:0;pointer-events:none;transition:opacity .3s}
-.mobile-menu.open{opacity:1;pointer-events:auto}
-.mobile-menu a{font-size:20px;font-weight:600;color:var(--black-m);text-decoration:none;padding:14px 40px;border-radius:100px;transition:all .3s}
-.mobile-menu a:hover,.mobile-menu a.active{color:var(--blue);background:rgba(55,80,247,.05)}
-.mobile-menu .mobile-cta{margin-top:16px;padding:16px 40px;background:var(--blue);color:var(--white);border-radius:100px;font-size:16px;font-weight:700;text-decoration:none}
-.mobile-close{position:absolute;top:20px;right:24px;background:none;border:none;cursor:pointer;padding:8px}
-.mobile-close svg{width:24px;height:24px;stroke:var(--black);stroke-width:2;fill:none;stroke-linecap:round}
+/* ── TESTA ── */
+.chead{padding:132px 0 40px;position:relative}
+.chead::before{content:'';position:absolute;left:50%;top:-120px;width:1100px;height:600px;transform:translateX(-50%);background:radial-gradient(ellipse at center,rgba(55,80,247,.12),rgba(55,80,247,0) 62%);pointer-events:none}
+.chead .wrap{position:relative}
+.chead h1{font-size:clamp(36px,4.6vw,56px);line-height:1.06;letter-spacing:-.035em;max-width:820px;text-wrap:balance}
+.chead h1 span{color:var(--blue)}
+.chead .sub{margin-top:16px;font-size:18px;color:var(--black-m);max-width:640px;text-wrap:pretty}
+.chead .sub strong{color:var(--black);font-weight:600}
+.jump{display:flex;gap:8px;flex-wrap:wrap;margin-top:26px}
+.jump a{font-weight:600;font-size:14px;color:var(--black);text-decoration:none;border:1px solid var(--line-2);border-radius:999px;padding:10px 15px;background:var(--white);transition:border-color .2s,color .2s}
+.jump a:hover{border-color:var(--blue);color:var(--blue)}
+
+/* ── I TRE SERVIZI ── */
+.svc{padding:96px 0;border-top:1px solid var(--line);scroll-margin-top:60px}
+.svc.alt{background:var(--bg-2)}
+.svc-grid{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:56px;align-items:start}
+.svc h2{font-size:clamp(30px,3.6vw,44px);line-height:1.1;letter-spacing:-.03em;text-wrap:balance;max-width:640px}
+.svc h2 mark{background:none;color:var(--blue)}
+.svc .lead{margin-top:16px;font-size:18px;color:var(--black-m);max-width:620px;text-wrap:pretty}
+.svc .lead strong{color:var(--black);font-weight:600}
+.model{margin-top:22px;background:var(--black);color:var(--white);border-radius:14px;padding:18px 20px;font-size:15.5px;line-height:1.5;max-width:620px}
+.model b{font-weight:600;display:block;font-size:18px;margin-bottom:4px;letter-spacing:-.01em}
+.incl{margin-top:26px;max-width:620px}
+.incl h3{font-size:13px;font-weight:600;color:var(--black-m);margin-bottom:4px}
+.incl div{display:grid;grid-template-columns:168px 1fr;gap:16px;padding:12px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.45}
+.incl div:last-child{border-bottom:1px solid var(--line)}
+.incl b{font-weight:600;color:var(--black)}
+.incl span{color:var(--black-m)}
+.chips{margin-top:18px;display:flex;flex-wrap:wrap;gap:6px}
+.chips i{font-style:normal;font-size:13px;color:var(--black-m);border:1px solid var(--line);border-radius:999px;padding:5px 11px;background:var(--white)}
+.more{margin-top:22px;font-size:15.5px;color:var(--black);max-width:620px}
+.more a{color:var(--blue);font-weight:600;text-decoration:none;white-space:nowrap}
+.more a:hover{text-decoration:underline;text-underline-offset:3px}
+.pbox{background:var(--white);border:1px solid var(--line-2);border-radius:16px;padding:20px 22px;box-shadow:0 24px 70px -28px rgba(12,23,19,.22)}
+.pbox h3{font-size:13.5px;font-weight:600;color:var(--black-m)}
+.case{padding:16px 0}
+.case+.case{border-top:1px solid var(--line)}
+.case .who{display:flex;justify-content:space-between;gap:10px;align-items:baseline;flex-wrap:wrap}
+.case .who b{font-weight:600;font-size:16px}
+.case .who span{font-size:13px;color:var(--black-m)}
+.case .kp{margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.case .kp b{display:block;font-weight:600;font-size:26px;letter-spacing:-.03em;line-height:1;color:var(--blue)}
+.case .kp span{display:block;font-size:12.5px;color:var(--black-m);margin-top:5px;line-height:1.35}
+.case a{display:inline-block;margin-top:10px;font-size:14px;font-weight:600;color:var(--blue);text-decoration:none}
+.case a:hover{text-decoration:underline;text-underline-offset:3px}
+.pnote{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:12.5px;color:var(--black-l);line-height:1.45}
+.site{padding:14px 0;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}
+.site+.site{border-top:1px solid var(--line)}
+.site b{font-weight:600;display:block}
+.site span{font-size:13.5px;color:var(--black-m)}
+.site a{font-size:14px;font-weight:600;color:var(--blue);text-decoration:none;white-space:nowrap}
+.site a:hover{text-decoration:underline;text-underline-offset:3px}
+.ai{padding:80px 0;background:var(--bg-2);border-top:1px solid var(--line);scroll-margin-top:60px}
+.ai .wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:center}
+.ai h2{font-size:clamp(28px,3.2vw,38px);line-height:1.1;letter-spacing:-.03em}
+.ai p{font-size:17px;color:var(--black-m)}
+.ai p strong{color:var(--black);font-weight:600}
+.ai .btn{margin-top:18px}
+/* ── SCAN FINALE ── */
+.end{padding:112px 0;background:var(--bg-2);border-top:1px solid var(--line);text-align:center;position:relative;overflow:hidden}
+.end::before{content:'';position:absolute;left:50%;top:-200px;width:900px;height:600px;transform:translateX(-50%);background:radial-gradient(ellipse at center,rgba(55,80,247,.12),rgba(55,80,247,0) 62%);pointer-events:none}
+.end .wrap{position:relative}
+.end h2{font-size:clamp(34px,4.4vw,56px);line-height:1.05;letter-spacing:-.035em;max-width:760px;margin:0 auto;text-wrap:balance}
+.end h2 span{color:var(--blue)}
+.end .sub{margin:18px auto 0;font-size:18px;color:var(--black-m);max-width:600px}
+.end .scan{margin-top:28px}
+.after{margin:28px auto 0;max-width:820px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;text-align:left}
+.after div{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:14px;color:var(--black-m);line-height:1.45}
+.after div b{display:block;color:var(--black);font-weight:600;margin-bottom:2px}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--white)}
+.foot{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:32px}
+.foot .brand{height:auto}
+.foot .brand img{height:20px}
+.foot p{font-size:14px;color:var(--black-m);margin-top:12px;max-width:300px}
+.foot h4{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--black-l);margin-bottom:12px}
+.foot a{display:block;font-size:14px;color:var(--black-m);text-decoration:none;margin-bottom:8px;transition:color .2s}
+.foot a:hover{color:var(--black)}
+.foot-bottom{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--black-l)}
+
+
+/* ── RESPONSIVE ── */
+@media(max-width:1000px){
+  .svc-grid{grid-template-columns:1fr;gap:28px}
+  .after{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr 1fr}
+}
 @media(max-width:768px){
-.nav-hamburger{display:block}.nav-links{display:none!important}.mobile-menu{display:flex}
-.hero h1{font-size:clamp(28px,7vw,42px)!important}
-.hero-desc{font-size:16px!important}
-.hero-actions{flex-direction:column;align-items:stretch!important}
-.hero-btn{text-align:center;padding:14px 32px!important}
-.cta-gm{margin:0 20px!important;padding:48px 24px!important;border-radius:20px!important}
-.cta-glass{flex-direction:column;border-radius:20px!important;padding:20px!important;gap:14px!important}
-.svc-grid,.cases-grid,.cases-grid-big,.testi-grid{grid-template-columns:1fr!important}
-.stats-grid{grid-template-columns:1fr 1fr!important}
-.founder-grid{grid-template-columns:1fr!important}
-.footer-top{grid-template-columns:1fr!important}
+  .wrap{padding:0 20px}
+  .nav-links,.nav .btn{display:none}
+  .burger{display:block}
+  .mobile-menu{display:flex}
+  .chead{padding:108px 0 28px}
+  .chead h1{font-size:clamp(32px,8.6vw,40px)}
+  .chead .sub{font-size:16px}
+  .svc{padding:64px 0}
+  .svc .lead{font-size:16px}
+  .incl div{grid-template-columns:1fr;gap:3px}
+  .ai{padding:56px 0}
+  .ai .wrap{grid-template-columns:1fr;gap:16px}
+  .end{padding:72px 0}
+  .scan{flex-direction:column;padding:6px}
+  .scan button{justify-content:center}
+  .foot{grid-template-columns:1fr}
 }
-@media(max-width:480px){
-.nav{padding:0 16px!important}
-.hero{padding:100px 16px 40px!important}
-.cta-gm{margin:0 16px!important}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .fx{opacity:1;transform:none;transition:none}
 }
 </style>
 </head>
 <body>
-<div id="root"></div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
-<script type="text/babel" data-type="module">
-const { useState, useEffect, useRef, useCallback } = React;
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol></defs></svg>
 
-/* ── Reveal on scroll ── */
-const Reveal = ({ children, delay = 0 }) => {
-  const ref = useRef(null);
-  const [vis, setVis] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) { setVis(true); obs.unobserve(el); } },
-      { threshold: 0.06 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-  return (
-    <div ref={ref} className={"rv " + (vis ? "v" : "")} style={{ transitionDelay: delay + "s" }}>
-      {children}
+<!-- ═══ NAV ═══ -->
+<nav class="nav" aria-label="Principale">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Orizon ADV — home"><img src="images/brand/logo-blu.svg" alt="Orizon" width="720" height="182"></a>
+    <div class="nav-links">
+      <a href="/#ignition">Ignition</a>
+      <a href="/#risultati">Risultati</a>
+      <a href="/#come-lavoriamo">Come lavoriamo</a>
+      <a href="/#chi-guida">Chi guida</a>
     </div>
-  );
-};
-
-/* ── Logo SVG (inline orizon wordmark) ── */
-const Logo = () => (
-  <svg viewBox="0 0 140 32" fill="none" xmlns="http://www.w3.org/2000/svg" style={{height: 26, width: 'auto'}}>
-    <text x="0" y="24" fontFamily="IBM Plex Sans" fontWeight="700" fontSize="26" fill="#3750F7" letterSpacing="-1">orizon</text>
-  </svg>
-);
-
-/* ── SVG Icons ── */
-const IconMail = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 4 10 8 10-8"/></svg>;
-const IconPhone = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3.09 5.18 2 2 0 0 1 5.08 3h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 11.87a16 16 0 0 0 6.04 6.04l2.23-2.23a2 2 0 0 1 2.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0 1 22 16.92z"/></svg>;
-const IconPin = () => <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 6-9 13-9 13s-9-7-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>;
-const IconLinkedin = () => <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>;
-
-function App() {
-  const [active, setActive] = useState("perf");
-  const [modal, setModal] = useState(null);
-  const [scrolled, setScrolled] = useState(false);
-
-  const scrollTo = useCallback((id) => {
-    setActive(id);
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  }, []);
-
-  useEffect(() => {
-    const onEsc = (e) => { if(e.key === "Escape") setModal(null); };
-    window.addEventListener("keydown", onEsc);
-    return () => window.removeEventListener("keydown", onEsc);
-  }, []);
-  useEffect(() => {
-    const onScroll = () => {
-      var st = window.pageYOffset;
-      setScrolled(st > 20);
-      var nav = document.querySelector('.nav');
-      if (nav) {
-        if (st > 200 && st > (window._lastST || 0)) {
-          nav.style.transform = 'translateY(-100%)';
-        } else {
-          nav.style.transform = 'translateY(0)';
-        }
-        window._lastST = st;
-      }
-    };
-    window._lastST = 0;
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
-    const ids = ["perf", "web", "ai"];
-    const obs = new IntersectionObserver(
-      (entries) => { entries.forEach((e) => { if (e.isIntersecting) setActive(e.target.id); }); },
-      { threshold: 0.25, rootMargin: "-140px 0px -40% 0px" }
-    );
-    ids.forEach((id) => { const el = document.getElementById(id); if (el) obs.observe(el); });
-    return () => obs.disconnect();
-  }, []);
-
-  return (
-    <React.Fragment>
-
-      {/* ─── NAV ─── */}
-      <nav className={"nav" + (scrolled ? " scrolled" : "")}>
-        <a className="nav-logo" href="/"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAABYCAIAAAD+96djAAAH70lEQVR42u3ba4xV1RUH8P9a+5xznzMwwwyCw3RUwCoWqwKmFPoQq622trQ2lYbG2oj10VQbagp9iNX2A1bEJqTlQyltYmqKlLbpA9Km2KISBE19JFSDDuBMZ0BgmHvnzn2cx16rH+7MMDyaMBaNKXt/POfcffb5nb3WXvvmXhIRnPWNiNgp1JuDcBAOwkE4CAfhIByEg3AQDsJBOAgH4SAchINwEA7CQTgIB+EgHISDcBAOwkE4CAfxvzRVBwEoiJkAOqshiJQpPnhokCgmorMUQhVRHN636vB1X4mWPzRYC+27KkbeIQgRMNMrr0cbt+QyufymvwQvvRox493zuyXvLT2Vqp44tRWAghmjj6sOPaoqVDF5ot/RVnu1M76gw7ZNZlUVoRPmBTH4pB7qfaqCCMynUK6fOuUYTjdsx/pjMlEyDEAAOX5CKUAAW1EeHjczATp8igB7tBhtf54+cIVpbWJVPmnEVIeuHxeBMQTIqB7IWh2xUAWImDB8TX2OH3fN6SUvGjMEkby4u/TkjuTNw6zDb1NBuSy/f4Ze95FcOuVbAQHM6Dta3fZcdbDiERB4uOZDwVM7w1gMVG+4Oqcab9pSTmzApABEwSTzZvtTOzIiAIgZXT2DW/4R7u1mgNom6zXzUhdPy4gQUR0aQLLt2fL2f9pCkQOfLpqq1y/INI9LjcyjMwyhWp8+tYfW9m/cnI5sKk6GDg7FmAcie/HUcOW3/AvPb1ClN3oKt3+nur+3kQhhiHF52bCWv7os6uwKzmmRrY9nJal9dFFYqqY9IyIwTMxozMdrf+Bd8b4ckWza3LfqZ6ZYTieWVMn3NO3HS26Su25usNYQUbVWWbGquOWZHODFCXkGgJ0yKXn4295lM3LW4jTnBRF5p5/zjYlXr+tfv6mxpdnzEts2yaYCVgEIUD3Up+Wa2bMvd8+DlcceiVua/Q1/jDq7x09uVWbNpTmXhe9hfCO3TuDm8SCC59HUDlSqBHAmxeXQlqtcKKZ+sTGZNVP/9nT/fav9XD6XDpJJE9U30n2QfD+1en2cy1W+fGMekDXrS7/fOm5iC8eJbZ+EowWp1szBPn/5j2ob1kSN+aCeO85YshSFMbS3q/LrPwctzZ5qeP836Jr5WWYiGorNngPhsoernV2Z/d3px/+Q3H2LOdgXZDIYGNQHlvK181KiEInDMBaBCMWJTGhMr384AHE+q3v3l+77cVIo5ZhVwEC49leazmRsHC36DN+xOBV49JvNg4+ul6Ymf90T0cKPJ2LjP23zmpu9JIm/dzeu/3D6jd7w3h+GB46k3ujx/r4jXnitby0Zc+aWTxUAeO5lqdZS1ap8bL65YUE25XPgkW/I98gwndee+eatfhLHQRo7XxbA+oZUAKLJrV42w/ks80mpsanRa2qwW7b23bUi6ezKJ7ECcsvnvZ4Dyf5eH0B7G+69LWjMmXRgvvTZ7OyZNo60v2BeeV0KA7ZcNWFkZ1zIC68ODNP0jvTnrtNKRdhQ90Ezpvp1DLl1oGQInIhe0E6J5TiGCKzACkSRWLSdY/IZC6VKxQBmaD0D4lhH1tHRuETU82bpnu8fWb4q1T+QL1eS89pl3Urvyku93kOkynGibZPAZOIEUSxW/I42xIkKcLRkmAGFCtJpEjWJVVGkAhAAhY5xCR1DHTGhSQHxDe/ek3hGYU5EfH1fpVQJiNDYoICq1N+IEp0YqKrqB3z46OBty8p7e8ePbwBzsuQmvn1xypAB0NJEgScg7O9CLYzSqRRAQLSnMwr8TJxEE5tUhIZuoMoEqq+jAh2O1jMPUc+9V15mGnKxReapXbR+Y/FTV6U9AxpaQ3lfV+2RdZpOB4WinTdHAVj5r3PTCnIZbHoy6uxqaG2BjeOlS+Kr5gb/7q3GiY5vMO1t3rSOaPceOnAE9z9a+frN4gf6+O8GXtqT9Yw0j8Ml02lflzK9s5UlEazVKZOyt35hYOXauLnZX/NLfuy3oe9rvaZTRbHEqvlSxc68yH7xkxmAPQ/GwBxf5xmGYRgDVYxrMFZElI0xP30Mq9aJ72lhAIs/rcvvzH7t5viO74Yepf76DO94IWaWwkA+8E1hQJbfaTIpL0lgPBg9bo0kGup8rMXl6YYGM6zwkkV5K+WfPxHXEu45HKgMLRoEGAPPk/mz5MGlqYasD9hKVQsDalji5FhEFAe1WILvaWlQr5qbWfDB8rZd5Bm21meC8dBfQC0SQOdekVu9YnDlT6Lew+bNPl8B30g+Yx9Yam78RBogUSkOaBRrpXxsnFGkhaICCMORivZtKLFViVn3dYfbdunhIxjZbwiQz+HyGZh7uQE8a8GsL/wrPHjIA9nZM01rsw9onETbn7fV0A8CO3+Wn05RkiQ7XkrKgx4Pv8Y4RscUuWR6ylp4BsVS9PROea1LrdB7zqX5c+jcVt9aMoz+gdqzL5IotzZhzqW+KAxhf0+4+zUFzLQOfe/5vuhpbfffSok9XP+fjK0AqerItBw1hKFanAijPqWi9f0VnUpcR90Lw9mPAB2pF0f3NlLsn3zTt2uvUa+vVE6dSkaHa31TWA+rkeHZ4Q1Ufc1RQGRUkqf6d1jHNqAnrLujuxo5Nfq+xw4ev4t9WyD+/5r7K5P7Ot9BOAgH4SAchINwEA7CQTgIB+EgHISDcBAOwkE4CAfhIByEg3AQDsJBOAgH4SAchINwEA7CQZytjfTd+TfMd7z9BwOy3v7g3oeZAAAAAElFTkSuQmCC" alt="Orizon ADV" style={{height:44,width:"auto"}}/></a>
-        <div className="nav-links">
-          <a className="nav-link" href="/index.html">Home</a>
-          <a className="nav-link active" href="/servizi.html">Servizi</a>
-          <a className="nav-link" href="/work.html">Work</a>
-          <a className="nav-cta" href="/contatti">Parliamone</a>
-        </div>
-        <button className="nav-hamburger" onClick={()=>{var m=document.querySelector('.mobile-menu');if(m){m.classList.add('open');document.body.style.overflow='hidden'}}}>
-          <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        </button>
-      </nav>
-    <div className="mobile-menu">
-      <button className="mobile-close" onClick={()=>{var m=document.querySelector('.mobile-menu');if(m){m.classList.remove('open');document.body.style.overflow=''}}}>
-        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-      <a href="/">Home</a>
-      <a href="/servizi">Servizi</a>
-      <a href="/work">Work</a>
-      <a href="/contatti">Contatti</a>
-      <a className="mobile-cta" href="/contatti">Parliamone</a>
-    </div>
-
-
-      {/* ─── HERO ─── */}
-      <header className="hero">
-        <div className="hero-float" aria-hidden="true" />
-        <Reveal><p className="hero-eyebrow">I nostri servizi</p></Reveal>
-        <Reveal delay={.08}><h1>Tre leve per la tua<br /><em>crescita digitale.</em></h1></Reveal>
-        <Reveal delay={.16}><p className="hero-desc">Non facciamo tutto per tutti. Facciamo tre cose, e le facciamo <strong>dannatamente bene</strong>. Ogni servizio ha un solo obiettivo: far crescere il tuo fatturato.</p></Reveal>
-      </header>
-
-      {/* ─── ANCHORS ─── */}
-      <div className="anchors">
-        <div className="anchors-inner">
-          <button className={"anchor-btn" + (active === "perf" ? " active" : "")} onClick={() => scrollTo("perf")}>01 Performance Marketing</button>
-          <button className={"anchor-btn" + (active === "web" ? " active" : "")} onClick={() => scrollTo("web")}>02 Web Development</button>
-          <button className={"anchor-btn" + (active === "ai" ? " active" : "")} onClick={() => scrollTo("ai")}>03 AI Development</button>
-        </div>
-      </div>
-
-      {/* ══════════════ 01 PERFORMANCE MARKETING ══════════════ */}
-      <section className="svc" id="perf">
-        <div className="svc-grid">
-          <div>
-            <Reveal><div className="svc-number">01</div></Reveal>
-            <Reveal delay={.04}><span className="svc-badge" style={{ background: "var(--blue-ll)", color: "var(--blue)" }}>Revenue-Driven</span></Reveal>
-            <Reveal delay={.08}><h2 className="svc-title">Performance Marketing</h2></Reveal>
-            <Reveal delay={.12}>
-              <p className="svc-desc">Gestiamo tutti i canali paid con un unico obiettivo: <strong>il tuo utile netto</strong>. Non inseguiamo vanity metrics. Non ti vendiamo impressions. Ottimizziamo il <strong>MER complessivo</strong> (Marketing Efficiency Ratio) per garantirti che ogni euro investito generi profitto reale.</p>
-            </Reveal>
-
-            <Reveal delay={.16}>
-              <div className="callout">
-                <p>Non lavoriamo a fee fisso. Il nostro modello si basa sul <strong>Revenue Sharing</strong>: guadagniamo solo quando guadagni tu. Se non portiamo risultati, non ci paghi. Punto.</p>
-              </div>
-            </Reveal>
-
-            <Reveal delay={.2}>
-              <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: ".12em", textTransform: "uppercase", color: "var(--black-l)", marginBottom: 12 }}>Canali che gestiamo</p>
-              <div className="pills">
-                {["Meta Ads", "Google Ads", "TikTok Ads", "Bing Ads", "Native Ads", "Criteo", "Programmatic"].map((c) => <span key={c} className="pill">{c}</span>)}
-              </div>
-            </Reveal>
-
-            <Reveal delay={.24}>
-              <div className="features">
-                <div className="feat">
-                  <div className="feat-icon" style={{ background: "var(--blue)" }}>{"\u20AC"}</div>
-                  <div><h4>MER-first approach</h4><p>Ottimizziamo il rapporto tra spesa totale e revenue totale, non il singolo canale in isolamento.</p></div>
-                </div>
-                <div className="feat">
-                  <div className="feat-icon" style={{ background: "var(--blue)" }}>{"\u21C6"}</div>
-                  <div><h4>Gestione multicanale integrata</h4><p>Meta, Google, TikTok, Bing, Native e Criteo gestiti come un ecosistema unico.</p></div>
-                </div>
-                <div className="feat">
-                  <div className="feat-icon" style={{ background: "var(--blue)" }}>{"\u2713"}</div>
-                  <div><h4>Revenue Sharing model</h4><p>Guadagniamo una percentuale sulla crescita incrementale. Zero rischio per te.</p></div>
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal delay={.28}>
-              <div className="rs-card">
-                <span className="rs-tag">Il nostro modello</span>
-                <h3>Guadagniamo solo se guadagni tu.</h3>
-                <p>Niente fee mensili gonfiati. Niente contratti annuali blindati. Lavoriamo in <strong>revenue sharing</strong>: prendiamo una percentuale sulla crescita incrementale che generiamo. Se il tuo fatturato non sale, noi non guadagniamo.</p>
-              </div>
-            </Reveal>
-          </div>
-
-          <div>
-            <Reveal delay={.15}>
-              <div className="side-panel">
-                <div className="sp-head">
-                  <p className="sp-eyebrow">Risultati reali</p>
-                  <h3 className="sp-title">Case Studies</h3>
-                </div>
-                <div className="sp-body">
-
-                  {/* CLIMANDO / BUYTUTTO */}
-                  <div className="cs">
-                    <div className="cs-top">
-                      <div className="cs-dot" style={{ background: "linear-gradient(135deg,#0284C7,#0EA5E9)" }}>C</div>
-                      <div><div className="cs-name">Climando / Buytutto</div><div className="cs-tag">E-Commerce multicanale</div></div>
-                    </div>
-                    <div className="cs-kpis">
-                      <div className="cs-kpi"><div className="cs-kpi-v">{"\u20AC5.34M"}</div><div className="cs-kpi-l">Sales</div></div>
-                      <div className="cs-kpi"><div className="cs-kpi-v">50x</div><div className="cs-kpi-l">ROAS</div></div>
-                      <div className="cs-kpi"><div className="cs-kpi-v">8.7K</div><div className="cs-kpi-l">Conversions</div></div>
-                      <div className="cs-kpi"><div className="cs-kpi-v">{"\u20AC106K"}</div><div className="cs-kpi-l">Ad Spend</div></div>
-                    </div>
-                    <p className="cs-desc">{"\u20AC"}106K di investimento trasformati in quasi {"\u20AC"}6M di vendite con gestione multicanale Meta e Google Ads.</p>
-                    <a className="cs-link" href="/case-study/climando">Vedi case study {"\u2192"}</a>
-                  </div>
-
-                  <div className="cs-sep" />
-
-                  {/* BIDOO */}
-                  <div className="cs">
-                    <div className="cs-top">
-                      <div className="cs-dot" style={{ background: "linear-gradient(135deg,#4F46E5,#7C3AED)" }}>B</div>
-                      <div><div className="cs-name">Aste Online</div><div className="cs-tag">Aste online & E-Commerce</div></div>
-                    </div>
-                    <div className="cs-kpis">
-                      <div className="cs-kpi"><div className="cs-kpi-v">{"\u20AC3.25M"}</div><div className="cs-kpi-l">Fatturato</div></div>
-                      <div className="cs-kpi"><div className="cs-kpi-v">3.41x</div><div className="cs-kpi-l">ROAS</div></div>
-                      <div className="cs-kpi"><div className="cs-kpi-v">192K</div><div className="cs-kpi-l">Purchases</div></div>
-                      <div className="cs-kpi"><div className="cs-kpi-v">561K</div><div className="cs-kpi-l">Registrazioni</div></div>
-                    </div>
-                    <p className="cs-desc">{"\u20AC"}953K di budget → 192K acquisti, 561K registrazioni e {"\u20AC"}3.25M di fatturato generato.</p>
-                    <a className="cs-link" href="/case-study/climando">Vedi case study {"\u2192"}</a>
-                  </div>
-
-                  <div className="cs-sep" />
-
-                  {/* L'ARCOLAIO */}
-                  <div className="cs">
-                    <div className="cs-top">
-                      <div className="cs-dot" style={{ background: "linear-gradient(135deg,#D97706,#F59E0B)" }}>A</div>
-                      <div><div className="cs-name">L{"\u2019"}Arcolaio</div><div className="cs-tag">Food & Artigianato</div></div>
-                    </div>
-                    <div className="cs-kpis">
-                      <div className="cs-kpi"><div className="cs-kpi-v">{"\u20AC0\u2192\u20AC2M"}</div><div className="cs-kpi-l">In 2 anni</div></div>
-                      <div className="cs-kpi"><div className="cs-kpi-v">x13</div><div className="cs-kpi-l">MER</div></div>
-                    </div>
-                    <p className="cs-desc">Da zero a {"\u20AC"}2M in 2 anni. Gestione completa: Marketplace, Meta, Google, TikTok, Branding e Sito.</p>
-                    <div className="cs-tags">
-                      {["Marketplace", "Meta", "Google", "TikTok", "Branding", "Sito"].map((t) => <span key={t} className="cs-micro-tag" style={{ background: "rgba(217,119,6,.08)", color: "#B45309" }}>{t}</span>)}
-                    </div>
-                    <span className="cs-rs-tag">REVENUE SHARING</span>
-                    <br /><a className="cs-link" href="/case-study/climando">Vedi case study {"\u2192"}</a>
-                  </div>
-
-                </div>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      <div className="divider"><div className="divider-line" /></div>
-
-      {/* ══════════════ 02 WEB DEVELOPMENT ══════════════ */}
-      <section className="svc" id="web">
-        <div className="svc-grid">
-          <div>
-            <Reveal><div className="svc-number">02</div></Reveal>
-            <Reveal delay={.04}><span className="svc-badge" style={{ background: "var(--green-l)", color: "var(--green-d)" }}>Shopify Partners</span></Reveal>
-            <Reveal delay={.08}><h2 className="svc-title">Web Development</h2></Reveal>
-            <Reveal delay={.12}>
-              <p className="svc-desc">Il tuo sito non è una vetrina. È la tua <strong>macchina di conversione</strong>. Lo costruiamo e ottimizziamo con un unico KPI in testa: <strong>il conversion rate</strong>. Ogni pixel, ogni interazione, ogni flusso è pensato per trasformare visitatori in clienti.</p>
-            </Reveal>
-
-            <Reveal delay={.16}>
-              <div className="callout" style={{ borderLeftColor: "var(--green-d)" }}>
-                <p>Siamo <strong style={{ color: "var(--green-d)" }}>Shopify Partners</strong> certificati. Costruiamo landing page ad alta conversione sia per e-commerce che per lead generation, testate con A/B test continui e ottimizzate su dati reali.</p>
-              </div>
-            </Reveal>
-
-            <Reveal delay={.2}>
-              <div className="features">
-                <div className="feat">
-                  <div className="feat-icon" style={{ background: "var(--green-d)" }}>%</div>
-                  <div><h4>CRO-first design</h4><p>Ogni elemento è progettato per massimizzare il tasso di conversione, non per vincere premi di design.</p></div>
-                </div>
-                <div className="feat">
-                  <div className="feat-icon" style={{ background: "var(--green-d)" }}>{"\u26A1"}</div>
-                  <div><h4>Landing page ad alta conversione</h4><p>Pagine specifiche per campagne paid, ottimizzate con heatmap, session recording e A/B test.</p></div>
-                </div>
-                <div className="feat">
-                  <div className="feat-icon" style={{ background: "var(--green-d)" }}>{"\uD83D\uDED2"}</div>
-                  <div><h4>E-Commerce & Lead Gen</h4><p>Shopify stores completi o funnel di lead generation con form multi-step e scoring automatico.</p></div>
-                </div>
-                <div className="feat">
-                  <div className="feat-icon" style={{ background: "var(--green-d)" }}>{"\uD83D\uDCC8"}</div>
-                  <div><h4>Ottimizzazione continua</h4><p>Non consegniamo e spartiamo. Monitoriamo, testiamo e miglioriamo ogni settimana.</p></div>
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal delay={.24}>
-              <div className="pills">
-                {["Shopify", "Shopify Plus", "Landing Pages", "A/B Testing", "Heatmaps", "Speed Optimization", "Checkout Optimization"].map((c) => <span key={c} className="pill">{c}</span>)}
-              </div>
-            </Reveal>
-          </div>
-
-          <div>
-            <Reveal delay={.15}>
-              <div className="side-panel">
-                <div className="sp-head">
-                  <p className="sp-eyebrow">Portfolio</p>
-                  <h3 className="sp-title">Siti realizzati</h3>
-                </div>
-                <div className="sp-body" style={{ padding: 8 }}>
-
-                  <div className="site-card" onClick={() => window.open("https://larcolaio.com", "_blank")}>
-                    <div className="site-card-visual" style={{ background: "linear-gradient(135deg,#FEF3C7,#F59E0B)" }}>
-                      <span className="site-card-visual-name" style={{ color: "#92400E" }}>L{"\u2019"}Arcolaio</span>
-                      <span className="site-card-visual-url" style={{ color: "#B45309" }}>larcolaio.com</span>
-                    </div>
-                    <div className="site-card-body">
-                      <h4>L{"\u2019"}Arcolaio</h4>
-                      <p>E-commerce food & artigianato. Shopify store ottimizzato per conversione con UX pensata per il percorso d{"\u2019"}acquisto.</p>
-                      <span className="url-link">larcolaio.com {"\u2192"}</span>
-                    </div>
-                  </div>
-
-                  <div className="site-card" onClick={() => window.open("https://manfrellotti.it", "_blank")}>
-                    <div className="site-card-visual" style={{ background: "linear-gradient(135deg,#FDE68A,#78350F)" }}>
-                      <span className="site-card-visual-name" style={{ color: "white" }}>Manfrellotti</span>
-                      <span className="site-card-visual-url" style={{ color: "rgba(255,255,255,.7)" }}>manfrellotti.it</span>
-                    </div>
-                    <div className="site-card-body">
-                      <h4>Manfrellotti</h4>
-                      <p>Eccellenza alimentare italiana. Sito e-commerce con focus su storytelling del prodotto e checkout ottimizzato.</p>
-                      <span className="url-link">manfrellotti.it {"\u2192"}</span>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      <div className="divider"><div className="divider-line" /></div>
-
-      {/* ══════════════ 03 AI DEVELOPMENT ══════════════ */}
-      <section className="svc" id="ai">
-        <div className="svc-grid">
-          <div>
-            <Reveal><div className="svc-number">03</div></Reveal>
-            <Reveal delay={.04}><span className="svc-badge" style={{ background: "var(--pink)", color: "#E53E3E" }}>AI-Powered</span></Reveal>
-            <Reveal delay={.08}><h2 className="svc-title">AI Development</h2></Reveal>
-            <Reveal delay={.12}>
-              <p className="svc-desc">L{"\u2019"}AI non è il futuro, è il presente. La usiamo in due modi: creiamo <strong>SaaS personalizzati</strong> per automatizzare i processi aziendali dei nostri clienti, e sfruttiamo tutti i modelli generativi per <strong>potenziare le creative</strong> delle campagne a una velocità impossibile per un team umano.</p>
-            </Reveal>
-
-            <Reveal delay={.16}>
-              <div className="features">
-                <div className="feat">
-                  <div className="feat-icon" style={{ background: "#E53E3E" }}>{"\uD83E\uDD16"}</div>
-                  <div><h4>SaaS su misura</h4><p>Piattaforme custom con AI integrata per automatizzare workflow, analisi dati e processi ripetitivi.</p></div>
-                </div>
-                <div className="feat">
-                  <div className="feat-icon" style={{ background: "#E53E3E" }}>{"\uD83C\uDFA8"}</div>
-                  <div><h4>AI Creative Engine</h4><p>Generiamo varianti creative 10x più veloce: copy, immagini, video con i migliori modelli generativi.</p></div>
-                </div>
-                <div className="feat">
-                  <div className="feat-icon" style={{ background: "#E53E3E" }}>{"\u2699\uFE0F"}</div>
-                  <div><h4>Automazione processi</h4><p>Chatbot intelligenti, pipeline automatiche, report AI-generated e sistemi di supporto decisionale.</p></div>
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal delay={.2}>
-              <div className="pills">
-                {["GPT-4o / Claude", "Midjourney", "Stable Diffusion", "Runway", "Custom LLM", "API Integration", "Automation"].map((c) => <span key={c} className="pill">{c}</span>)}
-              </div>
-            </Reveal>
-          </div>
-
-          <div>
-            <Reveal delay={.15}>
-              <div className="side-panel">
-                <div className="sp-head">
-                  <p className="sp-eyebrow">Prodotti</p>
-                  <h3 className="sp-title">I nostri SaaS</h3>
-                </div>
-                <div className="sp-body">
-
-                  <div className="saas">
-                    <span className="saas-badge" style={{ background: "rgba(139,92,246,.08)", color: "#7C3AED" }}>SaaS</span>
-                    <h3>Orizon Script Generator</h3>
-                    <p>Crea script ADV ad alta conversione per e-commerce e lead generation. Hook, body e CTA ottimizzate per Meta e TikTok con framework di copywriting collaudati.</p>
-                    <div className="saas-feats">
-                      <span className="saas-f">Script video per Meta & TikTok</span>
-                      <span className="saas-f">Variazioni hook automatiche</span>
-                      <span className="saas-f">Framework di conversione integrati</span>
-                      <span className="saas-f">Performance prediction AI</span>
-                      <span className="saas-f">E-Commerce & Lead Gen templates</span>
-                    </div>
-                    <button className="saas-btn">Scopri di più {"\u2192"}</button>
-                  </div>
-
-                  <div className="saas">
-                    <span className="saas-badge" style={{ background: "rgba(96,231,135,.08)", color: "var(--green-d)" }}>SaaS</span>
-                    <h3>Orizon Shipping Optimizer</h3>
-                    <p>Compara in tempo reale i contratti di tutti gli spedizionieri e indica il corriere più conveniente per ogni singolo ordine. Trasparenza totale su costi nascosti.</p>
-                    <div className="saas-feats">
-                      <span className="saas-f">Comparazione real-time corrieri</span>
-                      <span className="saas-f">Calcolo costi nascosti incluso</span>
-                      <span className="saas-f">Integrazione con e-commerce</span>
-                      <span className="saas-f">Risparmio medio 15-30% su spedizioni</span>
-                      <span className="saas-f">Dashboard costi & analytics</span>
-                    </div>
-                    <button className="saas-btn">Scopri di più {"\u2192"}</button>
-                  </div>
-
-                </div>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── CTA FINALE ─── */}
-      <section className="cta-gm" id="cta" style={{margin:"0 56px"}}>
-        <Reveal><h2>Pronto a crescere?</h2></Reveal>
-        <Reveal delay={.08}><p>Ti diremo esattamente cosa possiamo fare per te, senza giri di parole.</p></Reveal>
-        <Reveal delay={.14}><div className="cta-glass">
-          <span>Raccontaci il tuo progetto</span>
-          <a className="cta-glass-btn" href="/contatti">Parliamone {"\u2192"}</a>
-        </div></Reveal>
-        <Reveal delay={.2}><p className="cta-sub">Zero vincoli {"\u00B7"} Revenue sharing {"\u00B7"} Risposta in 24h</p></Reveal>
-      </section>
-
-      {/* ─── FOOTER ─── */}
-      <footer className="footer">
-        <div className="footer-left">{"\u00A9"} {new Date().getFullYear()} Orizon ADV — Tutti i diritti riservati</div>
-      </footer>
-
-    </React.Fragment>
-  );
-}
-
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
-</script>
-
-<!-- MODAL: Script Generator -->
-<div class="modal-overlay" id="modal-scriptgen">
-  <div class="modal">
-    <button class="modal-close"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
-    <div class="modal-hero">
-      <span class="modal-badge" style="background:rgba(139,92,246,.08);color:#7C3AED">SaaS &middot; AI-Powered</span>
-      <h2>Orizon Script Generator</h2>
-      <p>Il motore AI che genera script video ads ad alta conversione. 24 framework di copywriting, 12 pattern visual hook, copy ottimizzati per ogni piattaforma. Usato internamente su 40+ clienti.</p>
-    </div>
-    <div class="modal-body">
-      <div class="modal-stats">
-        <div class="modal-stat"><div class="modal-stat-v">24</div><div class="modal-stat-l">Framework</div></div>
-        <div class="modal-stat"><div class="modal-stat-v">12</div><div class="modal-stat-l">Visual Hook</div></div>
-        <div class="modal-stat"><div class="modal-stat-v">40+</div><div class="modal-stat-l">Clienti attivi</div></div>
-      </div>
-      
-      <div class="modal-section">
-        <div class="modal-section-label">Come funziona</div>
-        <div class="modal-features">
-          <div class="modal-feat">
-            <div class="modal-feat-icon">🎬</div>
-            <h4>3 varianti per script</h4>
-            <p>Ogni generazione produce 3 script con framework diversi per massimizzare il testing.</p>
-          </div>
-          <div class="modal-feat">
-            <div class="modal-feat-icon">🎯</div>
-            <h4>Framework automatico</h4>
-            <p>L'AI seleziona il framework migliore in base al prodotto, al target e alla piattaforma.</p>
-          </div>
-          <div class="modal-feat">
-            <div class="modal-feat-icon">🪝</div>
-            <h4>Hook ottimizzati</h4>
-            <p>Visual hook + audio hook separati. 12 pattern testati su milioni di impression.</p>
-          </div>
-          <div class="modal-feat">
-            <div class="modal-feat-icon">📱</div>
-            <h4>Copy per piattaforma</h4>
-            <p>Copy ads specifici per Meta, Instagram e TikTok. 2-3 varianti con opening pattern diversi.</p>
-          </div>
-          <div class="modal-feat">
-            <div class="modal-feat-icon">⏱️</div>
-            <h4>Word count controllato</h4>
-            <p>Max 75 parole per video 30s. Lo script rispetta i tempi reali di lettura.</p>
-          </div>
-          <div class="modal-feat">
-            <div class="modal-feat-icon">📊</div>
-            <h4>Framework tracking</h4>
-            <p>Traccia quali framework hai usato per ogni cliente. Alert se superi il 50% su uno solo.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal-divider"></div>
-
-      <div class="modal-section">
-        <div class="modal-section-label">Framework disponibili</div>
-        <div class="modal-tags">
-          <span class="modal-tag">Problem-Solution</span>
-          <span class="modal-tag">Pain Amplifier</span>
-          <span class="modal-tag">Before/After</span>
-          <span class="modal-tag">Social Proof</span>
-          <span class="modal-tag">Tech Spec Showdown</span>
-          <span class="modal-tag">Sustainability</span>
-          <span class="modal-tag">Curiosity Gap</span>
-          <span class="modal-tag">Us vs Them</span>
-          <span class="modal-tag">Direct Offer</span>
-          <span class="modal-tag">Scenario Hook</span>
-          <span class="modal-tag">+14 altri</span>
-        </div>
-      </div>
-
-      <div class="modal-divider"></div>
-
-      <div class="modal-section">
-        <div class="modal-section-label">Opening pattern per Copy Ads</div>
-        <div class="modal-tags">
-          <span class="modal-tag">Number Lead</span>
-          <span class="modal-tag">Pain Statement</span>
-          <span class="modal-tag">Price Shock</span>
-          <span class="modal-tag">Us vs Them</span>
-          <span class="modal-tag">Curiosity Gap</span>
-          <span class="modal-tag">Direct Offer</span>
-          <span class="modal-tag">Testimonial Lead</span>
-          <span class="modal-tag">Belief Statement</span>
-          <span class="modal-tag">Scenario Hook</span>
-        </div>
-      </div>
-
-      <div style="text-align:center;margin-top:32px">
-        <button class="modal-cta" onclick="this.closest('.modal-overlay').classList.remove('open');document.body.style.overflow='';document.getElementById('cta')?.scrollIntoView({behavior:'smooth'})">Richiedi accesso &rarr;</button>
-      </div>
-    </div>
+    <a class="btn btn-primary" href="#scan-finale">Fai lo scan</a>
+    <button class="burger" aria-label="Apri il menu" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg></button>
   </div>
+</nav>
+<div class="mobile-menu">
+  <button class="mobile-close" aria-label="Chiudi il menu"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  <a href="/#ignition">Ignition</a>
+  <a href="/#risultati">Risultati</a>
+  <a href="/#come-lavoriamo">Come lavoriamo</a>
+  <a href="/#chi-guida">Chi guida</a>
+  <a href="#scan-finale" style="color:var(--blue)">Fai lo scan</a>
 </div>
 
-<!-- MODAL: Shipping Optimizer -->
-<div class="modal-overlay" id="modal-shipping">
-  <div class="modal">
-    <button class="modal-close"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
-    <div class="modal-hero">
-      <span class="modal-badge" style="background:rgba(96,231,135,.08);color:#059669">SaaS &middot; E-Commerce</span>
-      <h2>Orizon Shipping Optimizer</h2>
-      <p>Compara in tempo reale tutti gli spedizionieri e trova il corriere pi&ugrave; conveniente per ogni singolo ordine. Trasparenza totale, costi nascosti inclusi.</p>
-    </div>
-    <div class="modal-body">
-      <div class="modal-stats">
-        <div class="modal-stat"><div class="modal-stat-v">15-30%</div><div class="modal-stat-l">Risparmio medio</div></div>
-        <div class="modal-stat"><div class="modal-stat-v">Real-time</div><div class="modal-stat-l">Comparazione</div></div>
-        <div class="modal-stat"><div class="modal-stat-v">&infin;</div><div class="modal-stat-l">Corrieri supportati</div></div>
-      </div>
-      
-      <div class="modal-section">
-        <div class="modal-section-label">Funzionalit&agrave;</div>
-        <div class="modal-features">
-          <div class="modal-feat">
-            <div class="modal-feat-icon">📦</div>
-            <h4>Comparazione real-time</h4>
-            <p>Confronta prezzi di tutti i corrieri disponibili per ogni ordine in tempo reale.</p>
-          </div>
-          <div class="modal-feat">
-            <div class="modal-feat-icon">💰</div>
-            <h4>Costi nascosti inclusi</h4>
-            <p>Calcola supplementi carburante, supplementi zona disagiata, assicurazione e gestione reso.</p>
-          </div>
-          <div class="modal-feat">
-            <div class="modal-feat-icon">🔌</div>
-            <h4>Integrazione e-commerce</h4>
-            <p>Si collega a Shopify, WooCommerce e qualsiasi piattaforma via API.</p>
-          </div>
-          <div class="modal-feat">
-            <div class="modal-feat-icon">📊</div>
-            <h4>Dashboard analytics</h4>
-            <p>Monitora costi spedizione, risparmio generato e performance per corriere.</p>
-          </div>
-          <div class="modal-feat">
-            <div class="modal-feat-icon">⚡</div>
-            <h4>Scelta automatica</h4>
-            <p>Imposta regole (pi&ugrave; veloce, pi&ugrave; economico, miglior servizio) e il sistema sceglie per te.</p>
-          </div>
-          <div class="modal-feat">
-            <div class="modal-feat-icon">🔄</div>
-            <h4>Multi-contratto</h4>
-            <p>Gestisci pi&ugrave; contratti con lo stesso corriere e confronta le tariffe negoziate.</p>
-          </div>
-        </div>
-      </div>
 
-      <div style="text-align:center;margin-top:32px">
-        <button class="modal-cta" onclick="this.closest('.modal-overlay').classList.remove('open');document.body.style.overflow='';document.getElementById('cta')?.scrollIntoView({behavior:'smooth'})">Richiedi accesso &rarr;</button>
+<header class="chead">
+  <div class="wrap">
+    <h1 class="fx">Facciamo tre cose. <span>Le misuriamo su una.</span></h1>
+    <p class="sub fx">Campagne a percentuale sul venduto, Orizon Ignition sul catalogo, siti costruiti per convertire. Il numero che conta è sempre lo stesso: <strong>quanto vendi in più, con margine</strong>.</p>
+    <nav class="jump fx" aria-label="Servizi">
+      <a href="#campagne">Campagne a percentuale</a>
+      <a href="#ignition">Orizon Ignition</a>
+      <a href="#siti">Siti e CRO</a>
+      <a href="#su-misura">Sistemi su misura</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══ 1 · CAMPAGNE ═══ -->
+<section class="svc" id="campagne">
+  <div class="wrap">
+    <div class="svc-grid">
+      <div class="fx">
+        <h2>Campagne <mark>a percentuale</mark> sul venduto.</h2>
+        <p class="lead">Meta, Google, TikTok e gli altri canali gestiti come un unico conto. Il budget segue <strong>stagionalità, categorie e margine</strong> e si misura sul MER complessivo — vendite totali su spesa totale — non sul ROAS di un canale preso da solo.</p>
+        <div class="model"><b>Nessuna fee fissa.</b>Una percentuale su quello che vendi in più. Se il fatturato non sale, non ci paghi: il rischio dell'impresa lo conosciamo, e ce lo prendiamo anche noi.</div>
+        <div class="incl">
+          <h3>Cosa comprende</h3>
+          <div><b>Controllo di gestione</b><span>venduto netto, resi, IVA, spedizioni e costo d'acquisto per prodotto. Se un prodotto vende e non guadagna, smettiamo di spingerlo.</span></div>
+          <div><b>Forecast mensile</b><span>quanto spendere, dove e quando, rifatto ogni mese sui numeri veri — non un fisso che si ripete.</span></div>
+          <div><b>Etichette nel feed</b><span>margine netto, prezzo contro il benchmark di Google e bucket di performance: in Ads diventano gruppi di budget.</span></div>
+          <div><b>Rimanenze</b><span>campagne ad hoc sulla merce ferma, prima che diventi uno sconto.</span></div>
+          <div><b>Tracciamento dal server</b><span>GA4, Google Ads e Meta ricevono ogni acquisto dal server, deduplicato e col consenso: le campagne imparano dai numeri veri.</span></div>
+          <div><b>Un report a settimana</b><span>cosa è successo, perché, e la mossa dopo. Niente vanity metrics.</span></div>
+        </div>
+        <div class="chips"><i>Meta Ads</i><i>Google Ads</i><i>TikTok Ads</i><i>Microsoft Ads</i><i>Criteo</i><i>Programmatic</i></div>
       </div>
+      <aside class="pbox fx" aria-label="Numeri dei clienti">
+        <h3>Dai pannelli dei clienti</h3>
+        <div class="case">
+          <div class="who"><b>Climando</b><span>climatizzazione e riscaldamento</span></div>
+          <div class="kp"><div><b>8,27 M€</b><span>venduti in dodici mesi, +53% sull'anno prima</span></div><div><b>x50</b><span>vendite per euro di pubblicità, Meta e Google insieme</span></div></div>
+          <a href="/case-study/climando">Leggi il caso →</a>
+        </div>
+        <div class="case">
+          <div class="who"><b>L'Arcolaio</b><span>food e artigianato</span></div>
+          <div class="kp"><div><b>0 → 2 M€</b><span>in due anni, partendo da zero</span></div><div><b>x13</b><span>MER: marketplace, Meta, Google, TikTok e sito</span></div></div>
+        </div>
+        <div class="case">
+          <div class="who"><b>Aste online</b><span>e-commerce con registrazione</span></div>
+          <div class="kp"><div><b>3,25 M€</b><span>di fatturato con 953 K€ di spesa</span></div><div><b>192 mila</b><span>acquisti, 561 mila registrazioni</span></div></div>
+        </div>
+        <p class="pnote">Numeri letti dai pannelli Shopify e dagli account pubblicitari dei clienti.</p>
+      </aside>
     </div>
   </div>
-</div>
+</section>
 
-<script>
+<!-- ═══ 2 · IGNITION ═══ -->
+<section class="svc alt" id="ignition">
+  <div class="wrap">
+    <div class="svc-grid">
+      <div class="fx">
+        <h2>Orizon Ignition: <mark>il catalogo acceso</mark>, prodotto per prodotto.</h2>
+        <p class="lead">Le campagne portano la gente sulla scheda. Se la scheda è spenta — titolo da listino, due righe di descrizione, dati vuoti, una lingua sola — la vendita non arriva. <strong>A mano non si accendono mille prodotti.</strong> Ignition sì.</p>
+        <div class="incl">
+          <h3>Sette interruttori, su ogni prodotto</h3>
+          <div><b>Titolo e snippet</b><span>riscritti dal prodotto vero per Google e per le risposte delle AI, non dal nome di listino.</span></div>
+          <div><b>La scheda</b><span>caratteristiche, perché, domande e risposte: ogni frase viene dai dati del prodotto, un giudice automatico la approva.</span></div>
+          <div><b>Ogni lingua</b><span>traduzioni con le regole di ogni mercato — unità, taglie, tono, parole che la gente cerca davvero — pubblicate sul negozio.</span></div>
+          <div><b>I dati che Google chiede</b><span>categoria, tipo, materiale, varianti, peso, GTIN: letti, messi in ordine, proposti dove mancano.</span></div>
+          <div><b>Etichette per le campagne</b><span>margine netto, prezzo contro il benchmark, bucket di performance: tre etichette nel feed, col perché.</span></div>
+          <div><b>Il feed, arricchito</b><span>fino a 13 attributi in più nel feed supplementare che Merchant Center legge da solo, ogni giorno.</span></div>
+          <div><b>Tracciamento dal server</b><span>ogni evento dal browser e dal server con lo stesso id, contato una volta sola.</span></div>
+        </div>
+        <p class="more">Lo stesso lavoro su 1.000 o su 20.000 prodotti, col nostro sì prima di pubblicare. Fa parte del lavoro a percentuale; se ti serve solo sul catalogo, scrivici. <a href="/#ignition">Accendi un prodotto vero →</a></p>
+      </div>
+      <aside class="pbox fx" aria-label="Su cataloghi veri">
+        <h3>Su cataloghi veri</h3>
+        <div class="case">
+          <div class="who"><b>Moda, 17.201 prodotti</b><span>feed supplementare</span></div>
+          <div class="kp"><div><b>89%</b><span>dei prodotti con il colore compilato, taglia 80%</span></div><div><b>98%</b><span>con l'età, genere 94% — a zero inventato</span></div></div>
+        </div>
+        <div class="case">
+          <div class="who"><b>Hotellerie, 1.446 prodotti</b><span>schede e lingue</span></div>
+          <div class="kp"><div><b>4 lingue</b><span>titolo, scheda, snippet, tipo e indirizzo per ognuna</span></div><div><b>7 campi</b><span>letti e messi in ordine su ogni prodotto</span></div></div>
+        </div>
+        <div class="case">
+          <div class="who"><b>Un prodotto, sette interruttori</b><span>la prova sulla home</span></div>
+          <div class="kp"><div><b>23 → 100</b><span>l'indice di accensione, interruttore per interruttore</span></div><div><b>11 + 2</b><span>attributi compilati nel feed, due vuoti apposta</span></div></div>
+          <a href="/#ignition">Prova la padella →</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
 
-;(function(){
-  setTimeout(function(){
-    // Find all saas-btn buttons
-    var btns = document.querySelectorAll('.saas-btn');
-    if(btns.length >= 1) btns[0].addEventListener('click', function(e){
-      e.preventDefault();
-      document.getElementById('modal-scriptgen').classList.add('open');
-      document.body.style.overflow='hidden';
-    });
-    if(btns.length >= 2) btns[1].addEventListener('click', function(e){
-      e.preventDefault();
-      document.getElementById('modal-shipping').classList.add('open');
-      document.body.style.overflow='hidden';
-    });
-    
-    // Close modals
-    document.querySelectorAll('.modal-overlay').forEach(function(m){
-      m.addEventListener('click', function(e){
-        if(e.target === m){
-          m.classList.remove('open');
-          document.body.style.overflow='';
-        }
-      });
-      m.querySelector('.modal-close').addEventListener('click', function(){
-        m.classList.remove('open');
-        document.body.style.overflow='';
-      });
-    });
-    
-    // ESC key
-    document.addEventListener('keydown', function(e){
-      if(e.key === 'Escape'){
-        document.querySelectorAll('.modal-overlay.open').forEach(function(m){
-          m.classList.remove('open');
-          document.body.style.overflow='';
-        });
-      }
-    });
-  }, 200);
-})();
+<!-- ═══ 3 · SITI ═══ -->
+<section class="svc" id="siti">
+  <div class="wrap">
+    <div class="svc-grid">
+      <div class="fx">
+        <h2>Un sito che <mark>converte</mark>, non una vetrina.</h2>
+        <p class="lead">Costruiamo e sistemiamo negozi Shopify con un solo criterio: <strong>quanti visitatori diventano clienti</strong>. Velocità, scheda, carrello, checkout — ogni pezzo si misura, e si cambia quello che non rende.</p>
+        <div class="incl">
+          <h3>Cosa facciamo</h3>
+          <div><b>Negozi Shopify</b><span>da zero o da un tema che non regge più: catalogo, pagamenti, spedizioni, lingue.</span></div>
+          <div><b>Landing per le campagne</b><span>una pagina per ogni offerta, testata con A/B e mappe di calore.</span></div>
+          <div><b>CRO continua</b><span>non consegniamo e spariamo: ogni settimana si cambia qualcosa che si misura.</span></div>
+          <div><b>Velocità e checkout</b><span>i due punti dove si perde di più; li teniamo d'occhio ogni mese.</span></div>
+        </div>
+        <div class="chips"><i>Shopify</i><i>Shopify Plus</i><i>Landing page</i><i>A/B test</i><i>Mappe di calore</i><i>Velocità</i><i>Checkout</i></div>
+      </div>
+      <aside class="pbox fx" aria-label="Negozi che abbiamo costruito">
+        <h3>Negozi che abbiamo costruito</h3>
+        <div class="site"><div><b>L'Arcolaio</b><span>food e artigianato · Shopify, da zero a 2 M€ in due anni</span></div><a href="https://larcolaio.com" target="_blank" rel="noopener">larcolaio.com →</a></div>
+        <div class="site"><div><b>Manfrellotti</b><span>moda · Shopify, oltre 20.000 prodotti a catalogo</span></div><a href="https://manfrellotti.it" target="_blank" rel="noopener">manfrellotti.it →</a></div>
+        <div class="site"><div><b>Climando</b><span>climatizzazione · Shopify, 8,27 M€ in dodici mesi</span></div><a href="https://www.climando.it" target="_blank" rel="noopener">climando.it →</a></div>
+      </aside>
+    </div>
+  </div>
+</section>
 
-</script>
+<!-- ═══ 4 · SU MISURA ═══ -->
+<section class="ai" id="su-misura">
+  <div class="wrap">
+    <div class="fx"><h2>Sistemi su misura.</h2></div>
+    <div class="fx">
+      <p>Ignition è nato così: un lavoro che a mano non reggeva, trasformato in un sistema. <strong>Se nel tuo negozio c'è qualcosa di ripetitivo che costa</strong> — schede, listini, feed, spedizioni, report — lo costruiamo, e lo colleghiamo a Shopify. Scrivici cosa ti ruba tempo.</p>
+      <a class="btn btn-primary" href="/contatti">Raccontacelo <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a>
+    </div>
+  </div>
+</section>
 
+<!-- ═══ SCAN FINALE ═══ -->
+<section class="end" id="scan-finale">
+  <div class="wrap">
+    <h2 class="fx">Vediamo cosa c'è da accendere <span>nel tuo negozio.</span></h2>
+    <p class="sub fx">Mettici l'indirizzo. Ti diciamo dove sta il fatturato che il catalogo lascia sul tavolo, e se vale la pena lavorare insieme.</p>
+    <form class="scan fx" action="/contatti" method="get">
+      <input type="text" name="sito" placeholder="www.iltuonegozio.it" autocomplete="url" inputmode="url" aria-label="Indirizzo del tuo negozio online">
+      <button type="submit">Fai lo scan <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></button>
+    </form>
+    <div class="after fx">
+      <div><b>Entro 24 ore</b>ti scriviamo noi, con il tuo indice di accensione e le prime tre cose da accendere.</div>
+      <div><b>Nessuna fee fissa</b>una percentuale su quello che vendi in più. Il rischio è dell'impresa, e lo sappiamo.</div>
+      <div><b>Non lavoriamo con tutti</b>se il tuo catalogo non è pronto o non siamo la scelta giusta, te lo diciamo.</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="/" aria-label="Orizon ADV — home"><img src="images/brand/logo-blu.svg" alt="Orizon" width="720" height="182"></a>
+        <p>Performance marketing a percentuale, Orizon Ignition e sviluppo web per e-commerce che vogliono crescere con margine.</p>
+      </div>
+      <div>
+        <h4>Contatti</h4>
+        <a href="mailto:antonio@orizonadv.it">antonio@orizonadv.it</a>
+        <a href="tel:+393347113332">334 711 3332</a>
+        <a href="https://maps.google.com/?q=Corso+Umberto+I+153+Napoli" target="_blank" rel="noopener">Corso Umberto I, 153 — Napoli</a>
+      </div>
+      <div>
+        <h4>Pagine</h4>
+        <a href="/servizi">Servizi</a>
+        <a href="/work">Work</a>
+        <a href="/contatti">Contatti</a>
+      </div>
+      <div>
+        <h4>Social</h4>
+        <a href="https://www.linkedin.com/in/antoniopratola/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://instagram.com/pratolads" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://facebook.com/antoniopratola" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+    <div class="foot-bottom"><span>© <span id="y">2026</span> Orizon ADV — Tutti i diritti riservati</span><span>Napoli, Italia</span></div>
+  </div>
+</footer>
 
 <script>
 (function(){
-  var nav = document.querySelector('.nav');
-  var lastScroll = 0;
-  window.addEventListener('scroll', function(){
-    var st = window.pageYOffset;
-    if(st > 80){
-      nav.classList.add('scrolled');
-      if(st > lastScroll && st > 200){
-        nav.style.transform = 'translateY(-100%)';
-      } else {
-        nav.style.transform = 'translateY(0)';
-      }
-    } else {
-      nav.classList.remove('scrolled');
-      nav.style.transform = 'translateY(0)';
-    }
-    lastScroll = st;
-  });
-  // Hamburger
-  setTimeout(function(){
-    var h = document.querySelector('.nav-hamburger');
-    var m = document.querySelector('.mobile-menu');
-    var c = document.querySelector('.mobile-close');
-    if(h&&m){
-      h.onclick=function(){m.classList.add('open');document.body.style.overflow='hidden'};
-      if(c) c.onclick=function(){m.classList.remove('open');document.body.style.overflow=''};
-      m.querySelectorAll('a').forEach(function(a){a.onclick=function(){m.classList.remove('open');document.body.style.overflow=''}});
-    }
-  },300);
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var y = document.getElementById('y'); if (y) y.textContent = new Date().getFullYear();
+  var els = document.querySelectorAll('.fx');
+  if ('IntersectionObserver' in window && !reduce) {
+    var obs = new IntersectionObserver(function(entries){ entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } }); }, { threshold: .1 });
+    els.forEach(function(el, i){ el.style.transitionDelay = (Math.min(i, 5) * 70) + 'ms'; obs.observe(el); });
+  } else els.forEach(function(el){ el.classList.add('in'); });
+  var b = document.querySelector('.burger'), m = document.querySelector('.mobile-menu'), c = document.querySelector('.mobile-close');
+  function closeMenu(){ m.classList.remove('open'); document.body.style.overflow = ''; b.setAttribute('aria-expanded', 'false'); }
+  if (b && m) {
+    b.addEventListener('click', function(){ m.classList.add('open'); document.body.style.overflow = 'hidden'; b.setAttribute('aria-expanded', 'true'); });
+    if (c) c.addEventListener('click', closeMenu);
+    m.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && m.classList.contains('open')) closeMenu(); });
+  }
 })();
 </script>
+
 </body>
 </html>
