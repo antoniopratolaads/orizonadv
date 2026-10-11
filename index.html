@@ -96,12 +96,15 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .chart .grid line{stroke:var(--line);stroke-width:1}
 .chart .lab text{font-size:12px;fill:var(--black-m)}
 .chart .lab text.v{font-size:11px;font-weight:600;fill:var(--black)}
-.chart .lab text.yoy{font-size:13px;font-weight:600;fill:var(--blue)}
+.chart .lab text.yoy{font-size:17px;font-weight:600;fill:var(--blue)}
+.chart .lab text.yoy.big,.chart-m .lab text.yoy.big{fill:var(--white)}
+.chart .pill,.chart-m .pill{fill:var(--blue)}
+.chart .lab text.ax{font-size:10.5px;fill:var(--black-l)}
 .chart .lab text.yoy.n,.chart-m .lab text.yoy.n{fill:var(--black-m)}
 .chart .lab text.k{font-size:11.5px;fill:var(--black-l)}
 .chart-m .lab text{font-size:12px;fill:var(--black-m)}
 .chart-m .lab text.v{font-size:10.5px;font-weight:600;fill:var(--black)}
-.chart-m .lab text.yoy{font-size:13px;font-weight:600;fill:var(--blue)}
+.chart-m .lab text.yoy{font-size:15px;font-weight:600;fill:var(--blue)}
 .chart-m .b1{fill:var(--blue-ll)}.chart-m .b2{fill:var(--blue)}
 .chart .b1{fill:var(--blue-ll)}.chart .b2{fill:var(--blue)}.chart .b3{fill:var(--blue-d)}
 .js .chart .bars rect{transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(0);transition:transform .9s var(--ease);transition-delay:calc(var(--i) * 22ms)}
@@ -321,8 +324,42 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .totale{grid-template-columns:1fr 1fr}
   .foot{grid-template-columns:1fr 1fr}
 }
+.m-only{display:none}
+.chips-m,.mnav{display:none}
 @media(max-width:768px){
+  .m-hide{display:none}.m-only{display:inline}
   .wrap{padding:0 20px}
+  .stage{display:block;margin-top:28px}
+  .msticky{position:sticky;top:60px;z-index:5;background:var(--bg-2);margin:0 -20px;padding:10px 20px 0;border-bottom:1px solid var(--line);box-shadow:0 8px 16px -14px rgba(12,23,19,.25)}
+  .msticky .panel-head{margin:0}
+  .msticky .panel-head button{padding:7px 10px;font-size:12.5px}
+  .score-n{font-size:20px}
+  .chips-m{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:10px 0 12px}
+  .chips-m::-webkit-scrollbar{display:none}
+  .chips-m button{flex:0 0 auto;font:inherit;font-size:13px;font-weight:600;color:var(--black-m);background:var(--white);border:1px solid var(--line-2);border-radius:999px;padding:0 12px 0 10px;min-height:38px;display:inline-flex;align-items:center;gap:7px;cursor:pointer;transition:border-color .2s,color .2s}
+  .chips-m button i{width:8px;height:8px;border-radius:50%;background:var(--black-ll);transition:background .25s}
+  .chips-m button.on i{background:var(--blue)}
+  .chips-m button.cur{border-color:var(--black);color:var(--black)}
+  .panel{gap:12px;padding-top:14px}
+  .panel>*,.msticky>*,.chips-m{min-width:0;max-width:100%}
+  .panel.m .row{display:none}
+  .panel.m .row.cur{display:grid}
+  .panel.m .row .off,.panel.m .row .fact{font-size:14.5px}
+  .card.m .zone,.card.m .photo,.card.m .price{display:none}
+  .card.m .body{padding:12px 14px 14px}
+  .card.m.f-title .photo,.card.m.f-title #z-title,.card.m.f-title .price{display:block}
+  .card.m.f-desc #z-title,.card.m.f-desc #z-desc{display:block}
+  .card.m.f-langs .photo,.card.m.f-langs #z-title,.card.m.f-langs .price{display:block}
+  .card.m.f-fields #z-fields{display:grid}
+  .card.m.f-labels #z-labels,.card.m.f-feed #z-feed,.card.m.f-track #z-track{display:block;margin-top:0}
+  .card.m .zone.extra .zl{font-size:12.5px}
+  .mnav{display:flex;gap:8px}
+  .mnav button{flex:1;min-height:46px;font:inherit;font-weight:600;font-size:14px;border:1px solid var(--line-2);border-radius:10px;background:var(--white);color:var(--black);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+  .mnav button.next{background:var(--black);color:var(--white);border-color:var(--black)}
+  .mnav button:disabled{opacity:.4;cursor:default}
+  .mnav .ico{width:.95em;height:.95em}
+  .mnav .prev .ico{transform:rotate(180deg)}
+  .done{margin-top:12px}
   .nav-links,.nav .btn{display:none}
   .burger{display:block}
   .mobile-menu{display:flex}
@@ -397,75 +434,78 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
           <div><b>+51%</b><span>ordini<br>12.100 in 12 mesi</span></div>
         </div>
       </div>
-      <svg class="chart" viewBox="0 0 1180 392" role="img" aria-label="Vendite mensili di Climando, ottobre 2025 – settembre 2026 contro lo stesso mese dell'anno prima: 8,08 M€ contro 5,41 M€, +49%; luglio–settembre +135%">
+      <svg class="chart" viewBox="0 0 1180 404" role="img" aria-label="Vendite mensili di Climando, ottobre 2025 – settembre 2026 contro lo stesso mese dell'anno prima: 8,08 M€ contro 5,41 M€, +49%; luglio–settembre +135%">
       <g class="grid">
-      <line x1="58" y1="326.0" x2="1180" y2="326.0"/><text x="50" y="330.0" text-anchor="end">0</text>
-      <line x1="58" y1="232.7" x2="1180" y2="232.7"/><text x="50" y="236.7" text-anchor="end">0,5 M€</text>
-      <line x1="58" y1="139.3" x2="1180" y2="139.3"/><text x="50" y="143.3" text-anchor="end">1 M€</text>
-      <line x1="58" y1="46.0" x2="1180" y2="46.0"/><text x="50" y="50.0" text-anchor="end">1,5 M€</text>
+      <line x1="58" y1="338.0" x2="1180" y2="338.0"/><text x="50" y="342.0" text-anchor="end">0</text>
+      <line x1="58" y1="244.7" x2="1180" y2="244.7"/><text x="50" y="248.7" text-anchor="end">0,5 M€</text>
+      <line x1="58" y1="151.3" x2="1180" y2="151.3"/><text x="50" y="155.3" text-anchor="end">1 M€</text>
+      <line x1="58" y1="58.0" x2="1180" y2="58.0"/><text x="50" y="62.0" text-anchor="end">1,5 M€</text>
       </g><g class="bars">
-      <rect class="b1" x="71.8" y="255.8" width="30" height="70.2" rx="4" style="--i:0"><title>ott 2024: 0,38 M€</title></rect>
-      <rect class="b2" x="107.8" y="252.8" width="30" height="73.2" rx="4" style="--i:1"><title>ott 2025: 0,39 M€</title></rect>
-      <rect class="b1" x="165.2" y="218.9" width="30" height="107.1" rx="4" style="--i:2"><title>nov 2024: 0,57 M€</title></rect>
-      <rect class="b2" x="201.2" y="231.0" width="30" height="95.0" rx="4" style="--i:3"><title>nov 2025: 0,51 M€</title></rect>
-      <rect class="b1" x="258.8" y="232.7" width="30" height="93.3" rx="4" style="--i:4"><title>dic 2024: 0,50 M€</title></rect>
-      <rect class="b2" x="294.8" y="232.0" width="30" height="94.0" rx="4" style="--i:5"><title>dic 2025: 0,50 M€</title></rect>
-      <rect class="b1" x="352.2" y="242.2" width="30" height="83.8" rx="4" style="--i:6"><title>gen 2025: 0,45 M€</title></rect>
-      <rect class="b2" x="388.2" y="226.2" width="30" height="99.8" rx="4" style="--i:7"><title>gen 2026: 0,53 M€</title></rect>
-      <rect class="b1" x="445.8" y="256.6" width="30" height="69.4" rx="4" style="--i:8"><title>feb 2025: 0,37 M€</title></rect>
-      <rect class="b2" x="481.8" y="225.1" width="30" height="100.9" rx="4" style="--i:9"><title>feb 2026: 0,54 M€</title></rect>
-      <rect class="b1" x="539.2" y="237.5" width="30" height="88.5" rx="4" style="--i:10"><title>mar 2025: 0,47 M€</title></rect>
-      <rect class="b2" x="575.2" y="212.2" width="30" height="113.8" rx="4" style="--i:11"><title>mar 2026: 0,61 M€</title></rect>
-      <rect class="b1" x="632.8" y="267.8" width="30" height="58.2" rx="4" style="--i:12"><title>apr 2025: 0,31 M€</title></rect>
-      <rect class="b2" x="668.8" y="229.4" width="30" height="96.6" rx="4" style="--i:13"><title>apr 2026: 0,52 M€</title></rect>
-      <rect class="b1" x="726.2" y="255.1" width="30" height="70.9" rx="4" style="--i:14"><title>mag 2025: 0,38 M€</title></rect>
-      <rect class="b2" x="762.2" y="196.2" width="30" height="129.8" rx="4" style="--i:15"><title>mag 2026: 0,70 M€</title></rect>
-      <rect class="b1" x="819.8" y="174.4" width="30" height="151.6" rx="4" style="--i:16"><title>giu 2025: 0,81 M€</title></rect>
-      <rect class="b2" x="855.8" y="131.2" width="30" height="194.8" rx="4" style="--i:17"><title>giu 2026: 1,04 M€</title></rect>
-      <rect class="b1" x="913.2" y="196.7" width="30" height="129.3" rx="4" style="--i:18"><title>lug 2025: 0,69 M€</title></rect>
-      <rect class="b2" x="949.2" y="100.2" width="30" height="225.8" rx="4" style="--i:19"><title>lug 2026: 1,21 M€</title></rect>
-      <rect class="b1" x="1006.8" y="296.1" width="30" height="29.9" rx="4" style="--i:20"><title>ago 2025: 0,16 M€</title></rect>
-      <rect class="b2" x="1042.8" y="203.7" width="30" height="122.3" rx="4" style="--i:21"><title>ago 2026: 0,66 M€</title></rect>
-      <rect class="b1" x="1100.2" y="268.1" width="30" height="57.9" rx="4" style="--i:22"><title>set 2025: 0,31 M€</title></rect>
-      <rect class="b2" x="1136.2" y="164.3" width="30" height="161.7" rx="4" style="--i:23"><title>set 2026: 0,87 M€</title></rect>
+      <rect class="b1" x="71.8" y="267.8" width="30" height="70.2" rx="4" style="--i:0"><title>ott 2024: 0,38 M€</title></rect>
+      <rect class="b2" x="107.8" y="264.8" width="30" height="73.2" rx="4" style="--i:1"><title>ott 2025: 0,39 M€</title></rect>
+      <rect class="b1" x="165.2" y="230.9" width="30" height="107.1" rx="4" style="--i:2"><title>nov 2024: 0,57 M€</title></rect>
+      <rect class="b2" x="201.2" y="243.0" width="30" height="95.0" rx="4" style="--i:3"><title>nov 2025: 0,51 M€</title></rect>
+      <rect class="b1" x="258.8" y="244.7" width="30" height="93.3" rx="4" style="--i:4"><title>dic 2024: 0,50 M€</title></rect>
+      <rect class="b2" x="294.8" y="244.0" width="30" height="94.0" rx="4" style="--i:5"><title>dic 2025: 0,50 M€</title></rect>
+      <rect class="b1" x="352.2" y="254.2" width="30" height="83.8" rx="4" style="--i:6"><title>gen 2025: 0,45 M€</title></rect>
+      <rect class="b2" x="388.2" y="238.2" width="30" height="99.8" rx="4" style="--i:7"><title>gen 2026: 0,53 M€</title></rect>
+      <rect class="b1" x="445.8" y="268.6" width="30" height="69.4" rx="4" style="--i:8"><title>feb 2025: 0,37 M€</title></rect>
+      <rect class="b2" x="481.8" y="237.1" width="30" height="100.9" rx="4" style="--i:9"><title>feb 2026: 0,54 M€</title></rect>
+      <rect class="b1" x="539.2" y="249.5" width="30" height="88.5" rx="4" style="--i:10"><title>mar 2025: 0,47 M€</title></rect>
+      <rect class="b2" x="575.2" y="224.2" width="30" height="113.8" rx="4" style="--i:11"><title>mar 2026: 0,61 M€</title></rect>
+      <rect class="b1" x="632.8" y="279.8" width="30" height="58.2" rx="4" style="--i:12"><title>apr 2025: 0,31 M€</title></rect>
+      <rect class="b2" x="668.8" y="241.4" width="30" height="96.6" rx="4" style="--i:13"><title>apr 2026: 0,52 M€</title></rect>
+      <rect class="b1" x="726.2" y="267.1" width="30" height="70.9" rx="4" style="--i:14"><title>mag 2025: 0,38 M€</title></rect>
+      <rect class="b2" x="762.2" y="208.2" width="30" height="129.8" rx="4" style="--i:15"><title>mag 2026: 0,70 M€</title></rect>
+      <rect class="b1" x="819.8" y="186.4" width="30" height="151.6" rx="4" style="--i:16"><title>giu 2025: 0,81 M€</title></rect>
+      <rect class="b2" x="855.8" y="143.2" width="30" height="194.8" rx="4" style="--i:17"><title>giu 2026: 1,04 M€</title></rect>
+      <rect class="b1" x="913.2" y="208.7" width="30" height="129.3" rx="4" style="--i:18"><title>lug 2025: 0,69 M€</title></rect>
+      <rect class="b2" x="949.2" y="112.2" width="30" height="225.8" rx="4" style="--i:19"><title>lug 2026: 1,21 M€</title></rect>
+      <rect class="b1" x="1006.8" y="308.1" width="30" height="29.9" rx="4" style="--i:20"><title>ago 2025: 0,16 M€</title></rect>
+      <rect class="b2" x="1042.8" y="215.7" width="30" height="122.3" rx="4" style="--i:21"><title>ago 2026: 0,66 M€</title></rect>
+      <rect class="b1" x="1100.2" y="280.1" width="30" height="57.9" rx="4" style="--i:22"><title>set 2025: 0,31 M€</title></rect>
+      <rect class="b2" x="1136.2" y="176.3" width="30" height="161.7" rx="4" style="--i:23"><title>set 2026: 0,87 M€</title></rect>
       </g><g class="lab">
-      <text class="yoy" x="104.8" y="22" text-anchor="middle">+4%</text>
-      <text class="v" x="122.8" y="246.8" text-anchor="middle">0,39 M€</text>
-      <text x="104.8" y="348" text-anchor="middle">ott</text>
-      <text class="yoy n" x="198.2" y="22" text-anchor="middle">−11%</text>
-      <text class="v" x="216.2" y="225.0" text-anchor="middle">0,51 M€</text>
-      <text x="198.2" y="348" text-anchor="middle">nov</text>
-      <text class="yoy" x="291.8" y="22" text-anchor="middle">+1%</text>
-      <text class="v" x="309.8" y="226.0" text-anchor="middle">0,50 M€</text>
-      <text x="291.8" y="348" text-anchor="middle">dic</text>
-      <text class="yoy" x="385.2" y="22" text-anchor="middle">+19%</text>
-      <text class="v" x="403.2" y="220.2" text-anchor="middle">0,53 M€</text>
-      <text x="385.2" y="348" text-anchor="middle">gen</text>
-      <text class="yoy" x="478.8" y="22" text-anchor="middle">+45%</text>
-      <text class="v" x="496.8" y="219.1" text-anchor="middle">0,54 M€</text>
-      <text x="478.8" y="348" text-anchor="middle">feb</text>
-      <text class="yoy" x="572.2" y="22" text-anchor="middle">+29%</text>
-      <text class="v" x="590.2" y="206.2" text-anchor="middle">0,61 M€</text>
-      <text x="572.2" y="348" text-anchor="middle">mar</text>
-      <text class="yoy" x="665.8" y="22" text-anchor="middle">+66%</text>
-      <text class="v" x="683.8" y="223.4" text-anchor="middle">0,52 M€</text>
-      <text x="665.8" y="348" text-anchor="middle">apr</text>
-      <text class="yoy" x="759.2" y="22" text-anchor="middle">+83%</text>
-      <text class="v" x="777.2" y="190.2" text-anchor="middle">0,70 M€</text>
-      <text x="759.2" y="348" text-anchor="middle">mag</text>
-      <text class="yoy" x="852.8" y="22" text-anchor="middle">+29%</text>
-      <text class="v" x="870.8" y="125.2" text-anchor="middle">1,04 M€</text>
-      <text x="852.8" y="348" text-anchor="middle">giu</text>
-      <text class="yoy" x="946.2" y="22" text-anchor="middle">+75%</text>
-      <text class="v" x="964.2" y="94.2" text-anchor="middle">1,21 M€</text>
-      <text x="946.2" y="348" text-anchor="middle">lug</text>
-      <text class="yoy" x="1039.8" y="22" text-anchor="middle">+309%</text>
-      <text class="v" x="1057.8" y="197.7" text-anchor="middle">0,66 M€</text>
-      <text x="1039.8" y="348" text-anchor="middle">ago</text>
-      <text class="yoy" x="1133.2" y="22" text-anchor="middle">+179%</text>
-      <text class="v" x="1151.2" y="158.3" text-anchor="middle">0,87 M€</text>
-      <text x="1133.2" y="348" text-anchor="middle">set</text>
-      <text class="k" x="58" y="376">crescita sul mese dell'anno prima, in alto · vendite del mese, sulla barra blu</text>
+      <text class="yoy" x="104.8" y="27" text-anchor="middle">+4%</text>
+      <text class="v" x="122.8" y="258.8" text-anchor="middle">0,39 M€</text>
+      <text x="104.8" y="360" text-anchor="middle">ott</text>
+      <text class="yoy n" x="198.2" y="27" text-anchor="middle">−11%</text>
+      <text class="v" x="216.2" y="237.0" text-anchor="middle">0,51 M€</text>
+      <text x="198.2" y="360" text-anchor="middle">nov</text>
+      <text class="yoy" x="291.8" y="27" text-anchor="middle">+1%</text>
+      <text class="v" x="309.8" y="238.0" text-anchor="middle">0,50 M€</text>
+      <text x="291.8" y="360" text-anchor="middle">dic</text>
+      <text class="yoy" x="385.2" y="27" text-anchor="middle">+19%</text>
+      <text class="v" x="403.2" y="232.2" text-anchor="middle">0,53 M€</text>
+      <text x="385.2" y="360" text-anchor="middle">gen</text>
+      <text class="yoy" x="478.8" y="27" text-anchor="middle">+45%</text>
+      <text class="v" x="496.8" y="231.1" text-anchor="middle">0,54 M€</text>
+      <text x="478.8" y="360" text-anchor="middle">feb</text>
+      <text class="yoy" x="572.2" y="27" text-anchor="middle">+29%</text>
+      <text class="v" x="590.2" y="218.2" text-anchor="middle">0,61 M€</text>
+      <text x="572.2" y="360" text-anchor="middle">mar</text>
+      <text class="yoy" x="665.8" y="27" text-anchor="middle">+66%</text>
+      <text class="v" x="683.8" y="235.4" text-anchor="middle">0,52 M€</text>
+      <text x="665.8" y="360" text-anchor="middle">apr</text>
+      <text class="yoy" x="759.2" y="27" text-anchor="middle">+83%</text>
+      <text class="v" x="777.2" y="202.2" text-anchor="middle">0,70 M€</text>
+      <text x="759.2" y="360" text-anchor="middle">mag</text>
+      <text class="yoy" x="852.8" y="27" text-anchor="middle">+29%</text>
+      <text class="v" x="870.8" y="137.2" text-anchor="middle">1,04 M€</text>
+      <text x="852.8" y="360" text-anchor="middle">giu</text>
+      <text class="yoy" x="946.2" y="27" text-anchor="middle">+75%</text>
+      <text class="v" x="964.2" y="106.2" text-anchor="middle">1,21 M€</text>
+      <text x="946.2" y="360" text-anchor="middle">lug</text>
+      <rect class="pill" x="1004.5" y="6" width="70" height="30" rx="15"/>
+      <text class="yoy big" x="1039.8" y="27" text-anchor="middle">+309%</text>
+      <text class="v" x="1057.8" y="209.7" text-anchor="middle">0,66 M€</text>
+      <text x="1039.8" y="360" text-anchor="middle">ago</text>
+      <rect class="pill" x="1098.0" y="6" width="70" height="30" rx="15"/>
+      <text class="yoy big" x="1133.2" y="27" text-anchor="middle">+179%</text>
+      <text class="v" x="1151.2" y="170.3" text-anchor="middle">0,87 M€</text>
+      <text x="1133.2" y="360" text-anchor="middle">set</text>
+      <text class="ax" x="50" y="26" text-anchor="end">sull'anno</text><text class="ax" x="50" y="39" text-anchor="end">prima</text>
+      <text class="k" x="58" y="388">in alto la crescita di ogni mese sullo stesso mese dell'anno prima · sulla barra blu le vendite del mese</text>
       </g></svg>
       <svg class="chart-m" viewBox="0 0 350 488" role="img" aria-label="Vendite mensili di Climando, ottobre 2025 – settembre 2026 contro lo stesso mese dell'anno prima: 8,08 M€ contro 5,41 M€, +49%">
       <g class="bars">
@@ -496,40 +536,42 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       </g><g class="lab">
       <text x="0" y="27">ott</text>
       <text class="v" x="98.6" y="32">0,39 M€</text>
-      <text class="yoy" x="350" y="27" text-anchor="end">+4%</text>
+      <text class="yoy" x="342" y="28" text-anchor="end">+4%</text>
       <text x="0" y="67">nov</text>
       <text class="v" x="116.3" y="72">0,51 M€</text>
-      <text class="yoy n" x="350" y="67" text-anchor="end">−11%</text>
+      <text class="yoy n" x="342" y="68" text-anchor="end">−11%</text>
       <text x="0" y="107">dic</text>
       <text class="v" x="115.5" y="112">0,50 M€</text>
-      <text class="yoy" x="350" y="107" text-anchor="end">+1%</text>
+      <text class="yoy" x="342" y="108" text-anchor="end">+1%</text>
       <text x="0" y="147">gen</text>
       <text class="v" x="120.3" y="152">0,53 M€</text>
-      <text class="yoy" x="350" y="147" text-anchor="end">+19%</text>
+      <text class="yoy" x="342" y="148" text-anchor="end">+19%</text>
       <text x="0" y="187">feb</text>
       <text class="v" x="121.2" y="192">0,54 M€</text>
-      <text class="yoy" x="350" y="187" text-anchor="end">+45%</text>
+      <text class="yoy" x="342" y="188" text-anchor="end">+45%</text>
       <text x="0" y="227">mar</text>
       <text class="v" x="131.7" y="232">0,61 M€</text>
-      <text class="yoy" x="350" y="227" text-anchor="end">+29%</text>
+      <text class="yoy" x="342" y="228" text-anchor="end">+29%</text>
       <text x="0" y="267">apr</text>
       <text class="v" x="117.6" y="272">0,52 M€</text>
-      <text class="yoy" x="350" y="267" text-anchor="end">+66%</text>
+      <text class="yoy" x="342" y="268" text-anchor="end">+66%</text>
       <text x="0" y="307">mag</text>
       <text class="v" x="144.7" y="312">0,70 M€</text>
-      <text class="yoy" x="350" y="307" text-anchor="end">+83%</text>
+      <text class="yoy" x="342" y="308" text-anchor="end">+83%</text>
       <text x="0" y="347">giu</text>
       <text class="v" x="197.6" y="352">1,04 M€</text>
-      <text class="yoy" x="350" y="347" text-anchor="end">+29%</text>
+      <text class="yoy" x="342" y="348" text-anchor="end">+29%</text>
       <text x="0" y="387">lug</text>
       <text class="v" x="222.8" y="392">1,21 M€</text>
-      <text class="yoy" x="350" y="387" text-anchor="end">+75%</text>
+      <text class="yoy" x="342" y="388" text-anchor="end">+75%</text>
       <text x="0" y="427">ago</text>
       <text class="v" x="138.6" y="432">0,66 M€</text>
-      <text class="yoy" x="350" y="427" text-anchor="end">+309%</text>
+      <rect class="pill" x="286" y="410" width="64" height="26" rx="13"/>
+      <text class="yoy big" x="342" y="428" text-anchor="end">+309%</text>
       <text x="0" y="467">set</text>
       <text class="v" x="170.6" y="472">0,87 M€</text>
-      <text class="yoy" x="350" y="467" text-anchor="end">+179%</text>
+      <rect class="pill" x="286" y="450" width="64" height="26" rx="13"/>
+      <text class="yoy big" x="342" y="468" text-anchor="end">+179%</text>
       </g></svg>
       <div class="legend"><span><i class="l1"></i>ottobre 2024 – settembre 2025</span><span><i class="l2"></i>ottobre 2025 – settembre 2026</span><span><i class="l4"></i>crescita del mese sull'anno prima</span></div>
       <p class="shot-note">Ogni mese due barre: l'anno prima chiaro, quest'anno blu, e sopra la crescita su quel mese. Vendite nette dal pannello Shopify di Climando; i tre numeri grandi sono i totali del pannello all'11 ottobre 2026, dodici mesi mobili.</p>
@@ -543,7 +585,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   <div class="wrap">
     <div class="sec-head">
       <h2>Sette interruttori. <span>Da 23 a 100 su ogni prodotto.</span></h2>
-      <p>Non sono servizi da comprare a parte: <strong>si attivano nella Suite</strong>, prodotto per prodotto, su centinaia o migliaia insieme. Qui una padella vera di un cliente vero, com'è oggi: indice di accensione <strong>23 su 100</strong>. Accendila tu — scheda, feed, campagne e tracciamento — e guarda perché <strong>le aste si vincono così</strong>.</p>
+      <p>Non sono servizi da comprare a parte: <strong>si attivano nella Suite</strong>, prodotto per prodotto, su centinaia o migliaia insieme. Qui una padella vera di un cliente vero, com'è oggi: indice di accensione <strong>23 su 100</strong>. <span class="m-hide">Accendila tu — scheda, feed, campagne e tracciamento — e guarda perché <strong>le aste si vincono così</strong>.</span><span class="m-only">Accendi un interruttore alla volta: l'effetto sta subito sotto.</span></p>
     </div>
 
     <div class="stage" id="stage">
@@ -715,7 +757,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     </div>
     <div class="res-grid">
       <div class="proof fx">
-        <img src="images/cruscotto/shopify-vendite-12m.png" alt="Pannello analitico Shopify di Climando, 11 ottobre 2025 – 11 ottobre 2026: vendite totali 8.266.784,16 € (+53%), sessioni 509 mila (+143%), ordini 12,1 mila (+51%), con la curva delle vendite sopra quella dell'anno prima" loading="lazy" width="862" height="724">
+        <picture><source media="(max-width:768px)" srcset="images/cruscotto/shopify-vendite-12m-mobile.png" width="600" height="80"><img src="images/cruscotto/shopify-vendite-12m.png" alt="Pannello analitico Shopify di Climando, 11 ottobre 2025 – 11 ottobre 2026: vendite totali 8.266.784,16 € (+53%), sessioni 509 mila (+143%), ordini 12,1 mila (+51%), con la curva delle vendite sopra quella dell'anno prima" loading="lazy" width="862" height="724"></picture>
         <div class="proof-cap"><span><b>Il suo pannello Shopify</b> · 11 ottobre 2025 – 11 ottobre 2026, sull'anno prima</span><span>8.266.784 € · +53%</span></div>
       </div>
       <div class="figs fx">
@@ -887,6 +929,50 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     langBtns.forEach(function(b){ b.addEventListener('click', function(){ setLang(b.getAttribute('data-l')); }); });
     lingue.forEach(function(b){ b.addEventListener('click', function(e){ e.stopPropagation(); if (!state.langs) toggle('langs', true); setLang(b.getAttribute('data-l')); }); });
     if (reduce) KEYS.forEach(function(k){ toggle(k, true); });
+
+    /* ── telefono: un interruttore alla volta, la scheda subito sotto, chip per saltare ── */
+    var mq = window.matchMedia('(max-width: 768px)'), panel = document.getElementById('panel'), head = panel.querySelector('.panel-head');
+    var chips = null, chipsBox = null, mnav = null, sticky = null, curK = 'title';
+    var NOMI = { title: 'Titolo', desc: 'Scheda', langs: 'Lingue', fields: 'Dati', labels: 'Etichette', feed: 'Feed', track: 'Tracciamento' };
+    function rowOf(k){ return rows.filter(function(r){ return r.getAttribute('data-k') === k; })[0]; }
+    function syncChips(){ if (chips) KEYS.forEach(function(k){ chips[k].classList.toggle('on', state[k]); }); }
+    function focusKey(k, scroll){
+      curK = k;
+      rows.forEach(function(r){ r.classList.toggle('cur', r.getAttribute('data-k') === k); });
+      KEYS.forEach(function(x){ card.classList.toggle('f-' + x, x === k); chips[x].classList.toggle('cur', x === k); });
+      rowOf(k).after(card); card.after(mnav);
+      var i = KEYS.indexOf(k), prev = mnav.querySelector('.prev'), next = mnav.querySelector('.next');
+      prev.disabled = i === 0; prev.lastChild.textContent = i > 0 ? ' ' + NOMI[KEYS[i - 1]] : ' Inizio';
+      next.disabled = i === KEYS.length - 1; next.firstChild.textContent = i < KEYS.length - 1 ? NOMI[KEYS[i + 1]] + ' ' : 'Fine ';
+      chips[k].scrollIntoView({ inline: 'center', block: 'nearest', behavior: reduce ? 'auto' : 'smooth' });
+      if (scroll) { var top = sticky.getBoundingClientRect().bottom; var y = rowOf(k).getBoundingClientRect().top - top - 10; if (Math.abs(y) > 24) window.scrollBy({ top: y, behavior: reduce ? 'auto' : 'smooth' }); }
+    }
+    function enterMobile(){
+      if (panel.classList.contains('m')) return;
+      if (!chips) {
+        chips = {}; chipsBox = document.createElement('div'); chipsBox.className = 'chips-m'; chipsBox.setAttribute('aria-label', 'Scegli l\u2019interruttore');
+        KEYS.forEach(function(k){ var b = document.createElement('button'); b.type = 'button'; b.innerHTML = '<i aria-hidden="true"></i>' + NOMI[k]; b.addEventListener('click', function(){ focusKey(k, true); }); chips[k] = b; chipsBox.appendChild(b); });
+        sticky = document.createElement('div'); sticky.className = 'msticky';
+        mnav = document.createElement('div'); mnav.className = 'mnav';
+        mnav.innerHTML = '<button type="button" class="prev"><svg class="ico" aria-hidden="true"><use href="#arrow"/></svg> </button><button type="button" class="next"> <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></button>';
+        mnav.querySelector('.prev').addEventListener('click', function(){ var i = KEYS.indexOf(curK); if (i > 0) focusKey(KEYS[i - 1], true); });
+        mnav.querySelector('.next').addEventListener('click', function(){ var i = KEYS.indexOf(curK); if (i < KEYS.length - 1) focusKey(KEYS[i + 1], true); });
+      }
+      head.before(sticky); sticky.appendChild(head); sticky.appendChild(chipsBox);
+      panel.classList.add('m'); card.classList.add('m');
+      syncChips(); focusKey(curK, false);
+    }
+    function exitMobile(){
+      if (!panel.classList.contains('m')) return;
+      panel.classList.remove('m'); card.classList.remove('m'); KEYS.forEach(function(x){ card.classList.remove('f-' + x); });
+      rows.forEach(function(r){ r.classList.remove('cur'); });
+      sticky.before(head); sticky.remove(); mnav.remove();
+      stage.insertBefore(card, panel);
+    }
+    function onMq(){ if (mq.matches) enterMobile(); else exitMobile(); }
+    onMq(); (mq.addEventListener ? mq.addEventListener('change', onMq) : mq.addListener(onMq));
+    rows.forEach(function(r){ r.addEventListener('click', syncChips); r.addEventListener('keydown', function(){ setTimeout(syncChips, 0); }); });
+    document.getElementById('all').addEventListener('click', function(){ var n = 0; KEYS.forEach(function(k, i){ setTimeout(syncChips, reduce ? 0 : i * 200 + 20); }); });
   }
   var b = document.querySelector('.burger'), m = document.querySelector('.mobile-menu'), c = document.querySelector('.mobile-close');
   function closeMenu(){ m.classList.remove('open'); document.body.style.overflow = ''; b.setAttribute('aria-expanded', 'false'); }
