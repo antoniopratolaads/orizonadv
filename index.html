@@ -22,7 +22,7 @@
 
 :root{
   --blue:#3750F7;--blue-d:#233BD9;--blue-l:#6377FD;--blue-s:#9FABFF;--blue-ll:#D2D8FF;
-  --black:#0C1713;--black-m:#5A625F;--black-l:#A8ACAB;--black-ll:#D9D9D9;--white:#FFFFFF;
+  --green:#60E787;--black:#0C1713;--black-m:#5A625F;--black-l:#A8ACAB;--black-ll:#D9D9D9;--white:#FFFFFF;
   --bg-2:#F7F8FA;--line:rgba(12,23,19,.09);--line-2:rgba(12,23,19,.14);
   --font:'IBM Plex Sans',Arial,Helvetica,sans-serif;
   --ease:cubic-bezier(.16,1,.3,1);
@@ -109,7 +109,9 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .sec-head h2{font-size:clamp(30px,3.6vw,46px);line-height:1.1;letter-spacing:-.03em;text-wrap:balance}
 .sec-head p{margin-top:16px;font-size:18px;color:var(--black-m);max-width:640px}
 .sec-head p strong{color:var(--black);font-weight:600}
+.sec-head h2 span{color:var(--blue)}
 .stage{margin-top:44px;display:grid;grid-template-columns:400px 1fr;gap:40px;align-items:start}
+.stage>*{min-width:0}
 /* la scheda prodotto: ogni interruttore accende una zona */
 .card{background:var(--white);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 24px 70px -28px rgba(12,23,19,.22)}
 .card .shopbar{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid var(--line)}
@@ -145,11 +147,34 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .card .fields div span:last-child{font-weight:500;text-align:right;max-width:60%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .card .fields div.miss span:last-child{color:var(--blue);font-weight:600}
 .card.on-fields .fields div{opacity:1}
+.zone.extra{margin-top:10px}
+.zone .zl{display:block;font-size:11.5px;font-weight:600;color:var(--black-m);margin-bottom:5px}
+.zone .zoff{font-size:12.5px;color:var(--black-l);line-height:1.45}
+.zone .zon{display:none}
+.card.on-labels #z-labels .zoff,.card.on-feed #z-feed .zoff,.card.on-track #z-track .zoff{display:none}
+.card.on-labels #z-labels .zon,.card.on-feed #z-feed .zon,.card.on-track #z-track .zon{display:flex}
+.tags{flex-wrap:wrap;gap:5px;align-items:center}
+.tags b{font-weight:500;font-size:12px;color:var(--black);background:var(--bg-2);border:1px solid var(--line);border-radius:6px;padding:3px 8px}
+.tags em{font-style:normal;font-size:12px;font-weight:600;color:var(--blue)}
+.attrs{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.attrs em{font-style:normal;font-size:12px;font-weight:600;color:var(--blue);margin-right:4px}
+.attrs i{font-style:normal;font-size:11.5px;color:var(--black-m);border:1px solid var(--line);border-radius:999px;padding:2px 8px;background:var(--white)}
+.ev{gap:6px;flex-wrap:wrap;align-items:center}
+.ev span{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11.5px;background:var(--black);color:var(--white);border-radius:6px;padding:3px 8px}
+.ev small{font-size:12px;color:var(--black-m)}
 .card.on-fields .fields div:nth-child(2){transition-delay:.06s}.card.on-fields .fields div:nth-child(3){transition-delay:.12s}.card.on-fields .fields div:nth-child(4){transition-delay:.18s}.card.on-fields .fields div:nth-child(5){transition-delay:.26s}.card.on-fields .fields div:nth-child(6){transition-delay:.32s}
 /* gli interruttori */
 .panel{display:grid;gap:10px}
-.panel-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:4px}
-.panel-head span{font-size:14px;color:var(--black-m)}
+.panel-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 18px;margin-bottom:4px}
+.score{flex:1 1 240px;min-width:0;display:grid;grid-template-columns:auto auto 1fr;column-gap:10px;align-items:baseline}
+.score-l{font-size:13px;color:var(--black-m)}
+.score-n{font-weight:600;font-size:24px;letter-spacing:-.03em;line-height:1;color:var(--black-m);transition:color .4s}
+.score-n span{font-variant-numeric:tabular-nums}
+.score-s{justify-self:start;font-size:12px;font-weight:600;color:var(--black-l);border:1px solid var(--line);border-radius:999px;padding:3px 9px;line-height:1.2;transition:color .3s,background .3s,border-color .3s;white-space:nowrap}
+.score-bar{grid-column:1/-1;display:block;height:6px;border-radius:999px;background:var(--black-ll);overflow:hidden;margin-top:9px}
+.score-bar i{display:block;height:100%;border-radius:999px;background:var(--black-l);transition:width .7s var(--ease),background .4s}
+.score.mid .score-n{color:var(--blue)}.score.mid .score-bar i{background:var(--blue)}.score.mid .score-s{color:var(--blue);border-color:var(--blue-s)}
+.score.full .score-n{color:var(--black)}.score.full .score-bar i{background:var(--green)}.score.full .score-s{color:var(--black);background:var(--green);border-color:var(--green)}
 .panel-head button{font:inherit;font-weight:600;font-size:13px;color:var(--blue);background:none;border:1px solid var(--line-2);border-radius:8px;padding:8px 12px;cursor:pointer;transition:border-color .2s,background .2s}
 .panel-head button:hover{border-color:var(--blue);background:rgba(55,80,247,.04)}
 .row{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:start;cursor:pointer;transition:border-color .25s,box-shadow .25s}
@@ -352,8 +377,8 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 <section class="feat" id="ignition">
   <div class="wrap">
     <div class="sec-head">
-      <h2>Quattro cose che Ignition accende su ogni prodotto.</h2>
-      <p>Non sono servizi da comprare a parte: <strong>si attivano nella Suite</strong>, prodotto per prodotto, su centinaia o migliaia insieme. Qui una padella vera di un cliente vero, con i testi di oggi. <strong>Accendile tu.</strong></p>
+      <h2>Sette interruttori. <span>Da 23 a 100 su ogni prodotto.</span></h2>
+      <p>Non sono servizi da comprare a parte: <strong>si attivano nella Suite</strong>, prodotto per prodotto, su centinaia o migliaia insieme. Qui una padella vera di un cliente vero, com'è oggi: indice di accensione <strong>23 su 100</strong>. Accendila tu — scheda, feed, campagne e tracciamento — e guarda perché <strong>le aste si vincono così</strong>.</p>
     </div>
 
     <div class="stage" id="stage">
@@ -384,11 +409,34 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
             <div class="miss"><span>Peso</span><span>manca → proposto</span></div>
             <div class="miss"><span>GTIN</span><span>manca → proposto</span></div>
           </div>
+          <div class="zone extra" id="z-labels">
+            <span class="zl">Etichette per Google Ads</span>
+            <p class="zoff">Nessuna: in campagna questa padella vale quanto la pentola che non vende.</p>
+            <div class="zon tags"><b>margine alto</b><b>speso basso</b><b>ritorno alto</b><b>misure piene</b><em>→ spingere</em></div>
+          </div>
+          <div class="zone extra" id="z-feed">
+            <span class="zl">Feed Google</span>
+            <p class="zoff">Titolo, prezzo, foto, disponibilità. Colore, misura, materiale, domande: vuoti.</p>
+            <div class="zon"><div class="attrs"><em>+13 attributi</em><i>colore</i><i>misura</i><i>materiale</i><i>fantasia</i><i>dettagli</i><i>punti forti</i><i>domande e risposte</i><i>titolo breve</i><i>nome gruppo</i><i>opzione variante</i><i>genere</i><i>età</i><i>etichetta 0</i></div></div>
+          </div>
+          <div class="zone extra" id="z-track">
+            <span class="zl">Tracciamento</span>
+            <p class="zoff">Dal browser: tra blocchi, consensi e iOS, una parte degli acquisti non arriva mai a Google e Meta.</p>
+            <div class="zon ev"><span>view_item</span><span>add_to_cart</span><span>purchase</span><small>dal server · deduplicati · col consenso</small></div>
+          </div>
         </div>
       </div>
 
       <div class="panel" id="panel">
-        <div class="panel-head"><span>Quattro interruttori. La scheda a sinistra cambia davvero.</span><button type="button" id="all">Accendi tutto</button></div>
+        <div class="panel-head">
+          <div class="score" id="score" aria-live="polite">
+            <span class="score-l">Indice di accensione</span>
+            <b class="score-n"><span id="score-n">23</span>/100</b>
+            <span class="score-s" id="score-s">spenta</span>
+            <i class="score-bar" aria-hidden="true"><i id="score-fill" style="width:23%"></i></i>
+          </div>
+          <button type="button" id="all">Accendi tutto</button>
+        </div>
 
         <div class="row hint" data-k="title" role="switch" aria-checked="false" tabindex="0">
           <div class="tog" aria-hidden="true"></div>
@@ -427,8 +475,35 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
           </div>
         </div>
 
+        <div class="row" data-k="labels" role="switch" aria-checked="false" tabindex="0">
+          <div class="tog" aria-hidden="true"></div>
+          <div>
+            <h3>Etichette per le campagne <em>Google Ads</em></h3>
+            <p class="off">Oggi: in campagna la padella vale quanto la pentola che non vende. Il budget si spalma su tutto.</p>
+            <p class="fact">Ogni prodotto marcato da <b>speso, margine e ritorno</b> sulla spesa Google, più la copertura delle misure: <b><mark>etichette</mark> nel feed</b> che in Google Ads diventano gruppi. Si spinge quello che rende, si ferma quello che non ha margine o non ha taglie.</p>
+          </div>
+        </div>
+
+        <div class="row" data-k="feed" role="switch" aria-checked="false" tabindex="0">
+          <div class="tog" aria-hidden="true"></div>
+          <div>
+            <h3>Il feed, arricchito <em>Orizon Boost</em></h3>
+            <p class="off">Oggi: a Google arrivano titolo, prezzo, foto e disponibilità. Colore, misura, materiale, domande: vuoti.</p>
+            <p class="fact"><b><mark>+13 attributi</mark> per prodotto</b> in un feed supplementare che Merchant Center legge da solo, ogni giorno: colore, misura, materiale, dettagli, domande e risposte, etichette. Su un catalogo vero da 17.201 prodotti: <b>colore 89%, taglia 80%, genere 94%, età 98%</b> compilati.</p>
+          </div>
+        </div>
+
+        <div class="row" data-k="track" role="switch" aria-checked="false" tabindex="0">
+          <div class="tog" aria-hidden="true"></div>
+          <div>
+            <h3>Tracciamento come si deve <em>Server-side</em></h3>
+            <p class="off">Oggi: gli acquisti li conta il browser. Tra blocchi, consensi e iOS, una parte non arriva mai a Google e Meta.</p>
+            <p class="fact">GA4, Google Ads e Meta ricevono <b>ogni evento dal server</b> — visita, carrello, acquisto — <b><mark>deduplicato</mark>, col consenso rispettato</b>. Le campagne imparano dai numeri veri: anche così si vince l'asta.</p>
+          </div>
+        </div>
+
         <div class="done" id="done" aria-live="polite">
-          <div><b>Tutto acceso, su un prodotto.</b><span>2 testi per Google · 1 scheda · 24 testi in 4 lingue · 7 campi. Il catalogo di F.lli Fontana Hotellerie ne ha 1.446: Ignition li tratta tutti così, col nostro sì prima di pubblicare.</span></div>
+          <div><b>100 su 100, su un prodotto.</b><span>2 testi per Google · 1 scheda · 24 testi in 4 lingue · 7 campi · 13 attributi nel feed · etichette per le campagne · tracciamento dal server. Il catalogo di F.lli Fontana Hotellerie ne ha 1.446: Ignition li tratta tutti così, col nostro sì prima di pubblicare.</span></div>
           <div class="n">× 1.446</div>
         </div>
       </div>
@@ -571,8 +646,22 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     var rows = Array.prototype.slice.call(document.querySelectorAll('#panel .row'));
     var T = { it: 'Pensofal <b>Academy Chef</b> Padella Alta a Saltare | <b>24-32 cm</b>', en: 'Pensofal Academy Chef High-Sided Sauté Pan', de: 'Hohe Sauté-Pfanne Pensofal Academy Chef', fr: 'Poêle haute sauteuse Pensofal Academy Chef', es: 'Sartén Alta Saltear Pensofal Academy Chef' };
     var tnew = document.getElementById('tnew'), langBtns = card.querySelectorAll('#langs button'), lingue = document.querySelectorAll('#lingue button'), done = document.getElementById('done');
-    var zones = { title: document.getElementById('z-title'), desc: document.getElementById('z-desc'), langs: document.getElementById('langs'), fields: document.getElementById('z-fields') };
-    var state = { title: false, desc: false, langs: false, fields: false };
+    var zones = { title: document.getElementById('z-title'), desc: document.getElementById('z-desc'), langs: document.getElementById('langs'), fields: document.getElementById('z-fields'), labels: document.getElementById('z-labels'), feed: document.getElementById('z-feed'), track: document.getElementById('z-track') };
+    var KEYS = ['title','desc','langs','fields','labels','feed','track'];
+    var PUNTI = { title: 12, desc: 15, langs: 10, fields: 13, labels: 9, feed: 11, track: 7 }; // 23 + 77 = 100
+    var state = { title: false, desc: false, langs: false, fields: false, labels: false, feed: false, track: false };
+    var scoreBox = document.getElementById('score'), scoreN = document.getElementById('score-n'), scoreS = document.getElementById('score-s'), scoreFill = document.getElementById('score-fill'), shown = 23, anim = null;
+    function punteggio(){ var n = 23; KEYS.forEach(function(k){ if (state[k]) n += PUNTI[k]; }); return n; }
+    function mostraPunteggio(){
+      var n = punteggio();
+      scoreFill.style.width = n + '%';
+      scoreBox.classList.toggle('mid', n > 23 && n < 100); scoreBox.classList.toggle('full', n === 100);
+      scoreS.textContent = n === 100 ? 'pronta per l\u2019asta' : n > 23 ? 'si accende' : 'spenta';
+      if (anim) cancelAnimationFrame(anim);
+      if (reduce) { shown = n; scoreN.textContent = n; return; }
+      var da = shown, t0 = null;
+      (function passo(t){ if (t0 === null) t0 = t; var f = Math.min(1, (t - t0) / 500); f = 1 - Math.pow(1 - f, 3); shown = Math.round(da + (n - da) * f); scoreN.textContent = shown; if (f < 1) anim = requestAnimationFrame(passo); })(performance.now());
+    }
     function setLang(l){ tnew.innerHTML = T[l]; langBtns.forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-l') === l); }); lingue.forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-l') === l); }); }
     function render(k){
       var on = state[k];
@@ -581,8 +670,9 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       if (k === 'title') { zones.title.querySelector('.old').classList.toggle('out', on); tnew.classList.toggle('out', !on); }
       if (k === 'desc') { zones.desc.querySelector('.desc .old').classList.toggle('out', on); zones.desc.querySelector('.desc .new').classList.toggle('out', !on); }
       if (k === 'langs') { if (on) { zones.title.querySelector('.old').classList.add('out'); tnew.classList.remove('out'); setLang('en'); } else { setLang('it'); if (!state.title) { zones.title.querySelector('.old').classList.remove('out'); tnew.classList.add('out'); } } }
-      var all = state.title && state.desc && state.langs && state.fields;
+      var all = KEYS.every(function(k){ return state[k]; });
       done.classList.toggle('show', all);
+      mostraPunteggio();
       document.getElementById('all').textContent = all ? 'Spegni tutto' : 'Accendi tutto';
       rows.forEach(function(r){ r.classList.remove('hint'); });
     }
@@ -593,12 +683,12 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       r.addEventListener('keydown', function(e){ if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); toggle(k); } });
     });
     document.getElementById('all').addEventListener('click', function(){
-      var all = state.title && state.desc && state.langs && state.fields, keys = ['title','desc','langs','fields'];
-      keys.forEach(function(k, i){ setTimeout(function(){ toggle(k, !all); }, reduce ? 0 : i * 220); });
+      var all = KEYS.every(function(k){ return state[k]; });
+      KEYS.forEach(function(k, i){ setTimeout(function(){ toggle(k, !all); }, reduce ? 0 : i * 200); });
     });
     langBtns.forEach(function(b){ b.addEventListener('click', function(){ setLang(b.getAttribute('data-l')); }); });
     lingue.forEach(function(b){ b.addEventListener('click', function(e){ e.stopPropagation(); if (!state.langs) toggle('langs', true); setLang(b.getAttribute('data-l')); }); });
-    if (reduce) ['title','desc','langs','fields'].forEach(function(k){ toggle(k, true); });
+    if (reduce) KEYS.forEach(function(k){ toggle(k, true); });
   }
   var b = document.querySelector('.burger'), m = document.querySelector('.mobile-menu'), c = document.querySelector('.mobile-close');
   function closeMenu(){ m.classList.remove('open'); document.body.style.overflow = ''; b.setAttribute('aria-expanded', 'false'); }
