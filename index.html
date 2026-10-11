@@ -138,6 +138,26 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .gos-porte i{font-style:normal;font-size:12.5px;color:var(--black);border:1px dashed var(--black-l);border-radius:999px;padding:4px 10px}
 .gos-doc{margin-top:14px;font-size:13px;color:var(--black-m);line-height:1.45}
 .gos-doc b{color:var(--black);font-weight:600}
+/* ── prima / dopo: le etichette sulle card e il ponte ── */
+.tag{display:inline-block;font-style:normal;font-weight:600;font-size:11px;letter-spacing:.02em;color:var(--black-m);background:var(--bg-2);border:1px solid var(--line-2);border-radius:6px;padding:3px 8px;margin-right:10px;vertical-align:3px;line-height:1.2}
+.tag.on{color:var(--white);background:var(--blue);border-color:var(--blue)}
+.bridge{margin:0 auto;max-width:1180px;text-align:left;padding:34px 0 44px;position:relative}
+.bridge-line{position:absolute;left:50%;top:0;width:1px;height:28px;background:var(--line-2)}
+.bridge-line::after{content:'';position:absolute;left:-4px;bottom:-5px;width:9px;height:9px;border-radius:50%;background:var(--blue)}
+.bridge h2{font-size:clamp(26px,3vw,38px);line-height:1.1;letter-spacing:-.03em;text-wrap:balance;max-width:820px;margin:0 auto;text-align:center}
+.bridge h2 span{color:var(--blue)}
+.bridge-cols{margin-top:26px;display:grid;grid-template-columns:1fr 56px 1fr;gap:16px;align-items:center}
+.bridge-cols b{display:block;font-weight:600;font-size:12px;color:var(--black-m);letter-spacing:.02em;margin-bottom:6px}
+.bridge-cols div:last-child b{color:var(--blue)}
+.bridge-cols p{font-size:15.5px;color:var(--black-m);line-height:1.5}
+.bridge-cols p strong{color:var(--black);font-weight:600}
+.bridge-cols .mid{display:flex;align-items:center;justify-content:center}
+.bridge-cols .mid .ico{width:28px;height:28px;color:var(--blue);stroke-width:1.6}
+.bridge-vs{margin:26px auto 0;max-width:920px;display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line-2);border-radius:14px;overflow:hidden;background:var(--white);box-shadow:0 1px 2px rgba(12,23,19,.04),0 14px 34px -18px rgba(12,23,19,.16)}
+.bridge-vs span{padding:16px 20px;font-size:14.5px;line-height:1.5;color:var(--black-m)}
+.bridge-vs span b{display:block;color:var(--black);font-weight:600;margin-bottom:2px}
+.bridge-vs span+span{background:rgba(55,80,247,.05);border-left:1px solid rgba(55,80,247,.15)}
+.bridge-vs span+span b{color:var(--blue)}
 .shot-wrap{margin:56px auto 0;max-width:1180px;position:relative;text-align:left}
 .shot-tag{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:var(--black-m);background:var(--white);border:1px solid var(--line);border-radius:999px;padding:6px 12px 6px 8px;margin-bottom:14px}
 .shot-tag i{width:8px;height:8px;border-radius:50%;background:var(--blue);display:inline-block}
@@ -637,6 +657,13 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .gos-score>b em{font-size:36px}
   .ga{grid-template-columns:118px 1fr 30px;font-size:12.5px}
   .gos-cols{grid-template-columns:1fr;gap:16px}
+  .bridge{padding:28px 0 32px}
+  .bridge h2{text-align:left}
+  .bridge-cols{grid-template-columns:1fr;gap:12px}
+  .bridge-cols .mid{justify-content:flex-start}
+  .bridge-cols .mid .ico{transform:rotate(90deg)}
+  .bridge-vs{grid-template-columns:1fr}
+  .bridge-vs span+span{border-left:0;border-top:1px solid rgba(55,80,247,.15)}
   .scan button{justify-content:center}
   .growth{margin-top:36px;padding:18px 16px 14px}
   .growth-stats{gap:16px}
@@ -762,7 +789,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     <!-- ── Orizon GOS: l'androide al lavoro, su un negozio vero ── -->
     <div class="gos fx" id="gos">
       <div class="gos-head">
-        <div><span class="gos-k">Orizon GOS <em>Growth Opportunity Scan</em></span><span class="gos-s">Così legge un negozio. Questo è vero: <b>Manfrellotti</b>, moda, letto il 20 settembre 2026.</span></div>
+        <div><span class="gos-k"><i class="tag">Prima</i>Orizon GOS <em>Growth Opportunity Scan</em></span><span class="gos-s">Un negozio il giorno dello scan. Questo è vero: <b>Manfrellotti</b>, moda, letto il 20 settembre 2026.</span></div>
         <button type="button" class="gos-play" id="gos-play"><svg class="ico" aria-hidden="true" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor" stroke="none"/></svg> Guarda come legge</button>
       </div>
       <div class="gos-body">
@@ -782,9 +809,19 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       </div>
     </div>
 
+    <div class="bridge fx" aria-label="Prima e dopo">
+      <i class="bridge-line" aria-hidden="true"></i>
+      <h2>Fra i due c'è Ignition. <span>E un'agenzia che guadagna solo se cresci.</span></h2>
+      <div class="bridge-cols">
+        <div><b>Prima</b><p>Il giorno dello scan. Un catalogo caricato ma spento: schede del fornitore, feed coi campi vuoti, prodotti esauriti in vetrina. Le campagne pagano click su una pagina che non convince nessuno.</p></div>
+        <div class="mid" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24"><use href="#arrow"/></svg></div>
+        <div><b>Dopo</b><p>Dodici mesi dopo l'accensione. Schede riscritte, feed completo, budget dove si vince l'asta e magazzino dentro le campagne. Un altro negozio, stesso metodo: <strong>+53% di vendite, 8,27 milioni</strong>.</p></div>
+      </div>
+      <p class="bridge-vs"><span><b>Un'agenzia qualunque</b> ti vende campagne, ti manda un report di impression e tiene la fee anche se non vendi.</span><span><b>Noi</b> accendiamo prima il catalogo, leggiamo il conto economico ogni mattina e ci paghi solo sulla crescita.</span></p>
+    </div>
     <div class="growth fx" id="growth">
       <div class="growth-head">
-        <div><span class="growth-k">Climando</span><span class="growth-s">e-commerce di climatizzazione · vendite mese per mese dal suo pannello Shopify: <b>ottobre 2025 – settembre 2026</b> contro lo stesso mese dell'anno prima</span></div>
+        <div><span class="growth-k"><i class="tag on">Dopo</i>Climando</span><span class="growth-s">e-commerce di climatizzazione · vendite mese per mese dal suo pannello Shopify: <b>ottobre 2025 – settembre 2026</b> contro lo stesso mese dell'anno prima</span></div>
         <div class="growth-stats">
           <div><b>+53%</b><span>anno su anno<br>8,27 M€ contro 5,40 M€</span></div>
           <div><b>+135%</b><span>luglio – settembre<br>2,73 M€ contro 1,16 M€</span></div>
