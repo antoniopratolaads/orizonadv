@@ -306,6 +306,8 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .lr b{text-align:right;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
 .lr.next{grid-template-columns:1fr 92px;border-top:1px dashed var(--line-2);margin-top:6px;padding-top:10px;color:var(--black-m)}
 .lr.next b{color:var(--blue)}
+.lr.next a{color:inherit;text-decoration:none}
+.lr.next a:hover{text-decoration:underline;text-underline-offset:3px}
 .js .lr i{transform:scaleX(0);transition:transform .8s var(--ease)}
 .js .tool.in .lr i{transform:scaleX(1)}
 .js .tool.in .lr:nth-child(2) i{transition-delay:.08s}.js .tool.in .lr:nth-child(3) i{transition-delay:.16s}.js .tool.in .lr:nth-child(4) i{transition-delay:.24s}.js .tool.in .lr:nth-child(5) i{transition-delay:.32s}
@@ -329,6 +331,43 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .mp em{font-style:normal;font-size:11.5px;font-weight:600;color:var(--blue);display:block}
 .mp b{display:block;font-size:14.5px;font-weight:600;line-height:1.3;margin-top:2px}
 .mp span{display:block;font-size:13px;color:var(--black-m);margin-top:4px;line-height:1.4}
+/* ── ROAS o utile: lo stesso mese, due modi ── */
+.vs-sec{padding:112px 0;background:var(--white);border-bottom:1px solid var(--line)}
+.vs-grid{margin-top:44px;display:grid;grid-template-columns:1.25fr 1fr;gap:28px;align-items:start}
+.vs{background:var(--white);border:1px solid var(--line-2);border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(12,23,19,.04),0 24px 60px -24px rgba(12,23,19,.22)}
+.vr{display:grid;grid-template-columns:1.35fr 1fr 1fr;align-items:center;padding:10px 20px;border-top:1px solid var(--line);font-size:15px;color:var(--black)}
+.vr>span{display:block}
+.vr>span:nth-child(2),.vr>span:nth-child(3){text-align:right;font-variant-numeric:tabular-nums;font-weight:500}
+.vr>span.b{background:rgba(55,80,247,.05);margin:-10px -20px -10px 0;padding:10px 20px 10px 12px;border-left:1px solid rgba(55,80,247,.15)}
+.vr small{display:block;font-size:11.5px;color:var(--black-m);font-weight:400;line-height:1.3;margin-top:1px}
+.vr.head{border-top:0;background:var(--bg-2);font-size:12.5px;font-weight:600;color:var(--black-m);padding:12px 20px}
+.vr.head>span.b{color:var(--blue);background:rgba(55,80,247,.08)}
+.vr.m{color:var(--black-m)}
+.vr.m>span:nth-child(2),.vr.m>span:nth-child(3){font-weight:400;color:var(--black)}
+.vr.big>span b{font-size:26px;font-weight:600;letter-spacing:-.03em;line-height:1}
+.vr.big>span.b b{color:var(--blue)}
+.vr.tot{background:var(--black);color:var(--white);padding:16px 20px;border-top:0}
+.vr.tot>span.b{background:rgba(255,255,255,.08);border-left-color:rgba(255,255,255,.14);margin:-16px -20px -16px 0;padding:16px 20px 16px 12px;position:relative}
+.vr.tot b{display:block;font-size:30px;font-weight:600;letter-spacing:-.035em;line-height:1}
+.vr.tot>span.b b{color:var(--green)}
+.vr.tot small{color:rgba(255,255,255,.7)}
+.vr.tot em{position:absolute;top:-14px;right:14px;font-style:normal;font-size:12.5px;font-weight:600;color:var(--black);background:var(--green);border-radius:999px;padding:4px 10px;white-space:nowrap}
+.vs-why{padding-top:4px}
+.bars{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:end;height:210px;margin-bottom:22px;padding:0 8px}
+.bars div{display:flex;flex-direction:column;justify-content:flex-end;height:100%;text-align:center}
+.bars i{display:block;height:var(--h);border-radius:8px 8px 4px 4px;background:var(--black-ll);transform-origin:50% 100%}
+.bars .on i{background:var(--blue)}
+.bars b{font-weight:600;font-size:18px;letter-spacing:-.02em;margin-top:8px;order:-1}
+.bars span{font-size:12.5px;color:var(--black-m);margin-top:6px;order:1}
+.js .bars i{transform:scaleY(0);transition:transform .9s var(--ease) .1s}
+.js .vs-why.in .bars i{transform:scaleY(1)}
+.vs-why h3{font-size:15px;font-weight:600;color:var(--black-m);margin-bottom:8px}
+.vs-why ol{list-style:none;counter-reset:n;display:grid;gap:12px}
+.vs-why li{counter-increment:n;position:relative;padding-left:36px;font-size:15px;color:var(--black-m);line-height:1.5}
+.vs-why li::before{content:counter(n);position:absolute;left:0;top:1px;width:24px;height:24px;border-radius:50%;background:var(--bg-2);border:1px solid var(--line);font-size:12px;font-weight:600;color:var(--black);display:flex;align-items:center;justify-content:center}
+.vs-why li b{color:var(--black);font-weight:600}
+.vs-why li strong{color:var(--black);font-weight:600}
+.vs-note{margin-top:16px;padding-top:12px;border-top:1px solid var(--line);font-size:12.5px;color:var(--black-l);line-height:1.45}
 /* ── CHI GUIDA ── */
 .who{padding:112px 0;background:var(--white)}
 .who-grid{display:grid;grid-template-columns:300px 1fr;gap:48px;align-items:center}
@@ -373,6 +412,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .res-grid{grid-template-columns:1fr}
   .how-grid{grid-template-columns:1fr}
   .tools{grid-template-columns:1fr}
+  .vs-grid{grid-template-columns:1fr;gap:20px}
   .who-grid{grid-template-columns:1fr}
   .who-photo{max-width:300px}
   .after{grid-template-columns:1fr}
@@ -444,6 +484,18 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .fig span{font-size:14px}
   .feat{padding:80px 0}
   .how{padding:72px 0}
+  .vs-sec{padding:72px 0}
+  .vs-grid{margin-top:28px}
+  .vr{padding:9px 12px;font-size:13px}
+  .vr>span.b{margin:-9px -12px -9px 0;padding:9px 12px 9px 8px}
+  .vr.head{padding:10px 12px;font-size:11.5px}
+  .vr.big>span b{font-size:22px}
+  .vr.tot{padding:14px 12px}
+  .vr.tot>span.b{margin:-14px -12px -14px 0;padding:14px 12px 14px 8px}
+  .vr.tot b{font-size:19px;white-space:nowrap}
+  .vr{grid-template-columns:1.05fr 1fr 1.05fr}
+  .vr.tot em{top:-12px;right:8px;font-size:11.5px}
+  .bars{height:160px}
   .tools{margin-top:28px;gap:14px}
   .tool{padding:18px 16px 16px}
   .lr{grid-template-columns:112px 1fr 82px;gap:8px;font-size:13px}
@@ -464,6 +516,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .js .fx{opacity:1;transform:none;transition:none}
   .js .chart .bars rect,.js .chart-m .bars rect{transform:none;transition:none}
   .js .lr i{transform:none;transition:none}
+  .js .bars i{transform:none;transition:none}
 }
 </style>
 </head>
@@ -873,7 +926,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
           <div class="lr m"><span>− Spedizioni</span><i style="--w:4.4%"></i><b>15.275 €</b></div>
           <div class="lr tot"><span>Merce netta</span><i style="--w:78%"></i><b>273.211 €</b></div>
           <div class="lr r"><span>− Resi <small>11,4% del lordo, letti il giorno del reso</small></span><i style="--w:11.4%"></i><b>39.913 €</b></div>
-          <div class="lr next"><span>− Costo d'acquisto, prodotto per prodotto</span><b>= l'utile</b></div>
+          <div class="lr next"><span>− Costo d'acquisto, prodotto per prodotto</span><b><a href="#roas-o-utile">= l'utile ↓</a></b></div>
         </div>
         <p class="tnote">374 ordini · 269 clienti nuovi, 81 di ritorno. <strong>Se un prodotto vende e non guadagna, lo sappiamo prima di te</strong> — e smettiamo di spingerlo.</p>
       </article>
@@ -906,6 +959,46 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     </div>
 
     <p class="how-line fx">È il motivo per cui possiamo farci pagare <strong>solo su quello che vendi in più</strong>: il rischio è dell'impresa, e lo sappiamo.</p>
+  </div>
+</section>
+
+<!-- ═══ ROAS O UTILE ═══ -->
+<section class="vs-sec" id="roas-o-utile">
+  <div class="wrap">
+    <div class="sec-head fx">
+      <h2>Il ROAS più alto <span>non è il mese migliore.</span></h2>
+      <p>Lo stesso negozio, lo stesso mese, due modi di muovere il budget. A sinistra si insegue il ROAS, come fanno quasi tutti. A destra si insegue l'utile. <strong>Tutti i costi dentro</strong>: IVA, resi, costo d'acquisto, spedizioni, commissioni, pubblicità.</p>
+    </div>
+
+    <div class="vs-grid">
+      <div class="vs fx" role="table" aria-label="Confronto fra un mese gestito sul ROAS e uno gestito sull'utile">
+        <div class="vr head" role="row"><span role="columnheader">Un mese tipo</span><span role="columnheader">Lavorando sul ROAS</span><span class="b" role="columnheader">Lavorando sull'utile</span></div>
+        <div class="vr" role="row"><span>Pubblicità spesa</span><span>20.000 €</span><span class="b">30.000 €</span></div>
+        <div class="vr big" role="row"><span>ROAS</span><span><b>35</b></span><span class="b"><b>22</b></span></div>
+        <div class="vr" role="row"><span>Incassato, lordo</span><span>700.000 €</span><span class="b">660.000 €</span></div>
+        <div class="vr m" role="row"><span>− IVA 22%</span><span>126.230 €</span><span class="b">119.016 €</span></div>
+        <div class="vr m" role="row"><span>− Resi <small>11,4%, come Climando</small></span><span>65.410 €</span><span class="b">61.672 €</span></div>
+        <div class="vr m" role="row"><span>− Costo d'acquisto <small>della merce venduta</small></span><span>406.689 €<small>80% del venduto</small></span><span class="b">316.346 €<small>66% del venduto</small></span></div>
+        <div class="vr m" role="row"><span>− Spedizioni <small>corriere, 3,5%</small></span><span>24.500 €</span><span class="b">23.100 €</span></div>
+        <div class="vr m" role="row"><span>− Commissioni di pagamento <small>1,5%</small></span><span>10.500 €</span><span class="b">9.900 €</span></div>
+        <div class="vr m" role="row"><span>− Pubblicità</span><span>20.000 €</span><span class="b">30.000 €</span></div>
+        <div class="vr tot" role="row"><span>= Utile del mese</span><span><b>46.700 €</b><small>9 € ogni 100 € venduti</small></span><span class="b"><b>100.000 €</b><small>21 € ogni 100 € venduti</small><em>+53.300 €</em></span></div>
+      </div>
+
+      <div class="vs-why fx">
+        <div class="bars" aria-hidden="true">
+          <div><i style="--h:47%"></i><b>46.700 €</b><span>sul ROAS</span></div>
+          <div class="on"><i style="--h:100%"></i><b>100.000 €</b><span>sull'utile</span></div>
+        </div>
+        <h3>Perché succede</h3>
+        <ol>
+          <li><b>Il ROAS premia i prodotti facili.</b> Bestseller scontati, grandi marche a margine sottile, prezzo sotto il benchmark: convertono subito, il ROAS vola — e ogni vendita lascia pochi euro. Spesso tornano anche indietro.</li>
+          <li><b>L'utile legge il margine di ogni prodotto.</b> Prezzo meno costo d'acquisto, meno IVA, meno resi: è l'etichetta nel feed. Il budget va dove ogni vendita lascia di più, anche se costa qualche click in più.</li>
+          <li><b>Per questo spendiamo di più e accettiamo un ROAS più basso.</b> Dieci mila euro in più di pubblicità, quarantamila di vendite in meno, <strong>il doppio dell'utile</strong>. Ed è l'unico numero su cui ci paghi.</li>
+        </ol>
+        <p class="vs-note">Numeri tondi di un mese tipo, stesso negozio: cambia solo dove va il budget. IVA 22%, resi 11,4% (il ritmo vero di Climando), spedizioni 3,5%, commissioni 1,5%; costo d'acquisto 80% del venduto sui prodotti «da ROAS», 66% su quelli scelti per margine.</p>
+      </div>
+    </div>
   </div>
 </section>
 
