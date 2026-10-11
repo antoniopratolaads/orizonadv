@@ -414,6 +414,60 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .mks b{display:block;font-size:30px;font-weight:600;letter-spacing:-.035em;color:var(--blue);line-height:1}
 .mks span{display:block;margin-top:6px;font-size:13.5px;color:var(--black-m);line-height:1.35}
 .vs-why .how-line{margin-top:22px;font-size:16px}
+/* l'albero delle decisioni */
+.tree-wrap{margin-top:44px}
+.tree-wrap .vs-why{margin-top:32px}
+.tree-wrap .vs-why ol{grid-template-columns:repeat(3,1fr);gap:24px}
+.tree-wrap .vs-why li{font-size:14.5px}
+.tree-card{background:var(--white);border:1px solid var(--line-2);border-radius:16px;padding:22px 24px 8px;box-shadow:0 2px 6px rgba(12,23,19,.04),0 24px 60px -24px rgba(12,23,19,.22)}
+.tree{width:100%;height:auto;display:block;font-family:var(--font)}
+.tree .link{fill:none;stroke:var(--black-ll);stroke-width:1.5}
+.tree .link.on{stroke:var(--blue);stroke-width:2}
+.tree .node circle{fill:var(--white);stroke:var(--black-ll);stroke-width:1.5}
+.tree .node.root circle{fill:var(--black);stroke:var(--black)}
+.tree .node.root .big{fill:var(--white);font-size:26px;font-weight:600;letter-spacing:-.03em}
+.tree .node.root .sm{fill:rgba(255,255,255,.75);font-size:11.5px}
+.tree .node.mid.on circle{fill:var(--blue);stroke:var(--blue)}
+.tree .node.mid.on .big{fill:var(--white)}
+.tree .node.mid.off circle{fill:var(--bg-2);stroke:var(--black-l)}
+.tree .node.mid .big{font-size:24px;font-weight:600;letter-spacing:-.03em;fill:var(--black)}
+.tree .node.leaf circle{fill:var(--bg-2)}
+.tree .node.leaf.budget circle{fill:var(--blue);stroke:var(--blue)}
+.tree .node.leaf.budget .n{fill:var(--white)}
+.tree .node.leaf.stop circle,.tree .node.leaf.fix circle{fill:var(--white);stroke:var(--black)}
+.tree .node.leaf.price circle{fill:var(--black-ll);stroke:var(--black-ll)}
+.tree .node.leaf .n{font-size:13px;font-weight:600;fill:var(--black)}
+.tree .lab{font-size:12.5px;fill:var(--black-m)}
+.tree .lab.b{font-weight:600;fill:var(--black);font-size:13.5px}
+.tree .q{font-size:13.5px;font-weight:600;fill:var(--black)}
+.tree .qs{font-size:11.5px;fill:var(--black-m)}
+.tree .ax{font-size:11.5px;fill:var(--black-m)}
+.tree-foot{margin-top:4px;padding:14px 4px 10px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.tree-foot b{display:block;font-size:26px;font-weight:600;letter-spacing:-.03em;line-height:1;color:var(--blue)}
+.tree-foot div+div b{color:var(--black-m)}
+.tree-foot span{display:block;margin-top:5px;font-size:13px;color:var(--black-m);line-height:1.4}
+.tree-m{display:none}
+.tm-root{display:flex;align-items:center;gap:12px;padding-bottom:12px}
+.tm-root b{width:64px;height:64px;border-radius:50%;background:var(--black);color:var(--white);display:inline-flex;align-items:center;justify-content:center;font-size:20px;font-weight:600;flex-shrink:0}
+.tm-root span{font-size:14px;color:var(--black-m)}
+.tm-q{font-size:13.5px;font-weight:600;margin:6px 0 8px}
+.tm-q2{font-size:12px;color:var(--black-m);margin:8px 0 6px 0}
+.tm-branch{border-left:2px solid var(--black-ll);margin:0 0 14px 10px;padding:0 0 4px 14px}
+.tm-branch.on{border-left-color:var(--blue)}
+.tm-mid{display:flex;align-items:center;gap:10px}
+.tm-mid b{width:48px;height:48px;border-radius:50%;background:var(--bg-2);border:1.5px solid var(--black-l);display:inline-flex;align-items:center;justify-content:center;font-size:16px;font-weight:600;flex-shrink:0}
+.tm-branch.on .tm-mid b{background:var(--blue);border-color:var(--blue);color:var(--white)}
+.tm-mid span{font-size:13.5px;color:var(--black-m);line-height:1.35}
+.tm-mid strong{color:var(--black);font-weight:600}
+.tm-branch ul{list-style:none;display:grid;gap:7px}
+.tm-branch li{display:grid;grid-template-columns:40px 1fr;gap:10px;align-items:center;font-size:12.5px;color:var(--black-m);line-height:1.35}
+.tm-branch li i{justify-self:center;width:min(var(--r),40px);height:min(var(--r),40px);min-width:22px;min-height:22px;border-radius:50%;background:var(--bg-2);border:1.5px solid var(--black-ll);display:inline-flex;align-items:center;justify-content:center;font-style:normal}
+.tm-branch li i b{font-size:11px;font-weight:600;color:var(--black)}
+.tm-branch li.budget i{background:var(--blue);border-color:var(--blue)}
+.tm-branch li.budget i b{color:var(--white)}
+.tm-branch li.stop i,.tm-branch li.fix i{background:var(--white);border-color:var(--black)}
+.tm-branch li.price i{background:var(--black-ll);border-color:var(--black-ll)}
+.tm-branch li span b{display:block;color:var(--black);font-weight:600}
 /* ── CHI GUIDA ── */
 .who{padding:112px 0;background:var(--white)}
 .who-grid{display:grid;grid-template-columns:300px 1fr;gap:48px;align-items:center}
@@ -460,6 +514,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .tools{grid-template-columns:1fr}
   .vs-grid{grid-template-columns:1fr;gap:20px}
   .vs-grid.flip>.vs{order:0}
+  .tree-wrap .vs-why ol{grid-template-columns:1fr;gap:12px}
   .who-grid{grid-template-columns:1fr}
   .who-photo{max-width:300px}
   .after{grid-template-columns:1fr}
@@ -532,6 +587,12 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .feat{padding:80px 0}
   .how{padding:72px 0}
   .vs-sec{padding:72px 0}
+  .tree{display:none}
+  .tree-m{display:block}
+  .tree-wrap{margin-top:28px}
+  .tree-card{padding:16px 14px 4px}
+  .tree-foot{grid-template-columns:1fr;gap:10px}
+  .tree-foot b{font-size:22px}
   .vs-grid{margin-top:28px}
   .vr{padding:9px 12px;font-size:13px}
   .vr>span.b{margin:-9px -12px -9px 0;padding:9px 12px 9px 8px}
@@ -1057,34 +1118,67 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   <div class="wrap">
     <div class="sec-head fx">
       <h2>Il budget va <span>dove si vince l'asta.</span></h2>
-      <p>Ogni mattina leggiamo ogni prodotto in campagna contro il <strong>benchmark di prezzo di Google</strong> e contro venti giorni di Google Ads. Ne esce una classe, e la classe decide cosa fare del budget. <strong>750 prodotti di Climando, oggi.</strong></p>
+      <p>Ogni mattina, ogni prodotto in campagna risponde a due domande. <strong>Il prezzo può vincere l'asta?</strong> Google lo confronta con quello dei concorrenti: se sta sopra, nessun budget lo fa vendere. <strong>E cosa fa in campagna da venti giorni?</strong> Dalle due risposte esce la mossa. Qui i 750 prodotti di Climando, oggi.</p>
     </div>
-    <div class="vs-grid flip">
-      <div class="vs three fx" role="table" aria-label="Le classi del labelizer sui 750 prodotti di Climando e cosa facciamo per ognuna">
-        <div class="vr head" role="row"><span role="columnheader">Classe</span><span class="n" role="columnheader">Prodotti</span><span class="b" role="columnheader">Cosa facciamo</span></div>
-        <div class="vr up" role="row"><span><b>supercompetitivo</b><small>sotto il benchmark e vende</small></span><span class="n">4</span><span class="b"><strong>budget in più</strong></span></div>
-        <div class="vr up" role="row"><span><b>competitivo, poco visibile</b><small>prezzo buono, pochi click</small></span><span class="n">276</span><span class="b"><strong>si spinge: è qui che si cresce</strong></span></div>
-        <div class="vr " role="row"><span><b>competitivo ok</b><small>prezzo pari al benchmark e vende</small></span><span class="n">1</span><span class="b">si mantiene</span></div>
-        <div class="vr " role="row"><span><b>da controllare</b><small>sotto il benchmark ma non vende</small></span><span class="n">20</span><span class="b">scheda o feed, <strong>non budget</strong></span></div>
-        <div class="vr " role="row"><span><b>da monitorare</b><small>ai margini delle soglie</small></span><span class="n">25</span><span class="b">si osserva, nessuna mossa</span></div>
-        <div class="vr " role="row"><span><b>sopra il benchmark ma converte</b><small>caro, ma vende lo stesso</small></span><span class="n">0</span><span class="b">si lascia, si guarda il margine</span></div>
-        <div class="vr down" role="row"><span><b>supercaro, brucia budget</b><small>sopra il benchmark e non vende</small></span><span class="n">12</span><span class="b"><strong>fermato</strong></span></div>
-        <div class="vr down" role="row"><span><b>supercaro, nascosto</b><small>caro e senza impressioni</small></span><span class="n">256</span><span class="b"><strong>è il prezzo, non il budget</strong></span></div>
-        <div class="vr down" role="row"><span><b>senza impressioni</b><small>Google non lo mostra proprio</small></span><span class="n">156</span><span class="b">fuori dalla campagna</span></div>
-        <div class="vr tot" role="row"><span>750 prodotti in campagna</span><span class="n"><b>336</b><small>sotto il benchmark</small></span><span class="b"><b>351</b><small>sopra il benchmark: lì non si spinge</small></span></div>
-      </div>
-      <div class="vs-why fx">
-        <div class="bench" role="img" aria-label="336 prodotti sotto il benchmark, 63 pari, 351 sopra">
-          <i class="w" style="width:44.8%"><b>336</b>sotto il benchmark</i><i class="e" style="width:8.4%"><b>63</b>pari</i><i class="l" style="width:46.8%"><b>351</b>sopra</i>
+    <div class="tree-wrap fx">
+      <div class="tree-card">
+        <svg class="tree" viewBox="0 0 1180 600" role="img" aria-label="Albero delle decisioni sui 750 prodotti di Climando: 399 con prezzo sotto o pari al benchmark possono vincere l'asta e 281 prendono budget; 351 sopra il benchmark non vincono e non prendono budget">
+        <g class="node root"><circle cx="96" cy="300" r="56"/><text x="96" y="296" text-anchor="middle" class="big">750</text><text x="96" y="316" text-anchor="middle" class="sm">prodotti in</text><text x="96" y="331" text-anchor="middle" class="sm">campagna</text></g>
+        <text x="96" y="392" text-anchor="middle" class="ax">letti ogni mattina</text>
+        <text x="430" y="26" text-anchor="middle" class="q">1 · Il prezzo può vincere l'asta?</text>
+        <text x="430" y="44" text-anchor="middle" class="qs">confrontato con quello dei concorrenti, come lo vede Google</text>
+        <path class="link on" d="M152,300 C276,300 250,150 382.0387742490708,150"/>
+        <g class="node mid on"><circle cx="430" cy="150" r="48"/><text x="430" y="158" text-anchor="middle" class="big">399</text></g>
+        <text x="430" y="218" text-anchor="middle" class="lab b">sotto o pari al benchmark</text><text x="430" y="235" text-anchor="middle" class="lab">possono vincere l'asta</text>
+        <path class="link " d="M152,300 C276,300 250,440 383.96075930744746,440"/>
+        <g class="node mid off"><circle cx="430" cy="440" r="46"/><text x="430" y="448" text-anchor="middle" class="big">351</text></g>
+        <text x="430" y="506" text-anchor="middle" class="lab b">sopra il benchmark</text><text x="430" y="523" text-anchor="middle" class="lab">non vincono, per quanto budget ci metti</text>
+        <text x="775" y="26" class="q">2 · Cosa fa in campagna da venti giorni?</text>
+        <text x="775" y="44" class="qs">e quindi, la mossa</text>
+        <path class="link on" d="M478,150 C590,150 615,76 702,76"/>
+        <g class="node leaf budget"><circle cx="735" cy="76" r="32.8"/><text x="735" y="81" text-anchor="middle" class="n">276</text></g>
+        <text x="775" y="73" class="lab b">Hanno il prezzo, ma pochi click</text><text x="775" y="91" class="lab">Google li mostra poco: budget per farli vedere</text>
+        <path class="link on" d="M478,150 C590,150 615,138 725,138"/>
+        <g class="node leaf budget"><circle cx="735" cy="138" r="10.5"/><text x="735" y="143" text-anchor="middle" class="n">5</text></g>
+        <text x="775" y="135" class="lab b">Vendono già</text><text x="775" y="153" class="lab">sotto il benchmark e convertono: budget in più</text>
+        <path class="link " d="M478,150 C590,150 615,200 721,200"/>
+        <g class="node leaf fix"><circle cx="735" cy="200" r="13.9"/><text x="735" y="205" text-anchor="middle" class="n">20</text></g>
+        <text x="775" y="197" class="lab b">Click, ma niente vendite</text><text x="775" y="215" class="lab">prezzo giusto, scheda o feed da sistemare: non è il budget</text>
+        <path class="link " d="M478,150 C590,150 615,262 720,262"/>
+        <g class="node leaf wait"><circle cx="735" cy="262" r="14.8"/><text x="735" y="267" text-anchor="middle" class="n">25</text></g>
+        <text x="775" y="259" class="lab b">Ai margini</text><text x="775" y="277" class="lab">troppo pochi dati per decidere: si osservano</text>
+        <path class="link " d="M478,150 C590,150 615,324 715,324"/>
+        <g class="node leaf out"><circle cx="735" cy="324" r="20.2"/><text x="735" y="329" text-anchor="middle" class="n">73</text></g>
+        <text x="775" y="321" class="lab b">Non mostrati</text><text x="775" y="339" class="lab">nessuna impressione in venti giorni: fuori dalla campagna</text>
+        <path class="link " d="M476,440 C590,440 615,372 703,372"/>
+        <g class="node leaf price"><circle cx="735" cy="372" r="31.8"/><text x="735" y="377" text-anchor="middle" class="n">256</text></g>
+        <text x="775" y="369" class="lab b">Nascosti</text><text x="775" y="387" class="lab">Google non li mostra: è il prezzo, non il budget</text>
+        <path class="link " d="M476,440 C590,440 615,434 723,434"/>
+        <g class="node leaf stop"><circle cx="735" cy="434" r="12.4"/><text x="735" y="439" text-anchor="middle" class="n">12</text></g>
+        <text x="775" y="431" class="lab b">Spendono senza vendere</text><text x="775" y="449" class="lab">click pagati, zero ordini: fermati oggi</text>
+        <path class="link " d="M476,440 C590,440 615,496 714,496"/>
+        <g class="node leaf out"><circle cx="735" cy="496" r="21.1"/><text x="735" y="501" text-anchor="middle" class="n">83</text></g>
+        <text x="775" y="493" class="lab b">Non mostrati</text><text x="775" y="511" class="lab">nessuna impressione: fuori dalla campagna</text>
+        <path class="link " d="M476,440 C590,440 615,558 728,558"/>
+        <g class="node leaf wait"><circle cx="735" cy="558" r="7.0"/><text x="735" y="563" text-anchor="middle" class="n">0</text></g>
+        <text x="775" y="555" class="lab b">Vendono lo stesso</text><text x="775" y="573" class="lab">succede: si lascia, e si guarda il margine</text>
+        </svg>
+        <div class="tree-m" aria-hidden="true">
+          <div class="tm-root"><b>750</b><span>prodotti in campagna, letti ogni mattina</span></div>
+          <p class="tm-q">1 · Il prezzo può vincere l'asta?</p>
+          <div class="tm-branch on"><div class="tm-mid"><b>399</b><span>sotto o pari al benchmark · <strong>possono vincere</strong></span></div><p class="tm-q2">2 · Cosa fanno in campagna → la mossa</p><ul><li class="budget"><i style="--r:66px"><b>276</b></i><span><b>Hanno il prezzo, ma pochi click</b>Google li mostra poco: budget per farli vedere</span></li><li class="budget"><i style="--r:21px"><b>5</b></i><span><b>Vendono già</b>sotto il benchmark e convertono: budget in più</span></li><li class="fix"><i style="--r:28px"><b>20</b></i><span><b>Click, ma niente vendite</b>prezzo giusto, scheda o feed da sistemare: non è il budget</span></li><li class="wait"><i style="--r:30px"><b>25</b></i><span><b>Ai margini</b>troppo pochi dati per decidere: si osservano</span></li><li class="out"><i style="--r:40px"><b>73</b></i><span><b>Non mostrati</b>nessuna impressione in venti giorni: fuori dalla campagna</span></li></ul></div>
+          <div class="tm-branch"><div class="tm-mid"><b>351</b><span>sopra il benchmark · <strong>non vincono, per quanto budget ci metti</strong></span></div><ul><li class="price"><i style="--r:64px"><b>256</b></i><span><b>Nascosti</b>Google non li mostra: è il prezzo, non il budget</span></li><li class="stop"><i style="--r:25px"><b>12</b></i><span><b>Spendono senza vendere</b>click pagati, zero ordini: fermati oggi</span></li><li class="out"><i style="--r:42px"><b>83</b></i><span><b>Non mostrati</b>nessuna impressione: fuori dalla campagna</span></li><li class="wait"><i style="--r:14px"><b>0</b></i><span><b>Vendono lo stesso</b>succede: si lascia, e si guarda il margine</span></li></ul></div>
         </div>
-        <p class="bench-cap">I 750 prodotti in campagna, contro il prezzo che Google vede dai concorrenti: <b>44,8%</b> sotto, 8,4% pari, <b>46,8%</b> sopra. Si vince l'asta solo nella parte blu.</p>
+        <div class="tree-foot"><div><b>281</b><span>prodotti prendono budget: possono vincere e hanno margine per farlo</span></div><div><b>469</b><span>no — e per 268 di questi il problema è il prezzo, che nessun budget risolve</span></div></div>
+      </div>
+      <div class="vs-why">
         <h3>Perché succede</h3>
         <ol>
-          <li><b>Google decide l'asta anche sul prezzo.</b> 351 prodotti stanno sopra il benchmark dei concorrenti: per quanto budget ci metti, non vincono. Lì il problema è il prezzo, e lo diciamo.</li>
-          <li><b>Le classi finiscono nel feed, come etichette.</b> In Google Ads diventano gruppi: il budget va a chi vince e rende, zero a chi brucia. Non è una regola scritta una volta: si rifà ogni mattina.</li>
-          <li><b>Il margine entra nella stessa lettura.</b> Un prodotto «supercompetitivo» con margine zero non si spinge comunque: la classe dice se può vincere, il margine dice se conviene.</li>
+          <li><b>L'asta si vince prima col prezzo.</b> Google confronta il tuo prezzo con quello degli altri negozi per lo stesso prodotto: 351 articoli di Climando stanno sopra. Comprare click su quelli è buttare budget; lo diciamo, e si lavora sul prezzo o sul fornitore.</li>
+          <li><b>Chi può vincere, va fatto vedere.</b> 276 prodotti hanno il prezzo giusto ma Google li mostra poco: è lì che il budget rende di più, e ci va. 20 hanno click ma non vendono: il problema è la scheda, non la campagna.</li>
+          <li><b>La mossa diventa un'etichetta nel feed.</b> Ogni prodotto porta scritta la sua classe; in Google Ads le classi sono gruppi con budget diversi. Si rilegge ogni mattina: se un prodotto cambia classe, cambia gruppo da solo.</li>
         </ol>
-        <p class="vs-note">Letto l'11 ottobre 2026 sui prodotti di Climando in campagna: 20 giorni di Google Ads, ROAS target 12, almeno 5 click per giudicare. Le classi cambiano ogni giorno, e con loro i gruppi in Ads.</p>
+        <p class="vs-note">Letto l'11 ottobre 2026 sui prodotti di Climando in campagna: benchmark di prezzo di Merchant Center, venti giorni di Google Ads, almeno cinque click per giudicare. Il margine entra nella stessa lettura: un prodotto che può vincere ma non guadagna non si spinge comunque.</p>
       </div>
     </div>
   </div>
