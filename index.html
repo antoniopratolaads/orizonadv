@@ -148,20 +148,44 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .card .fields div.miss span:last-child{color:var(--blue);font-weight:600}
 .card.on-fields .fields div{opacity:1}
 .zone.extra{margin-top:10px}
-.zone .zl{display:block;font-size:11.5px;font-weight:600;color:var(--black-m);margin-bottom:5px}
+.zone .zl{display:block;font-size:11.5px;font-weight:600;color:var(--black-m);margin-bottom:6px}
+.zl .zon-i{display:none;color:var(--blue);font-weight:600;margin-left:7px}
+.card.on-labels #z-labels .zon-i,.card.on-feed #z-feed .zon-i,.card.on-track #z-track .zon-i{display:inline}
 .zone .zoff{font-size:12.5px;color:var(--black-l);line-height:1.45}
 .zone .zon{display:none}
 .card.on-labels #z-labels .zoff,.card.on-feed #z-feed .zoff,.card.on-track #z-track .zoff{display:none}
-.card.on-labels #z-labels .zon,.card.on-feed #z-feed .zon,.card.on-track #z-track .zon{display:flex}
-.tags{flex-wrap:wrap;gap:5px;align-items:center}
-.tags b{font-weight:500;font-size:12px;color:var(--black);background:var(--bg-2);border:1px solid var(--line);border-radius:6px;padding:3px 8px}
-.tags em{font-style:normal;font-size:12px;font-weight:600;color:var(--blue)}
-.attrs{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
-.attrs em{font-style:normal;font-size:12px;font-weight:600;color:var(--blue);margin-right:4px}
-.attrs i{font-style:normal;font-size:11.5px;color:var(--black-m);border:1px solid var(--line);border-radius:999px;padding:2px 8px;background:var(--white)}
-.ev{gap:6px;flex-wrap:wrap;align-items:center}
-.ev span{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11.5px;background:var(--black);color:var(--white);border-radius:6px;padding:3px 8px}
-.ev small{font-size:12px;color:var(--black-m)}
+.card.on-labels #z-labels .zon,.card.on-feed #z-feed .zon,.card.on-track #z-track .zon{display:grid}
+.zone code,.ev-detail dt{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:10.5px;color:var(--black-m);background:var(--white);border:1px solid var(--line);border-radius:5px;padding:1px 6px;white-space:nowrap;align-self:start;justify-self:start;line-height:1.5}
+/* etichette: chip + perché */
+.lbl{gap:5px}
+.lbl div{display:grid;grid-template-columns:100px 1fr;gap:10px;font-size:12px;line-height:1.4;opacity:0;transform:translateX(6px);transition:opacity .35s var(--ease),transform .35s var(--ease)}
+.card.on-labels .lbl div{opacity:1;transform:none}
+.card.on-labels .lbl div:nth-child(1){transition-delay:90ms}.card.on-labels .lbl div:nth-child(2){transition-delay:180ms}.card.on-labels .lbl div:nth-child(3){transition-delay:270ms}.card.on-labels .lbl div:nth-child(4){transition-delay:360ms}.card.on-labels .lbl div:nth-child(5){transition-delay:450ms}
+.lbl b{font-weight:500;font-size:11.5px;color:var(--black);background:var(--bg-2);border:1px solid var(--line);border-radius:6px;padding:2px 8px;align-self:start;justify-self:start;white-space:nowrap}
+.lbl span{color:var(--black-m)}
+.lbl .go b{background:var(--blue);color:var(--white);border-color:var(--blue)}
+.lbl .go span{color:var(--black)}
+/* feed: attributo di Google → valore letto dal prodotto */
+.feedt{gap:4px}
+.feedt div{display:grid;grid-template-columns:128px 1fr;gap:10px;font-size:12px;line-height:1.4;opacity:0;transform:translateX(6px);transition:opacity .35s var(--ease),transform .35s var(--ease)}
+.card.on-feed .feedt div{opacity:1;transform:none}
+.card.on-feed .feedt div:nth-child(1){transition-delay:45ms}.card.on-feed .feedt div:nth-child(2){transition-delay:90ms}.card.on-feed .feedt div:nth-child(3){transition-delay:135ms}.card.on-feed .feedt div:nth-child(4){transition-delay:180ms}.card.on-feed .feedt div:nth-child(5){transition-delay:225ms}.card.on-feed .feedt div:nth-child(6){transition-delay:270ms}.card.on-feed .feedt div:nth-child(7){transition-delay:315ms}.card.on-feed .feedt div:nth-child(8){transition-delay:360ms}.card.on-feed .feedt div:nth-child(9){transition-delay:405ms}.card.on-feed .feedt div:nth-child(10){transition-delay:450ms}.card.on-feed .feedt div:nth-child(11){transition-delay:495ms}.card.on-feed .feedt div:nth-child(12){transition-delay:540ms}.card.on-feed .feedt div:nth-child(13){transition-delay:585ms}
+.feedt span{color:var(--black);font-weight:500}
+.feedt span.na{color:var(--black-l);font-weight:400}
+/* tracciamento: l'acquisto, riga per riga */
+.trk{gap:0}
+.trk .ev-row{display:grid;grid-template-columns:auto 1fr auto auto auto;gap:7px;align-items:center;font-size:11.5px;color:var(--black-m);padding:5px 0;border-bottom:1px solid var(--line);opacity:0;transform:translateX(6px);transition:opacity .35s var(--ease),transform .35s var(--ease)}
+.card.on-track .trk .ev-row{opacity:1;transform:none}
+.card.on-track .trk .ev-row:nth-child(1){transition-delay:170ms}.card.on-track .trk .ev-row:nth-child(2){transition-delay:340ms}.card.on-track .trk .ev-row:nth-child(3){transition-delay:510ms}
+.trk .ev-row i{font-style:normal;font-size:10.5px;font-weight:600;color:var(--black);padding-left:12px;position:relative}
+.trk .ev-row i::before{content:'';position:absolute;left:0;top:4px;width:7px;height:7px;border-radius:50%;background:var(--blue)}
+.trk .ev-row.main code{background:var(--black);color:var(--white);border-color:var(--black)}
+.trk .ev-row.main span{color:var(--black);font-weight:500}
+.ev-detail{margin:8px 0 0;display:grid;gap:4px;opacity:0;transition:opacity .45s var(--ease) .62s}
+.card.on-track .ev-detail{opacity:1}
+.ev-detail div{display:grid;grid-template-columns:100px 1fr;gap:10px;font-size:11.5px;line-height:1.4}
+.ev-detail dd{margin:0;color:var(--black-m)}
+.ev-detail dd b{color:var(--black);font-weight:600}
 .card.on-fields .fields div:nth-child(2){transition-delay:.06s}.card.on-fields .fields div:nth-child(3){transition-delay:.12s}.card.on-fields .fields div:nth-child(4){transition-delay:.18s}.card.on-fields .fields div:nth-child(5){transition-delay:.26s}.card.on-fields .fields div:nth-child(6){transition-delay:.32s}
 /* gli interruttori */
 .panel{display:grid;gap:10px}
@@ -410,19 +434,50 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
             <div class="miss"><span>GTIN</span><span>manca → proposto</span></div>
           </div>
           <div class="zone extra" id="z-labels">
-            <span class="zl">Etichette per Google Ads</span>
+            <span class="zl">Etichette per Google Ads<b class="zon-i">e il perché di ognuna</b></span>
             <p class="zoff">Nessuna: in campagna questa padella vale quanto la pentola che non vende.</p>
-            <div class="zon tags"><b>margine alto</b><b>speso basso</b><b>ritorno alto</b><b>misure piene</b><em>→ spingere</em></div>
+            <div class="zon lbl">
+              <div><b>margine alto</b><span>29,90 € di prezzo contro il costo d'acquisto a listino: sopra la soglia del catalogo</span></div>
+              <div><b>speso basso</b><span>negli ultimi 30 giorni Google ci ha speso poco: il prodotto resta fuori dalle aste</span></div>
+              <div><b>ritorno alto</b><span>le volte che è uscito ha venduto: ritorno sopra la media del catalogo</span></div>
+              <div><b>misure piene</b><span>24, 28 e 32 cm tutte in stock, nessuna variante esaurita</span></div>
+              <div class="go"><b>→ spingere</b><span>in Google Ads va nel gruppo che prende più budget. «Margine basso» o «misure scarse» l'avrebbero fermata.</span></div>
+            </div>
           </div>
           <div class="zone extra" id="z-feed">
-            <span class="zl">Feed Google</span>
-            <p class="zoff">Titolo, prezzo, foto, disponibilità. Colore, misura, materiale, domande: vuoti.</p>
-            <div class="zon"><div class="attrs"><em>+13 attributi</em><i>colore</i><i>misura</i><i>materiale</i><i>fantasia</i><i>dettagli</i><i>punti forti</i><i>domande e risposte</i><i>titolo breve</i><i>nome gruppo</i><i>opzione variante</i><i>genere</i><i>età</i><i>etichetta 0</i></div></div>
+            <span class="zl">Feed Google<b class="zon-i">11 attributi compilati, 2 vuoti apposta</b></span>
+            <p class="zoff">Oggi nel feed: titolo, prezzo, foto, disponibilità, categoria. Tutto il resto: vuoto.</p>
+            <div class="zon feedt">
+              <div><code>color</code><span>Grigio acciaio</span></div>
+              <div><code>size</code><span>24 cm · 28 cm · 32 cm</span></div>
+              <div><code>material</code><span>Alluminio riciclato</span></div>
+              <div><code>pattern</code><span>Tinta unita</span></div>
+              <div><code>product_detail</code><span>Fondo: doppio fondo brevettato · Fonti: induzione, gas, vetroceramica, elettrico, forno · Rivestimento: antiaderente</span></div>
+              <div><code>product_highlight</code><span>Alluminio riciclato 100% · Va in forno · Pensofal dal 1955, Made in Italy</span></div>
+              <div><code>question_and_answer</code><span>«Va sull'induzione?» «Sì, e anche in forno» · più altre 4</span></div>
+              <div><code>short_title</code><span>Padella alta a saltare 24-32 cm</span></div>
+              <div><code>item_group_title</code><span>Pensofal Academy Chef Padella Alta a Saltare</span></div>
+              <div><code>variant_option</code><span>Misura: 24 · 28 · 32</span></div>
+              <div><code>custom_label_0</code><span>misure_piene</span></div>
+              <div><code>gender</code><span class="na">vuoto apposta: non è un capo</span></div>
+              <div><code>age_group</code><span class="na">vuoto apposta: campo vuoto batte campo sbagliato</span></div>
+            </div>
           </div>
           <div class="zone extra" id="z-track">
-            <span class="zl">Tracciamento</span>
+            <span class="zl">Tracciamento<b class="zon-i">dal server, evento per evento</b></span>
             <p class="zoff">Dal browser: tra blocchi, consensi e iOS, una parte degli acquisti non arriva mai a Google e Meta.</p>
-            <div class="zon ev"><span>view_item</span><span>add_to_cart</span><span>purchase</span><small>dal server · deduplicati · col consenso</small></div>
+            <div class="zon trk">
+              <div class="ev-row"><code>view_item</code><span>browser → server</span><i>GA4</i><i>Ads</i><i>Meta</i></div>
+              <div class="ev-row"><code>add_to_cart</code><span>browser → server</span><i>GA4</i><i>Ads</i><i>Meta</i></div>
+              <div class="ev-row main"><code>purchase</code><span>29,90 € · 1 articolo</span><i>GA4</i><i>Ads</i><i>Meta</i></div>
+              <dl class="ev-detail">
+                <div><dt>event_id</dt><dd>lo stesso id dal browser e dal server: <b>contato una volta sola</b>, niente doppi acquisti</dd></div>
+                <div><dt>consent</dt><dd>ad_storage e analytics_storage <b>granted</b> — chi nega, non viene tracciato</dd></div>
+                <div><dt>user_data</dt><dd>email e telefono cifrati in sha256, ip, user agent, fbp/fbc — <b>conversioni avanzate</b> Google, <b>CAPI</b> Meta</dd></div>
+                <div><dt>match</dt><dd>qualità dell'abbinamento Meta <b>sopra 8 su 10</b>: le campagne imparano da chi compra davvero</dd></div>
+                <div><dt>server</dt><dd>tagging su server in Europa, <b>sotto i 200 ms</b> dal click</dd></div>
+              </dl>
+            </div>
           </div>
         </div>
       </div>
@@ -480,7 +535,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
           <div>
             <h3>Etichette per le campagne <em>Google Ads</em></h3>
             <p class="off">Oggi: in campagna la padella vale quanto la pentola che non vende. Il budget si spalma su tutto.</p>
-            <p class="fact">Ogni prodotto marcato da <b>speso, margine e ritorno</b> sulla spesa Google, più la copertura delle misure: <b><mark>etichette</mark> nel feed</b> che in Google Ads diventano gruppi. Si spinge quello che rende, si ferma quello che non ha margine o non ha taglie.</p>
+            <p class="fact">Ogni prodotto marcato da <b>speso, margine e ritorno</b> sulla spesa Google, più la copertura delle misure: <b><mark>etichette</mark> nel feed</b> che in Google Ads diventano gruppi di budget. Sulla scheda, <b>accanto a ogni etichetta il perché</b>: si spinge quello che rende, si ferma quello che non ha margine o non ha taglie.</p>
           </div>
         </div>
 
@@ -489,7 +544,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
           <div>
             <h3>Il feed, arricchito <em>Orizon Boost</em></h3>
             <p class="off">Oggi: a Google arrivano titolo, prezzo, foto e disponibilità. Colore, misura, materiale, domande: vuoti.</p>
-            <p class="fact"><b><mark>+13 attributi</mark> per prodotto</b> in un feed supplementare che Merchant Center legge da solo, ogni giorno: colore, misura, materiale, dettagli, domande e risposte, etichette. Su un catalogo vero da 17.201 prodotti: <b>colore 89%, taglia 80%, genere 94%, età 98%</b> compilati.</p>
+            <p class="fact"><b><mark>13 attributi</mark> del feed Google</b> letti dal prodotto, non dal nome: <b>11 compilati, 2 lasciati vuoti apposta</b> — genere ed età non servono a una padella, e un campo vuoto batte un campo sbagliato. Vanno in un feed supplementare che Merchant Center legge da solo ogni giorno. Su un catalogo vero da 17.201 prodotti: colore 89%, taglia 80%, genere 94%, età 98%.</p>
           </div>
         </div>
 
@@ -498,12 +553,12 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
           <div>
             <h3>Tracciamento come si deve <em>Server-side</em></h3>
             <p class="off">Oggi: gli acquisti li conta il browser. Tra blocchi, consensi e iOS, una parte non arriva mai a Google e Meta.</p>
-            <p class="fact">GA4, Google Ads e Meta ricevono <b>ogni evento dal server</b> — visita, carrello, acquisto — <b><mark>deduplicato</mark>, col consenso rispettato</b>. Le campagne imparano dai numeri veri: anche così si vince l'asta.</p>
+            <p class="fact">Ogni evento parte <b>dal browser e dal server con lo stesso id</b>: GA4, Google Ads e Meta lo contano <b><mark>una volta sola</mark></b>, con email e telefono cifrati per l'abbinamento, e solo col consenso. Sulla scheda, l'acquisto riga per riga. Le campagne imparano dai numeri veri: anche così si vince l'asta.</p>
           </div>
         </div>
 
         <div class="done" id="done" aria-live="polite">
-          <div><b>100 su 100, su un prodotto.</b><span>2 testi per Google · 1 scheda · 24 testi in 4 lingue · 7 campi · 13 attributi nel feed · etichette per le campagne · tracciamento dal server. Il catalogo di F.lli Fontana Hotellerie ne ha 1.446: Ignition li tratta tutti così, col nostro sì prima di pubblicare.</span></div>
+          <div><b>100 su 100, su un prodotto.</b><span>2 testi per Google · 1 scheda · 24 testi in 4 lingue · 7 campi · 11 attributi nel feed · 4 etichette col perché · acquisto tracciato dal server. Il catalogo di F.lli Fontana Hotellerie ne ha 1.446: Ignition li tratta tutti così, col nostro sì prima di pubblicare.</span></div>
           <div class="n">× 1.446</div>
         </div>
       </div>
@@ -650,7 +705,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     var KEYS = ['title','desc','langs','fields','labels','feed','track'];
     var PUNTI = { title: 12, desc: 15, langs: 10, fields: 13, labels: 9, feed: 11, track: 7 }; // 23 + 77 = 100
     var state = { title: false, desc: false, langs: false, fields: false, labels: false, feed: false, track: false };
-    var scoreBox = document.getElementById('score'), scoreN = document.getElementById('score-n'), scoreS = document.getElementById('score-s'), scoreFill = document.getElementById('score-fill'), shown = 23, anim = null;
+    var scoreBox = document.getElementById('score'), scoreN = document.getElementById('score-n'), scoreS = document.getElementById('score-s'), scoreFill = document.getElementById('score-fill'), shown = 23, anim = null, fine = null;
     function punteggio(){ var n = 23; KEYS.forEach(function(k){ if (state[k]) n += PUNTI[k]; }); return n; }
     function mostraPunteggio(){
       var n = punteggio();
@@ -658,7 +713,10 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       scoreBox.classList.toggle('mid', n > 23 && n < 100); scoreBox.classList.toggle('full', n === 100);
       scoreS.textContent = n === 100 ? 'pronta per l\u2019asta' : n > 23 ? 'si accende' : 'spenta';
       if (anim) cancelAnimationFrame(anim);
+      clearTimeout(fine);
       if (reduce) { shown = n; scoreN.textContent = n; return; }
+      // se la scheda è in secondo piano i frame non girano: il numero finale arriva comunque
+      fine = setTimeout(function(){ if (anim) cancelAnimationFrame(anim); shown = n; scoreN.textContent = n; }, 650);
       var da = shown, t0 = null;
       (function passo(t){ if (t0 === null) t0 = t; var f = Math.min(1, (t - t0) / 500); f = 1 - Math.pow(1 - f, 3); shown = Math.round(da + (n - da) * f); scoreN.textContent = shown; if (f < 1) anim = requestAnimationFrame(passo); })(performance.now());
     }
