@@ -549,6 +549,9 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .tm-branch li.stop i,.tm-branch li.fix i{background:var(--white);border-color:var(--black)}
 .tm-branch li.price i{background:var(--black-ll);border-color:var(--black-ll)}
 .tm-branch li span b{display:block;color:var(--black);font-weight:600}
+.tree .lbl{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11px;fill:var(--black-m)}
+.tree .arr{fill:var(--black-l)}
+.tm-branch li span code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:10.5px;color:var(--black-m);background:var(--white);border:1px solid var(--line);border-radius:5px;padding:0 5px;margin-right:2px}
 /* ── CHI GUIDA ── */
 .who{padding:112px 0;background:var(--white)}
 .who-grid{display:grid;grid-template-columns:300px 1fr;gap:48px;align-items:center}
@@ -1256,52 +1259,55 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     </div>
     <div class="tree-wrap fx">
       <div class="tree-card">
-        <svg class="tree" viewBox="0 0 1180 600" role="img" aria-label="Albero delle decisioni sui 750 prodotti di Climando: 399 con prezzo sotto o pari al benchmark possono vincere l'asta e 281 prendono budget; 351 sopra il benchmark non vincono e non prendono budget">
+        <svg class="tree" viewBox="0 0 1180 600" role="img" aria-label="Albero delle decisioni sui 750 prodotti del negozio di climatizzazione: 399 con prezzo sotto o pari al benchmark possono vincere l'asta e 281 prendono budget; 351 sopra il benchmark non vincono e non prendono budget. Ogni foglia porta l'etichetta nel feed e la campagna in cui va">
         <g class="node root"><circle cx="96" cy="300" r="56"/><text x="96" y="296" text-anchor="middle" class="big">750</text><text x="96" y="316" text-anchor="middle" class="sm">prodotti in</text><text x="96" y="331" text-anchor="middle" class="sm">campagna</text></g>
         <text x="96" y="392" text-anchor="middle" class="ax">letti ogni mattina</text>
-        <text x="430" y="26" text-anchor="middle" class="q">1 · Il prezzo può vincere l'asta?</text>
-        <text x="430" y="44" text-anchor="middle" class="qs">confrontato con quello dei concorrenti, come lo vede Google</text>
-        <path class="link on" d="M152,300 C276,300 250,150 382.0387742490708,150"/>
-        <g class="node mid on"><circle cx="430" cy="150" r="48"/><text x="430" y="158" text-anchor="middle" class="big">399</text></g>
-        <text x="430" y="218" text-anchor="middle" class="lab b">sotto o pari al benchmark</text><text x="430" y="235" text-anchor="middle" class="lab">possono vincere l'asta</text>
-        <path class="link " d="M152,300 C276,300 250,440 383.96075930744746,440"/>
-        <g class="node mid off"><circle cx="430" cy="440" r="46"/><text x="430" y="448" text-anchor="middle" class="big">351</text></g>
-        <text x="430" y="506" text-anchor="middle" class="lab b">sopra il benchmark</text><text x="430" y="523" text-anchor="middle" class="lab">non vincono, per quanto budget ci metti</text>
-        <text x="775" y="26" class="q">2 · Cosa fa in campagna da venti giorni?</text>
-        <text x="775" y="44" class="qs">e quindi, la mossa</text>
-        <path class="link on" d="M478,150 C590,150 615,76 702,76"/>
-        <g class="node leaf budget"><circle cx="735" cy="76" r="32.8"/><text x="735" y="81" text-anchor="middle" class="n">276</text></g>
-        <text x="775" y="73" class="lab b">Hanno il prezzo, ma pochi click</text><text x="775" y="91" class="lab">Google li mostra poco: budget per farli vedere</text>
-        <path class="link on" d="M478,150 C590,150 615,138 725,138"/>
-        <g class="node leaf budget"><circle cx="735" cy="138" r="10.5"/><text x="735" y="143" text-anchor="middle" class="n">5</text></g>
-        <text x="775" y="135" class="lab b">Vendono già</text><text x="775" y="153" class="lab">sotto il benchmark e convertono: budget in più</text>
-        <path class="link " d="M478,150 C590,150 615,200 721,200"/>
-        <g class="node leaf fix"><circle cx="735" cy="200" r="13.9"/><text x="735" y="205" text-anchor="middle" class="n">20</text></g>
-        <text x="775" y="197" class="lab b">Click, ma niente vendite</text><text x="775" y="215" class="lab">prezzo giusto, scheda o feed da sistemare: non è il budget</text>
-        <path class="link " d="M478,150 C590,150 615,262 720,262"/>
-        <g class="node leaf wait"><circle cx="735" cy="262" r="14.8"/><text x="735" y="267" text-anchor="middle" class="n">25</text></g>
-        <text x="775" y="259" class="lab b">Ai margini</text><text x="775" y="277" class="lab">troppo pochi dati per decidere: si osservano</text>
-        <path class="link " d="M478,150 C590,150 615,324 715,324"/>
-        <g class="node leaf out"><circle cx="735" cy="324" r="20.2"/><text x="735" y="329" text-anchor="middle" class="n">73</text></g>
-        <text x="775" y="321" class="lab b">Non mostrati</text><text x="775" y="339" class="lab">nessuna impressione in venti giorni: fuori dalla campagna</text>
-        <path class="link " d="M476,440 C590,440 615,372 703,372"/>
-        <g class="node leaf price"><circle cx="735" cy="372" r="31.8"/><text x="735" y="377" text-anchor="middle" class="n">256</text></g>
-        <text x="775" y="369" class="lab b">Nascosti</text><text x="775" y="387" class="lab">Google non li mostra: è il prezzo, non il budget</text>
-        <path class="link " d="M476,440 C590,440 615,434 723,434"/>
-        <g class="node leaf stop"><circle cx="735" cy="434" r="12.4"/><text x="735" y="439" text-anchor="middle" class="n">12</text></g>
-        <text x="775" y="431" class="lab b">Spendono senza vendere</text><text x="775" y="449" class="lab">click pagati, zero ordini: fermati oggi</text>
-        <path class="link " d="M476,440 C590,440 615,496 714,496"/>
-        <g class="node leaf out"><circle cx="735" cy="496" r="21.1"/><text x="735" y="501" text-anchor="middle" class="n">83</text></g>
-        <text x="775" y="493" class="lab b">Non mostrati</text><text x="775" y="511" class="lab">nessuna impressione: fuori dalla campagna</text>
-        <path class="link " d="M476,440 C590,440 615,558 728,558"/>
-        <g class="node leaf wait"><circle cx="735" cy="558" r="7.0"/><text x="735" y="563" text-anchor="middle" class="n">0</text></g>
-        <text x="775" y="555" class="lab b">Vendono lo stesso</text><text x="775" y="573" class="lab">succede: si lascia, e si guarda il margine</text>
+        <text x="420" y="26" text-anchor="middle" class="q">1 · Il prezzo può vincere l'asta?</text>
+        <text x="420" y="44" text-anchor="middle" class="qs">confrontato con quello dei concorrenti, come lo vede Google</text>
+        <path class="link on" d="M152,300 C276,300 240,150 372.0387742490708,150"/>
+        <g class="node mid on"><circle cx="420" cy="150" r="48"/><text x="420" y="158" text-anchor="middle" class="big">399</text></g>
+        <text x="420" y="218" text-anchor="middle" class="lab b">sotto o pari al benchmark</text><text x="420" y="235" text-anchor="middle" class="lab">possono vincere l'asta</text>
+        <path class="link " d="M152,300 C276,300 240,440 373.96075930744746,440"/>
+        <g class="node mid off"><circle cx="420" cy="440" r="46"/><text x="420" y="448" text-anchor="middle" class="big">351</text></g>
+        <text x="420" y="506" text-anchor="middle" class="lab b">sopra il benchmark</text><text x="420" y="523" text-anchor="middle" class="lab">non vincono, per quanto budget ci metti</text>
+        <text x="730" y="26" class="q">2 · Cosa fa in campagna da venti giorni?</text>
+        <text x="730" y="44" class="qs">l'etichetta nel feed, e la campagna in cui va</text>
+        <path class="link on" d="M468,150 C580,150 570,70 657,70"/>
+        <g class="node leaf budget"><circle cx="690" cy="70" r="32.8"/><text x="690" y="75" text-anchor="middle" class="n">276</text></g>
+        <text x="730" y="66" class="lab b">Competitivi, bassa visibilità</text><text x="730" y="85" class="lab"><tspan class="lbl">competitivo_poco_visibile</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">Shopping · Low Visibility</tspan></text>
+        <path class="link on" d="M468,150 C580,150 570,124 680,124"/>
+        <g class="node leaf budget"><circle cx="690" cy="124" r="10.1"/><text x="690" y="129" text-anchor="middle" class="n">4</text></g>
+        <text x="730" y="120" class="lab b">Supercompetitivi</text><text x="730" y="139" class="lab"><tspan class="lbl">supercompetitivo</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">Shopping · SuperCompetitive + Competitive</tspan></text>
+        <path class="link on" d="M468,150 C580,150 570,178 681,178"/>
+        <g class="node leaf budget"><circle cx="690" cy="178" r="8.6"/><text x="690" y="183" text-anchor="middle" class="n">1</text></g>
+        <text x="730" y="174" class="lab b">Competitivi, in conversione</text><text x="730" y="193" class="lab"><tspan class="lbl">competitivo_ok</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">Shopping · SuperCompetitive + Competitive</tspan></text>
+        <path class="link " d="M468,150 C580,150 570,232 676,232"/>
+        <g class="node leaf fix"><circle cx="690" cy="232" r="13.9"/><text x="690" y="237" text-anchor="middle" class="n">20</text></g>
+        <text x="730" y="228" class="lab b">Da verificare: scheda prodotto</text><text x="730" y="247" class="lab"><tspan class="lbl">prodotto_richiede_check</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">In pausa fino alla correzione</tspan></text>
+        <path class="link " d="M468,150 C580,150 570,286 675,286"/>
+        <g class="node leaf wait"><circle cx="690" cy="286" r="14.8"/><text x="690" y="291" text-anchor="middle" class="n">25</text></g>
+        <text x="730" y="282" class="lab b">In osservazione</text><text x="730" y="301" class="lab"><tspan class="lbl">da_monitorare</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">PMax di categoria</tspan></text>
+        <path class="link " d="M468,150 C580,150 570,340 670,340"/>
+        <g class="node leaf out"><circle cx="690" cy="340" r="20.2"/><text x="690" y="345" text-anchor="middle" class="n">73</text></g>
+        <text x="730" y="336" class="lab b">Senza impression</text><text x="730" y="355" class="lab"><tspan class="lbl">no_impression</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">Shopping · Zombie</tspan></text>
+        <path class="link " d="M466,440 C580,440 570,400 658,400"/>
+        <g class="node leaf price"><circle cx="690" cy="400" r="31.8"/><text x="690" y="405" text-anchor="middle" class="n">256</text></g>
+        <text x="730" y="396" class="lab b">Sopra benchmark, invisibili</text><text x="730" y="415" class="lab"><tspan class="lbl">supercaro_nascosto</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">Esclusi: si lavora sul prezzo</tspan></text>
+        <path class="link " d="M466,440 C580,440 570,454 678,454"/>
+        <g class="node leaf stop"><circle cx="690" cy="454" r="12.4"/><text x="690" y="459" text-anchor="middle" class="n">12</text></g>
+        <text x="730" y="450" class="lab b">Sopra benchmark, spesa improduttiva</text><text x="730" y="469" class="lab"><tspan class="lbl">supercaro_brucia_budget</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">Esclusi dalle campagne</tspan></text>
+        <path class="link " d="M466,440 C580,440 570,508 669,508"/>
+        <g class="node leaf out"><circle cx="690" cy="508" r="21.1"/><text x="690" y="513" text-anchor="middle" class="n">83</text></g>
+        <text x="730" y="504" class="lab b">Senza impression</text><text x="730" y="523" class="lab"><tspan class="lbl">no_impression</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">Shopping · Zombie</tspan></text>
+        <path class="link " d="M466,440 C580,440 570,562 683,562"/>
+        <g class="node leaf wait"><circle cx="690" cy="562" r="7.0"/><text x="690" y="567" text-anchor="middle" class="n">0</text></g>
+        <text x="730" y="558" class="lab b">Sopra benchmark, in conversione</text><text x="730" y="577" class="lab"><tspan class="lbl">sopra_benchmark_ma_converte</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">Shopping · SuperCompetitive + Competitive</tspan></text>
         </svg>
         <div class="tree-m" aria-hidden="true">
           <div class="tm-root"><b>750</b><span>prodotti in campagna, letti ogni mattina</span></div>
           <p class="tm-q">1 · Il prezzo può vincere l'asta?</p>
-          <div class="tm-branch on"><div class="tm-mid"><b>399</b><span>sotto o pari al benchmark · <strong>possono vincere</strong></span></div><p class="tm-q2">2 · Cosa fanno in campagna → la mossa</p><ul><li class="budget"><i style="--r:66px"><b>276</b></i><span><b>Hanno il prezzo, ma pochi click</b>Google li mostra poco: budget per farli vedere</span></li><li class="budget"><i style="--r:21px"><b>5</b></i><span><b>Vendono già</b>sotto il benchmark e convertono: budget in più</span></li><li class="fix"><i style="--r:28px"><b>20</b></i><span><b>Click, ma niente vendite</b>prezzo giusto, scheda o feed da sistemare: non è il budget</span></li><li class="wait"><i style="--r:30px"><b>25</b></i><span><b>Ai margini</b>troppo pochi dati per decidere: si osservano</span></li><li class="out"><i style="--r:40px"><b>73</b></i><span><b>Non mostrati</b>nessuna impressione in venti giorni: fuori dalla campagna</span></li></ul></div>
-          <div class="tm-branch"><div class="tm-mid"><b>351</b><span>sopra il benchmark · <strong>non vincono, per quanto budget ci metti</strong></span></div><ul><li class="price"><i style="--r:64px"><b>256</b></i><span><b>Nascosti</b>Google non li mostra: è il prezzo, non il budget</span></li><li class="stop"><i style="--r:25px"><b>12</b></i><span><b>Spendono senza vendere</b>click pagati, zero ordini: fermati oggi</span></li><li class="out"><i style="--r:42px"><b>83</b></i><span><b>Non mostrati</b>nessuna impressione: fuori dalla campagna</span></li><li class="wait"><i style="--r:14px"><b>0</b></i><span><b>Vendono lo stesso</b>succede: si lascia, e si guarda il margine</span></li></ul></div>
+          <div class="tm-branch on"><div class="tm-mid"><b>399</b><span>sotto o pari al benchmark · <strong>possono vincere</strong></span></div><p class="tm-q2">2 · Cosa fanno in campagna → l'etichetta, la campagna</p><ul><li class="budget"><i style="--r:66px"><b>276</b></i><span><b>Competitivi, bassa visibilità</b><code>competitivo_poco_visibile</code> → Shopping · Low Visibility</span></li><li class="budget"><i style="--r:20px"><b>4</b></i><span><b>Supercompetitivi</b><code>supercompetitivo</code> → Shopping · SuperCompetitive + Competitive</span></li><li class="budget"><i style="--r:17px"><b>1</b></i><span><b>Competitivi, in conversione</b><code>competitivo_ok</code> → Shopping · SuperCompetitive + Competitive</span></li><li class="fix"><i style="--r:28px"><b>20</b></i><span><b>Da verificare: scheda prodotto</b><code>prodotto_richiede_check</code> → In pausa fino alla correzione</span></li><li class="wait"><i style="--r:30px"><b>25</b></i><span><b>In osservazione</b><code>da_monitorare</code> → PMax di categoria</span></li><li class="out"><i style="--r:40px"><b>73</b></i><span><b>Senza impression</b><code>no_impression</code> → Shopping · Zombie</span></li></ul></div>
+          <div class="tm-branch"><div class="tm-mid"><b>351</b><span>sopra il benchmark · <strong>non vincono, per quanto budget ci metti</strong></span></div><ul><li class="price"><i style="--r:64px"><b>256</b></i><span><b>Sopra benchmark, invisibili</b><code>supercaro_nascosto</code> → Esclusi: si lavora sul prezzo</span></li><li class="stop"><i style="--r:25px"><b>12</b></i><span><b>Sopra benchmark, spesa improduttiva</b><code>supercaro_brucia_budget</code> → Esclusi dalle campagne</span></li><li class="out"><i style="--r:42px"><b>83</b></i><span><b>Senza impression</b><code>no_impression</code> → Shopping · Zombie</span></li><li class="wait"><i style="--r:14px"><b>0</b></i><span><b>Sopra benchmark, in conversione</b><code>sopra_benchmark_ma_converte</code> → Shopping · SuperCompetitive + Competitive</span></li></ul></div>
         </div>
         <div class="tree-foot"><div><b>281</b><span>prodotti prendono budget: possono vincere e hanno margine per farlo</span></div><div><b>469</b><span>no — e per 268 di questi il problema è il prezzo, che nessun budget risolve</span></div></div>
       </div>
@@ -1310,7 +1316,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         <ol>
           <li><b>L'asta si vince prima col prezzo.</b> Google confronta il tuo prezzo con quello degli altri negozi per lo stesso prodotto: 351 articoli di Climando stanno sopra. Comprare click su quelli è buttare budget; lo diciamo, e si lavora sul prezzo o sul fornitore.</li>
           <li><b>Chi può vincere, va fatto vedere.</b> 276 prodotti hanno il prezzo giusto ma Google li mostra poco: è lì che il budget rende di più, e ci va. 20 hanno click ma non vendono: il problema è la scheda, non la campagna.</li>
-          <li><b>La mossa diventa un'etichetta nel feed.</b> Ogni prodotto porta scritta la sua classe; in Google Ads le classi sono gruppi con budget diversi. Si rilegge ogni mattina: se un prodotto cambia classe, cambia gruppo da solo.</li>
+          <li><b>L'etichetta sta nel feed, la campagna la legge.</b> Ogni prodotto porta la sua etichetta (è quella che vedi accanto a ogni gruppo); in Google Ads ogni campagna prende solo le etichette sue, col suo budget e il suo obiettivo di ritorno. Si rilegge ogni mattina: se un prodotto cambia etichetta, cambia campagna da solo.</li>
         </ol>
         <p class="vs-note">Letto l'11 ottobre 2026 sui prodotti di Climando in campagna: benchmark di prezzo di Merchant Center, venti giorni di Google Ads, almeno cinque click per giudicare. Il margine entra nella stessa lettura: un prodotto che può vincere ma non guadagna non si spinge comunque.</p>
       </div>
