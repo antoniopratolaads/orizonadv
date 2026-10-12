@@ -64,6 +64,28 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 /* ── comparsa morbida ── */
 .js .fx{opacity:0;transform:translateY(10px);transition:opacity .7s var(--ease),transform .9s var(--ease)}
 .js .fx.in{opacity:1;transform:none}
+/* ── il kit dei movimenti: ogni contenuto entra a modo suo ── */
+.js .fx.fx-sx{transform:translateX(-40px);filter:blur(10px);transition:opacity .8s var(--ease),transform 1.05s var(--ease),filter .9s var(--ease)}
+.js .fx.fx-dx{transform:translateX(40px);filter:blur(10px);transition:opacity .8s var(--ease),transform 1.05s var(--ease),filter .9s var(--ease)}
+.js .fx.fx-sx.in,.js .fx.fx-dx.in{transform:none;filter:none}
+.js .fx.fx-blur{transform:translateY(24px) scale(.985);filter:blur(14px);transition:opacity .9s var(--ease),transform 1.1s var(--ease),filter 1s var(--ease)}
+.js .fx.fx-blur.in{transform:none;filter:none}
+.js .fx.fx-pop{transform:scale(.8) translateY(18px);transition:opacity .6s var(--ease),transform 1.15s cubic-bezier(.34,1.56,.64,1)}
+.js .fx.fx-pop.in{transform:none}
+.js .fx.ritardo{transition-delay:.3s}
+/* i titoli a sipario: ogni parola sale da sotto una maschera */
+.js .mw{display:inline-block;font-weight:inherit;overflow:hidden;vertical-align:bottom;padding-bottom:.14em;margin-bottom:-.14em}
+.js .mw i{display:inline-block;font-style:inherit;transform:translateY(112%);transition:transform .95s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i,0) * .05s)}
+.js .fx.in .mw i{transform:none}
+/* i piatti: il prima è già lì, il dopo arriva un attimo dopo e si gonfia */
+.js .piatto.fx .pd2 > :nth-child(2){opacity:0;transform:scale(.96) translateY(14px);transition:opacity .7s var(--ease) .35s,transform 1s cubic-bezier(.2,.8,.2,1) .35s}
+.js .piatto.fx.in .pd2 > :nth-child(2){opacity:1;transform:none}
+/* le bande: la O scivola in posto, il titolo a sipario, il testo dopo */
+.js .cap.fx .cap-mark{translate:60px 50px;rotate:-12deg;transition:translate 1.8s var(--ease),rotate 1.8s var(--ease)}
+.js .cap.fx.in .cap-mark{translate:0 0;rotate:0deg}
+.js .cap.fx .cap-k,.js .cap.fx .wrap>p{opacity:0;transform:translateY(12px);transition:opacity .7s var(--ease),transform .9s var(--ease)}
+.js .cap.fx .wrap>p{transition-delay:.4s}
+.js .cap.fx.in .cap-k,.js .cap.fx.in .wrap>p{opacity:1;transform:none}
 
 /* ── HERO ── */
 .hero{min-height:100dvh;display:flex;flex-direction:column;justify-content:center;padding:92px 0 96px;text-align:center;position:relative;overflow:hidden}
@@ -988,6 +1010,10 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .xmfoot span{flex-basis:100%;margin-top:6px}
 }
 @media(prefers-reduced-motion:reduce){
+  .js .fx.fx-sx,.js .fx.fx-dx,.js .fx.fx-blur,.js .fx.fx-pop{transform:none;filter:none;transition:none}
+  .js .mw i{transform:none;transition:none}
+  .js .piatto.fx .pd2 > :nth-child(2),.js .cap.fx .cap-k,.js .cap.fx .wrap>p{opacity:1;transform:none;transition:none}
+  .js .cap.fx .cap-mark{translate:0 0;rotate:0deg;transition:none}
   .sim-list li{animation:none}
   .js .cresc .l1,.js .cresc .l2{stroke-dashoffset:0;transition:none}
   .js .cresc .a1,.js .cresc .a2,.js .cresc .pt,.js .cresc .lb,.js .cresc .gap{opacity:1;transition:none}
@@ -1136,7 +1162,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 <section class="solo-d res" id="risultati">
   <img class="mark-d mark-sx" src="images/brand/mark-blu.svg" alt="" aria-hidden="true">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head fx">
       <h2>Dodici mesi dopo l'accensione: <span>+53% di vendite.</span></h2>
       <p>Un e-commerce di climatizzatori, caldaie ed elettrodomestici: <strong>catalogo acceso, campagne guidate sulla stagione e sulle categorie che rendono</strong>. Spendeva le stesse cifre ogni mese su un business stagionale; ora la spesa segue la stagione, categoria per categoria, prodotto per prodotto.</p>
     </div>
@@ -1188,7 +1214,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       <p>Un cardigan di un negozio di moda da 17.432 prodotti per la scheda, il titolo e il feed; due negozi di moda per il tracciamento; il negozio di climatizzazione per le etichette. A sinistra com'è oggi, a destra com'è acceso. <strong>Niente inventato</strong>: letture del 12 ottobre 2026, e niente è stato pubblicato senza il sì del negozio.</p>
     </div>
 
-    <article class="piatto fx" id="piatto-scheda">
+    <article class="piatto fx fx-sx" id="piatto-scheda">
       <header><span class="pn">01</span><div><h3>Ottimizzazione SEO+GEO <span>la scheda</span></h3><p>Oggi 66 parole del fornitore, le stesse negli altri negozi che lo vendono. Dopo: scheda tecnica, 6 domande e risposte, 203 parole sue, in 5 lingue.</p></div></header>
       <div class="pd2">
         <figure class="pd-oggi"><span class="tag">Oggi</span><img src="images/piatti/cardigan-oggi.jpg" alt="La descrizione del cardigan sulla pagina di oggi: un paragrafo del fornitore e nove righe di attributi" loading="lazy" width="456" height="462"><figcaption>La pagina com'è oggi. Nessuna scheda tecnica, nessuna domanda, una lingua.</figcaption></figure>
@@ -1208,7 +1234,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       </div>
     </article>
 
-    <article class="piatto fx" id="piatto-titolo">
+    <article class="piatto fx fx-dx" id="piatto-titolo">
       <header><span class="pn">02</span><div><h3>Titles CRO optimization <span>il titolo su Google</span></h3><p>Google mostra circa 60 caratteri di titolo e 150 di riga. Oggi il titolo ne ha 88: il nome del prodotto si legge a metà. Dopo, 53 e 148: entrano interi.</p></div></header>
       <div class="pd2">
         <div class="pd-oggi"><span class="tag">Oggi</span><div class="serp"><div class="url">www.negoziodimoda.it › products › levis-levi-s-mammoth-cardigan-obsidian-…</div><div class="tit">Levi's Mammoth Cardigan Obsidian Heather Cardi Brown -<s> Cardigan Uomo Marrone  Uomo LEVIS</s></div><div class="des">Il Levi's Mammoth Cardigan è un cardigan dalla linea calda e confortevole, caratterizzato da una struttura morbida e da una tonalità marrone. Il<s> design versatile lo rende ideale per la stagione più fredda e per look casual.</s></div></div><p class="pd-note">Titolo e riga veri, nello spazio che Google concede. Barrato quello che non si vede.</p></div>
@@ -1216,7 +1242,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       </div>
     </article>
 
-    <article class="piatto fx" id="piatto-feed">
+    <article class="piatto fx fx-sx" id="piatto-feed">
       <header><span class="pn">03</span><div><h3>Feed Enrichment <span>il file che Google Shopping legge</span></h3><p>La riga vera del cardigan nel Merchant Center, letta il 12 ottobre. I filtri ci sono già: colore, taglia, genere, età. Mancano i campi che decidono l'asta: categoria Google, materiale, punti di forza, specifiche, domande e risposte, etichette per le campagne. <strong>Oggi 14 campi pieni su 27, acceso 24</strong>: tre restano vuoti apposta, perché non si inventa.</p></div></header>
       <div class="feed-top">
         <div class="feed-cnt"><b><em id="feed-n">14</em>/27</b><span>campi pieni</span><i class="feed-bar"><em id="feed-bar" style="width:52%"></em></i></div>
@@ -1261,7 +1287,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       <p class="pd-note">I campi accesi li scrive la piattaforma in un feed supplementare che Merchant Center rilegge da solo, ogni giorno: colore, taglia, genere, età e categoria dal catalogo, materiale e specifiche dalla scheda, le etichette dai conti. Quelli segnati «dalla scheda nuova» arrivano quando il negozio dice sì alla scheda del piatto 01.</p>
     </article>
 
-    <article class="piatto fx" id="piatto-tracking">
+    <article class="piatto fx fx-dx" id="piatto-tracking">
       <header><span class="pn">04</span><div><h3>Tracking Server Side <span>dove vanno i dati di una visita</span></h3><p>Letto dal browser il 12 ottobre su due negozi di moda: uno col tracciamento standard, uno acceso. Qui non c'è un numero: quanto si recupera dipende da quanti visitatori bloccano i pixel, e si misura sul negozio, prima e dopo.</p></div></header>
       <div class="trk oggi" id="trk">
         <div class="trk-tog" role="group" aria-label="Oggi o acceso"><button type="button" class="tt on" data-m="oggi">Oggi <small>i pixel nel browser</small></button><button type="button" class="tt" data-m="acceso">Acceso <small>dal server del negozio</small></button></div>
@@ -1299,7 +1325,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       </div>
     </article>
 
-    <article class="piatto fx" id="piatto-labelizer">
+    <article class="piatto fx fx-sx" id="piatto-labelizer">
       <header><span class="pn">05</span><div><h3>Labelizer <span>chi va in asta e chi aspetta</span></h3><p>Negozio di climatizzazione, 4.750 prodotti in Google Ads: 1.056 hanno avuto click negli ultimi venti giorni. Ogni prodotto viene confrontato con due cose: il prezzo di riferimento che Google vede sul mercato, e i suoi click e vendite. Da lì riceve un'etichetta nel feed, e le campagne la leggono. <strong>Il budget va a chi può vincere l'asta. Il resto aspetta il prezzo giusto.</strong></p></div></header>
       <div class="lab-fig" id="lab-fig">
         <div class="lab-top"><b>Venti giorni di Google Ads, 1.056 prodotti con click</b><span class="lab-data">letti il 12 ottobre 2026</span></div>
@@ -1327,7 +1353,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 <!-- ═══ BLOCCO 2: QUATTRO INTERRUTTORI, UNA SCHEDA CHE SI ACCENDE ═══ -->
 <section class="solo-d feat" id="ignition">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head fx">
       <h2>Poi tutte e sei insieme, su una padella. <span>Da 23 a 100.</span></h2>
       <p><strong>Si accendono nella piattaforma Orizon</strong>, prodotto per prodotto, su centinaia o migliaia insieme. Qui una padella vera di un cliente vero, com'è oggi: indice di accensione <strong>23 su 100</strong>. <span class="m-hide">Accendila tu — scheda, feed, campagne e tracciamento — e guarda perché <strong>le aste si vincono così</strong>.</span><span class="m-only">Accendi una leva alla volta: l'effetto sta subito sotto.</span></p>
     </div>
@@ -1523,7 +1549,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         <div class="vr m" style="--r:9" role="row"><span>− Pubblicità <small>Meta e Google, letti ogni mattina dagli account</small></span><span class="b">dai tuoi account</span></div>
         <div class="vr tot" style="--r:10" role="row"><span>= Utile del mese</span><span class="b"><b>quello che resta</b><small>il numero su cui guidiamo le campagne</small></span></div>
       </div>
-      <div class="vs-why fx">
+      <div class="vs-why fx fx-dx">
         <div class="bars" aria-hidden="true">
           <div><i style="--h:100%"></i><b>350.095 €</b><span>il «venduto» in Shopify</span></div>
           <div class="on"><i style="--h:69%"></i><b>240.496 €</b><span>davvero tuo, prima del costo d'acquisto</span></div>
@@ -1537,7 +1563,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         <p class="vs-note">Numeri letti l'11 ottobre 2026 dal pannello Shopify del negozio: 374 ordini, 269 clienti nuovi e 81 di ritorno. Il costo d'acquisto non è ancora caricato: per questo l'utile qui non ha una cifra.</p>
       </div>
     </div>
-    <p class="ponte fx"><svg class="ico" aria-hidden="true"><use href="#arrow"/></svg><span>Letto quello che resta, la domanda dopo è dove mettere il budget. Non dove il ROAS è più alto.</span></p>
+    <p class="ponte fx fx-sx"><svg class="ico" aria-hidden="true"><use href="#arrow"/></svg><span>Letto quello che resta, la domanda dopo è dove mettere il budget. Non dove il ROAS è più alto.</span></p>
   </div>
 </section>
 
@@ -1564,7 +1590,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         <div class="vr tot" style="--r:11" role="row"><span>= Utile del mese</span><span><b>46.700 €</b><small>9 € ogni 100 € venduti</small></span><span class="b"><b>100.000 €</b><small>21 € ogni 100 € venduti</small><em>+53.300 €</em></span></div>
       </div>
 
-      <div class="vs-why fx">
+      <div class="vs-why fx fx-dx">
         <div class="sim" id="sim">
           <div class="sim-top"><span>Lo stesso mese, ordine dopo ordine</span><button type="button" id="sim-go">Fai partire il mese</button></div>
           <div class="sim-cols">
@@ -1590,7 +1616,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         <p class="vs-note">Numeri tondi di un mese tipo, stesso negozio: cambia solo dove va il budget. IVA 22%, resi 11,4% (il ritmo vero del negozio di climatizzazione), spedizioni 3,5%, commissioni 1,5%; costo d'acquisto 80% del venduto sui prodotti «da ROAS», 66% su quelli scelti per margine.</p>
       </div>
     </div>
-    <p class="ponte fx"><svg class="ico" aria-hidden="true"><use href="#arrow"/></svg><span>E la merce che non gira è un costo che nessun ROAS racconta.</span></p>
+    <p class="ponte fx fx-sx"><svg class="ico" aria-hidden="true"><use href="#arrow"/></svg><span>E la merce che non gira è un costo che nessun ROAS racconta.</span></p>
   </div>
 </section>
 
@@ -1611,7 +1637,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         <div class="vr p up" style="--r:6" role="row"><img src="images/magazzino/baxi-duotec.jpg" alt="" width="240" height="240" loading="lazy"><span class="nm"><b>Caldaia Baxi Duo-Tec Compact 24 kW</b><small>riscaldamento</small></span><span class="va"><b>giacenza 0</b><small>niente da vendere</small></span><span class="ve"><b>8</b><small>l'anno scorso, in questi mesi</small></span><span class="b ac"><strong>riordina ora</strong>: 5.785 € a rischio</span></div>
         <div class="vr tot" style="--r:7" role="row"><span>Oggi, su tutto il catalogo</span><span class="va"><b>6.502</b><small>articoli con stock e zero vendite in 60 giorni</small></span><span class="b"><b>22</b><small>prodotti da riordinare prima della stagione</small></span></div>
       </div>
-      <div class="vs-why fx">
+      <div class="vs-why fx fx-dx">
         <div class="mks">
           <div><b>418.538 €</b><span>di merce con stock alto e zero vendite in 60 giorni</span></div>
           <div><b>57.655 €</b><span>di vendite a rischio nei prossimi 90 giorni, se non si riordina</span></div>
@@ -1633,7 +1659,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   <img class="mark-t" src="images/brand/mark-bianco.svg" alt="" aria-hidden="true">
   <div class="wrap">
     <h2 id="tesi-t" class="fx">Un'agenzia classica vende servizi. <span>Noi leggiamo i numeri e prendiamo decisioni.</span></h2>
-    <p class="fx">Ogni mattina: cosa spingere, cosa fermare, cosa riordinare, quanto spendere. Decisioni analitiche, prodotto per prodotto: è l'unico modo per avere un vantaggio sugli altri. <strong>Per questo possiamo farci pagare a percentuale sul venduto in più, con una quota decisa insieme in base alla situazione di partenza.</strong> Nessuna fee fissa.</p>
+    <p class="fx fx-blur ritardo">Ogni mattina: cosa spingere, cosa fermare, cosa riordinare, quanto spendere. Decisioni analitiche, prodotto per prodotto: è l'unico modo per avere un vantaggio sugli altri. <strong>Per questo possiamo farci pagare a percentuale sul venduto in più, con una quota decisa insieme in base alla situazione di partenza.</strong> Nessuna fee fissa.</p>
   </div>
 </section>
 
@@ -1641,8 +1667,8 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 <section class="solo-d who" id="chi-guida">
   <div class="wrap">
     <div class="who-grid">
-      <div class="who-photo fx"><img src="images/brand/ori.svg" alt="Ori, il robottino di Orizon" loading="lazy" width="300" height="400"></div>
-      <div class="fx">
+      <div class="who-photo fx fx-pop"><img src="images/brand/ori.svg" alt="Ori, il robottino di Orizon" loading="lazy" width="300" height="400"></div>
+      <div class="fx fx-dx">
         <h2>Chi guida. <span>E cosa succede dopo lo scan.</span></h2>
         <p class="role">Antonio Pratola — Founder &amp; CEO, Orizon ADV · Napoli</p>
         <p>Ho fondato Orizon per lavorare con gli imprenditori da imprenditore: <strong>a percentuale sul venduto in più, con i conti aperti ogni mattina.</strong> Ignition è nato per questo: con un catalogo spento nessuna campagna basta, e a mano non si accendono mille prodotti.</p>
@@ -1666,8 +1692,8 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   <img class="mark-d mark-dx" src="images/brand/mark-blu.svg" alt="" aria-hidden="true">
   <div class="wrap">
     <h2 class="fx">Vediamo cosa c'è da accendere <span>nel tuo negozio.</span></h2>
-    <p class="sub fx">Il catalogo si accende, i conti si leggono ogni mattina. Mettici l'indirizzo: ti diciamo dove sta il fatturato che il catalogo lascia sul tavolo, e se vale la pena lavorare insieme.</p>
-    <form class="scan fx" action="/contatti" method="get">
+    <p class="sub fx fx-blur">Il catalogo si accende, i conti si leggono ogni mattina. Mettici l'indirizzo: ti diciamo dove sta il fatturato che il catalogo lascia sul tavolo, e se vale la pena lavorare insieme.</p>
+    <form class="scan fx fx-pop ritardo" action="/contatti" method="get">
       <input type="text" name="sito" placeholder="www.iltuonegozio.it" autocomplete="url" inputmode="url" aria-label="Indirizzo del tuo negozio online">
       <button type="submit">Fai lo scan <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></button>
     </form>
@@ -1715,6 +1741,28 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   "use strict";
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var y = document.getElementById('y'); if (y) y.textContent = new Date().getFullYear();
+  /* ── i titoli a sipario: ogni parola in una maschera ── */
+  (function(){
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.innerWidth < 768) return;
+    document.querySelectorAll('.sec-head h2, .cap h2, #tesi-t, .end h2, .who h2').forEach(function(h){
+      var n = 0;
+      function spezza(nodo){
+        Array.prototype.slice.call(nodo.childNodes).forEach(function(c){
+          if (c.nodeType === 1) { spezza(c); return; }
+          if (c.nodeType !== 3 || !c.nodeValue.trim()) return;
+          var frag = document.createDocumentFragment();
+          c.nodeValue.split(/(\s+)/).forEach(function(parte){
+            if (!parte) return;
+            if (/^\s+$/.test(parte)) { frag.appendChild(document.createTextNode(' ')); return; }
+            var m = document.createElement('b'); m.className = 'mw'; m.style.setProperty('--i', n++);
+            var i = document.createElement('i'); i.textContent = parte; m.appendChild(i); frag.appendChild(m);
+          });
+          nodo.replaceChild(frag, c);
+        });
+      }
+      spezza(h);
+    });
+  })();
   var els = document.querySelectorAll('.fx');
   if ('IntersectionObserver' in window && !reduce) {
     var obs = new IntersectionObserver(function(entries){ entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } }); }, { threshold: .1 });
