@@ -1,4 +1,16 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/case-study/climando",
+      "destination": "/case-study/climatizzazione",
+      "permanent": true
+    },
+    {
+      "source": "/case-study/vg-informatica",
+      "destination": "/case-study/informatica-b2b",
+      "permanent": true
+    }
+  ]
 }
