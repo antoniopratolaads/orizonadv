@@ -232,6 +232,64 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .lab-leg b{font-weight:600}
 .lab-leg small{display:block;color:var(--black-m);font-size:12px;margin-top:2px}
 .lab-leg .gb{background:var(--blue)}.lab-leg .gr{background:var(--black)}.lab-leg .gc{background:var(--blue-ll)}.lab-leg .gm{background:#DCDFE2}.lab-leg .gf{background:repeating-linear-gradient(135deg,#fff 0 3px,#D9DDE1 3px 6px);border:1px solid var(--line-2)}
+.hero-o{position:absolute;right:-6%;top:36px;width:min(40vw,600px);opacity:.26;pointer-events:none;z-index:0;animation:oruota 90s linear infinite}
+@keyframes oruota{to{transform:rotate(360deg)}}
+.hero .wrap{position:relative;z-index:1}
+.cap.nero{background:var(--black)}
+.cap.nero .cap-mark{opacity:.1}
+.res-dir{margin:40px auto 0;max-width:860px;font-size:23px;font-weight:600;letter-spacing:-.02em;line-height:1.3;text-align:center}
+.res-dir span{color:var(--blue)}
+.tt{font:inherit;font-size:13px;font-weight:600;color:var(--black-m);background:transparent;border:0;border-radius:999px;padding:7px 14px;cursor:pointer;display:inline-flex;align-items:baseline;gap:6px}
+.tt small{font-weight:400;font-size:12px;color:var(--black-m)}
+.tt.on{background:var(--white);color:var(--black);box-shadow:0 1px 2px rgba(12,23,19,.08)}
+.lab-tog,.trk-tog{display:inline-flex;border:1px solid var(--line-2);border-radius:999px;padding:3px;background:var(--bg-2)}
+.lab-tog{margin-top:14px}
+.lab-bar{position:relative}
+.lab-inner{display:flex;height:100%;width:calc(100% * var(--scala,1));transition:width 1.2s var(--ease)}
+.lab-bar .gx{background:repeating-linear-gradient(135deg,var(--blue-ll) 0 6px,#fff 6px 10px);color:var(--blue);box-shadow:inset 1px 0 0 var(--blue)}
+.lab-nota{display:none;margin-top:14px;font-size:12.5px;color:var(--black-m);line-height:1.45}
+.lab-fig.acceso .lab-nota{display:block}
+.feed-top{margin-top:22px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.feed-cnt{display:grid;grid-template-columns:auto auto;align-items:baseline;gap:4px 10px}
+.feed-cnt b{font-size:30px;font-weight:600;letter-spacing:-.035em;line-height:1;font-variant-numeric:tabular-nums}
+.feed-cnt b em{font-style:normal;color:var(--blue)}
+.feed-cnt>span{font-size:13px;color:var(--black-m)}
+.feed-bar{grid-column:1/-1;display:block;width:220px;height:7px;border-radius:99px;background:var(--line);overflow:hidden}
+.feed-bar em{display:block;height:100%;border-radius:99px;background:var(--blue);transition:width .8s var(--ease),background .4s}
+.feed-bar em.pieno{background:var(--green);box-shadow:0 0 12px rgba(96,231,135,.7)}
+.feed-az{display:flex;align-items:center;gap:14px}
+.feed-piu{font:inherit;font-size:13px;color:var(--blue);background:none;border:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.feed-go{font:inherit;font-size:14.5px;font-weight:600;color:#fff;background:var(--blue);border:0;border-radius:999px;padding:11px 18px;cursor:pointer;box-shadow:0 12px 28px -12px rgba(55,80,247,.8)}
+.feed-go:disabled{opacity:.7;cursor:default}
+.feed-go.rifai{background:var(--white);color:var(--blue);border:1px solid var(--blue-ll);box-shadow:none}
+.mtab .secondario{display:none}
+.mtab.tutti .secondario{display:grid}
+.mtab.spento .mr:not(.uguale):not(.grp):not(.head) span.on{opacity:.22;transform:translateX(8px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.mtab.spento .mr.lit span.on{opacity:1;transform:none}
+.mtab.spento .mr.lit.vuoto span.on{opacity:.6}
+.trk{margin-top:22px;border:1px solid var(--line-2);border-radius:14px;background:var(--white);padding:18px 20px 16px}
+.trk-stage{margin-top:18px;display:grid;grid-template-columns:150px 1fr 190px;gap:18px;align-items:stretch}
+.trk-col{display:flex;flex-direction:column;justify-content:center;gap:4px}
+.trk-col b{font-size:14.5px;font-weight:600;letter-spacing:-.01em}
+.trk-col span{font-size:12.5px;color:var(--black-m)}
+.trk-col em{font-style:normal;font-weight:600;color:var(--black);font-size:15px}
+.trk-lane{position:relative;height:176px;border:1px solid var(--line);border-radius:12px;background:var(--bg-2);overflow:hidden}
+.trk-lane .dot{position:absolute;left:10px;top:calc(12px + var(--i) * 15.4px);width:10px;height:10px;border-radius:50%;background:var(--blue);animation:trkva 3.2s linear infinite;animation-delay:calc(var(--i) * .26s)}
+@keyframes trkva{0%{left:10px;opacity:0}6%{opacity:1}92%{opacity:1}100%{left:calc(100% - 20px);opacity:0}}
+.trk.oggi .dot.p{animation-name:trkcade}
+@keyframes trkcade{0%{left:10px;opacity:0}6%{opacity:1}44%{left:46%;opacity:1;background:var(--blue)}56%{left:47%;opacity:.9;background:var(--black-l);transform:translateY(6px)}70%{opacity:0;transform:translateY(22px)}100%{left:47%;opacity:0}}
+.trk-muro,.trk-server{position:absolute;top:10px;bottom:10px;left:44%;width:168px;border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;justify-content:center;gap:3px;transition:opacity .35s}
+.trk-muro{border:1px dashed var(--black-l);background:rgba(255,255,255,.85)}
+.trk-muro b{font-size:12.5px;font-weight:600}
+.trk-muro span{font-size:11px;color:var(--black-m);line-height:1.3;padding-left:10px;position:relative}
+.trk-muro span::before{content:'';position:absolute;left:0;top:6px;width:5px;height:5px;border-radius:50%;background:var(--black-l)}
+.trk-server{border:1px solid rgba(55,80,247,.5);background:rgba(55,80,247,.06);opacity:0}
+.trk-server b{font-size:12.5px;font-weight:600;color:var(--blue)}
+.trk-server span{font-size:11px;color:var(--black-m);line-height:1.3}
+.trk.acceso .trk-muro{opacity:0}
+.trk.acceso .trk-server{opacity:1}
+.trk.acceso .trk-col.fine em{color:var(--blue)}
+.trk-nota{margin-top:12px;font-size:12.5px;color:var(--black-m);line-height:1.45}
 .piatto-box{border:1px solid var(--line-2);border-radius:12px;background:var(--white);padding:22px 22px 20px}
 .flat b{display:block;font-size:17px;font-weight:600;letter-spacing:-.015em;line-height:1.3}
 .flat span{display:block;margin-top:8px;font-size:14px;color:var(--black-m);line-height:1.5}
@@ -259,7 +317,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .ponte .ico{width:20px;height:20px;flex:none;margin-top:5px;color:var(--blue);stroke-width:1.8;transform:rotate(90deg)}
 .tesi{padding:112px 0 120px;background:var(--blue);color:var(--white);text-align:center;position:relative;overflow:hidden}
 .tesi .wrap{position:relative;z-index:1}
-.mark-t{position:absolute;left:-7%;top:50%;width:min(44vw,600px);transform:translateY(-50%) rotate(14deg);opacity:.16;pointer-events:none;z-index:0}
+.mark-t{position:absolute;left:-12%;top:50%;width:min(58vw,780px);transform:translateY(-50%) rotate(14deg);opacity:.22;pointer-events:none;z-index:0}
 .tesi h2{font-size:clamp(30px,3.8vw,50px);line-height:1.08;letter-spacing:-.03em;max-width:980px;margin:0 auto;text-wrap:balance}
 .tesi h2{color:rgba(255,255,255,.78)}
 .tesi h2 span{color:var(--white)}
@@ -912,6 +970,9 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .xmfoot span{flex-basis:100%;margin-top:6px}
 }
 @media(prefers-reduced-motion:reduce){
+  .hero-o,.trk-lane .dot{animation:none}
+  .trk-lane .dot{left:calc(100% - 20px)}
+  .trk.oggi .dot.p{left:46%;opacity:.4}
   .xr,.xw>span{opacity:1;transform:none;transition:none}
   .xs1-luce,.xs5::before,.xd-go,.xhint i{animation:none}
   .xbar em,.xdue i::after,.xout,.xoutw{transition:none}
@@ -972,7 +1033,8 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     <div class="xbig xr xpop" style="--d:.1s">+<span data-conta="53" data-ms="1400">0</span>%<i class="xriga"></i><small>di vendite in dodici mesi: 8,27 milioni contro 5,40, dal pannello Shopify di un negozio di climatizzazione.</small></div>
     <div class="xshot xr xtilt" style="--d:.3s" data-parallasse="-0.08"><img src="images/cruscotto/shopify-vendite-12m-m.png" alt="Pannello Shopify del negozio di climatizzazione: vendite totali 8.266.784 €, +53%" width="862" height="262" loading="lazy"></div>
     <div class="xtre"><div class="xr" style="--d:.5s"><b>+135%</b><span>luglio–settembre</span></div><div class="xr" style="--d:.6s"><b>12.100</b><span>ordini, +51%</span></div><div class="xr" style="--d:.7s"><b>x50</b><span>vendite per euro speso</span></div></div>
-    <p class="xlnk xr" style="--d:.8s"><a href="/case-study/climatizzazione">Il caso completo →</a> <a href="/work">Gli altri clienti →</a></p>
+    <p class="xlead xr" style="--d:.75s"><strong>Sono i numeri a dare la direzione.</strong> Chi brancola nel buio non ha un vantaggio competitivo.</p>
+    <p class="xlnk xr" style="--d:.85s"><a href="/case-study/climatizzazione">Il caso completo →</a> <a href="/work">Gli altri clienti →</a></p>
   </section>
 
   <section class="xs xs3" id="m-catalogo">
@@ -1032,6 +1094,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 
 <!-- ═══ HERO ═══ -->
 <header class="solo-d hero" id="top">
+  <img class="hero-o" src="images/brand/mark-contorno.svg" alt="" aria-hidden="true">
   <div class="wrap">
     <h1 class="fx">Il tuo e-commerce ha già tutto. <br><span>Noi lo accendiamo.</span></h1>
     <p class="sub fx">Accendiamo il catalogo con una macchina nostra e guidiamo le campagne. <strong>Ci paghi a percentuale sul venduto in più.</strong></p>
@@ -1218,6 +1281,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         <div class="fig"><b>x50</b><span><strong>MER</strong>: tutte le vendite dei dodici mesi su tutta la spesa pubblicitaria, Meta e Google insieme. È un'altra misura dal ROAS di una campagna: lì accettiamo un numero più basso per avere più utile.</span></div>
       </div>
     </div>
+    <p class="res-dir fx">Sono i numeri a dare la direzione: <span>cosa spingere, cosa fermare, cosa riordinare, ogni mattina.</span> Chi brancola nel buio non ha un vantaggio competitivo.</p>
     <p class="res-note">Tutti i numeri vengono dal pannello Shopify e dagli account pubblicitari del cliente, letti ogni mattina. <a href="/case-study/climatizzazione">Il caso completo →</a> · <a href="/work">Gli altri settori, stesso metodo →</a></p>
   </div>
 </section>
@@ -1270,14 +1334,18 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 
     <article class="piatto fx" id="piatto-feed">
       <header><span class="pn">03</span><div><h3>Feed Enrichment <span>il file che Google Shopping legge</span></h3><p>La riga vera del cardigan nel Merchant Center, letta il 12 ottobre. I filtri ci sono già: colore, taglia, genere, età. Mancano i campi che decidono l'asta: categoria Google, materiale, punti di forza, specifiche, domande e risposte, etichette per le campagne. <strong>Oggi 14 campi pieni su 27, acceso 24</strong>: tre restano vuoti apposta, perché non si inventa.</p></div></header>
-      <div class="mtab" role="table" aria-label="I 27 campi del feed del cardigan, oggi e acceso">
+      <div class="feed-top">
+        <div class="feed-cnt"><b><em id="feed-n">14</em>/27</b><span>campi pieni</span><i class="feed-bar"><em id="feed-bar" style="width:52%"></em></i></div>
+        <div class="feed-az"><button type="button" class="feed-piu" id="feed-piu">Mostra anche i 13 campi già pieni</button><button type="button" class="feed-go" id="feed-go">Accendi il feed</button></div>
+      </div>
+      <div class="mtab spento" id="mtab" role="table" aria-label="I 27 campi del feed del cardigan, oggi e acceso">
         <div class="mr head"><code>campo</code><span>oggi</span><span class="on">acceso</span></div>
-        <div class="mr grp"><span>Identità</span></div>
-        <div class="mr uguale"><code>id</code><span>shopify_IT_16069175968075_58774819963211</span><span class="on">shopify_IT_16069175968075_58774819963211</span></div>
-        <div class="mr uguale"><code>item_group_id</code><span>16069175968075</span><span class="on">16069175968075</span></div>
-        <div class="mr uguale"><code>gtin</code><span>5401235272968</span><span class="on">5401235272968</span></div>
-        <div class="mr uguale"><code>brand</code><span>LEVIS</span><span class="on">LEVIS</span></div>
-        <div class="mr uguale"><code>condition</code><span>new</span><span class="on">new</span></div>
+        <div class="mr grp secondario"><span>Identità</span></div>
+        <div class="mr uguale secondario"><code>id</code><span>shopify_IT_16069175968075_58774819963211</span><span class="on">shopify_IT_16069175968075_58774819963211</span></div>
+        <div class="mr uguale secondario"><code>item_group_id</code><span>16069175968075</span><span class="on">16069175968075</span></div>
+        <div class="mr uguale secondario"><code>gtin</code><span>5401235272968</span><span class="on">5401235272968</span></div>
+        <div class="mr uguale secondario"><code>brand</code><span>LEVIS</span><span class="on">LEVIS</span></div>
+        <div class="mr uguale secondario"><code>condition</code><span>new</span><span class="on">new</span></div>
         <div class="mr grp"><span>Testo</span></div>
         <div class="mr scheda"><code>title</code><span>Levi's Mammoth Cardigan Obsidian Heather Cardi Brown - Cardigan Uomo Marrone Uomo LEVIS | tg. S | codice 007T5 <small>110 caratteri</small></span><span class="on">Levi's Mammoth Cardigan Uomo Marrone taglia S 007T5 <small>51 caratteri</small> <i class="da">dalla scheda nuova</i></span></div>
         <div class="mr scheda"><code>description</code><span>testo del fornitore più le righe degli attributi, 71 parole</span><span class="on">scheda propria: 203 parole, scheda tecnica, 6 domande e risposte <i class="da">dalla scheda nuova</i></span></div>
@@ -1286,21 +1354,21 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         <div class="mr scheda"><code>product_detail</code><span><span class="vuoto">vuoto</span></span><span class="on">Caratteristiche:Modello:Mammoth Cardigan · Colletto:classico · Chiusura:frontale con bottoni · Polsini:a coste · … <i class="da">dalla scheda nuova</i></span></div>
         <div class="mr scheda"><code>question_and_answer</code><span><span class="vuoto">vuoto</span></span><span class="on">le 6 domande e risposte della scheda (ha le tasche? come si chiude? che colletto ha?) <i class="da">dalla scheda nuova</i></span></div>
         <div class="mr grp"><span>Filtri di Shopping</span></div>
-        <div class="mr uguale"><code>color</code><span>MARRONE</span><span class="on">Marrone</span></div>
-        <div class="mr uguale"><code>size · size_system</code><span>S · EU</span><span class="on">S · EU</span></div>
-        <div class="mr uguale"><code>gender · age_group</code><span>male · adult</span><span class="on">male · adult</span></div>
+        <div class="mr uguale secondario"><code>color</code><span>MARRONE</span><span class="on">Marrone</span></div>
+        <div class="mr uguale secondario"><code>size · size_system</code><span>S · EU</span><span class="on">S · EU</span></div>
+        <div class="mr uguale secondario"><code>gender · age_group</code><span>male · adult</span><span class="on">male · adult</span></div>
         <div class="mr"><code>material</code><span><span class="vuoto">vuoto</span></span><span class="on">Poliestere/Lana</span></div>
         <div class="mr vuoto"><code>pattern</code><span><span class="vuoto">vuoto</span></span><span class="on">resta vuoto: non si inventa</span></div>
         <div class="mr grp"><span>Categoria</span></div>
-        <div class="mr uguale"><code>product_type</code><span>MAGLIERIA</span><span class="on">MAGLIERIA</span></div>
+        <div class="mr uguale secondario"><code>product_type</code><span>MAGLIERIA</span><span class="on">MAGLIERIA</span></div>
         <div class="mr"><code>google_product_category</code><span><span class="vuoto">vuoto</span></span><span class="on">Abbigliamento e accessori &gt; Abbigliamento <small>1604</small></span></div>
         <div class="mr grp"><span>Prezzo e consegna</span></div>
-        <div class="mr uguale"><code>price · availability</code><span>120,00 EUR · in stock</span><span class="on">120,00 EUR · in stock</span></div>
-        <div class="mr uguale"><code>shipping</code><span>IT · GLS 1-2 gg · 0,00 EUR</span><span class="on">IT · GLS 1-2 gg · 0,00 EUR</span></div>
+        <div class="mr uguale secondario"><code>price · availability</code><span>120,00 EUR · in stock</span><span class="on">120,00 EUR · in stock</span></div>
+        <div class="mr uguale secondario"><code>shipping</code><span>IT · GLS 1-2 gg · 0,00 EUR</span><span class="on">IT · GLS 1-2 gg · 0,00 EUR</span></div>
         <div class="mr vuoto"><code>shipping_weight</code><span><span class="vuoto">vuoto</span></span><span class="on">resta vuoto: il negozio non ha il peso</span></div>
         <div class="mr"><code>ships_from_country</code><span><span class="vuoto">vuoto</span></span><span class="on">IT</span></div>
         <div class="mr grp"><span>Etichette per le campagne</span></div>
-        <div class="mr uguale"><code>custom_label_0</code><span>F26 <small>codice di stagione</small></span><span class="on">F26 <small>lo usano già le campagne: non si tocca</small></span></div>
+        <div class="mr uguale secondario"><code>custom_label_0</code><span>F26 <small>codice di stagione</small></span><span class="on">F26 <small>lo usano già le campagne: non si tocca</small></span></div>
         <div class="mr poi"><code>custom_label_1</code><span><span class="vuoto">vuoto</span></span><span class="on">sotto o sopra il benchmark di prezzo di Google <i class="da">dopo 20 giorni di campagna</i></span></div>
         <div class="mr"><code>custom_label_2</code><span><span class="vuoto">vuoto</span></span><span class="on">premium <small>fascia di prezzo</small></span></div>
         <div class="mr vuoto"><code>custom_label_3</code><span><span class="vuoto">vuoto</span></span><span class="on">resta vuoto: margine, manca il costo d'acquisto</span></div>
@@ -1311,6 +1379,19 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 
     <article class="piatto fx" id="piatto-tracking">
       <header><span class="pn">04</span><div><h3>Tracking Server Side <span>dove vanno i dati di una visita</span></h3><p>Letto dal browser il 12 ottobre su due negozi di moda: uno col tracciamento standard, uno acceso. Qui non c'è un numero: quanto si recupera dipende da quanti visitatori bloccano i pixel, e si misura sul negozio, prima e dopo.</p></div></header>
+      <div class="trk oggi" id="trk">
+        <div class="trk-tog" role="group" aria-label="Oggi o acceso"><button type="button" class="tt on" data-m="oggi">Oggi <small>i pixel nel browser</small></button><button type="button" class="tt" data-m="acceso">Acceso <small>dal server del negozio</small></button></div>
+        <div class="trk-stage" aria-hidden="true">
+          <div class="trk-col"><b>Dieci acquisti</b><span>sul negozio</span></div>
+          <div class="trk-lane">
+            <div class="trk-muro"><b>Qui si perdono</b><span>blocker nel browser</span><span>Safari cancella il cookie dopo 7 giorni</span><span>pagina chiusa prima che il pixel parta</span></div>
+            <div class="trk-server"><b>Server del negozio</b><span>un id per acquisto, contato una volta, col consenso</span></div>
+            <i class="dot" style="--i:0"></i><i class="dot" style="--i:1"></i><i class="dot p" style="--i:2"></i><i class="dot" style="--i:3"></i><i class="dot" style="--i:4"></i><i class="dot p" style="--i:5"></i><i class="dot" style="--i:6"></i><i class="dot" style="--i:7"></i><i class="dot p" style="--i:8"></i><i class="dot" style="--i:9"></i>
+          </div>
+          <div class="trk-col fine"><b>GA4 · Google Ads · Meta</b><span>arrivati <em id="trk-n">7</em> su 10</span></div>
+        </div>
+        <p class="trk-nota" id="trk-nota">Esempio, non una misura: quanti si perdono dipende dal pubblico, e si legge sul negozio prima e dopo. Quelli persi sono acquisti veri che le campagne non vedono: imparano su numeri più bassi del vero.</p>
+      </div>
       <div class="pd2">
         <div class="pd-oggi"><span class="tag">Oggi</span>
           <div class="dev"><div class="bar"><i></i><i></i><i></i><span>Rete · pagina del negozio · 12 ott 2026</span></div>
@@ -1338,10 +1419,12 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       <header><span class="pn">05</span><div><h3>Labelizer <span>chi va in asta e chi aspetta</span></h3><p>Negozio di climatizzazione, 4.750 prodotti in Google Ads: 1.056 hanno avuto click negli ultimi venti giorni. Ogni prodotto viene confrontato con due cose: il prezzo di riferimento che Google vede sul mercato, e i suoi click e vendite. Da lì riceve un'etichetta nel feed, e le campagne la leggono. <strong>Il budget va a chi può vincere l'asta. Il resto aspetta il prezzo giusto.</strong></p></div></header>
       <div class="lab-fig" id="lab-fig">
         <div class="lab-top"><b>Venti giorni di Google Ads, 1.056 prodotti con click</b><span class="lab-data">letti il 12 ottobre 2026</span></div>
+        <div class="lab-tog" role="group" aria-label="Oggi o col budget spostato"><button type="button" class="tt on" data-m="oggi">Oggi <small>una campagna per tutti</small></button><button type="button" class="tt" data-m="acceso">Sposta il budget <small>la spesa segue le vendite</small></button></div>
         <div class="lab-rows">
           <div class="lab-row"><div class="lab-k"><b>Dove va la spesa oggi</b><span>1.273 €</span></div><div class="lab-bar" role="img" aria-label="Spesa: 31% ai prodotti col prezzo giusto, 7% a quelli sopra il riferimento che vendono, 39% a quelli da controllare, 6% ai margini, 18% ai fuori prezzo"><i class="gb" style="--w:30.6%"><em>31%</em></i><i class="gr" style="--w:6.7%"><em>7%</em></i><i class="gc" style="--w:38.7%"><em>39%</em></i><i class="gm stretto" style="--w:5.7%"><em>6%</em></i><i class="gf" style="--w:18.3%"><em>18%</em></i></div></div>
-          <div class="lab-row"><div class="lab-k"><b>Da dove arrivano le vendite</b><span>40.182 €</span></div><div class="lab-bar" role="img" aria-label="Vendite: 78% dai prodotti col prezzo giusto, 19% da quelli sopra il riferimento che vendono, 3% da quelli da controllare, zero dai margini e dai fuori prezzo"><i class="gb" style="--w:78.1%"><em>78%</em></i><i class="gr" style="--w:18.9%"><em>19%</em></i><i class="gc stretto" style="--w:3.0%"><em>3%</em></i><i class="gm vuoto" style="--w:0%"><em></em></i><i class="gf vuoto" style="--w:0%"><em></em></i></div></div>
+          <div class="lab-row"><div class="lab-k"><b>Da dove arrivano le vendite</b><span id="lab-vend">40.182 €</span></div><div class="lab-bar" role="img" aria-label="Vendite: 78% dai prodotti col prezzo giusto, 19% da quelli sopra il riferimento che vendono, 3% da quelli da controllare, zero dai margini e dai fuori prezzo"><div class="lab-inner" style="--scala:.58"><i class="gb" style="--w:78.1%"><em>78%</em></i><i class="gr" style="--w:18.9%"><em>19%</em></i><i class="gc stretto" style="--w:3.0%"><em>3%</em></i><i class="gm vuoto" style="--w:0%"><em></em></i><i class="gf vuoto" style="--w:0%"><em></em></i></div><i class="gx vuoto" style="--w:0%"><em>+29.000 € stimati</em></i></div></div>
         </div>
+        <p class="lab-nota">Stima prudente: alla spesa spostata diamo metà della resa che i prodotti col prezzo giusto hanno oggi (80 € di vendite per euro speso). Il numero vero si legge sul negozio, mese dopo mese.</p>
         <ul class="lab-leg">
           <li><i class="gb"></i><div><b>Prezzo giusto · 456</b><small>possono vincere l'asta: qui va il budget</small></div></li>
           <li><i class="gr"></i><div><b>Cari ma vendono · 9</b><small>restano, con misura</small></div></li>
@@ -1528,7 +1611,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 <!-- ═══ RISULTATI ═══ -->
 <!-- ═══ L'UTILE ═══ -->
 <!-- ═══ CAPITOLO 03: i conti ═══ -->
-<section class="solo-d cap fx" id="atto-conti" aria-labelledby="cap-conti">
+<section class="solo-d cap nero fx" id="atto-conti" aria-labelledby="cap-conti">
   <div class="wrap">
     <p class="cap-k">02 · I conti</p>
     <h2 id="cap-conti">Poi si guida sull'utile.</h2>
@@ -1933,6 +2016,55 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       if (ridotto.matches) { PASSI.forEach(function(p){ p[1](); }); return; }
       PASSI.forEach(function(p){ timer.push(setTimeout(p[1], p[0])); });
     });
+  })();
+  /* ── il feed si accende campo per campo ── */
+  (function(){
+    var tab = document.getElementById('mtab'), go = document.getElementById('feed-go'), piu = document.getElementById('feed-piu'), n = document.getElementById('feed-n'), bar = document.getElementById('feed-bar');
+    if (!tab || !go) return;
+    function conta(el, fine, ms, da){ var t0 = null; function passo(ts){ if (t0 === null) t0 = ts; var f = Math.min(1, (ts - t0) / ms); f = 1 - Math.pow(1 - f, 3); el.textContent = Math.round(da + (fine - da) * f); if (f < 1) requestAnimationFrame(passo); } requestAnimationFrame(passo); setTimeout(function(){ el.textContent = fine; }, ms + 100); }
+    piu.addEventListener('click', function(){ var tutti = tab.classList.toggle('tutti'); piu.textContent = tutti ? 'Nascondi i 13 campi già pieni' : 'Mostra anche i 13 campi già pieni'; });
+    var righe = Array.prototype.slice.call(tab.querySelectorAll('.mr')).filter(function(r){ return !r.classList.contains('grp') && !r.classList.contains('head') && !r.classList.contains('uguale'); });
+    var timer = [];
+    function azzera(){ timer.forEach(clearTimeout); timer = []; righe.forEach(function(r){ r.classList.remove('lit'); }); n.textContent = '14'; bar.style.width = '52%'; bar.classList.remove('pieno'); go.classList.remove('rifai'); go.disabled = false; go.textContent = 'Accendi il feed'; }
+    go.addEventListener('click', function(){
+      if (go.classList.contains('rifai')) { azzera(); return; }
+      azzera(); go.disabled = true; go.textContent = 'Si accende…';
+      var pieni = 14;
+      righe.forEach(function(r, i){
+        timer.push(setTimeout(function(){
+          r.classList.add('lit');
+          if (!r.classList.contains('vuoto') && r.querySelector('span.vuoto')) { pieni += 1; n.textContent = pieni; bar.style.width = Math.round(pieni / 27 * 100) + '%'; }
+          if (i === righe.length - 1) { bar.classList.add('pieno'); go.disabled = false; go.textContent = 'Rifai'; go.classList.add('rifai'); }
+        }, 250 + i * 260));
+      });
+    });
+  })();
+  /* ── il tracciamento: oggi o dal server ── */
+  (function(){
+    var trk = document.getElementById('trk'); if (!trk) return;
+    var n = document.getElementById('trk-n');
+    trk.querySelectorAll('.tt').forEach(function(b){ b.addEventListener('click', function(){
+      var acceso = b.getAttribute('data-m') === 'acceso';
+      trk.classList.toggle('acceso', acceso); trk.classList.toggle('oggi', !acceso);
+      n.textContent = acceso ? '10' : '7';
+      trk.querySelectorAll('.tt').forEach(function(x){ x.classList.toggle('on', x === b); });
+    }); });
+  })();
+  /* ── il labelizer: sposta il budget ── */
+  (function(){
+    var fig = document.getElementById('lab-fig'); if (!fig) return;
+    var spesa = fig.querySelector('.lab-row .lab-bar'), inner = fig.querySelector('.lab-inner'), gx = fig.querySelector('.gx'), vend = document.getElementById('lab-vend');
+    var OGGI = { gb: 30.6, gr: 6.7, gc: 38.7, gm: 5.7, gf: 18.3 }, DOPO = { gb: 87.6, gr: 6.7, gc: 0, gm: 5.7, gf: 0 };
+    function metti(v){ Object.keys(v).forEach(function(k){ var seg = spesa.querySelector('.' + k); if (!seg) return; seg.style.setProperty('--w', v[k] + '%'); seg.classList.toggle('vuoto', v[k] === 0); seg.classList.toggle('stretto', v[k] > 0 && v[k] < 6); }); }
+    function conta(el, fine, ms, da, suff){ var t0 = null; function passo(ts){ if (t0 === null) t0 = ts; var f = Math.min(1, (ts - t0) / ms); f = 1 - Math.pow(1 - f, 3); el.textContent = Math.round(da + (fine - da) * f).toLocaleString('it-IT') + suff; if (f < 1) requestAnimationFrame(passo); } requestAnimationFrame(passo); setTimeout(function(){ el.textContent = fine.toLocaleString('it-IT') + suff; }, ms + 100); }
+    fig.querySelectorAll('.tt').forEach(function(b){ b.addEventListener('click', function(){
+      var acceso = b.getAttribute('data-m') === 'acceso';
+      fig.classList.toggle('acceso', acceso);
+      metti(acceso ? DOPO : OGGI);
+      gx.classList.toggle('vuoto', !acceso); gx.style.setProperty('--w', acceso ? '42%' : '0%');
+      conta(vend, acceso ? 69000 : 40182, 1200, acceso ? 40182 : 69000, acceso ? ' € stimati' : ' €');
+      fig.querySelectorAll('.tt').forEach(function(x){ x.classList.toggle('on', x === b); });
+    }); });
   })();
 </script>
 </body>
