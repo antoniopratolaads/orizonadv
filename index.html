@@ -49,7 +49,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .nav-links a{position:relative}
 .nav-links a[aria-current="true"]{color:var(--black)}
 .nav-links a[aria-current="true"]::after{content:'';position:absolute;left:0;right:0;bottom:-9px;height:2px;border-radius:2px;background:var(--blue)}
-.cta-m{display:none}
+.cta-m,.solo-m{display:none}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:14px;line-height:1;padding:10px 16px;border-radius:8px;text-decoration:none;cursor:pointer;border:1px solid transparent;transition:background .2s,color .2s,border-color .2s}
 .btn-primary{background:var(--blue);color:var(--white)}
 .btn-primary:hover{background:var(--blue-d)}
@@ -802,8 +802,122 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .totale{grid-template-columns:1fr}
   .lingue{grid-template-columns:1fr}
   .foot{grid-template-columns:1fr}
+  /* ── telefono: sei schermate impilate ── */
+  .solo-d{display:none!important}
+  .solo-m{display:block}
+  html{scroll-behavior:auto}
+  body{background:var(--black)}
+  .mprog.solo-m{display:block;position:fixed;top:0;left:0;height:3px;width:100%;background:var(--blue);transform-origin:left center;transform:scaleX(0);z-index:95;pointer-events:none}
+  .mpill.solo-m{display:flex;position:fixed;top:12px;left:14px;right:14px;height:52px;z-index:94;align-items:center;justify-content:space-between;padding:0 18px;border-radius:100px;background:rgba(255,255,255,.72);backdrop-filter:blur(14px) saturate(1.6);-webkit-backdrop-filter:blur(14px) saturate(1.6);border:1px solid rgba(255,255,255,.85);box-shadow:0 10px 30px -16px rgba(12,23,19,.45),inset 0 1px 0 rgba(255,255,255,.9)}
+  .mpill img{height:20px;width:auto;display:block}
+  .mburger{width:22px;height:14px;display:flex;flex-direction:column;justify-content:space-between;background:none;border:0;padding:0;cursor:pointer}
+  .mburger i{display:block;height:2px;background:var(--black);border-radius:2px}
+  .mdots.solo-m{display:grid;position:fixed;right:10px;top:50%;transform:translateY(-50%);z-index:94;gap:8px}
+  .mdots i{width:6px;height:6px;border-radius:50%;background:rgba(12,23,19,.22);transition:background .3s,transform .3s}
+  .mdots i.on{background:var(--blue);transform:scale(1.35)}
+  .mdots.chiaro i{background:rgba(255,255,255,.4)}
+  .mdots.chiaro i.on{background:#fff}
+  .mstack{position:relative}
+  .xp{text-align:left;position:sticky;top:0;min-height:100dvh;display:flex;flex-direction:column;justify-content:center;padding:88px 22px 44px;background:var(--white);border-radius:28px 28px 0 0;box-shadow:0 -24px 60px -24px rgba(12,23,19,.35);overflow:hidden;transform:scale(calc(1 - .06*var(--c,0))) translateY(calc(-16px*var(--c,0)));transform-origin:50% 0}
+  .xp>*{position:relative;z-index:1}
+  .xp::after{content:'';position:absolute;inset:0;z-index:3;border-radius:inherit;background:var(--black);opacity:calc(.45*var(--c,0));pointer-events:none}
+  .xp1{z-index:1;border-radius:0;box-shadow:none;background:#fff}
+  .xp1::before{content:'';position:absolute;z-index:0;left:-30%;top:-20%;width:160%;height:80%;background:radial-gradient(circle at 30% 35%,rgba(55,80,247,.26),transparent 50%),radial-gradient(circle at 78% 55%,rgba(96,231,135,.16),transparent 45%),radial-gradient(circle at 55% 90%,rgba(55,80,247,.12),transparent 50%);filter:blur(28px);animation:mfluttua 16s ease-in-out infinite alternate}
+  @keyframes mfluttua{0%{transform:translate(0,0) rotate(0deg)}50%{transform:translate(-4%,3%) rotate(6deg)}100%{transform:translate(4%,-3%) rotate(-5deg)}}
+  .xp2{z-index:2}.xp3{z-index:3;background:var(--bg-2)}.xp4{z-index:4}.xp5{z-index:5;background:var(--blue);color:#fff}.xp6{z-index:6;justify-content:flex-start;padding-top:96px}
+  .xp5::before{content:'';position:absolute;z-index:0;inset:0;background-image:radial-gradient(rgba(255,255,255,.22) 1px,transparent 1.6px);background-size:22px 22px;animation:mderiva 24s linear infinite;opacity:.9}
+  @keyframes mderiva{0%{background-position:0 0}100%{background-position:0 220px}}
+  /* comparsa */
+  .xr{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
+  .xp.on .xr{opacity:1;transform:none}
+  .xr.xpop{transform:translateY(20px) scale(.86)}
+  .xr.xsx{transform:translateX(-22px)}
+  .xr.xtilt{transform:perspective(900px) rotateX(16deg) translateY(34px);transition:opacity .8s var(--ease),transform 1.1s var(--ease);transition-delay:var(--d,0s)}
+  .xr.xsboccia{transform:scale(.4);transition:opacity .6s var(--ease),transform 1s cubic-bezier(.34,1.56,.64,1)}
+  .xp.on .xr.xpop,.xp.on .xr.xsx,.xp.on .xr.xtilt,.xp.on .xr.xsboccia{transform:none}
+  .xw{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.08em;margin-bottom:-.08em}
+  .xw>span{display:inline-block;transform:translateY(112%);transition:transform .9s var(--ease);transition-delay:var(--d,0s)}
+  .xp.on .xw>span{transform:none}
+  .xout{color:transparent;-webkit-text-stroke:1.5px rgba(12,23,19,.4);transition:color .8s var(--ease) 1.5s,-webkit-text-stroke-color .8s var(--ease) 1.5s}
+  .xp.on .xout{color:var(--blue);-webkit-text-stroke-color:transparent}
+  .xoutw{color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.8);transition:color .8s var(--ease) 1.3s,-webkit-text-stroke-color .8s var(--ease) 1.3s}
+  .xp.on .xoutw{color:#fff;-webkit-text-stroke-color:transparent}
+  .xk{font-size:13px;font-weight:600;color:var(--blue)}
+  .xp5 .xk{color:rgba(255,255,255,.75)}
+  .xlead{margin-top:14px;font-size:15.5px;color:var(--black-m);line-height:1.5}
+  .xp5 .xlead{color:rgba(255,255,255,.85)}
+  .xblu{color:var(--blue)}
+  .xp h1,.xp h2{font-weight:600;letter-spacing:-.035em}
+  .xp1 h1{margin-top:12px;font-size:40px;line-height:1.02}
+  .xp1 .xlead{font-size:16.5px}
+  .xp1 .xlead strong{color:var(--black);font-weight:600}
+  .mscan{margin-top:22px;border:1px solid var(--line-2);border-radius:14px;padding:6px;background:var(--white);box-shadow:0 1px 2px rgba(12,23,19,.04),0 14px 34px -22px rgba(12,23,19,.3)}
+  .mscan input{width:100%;height:46px;padding:0 14px;border:0;font:inherit;font-size:16px;outline:none;background:transparent;color:var(--black)}
+  .mscan button{width:100%;height:48px;border:0;border-radius:10px;background:var(--blue);color:#fff;font:inherit;font-weight:600;font-size:16px;cursor:pointer;box-shadow:0 12px 28px -12px rgba(55,80,247,.8);animation:mrespira 3.2s ease-in-out infinite}
+  @keyframes mrespira{0%,100%{transform:scale(1);box-shadow:0 12px 28px -12px rgba(55,80,247,.8)}50%{transform:scale(1.015);box-shadow:0 16px 34px -12px rgba(55,80,247,.95)}}
+  .xmeta{margin-top:10px;font-size:13px;color:var(--black-m)}
+  .xhint{position:absolute;left:0;right:0;bottom:22px;text-align:center;font-size:12.5px;color:var(--black-m)}
+  .xhint i{display:block;width:1px;height:26px;margin:6px auto 0;background:linear-gradient(var(--black-l),transparent);animation:mgiu 1.6s ease-in-out infinite}
+  @keyframes mgiu{0%,100%{transform:translateY(0);opacity:1}50%{transform:translateY(8px);opacity:.3}}
+  .xbig{margin-top:10px;font-size:92px;font-weight:600;letter-spacing:-.06em;line-height:.9;color:var(--blue);position:relative}
+  .xbig .xriga{display:block;height:3px;width:0;background:var(--blue);border-radius:3px;margin-top:10px;transition:width 1.2s var(--ease) .6s}
+  .xp.on .xbig .xriga{width:120px}
+  .xbig small{display:block;margin-top:10px;font-size:15.5px;font-weight:400;letter-spacing:0;line-height:1.45;color:var(--black)}
+  .xshot{margin-top:18px;border:1px solid var(--line-2);border-radius:14px;overflow:hidden;background:var(--white);box-shadow:0 20px 44px -26px rgba(12,23,19,.35)}
+  .xshot img{width:100%;height:auto;display:block}
+  .xtre{margin-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .xtre div{border-top:1px solid var(--line-2);padding-top:8px}
+  .xtre b{display:block;font-size:21px;font-weight:600;letter-spacing:-.03em}
+  .xtre span{display:block;font-size:12px;color:var(--black-m);line-height:1.3;margin-top:3px}
+  .xlnk{margin-top:16px;font-size:14px;font-weight:600}
+  .xlnk a{color:var(--blue);text-decoration:none;margin-right:14px}
+  .xp3 h2,.xp4 h2{margin-top:8px;font-size:30px;line-height:1.08}
+  .xpad{margin-top:18px;display:grid;grid-template-columns:112px 1fr;gap:14px;align-items:center;background:var(--white);border:1px solid var(--line-2);border-radius:18px;padding:14px;box-shadow:0 20px 44px -26px rgba(12,23,19,.3)}
+  .xpad .xpan{width:112px;height:112px;border-radius:12px;object-fit:cover;background:#f2f2f2}
+  .xp.on .xpad .xpan{animation:mgalleggia 4s ease-in-out 1.2s infinite}
+  @keyframes mgalleggia{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-6px) rotate(1.5deg)}}
+  .xind>span{display:block;font-size:12px;color:var(--black-m)}
+  .xind b{display:block;font-size:34px;font-weight:600;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+  .xind b em{font-style:normal;font-size:16px;color:var(--black-m);letter-spacing:0}
+  .xbar{display:block;height:8px;border-radius:99px;background:var(--line);margin-top:8px;overflow:hidden}
+  .xbar em{display:block;height:100%;width:23%;border-radius:99px;background:var(--blue);transition:width 1.6s var(--ease) .5s,background .5s .9s,box-shadow .5s 1.6s}
+  .xp.on .xbar em{width:100%;background:var(--green);box-shadow:0 0 16px rgba(96,231,135,.75)}
+  .xchips{list-style:none;margin-top:14px;display:flex;flex-wrap:wrap;gap:7px}
+  .xchips li{font-size:13px;font-weight:500;border:1px solid var(--line-2);border-radius:999px;padding:6px 12px;background:var(--white);color:var(--black-m);display:flex;align-items:center;gap:7px;transform:scale(.92);transition:color .4s,border-color .4s,background .4s,transform .5s cubic-bezier(.34,1.56,.64,1);transition-delay:var(--d)}
+  .xchips li::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--black-l);transition:background .4s,box-shadow .4s;transition-delay:var(--d)}
+  .xp.on .xchips li{color:var(--black);border-color:rgba(55,80,247,.4);background:rgba(55,80,247,.06);transform:none}
+  .xp.on .xchips li::before{background:var(--blue);box-shadow:0 0 8px rgba(55,80,247,.6)}
+  .xdue{margin-top:18px;display:grid;gap:10px}
+  .xdue>div{border:1px solid var(--line-2);border-radius:16px;padding:14px 16px;position:relative;overflow:hidden;background:var(--white);box-shadow:0 14px 30px -24px rgba(12,23,19,.25)}
+  .xdue b{font-size:34px;font-weight:600;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+  .xdue .xsi b{color:var(--blue)}
+  .xdue span{display:block;margin-top:6px;font-size:13.5px;color:var(--black-m);line-height:1.4}
+  .xdue i{display:block;height:6px;border-radius:99px;background:var(--line);margin-top:12px;overflow:hidden}
+  .xdue i::after{content:'';display:block;height:100%;width:0;border-radius:99px;background:var(--black-l);transition:width 1.4s var(--ease) .5s}
+  .xdue .xsi i::after{background:linear-gradient(90deg,var(--blue),#6377FD)}
+  .xp.on .xdue .xsi i::after{width:37%}
+  .xp.on .xdue .xno i::after{width:63%}
+  .xp5 h2{margin-top:8px;font-size:36px;line-height:1.05}
+  .xpunti{list-style:none;margin-top:18px;display:grid;gap:10px}
+  .xpunti li{padding-left:16px;position:relative;font-size:15.5px}
+  .xpunti li::before{content:'';position:absolute;left:0;top:10px;width:7px;height:7px;border-radius:50%;background:var(--green)}
+  .xtesta{display:flex;gap:14px;align-items:center}
+  .xtesta img{width:76px;height:76px;object-fit:cover;object-position:top;border-radius:16px;box-shadow:0 0 0 3px var(--white),0 0 0 5px var(--blue-ll)}
+  .xtesta h2{font-size:24px;line-height:1.1}
+  .xruolo{font-size:13px;color:var(--black-m);margin-top:3px}
+  .xpassi{margin-top:18px;list-style:none;display:grid;gap:10px}
+  .xpassi li{display:grid;grid-template-columns:28px 1fr;gap:10px;font-size:15px;color:var(--black-m);line-height:1.45}
+  .xpassi li i{font-style:normal;width:26px;height:26px;border-radius:50%;background:var(--blue-ll);color:var(--blue);font-size:12.5px;font-weight:600;display:flex;align-items:center;justify-content:center}
+  .xpassi li b{color:var(--black);font-weight:600}
+  .xmfoot{margin-top:auto;padding-top:28px;border-top:1px solid var(--line);font-size:13px;color:var(--black-m);display:flex;flex-wrap:wrap;gap:6px 14px}
+  .xmfoot a{color:var(--black-m);text-decoration:none}
+  .xmfoot span{flex-basis:100%;margin-top:6px}
 }
 @media(prefers-reduced-motion:reduce){
+  .xr,.xw>span{opacity:1;transform:none;transition:none}
+  .xp{transform:none}
+  .xp1::before,.xp5::before,.mscan button,.xhint i,.xpad .xpan{animation:none}
+  .xbar em,.xdue i::after,.xchips li,.xout,.xoutw{transition:none}
   html{scroll-behavior:auto}
   .js .fx{opacity:1;transform:none;transition:none}
   .js .chart .bars rect,.js .chart-m .bars rect{transform:none;transition:none}
@@ -817,7 +931,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol></defs></svg>
 
 <!-- ═══ NAV ═══ -->
-<nav class="nav" aria-label="Principale">
+<nav class="solo-d nav" aria-label="Principale">
   <div class="wrap">
     <a class="brand" href="/" aria-label="Orizon ADV — home"><img src="images/brand/logo-blu.svg" alt="Orizon" width="720" height="182"></a>
     <div class="nav-links">
@@ -833,17 +947,76 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 </nav>
 <div class="mobile-menu">
   <button class="mobile-close" aria-label="Chiudi il menu"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
-  <a href="#risultati">Risultati</a>
-  <a href="#atto-catalogo">Il catalogo</a>
-  <a href="#atto-conti">I conti</a>
-  <a href="#chi-guida">Chi guida</a>
+  <a href="#m-risultato">Risultati</a>
+  <a href="#m-catalogo">Il catalogo</a>
+  <a href="#m-conti">I conti</a>
+  <a href="#m-chi">Chi guida</a>
   <a href="/work">Casi</a>
-  <a href="#scan" style="color:var(--blue)">Fai lo scan</a>
+  <a href="#m-top" style="color:var(--blue)">Fai lo scan</a>
 </div>
-<aside class="cta-m" id="cta-m"><span>Lo scan è gratis. Risposta entro 24 ore.</span><a href="/contatti">Fai lo scan</a></aside>
+
+<!-- ═══ TELEFONO: sei schermate impilate ═══ -->
+<div class="mprog solo-m" id="mprog" aria-hidden="true"></div>
+<nav class="mpill solo-m" aria-label="Principale, telefono"><a href="/" aria-label="Orizon ADV — home"><img src="images/brand/logo-blu.svg" alt="Orizon" width="720" height="182"></a><button class="mburger" id="mburger" type="button" aria-label="Apri il menu" aria-expanded="false"><i></i><i></i><i></i></button></nav>
+<main class="mstack solo-m" id="mstack">
+  <section class="xp xp1 on" id="m-top">
+    <p class="xk xr">Orizon ADV · Napoli</p>
+    <h1><span class="xw"><span class="" style="--d:0.10s">Il</span></span> <span class="xw"><span class="" style="--d:0.17s">tuo</span></span> <span class="xw"><span class="" style="--d:0.24s">e-commerce</span></span> <span class="xw"><span class="" style="--d:0.31s">ha</span></span> <span class="xw"><span class="" style="--d:0.38s">già</span></span> <span class="xw"><span class="" style="--d:0.45s">tutto.</span></span><br><span class="xw"><span class="xout" style="--d:0.55s">Noi</span></span> <span class="xw"><span class="xout" style="--d:0.63s">lo</span></span> <span class="xw"><span class="xblu" style="--d:0.72s">accendiamo.</span></span></h1>
+    <p class="xlead xr" style="--d:.9s">Accendiamo il catalogo e guidiamo le campagne. <strong>Ci paghi a percentuale sul venduto in più.</strong></p>
+    <form class="mscan xr" style="--d:1.05s" action="/contatti" method="get"><input type="text" name="sito" placeholder="www.iltuonegozio.it" autocomplete="url" inputmode="url" aria-label="Indirizzo del tuo negozio online"><button type="submit">Fai lo scan gratis</button></form>
+    <p class="xmeta xr" style="--d:1.15s">Senza accessi. Risposta entro 24 ore.</p>
+    <div class="xhint"><span>scorri</span><i></i></div>
+  </section>
+
+  <section class="xp xp2" id="m-risultato">
+    <p class="xk xr">Il risultato</p>
+    <div class="xbig xr xpop" style="--d:.1s">+<span data-conta="53" data-ms="1400">0</span>%<i class="xriga"></i><small>di vendite in dodici mesi: 8,27 milioni contro 5,40, dal pannello Shopify di un negozio di climatizzazione.</small></div>
+    <div class="xshot xr xtilt" style="--d:.3s"><img src="images/cruscotto/shopify-vendite-12m-m.png" alt="Pannello Shopify del negozio di climatizzazione: vendite totali 8.266.784 €, +53%" width="862" height="262" loading="lazy"></div>
+    <div class="xtre"><div class="xr" style="--d:.5s"><b>+135%</b><span>luglio–settembre</span></div><div class="xr" style="--d:.6s"><b>12.100</b><span>ordini, +51%</span></div><div class="xr" style="--d:.7s"><b>x50</b><span>vendite per euro speso</span></div></div>
+    <p class="xlnk xr" style="--d:.8s"><a href="/case-study/climatizzazione">Il caso completo →</a> <a href="/work">Gli altri clienti →</a></p>
+  </section>
+
+  <section class="xp xp3" id="m-catalogo">
+    <p class="xk xr">Prima si accende il catalogo</p>
+    <h2><span class="xw"><span class="" style="--d:0.10s">Una</span></span> <span class="xw"><span class="" style="--d:0.17s">padella</span></span> <span class="xw"><span class="" style="--d:0.24s">vera,</span></span> <span class="xw"><span class="xblu" style="--d:0.35s">da</span></span> <span class="xw"><span class="xblu" style="--d:0.42s">23</span></span> <span class="xw"><span class="xblu" style="--d:0.49s">a</span></span> <span class="xw"><span class="xblu" style="--d:0.56s">100.</span></span></h2>
+    <div class="xpad xr" style="--d:.5s"><img class="xpan" src="images/suite/padella-pensofal.jpg" alt="Padella Pensofal Academy Chef" width="480" height="480" loading="lazy"><div class="xind"><span>Indice di accensione</span><b><strong data-conta="100" data-da="23" data-ms="1600" data-ritardo="500">23</strong><em>/100</em></b><i class="xbar"><em></em></i></div></div>
+    <ul class="xchips xr" style="--d:.6s"><li style="--d:.7s">Titolo</li><li style="--d:.9s">Scheda</li><li style="--d:1.1s">5 lingue</li><li style="--d:1.3s">Feed</li><li style="--d:1.5s">Etichette</li><li style="--d:1.7s">Tracking</li></ul>
+    <p class="xlead xr" style="--d:.75s">Schede, titoli, feed e traduzioni scritti dai dati del prodotto, con una macchina nostra. Il fornitore per hotel e ristoranti che ce l'ha data ne ha 1.446: accesi tutti.</p>
+  </section>
+
+  <section class="xp xp4" id="m-conti">
+    <p class="xk xr">Poi si guida sull'utile</p>
+    <h2><span class="xw"><span class="" style="--d:0.10s">Il</span></span> <span class="xw"><span class="" style="--d:0.17s">budget</span></span> <span class="xw"><span class="" style="--d:0.24s">va</span></span> <span class="xw"><span class="xblu" style="--d:0.30s">dove</span></span> <span class="xw"><span class="xblu" style="--d:0.37s">si</span></span> <span class="xw"><span class="xblu" style="--d:0.44s">vince</span></span> <span class="xw"><span class="xblu" style="--d:0.51s">l'asta.</span></span></h2>
+    <div class="xdue">
+      <div class="xsi xr" style="--d:.5s"><b data-conta="281" data-ms="1300">0</b><span>prodotti prendono budget: possono vincere l'asta e in campagna rendono</span><i></i></div>
+      <div class="xno xr" style="--d:.65s"><b data-conta="469" data-ms="1300">0</b><span>no. Per 268 di questi il problema è il prezzo, che nessun budget risolve</span><i></i></div>
+    </div>
+    <p class="xlead xr" style="--d:.8s">Ogni mattina leggiamo quello che resta dopo IVA, resi e costo della merce, prodotto per prodotto. I 750 in campagna del negozio di climatizzazione, oggi.</p>
+  </section>
+
+  <section class="xp xp5" id="m-paghi">
+    <p class="xk xr">Come ci paghi</p>
+    <h2><span class="xw"><span class="" style="--d:0.10s">A</span></span> <span class="xw"><span class="" style="--d:0.17s">percentuale</span></span> <span class="xw"><span class="xoutw" style="--d:0.30s">sul</span></span> <span class="xw"><span class="xoutw" style="--d:0.38s">venduto</span></span> <span class="xw"><span class="" style="--d:0.50s">in</span></span> <span class="xw"><span class="" style="--d:0.57s">più.</span></span></h2>
+    <p class="xlead xr" style="--d:.65s">Con una quota decisa insieme in base alla situazione di partenza. Nessuna fee fissa: il rischio è dell'impresa, e lo sappiamo.</p>
+    <ul class="xpunti"><li class="xr" style="--d:.8s">I conti aperti ogni mattina</li><li class="xr" style="--d:.9s">Il primo mese si accende il catalogo, dal terzo si guida sull'utile</li><li class="xr" style="--d:1s">Non lavoriamo con tutti: se non c'è margine, te lo diciamo</li></ul>
+  </section>
+
+  <section class="xp xp6" id="m-chi">
+    <div class="xtesta"><img class="xr xsboccia" src="images/antonio-pratola.jpg" alt="Antonio Pratola, fondatore di Orizon ADV" width="333" height="444" loading="lazy"><div class="xr" style="--d:.2s"><h2>Antonio Pratola</h2><p class="xruolo">Founder &amp; CEO, Orizon ADV · Napoli</p></div></div>
+    <ol class="xpassi">
+      <li class="xr xsx" style="--d:.35s"><i>1</i><span><b>Entro 24 ore</b> ricevi il documento: indice, pagella, le tre cose da accendere.</span></li>
+      <li class="xr xsx" style="--d:.5s"><i>2</i><span><b>Mezz'ora al telefono</b>, io e te, sui tuoi numeri.</span></li>
+      <li class="xr xsx" style="--d:.65s"><i>3</i><span><b>Se partiamo</b>, il primo mese si accende il catalogo.</span></li>
+    </ol>
+    <form class="mscan xr" style="--d:.8s" action="/contatti" method="get"><input type="text" name="sito" placeholder="www.iltuonegozio.it" autocomplete="url" inputmode="url" aria-label="Indirizzo del tuo negozio online"><button type="submit">Fai lo scan gratis</button></form>
+    <footer class="xmfoot"><a href="/servizi">Servizi</a><a href="/work">Casi</a><a href="/contatti">Contatti</a><a href="mailto:antonio@orizonadv.it">Scrivimi</a><span>© 2026 Orizon ADV · Napoli</span></footer>
+  </section>
+</main>
+<div class="mdots solo-m" id="mdots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+<aside class="solo-d cta-m" id="cta-m"><span>Lo scan è gratis. Risposta entro 24 ore.</span><a href="/contatti">Fai lo scan</a></aside>
 
 <!-- ═══ HERO ═══ -->
-<header class="hero" id="top">
+<header class="solo-d hero" id="top">
   <div class="wrap">
     <h1 class="fx">Il tuo e-commerce ha già tutto. <br><span>Noi lo accendiamo.</span></h1>
     <p class="sub fx">Accendiamo il catalogo con una macchina nostra e guidiamo le campagne. <strong>Ci paghi a percentuale sul venduto in più.</strong></p>
@@ -858,7 +1031,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   <div class="hero-end"></div>
 </header>
 
-<section class="res" id="risultati">
+<section class="solo-d res" id="risultati">
   <div class="wrap">
     <div class="sec-head">
       <h2>Dodici mesi dopo l'accensione: <span>+53% di vendite.</span></h2>
@@ -1035,7 +1208,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 
 
 <!-- ═══ CAPITOLO 02: il catalogo ═══ -->
-<section class="cap fx" id="atto-catalogo" aria-labelledby="cap-catalogo">
+<section class="solo-d cap fx" id="atto-catalogo" aria-labelledby="cap-catalogo">
   <div class="wrap">
     <p class="cap-k">01 · Il catalogo</p>
     <h2 id="cap-catalogo">Prima si accende il catalogo.</h2>
@@ -1044,7 +1217,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   <img class="cap-mark" src="images/brand/mark-bianco.svg" alt="" aria-hidden="true">
 </section>
 
-<section class="piatti" id="piatti">
+<section class="solo-d piatti" id="piatti">
   <div class="wrap">
     <div class="sec-head fx">
       <h2>Prima e dopo, su prodotti veri. <span>Cinque leve, cucinate.</span></h2>
@@ -1173,7 +1346,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 </section>
 
 <!-- ═══ BLOCCO 2: QUATTRO INTERRUTTORI, UNA SCHEDA CHE SI ACCENDE ═══ -->
-<section class="feat" id="ignition">
+<section class="solo-d feat" id="ignition">
   <div class="wrap">
     <div class="sec-head">
       <h2>Poi tutte e sei insieme, su una padella. <span>Da 23 a 100.</span></h2>
@@ -1343,7 +1516,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 <!-- ═══ RISULTATI ═══ -->
 <!-- ═══ L'UTILE ═══ -->
 <!-- ═══ CAPITOLO 03: i conti ═══ -->
-<section class="cap fx" id="atto-conti" aria-labelledby="cap-conti">
+<section class="solo-d cap fx" id="atto-conti" aria-labelledby="cap-conti">
   <div class="wrap">
     <p class="cap-k">02 · I conti</p>
     <h2 id="cap-conti">Poi si guida sull'utile.</h2>
@@ -1352,7 +1525,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   <img class="cap-mark" src="images/brand/mark-bianco.svg" alt="" aria-hidden="true">
 </section>
 
-<section class="vs-sec" id="come-lavoriamo">
+<section class="solo-d vs-sec" id="come-lavoriamo">
   <div class="wrap">
     <div class="sec-head fx">
       <h2>Il fatturato è un numero. <span>L'utile è quello che resta.</span></h2>
@@ -1390,7 +1563,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 </section>
 
 <!-- ═══ ROAS O UTILE ═══ -->
-<section class="vs-sec" id="roas-o-utile">
+<section class="solo-d vs-sec" id="roas-o-utile">
   <div class="wrap">
     <div class="sec-head fx">
       <h2>Il ROAS più alto <span>non è il mese migliore.</span></h2>
@@ -1431,7 +1604,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 </section>
 
 <!-- ═══ IL BUDGET ═══ -->
-<section class="vs-sec alt" id="budget">
+<section class="solo-d vs-sec alt" id="budget">
   <div class="wrap">
     <div class="sec-head fx">
       <h2>Il budget va <span>dove si vince l'asta.</span></h2>
@@ -1506,7 +1679,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 </section>
 
 <!-- ═══ IL MAGAZZINO ═══ -->
-<section class="vs-sec" id="magazzino">
+<section class="solo-d vs-sec" id="magazzino">
   <div class="wrap">
     <div class="sec-head fx">
       <h2>La merce ferma <span>è denaro fermo.</span></h2>
@@ -1540,7 +1713,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 </section>
 
 <!-- ═══ LA TESI: chiude i conti ═══ -->
-<section class="tesi" id="tesi" aria-labelledby="tesi-t">
+<section class="solo-d tesi" id="tesi" aria-labelledby="tesi-t">
   <div class="wrap">
     <h2 id="tesi-t" class="fx">Per questo possiamo farci pagare così: <span>a percentuale sul venduto in più, con una quota decisa insieme in base alla situazione di partenza.</span></h2>
     <p class="fx">Il rischio è dell'impresa, e lo sappiamo. Leggiamo l'utile ogni mattina, mettiamo il budget dove rende, trattiamo il magazzino come un costo. Nessuna fee fissa.</p>
@@ -1548,7 +1721,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 </section>
 
 <!-- ═══ CHI GUIDA ═══ -->
-<section class="who" id="chi-guida">
+<section class="solo-d who" id="chi-guida">
   <div class="wrap">
     <div class="who-grid">
       <div class="who-photo fx"><img src="images/antonio-pratola.jpg" alt="Antonio Pratola, fondatore di Orizon ADV" loading="lazy" width="333" height="444"></div>
@@ -1572,7 +1745,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 </section>
 
 <!-- ═══ SCAN FINALE ═══ -->
-<section class="end" id="scan-finale">
+<section class="solo-d end" id="scan-finale">
   <div class="wrap">
     <h2 class="fx">Vediamo cosa c'è da accendere <span>nel tuo negozio.</span></h2>
     <p class="sub fx">Il catalogo si accende, i conti si leggono ogni mattina. Mettici l'indirizzo: ti diciamo dove sta il fatturato che il catalogo lascia sul tavolo, e se vale la pena lavorare insieme.</p>
@@ -1589,7 +1762,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 </section>
 
 <!-- ═══ FOOTER ═══ -->
-<footer>
+<footer class="solo-d">
   <div class="wrap">
     <div class="foot">
       <div>
@@ -1760,6 +1933,46 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && m.classList.contains('open')) closeMenu(); });
   }
 })();
+  /* ── telefono: le sei schermate ── */
+  (function(){
+    var stack = document.getElementById('mstack'); if (!stack) return;
+    var pans = Array.prototype.slice.call(stack.querySelectorAll('.xp')), dots = document.querySelectorAll('#mdots i'), prog = document.getElementById('mprog'), mdots = document.getElementById('mdots');
+    var stretto2 = window.matchMedia('(max-width: 768px)');
+    function conta(el, fine, ms, da){ var t0 = null; function passo(ts){ if (t0 === null) t0 = ts; var f = Math.min(1, (ts - t0) / ms); f = 1 - Math.pow(1 - f, 3); el.textContent = Math.round(da + (fine - da) * f); if (f < 1) requestAnimationFrame(passo); } requestAnimationFrame(passo); setTimeout(function(){ el.textContent = fine; }, ms + 120); }
+    var fatto = [];
+    function accendi(p){
+      if (fatto.indexOf(p) >= 0) return; fatto.push(p);
+      p.classList.add('on');
+      p.querySelectorAll('[data-conta]').forEach(function(el){
+        var fine = parseInt(el.getAttribute('data-conta'), 10), da = parseInt(el.getAttribute('data-da') || '0', 10), ms = parseInt(el.getAttribute('data-ms') || '1200', 10), rit = parseInt(el.getAttribute('data-ritardo') || '250', 10);
+        setTimeout(function(){ conta(el, fine, ms, da); }, rit);
+      });
+    }
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (!e.isIntersecting) return; accendi(e.target); var n = pans.indexOf(e.target); dots.forEach(function(d, k){ d.classList.toggle('on', k === n); }); mdots.classList.toggle('chiaro', e.target.classList.contains('xp5')); });
+    }, { threshold: 0.35 });
+    pans.forEach(function(p){ io.observe(p); });
+    var tops = [];
+    function misura(){ var acc = stack.offsetTop; tops = pans.map(function(p){ var t0 = acc; acc += p.offsetHeight; return t0; }); }
+    function aggiorna(){
+      if (!stretto2.matches) return;
+      var y = window.scrollY, vh = window.innerHeight;
+      var h = document.documentElement.scrollHeight - vh;
+      prog.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, y / h) : 0) + ')';
+      for (var i = 0; i < pans.length - 1; i++) {
+        var inizio = tops[i + 1] - vh;
+        var c = Math.min(1, Math.max(0, (y - inizio) / vh));
+        pans[i].style.setProperty('--c', c.toFixed(3));
+      }
+    }
+    window.addEventListener('scroll', aggiorna, { passive: true });
+    window.addEventListener('resize', function(){ misura(); aggiorna(); });
+    misura(); aggiorna();
+    setTimeout(function(){ misura(); aggiorna(); }, 600);
+    var mb = document.getElementById('mburger'), menu = document.querySelector('.mobile-menu');
+    if (mb && menu) mb.addEventListener('click', function(){ menu.classList.add('open'); document.body.style.overflow = 'hidden'; mb.setAttribute('aria-expanded', 'true'); });
+    if (menu) { menu.querySelectorAll('a, .mobile-close').forEach(function(a){ a.addEventListener('click', function(){ if (mb) mb.setAttribute('aria-expanded', 'false'); }); }); }
+  })();
 </script>
 </body>
 </html>
