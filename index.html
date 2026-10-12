@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Orizon ADV — Il tuo e-commerce ha già tutto. Noi lo accendiamo.</title>
-<meta name="description" content="Orizon Ignition riscrive le schede, traduce in ogni lingua, completa dati e feed di tutto il catalogo. Noi gestiamo le campagne a percentuale sul venduto. Fai lo scan del tuo negozio.">
+<meta name="description" content="Orizon Ignition riscrive le schede, traduce in ogni lingua, completa dati e feed di tutto il catalogo. Noi gestiamo le campagne e ci paghi a percentuale, con una quota decisa insieme in base alla situazione di partenza. Fai lo scan del tuo negozio.">
 <link rel="canonical" href="https://www.orizonadv.it/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Orizon ADV — Il tuo e-commerce ha già tutto. Noi lo accendiamo.">
-<meta property="og:description" content="Orizon Ignition accende il catalogo: schede, traduzioni, dati, feed. Noi gestiamo le campagne a percentuale sul venduto.">
+<meta property="og:description" content="Orizon Ignition accende il catalogo: schede, traduzioni, dati, feed. Noi gestiamo le campagne e ci paghi a percentuale, con una quota decisa insieme in base alla situazione di partenza.">
 <meta property="og:url" content="https://www.orizonadv.it/">
 <meta property="og:locale" content="it_IT">
 <meta property="og:site_name" content="Orizon ADV">
@@ -49,7 +49,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .nav-links a{position:relative}
 .nav-links a[aria-current="true"]{color:var(--black)}
 .nav-links a[aria-current="true"]::after{content:'';position:absolute;left:0;right:0;bottom:-9px;height:2px;border-radius:2px;background:var(--blue)}
-.cta-m{display:none}
+.cta-m,.prova-m{display:none}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:14px;line-height:1;padding:10px 16px;border-radius:8px;text-decoration:none;cursor:pointer;border:1px solid transparent;transition:background .2s,color .2s,border-color .2s}
 .btn-primary{background:var(--blue);color:var(--white)}
 .btn-primary:hover{background:var(--blue-d)}
@@ -120,6 +120,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .gr.head{padding:12px 0 8px;border-top:0;font-size:12px;font-weight:600;color:var(--black-m)}
 .gr.head .dopo{color:var(--blue)}
 .gr-a{font-weight:600;font-size:14px;color:var(--black);padding-top:1px}
+.gr-a small{display:block;font-size:11px;font-weight:400;color:var(--black-m);margin-top:2px}
 .gr-o,.gr-d{display:grid;grid-template-columns:1fr 30px;column-gap:10px;align-items:center;font-size:13.5px}
 .gr-o b,.gr-d b{font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
 .gr-o b{color:var(--black-m)}
@@ -201,14 +202,15 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .chart,.chart-m{width:100%;height:auto;display:block;font-family:var(--font)}
 .chart-m{display:none;max-width:420px}
 .chart .grid line{stroke:var(--line);stroke-width:1}
+.chart .grid text,.chart-m .grid text{font-size:12px;fill:var(--black-m)}
 .chart .lab text{font-size:12px;fill:var(--black-m)}
 .chart .lab text.v{font-size:11px;font-weight:600;fill:var(--black)}
 .chart .lab text.yoy{font-size:17px;font-weight:600;fill:var(--blue)}
 .chart .lab text.yoy.big,.chart-m .lab text.yoy.big{fill:var(--white)}
 .chart .pill,.chart-m .pill{fill:var(--blue)}
-.chart .lab text.ax{font-size:10.5px;fill:var(--black-l)}
+.chart .lab text.ax{font-size:11px;fill:var(--black-m)}
 .chart .lab text.yoy.n,.chart-m .lab text.yoy.n{fill:var(--black-m)}
-.chart .lab text.k{font-size:11.5px;fill:var(--black-l)}
+.chart .lab text.k{font-size:11.5px;fill:var(--black-m)}
 .chart-m .lab text{font-size:12px;fill:var(--black-m)}
 .chart-m .lab text.v{font-size:10.5px;font-weight:600;fill:var(--black)}
 .chart-m .lab text.yoy{font-size:15px;font-weight:600;fill:var(--blue)}
@@ -220,7 +222,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .js .growth.in .chart-m .bars rect{transform:scaleX(1)}
 .legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px;font-size:12px;color:var(--black-m)}
 .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
-.legend .l1{background:var(--blue-ll)}.legend .l2{background:var(--blue)}.legend .l4{background:none;width:auto;height:auto;font-weight:600;color:var(--blue);font-size:12px;margin-right:4px}.legend .l4::before{content:'+309%'}
+.legend .l1{background:var(--blue-ll)}.legend .l2{background:var(--blue)}.legend .l4{background:none;width:auto;height:auto;font-weight:600;color:var(--blue);font-size:12px;margin-right:4px}.legend .l4::before{content:'+%'}
 
 .hero-end{height:88px}
 .hero-h2{margin:76px auto 0;font-size:clamp(24px,2.6vw,34px);line-height:1.12;letter-spacing:-.025em;max-width:880px;text-wrap:balance}
@@ -297,7 +299,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .zone .zl{display:block;font-size:11.5px;font-weight:600;color:var(--black-m);margin-bottom:6px}
 .zl .zon-i{display:none;color:var(--blue);font-weight:600;margin-left:7px}
 .card.on-labels #z-labels .zon-i,.card.on-feed #z-feed .zon-i,.card.on-track #z-track .zon-i{display:inline}
-.zone .zoff{font-size:12.5px;color:var(--black-l);line-height:1.45}
+.zone .zoff{font-size:12.5px;color:var(--black-m);line-height:1.45}
 .zone .zon{display:none}
 .card.on-labels #z-labels .zoff,.card.on-feed #z-feed .zoff,.card.on-track #z-track .zoff{display:none}
 .card.on-labels #z-labels .zon,.card.on-feed #z-feed .zon,.card.on-track #z-track .zon{display:grid}
@@ -481,7 +483,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .vr.big>span.b b{color:var(--blue)}
 .vr.tot{background:var(--black);color:var(--white);padding:16px 20px;border-top:0}
 .vr.tot>span.b{background:rgba(255,255,255,.08);border-left-color:rgba(255,255,255,.14);margin:-16px -20px -16px 0;padding:16px 20px 16px 12px;position:relative}
-.vr.tot b{display:block;font-size:30px;font-weight:600;letter-spacing:-.035em;line-height:1}
+.vr.tot b{display:block;font-size:30px;font-weight:600;letter-spacing:-.035em;line-height:1;white-space:nowrap}
 .vr.tot>span.b b{color:var(--green)}
 .vr.tot small{color:rgba(255,255,255,.7)}
 .vr.tot em{position:absolute;top:-14px;right:14px;font-style:normal;font-size:12.5px;font-weight:600;color:var(--black);background:var(--green);border-radius:999px;padding:4px 10px;white-space:nowrap}
@@ -637,7 +639,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 .foot .brand{height:auto}
 .foot .brand img{height:20px}
 .foot p{font-size:14px;color:var(--black-m);margin-top:12px;max-width:300px}
-.foot h4{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--black-l);margin-bottom:12px}
+.foot h4{font-size:13px;font-weight:600;color:var(--black-m);margin-bottom:12px}
 .foot a{display:block;font-size:14px;color:var(--black-m);text-decoration:none;margin-bottom:8px;transition:color .2s}
 .foot a:hover{color:var(--black)}
 .foot-bottom{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--black-l)}
@@ -725,7 +727,17 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .gos-top{grid-template-columns:1fr;gap:14px;padding:16px 16px 14px}
   .gos-ab b{font-size:38px}
   .gos-tab{padding:0 16px 4px}
-  .gr{grid-template-columns:1fr;gap:8px;padding:14px 0}
+  .prova-m{display:block;margin:14px 0 0;padding:14px 16px;border:1px solid var(--line-2);border-radius:14px;background:var(--white);text-decoration:none;color:var(--black);text-align:left;box-shadow:0 1px 2px rgba(12,23,19,.04),0 14px 34px -18px rgba(12,23,19,.16)}
+  .prova-m .k{display:block;font-size:12.5px;color:var(--black-m)}
+  .prova-m b{display:block;font-size:30px;font-weight:600;letter-spacing:-.035em;line-height:1.1;margin-top:4px}
+  .prova-m b em{font-style:normal;color:var(--blue)}
+  .prova-m span:last-child{display:block;font-size:12.5px;color:var(--black-m);margin-top:4px}
+  .gr{grid-template-columns:1fr 1fr;gap:6px 12px;padding:12px 0;position:relative;cursor:pointer}
+  .gr-a{grid-column:1/-1;padding-right:28px}
+  .gr-a::after{content:'';position:absolute;right:4px;top:16px;width:9px;height:9px;border-right:1.5px solid var(--black-m);border-bottom:1.5px solid var(--black-m);transform:rotate(45deg);transition:transform .2s}
+  .gr.aperto .gr-a::after{transform:rotate(225deg);top:20px}
+  .gr-c,.gr-g{display:none;grid-column:1/-1}
+  .gr.aperto .gr-c,.gr.aperto .gr-g{display:block}
   .gr.head{display:none}
   .gr-a{font-size:15px}
   .gr-o::before,.gr-c::before,.gr-g::before,.gr-d::before{display:block;font-size:11.5px;font-weight:600;color:var(--black-m);margin-bottom:4px}
@@ -733,6 +745,8 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .gr-c::before{content:'Cosa accendiamo'}
   .gr-g::before{content:'Perché Google lo premia'}
   .gr-d::before{content:'Acceso';color:var(--blue);grid-column:1/-1}
+  .gr-o small{display:none}
+  .gr.aperto .gr-o small{display:block}
   .gos-oltre{margin:4px 16px 0}
   .gos-doc{padding:12px 16px 16px}
   .bridge{padding:28px 0 32px}
@@ -747,12 +761,22 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .bl-row{grid-template-columns:1fr}
   .bl-row+.bl-row{border-top:1px solid var(--line-2)}
   .bl-row>span{border-top:0;padding:10px 16px;font-size:14px}
-  .bl-row .lv{border-right:0;padding:14px 16px 4px}
+  .bl-row .lv{border-right:0;padding:14px 44px 4px 16px;position:relative;cursor:pointer}
+  .bl-row .lv::after{content:'';position:absolute;right:18px;top:20px;width:9px;height:9px;border-right:1.5px solid var(--black-m);border-bottom:1.5px solid var(--black-m);transform:rotate(45deg)}
+  .bl-row.aperto .lv::after{transform:rotate(225deg);top:24px}
+  .bl-row .no{display:none}
+  .bl-row.aperto .no{display:flex}
   .bl-row .si{border-left:0;padding-bottom:14px}
   .bl-note{text-align:left;font-size:14px}
   .scan button{justify-content:center}
   .growth{margin-top:36px;padding:18px 16px 14px}
-  .growth-stats{gap:16px}
+  .growth-stats{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px}
+  .vs-why h3{position:relative;padding-right:28px;cursor:pointer}
+  .vs-why h3::after{content:'';position:absolute;right:6px;top:4px;width:9px;height:9px;border-right:1.5px solid var(--black-m);border-bottom:1.5px solid var(--black-m);transform:rotate(45deg)}
+  .vs-why.aperto h3::after{transform:rotate(225deg);top:8px}
+  .vs-why ol,.vs-why .vs-note{display:none}
+  .vs-why.aperto ol,.vs-why.aperto .vs-note{display:grid}
+  .vs-why.aperto .vs-note{display:block}
   .growth-stats b{font-size:24px}
   .chart{display:none}
   .chart-m{display:block}
@@ -860,7 +884,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   <a href="#chi-guida">Chi guida</a>
   <a href="#scan" style="color:var(--blue)">Fai lo scan</a>
 </div>
-<aside class="cta-m" id="cta-m"><span>Lo scan è gratis. Risposta entro 24 ore.</span><a href="#scan">Fai lo scan</a></aside>
+<aside class="cta-m" id="cta-m"><span>Lo scan è gratis. Risposta entro 24 ore.</span><a href="/contatti">Fai lo scan</a></aside>
 
 <!-- ═══ HERO ═══ -->
 <header class="hero" id="top">
@@ -889,42 +913,42 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         </div>
         <div class="gos-top-t">
           <div class="gf-h"><i></i><span>OrizonScan · negozio di moda · 17.432 prodotti · 20 settembre 2026</span></div>
-          <p class="gos-top-p"><b>Oggi:</b> catalogo caricato ma spento, 14.763 prodotti su 17.432 senza un testo che Google possa preferire a un altro negozio. <b>Acceso:</b> ogni area a 100, con le cinque mosse qui sotto.</p>
+          <p class="gos-top-p"><b>Oggi:</b> catalogo caricato ma spento, 14.763 prodotti su 17.432 senza un testo che Google possa preferire a un altro negozio. <b>Acceso:</b> ogni area a 100, con le cinque mosse qui sotto. L'indice è la media pesata delle aree: il peso sta accanto a ogni nome.</p>
           <ol class="gos-log" id="gos-log" aria-live="polite" hidden></ol>
         </div>
       </div>
       <div class="gos-tab" role="table" aria-label="Le cinque aree: oggi, cosa accendiamo, perché Google lo premia, acceso">
         <div class="gr head" role="row"><span role="columnheader">Area</span><span role="columnheader">Oggi</span><span role="columnheader">Cosa accendiamo</span><span role="columnheader">Perché Google lo premia</span><span class="dopo" role="columnheader">Acceso</span></div>
         <div class="gr" role="row">
-          <span class="gr-a" role="rowheader">Schede prodotto</span>
+          <span class="gr-a" role="rowheader">Schede prodotto<small>peso 30</small></span>
           <span class="gr-o" role="cell"><i class="ga-bar male"><i style="--v:15%"></i></i><b>15</b><small>14.763 su 17.432 senza un testo proprio</small></span>
           <span class="gr-c" role="cell"><a href="#ignition">Una scheda per prodotto, scritta dai suoi dati, nelle 5 lingue del sito <em>leva 01</em></a></span>
           <span class="gr-g" role="cell">Un testo unico si indicizza; gli assistenti AI hanno qualcosa da citare.</span>
           <span class="gr-d" role="cell"><i class="ga-bar"><i class="post" style="--v:100%;--from:15%"></i></i><b data-from="15" data-n="100">100</b><small class="ok">17.432 schede proprie, in 5 lingue</small></span>
         </div>
         <div class="gr" role="row">
-          <span class="gr-a" role="rowheader">Catalogo vivo</span>
+          <span class="gr-a" role="rowheader">Catalogo vivo<small>peso 10</small></span>
           <span class="gr-o" role="cell"><i class="ga-bar male"><i style="--v:32%"></i></i><b>32</b><small>11.932 prodotti online ma esauriti</small></span>
           <span class="gr-c" role="cell"><a href="#magazzino">Esauriti fuori da feed e campagne ogni mattina; riordini in lista <em>leva 06</em></a></span>
           <span class="gr-g" role="cell">Nessun click pagato su un prodotto che non si può comprare.</span>
           <span class="gr-d" role="cell"><i class="ga-bar"><i class="post" style="--v:100%;--from:32%"></i></i><b data-from="32" data-n="100">100</b><small class="ok">11.932 esauriti fuori da feed e campagne</small></span>
         </div>
         <div class="gr" role="row">
-          <span class="gr-a" role="rowheader">Feed e attributi</span>
+          <span class="gr-a" role="rowheader">Feed e attributi<small>peso 20</small></span>
           <span class="gr-o" role="cell"><i class="ga-bar medio"><i style="--v:45%"></i></i><b>45</b><small>codice a barre valido e peso: mancano</small></span>
           <span class="gr-c" role="cell"><a href="#ignition">Codice a barre, peso, colore, materiale: campi pieni, feed supplementare <em>leva 03</em></a></span>
           <span class="gr-g" role="cell">Shopping abbina il prodotto alla ricerca giusta e lo mostra nei filtri.</span>
           <span class="gr-d" role="cell"><i class="ga-bar"><i class="post" style="--v:100%;--from:45%"></i></i><b data-from="45" data-n="100">100</b><small class="ok">codice a barre, peso, colore e materiale: pieni</small></span>
         </div>
         <div class="gr" role="row">
-          <span class="gr-a" role="rowheader">Testo per Google</span>
+          <span class="gr-a" role="rowheader">Testo per Google<small>peso 15</small></span>
           <span class="gr-o" role="cell"><i class="ga-bar medio"><i style="--v:60%"></i></i><b>60</b><small>15 pagine su 25 senza una descrizione</small></span>
           <span class="gr-c" role="cell"><a href="#ignition">Titolo e riga nella misura che Google mostra intera <em>leva 02</em></a></span>
           <span class="gr-g" role="cell">A parità di posizione, il click.</span>
           <span class="gr-d" role="cell"><i class="ga-bar"><i class="post" style="--v:100%;--from:60%"></i></i><b data-from="60" data-n="100">100</b><small class="ok">titolo e riga interi su 17.432 pagine</small></span>
         </div>
         <div class="gr" role="row">
-          <span class="gr-a" role="rowheader">Tracciamento</span>
+          <span class="gr-a" role="rowheader">Tracciamento<small>peso 10</small></span>
           <span class="gr-o" role="cell"><i class="ga-bar medio"><i style="--v:67%"></i></i><b>67</b><small>manca Meta</small></span>
           <span class="gr-c" role="cell"><a href="#ignition">Meta aggiunto; ogni evento dal server, contato una volta <em>leva 04</em></a></span>
           <span class="gr-g" role="cell">Le campagne imparano da ogni ordine, non da una parte.</span>
@@ -934,6 +958,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       <div class="gos-oltre"><b>Oltre il 100, da fuori si vede già:</b><i>5 lingue del sito, nessun mercato estero attivo</i><i>nessuna recensione visibile a Google</i><i>198 marche senza una pagina propria</i></div>
       <p class="gos-doc">Tutto questo arriva in un documento di quattro fogli, <b>entro 24 ore</b>, senza impegno. Poi, se vuoi, mezz'ora al telefono sui tuoi numeri.</p>
     </div>
+    <a class="prova-m fx" href="#risultati"><span class="k">Dodici mesi dopo l'accensione, un e-commerce di climatizzazione</span><b>8,27 M€ <em>+53%</em></b><span>12.100 ordini, +51% · dal suo pannello Shopify · la prova in fondo →</span></a>
   </div>
   <div class="hero-end"></div>
 </header>
@@ -951,7 +976,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 <section class="leve" id="leve">
   <div class="wrap">
     <div class="bridge fx" id="prima-dopo" aria-label="Prima e dopo">
-      <h2>Sei leve. <span>Quattro si accendono nella scheda qui sotto, due si guidano ogni mattina, nei conti.</span></h2>
+      <h2>Sei leve. <span>Si accendono nella scheda qui sotto e si guidano ogni mattina, nei conti.</span></h2>
       <p class="bl-legend" aria-hidden="true"><span><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i>il giorno dello scan</span><span class="on"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i>dodici mesi dopo</span></p>
       <div class="bl" role="table" aria-label="Sei leve del catalogo: il giorno dello scan e dodici mesi dopo">
         <div class="bl-head" role="row"><span role="columnheader">Leva</span><span role="columnheader">Il giorno dello scan</span><span class="on" role="columnheader">Dodici mesi dopo</span></div>
@@ -1095,7 +1120,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
           <div>
             <h3>I dati che Google chiede <em>Dati prodotto · leva 03</em></h3>
             <p class="off">Oggi: categoria, materiale e peso a metà. Nessuno li compila a mano su mille prodotti.</p>
-            <p class="fact"><b><mark>7 campi</mark> letti e messi in ordine</b>: categoria Google, tipo, materiale, tre varianti con giacenze, sei tag. <b>Peso e GTIN mancano</b>: la piattaforma li segnalala e li propone, li mette solo col tuo sì.</p>
+            <p class="fact"><b><mark>7 campi</mark> letti e messi in ordine</b>: categoria Google, tipo, materiale, tre varianti con giacenze, sei tag. <b>Peso e GTIN mancano</b>: la piattaforma li segnala e li propone, li mette solo col tuo sì.</p>
           </div>
         </div>
 
@@ -1157,7 +1182,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       <div class="vs two fx" role="table" aria-label="Il conto economico di un mese del negozio di climatizzazione, riga per riga">
         <div class="vr head" role="row"><span role="columnheader">Un mese del negozio</span><span class="b" role="columnheader">letto oggi dal suo Shopify</span></div>
         <div class="vr" role="row"><span>Venduto in Shopify, lordo <small>374 ordini</small></span><span class="b">350.095 €</span></div>
-        <div class="vr m" role="row"><span>− IVA 22% <small>non è tua, la giri allo Stato</small></span><span class="b">61.608 €</span></div>
+        <div class="vr m" role="row"><span>− IVA <small>letta dagli ordini, aliquota per aliquota: non è tua, la giri allo Stato</small></span><span class="b">61.608 €</span></div>
         <div class="vr m" role="row"><span>− Spedizioni <small>incassate dai clienti, girate al corriere</small></span><span class="b">15.275 €</span></div>
         <div class="vr sub" role="row"><span>= Merce netta, prima dei resi</span><span class="b">273.211 €</span></div>
         <div class="vr m" role="row"><span>− Resi, netti IVA <small>11,4% del lordo, letti il giorno del reso, non a fine mese</small></span><span class="b">32.715 €</span></div>
@@ -1216,7 +1241,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         <ol>
           <li><b>Il ROAS premia i prodotti facili.</b> Bestseller scontati, grandi marche a margine sottile, prezzo sotto il benchmark: convertono subito, il ROAS vola — e ogni vendita lascia pochi euro. Spesso tornano anche indietro.</li>
           <li><b>L'utile legge il margine di ogni prodotto.</b> Prezzo meno costo d'acquisto, meno IVA, meno resi: è l'etichetta nel feed. Il budget va dove ogni vendita lascia di più, anche se costa qualche click in più.</li>
-          <li><b>Per questo spendiamo di più e accettiamo un ROAS più basso.</b> Dieci mila euro in più di pubblicità, quarantamila di vendite in meno, <strong>il doppio dell'utile</strong>. Ed è il numero su cui guidiamo.</li>
+          <li><b>Per questo spendiamo di più e accettiamo un ROAS più basso.</b> Diecimila euro in più di pubblicità, quarantamila di vendite in meno, <strong>il doppio dell'utile</strong>. Ed è il numero su cui guidiamo.</li>
         </ol>
         <p class="vs-note">Numeri tondi di un mese tipo, stesso negozio: cambia solo dove va il budget. IVA 22%, resi 11,4% (il ritmo vero del negozio di climatizzazione), spedizioni 3,5%, commissioni 1,5%; costo d'acquisto 80% del venduto sui prodotti «da ROAS», 66% su quelli scelti per margine.</p>
       </div>
@@ -1347,16 +1372,16 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   <div class="wrap">
     <div class="sec-head">
       <h2>Dodici mesi dopo l'accensione. <span>+53% di vendite, con la prova.</span></h2>
-      <p>Un e-commerce di climatizzatori, caldaie ed elettrodomestici: <strong>catalogo acceso, campagne guidate sull'utile</strong>. Spendeva le stesse cifre ogni mese su un business stagionale; ora la spesa segue la stagione, categoria per categoria, prodotto per prodotto.</p>
+      <p>Un e-commerce di climatizzatori, caldaie ed elettrodomestici: <strong>catalogo acceso, campagne guidate sulla stagione e sulle categorie che rendono</strong>. Spendeva le stesse cifre ogni mese su un business stagionale; ora la spesa segue la stagione, categoria per categoria, prodotto per prodotto.</p>
     </div>
     <div class="growth fx" id="growth">
       <div class="growth-head">
         <div><span class="growth-k"><i class="tag on">Dodici mesi dopo</i>Un e-commerce di climatizzazione</span><span class="growth-s">vendite mese per mese dal suo pannello Shopify: <b>ottobre 2025 – settembre 2026</b> contro lo stesso mese dell'anno prima</span></div>
         <div class="growth-stats">
-          <div><b>+53%</b><span>vendite totali, dal pannello<br>8,27 M€ contro 5,40 M€</span></div>
-          <div><b>+49%</b><span>al netto di resi e sconti<br>8,08 M€ contro 5,41 M€</span></div>
-          <div><b>+135%</b><span>luglio – settembre, netto<br>2,73 M€ contro 1,16 M€</span></div>
-          <div><b>+51%</b><span>ordini<br>12.100 in 12 mesi</span></div>
+          <div><b>+53%</b><span>vendite totali dal pannello<br>8,27 contro 5,40 M€ · 11 ott – 11 ott</span></div>
+          <div><b>+49%</b><span>al netto di resi e sconti, le barre<br>8,08 contro 5,41 M€ · ott – set</span></div>
+          <div><b>+135%</b><span>luglio – settembre, netto<br>2,73 contro 1,16 M€</span></div>
+          <div><b>+51%</b><span>ordini<br>12.100 in dodici mesi</span></div>
         </div>
       </div>
       <svg class="chart" viewBox="0 0 1180 404" role="img" aria-label="Vendite mensili di un e-commerce di climatizzazione, ottobre 2025 – settembre 2026 contro lo stesso mese dell'anno prima: 8,08 M€ contro 5,41 M€, +49%; luglio–settembre +135%">
@@ -1421,12 +1446,10 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       <text class="yoy" x="946.2" y="27" text-anchor="middle">+75%</text>
       <text class="v" x="964.2" y="106.2" text-anchor="middle">1,21 M€</text>
       <text x="946.2" y="360" text-anchor="middle">lug</text>
-      <rect class="pill" x="1004.5" y="6" width="70" height="30" rx="15"/>
-      <text class="yoy big" x="1039.8" y="27" text-anchor="middle">+309%</text>
+      <text class="yoy" x="1039.8" y="27" text-anchor="middle">+309%</text>
       <text class="v" x="1057.8" y="209.7" text-anchor="middle">0,66 M€</text>
       <text x="1039.8" y="360" text-anchor="middle">ago</text>
-      <rect class="pill" x="1098.0" y="6" width="70" height="30" rx="15"/>
-      <text class="yoy big" x="1133.2" y="27" text-anchor="middle">+179%</text>
+      <text class="yoy" x="1133.2" y="27" text-anchor="middle">+179%</text>
       <text class="v" x="1151.2" y="170.3" text-anchor="middle">0,87 M€</text>
       <text x="1133.2" y="360" text-anchor="middle">set</text>
       <text class="ax" x="50" y="26" text-anchor="end">sull'anno</text><text class="ax" x="50" y="39" text-anchor="end">prima</text>
@@ -1491,15 +1514,13 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       <text class="yoy" x="342" y="388" text-anchor="end">+75%</text>
       <text x="0" y="427">ago</text>
       <text class="v" x="138.6" y="432">0,66 M€</text>
-      <rect class="pill" x="286" y="410" width="64" height="26" rx="13"/>
-      <text class="yoy big" x="342" y="428" text-anchor="end">+309%</text>
+      <text class="yoy" x="342" y="428" text-anchor="end">+309%</text>
       <text x="0" y="467">set</text>
       <text class="v" x="170.6" y="472">0,87 M€</text>
-      <rect class="pill" x="286" y="450" width="64" height="26" rx="13"/>
-      <text class="yoy big" x="342" y="468" text-anchor="end">+179%</text>
+      <text class="yoy" x="342" y="468" text-anchor="end">+179%</text>
       </g></svg>
       <div class="legend"><span><i class="l1"></i>ottobre 2024 – settembre 2025</span><span><i class="l2"></i>ottobre 2025 – settembre 2026</span><span><i class="l4"></i>crescita del mese sull'anno prima</span></div>
-      <p class="shot-note">Ogni mese due barre: l'anno prima chiaro, quest'anno blu, e sopra la crescita su quel mese. Le barre sono vendite nette, resi e sconti tolti; +53% e 8,27 M€ sono le vendite totali del pannello all'11 ottobre 2026, dodici mesi mobili.</p>
+      <p class="shot-note">Ogni mese due barre: l'anno prima chiaro, quest'anno blu, e sopra la crescita su quel mese. Due misure, due finestre: le barre sono vendite nette (resi e sconti tolti) da ottobre a settembre, +49%; il +53% e gli 8,27 M€ sono le vendite totali del pannello Shopify dall'11 ottobre 2025 all'11 ottobre 2026, con dentro IVA, spedizioni e resi non ancora tornati. Per questo l'anno prima vale 5,41 netto e 5,40 totale: non sono gli stessi dodici mesi.</p>
     </div>
     <div class="res-grid">
       <div class="proof fx">
@@ -1515,7 +1536,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       <div class="figs fx">
         <div class="fig"><b>+143%</b><span><strong>Visite al negozio</strong>: 509 mila sessioni in dodici mesi, con gli ordini a +51%.</span></div>
         <div class="fig"><b>1,21 M€</b><span><strong>Il mese più alto</strong>: luglio 2026, da 0,69 M€ del luglio 2025. Netto, come le barre sopra.</span></div>
-        <div class="fig"><b>x50</b><span><strong>Vendite per euro di pubblicità</strong>, Meta e Google insieme, sui dodici mesi.</span></div>
+        <div class="fig"><b>x50</b><span><strong>MER</strong>: tutte le vendite dei dodici mesi su tutta la spesa pubblicitaria, Meta e Google insieme. È un'altra misura dal ROAS di una campagna: lì accettiamo un numero più basso per avere più utile.</span></div>
       </div>
     </div>
     <p class="res-note">Tutti i numeri vengono dal pannello Shopify e dagli account pubblicitari del cliente, letti ogni mattina. <a href="/case-study/climatizzazione">Il caso completo →</a> · <a href="/work">Gli altri settori, stesso metodo →</a></p>
@@ -1615,10 +1636,19 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     links.forEach(function(l){ if (l.getAttribute('data-atto') === attivo) l.setAttribute('aria-current', 'true'); else l.removeAttribute('aria-current'); });
     if (ctaM && scanTop) {
       var a = scanTop.getBoundingClientRect(), b = scanEnd ? scanEnd.getBoundingClientRect() : null;
-      ctaM.classList.toggle('show', a.bottom < 0 && !(b && b.top < window.innerHeight));
+      var ig = document.getElementById('ignition'), r = ig ? ig.getBoundingClientRect() : null, dentro = r && r.top < window.innerHeight * 0.6 && r.bottom > window.innerHeight * 0.4;
+      ctaM.classList.toggle('show', a.bottom < 0 && !dentro && !(b && b.top < window.innerHeight));
     }
   }
   window.addEventListener('scroll', segna, { passive: true });
+  /* ── Sul telefono le righe lunghe si aprono al tocco: scheda GOS, leve, «Perché» dei conti ── */
+  var stretto = window.matchMedia && window.matchMedia('(max-width: 768px)');
+  document.querySelectorAll('.gos-tab .gr:not(.head), #leve .bl-row').forEach(function(r){
+    r.addEventListener('click', function(e){ if (!stretto || !stretto.matches || e.target.closest('a')) return; r.classList.toggle('aperto'); });
+  });
+  document.querySelectorAll('.vs-why h3').forEach(function(h){
+    h.addEventListener('click', function(){ if (!stretto || !stretto.matches) return; h.parentNode.classList.toggle('aperto'); });
+  });
   window.addEventListener('resize', segna);
   segna();
 
