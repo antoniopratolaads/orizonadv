@@ -146,21 +146,25 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .bridge-line::after{content:'';position:absolute;left:-4px;bottom:-5px;width:9px;height:9px;border-radius:50%;background:var(--blue)}
 .bridge h2{font-size:clamp(26px,3vw,38px);line-height:1.1;letter-spacing:-.03em;text-wrap:balance;max-width:820px;margin:0 auto;text-align:center}
 .bridge h2 span{color:var(--blue)}
-.bl{margin:26px auto 0;max-width:1040px;border:1px solid var(--line-2);border-radius:16px;background:var(--white);overflow:hidden;box-shadow:0 1px 2px rgba(12,23,19,.04),0 14px 34px -18px rgba(12,23,19,.16)}
-.bl-head,.bl-row{display:grid;grid-template-columns:1fr 1fr}
-.bl-head span{padding:16px 22px 12px}
-.bl-head b{display:block;font-weight:600;font-size:15px;color:var(--black);letter-spacing:-.01em}
-.bl-head em{font-style:normal;font-size:13px;color:var(--black-m)}
-.bl-head .on,.bl-row .si{background:rgba(55,80,247,.05);border-left:1px solid rgba(55,80,247,.15)}
-.bl-head .on b{color:var(--blue)}
-.bl-row span{display:flex;gap:12px;align-items:flex-start;padding:13px 22px;font-size:15px;line-height:1.5;color:var(--black-m);border-top:1px solid var(--line)}
+.bl{margin:28px auto 0;max-width:1180px;border:1px solid var(--line-2);border-radius:16px;background:var(--white);overflow:hidden;box-shadow:0 1px 2px rgba(12,23,19,.04),0 14px 34px -18px rgba(12,23,19,.16)}
+.bl-head,.bl-row{display:grid;grid-template-columns:262px minmax(0,1fr) minmax(0,1.3fr)}
+.bl-head span{padding:13px 20px;font-size:12.5px;font-weight:600;color:var(--black-m);letter-spacing:.01em}
+.bl-head .on{color:var(--blue)}
+.bl-head .on,.bl-row .si{background:rgba(55,80,247,.045);border-left:1px solid rgba(55,80,247,.14)}
+.bl-row>span{padding:15px 20px;border-top:1px solid var(--line);font-size:14.5px;line-height:1.48}
+.bl-row .lv{display:flex;align-items:baseline;gap:10px;font-weight:600;font-size:15px;color:var(--black);letter-spacing:-.01em;border-right:1px solid var(--line)}
+.bl-row .lv em{font-style:normal;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11.5px;font-weight:500;color:var(--black-m)}
+.bl-row .no,.bl-row .si{display:flex;gap:11px;align-items:flex-start}
+.bl-row .no{color:var(--black-m)}
 .bl-row .si{color:var(--black)}
-.bl-row i{flex:none;width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin-top:1px}
+.bl-row i{flex:none;width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin-top:1px}
 .bl-row .no i{background:var(--bg-2);border:1px solid var(--line-2);color:var(--black-m)}
 .bl-row .si i{background:var(--blue);color:#fff}
-.bl-row i .ico{width:12px;height:12px;stroke-width:2.6}
+.bl-row i .ico{width:11px;height:11px;stroke-width:2.6}
+.bl-row .ch{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.bl-row .ch code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11.5px;line-height:1;color:var(--blue-d);background:var(--white);border:1px solid var(--blue-ll);border-radius:6px;padding:4px 7px;white-space:nowrap}
 .bl-legend{display:none}
-.bl-note{margin:18px auto 0;max-width:1040px;font-size:14.5px;color:var(--black-m);text-align:center;text-wrap:balance}
+.bl-note{margin:18px auto 0;max-width:1180px;font-size:14.5px;color:var(--black-m);text-align:center;text-wrap:balance}
 .bl-note strong{color:var(--black);font-weight:600}
 .shot-wrap{margin:56px auto 0;max-width:1180px;position:relative;text-align:left}
 .shot-tag{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:var(--black-m);background:var(--white);border:1px solid var(--line);border-radius:999px;padding:6px 12px 6px 8px;margin-bottom:14px}
@@ -674,10 +678,10 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .bl-legend i .ico{width:10px;height:10px;stroke-width:2.6}
   .bl{margin-top:12px;border-radius:14px}
   .bl-row{grid-template-columns:1fr}
-  .bl-row span{padding:11px 16px;font-size:14.5px}
-  .bl-row .no{border-top:1px solid var(--line-2)}
-  .bl-row:first-of-type .no{border-top:0}
-  .bl-row .si{border-left:0;border-top:0}
+  .bl-row+.bl-row{border-top:1px solid var(--line-2)}
+  .bl-row>span{border-top:0;padding:10px 16px;font-size:14px}
+  .bl-row .lv{border-right:0;padding:14px 16px 4px}
+  .bl-row .si{border-left:0;padding-bottom:14px}
   .bl-note{text-align:left;font-size:14px}
   .scan button{justify-content:center}
   .growth{margin-top:36px;padding:18px 16px 14px}
@@ -826,16 +830,16 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 
     <div class="bridge fx" id="prima-dopo" aria-label="Prima e dopo">
       <i class="bridge-line" aria-hidden="true"></i>
-      <h2>Fra i due c'è Ignition. <span>Cosa cambia in un catalogo, voce per voce.</span></h2>
+      <h2>Fra i due c'è Ignition. <span>Sei leve, dal giorno dello scan a dodici mesi dopo.</span></h2>
       <p class="bl-legend" aria-hidden="true"><span><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i>il giorno dello scan</span><span class="on"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i>dodici mesi dopo</span></p>
-      <div class="bl">
-        <div class="bl-head"><span><b>Il giorno dello scan</b><em>un catalogo caricato, ma spento</em></span><span class="on"><b>Dodici mesi dopo</b><em>ogni voce del catalogo lavora</em></span></div>
-        <div class="bl-row"><span class="no"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i>Schede del fornitore, le stesse di altri dieci negozi: Google ne mostra una.</span><span class="si"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i>Una scheda per prodotto, scritta dai suoi dati e tradotta per ogni mercato: la pagina ha un motivo per essere scelta.</span></div>
-        <div class="bl-row"><span class="no"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i>Feed con colore, materiale e peso vuoti: fuori dai filtri di Shopping.</span><span class="si"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i>I campi del feed pieni: il prodotto compare per «cardigan marrone», non solo per «cardigan».</span></div>
-        <div class="bl-row"><span class="no"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i>Titoli tagliati e descrizioni mozzate nei risultati di Google.</span><span class="si"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i>Titolo e riga nella misura che Google mostra intera: a parità di posizione, il click.</span></div>
-        <div class="bl-row"><span class="no"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i>Prodotti esauriti ancora in vetrina, nel feed e in campagna.</span><span class="si"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i>Gli esauriti escono da soli e rientrano con la merce; i riordini in lista prima della stagione.</span></div>
-        <div class="bl-row"><span class="no"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i>Budget sui click, misurato sul ROAS: cresce il fatturato, non l'utile.</span><span class="si"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i>Budget dove si vince l'asta, misurato sull'utile dopo IVA, resi e spedizioni.</span></div>
-        <div class="bl-row"><span class="no"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i>Acquisti contati a metà, dal browser.</span><span class="si"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i>Ogni ordine contato una volta, dal server: le campagne imparano dai numeri veri.</span></div>
+      <div class="bl" role="table" aria-label="Sei leve del catalogo: il giorno dello scan e dodici mesi dopo">
+        <div class="bl-head" role="row"><span role="columnheader">Leva</span><span role="columnheader">Il giorno dello scan</span><span class="on" role="columnheader">Dodici mesi dopo</span></div>
+        <div class="bl-row" role="row"><span class="lv" role="rowheader"><em>01</em>Ottimizzazione SEO+GEO</span><span class="no" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i><span>Copy del fornitore, duplicato su decine di store: nessuna differenziazione in SERP né nelle risposte AI.</span></span><span class="si" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i><span>Contenuto unico per SKU, multilingua, con dati strutturati: indicizzabile da Google, leggibile dagli assistenti AI.<span class="ch"><code>schema Product</code><code>FAQPage</code><code>multilingua</code><code>AI Overviews</code></span></span></span></div>
+        <div class="bl-row" role="row"><span class="lv" role="rowheader"><em>02</em>Feed Enrichment</span><span class="no" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i><span>Attributi Merchant Center vuoti: prodotti fuori dai filtri e dalle query long-tail.</span></span><span class="si" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i><span>Attributi completi, ricavati dal catalogo e mai inventati, in un feed supplementare aggiornato ogni giorno.<span class="ch"><code>color</code><code>material</code><code>gender</code><code>age_group</code><code>product_detail</code></span></span></span></div>
+        <div class="bl-row" role="row"><span class="lv" role="rowheader"><em>03</em>Titles CRO optimization</span><span class="no" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i><span>Titoli del fornitore, troncati in SERP e in Shopping: CTR sotto il potenziale.</span></span><span class="si" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i><span>Brand, modello e attributo chiave nella lunghezza visibile; il risultato si misura sul CTR di ogni SKU.<span class="ch"><code>≤ 70 caratteri</code><code>CTR per SKU</code><code>Search Console</code></span></span></span></div>
+        <div class="bl-row" role="row"><span class="lv" role="rowheader"><em>04</em>Rotazione di magazzino</span><span class="no" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i><span>Out-of-stock in campagna, slow-mover fermi, riordini a sensazione.</span></span><span class="si" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i><span>Sell-through per SKU: esauriti fuori da feed e campagne, slow-mover con un target ROAS dedicato, riordini sulla stagionalità.<span class="ch"><code>sell-through</code><code>tROAS dedicato</code><code>stagionalità YoY</code></span></span></span></div>
+        <div class="bl-row" role="row"><span class="lv" role="rowheader"><em>05</em>Labelizer</span><span class="no" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i><span>Catalogo in un'unica campagna: il budget va a chi assorbe spesa, non a chi genera margine.</span></span><span class="si" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i><span>SKU segmentati per margine, benchmark di prezzo e performance: budget e target per cluster.<span class="ch"><code>custom_label 0–4</code><code>price benchmark</code><code>margine netto</code></span></span></span></div>
+        <div class="bl-row" role="row"><span class="lv" role="rowheader"><em>06</em>Tracking Server Side</span><span class="no" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i><span>Pixel solo lato browser: ad blocker, consenso e iOS tagliano le conversioni.</span></span><span class="si" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i><span>Server-side GTM, Meta CAPI ed Enhanced Conversions con deduplica: ogni ordine conta una volta, con il carrello.<span class="ch"><code>sGTM · Stape</code><code>Meta CAPI</code><code>Enhanced Conversions</code><code>Consent Mode v2</code><code>dedup event_id</code><code>cart data</code></span></span></span></div>
       </div>
       <p class="bl-note">Un altro negozio, stesso metodo, dodici mesi: <strong>+53% di vendite, 8,27 milioni</strong>. I numeri, mese per mese, qui sotto.</p>
     </div>
