@@ -153,10 +153,10 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .cresc-svg .lb .s{font-size:11px;font-weight:400;fill:var(--black-m);letter-spacing:0}
 .cresc-svg .gap{stroke:var(--blue);stroke-width:1.5;stroke-dasharray:3 4}
 .cresc-svg .gapt{fill:var(--black);font-size:14px}
-.js .cresc .l1,.js .cresc .l2{stroke-dasharray:2400;stroke-dashoffset:2400;transition:stroke-dashoffset 2.2s var(--ease) .2s}
-.js .cresc .l2{transition-delay:.5s}
+.js .cresc .l1,.js .cresc .l2{stroke-dasharray:2400;stroke-dashoffset:2400;transition:stroke-dashoffset 3.4s var(--ease) .2s}
+.js .cresc .l2{transition-delay:.7s}
 .js .cresc.in .l1,.js .cresc.in .l2{stroke-dashoffset:0}
-.js .cresc .a1,.js .cresc .a2,.js .cresc .pt,.js .cresc .lb,.js .cresc .gap{opacity:0;transition:opacity .8s var(--ease) 1.9s}
+.js .cresc .a1,.js .cresc .a2,.js .cresc .pt,.js .cresc .lb,.js .cresc .gap{opacity:0;transition:opacity .8s var(--ease) 3.2s}
 .js .cresc.in .a1,.js .cresc.in .a2,.js .cresc.in .pt,.js .cresc.in .lb,.js .cresc.in .gap{opacity:1}
 .cresc-foot{margin-top:18px;display:grid;grid-template-columns:300px 1fr;gap:18px;align-items:center;padding-top:18px;border-top:1px solid var(--line)}
 .cresc-foot img{width:100%;height:auto;border:1px solid var(--line-2);border-radius:10px;background:var(--white)}
@@ -603,7 +603,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .sim-col.on .sim-k div:last-child b{color:var(--blue)}
 .sim-col.fine .sim-k div:last-child b{font-size:21px}
 .sim-list{list-style:none;height:212px;overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(#000 70%,transparent);mask-image:linear-gradient(#000 70%,transparent)}
-.vs-why .sim-list li{display:grid;grid-template-columns:1fr auto;gap:1px 10px;align-items:center;padding:7px 0;border-bottom:1px solid var(--line);font-size:12.5px;line-height:1.3;counter-increment:none;animation:sim-in .45s var(--ease) both}
+.sim-list li{display:grid;grid-template-columns:1fr auto;gap:1px 10px;align-items:center;padding:7px 0;border-bottom:1px solid var(--line);font-size:12.5px;line-height:1.3;counter-increment:none;animation:sim-in .45s var(--ease) both}
 .vs-why .sim-list li::before{content:none}
 .sim-list li .nm{color:var(--black);font-weight:500}
 .sim-list li .pr{font-variant-numeric:tabular-nums;color:var(--black-m);font-size:12px}
@@ -930,7 +930,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .xhint i{display:block;width:1px;height:26px;margin:6px auto 0;background:linear-gradient(var(--black-l),transparent);animation:mgiu 1.6s ease-in-out infinite}
   @keyframes mgiu{0%,100%{transform:translateY(0);opacity:1}50%{transform:translateY(8px);opacity:.3}}
   .xbig{margin-top:10px;font-size:92px;font-weight:600;letter-spacing:-.06em;line-height:.9;color:var(--blue)}
-  .xbig .xriga{display:block;height:3px;width:0;background:var(--blue);border-radius:3px;margin-top:10px;transition:width 1.2s var(--ease) .6s}
+  .xbig .xriga{display:block;height:3px;width:0;background:var(--blue);border-radius:3px;margin-top:10px;transition:width 2.4s var(--ease) .6s}
   .xs.on .xbig .xriga{width:120px}
   .xbig small{display:block;margin-top:10px;font-size:15.5px;font-weight:400;letter-spacing:0;line-height:1.45;color:var(--black)}
   .xshot{margin-top:18px;border:1px solid var(--line-2);border-radius:14px;overflow:hidden;background:var(--white);box-shadow:0 20px 44px -26px rgba(12,23,19,.35)}
@@ -982,6 +982,26 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .xd-go:disabled{animation:none;opacity:.7}
   .xd-go.rifai{background:var(--white);color:var(--blue);border:1px solid var(--blue-ll);box-shadow:none;animation:none}
   @keyframes mrespira{0%,100%{transform:scale(1)}50%{transform:scale(1.015)}}
+  .xcresc{margin-top:18px;border:1px solid var(--line-2);border-radius:16px;background:var(--white);padding:14px 10px 8px 12px;box-shadow:0 14px 30px -24px rgba(12,23,19,.25)}
+  .xcresc figcaption{font-size:12.5px;color:var(--black-m);line-height:1.4;margin-bottom:8px}
+  .xcresc figcaption b{color:var(--black);font-weight:600}
+  .xcresc-svg{margin-top:0}
+  .xcresc-svg .tk{font-size:11px}
+  .xcresc-svg .lb{font-size:12.5px}
+  .xcresc-svg .lb .s{font-size:9.5px}
+  .xcresc-svg .l2{stroke-width:3}
+  .js .xcresc .l1,.js .xcresc .l2{stroke-dasharray:900;stroke-dashoffset:900;transition:stroke-dashoffset 3s var(--ease) .5s}
+  .js .xcresc .l2{transition-delay:.9s}
+  .js .xs.on .xcresc .l1,.js .xs.on .xcresc .l2{stroke-dashoffset:0}
+  .js .xcresc .a1,.js .xcresc .a2,.js .xcresc .pt,.js .xcresc .lb{opacity:0;transition:opacity .8s var(--ease) 3.4s}
+  .js .xs.on .xcresc .a1,.js .xs.on .xcresc .a2,.js .xs.on .xcresc .pt,.js .xs.on .xcresc .lb{opacity:1}
+  .xconf{margin-top:18px}
+  .xs .sim{margin:18px 0 0;padding:14px 12px 12px;border-radius:18px}
+  .xs .sim-top{flex-direction:column;align-items:stretch;gap:10px}
+  .xs .sim-top button{height:46px;border-radius:12px;font-size:14px}
+  .xs .sim-cols{grid-template-columns:1fr}
+  .xs .sim-list{height:150px}
+  .xs .sim-k b{font-size:19px}
   .xdue{margin-top:18px;display:grid;gap:10px}
   .xdue>div{border:1px solid var(--line-2);border-radius:16px;padding:14px 16px;position:relative;overflow:hidden;background:var(--white);box-shadow:0 14px 30px -24px rgba(12,23,19,.25)}
   .xdue b{font-size:34px;font-weight:600;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
@@ -989,7 +1009,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .xdue .xsi b{color:var(--blue)}
   .xdue span{display:block;margin-top:6px;font-size:13.5px;color:var(--black-m);line-height:1.4}
   .xdue i{display:block;height:6px;border-radius:99px;background:var(--line);margin-top:12px;overflow:hidden}
-  .xdue i::after{content:'';display:block;height:100%;width:0;border-radius:99px;background:var(--black-l);transition:width 1.4s var(--ease) .5s}
+  .xdue i::after{content:'';display:block;height:100%;width:0;border-radius:99px;background:var(--black-l);transition:width 2.6s var(--ease) .5s}
   .xdue .xsi i::after{background:linear-gradient(90deg,var(--blue),#6377FD)}
   .xs.on .xdue .xsi i::after{width:78%}
   .xs.on .xdue .xno i::after{width:18%}
@@ -1010,6 +1030,8 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .xmfoot span{flex-basis:100%;margin-top:6px}
 }
 @media(prefers-reduced-motion:reduce){
+  .js .xcresc .l1,.js .xcresc .l2{stroke-dashoffset:0;transition:none}
+  .js .xcresc .a1,.js .xcresc .a2,.js .xcresc .pt,.js .xcresc .lb{opacity:1;transition:none}
   .js .fx.fx-sx,.js .fx.fx-dx,.js .fx.fx-blur,.js .fx.fx-pop{transform:none;filter:none;transition:none}
   .js .mw i{transform:none;transition:none}
   .js .piatto.fx .pd2 > :nth-child(2),.js .cap.fx .cap-k,.js .cap.fx .wrap>p{opacity:1;transform:none;transition:none}
@@ -1078,8 +1100,15 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 
   <section class="xs xs2 xsmark" id="m-risultato">
     <p class="xk xr">Il risultato</p>
-    <div class="xbig xr xpop" style="--d:.1s">+<span data-conta="53" data-ms="1400">0</span>%<i class="xriga"></i><small>di vendite in dodici mesi: 8,27 milioni contro 5,40, dal pannello Shopify di un negozio di climatizzazione.</small></div>
-    <div class="xshot xr xtilt" style="--d:.3s" data-parallasse="-0.08"><img src="images/cruscotto/shopify-vendite-12m-m.png" alt="Pannello Shopify del negozio di climatizzazione: vendite totali 8.266.784 €, +53%" width="862" height="262" loading="lazy"></div>
+    <div class="xbig xr xpop" style="--d:.1s">+<span data-conta="53" data-ms="3000">0</span>%<i class="xriga"></i><small>di vendite in dodici mesi: 8,27 milioni contro 5,40, dal pannello Shopify di un negozio di climatizzazione.</small></div>
+    <figure class="xcresc xr" style="--d:.25s"><figcaption>Vendite cumulate, mese dopo mese, al netto di resi e sconti: <b>i dodici mesi dopo l'accensione</b> contro i dodici prima.</figcaption><svg class="cresc-svg xcresc-svg" viewBox="0 0 360 250" role="img" aria-label="Vendite cumulate mese per mese: l'anno prima chiude a 5,41 M€, i dodici mesi dopo a 8,08 M€">
+<line x1="8" y1="177.3" x2="268" y2="177.3" class="g"/><line x1="8" y1="130.7" x2="268" y2="130.7" class="g"/><line x1="8" y1="84.0" x2="268" y2="84.0" class="g"/><line x1="8" y1="37.3" x2="268" y2="37.3" class="g"/><text x="8.0" y="242" text-anchor="middle" class="tk">ott</text><text x="78.9" y="242" text-anchor="middle" class="tk">gen</text><text x="149.8" y="242" text-anchor="middle" class="tk">apr</text><text x="220.7" y="242" text-anchor="middle" class="tk">lug</text><text x="268.0" y="242" text-anchor="middle" class="tk">set</text><path class="a1" d="M8.0 215.2 L31.6 201.8 L55.3 190.2 L78.9 179.7 L102.5 171.0 L126.2 160.0 L149.8 152.7 L173.5 143.8 L197.1 124.9 L220.7 108.7 L244.4 105.0 L268.0 97.7 L268.0 224.0 L8.0 224.0 Z"/><path class="a2" d="M8.0 214.8 L31.6 203.0 L55.3 191.2 L78.9 178.8 L102.5 166.1 L126.2 151.9 L149.8 139.8 L173.5 123.6 L197.1 99.3 L220.7 71.0 L244.4 55.7 L268.0 35.5 L268.0 224.0 L8.0 224.0 Z"/><path class="l1" d="M8.0 215.2 L31.6 201.8 L55.3 190.2 L78.9 179.7 L102.5 171.0 L126.2 160.0 L149.8 152.7 L173.5 143.8 L197.1 124.9 L220.7 108.7 L244.4 105.0 L268.0 97.7"/><path class="l2" d="M8.0 214.8 L31.6 203.0 L55.3 191.2 L78.9 178.8 L102.5 166.1 L126.2 151.9 L149.8 139.8 L173.5 123.6 L197.1 99.3 L220.7 71.0 L244.4 55.7 L268.0 35.5"/>
+<circle class="pt" cx="268.0" cy="35.5" r="4"/><circle class="pt" cx="268.0" cy="97.7" r="4" style="stroke:var(--black-l)"/>
+<text x="277.0" y="39.5" class="lb l2t">8,08 M€<tspan x="277.0" dy="13" class="s">dodici mesi dopo</tspan></text>
+<text x="277.0" y="101.7" class="lb l1t">5,41 M€<tspan x="277.0" dy="13" class="s">anno prima</tspan></text>
+</svg></figure>
+    <p class="xk xr xconf" style="--d:.35s">A conferma, il suo pannello Shopify</p>
+    <div class="xshot xr xtilt" style="--d:.4s" data-parallasse="-0.08"><img src="images/cruscotto/shopify-vendite-12m-m.png" alt="Pannello Shopify del negozio di climatizzazione: vendite totali 8.266.784 €, +53%" width="862" height="262" loading="lazy"></div>
     <div class="xtre"><div class="xr" style="--d:.5s"><b>+135%</b><span>luglio–settembre</span></div><div class="xr" style="--d:.6s"><b>12.100</b><span>ordini, +51%</span></div><div class="xr" style="--d:.7s"><b>x50</b><span>vendite per euro speso</span></div></div>
     <p class="xlead xr" style="--d:.75s"><strong>Sono i numeri a dare la direzione.</strong> Chi brancola nel buio non ha un vantaggio competitivo.</p>
     <p class="xlnk xr" style="--d:.85s"><a href="/case-study/climatizzazione">Il caso completo →</a> <a href="/work">Gli altri clienti →</a></p>
@@ -1114,12 +1143,33 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     <p class="xk xr">Poi si guida sull'utile</p>
     <h2><span class="xw"><span class="" style="--d:0.10s">Il</span></span> <span class="xw"><span class="" style="--d:0.17s">budget</span></span> <span class="xw"><span class="" style="--d:0.24s">va</span></span> <span class="xw"><span class="xblu" style="--d:0.30s">dove</span></span> <span class="xw"><span class="xblu" style="--d:0.37s">si</span></span> <span class="xw"><span class="xblu" style="--d:0.44s">vince</span></span> <span class="xw"><span class="xblu" style="--d:0.51s">l'asta.</span></span></h2>
     <div class="xdue">
-      <div class="xsi xr" style="--d:.5s"><b><em data-conta="78" data-ms="1300">0</em>%</b><span>delle vendite dai 456 prodotti col prezzo giusto, col 31% della spesa</span><i></i></div>
-      <div class="xno xr" style="--d:.65s"><b><em data-conta="18" data-ms="1300">0</em>%</b><span>della spesa ai 386 fuori prezzo, che non vendono niente</span><i></i></div>
+      <div class="xsi xr" style="--d:.5s"><b><em data-conta="78" data-ms="2800">0</em>%</b><span>delle vendite dai 456 prodotti col prezzo giusto, col 31% della spesa</span><i></i></div>
+      <div class="xno xr" style="--d:.65s"><b><em data-conta="18" data-ms="2800">0</em>%</b><span>della spesa ai 386 fuori prezzo, che non vendono niente</span><i></i></div>
     </div>
     <p class="xlead xr" style="--d:.8s">Venti giorni di Google Ads del negozio di climatizzazione, 1.056 prodotti con click. Ogni venti giorni l'etichetta si riscrive e le campagne la leggono: la spesa segue le vendite.</p>
   </section>
 
+  <section class="xs xs4b" id="m-roas">
+    <p class="xk xr">Il ROAS più alto non è il mese migliore</p>
+    <h2><span class="xw"><span class="" style="--d:0.10s">Lo</span></span> <span class="xw"><span class="" style="--d:0.17s">stesso</span></span> <span class="xw"><span class="" style="--d:0.24s">mese,</span></span> <span class="xw"><span class="" style="--d:0.31s">due</span></span> <span class="xw"><span class="" style="--d:0.38s">modi</span></span> <span class="xw"><span class="" style="--d:0.45s">di</span></span> <span class="xw"><span class="" style="--d:0.52s">spendere.</span></span></h2>
+    <p class="xlead xr" style="--d:.4s">Nel primo riquadro si insegue il ROAS, come fanno quasi tutti: prodotti facili, scontati, che lasciano pochi euro e spesso tornano indietro. Nel secondo si insegue l'utile: il budget va dove ogni vendita lascia di più. Guarda cosa resta a fine mese.</p>
+    <div class="sim xr" style="--d:.55s">
+      <div class="sim-top"><span>Ordine dopo ordine, come su Shopify</span><button type="button" class="sim-go">Fai partire il mese</button></div>
+      <div class="sim-cols">
+        <div class="sim-col" data-modo="roas">
+          <h4>Lavorando sul ROAS</h4>
+          <div class="sim-k"><div><small>Incassato</small><b data-fine="700000">0 €</b></div><div><small>Utile</small><b data-fine="46700">0 €</b></div></div>
+          <ul class="sim-list" aria-live="off"></ul>
+        </div>
+        <div class="sim-col on" data-modo="utile">
+          <h4>Lavorando sull'utile</h4>
+          <div class="sim-k"><div><small>Incassato</small><b data-fine="660000">0 €</b></div><div><small>Utile</small><b data-fine="100000">0 €</b></div></div>
+          <ul class="sim-list" aria-live="off"></ul>
+        </div>
+      </div>
+      <p class="sim-nota">Simulazione sui ritmi veri del negozio di climatizzazione: tutti i costi dentro, IVA, resi, costo d'acquisto, spedizioni, commissioni, pubblicità. Diecimila euro in più di pubblicità, quarantamila di vendite in meno, <b>il doppio dell'utile</b>.</p>
+    </div>
+  </section>
   <section class="xs xs5" id="m-paghi">
     <p class="xk xr">Come ci paghi</p>
     <h2><span class="xw"><span class="" style="--d:0.10s">A</span></span> <span class="xw"><span class="" style="--d:0.17s">percentuale</span></span> <span class="xw"><span class="xoutw" style="--d:0.30s">sul</span></span> <span class="xw"><span class="xoutw" style="--d:0.38s">venduto</span></span> <span class="xw"><span class="" style="--d:0.50s">in</span></span> <span class="xw"><span class="" style="--d:0.57s">più.</span></span></h2>
@@ -1592,14 +1642,14 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 
       <div class="vs-why fx fx-dx">
         <div class="sim" id="sim">
-          <div class="sim-top"><span>Lo stesso mese, ordine dopo ordine</span><button type="button" id="sim-go">Fai partire il mese</button></div>
+          <div class="sim-top"><span>Lo stesso mese, ordine dopo ordine</span><button type="button" class="sim-go" id="sim-go">Fai partire il mese</button></div>
           <div class="sim-cols">
-            <div class="sim-col" id="sim-roas">
+            <div class="sim-col" data-modo="roas">
               <h4>Lavorando sul ROAS</h4>
               <div class="sim-k"><div><small>Incassato</small><b data-fine="700000">0 €</b></div><div><small>Utile</small><b data-fine="46700">0 €</b></div></div>
               <ul class="sim-list" aria-live="off"></ul>
             </div>
-            <div class="sim-col on" id="sim-utile">
+            <div class="sim-col on" data-modo="utile">
               <h4>Lavorando sull'utile</h4>
               <div class="sim-k"><div><small>Incassato</small><b data-fine="660000">0 €</b></div><div><small>Utile</small><b data-fine="100000">0 €</b></div></div>
               <ul class="sim-list" aria-live="off"></ul>
@@ -1910,11 +1960,11 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       if (fatto.indexOf(s) >= 0) return; fatto.push(s);
       s.classList.add('on');
       s.querySelectorAll('[data-conta]').forEach(function(el){
-        var fine = parseInt(el.getAttribute('data-conta'), 10), da = parseInt(el.getAttribute('data-da') || '0', 10), ms = parseInt(el.getAttribute('data-ms') || '1200', 10);
+        var fine = parseInt(el.getAttribute('data-conta'), 10), da = parseInt(el.getAttribute('data-da') || '0', 10), ms = parseInt(el.getAttribute('data-ms') || '2600', 10);
         setTimeout(function(){ conta(el, fine, ms, da); }, 250);
       });
     }
-    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) accendi(e.target); }); }, { threshold: 0.22 });
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) accendi(e.target); }); }, { threshold: 0, rootMargin: '-30% 0px -30% 0px' });
     secs.forEach(function(s){ io.observe(s); });
     /* barra di avanzamento e parallasse leggera: le immagini si muovono un po' più lente della pagina */
     var par = Array.prototype.slice.call(flow.querySelectorAll('[data-parallasse]')), attesa = false;
@@ -2006,7 +2056,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       fig.classList.toggle('acceso', acceso);
       metti(acceso ? DOPO : OGGI);
       gx.classList.toggle('vuoto', !acceso); gx.style.setProperty('--w', acceso ? '42%' : '0%');
-      conta(vend, acceso ? 69000 : 40182, 1200, acceso ? 40182 : 69000, acceso ? ' € stimati' : ' €');
+      conta(vend, acceso ? 69000 : 40182, 2400, acceso ? 40182 : 69000, acceso ? ' € stimati' : ' €');
       fig.querySelectorAll('.tt').forEach(function(x){ x.classList.toggle('on', x === b); });
     }); });
   })();
@@ -2018,9 +2068,9 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       var fine = parseInt(m[1].replace(/\./g, ''), 10), suff = m[2]; if (isNaN(fine) || fine < 100) return;
       if (ridotto) return;
       var t0 = null;
-      function passo(ts){ if (t0 === null) t0 = ts; var f = Math.min(1, (ts - t0) / 1300); f = 1 - Math.pow(1 - f, 3); el.textContent = Math.round(fine * f).toLocaleString('it-IT') + suff; if (f < 1) requestAnimationFrame(passo); }
+      function passo(ts){ if (t0 === null) t0 = ts; var f = Math.min(1, (ts - t0) / 2800); f = 1 - Math.pow(1 - f, 3); el.textContent = Math.round(fine * f).toLocaleString('it-IT') + suff; if (f < 1) requestAnimationFrame(passo); }
       el.textContent = '0' + suff; requestAnimationFrame(passo);
-      setTimeout(function(){ el.textContent = testo; }, 1450);
+      setTimeout(function(){ el.textContent = testo; }, 2950);
     }
     var fatti = [];
     var io = new IntersectionObserver(function(es){ es.forEach(function(e){
@@ -2031,8 +2081,10 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   })();
   /* ── ROAS o utile: il mese ordine dopo ordine ── */
   (function(){
-    var go = document.getElementById('sim-go'); if (!go) return;
-    var ridotto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var ridottoSim = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.querySelectorAll('.sim').forEach(function(sim){
+    var go = sim.querySelector('.sim-go'); if (!go) return;
+    var ridotto = ridottoSim;
     var ROAS = [
       ['Climatizzatore 12000 BTU, marca nota', 449, '+11 €'],
       ['Split dual 9+12, in sconto', 899, '+22 €'],
@@ -2056,7 +2108,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       ['Climatizzatore 12000 BTU, marca nota', 449, 'reso', true],
       ['Pompa di calore aria-acqua 12 kW', 4290, '+640 €']
     ];
-    var DUR = 5200, timer = [], inCorso = false;
+    var DUR = 9000, timer = [], inCorso = false;
     function euro(n){ return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' €'; }
     function riga(o){
       var li = document.createElement('li'); if (o[3]) li.className = 'reso';
@@ -2066,8 +2118,8 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       li.querySelector('.ch').textContent = o[2];
       return li;
     }
-    function colonna(id, ordini){
-      var col = document.getElementById(id), lista = col.querySelector('.sim-list'), kb = col.querySelectorAll('.sim-k b');
+    function colonna(modo, ordini){
+      var col = sim.querySelector('.sim-col[data-modo="' + modo + '"]'), lista = col.querySelector('.sim-list'), kb = col.querySelectorAll('.sim-k b');
       col.classList.remove('fine'); lista.innerHTML = '';
       var passo = DUR / (ordini.length + 1);
       ordini.forEach(function(o, i){
@@ -2084,8 +2136,9 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     }
     go.addEventListener('click', function(){
       timer.forEach(clearTimeout); timer = []; inCorso = false;
-      requestAnimationFrame(function(){ inCorso = true; colonna('sim-roas', ROAS); colonna('sim-utile', UTILE); });
+      inCorso = true; colonna('roas', ROAS); colonna('utile', UTILE);
       go.textContent = 'Rivedi il mese';
+    });
     });
   })();
 </script>
