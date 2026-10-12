@@ -78,40 +78,35 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .chead .sub{margin-top:16px;font-size:18px;color:var(--black-m);max-width:640px;text-wrap:pretty}
 .chead .sub strong{color:var(--black);font-weight:600}
 
-/* ── I CASI ── */
-.cases{padding:16px 0 96px}
-.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.cs{background:var(--white);border:1px solid var(--line-2);border-radius:16px;padding:24px 26px 22px;box-shadow:0 1px 2px rgba(12,23,19,.04),0 14px 34px -16px rgba(12,23,19,.18);display:flex;flex-direction:column;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
-.cs:hover{transform:translateY(-3px);box-shadow:0 1px 2px rgba(12,23,19,.04),0 26px 50px -20px rgba(12,23,19,.24)}
-.cs.wide{grid-column:1/-1;display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:center;background:var(--black);color:var(--white);border-color:var(--black)}
-.cs .who{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
-.cs .who b{font-weight:600;font-size:20px;letter-spacing:-.02em}
-.cs .who span{font-size:13px;color:var(--black-m)}
-.cs.wide .who span{color:rgba(255,255,255,.65)}
-.cs h2{font-size:clamp(26px,2.6vw,34px);line-height:1.1;letter-spacing:-.03em;margin-top:6px}
-.cs h2 mark{background:none;color:var(--blue-s)}
-.cs p{margin-top:12px;font-size:15px;color:var(--black-m);line-height:1.5}
-.cs.wide p{color:rgba(255,255,255,.78);font-size:16px}
-.cs p strong{color:var(--black);font-weight:600}
-.cs.wide p strong{color:var(--white)}
-.kps{margin-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.kps div{padding-top:10px;border-top:1px solid var(--line)}
-.cs.wide .kps div{border-top-color:rgba(255,255,255,.18)}
-.kps b{display:block;font-weight:600;font-size:30px;letter-spacing:-.035em;line-height:1;color:var(--blue)}
-.cs.wide .kps b{color:var(--white);font-size:38px}
-.kps span{display:block;margin-top:5px;font-size:12.5px;color:var(--black-m);line-height:1.35}
-.cs.wide .kps span{color:rgba(255,255,255,.65)}
-.cs .tags{margin-top:auto;padding-top:16px;display:flex;flex-wrap:wrap;gap:6px}
-.cs .tags i{font-style:normal;font-size:12.5px;color:var(--black-m);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
-.cs.wide .tags i{color:rgba(255,255,255,.8);border-color:rgba(255,255,255,.25)}
-.cs .go{margin-top:14px;font-size:14px;font-weight:600;color:var(--blue);text-decoration:none;display:inline-flex;gap:6px;align-items:center}
-.cs.wide .go{color:var(--white)}
-.cs .go:hover{text-decoration:underline;text-underline-offset:3px}
-.cs .side{display:grid;gap:10px}
-.cs .side div{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:14px 16px}
-.cs .side b{display:block;font-weight:600;font-size:26px;letter-spacing:-.03em;line-height:1}
-.cs .side span{display:block;margin-top:4px;font-size:13px;color:rgba(255,255,255,.7)}
-.cs .side .k{font-size:12px;color:rgba(255,255,255,.55);display:block;margin-bottom:6px}
+/* ── I CASI: una riga per caso ── */
+.cases{padding:8px 0 72px}
+.caso{padding:44px 0 48px;border-top:1px solid var(--line-2)}
+.caso:first-child{border-top:0}
+.caso-testa{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;font-size:13.5px;color:var(--black-m)}
+.caso-testa .num{font-weight:600;color:var(--blue)}
+.caso-grid{margin-top:14px;display:grid;grid-template-columns:minmax(0,1fr);gap:40px;align-items:center}
+.caso.con-pannello .caso-grid{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)}
+.caso h2{font-size:clamp(26px,2.7vw,36px);line-height:1.1;letter-spacing:-.03em;max-width:620px;text-wrap:balance}
+.caso h2 span{color:var(--blue)}
+.caso p{margin-top:12px;font-size:16px;color:var(--black-m);line-height:1.5;max-width:620px}
+.caso p strong{color:var(--black);font-weight:600}
+.kpi3{margin-top:22px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;max-width:620px}
+.kpi3 div{padding-top:12px;border-top:1px solid var(--line-2)}
+.kpi3 b{display:block;font-weight:600;font-size:34px;letter-spacing:-.035em;line-height:1;color:var(--black);font-variant-numeric:tabular-nums}
+.kpi3 span{display:block;margin-top:6px;font-size:12.5px;color:var(--black-m);line-height:1.35}
+.caso .tags{margin-top:20px;display:flex;flex-wrap:wrap;gap:6px}
+.caso .tags i{font-style:normal;font-size:12.5px;color:var(--black-m);border:1px solid var(--line-2);border-radius:999px;padding:4px 10px}
+.caso .go{margin-top:16px;font-size:14px;font-weight:600;color:var(--blue);text-decoration:none;display:inline-flex;gap:6px;align-items:center}
+.caso .go:hover{text-decoration:underline;text-underline-offset:3px}
+.caso-lato{display:grid;gap:14px}
+.shot{position:relative;border:1px solid var(--line-2);border-radius:12px;overflow:hidden;background:var(--white);box-shadow:0 1px 2px rgba(12,23,19,.05),0 18px 40px -22px rgba(12,23,19,.22),0 0 0 1px var(--white),6px 6px 0 -1px rgba(12,23,19,.06),12px 12px 0 -2px rgba(12,23,19,.035)}
+.shot img{width:100%;height:auto;display:block}
+.shot figcaption{padding:10px 14px;border-top:1px solid var(--line);font-size:12.5px;color:var(--black-m)}
+.altri{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.altri div{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--bg-2)}
+.altri .k{font-size:12px;color:var(--black-m);display:block;margin-bottom:6px}
+.altri b{display:block;font-weight:600;font-size:22px;letter-spacing:-.03em;line-height:1;color:var(--black)}
+.altri span{display:block;margin-top:4px;font-size:12px;color:var(--black-m);line-height:1.35}
 
 /* ── CON CHI LAVORIAMO ── */
 .names{padding:56px 0;border-top:1px solid var(--line);background:var(--bg-2)}
@@ -145,8 +140,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 
 /* ── RESPONSIVE ── */
 @media(max-width:1000px){
-  .cgrid{grid-template-columns:1fr}
-  .cs.wide{grid-template-columns:1fr;gap:20px}
+  .caso.con-pannello .caso-grid{grid-template-columns:1fr;gap:24px}
   .after{grid-template-columns:1fr}
   .foot{grid-template-columns:1fr 1fr}
 }
@@ -158,10 +152,14 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .chead{padding:108px 0 28px}
   .chead h1{font-size:clamp(32px,8.6vw,40px)}
   .chead .sub{font-size:16px}
-  .cases{padding:8px 0 64px}
-  .cs{padding:20px 18px 18px}
-  .kps{grid-template-columns:1fr 1fr}
-  .cs.wide .kps b{font-size:32px}
+  .cases{padding:0 0 48px}
+  .caso{padding:32px 0 36px}
+  .caso h2{font-size:clamp(26px,7vw,30px)}
+  .kpi3{gap:12px}
+  .kpi3 b{font-size:26px}
+  .altri{grid-template-columns:1fr 1fr 1fr;gap:8px}
+  .altri div{padding:10px}
+  .altri b{font-size:18px}
   .names ul{font-size:17px;gap:6px 20px}
   .end{padding:72px 0}
   .scan{flex-direction:column;padding:6px}
@@ -171,7 +169,6 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .js .fx{opacity:1;transform:none;transition:none}
-  .cs,.cs:hover{transform:none}
 }
 </style>
 </head>
@@ -184,9 +181,9 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   <div class="wrap">
     <a class="brand" href="/" aria-label="Orizon ADV — home"><img src="images/brand/logo-blu.svg" alt="Orizon" width="720" height="182"></a>
     <div class="nav-links">
-      <a href="/#ignition">Ignition</a>
       <a href="/#risultati">Risultati</a>
-      <a href="/#come-lavoriamo">Come lavoriamo</a>
+      <a href="/#atto-catalogo">Il catalogo</a>
+      <a href="/#atto-conti">I conti</a>
       <a href="/#chi-guida">Chi guida</a>
     </div>
     <a class="btn btn-primary" href="#scan-finale">Fai lo scan</a>
@@ -195,9 +192,9 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 </nav>
 <div class="mobile-menu">
   <button class="mobile-close" aria-label="Chiudi il menu"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
-  <a href="/#ignition">Ignition</a>
   <a href="/#risultati">Risultati</a>
-  <a href="/#come-lavoriamo">Come lavoriamo</a>
+  <a href="/#atto-catalogo">Il catalogo</a>
+  <a href="/#atto-conti">I conti</a>
   <a href="/#chi-guida">Chi guida</a>
   <a href="#scan-finale" style="color:var(--blue)">Fai lo scan</a>
 </div>
@@ -206,101 +203,106 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 <header class="chead">
   <div class="wrap">
     <h1 class="fx">Numeri veri. <span>Crescita reale.</span></h1>
-    <p class="sub fx">Ogni caso con i numeri del pannello del cliente, non con le impressioni. Dove c'è il caso completo, lo trovi linkato; dove il lavoro è in corso, lo diciamo.</p>
+    <p class="sub fx">Sette casi, per settore, senza nomi. I numeri vengono dai pannelli dei clienti: dove il pannello ce l'hanno dato lo mostriamo, dove il lavoro è in corso lo diciamo.</p>
   </div>
 </header>
 
 <section class="cases" aria-label="Casi studio">
   <div class="wrap">
-    <div class="cgrid">
-
-      <article class="cs wide fx">
-        <div>
-          <div class="who"><b>Climatizzazione e riscaldamento</b><span>e-commerce su Shopify</span></div>
-          <h2>Da 5,4 a 8,3 milioni in un anno, <mark>con un catalogo acceso.</mark></h2>
-          <p>Spendeva le stesse cifre ogni mese su un business stagionale. Abbiamo rifatto la strategia e acceso il catalogo con Ignition: <strong>spesa nei momenti giusti, sulle categorie giuste, prodotti letti uno per uno</strong>. Campagne Meta e Google a percentuale sul venduto.</p>
-          <div class="kps">
-            <div><b>+53%</b><span>vendite anno su anno: 8,27 M€ in dodici mesi</span></div>
-            <div><b>+135%</b><span>luglio–settembre 2026 sullo stesso trimestre 2025</span></div>
-            <div><b>x50</b><span>vendite per euro di pubblicità, Meta e Google insieme</span></div>
-          </div>
+    <article class="caso fx con-pannello" id="caso-01">
+      <div class="caso-testa"><span class="num">Caso studio · 01</span><span class="meta">Climatizzazione e riscaldamento · e-commerce su Shopify · ottobre 2025 – ottobre 2026</span></div>
+      <div class="caso-grid">
+        <div class="caso-txt">
+          <h2>Da 5,4 a 8,3 milioni in un anno, <span>con un catalogo acceso.</span></h2>
+          <p>Spendeva le stesse cifre ogni mese su un business stagionale. Abbiamo rifatto la strategia e acceso il catalogo con Ignition: <strong>spesa nei momenti giusti, sulle categorie giuste, prodotti letti uno per uno</strong>. Campagne Meta e Google a percentuale sul venduto in più.</p>
+          <div class="kpi3"><div><b>+53%</b><span>vendite anno su anno: 8,27 M€ in dodici mesi</span></div><div><b>+135%</b><span>luglio–settembre 2026 sullo stesso trimestre 2025</span></div><div><b>x50</b><span>vendite per euro di pubblicità, Meta e Google insieme</span></div></div>
           <div class="tags"><i>Meta Ads</i><i>Google Ads</i><i>Orizon Ignition</i><i>A percentuale</i></div>
           <a class="go" href="/case-study/climatizzazione">Leggi il caso completo <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a>
         </div>
-        <div class="side" aria-label="Altri numeri">
-          <div><span class="k">Ordini in dodici mesi</span><b>12.100</b><span>+51% sull'anno prima</span></div>
-          <div><span class="k">Visite al negozio</span><b>509 mila</b><span>+143% sull'anno prima</span></div>
-          <div><span class="k">Il mese più alto</span><b>1,21 M€</b><span>luglio 2026, da 0,69 M€ del luglio 2025</span></div>
-        </div>
-      </article>
+      <div class="caso-lato">
+        <figure class="shot"><img src="images/cruscotto/shopify-vendite-12m.png" alt="Pannello analitico Shopify del negozio di climatizzazione: vendite totali 8.266.784 €, +53%, sessioni 509 mila +143%, ordini 12,1 mila +51%" width="862" height="724" loading="lazy"><figcaption>Il pannello Shopify del negozio, 11 ottobre 2025 – 11 ottobre 2026.</figcaption></figure>
+        <div class="altri"><div><span class="k">Ordini in dodici mesi</span><b>12.100</b><span>+51% sull'anno prima</span></div><div><span class="k">Visite al negozio</span><b>509 mila</b><span>+143% sull'anno prima</span></div><div><span class="k">Il mese più alto</span><b>1,21 M€</b><span>luglio 2026, da 0,69 M€ del luglio 2025</span></div></div>
+      </div>
+      </div>
+    </article>
 
-      <article class="cs fx">
-        <div class="who"><b>Food e artigianato</b><span>e-commerce su Shopify</span></div>
-        <p>Da zero: <strong>marketplace, Meta, Google, TikTok, branding e sito Shopify</strong> gestiti da un'unica regia. In due anni un negozio che non esisteva fattura due milioni.</p>
-        <div class="kps">
-          <div><b>0 → 2 M€</b><span>di fatturato in due anni</span></div>
-          <div><b>x13</b><span>MER, vendite totali su spesa totale</span></div>
-          <div><b>6</b><span>canali in una regia sola</span></div>
+    <article class="caso fx" id="caso-02">
+      <div class="caso-testa"><span class="num">Caso studio · 02</span><span class="meta">Food e artigianato · e-commerce su Shopify · due anni, da zero</span></div>
+      <div class="caso-grid">
+        <div class="caso-txt">
+          <h2>Un negozio che non esisteva <span>fattura due milioni.</span></h2>
+          <p>Da zero: <strong>marketplace, Meta, Google, TikTok, branding e sito Shopify</strong> gestiti da un'unica regia. Ogni canale letto sul venduto totale, non sul suo ritorno da solo.</p>
+          <div class="kpi3"><div><b>0 → 2 M€</b><span>di fatturato in due anni</span></div><div><b>x13</b><span>MER: vendite totali su spesa totale</span></div><div><b>6</b><span>canali in una regia sola</span></div></div>
+          <div class="tags"><i>Marketplace</i><i>Meta</i><i>Google</i><i>TikTok</i><i>Branding</i><i>Shopify</i></div>
+          
         </div>
-        <div class="tags"><i>Marketplace</i><i>Meta</i><i>Google</i><i>TikTok</i><i>Branding</i><i>Shopify</i></div>
-      </article>
+      </div>
+    </article>
 
-      <article class="cs fx">
-        <div class="who"><b>Aste online</b><span>e-commerce con registrazione</span></div>
-        <p>Un modello che vive di iscritti: <strong>561 mila registrazioni</strong> portate a <strong>192 mila acquisti</strong>, con la spesa letta sul ritorno reale, non sul costo per lead.</p>
-        <div class="kps">
-          <div><b>3,25 M€</b><span>di fatturato generato</span></div>
-          <div><b>953 K€</b><span>di spesa pubblicitaria</span></div>
-          <div><b>192 mila</b><span>acquisti, 561 mila registrazioni</span></div>
+    <article class="caso fx" id="caso-03">
+      <div class="caso-testa"><span class="num">Caso studio · 03</span><span class="meta">Aste online · piattaforma con registrazione</span></div>
+      <div class="caso-grid">
+        <div class="caso-txt">
+          <h2>561 mila registrazioni, <span>192 mila acquisti.</span></h2>
+          <p>Un modello che vive di iscritti. La spesa è stata letta sul ritorno reale degli acquisti, <strong>non sul costo per registrazione</strong>: così il budget è andato dove gli iscritti poi compravano.</p>
+          <div class="kpi3"><div><b>3,25 M€</b><span>di fatturato generato</span></div><div><b>953 K€</b><span>di spesa pubblicitaria</span></div><div><b>192 mila</b><span>acquisti, da 561 mila registrazioni</span></div></div>
+          <div class="tags"><i>Meta Ads</i><i>Google Ads</i><i>Registrazioni</i></div>
+          
         </div>
-        <div class="tags"><i>Meta Ads</i><i>Google Ads</i><i>Registrazioni</i></div>
-      </article>
+      </div>
+    </article>
 
-      <article class="cs fx">
-        <div class="who"><b>Moda e streetwear</b><span>negozio multimarca su Shopify</span></div>
-        <p>Fatturato quasi triplicato anno su anno con <strong>Meta e Google insieme, creatività prodotte con l'AI</strong> per testare più varianti in meno tempo, e CRO sul negozio.</p>
-        <div class="kps">
-          <div><b>+180%</b><span>fatturato anno su anno</span></div>
-          <div><b>4,2x</b><span>ROAS sulle campagne</span></div>
+    <article class="caso fx" id="caso-04">
+      <div class="caso-testa"><span class="num">Caso studio · 04</span><span class="meta">Moda e streetwear · negozio multimarca su Shopify</span></div>
+      <div class="caso-grid">
+        <div class="caso-txt">
+          <h2>Fatturato quasi triplicato <span>anno su anno.</span></h2>
+          <p><strong>Meta e Google insieme, creatività prodotte con l'AI</strong> per provare più varianti in meno tempo, e lavoro sul negozio perché chi arriva compri.</p>
+          <div class="kpi3"><div><b>+180%</b><span>fatturato anno su anno</span></div><div><b>4,2x</b><span>ROAS sulle campagne</span></div></div>
+          <div class="tags"><i>Meta Ads</i><i>Google Ads</i><i>Creatività AI</i><i>CRO</i></div>
+          
         </div>
-        <div class="tags"><i>Meta Ads</i><i>Google Ads</i><i>Creatività AI</i><i>CRO</i></div>
-      </article>
+      </div>
+    </article>
 
-      <article class="cs fx">
-        <div class="who"><b>Informatica B2B</b><span>soluzioni IT per aziende · lead generation</span></div>
-        <p>Niente e-commerce: richieste di preventivo. <strong>Più lead, a meno della metà del costo</strong>, con landing dedicate e campagne lette sul valore delle richieste chiuse.</p>
-        <div class="kps">
-          <div><b>+320%</b><span>richieste in più</span></div>
-          <div><b>−45%</b><span>costo per richiesta</span></div>
+    <article class="caso fx" id="caso-05">
+      <div class="caso-testa"><span class="num">Caso studio · 05</span><span class="meta">Informatica B2B · soluzioni IT per aziende, richieste di preventivo</span></div>
+      <div class="caso-grid">
+        <div class="caso-txt">
+          <h2>Più richieste, <span>a meno della metà del costo.</span></h2>
+          <p>Niente e-commerce: richieste di preventivo. Landing dedicate e campagne lette <strong>sul valore delle richieste chiuse</strong>, non sul numero di contatti.</p>
+          <div class="kpi3"><div><b>+320%</b><span>richieste in più</span></div><div><b>−45%</b><span>costo per richiesta</span></div></div>
+          <div class="tags"><i>Google Ads</i><i>Meta Ads</i><i>Landing page</i><i>Lead generation</i></div>
+          <a class="go" href="/case-study/informatica-b2b">Leggi il caso completo <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a>
         </div>
-        <div class="tags"><i>Google Ads</i><i>Meta Ads</i><i>Landing page</i><i>Lead generation</i></div>
-        <a class="go" href="/case-study/informatica-b2b">Leggi il caso completo <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a>
-      </article>
+      </div>
+    </article>
 
-      <article class="cs fx">
-        <div class="who"><b>Forniture per hotel e ristoranti</b><span>e-commerce su Shopify</span></div>
-        <p>Un catalogo da <strong>1.446 prodotti</strong> acceso con Ignition: schede scritte dai fatti, quattro lingue pubblicate sul negozio, i dati che Google chiede messi in ordine. La padella sulla home è sua.</p>
-        <div class="kps">
-          <div><b>1.446</b><span>prodotti trattati uno per uno</span></div>
-          <div><b>4 lingue</b><span>titolo, scheda, snippet, tipo e indirizzo</span></div>
-          <div><b>23 → 100</b><span>indice di accensione per prodotto</span></div>
+    <article class="caso fx" id="caso-06">
+      <div class="caso-testa"><span class="num">Caso studio · 06</span><span class="meta">Forniture per hotel e ristoranti · e-commerce su Shopify · in corso</span></div>
+      <div class="caso-grid">
+        <div class="caso-txt">
+          <h2>1.446 prodotti accesi, <span>uno per uno.</span></h2>
+          <p>Schede scritte dai fatti, quattro lingue pubblicate sul negozio, i dati che Google chiede messi in ordine. <strong>La padella sulla home è sua.</strong></p>
+          <div class="kpi3"><div><b>1.446</b><span>prodotti trattati uno per uno</span></div><div><b>4 lingue</b><span>titolo, scheda, snippet, tipo e indirizzo</span></div><div><b>23 → 100</b><span>indice di accensione per prodotto</span></div></div>
+          <div class="tags"><i>Orizon Ignition</i><i>SEO + GEO</i><i>Traduzioni</i><i>Dati prodotto</i></div>
+          <a class="go" href="/#ignition">Accendi un suo prodotto <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a>
         </div>
-        <div class="tags"><i>Orizon Ignition</i><i>SEO + GEO</i><i>Traduzioni</i><i>Dati prodotto</i></div>
-        <a class="go" href="/#ignition">Accendi un suo prodotto <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a>
-      </article>
+      </div>
+    </article>
 
-      <article class="cs fx">
-        <div class="who"><b>Moda</b><span>Shopify, oltre 20.000 prodotti</span></div>
-        <p>Il feed arriva con colore, taglia, genere ed età vuoti. Ignition li ricava dal catalogo <strong>senza inventare niente</strong> e pubblica un feed supplementare che Merchant Center legge da solo, ogni giorno.</p>
-        <div class="kps">
-          <div><b>17.201</b><span>prodotti nel feed supplementare</span></div>
-          <div><b>89%</b><span>con il colore, taglia 80%</span></div>
-          <div><b>98%</b><span>con l'età, genere 94%</span></div>
+    <article class="caso fx" id="caso-07">
+      <div class="caso-testa"><span class="num">Caso studio · 07</span><span class="meta">Moda · Shopify, oltre 20.000 prodotti · in corso</span></div>
+      <div class="caso-grid">
+        <div class="caso-txt">
+          <h2>Il feed arriva vuoto. <span>Ignition lo riempie dal catalogo.</span></h2>
+          <p>Colore, taglia, genere ed età mancano nel feed di Shopping. Ignition li ricava dal catalogo <strong>senza inventare niente</strong> e pubblica un feed supplementare che Merchant Center legge da solo, ogni giorno.</p>
+          <div class="kpi3"><div><b>17.201</b><span>prodotti nel feed supplementare</span></div><div><b>89%</b><span>con il colore, taglia 80%</span></div><div><b>98%</b><span>con l'età, genere 94%</span></div></div>
+          <div class="tags"><i>Orizon Ignition</i><i>Feed Google</i><i>Etichette</i></div>
+          <a class="go" href="/#piatto-feed">Guarda il feed campo per campo <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a>
         </div>
-        <div class="tags"><i>Orizon Ignition</i><i>Feed Google</i><i>Etichette</i></div>
-      </article>
-
-    </div>
+      </div>
+    </article>
   </div>
 </section>
 
