@@ -82,9 +82,10 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .scan button:hover{background:var(--blue-d)}
 .scan-meta{margin:12px auto 0;font-size:14px;color:var(--black-m);max-width:600px}
 .scan-meta b{color:var(--black);font-weight:600}
-.scan-k{margin:34px auto 0;max-width:640px;font-size:17px;color:var(--black);font-weight:600}
-.scan-k span{font-weight:400;color:var(--black-m)}
-.scan.big{max-width:640px;margin-top:14px;padding:5px;border-radius:12px}
+.scan-steps{margin:34px auto 0;display:flex;justify-content:center;flex-wrap:wrap;gap:8px 10px;max-width:720px}
+.scan-steps span{display:inline-flex;align-items:center;gap:8px;font-size:14.5px;font-weight:500;color:var(--black);background:var(--white);border:1px solid var(--line-2);border-radius:999px;padding:7px 14px 7px 7px}
+.scan-steps i{width:22px;height:22px;border-radius:50%;background:var(--blue-ll);color:var(--blue);font-style:normal;font-weight:600;font-size:12px;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.scan.big{max-width:640px;margin-top:16px;padding:5px;border-radius:12px}
 .scan.big input{height:52px;font-size:17px;padding:0 18px}
 .scan.big button{height:52px;padding:0 22px;font-size:16px;border-radius:9px}
 /* ── l'androide al lavoro ── */
@@ -141,6 +142,19 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 /* «Accendi il negozio»: il dopo riparte dall'oggi e sale */
 .gos.run .post{transition:width 1.1s var(--ease)}
 .gos.zero .post{width:var(--from)!important}
+.gr.pre .post{width:var(--from)!important}
+.gr-d small.ok{grid-column:1/-1;display:none;font-size:12px;color:var(--blue);margin-top:2px;line-height:1.35;font-weight:500}
+.gr.acceso .gr-d small.ok{display:block}
+.gr.acceso .gr-o small{text-decoration:line-through;opacity:.55}
+.gos-log{list-style:none;margin:10px 0 0;padding:12px 14px;background:var(--black);color:rgba(255,255,255,.85);border-radius:10px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;line-height:1.45;display:grid;gap:5px;max-width:640px}
+.gos-log[hidden]{display:none}
+.gos-log li{position:relative;padding-left:18px;opacity:0;transform:translateY(3px);transition:opacity .3s var(--ease),transform .3s var(--ease)}
+.gos-log li.on{opacity:1;transform:none}
+.gos-log li::before{content:'';position:absolute;left:0;top:6px;width:8px;height:8px;border-radius:50%;background:var(--blue)}
+.gos-log li.cur::before{animation:blink .8s steps(2) infinite}
+.gos-log li.fine{color:var(--green);font-weight:600}
+.gos-log li.fine::before{background:var(--green)}
+.gos-top.lit .gos-top-p{display:none}
 /* ── prima / dopo: le etichette sulle card e il ponte ── */
 .tag{display:inline-block;font-style:normal;font-weight:600;font-size:11px;letter-spacing:.02em;color:var(--black-m);background:var(--bg-2);border:1px solid var(--line-2);border-radius:6px;padding:3px 8px;margin-right:10px;vertical-align:3px;line-height:1.2}
 .tag.on{color:var(--white);background:var(--blue);border-color:var(--blue)}
@@ -704,7 +718,8 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .cta-m span{font-size:13.5px;line-height:1.3;color:rgba(255,255,255,.85)}
   .cta-m a{flex:none;background:var(--blue);color:#fff;font-weight:600;font-size:14px;padding:10px 14px;border-radius:9px;text-decoration:none}
   .scan.big input,.scan.big button{height:48px}
-  .scan-k{margin-top:26px;font-size:16px}
+  .scan-steps{margin-top:26px;gap:6px}
+  .scan-steps span{font-size:13.5px;padding:6px 12px 6px 6px}
   .gos{margin-top:36px}
   .gos-head{padding:14px 16px}
   .gos-top{grid-template-columns:1fr;gap:14px;padding:16px 16px 14px}
@@ -851,16 +866,16 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 <header class="hero" id="top">
   <div class="wrap">
     <h1 class="fx">Il tuo e-commerce ha già tutto. <br><span>Noi lo accendiamo.</span></h1>
-    <p class="sub fx">Orizon Ignition riscrive le schede, traduce in ogni lingua, completa dati e feed di tutto il catalogo. Noi gestiamo le campagne, e <strong>ci paghi a percentuale, con una quota decisa insieme in base alla situazione di partenza</strong>. Possiamo permettercelo perché il sistema che accende il catalogo è nostro.</p>
-    <p class="scan-k fx">Prima, lo scan. <span>Orizon GOS legge il tuo negozio da fuori e ti dice dove sta il fatturato che il catalogo lascia sul tavolo.</span></p>
+    <p class="sub fx">Accendiamo il catalogo con una macchina nostra e guidiamo le campagne. <strong>Ci paghi a percentuale.</strong></p>
+    <div class="scan-steps fx" aria-label="Cosa fa lo scan"><span><i>1</i>Legge il negozio da fuori</span><span><i>2</i>Voto da 0 a 100 su cinque aree</span><span><i>3</i>Documento entro 24 ore</span></div>
     <form class="scan big fx" id="scan" action="/contatti" method="get">
       <input type="text" name="sito" placeholder="www.iltuonegozio.it" autocomplete="url" inputmode="url" aria-label="Indirizzo del tuo negozio online">
       <button type="submit">Fai lo scan <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></button>
     </form>
-    <p class="scan-meta fx">Gratis, senza accessi: legge solo quello che il negozio pubblica. <b>Entro 24 ore</b> ti scriviamo noi con l'indice di accensione e le prime tre cose da accendere.</p>
+    <p class="scan-meta fx">Gratis, senza accessi. Orizon GOS, la diagnosi.</p>
 
     <!-- ── Orizon GOS: l'androide al lavoro, su un negozio vero ── -->
-    <h2 class="hero-h2 fx">Così legge un negozio, da fuori. <span>Questo è vero: moda, 17.432 prodotti, il 20 settembre 2026.</span></h2>
+    <h2 class="hero-h2 fx">Così esce, <span>su un negozio vero.</span></h2>
     <div class="gos fx" id="gos">
       <div class="gos-head">
         <div><span class="gos-k"><i class="tag">Diagnosi</i>Orizon GOS <em>Growth Opportunity Scan</em></span><span class="gos-s">Legge il negozio da fuori, dà un voto a cinque aree e dice <b>cosa accendere per arrivare a 100</b>. Quattro minuti, nessun accesso.</span></div>
@@ -874,7 +889,8 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         </div>
         <div class="gos-top-t">
           <div class="gf-h"><i></i><span>OrizonScan · negozio di moda · 17.432 prodotti · 20 settembre 2026</span></div>
-          <p><b>Oggi:</b> catalogo caricato ma spento, 14.763 prodotti su 17.432 senza un testo che Google possa preferire a un altro negozio. <b>Acceso:</b> ogni area a 100, con le cinque mosse qui sotto.</p>
+          <p class="gos-top-p"><b>Oggi:</b> catalogo caricato ma spento, 14.763 prodotti su 17.432 senza un testo che Google possa preferire a un altro negozio. <b>Acceso:</b> ogni area a 100, con le cinque mosse qui sotto.</p>
+          <ol class="gos-log" id="gos-log" aria-live="polite" hidden></ol>
         </div>
       </div>
       <div class="gos-tab" role="table" aria-label="Le cinque aree: oggi, cosa accendiamo, perché Google lo premia, acceso">
@@ -884,35 +900,35 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
           <span class="gr-o" role="cell"><i class="ga-bar male"><i style="--v:15%"></i></i><b>15</b><small>14.763 su 17.432 senza un testo proprio</small></span>
           <span class="gr-c" role="cell"><a href="#ignition">Una scheda per prodotto, scritta dai suoi dati, nelle 5 lingue del sito <em>leva 01</em></a></span>
           <span class="gr-g" role="cell">Un testo unico si indicizza; gli assistenti AI hanno qualcosa da citare.</span>
-          <span class="gr-d" role="cell"><i class="ga-bar"><i class="post" style="--v:100%;--from:15%"></i></i><b data-from="15" data-n="100">100</b></span>
+          <span class="gr-d" role="cell"><i class="ga-bar"><i class="post" style="--v:100%;--from:15%"></i></i><b data-from="15" data-n="100">100</b><small class="ok">17.432 schede proprie, in 5 lingue</small></span>
         </div>
         <div class="gr" role="row">
           <span class="gr-a" role="rowheader">Catalogo vivo</span>
           <span class="gr-o" role="cell"><i class="ga-bar male"><i style="--v:32%"></i></i><b>32</b><small>11.932 prodotti online ma esauriti</small></span>
           <span class="gr-c" role="cell"><a href="#magazzino">Esauriti fuori da feed e campagne ogni mattina; riordini in lista <em>leva 06</em></a></span>
           <span class="gr-g" role="cell">Nessun click pagato su un prodotto che non si può comprare.</span>
-          <span class="gr-d" role="cell"><i class="ga-bar"><i class="post" style="--v:100%;--from:32%"></i></i><b data-from="32" data-n="100">100</b></span>
+          <span class="gr-d" role="cell"><i class="ga-bar"><i class="post" style="--v:100%;--from:32%"></i></i><b data-from="32" data-n="100">100</b><small class="ok">11.932 esauriti fuori da feed e campagne</small></span>
         </div>
         <div class="gr" role="row">
           <span class="gr-a" role="rowheader">Feed e attributi</span>
           <span class="gr-o" role="cell"><i class="ga-bar medio"><i style="--v:45%"></i></i><b>45</b><small>codice a barre valido e peso: mancano</small></span>
           <span class="gr-c" role="cell"><a href="#ignition">Codice a barre, peso, colore, materiale: campi pieni, feed supplementare <em>leva 03</em></a></span>
           <span class="gr-g" role="cell">Shopping abbina il prodotto alla ricerca giusta e lo mostra nei filtri.</span>
-          <span class="gr-d" role="cell"><i class="ga-bar"><i class="post" style="--v:100%;--from:45%"></i></i><b data-from="45" data-n="100">100</b></span>
+          <span class="gr-d" role="cell"><i class="ga-bar"><i class="post" style="--v:100%;--from:45%"></i></i><b data-from="45" data-n="100">100</b><small class="ok">codice a barre, peso, colore e materiale: pieni</small></span>
         </div>
         <div class="gr" role="row">
           <span class="gr-a" role="rowheader">Testo per Google</span>
           <span class="gr-o" role="cell"><i class="ga-bar medio"><i style="--v:60%"></i></i><b>60</b><small>15 pagine su 25 senza una descrizione</small></span>
           <span class="gr-c" role="cell"><a href="#ignition">Titolo e riga nella misura che Google mostra intera <em>leva 02</em></a></span>
           <span class="gr-g" role="cell">A parità di posizione, il click.</span>
-          <span class="gr-d" role="cell"><i class="ga-bar"><i class="post" style="--v:100%;--from:60%"></i></i><b data-from="60" data-n="100">100</b></span>
+          <span class="gr-d" role="cell"><i class="ga-bar"><i class="post" style="--v:100%;--from:60%"></i></i><b data-from="60" data-n="100">100</b><small class="ok">titolo e riga interi su 17.432 pagine</small></span>
         </div>
         <div class="gr" role="row">
           <span class="gr-a" role="rowheader">Tracciamento</span>
           <span class="gr-o" role="cell"><i class="ga-bar medio"><i style="--v:67%"></i></i><b>67</b><small>manca Meta</small></span>
           <span class="gr-c" role="cell"><a href="#ignition">Meta aggiunto; ogni evento dal server, contato una volta <em>leva 04</em></a></span>
           <span class="gr-g" role="cell">Le campagne imparano da ogni ordine, non da una parte.</span>
-          <span class="gr-d" role="cell"><i class="ga-bar"><i class="post" style="--v:100%;--from:67%"></i></i><b data-from="67" data-n="100">100</b></span>
+          <span class="gr-d" role="cell"><i class="ga-bar"><i class="post" style="--v:100%;--from:67%"></i></i><b data-from="67" data-n="100">100</b><small class="ok">Meta attivo; ogni evento dal server, una volta</small></span>
         </div>
       </div>
       <div class="gos-oltre"><b>Oltre il 100, da fuori si vede già:</b><i>5 lingue del sito, nessun mercato estero attivo</i><i>nessuna recensione visibile a Google</i><i>198 marche senza una pagina propria</i></div>
@@ -1703,28 +1719,64 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     rows.forEach(function(r){ r.addEventListener('click', syncChips); r.addEventListener('keydown', function(){ setTimeout(syncChips, 0); }); });
     document.getElementById('all').addEventListener('click', function(){ var n = 0; KEYS.forEach(function(k, i){ setTimeout(syncChips, reduce ? 0 : i * 200 + 20); }); });
   }
-  /* ── Orizon GOS: «Accendi il negozio» fa ripartire il dopo dall'oggi, a richiesta ── */
-  var gplay = document.getElementById('gos-play'), gos = document.getElementById('gos');
-  if (gplay && gos) gplay.addEventListener('click', function(){
-    if (reduce) return;
-    gplay.disabled = true;
-    // il dopo torna all'oggi di colpo (senza transizione), poi sale
-    gos.classList.remove('run'); gos.classList.add('zero'); void gos.offsetWidth;
-    gos.querySelectorAll('.gr-d b, #gos-n').forEach(function(el){ el.textContent = el.getAttribute('data-from'); });
-    function conta(el, durata, ritardo){
-      var da = parseInt(el.getAttribute('data-from'), 10) || 0, fine = parseInt(el.getAttribute('data-n'), 10), t0 = null;
-      setTimeout(function(){ (function passo(ts){ if (t0 === null) t0 = ts; var f = Math.min(1, (ts - t0) / durata); f = 1 - Math.pow(1 - f, 3); el.textContent = Math.round(da + (fine - da) * f); if (f < 1) requestAnimationFrame(passo); })(performance.now()); }, ritardo);
-      // se la scheda è in secondo piano i frame non girano: il numero finale arriva comunque
-      setTimeout(function(){ el.textContent = fine; }, ritardo + durata + 80);
+  /* ── Orizon GOS: «Accendi il negozio» — il registro di quello che succede, poi area per area il problema si risolve e lo score sale ── */
+  var gplay = document.getElementById('gos-play'), gos = document.getElementById('gos'), glog = document.getElementById('gos-log'), gtop = gos && gos.querySelector('.gos-top');
+  if (gplay && gos && glog) {
+    var RIGHE = Array.prototype.slice.call(gos.querySelectorAll('.gos-tab .gr:not(.head)'));
+    var VOCI = [
+      'Accendo il negozio di moda: 17.432 prodotti, 70.099 varianti…',
+      'Schede: scrivo 14.763 schede dai dati del prodotto, in 5 lingue',
+      'Catalogo vivo: 11.932 esauriti fuori da feed e campagne, riordini in lista',
+      'Feed: codice a barre, peso, colore e materiale su 17.432 prodotti',
+      'Testo per Google: titolo e riga nella misura giusta, 17.432 pagine',
+      'Tracciamento: Meta attivo, ogni evento dal server, contato una volta',
+      'Pronto: indice 100 su 100.'
+    ];
+    var TAPPE = [38, 50, 63, 75, 88, 100], gn = document.getElementById('gos-n'), timer = [];
+    function riga(testo, classe){ var li = document.createElement('li'); li.textContent = testo; if (classe) li.className = classe; glog.appendChild(li); return li; }
+    function conta(el, da, fine, durata){
+      var t0 = null;
+      el.textContent = da;
+      (function passo(ts){ if (t0 === null) t0 = ts; var f = Math.min(1, (ts - t0) / durata); f = 1 - Math.pow(1 - f, 3); el.textContent = Math.round(da + (fine - da) * f); if (f < 1) requestAnimationFrame(passo); })(performance.now());
+      timer.push(setTimeout(function(){ el.textContent = fine; }, durata + 80));   // in secondo piano i frame non girano
     }
-    setTimeout(function(){
-      gos.classList.add('run'); void gos.offsetWidth; gos.classList.remove('zero');
-      gos.querySelectorAll('.gr-d b').forEach(function(b, i){ conta(b, 1000, i * 90); });
-      conta(document.getElementById('gos-n'), 1100, 200);
-    }, 350);
-    // a fine corsa il valore finale si fissa anche se la scheda era in secondo piano (le transizioni lì si fermano)
-    setTimeout(function(){ gos.classList.remove('run'); gos.classList.add('zero'); void gos.offsetWidth; gos.classList.remove('zero'); gplay.disabled = false; }, 2200);
-  });
+    function finale(){
+      gos.classList.remove('run', 'zero'); RIGHE.forEach(function(r){ r.classList.remove('pre'); r.classList.add('acceso'); });
+      gos.classList.add('zero'); void gos.offsetWidth; gos.classList.remove('zero');   // fissa le larghezze finali
+      gn.textContent = '100'; RIGHE.forEach(function(r){ r.querySelector('.gr-d b').textContent = '100'; });
+      gplay.disabled = false;
+    }
+    gplay.addEventListener('click', function(){
+      timer.forEach(clearTimeout); timer = [];
+      gplay.disabled = true;
+      glog.innerHTML = ''; glog.hidden = false; gtop.classList.add('lit');
+      if (reduce) { VOCI.forEach(function(v, i){ riga(v, 'on' + (i === VOCI.length - 1 ? ' fine' : '')); }); finale(); return; }
+      // 1. tutto torna all'oggi, di colpo
+      gos.classList.remove('run'); RIGHE.forEach(function(r){ r.classList.remove('acceso'); r.classList.add('pre'); });
+      gos.classList.add('zero'); void gos.offsetWidth;
+      RIGHE.forEach(function(r){ var b = r.querySelector('.gr-d b'); b.textContent = b.getAttribute('data-from'); });
+      gn.textContent = '38';
+      gos.classList.add('run');
+      // 2. il registro, una voce alla volta; a ogni area la sua riga si accende e lo score sale di un gradino
+      var passo = 950, ultimo = null;
+      VOCI.forEach(function(v, i){
+        timer.push(setTimeout(function(){
+          if (ultimo) ultimo.classList.remove('cur');
+          var fine = i === VOCI.length - 1;
+          ultimo = riga(v, fine ? 'fine' : 'cur'); void ultimo.offsetWidth; ultimo.classList.add('on');
+          if (i >= 1 && i <= RIGHE.length) {
+            var r = RIGHE[i - 1];
+            timer.push(setTimeout(function(){
+              r.classList.remove('pre'); r.classList.add('acceso');
+              conta(r.querySelector('.gr-d b'), parseInt(r.querySelector('.gr-d b').getAttribute('data-from'), 10), 100, 800);
+              conta(gn, TAPPE[i - 1], TAPPE[i], 700);
+            }, 350));
+          }
+          if (fine) { gos.classList.remove('zero'); timer.push(setTimeout(finale, 1200)); }
+        }, i * passo));
+      });
+    });
+  }
   var b = document.querySelector('.burger'), m = document.querySelector('.mobile-menu'), c = document.querySelector('.mobile-close');
   function closeMenu(){ m.classList.remove('open'); document.body.style.overflow = ''; b.setAttribute('aria-expanded', 'false'); }
   if (b && m) {
