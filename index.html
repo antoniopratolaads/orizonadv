@@ -185,6 +185,39 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .mr span.vuoto{color:var(--black-l);font-style:italic}
 .mr span.on{color:var(--black);font-weight:500;background:rgba(55,80,247,.05);margin:-11px -18px -11px 0;padding:11px 18px 11px 14px;border-left:1px solid rgba(55,80,247,.15);align-self:stretch}
 .mr.head span.on{color:var(--blue);font-weight:600;margin:-10px -18px -10px 0;padding:10px 18px 10px 14px}
+.mr.grp{grid-template-columns:1fr;background:var(--bg-2);padding:7px 18px;font-size:12px;font-weight:600;color:var(--black-m)}
+.mr.grp span{color:var(--black-m)}
+.mr small{font-weight:400;color:var(--black-l);font-size:12px;margin-left:4px}
+.mr.uguale span.on{color:var(--black-m);font-weight:400}
+.mr.vuoto span.on{color:var(--black-l);font-style:italic;font-weight:400}
+.mr .da{display:inline-block;font-style:normal;font-size:11px;font-weight:500;color:var(--blue);background:var(--white);border:1px solid var(--blue-ll);border-radius:5px;padding:1px 6px;margin-left:6px;vertical-align:1px}
+.dev{border:1px solid var(--line-2);border-radius:12px;overflow:hidden;background:var(--white)}
+.dev.on{border-color:rgba(55,80,247,.5)}
+.dev .bar{display:flex;align-items:center;gap:6px;padding:9px 14px;background:var(--bg-2);border-bottom:1px solid var(--line);font-size:12px;color:var(--black-m)}
+.dev .bar i{width:8px;height:8px;border-radius:50%;background:var(--line-2)}
+.dev .bar span{margin-left:6px}
+.rq{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:14px;padding:10px 14px;border-top:1px solid var(--line);font-size:13px;align-items:baseline}
+.rq:first-of-type{border-top:0}
+.rq code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;color:var(--black);word-break:break-word;line-height:1.45}
+.rq code b{font-weight:600;color:var(--blue)}
+.dev:not(.on) .rq code b{color:var(--black)}
+.rq span{color:var(--black-m);line-height:1.4}
+.lz,.adz-l{margin-top:24px;border:1px solid var(--line-2);border-radius:12px;overflow:hidden;background:var(--white)}
+.lzr{display:grid;grid-template-columns:1.2fr .95fr 1fr 1.15fr 1.4fr;gap:14px;padding:11px 18px;border-top:1px solid var(--line);font-size:13.5px;align-items:baseline}
+.lzr.head{border-top:0;background:var(--bg-2);font-size:12.5px;font-weight:600;color:var(--black-m);padding:10px 18px}
+.lzr span{color:var(--black-m);line-height:1.4}
+.lzr span b{color:var(--black);font-weight:600}
+.lzr small{color:var(--black-l);font-size:12px}
+.lzr span.on{color:var(--black);font-weight:500}
+.lzr.head span.on{color:var(--blue);font-weight:600}
+.lzr span.on[data-k="etichette"]{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;font-weight:500}
+.adz{display:grid;grid-template-columns:1.25fr 1.4fr 1fr;gap:14px;padding:11px 18px;border-top:1px solid var(--line);font-size:13.5px;align-items:baseline}
+.adz.head{border-top:0;background:var(--bg-2);font-size:12.5px;font-weight:600;color:var(--black-m);padding:10px 18px}
+.adz span{color:var(--black-m);line-height:1.4}
+.adz span b{color:var(--black);font-weight:600}
+.adz.on{background:rgba(55,80,247,.05)}
+.adz.on span{color:var(--black)}
+.adz code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;color:var(--blue);margin-right:4px}
 .piatti-altre{margin-top:40px;font-size:14.5px;color:var(--black-m);text-align:center}
 .piatti-altre a{color:var(--blue);text-decoration:none;font-weight:500}
 .piatti-altre a:hover{text-decoration:underline}
@@ -662,10 +695,18 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .pd2{grid-template-columns:minmax(0,1fr);gap:20px}
   .pagina-dopo{padding:16px}
   .pagina-dopo ul{columns:1}
+  .mr.grp{padding:7px 14px}
+  .mr.grp span::before{content:none}
+  .rq{grid-template-columns:1fr;gap:3px;padding:9px 14px}
+  .lzr,.adz{grid-template-columns:1fr;gap:4px;padding:10px 14px}
+  .lzr.head,.adz.head{display:none}
+  .lzr span::before{content:attr(data-k) ': ';color:var(--black-l);font-size:12px}
+  .lzr span[data-k="prodotto"]::before{content:none}
+  .lzr span.on::before{color:var(--blue);font-weight:600}
   .mr{grid-template-columns:1fr;gap:4px;padding:10px 14px}
   .mr span.on{margin:4px -14px -10px;padding:8px 14px 10px;border-left:0;border-top:1px solid rgba(55,80,247,.15)}
   .mr.head{display:none}
-  .mr>span:not(.on)::before{content:'oggi: ';font-style:normal}
+  .mr:not(.grp)>span:not(.on)::before{content:'oggi: ';font-style:normal}
   .mr span.on::before{content:'acceso: ';color:var(--blue);font-weight:600}
   .vs-grid.flip>.vs{order:0}
   .ponte{font-size:17px;margin-top:32px}
@@ -857,7 +898,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       <rect class="b2" x="1042.8" y="215.7" width="30" height="122.3" rx="4" style="--i:21"><title>ago 2026: 0,66 M€</title></rect>
       <rect class="b1" x="1100.2" y="280.1" width="30" height="57.9" rx="4" style="--i:22"><title>set 2025: 0,31 M€</title></rect>
       <rect class="b2" x="1136.2" y="176.3" width="30" height="161.7" rx="4" style="--i:23"><title>set 2026: 0,87 M€</title></rect>
-      </g><g class="lab">
+      </g><g class="lz">
       <text class="yoy" x="104.8" y="27" text-anchor="middle">+4%</text>
       <text class="v" x="122.8" y="258.8" text-anchor="middle">0,39 M€</text>
       <text x="104.8" y="360" text-anchor="middle">ott</text>
@@ -923,7 +964,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       <rect class="b2" x="34" y="423" width="99.6" height="10" rx="3" style="--i:21"><title>0,66 M€</title></rect>
       <rect class="b1" x="34" y="450" width="47.2" height="10" rx="3" style="--i:22"><title>0,31 M€</title></rect>
       <rect class="b2" x="34" y="463" width="131.6" height="10" rx="3" style="--i:23"><title>0,87 M€</title></rect>
-      </g><g class="lab">
+      </g><g class="lz">
       <text x="0" y="27">ott</text>
       <text class="v" x="98.6" y="32">0,39 M€</text>
       <text class="yoy" x="342" y="28" text-anchor="end">+4%</text>
@@ -999,8 +1040,8 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 <section class="piatti" id="piatti">
   <div class="wrap">
     <div class="sec-head fx">
-      <h2>Lo stesso prodotto, prima e dopo. <span>Tre leve, su un cardigan vero.</span></h2>
-      <p>Un negozio di moda, 17.432 prodotti: questo è uno di quelli. A sinistra com'è oggi, a destra com'è acceso. <strong>Niente inventato</strong>: i dati sono i suoi, e il risultato non è pubblicato. È una prova.</p>
+      <h2>Prima e dopo, su prodotti veri. <span>Cinque leve, cucinate.</span></h2>
+      <p>Un cardigan di un negozio di moda da 17.432 prodotti per la scheda, il titolo e il feed; due negozi di moda per il tracciamento; il negozio di climatizzazione per le etichette. A sinistra com'è oggi, a destra com'è acceso. <strong>Niente inventato</strong>: letture del 12 ottobre 2026, e niente è stato pubblicato senza il sì del negozio.</p>
     </div>
 
     <article class="piatto fx" id="piatto-scheda">
@@ -1032,15 +1073,90 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     </article>
 
     <article class="piatto fx" id="piatto-feed">
-      <header><span class="pn">03</span><div><h3>Feed Enrichment <span>il feed per Google Shopping</span></h3><p>Shopping non legge la pagina: legge questi campi. Oggi ne sono pieni 4 su 9, e tre dei vuoti sono filtri: colore, materiale, taglia. Dopo, 9 su 9, ricavati dal catalogo.</p></div></header>
-      <div class="mtab" role="table" aria-label="I campi del feed del cardigan, oggi e acceso">
+      <header><span class="pn">03</span><div><h3>Feed Enrichment <span>il file che Google Shopping legge</span></h3><p>La riga vera del cardigan nel Merchant Center, letta il 12 ottobre. I filtri ci sono già: colore, taglia, genere, età. Mancano i campi che decidono l'asta: categoria Google, materiale, punti di forza, specifiche, domande e risposte, etichette per le campagne. <strong>Oggi 14 campi pieni su 27, acceso 24</strong>: tre restano vuoti apposta, perché non si inventa.</p></div></header>
+      <div class="mtab" role="table" aria-label="I 27 campi del feed del cardigan, oggi e acceso">
         <div class="mr head"><code>campo</code><span>oggi</span><span class="on">acceso</span></div>
-        <div class="mr"><code>title</code><span class="">Levi's Mammoth Cardigan Obsidian Heather Cardi Brown - Cardigan Uomo Marrone  Uomo LEVIS</span><span class="on">Levi's Mammoth Cardigan Uomo Marrone 007T5</span></div><div class="mr"><code>description</code><span class="">testo del fornitore, 66 parole</span><span class="on">scheda propria, 203 parole</span></div><div class="mr"><code>color</code><span class="vuoto">vuoto</span><span class="on">Marrone (Obsidian Heather)</span></div><div class="mr"><code>material</code><span class="vuoto">vuoto</span><span class="on">64% poliestere riciclato, 30% acrilico, 6% lana</span></div><div class="mr"><code>gender · age_group</code><span class="vuoto">vuoto</span><span class="on">uomo · adulto</span></div><div class="mr"><code>size</code><span class="vuoto">vuoto</span><span class="on">S · M · L · XL</span></div><div class="mr"><code>product_type</code><span class="">MAGLIERIA</span><span class="on">Maglieria &gt; Cardigan</span></div><div class="mr"><code>google_product_category</code><span class="vuoto">vuoto</span><span class="on">Abbigliamento e accessori &gt; Abbigliamento &gt; Camicie e top</span></div><div class="mr"><code>gtin</code><span class="">5401235272968</span><span class="on">5401235272968</span></div>
+        <div class="mr grp"><span>Identità</span></div>
+        <div class="mr uguale"><code>id</code><span>shopify_IT_16069175968075_58774819963211</span><span class="on">shopify_IT_16069175968075_58774819963211</span></div>
+        <div class="mr uguale"><code>item_group_id</code><span>16069175968075</span><span class="on">16069175968075</span></div>
+        <div class="mr uguale"><code>gtin</code><span>5401235272968</span><span class="on">5401235272968</span></div>
+        <div class="mr uguale"><code>brand</code><span>LEVIS</span><span class="on">LEVIS</span></div>
+        <div class="mr uguale"><code>condition</code><span>new</span><span class="on">new</span></div>
+        <div class="mr grp"><span>Testo</span></div>
+        <div class="mr scheda"><code>title</code><span>Levi's Mammoth Cardigan Obsidian Heather Cardi Brown - Cardigan Uomo Marrone Uomo LEVIS | tg. S | codice 007T5 <small>110 caratteri</small></span><span class="on">Levi's Mammoth Cardigan Uomo Marrone taglia S 007T5 <small>51 caratteri</small> <i class="da">dalla scheda nuova</i></span></div>
+        <div class="mr scheda"><code>description</code><span>testo del fornitore più le righe degli attributi, 71 parole</span><span class="on">scheda propria: 203 parole, scheda tecnica, 6 domande e risposte <i class="da">dalla scheda nuova</i></span></div>
+        <div class="mr scheda"><code>short_title</code><span><span class="vuoto">vuoto</span></span><span class="on">Cardigan Levi's Mammoth Uomo <i class="da">dalla scheda nuova</i></span></div>
+        <div class="mr scheda"><code>product_highlight</code><span><span class="vuoto">vuoto</span></span><span class="on">Maniche lunghe · Chiusura frontale con bottoni · Tasche frontali · Polsini e fondo a coste · Poliestere riciclato 64% <i class="da">dalla scheda nuova</i></span></div>
+        <div class="mr scheda"><code>product_detail</code><span><span class="vuoto">vuoto</span></span><span class="on">Caratteristiche:Modello:Mammoth Cardigan · Colletto:classico · Chiusura:frontale con bottoni · Polsini:a coste · … <i class="da">dalla scheda nuova</i></span></div>
+        <div class="mr scheda"><code>question_and_answer</code><span><span class="vuoto">vuoto</span></span><span class="on">le 6 domande e risposte della scheda (ha le tasche? come si chiude? che colletto ha?) <i class="da">dalla scheda nuova</i></span></div>
+        <div class="mr grp"><span>Filtri di Shopping</span></div>
+        <div class="mr uguale"><code>color</code><span>MARRONE</span><span class="on">Marrone</span></div>
+        <div class="mr uguale"><code>size · size_system</code><span>S · EU</span><span class="on">S · EU</span></div>
+        <div class="mr uguale"><code>gender · age_group</code><span>male · adult</span><span class="on">male · adult</span></div>
+        <div class="mr"><code>material</code><span><span class="vuoto">vuoto</span></span><span class="on">Poliestere/Lana</span></div>
+        <div class="mr vuoto"><code>pattern</code><span><span class="vuoto">vuoto</span></span><span class="on">resta vuoto: non si inventa</span></div>
+        <div class="mr grp"><span>Categoria</span></div>
+        <div class="mr uguale"><code>product_type</code><span>MAGLIERIA</span><span class="on">MAGLIERIA</span></div>
+        <div class="mr"><code>google_product_category</code><span><span class="vuoto">vuoto</span></span><span class="on">Abbigliamento e accessori &gt; Abbigliamento <small>1604</small></span></div>
+        <div class="mr grp"><span>Prezzo e consegna</span></div>
+        <div class="mr uguale"><code>price · availability</code><span>120,00 EUR · in stock</span><span class="on">120,00 EUR · in stock</span></div>
+        <div class="mr uguale"><code>shipping</code><span>IT · GLS 1-2 gg · 0,00 EUR</span><span class="on">IT · GLS 1-2 gg · 0,00 EUR</span></div>
+        <div class="mr vuoto"><code>shipping_weight</code><span><span class="vuoto">vuoto</span></span><span class="on">resta vuoto: il negozio non ha il peso</span></div>
+        <div class="mr"><code>ships_from_country</code><span><span class="vuoto">vuoto</span></span><span class="on">IT</span></div>
+        <div class="mr grp"><span>Etichette per le campagne</span></div>
+        <div class="mr uguale"><code>custom_label_0</code><span>F26 <small>codice di stagione</small></span><span class="on">F26 <small>lo usano già le campagne: non si tocca</small></span></div>
+        <div class="mr poi"><code>custom_label_1</code><span><span class="vuoto">vuoto</span></span><span class="on">sotto o sopra il benchmark di prezzo di Google <i class="da">dopo 20 giorni di campagna</i></span></div>
+        <div class="mr"><code>custom_label_2</code><span><span class="vuoto">vuoto</span></span><span class="on">premium <small>fascia di prezzo</small></span></div>
+        <div class="mr vuoto"><code>custom_label_3</code><span><span class="vuoto">vuoto</span></span><span class="on">resta vuoto: margine, manca il costo d'acquisto</span></div>
+        <div class="mr"><code>custom_label_4</code><span><span class="vuoto">vuoto</span></span><span class="on">novita <small>ciclo di vita</small></span></div>
       </div>
-      <p class="pd-note">Il colore sta già nei tag del negozio, il materiale nella scheda, le taglie nelle varianti: si leggono e si scrivono nel campo giusto, ogni giorno, in un feed supplementare che Merchant Center rilegge da solo.</p>
+      <p class="pd-note">I campi accesi li scrive la piattaforma in un feed supplementare che Merchant Center rilegge da solo, ogni giorno: colore, taglia, genere, età e categoria dal catalogo, materiale e specifiche dalla scheda, le etichette dai conti. Quelli segnati «dalla scheda nuova» arrivano quando il negozio dice sì alla scheda del piatto 01.</p>
     </article>
 
-    <p class="piatti-altre">Le altre tre leve si vedono più avanti: <a href="#ignition">Tracking Server Side, sulla padella</a> · <a href="#budget">Labelizer, nel budget</a> · <a href="#magazzino">Rotazione di magazzino, nella merce ferma</a>.</p>
+    <article class="piatto fx" id="piatto-tracking">
+      <header><span class="pn">04</span><div><h3>Tracking Server Side <span>dove vanno i dati di una visita</span></h3><p>Letto dal browser il 12 ottobre su due negozi di moda: uno col tracciamento standard, uno acceso. Qui non c'è un numero: quanto si recupera dipende da quanti visitatori bloccano i pixel, e si misura sul negozio, prima e dopo.</p></div></header>
+      <div class="pd2">
+        <div class="pd-oggi"><span class="tag">Oggi</span>
+          <div class="dev"><div class="bar"><i></i><i></i><i></i><span>Rete · pagina del negozio · 12 ott 2026</span></div>
+            <div class="rq"><code>www.googletagmanager.com/gtag/js</code><span>il tag di Google, dal dominio di Google</span></div>
+            <div class="rq"><code>connect.facebook.net/…/fbevents.js</code><span>il pixel Meta, nel browser</span></div>
+            <div class="rq"><code>www.googleadservices.com/pagead/conversion/…</code><span>la conversione Ads, dal browser</span></div>
+            <div class="rq"><code>cookie <b>_ga</b> · <b>_gcl_au</b> · <b>_ttp</b></code><span>tre cookie di terzi, uno per piattaforma</span></div>
+          </div>
+          <p class="pd-note">Tre pixel, tre domini di terzi: chi usa un blocker li ferma tutti e tre. Ogni evento parte dal browser, e fra GA4, Ads e Meta non c'è un id in comune: un acquisto può contare due volte, o zero.</p>
+        </div>
+        <div class="pd-dopo"><span class="tag on">Acceso</span>
+          <div class="dev on"><div class="bar"><i></i><i></i><i></i><span>Rete · pagina del cardigan · 12 ott 2026</span></div>
+            <div class="rq"><code><b>load.data.negoziodimoda.it</b>/gtag/js</code><span>il tag parte da un sottodominio del negozio</span></div>
+            <div class="rq"><code><b>data.negoziodimoda.it</b>/g/collect</code><span>GA4 riceve dal server del negozio, non dal browser</span></div>
+            <div class="rq"><code>consent default · <b>denied</b></code><span>tutto negato finché il visitatore non sceglie</span></div>
+            <div class="rq"><code>config AW-1000…236 · <b>allow_enhanced_conversions: true</b></code><span>conversioni avanzate: l'email cifrata viaggia con l'acquisto</span></div>
+            <div class="rq"><code>view_item · item_id <b>shopify_it_16069175968075_…</b></code><span>il cardigan, visto: lo stesso id del feed</span></div>
+          </div>
+          <p class="pd-note">Un dominio proprio: i blocker non lo riconoscono. Dal server ogni evento esce una volta sola verso GA4, Ads e Meta, con lo stesso id, e il consenso viene rispettato prima di tutto.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="piatto fx" id="piatto-labelizer">
+      <header><span class="pn">05</span><div><h3>Labelizer <span>le etichette che decidono chi va in asta</span></h3><p>Negozio di climatizzazione, 4.750 prodotti in Google Ads. Ogni venti giorni uno script confronta il prezzo di ogni prodotto col benchmark di Google e con i suoi click e vendite, e scrive due etichette nel feed. Le campagne le leggono. <strong>Oggi: nessuna etichetta, un'asta uguale per tutti. Acceso: in Shopping entra solo chi può vincere.</strong></p></div></header>
+      <div class="lz" role="table" aria-label="Quattro prodotti veri con le etichette del labelizer">
+        <div class="lzr head"><span>prodotto</span><span>prezzo · benchmark Google</span><span>20 giorni di Ads</span><span class="on">custom_label_1 · 2</span><span class="on">dove va</span></div>
+        <div class="lzr"><span data-k="prodotto"><b>Ventilconvettore a parete inverter 350</b></span><span data-k="prezzo · benchmark">283 € · 275,51 € <small>+2,7%</small></span><span data-k="20 giorni di Ads">401 click · 3,9 vendite · ROAS 39,6</span><span class="on" data-k="etichette">lose · sopra_benchmark_ma_converte</span><span class="on" data-k="dove va">in Shopping: converte anche sopra il benchmark, il prezzo si può limare</span></div>
+        <div class="lzr"><span data-k="prodotto"><b>Filmante protettivo per impianti</b></span><span data-k="prezzo · benchmark">44 € · 17,75 € <small>+147,9%</small></span><span data-k="20 giorni di Ads">5 click · 1 vendita · ROAS 45,4</span><span class="on" data-k="etichette">lose · sopra_benchmark_ma_converte</span><span class="on" data-k="dove va">in Shopping: caro ma rende, si lascia correre</span></div>
+        <div class="lzr"><span data-k="prodotto"><b>Recuperatore di calore puntuale 25</b></span><span data-k="prezzo · benchmark">291 € · 239,10 € <small>+21,7%</small></span><span data-k="20 giorni di Ads">76 click · 0 vendite</span><span class="on" data-k="etichette">lose · supercaro_brucia_budget</span><span class="on" data-k="dove va">fuori da Shopping: prima il prezzo, poi il budget</span></div>
+        <div class="lzr"><span data-k="prodotto"><b>Recuperatore di calore puntuale 50</b></span><span data-k="prezzo · benchmark">192 € · 202,30 € <small>−5,1%</small></span><span data-k="20 giorni di Ads">911 click · 2 vendite · ROAS 6,3</span><span class="on" data-k="etichette">win · prodotto_richiede_check</span><span class="on" data-k="dove va">sotto il benchmark ma non vende: campagna sua, in prova con un obiettivo di ritorno dedicato</span></div>
+      </div>
+      <div class="adz-l" aria-label="Le campagne vere, lette da Google Ads il 12 ottobre">
+        <div class="adz head"><span>campagna</span><span>filtro sul feed</span><span>perché</span></div>
+        <div class="adz on"><span><b>Shopping 4.1</b> · SuperCompetitive + Competitive</span><span><code>custom_label_2</code> supercompetitivo · competitivo_ok · sopra_benchmark_ma_converte</span><span>qui va il budget: solo chi può vincere l'asta</span></div>
+        <div class="adz"><span><b>PMax 2.1 · 2.2 · 2.3</b> · Riscaldamento, Condizionamento, Termoidraulica e altro</span><span><code>product_type</code> una campagna per categoria</span><span>il resto del catalogo, con la spesa letta per categoria</span></div>
+        <div class="adz"><span><b>Shopping 4.3</b> · un prodotto solo, con esperimento</span><span><code>brand</code> · obiettivo di ritorno dedicato</span><span>un prodotto che merita una prova a parte</span></div>
+      </div>
+      <p class="pd-note">Parametri dello script: 20 giorni di storico, ritorno obiettivo 12, almeno 5 click. Lo stesso foglio alimenta la lettura «il budget va dove si vince l'asta» più avanti.</p>
+    </article>
+
+    <p class="piatti-altre">La sesta leva, Rotazione di magazzino, si vede <a href="#magazzino">nella merce ferma</a>; tutte e sei insieme, <a href="#ignition">sulla padella</a>.</p>
   </div>
 </section>
 
@@ -1318,42 +1434,42 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         <text x="420" y="44" text-anchor="middle" class="qs">confrontato con quello dei concorrenti, come lo vede Google</text>
         <path class="link on" d="M152,300 C276,300 240,150 372.0387742490708,150"/>
         <g class="node mid on"><circle cx="420" cy="150" r="48"/><text x="420" y="158" text-anchor="middle" class="big">399</text></g>
-        <text x="420" y="218" text-anchor="middle" class="lab b">sotto o pari al benchmark</text><text x="420" y="235" text-anchor="middle" class="lab">possono vincere l'asta</text>
+        <text x="420" y="218" text-anchor="middle" class="lab b">sotto o pari al benchmark</text><text x="420" y="235" text-anchor="middle" class="lz">possono vincere l'asta</text>
         <path class="link " d="M152,300 C276,300 240,440 373.96075930744746,440"/>
         <g class="node mid off"><circle cx="420" cy="440" r="46"/><text x="420" y="448" text-anchor="middle" class="big">351</text></g>
-        <text x="420" y="506" text-anchor="middle" class="lab b">sopra il benchmark</text><text x="420" y="523" text-anchor="middle" class="lab">non vincono, per quanto budget ci metti</text>
+        <text x="420" y="506" text-anchor="middle" class="lab b">sopra il benchmark</text><text x="420" y="523" text-anchor="middle" class="lz">non vincono, per quanto budget ci metti</text>
         <text x="730" y="26" class="q">2 · Cosa fa in campagna da venti giorni?</text>
         <text x="730" y="44" class="qs">l'etichetta nel feed, e la campagna in cui va</text>
         <path class="link on" d="M468,150 C580,150 570,70 657,70"/>
         <g class="node leaf budget"><circle cx="690" cy="70" r="32.8"/><text x="690" y="75" text-anchor="middle" class="n">276</text></g>
-        <text x="730" y="66" class="lab b">Competitivi, bassa visibilità</text><text x="730" y="85" class="lab"><tspan class="lbl">competitivo_poco_visibile</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">Shopping · Low Visibility</tspan></text>
+        <text x="730" y="66" class="lab b">Competitivi, bassa visibilità</text><text x="730" y="85" class="lz"><tspan class="lbl">competitivo_poco_visibile</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">Shopping · Low Visibility</tspan></text>
         <path class="link on" d="M468,150 C580,150 570,124 680,124"/>
         <g class="node leaf budget"><circle cx="690" cy="124" r="10.1"/><text x="690" y="129" text-anchor="middle" class="n">4</text></g>
-        <text x="730" y="120" class="lab b">Supercompetitivi</text><text x="730" y="139" class="lab"><tspan class="lbl">supercompetitivo</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">Shopping · SuperCompetitive + Competitive</tspan></text>
+        <text x="730" y="120" class="lab b">Supercompetitivi</text><text x="730" y="139" class="lz"><tspan class="lbl">supercompetitivo</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">Shopping · SuperCompetitive + Competitive</tspan></text>
         <path class="link on" d="M468,150 C580,150 570,178 681,178"/>
         <g class="node leaf budget"><circle cx="690" cy="178" r="8.6"/><text x="690" y="183" text-anchor="middle" class="n">1</text></g>
-        <text x="730" y="174" class="lab b">Competitivi, in conversione</text><text x="730" y="193" class="lab"><tspan class="lbl">competitivo_ok</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">Shopping · SuperCompetitive + Competitive</tspan></text>
+        <text x="730" y="174" class="lab b">Competitivi, in conversione</text><text x="730" y="193" class="lz"><tspan class="lbl">competitivo_ok</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">Shopping · SuperCompetitive + Competitive</tspan></text>
         <path class="link " d="M468,150 C580,150 570,232 676,232"/>
         <g class="node leaf fix"><circle cx="690" cy="232" r="13.9"/><text x="690" y="237" text-anchor="middle" class="n">20</text></g>
-        <text x="730" y="228" class="lab b">Da verificare: scheda prodotto</text><text x="730" y="247" class="lab"><tspan class="lbl">prodotto_richiede_check</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">In pausa fino alla correzione</tspan></text>
+        <text x="730" y="228" class="lab b">Da verificare: scheda prodotto</text><text x="730" y="247" class="lz"><tspan class="lbl">prodotto_richiede_check</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">In pausa fino alla correzione</tspan></text>
         <path class="link " d="M468,150 C580,150 570,286 675,286"/>
         <g class="node leaf wait"><circle cx="690" cy="286" r="14.8"/><text x="690" y="291" text-anchor="middle" class="n">25</text></g>
-        <text x="730" y="282" class="lab b">In osservazione</text><text x="730" y="301" class="lab"><tspan class="lbl">da_monitorare</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">PMax di categoria</tspan></text>
+        <text x="730" y="282" class="lab b">In osservazione</text><text x="730" y="301" class="lz"><tspan class="lbl">da_monitorare</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">PMax di categoria</tspan></text>
         <path class="link " d="M468,150 C580,150 570,340 670,340"/>
         <g class="node leaf out"><circle cx="690" cy="340" r="20.2"/><text x="690" y="345" text-anchor="middle" class="n">73</text></g>
-        <text x="730" y="336" class="lab b">Senza impression</text><text x="730" y="355" class="lab"><tspan class="lbl">no_impression</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">Shopping · Zombie</tspan></text>
+        <text x="730" y="336" class="lab b">Senza impression</text><text x="730" y="355" class="lz"><tspan class="lbl">no_impression</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">Shopping · Zombie</tspan></text>
         <path class="link " d="M466,440 C580,440 570,400 658,400"/>
         <g class="node leaf price"><circle cx="690" cy="400" r="31.8"/><text x="690" y="405" text-anchor="middle" class="n">256</text></g>
-        <text x="730" y="396" class="lab b">Sopra benchmark, invisibili</text><text x="730" y="415" class="lab"><tspan class="lbl">supercaro_nascosto</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">Esclusi: si lavora sul prezzo</tspan></text>
+        <text x="730" y="396" class="lab b">Sopra benchmark, invisibili</text><text x="730" y="415" class="lz"><tspan class="lbl">supercaro_nascosto</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">Esclusi: si lavora sul prezzo</tspan></text>
         <path class="link " d="M466,440 C580,440 570,454 678,454"/>
         <g class="node leaf stop"><circle cx="690" cy="454" r="12.4"/><text x="690" y="459" text-anchor="middle" class="n">12</text></g>
-        <text x="730" y="450" class="lab b">Sopra benchmark, spesa improduttiva</text><text x="730" y="469" class="lab"><tspan class="lbl">supercaro_brucia_budget</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">Esclusi dalle campagne</tspan></text>
+        <text x="730" y="450" class="lab b">Sopra benchmark, spesa improduttiva</text><text x="730" y="469" class="lz"><tspan class="lbl">supercaro_brucia_budget</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">Esclusi dalle campagne</tspan></text>
         <path class="link " d="M466,440 C580,440 570,508 669,508"/>
         <g class="node leaf out"><circle cx="690" cy="508" r="21.1"/><text x="690" y="513" text-anchor="middle" class="n">83</text></g>
-        <text x="730" y="504" class="lab b">Senza impression</text><text x="730" y="523" class="lab"><tspan class="lbl">no_impression</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">Shopping · Zombie</tspan></text>
+        <text x="730" y="504" class="lab b">Senza impression</text><text x="730" y="523" class="lz"><tspan class="lbl">no_impression</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">Shopping · Zombie</tspan></text>
         <path class="link " d="M466,440 C580,440 570,562 683,562"/>
         <g class="node leaf wait"><circle cx="690" cy="562" r="7.0"/><text x="690" y="567" text-anchor="middle" class="n">0</text></g>
-        <text x="730" y="558" class="lab b">Sopra benchmark, in conversione</text><text x="730" y="577" class="lab"><tspan class="lbl">sopra_benchmark_ma_converte</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">Shopping · SuperCompetitive + Competitive</tspan></text>
+        <text x="730" y="558" class="lab b">Sopra benchmark, in conversione</text><text x="730" y="577" class="lz"><tspan class="lbl">sopra_benchmark_ma_converte</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">Shopping · SuperCompetitive + Competitive</tspan></text>
         </svg>
         <div class="tree-m" aria-hidden="true">
           <div class="tm-root"><b>750</b><span>prodotti in campagna, letti ogni mattina</span></div>
