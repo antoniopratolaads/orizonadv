@@ -66,8 +66,15 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .js .fx.in{opacity:1;transform:none}
 
 /* ── HERO ── */
-.hero{padding:140px 0 0;text-align:center;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;left:50%;top:420px;width:1100px;height:700px;transform:translateX(-50%);background:radial-gradient(ellipse at center,rgba(55,80,247,.14),rgba(55,80,247,0) 62%);pointer-events:none}
+.hero{min-height:100dvh;display:flex;flex-direction:column;justify-content:center;padding:92px 0 96px;text-align:center;position:relative;overflow:hidden}
+.hero-giu{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;font-size:12.5px;font-weight:600;letter-spacing:.02em;color:var(--black-m);text-decoration:none;z-index:1}
+.hero-giu i{width:26px;height:40px;border:1.5px solid var(--black-l);border-radius:14px;position:relative}
+.hero-giu i::before{content:'';position:absolute;left:50%;top:7px;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:var(--blue);animation:mgoccia 1.8s ease-in-out infinite}
+@keyframes mgoccia{0%{transform:translateY(0);opacity:1}70%{transform:translateY(16px);opacity:0}100%{transform:translateY(0);opacity:0}}
+.hero-o2{position:absolute;left:-14%;bottom:-18%;width:min(48vw,720px);opacity:.07;pointer-events:none;z-index:0;transform:rotate(-20deg);animation:ogalleggia 14s ease-in-out infinite alternate}
+@keyframes ogalleggia{0%{transform:rotate(-20deg) translateY(0)}100%{transform:rotate(-14deg) translateY(-26px)}}
+.hero-o3{position:absolute;left:12%;top:9%;width:min(13vw,190px);opacity:.3;pointer-events:none;z-index:0;animation:oruota 50s linear infinite reverse}
+.hero::before{content:'';position:absolute;left:50%;top:38%;width:1100px;height:700px;transform:translateX(-50%);background:radial-gradient(ellipse at center,rgba(55,80,247,.14),rgba(55,80,247,0) 62%);pointer-events:none}
 .hero::after{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(12,23,19,.11) 1px,transparent 1.2px);background-size:22px 22px;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse 55% 60% at 50% 32%,#000 15%,transparent 72%);mask-image:radial-gradient(ellipse 55% 60% at 50% 32%,#000 15%,transparent 72%)}
 .hero .wrap{position:relative;z-index:1}
 .hero h1{font-size:clamp(38px,5vw,62px);line-height:1.06;letter-spacing:-.035em;max-width:980px;margin:0 auto;text-wrap:balance}
@@ -137,7 +144,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
 .legend .l1{background:var(--blue-ll)}.legend .l2{background:var(--blue)}.legend .l4{background:none;width:auto;height:auto;font-weight:600;color:var(--blue);font-size:12px;margin-right:4px}.legend .l4::before{content:'+%'}
 
-.hero-end{height:72px}
+.hero-end{display:none}
 /* capitoli: le pagine piene di Slate Blue del brand book */
 .cap{background:var(--blue);color:var(--white);padding:104px 0 96px;position:relative;overflow:hidden}
 .cap .wrap{position:relative;z-index:1}
@@ -232,7 +239,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .lab-leg b{font-weight:600}
 .lab-leg small{display:block;color:var(--black-m);font-size:12px;margin-top:2px}
 .lab-leg .gb{background:var(--blue)}.lab-leg .gr{background:var(--black)}.lab-leg .gc{background:var(--blue-ll)}.lab-leg .gm{background:#DCDFE2}.lab-leg .gf{background:repeating-linear-gradient(135deg,#fff 0 3px,#D9DDE1 3px 6px);border:1px solid var(--line-2)}
-.hero-o{position:absolute;right:-6%;top:36px;width:min(40vw,600px);opacity:.26;pointer-events:none;z-index:0;animation:oruota 90s linear infinite}
+.hero-o{position:absolute;right:-8%;top:50%;margin-top:-22vw;width:min(44vw,660px);opacity:.3;pointer-events:none;z-index:0;animation:oruota 90s linear infinite}
 @keyframes oruota{to{transform:rotate(360deg)}}
 .hero .wrap{position:relative;z-index:1}
 .cap.nero{background:var(--black)}
@@ -723,7 +730,8 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .nav-links,.nav .btn{display:none}
   .burger{display:block}
   .mobile-menu{display:flex}
-  .hero{padding-top:112px}
+  .hero{min-height:0;padding-top:112px}
+  .hero-giu,.hero-o2,.hero-o3{display:none}
   .hero h1{font-size:clamp(34px,9.2vw,44px)}
   .hero h1 br{display:none}
   .hero .sub{font-size:17px}
@@ -979,7 +987,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 @media(prefers-reduced-motion:reduce){
   .js .vs.fx .vr,.js .vs-why.fx .mks div{opacity:1;transform:none;transition:none}
   .js .bars i{transform:none}
-  .hero-o,.trk-lane .dot{animation:none}
+  .hero-o,.hero-o2,.hero-o3,.hero-giu i::before,.trk-lane .dot{animation:none}
   .trk-lane .dot{left:calc(100% - 20px)}
   .trk.oggi .dot.p{left:46%;opacity:.4}
   .xr,.xw>span{opacity:1;transform:none;transition:none}
@@ -1104,6 +1112,8 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 <!-- ═══ HERO ═══ -->
 <header class="solo-d hero" id="top">
   <img class="hero-o" src="images/brand/mark-contorno.svg" alt="" aria-hidden="true">
+  <img class="hero-o2" src="images/brand/mark-blu.svg" alt="" aria-hidden="true">
+  <img class="hero-o3" src="images/brand/mark-contorno.svg" alt="" aria-hidden="true">
   <div class="wrap">
     <h1 class="fx">Il tuo e-commerce ha già tutto. <br><span>Noi lo accendiamo.</span></h1>
     <p class="sub fx">Accendiamo il catalogo con una macchina nostra e guidiamo le campagne. <strong>Ci paghi a percentuale sul venduto in più.</strong></p>
@@ -1115,7 +1125,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     <p class="scan-meta fx">Gratis, senza accessi.</p>
 
   </div>
-  <div class="hero-end"></div>
+  <a class="hero-giu fx" href="#risultati" aria-label="Scorri ai risultati"><span>Scorri</span><i></i></a>
 </header>
 
 <section class="solo-d res" id="risultati">
