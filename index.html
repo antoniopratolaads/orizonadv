@@ -563,6 +563,34 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .vr.tot small{color:rgba(255,255,255,.7)}
 .vr.tot em{position:absolute;top:-14px;right:14px;font-style:normal;font-size:12.5px;font-weight:600;color:var(--black);background:var(--green);border-radius:999px;padding:4px 10px;white-space:nowrap}
 .vs-why{padding-top:4px}
+.sim{border:1px solid var(--line-2);border-radius:16px;background:var(--white);padding:16px 16px 14px;margin-bottom:22px;box-shadow:0 1px 2px rgba(12,23,19,.04),0 24px 60px -28px rgba(12,23,19,.2)}
+.sim-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}
+.sim-top span{font-size:13px;font-weight:600;color:var(--black-m)}
+.sim-top button{font:inherit;font-size:13px;font-weight:600;color:var(--white);background:var(--blue);border:0;border-radius:999px;padding:8px 14px;cursor:pointer;transition:background .2s,transform .2s}
+.sim-top button:hover{background:var(--blue-d)}
+.sim-top button:active{transform:scale(.97)}
+.sim-cols{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.sim-col{border:1px solid var(--line);border-radius:12px;padding:12px 12px 0;background:var(--bg-2);overflow:hidden}
+.sim-col.on{background:var(--white);border-color:rgba(55,80,247,.35);box-shadow:inset 0 0 0 1px rgba(55,80,247,.12)}
+.sim-col h4{font-size:12.5px;font-weight:600;color:var(--black-m);margin-bottom:10px}
+.sim-col.on h4{color:var(--blue)}
+.sim-k{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.sim-k small{display:block;font-size:11px;color:var(--black-m)}
+.sim-k b{display:block;font-weight:600;font-size:17px;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--black);margin-top:2px;white-space:nowrap}
+.sim-k div:last-child b{color:var(--black-m)}
+.sim-col.on .sim-k div:last-child b{color:var(--blue)}
+.sim-col.fine .sim-k div:last-child b{font-size:21px}
+.sim-list{list-style:none;height:212px;overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(#000 70%,transparent);mask-image:linear-gradient(#000 70%,transparent)}
+.vs-why .sim-list li{display:grid;grid-template-columns:1fr auto;gap:1px 10px;align-items:center;padding:7px 0;border-bottom:1px solid var(--line);font-size:12.5px;line-height:1.3;counter-increment:none;animation:sim-in .45s var(--ease) both}
+.vs-why .sim-list li::before{content:none}
+.sim-list li .nm{color:var(--black);font-weight:500}
+.sim-list li .pr{font-variant-numeric:tabular-nums;color:var(--black-m);font-size:12px}
+.sim-list li .ch{grid-column:2;grid-row:1/3;font-size:11.5px;font-weight:600;padding:3px 8px;border-radius:999px;background:var(--black-ll);color:var(--black);white-space:nowrap}
+.sim-col.on .sim-list li .ch{background:var(--blue-ll);color:var(--blue)}
+.sim-list li.reso .nm{color:var(--black-m);text-decoration:line-through}
+.sim-list li.reso .ch{background:#FBE5E3;color:#B4322B}
+@keyframes sim-in{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
+.sim-nota{margin-top:12px;font-size:12px;color:var(--black-m);line-height:1.45}
 .bars{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:end;height:210px;margin-bottom:22px;padding:0 8px}
 .bars div{display:flex;flex-direction:column;justify-content:flex-end;height:100%;text-align:center}
 .bars i{display:block;height:var(--h);border-radius:8px 8px 4px 4px;background:var(--black-ll);transform-origin:50% 100%}
@@ -623,8 +651,8 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 /* ── CHI GUIDA ── */
 .who{padding:112px 0;background:var(--white)}
 .who-grid{display:grid;grid-template-columns:300px 1fr;gap:48px;align-items:center}
-.who-photo{border-radius:14px;overflow:hidden;border:1px solid var(--line-2);box-shadow:0 24px 70px -28px rgba(12,23,19,.22)}
-.who-photo img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover}
+.who-photo{border-radius:20px;overflow:hidden;border:1px solid var(--line-2);background:radial-gradient(rgba(55,80,247,.16) 1px,transparent 1.2px) 0 0/18px 18px var(--bg-2);box-shadow:0 24px 70px -28px rgba(12,23,19,.22)}
+.who-photo img{width:100%;height:auto;aspect-ratio:3/4;object-fit:contain;display:block}
 .who h2{font-size:clamp(30px,3.6vw,46px);line-height:1.1;letter-spacing:-.03em}
 .who .role{margin-top:8px;font-size:14px;color:var(--blue);font-weight:600}
 .who p{margin-top:16px;font-size:17px;color:var(--black-m);max-width:600px}
@@ -948,7 +976,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .xpunti li{padding-left:16px;position:relative;font-size:15.5px}
   .xpunti li::before{content:'';position:absolute;left:0;top:10px;width:7px;height:7px;border-radius:50%;background:var(--green)}
   .xtesta{display:flex;gap:14px;align-items:center}
-  .xtesta img{width:76px;height:76px;object-fit:cover;object-position:top;border-radius:16px;box-shadow:0 0 0 3px var(--white),0 0 0 5px var(--blue-ll)}
+  .xtesta img{width:76px;height:76px;object-fit:cover;object-position:top;border-radius:16px;background:var(--bg-2);padding:4px;box-shadow:0 0 0 3px var(--white),0 0 0 5px var(--blue-ll)}
   .xtesta h2{font-size:24px;line-height:1.1}
   .xruolo{font-size:13px;color:var(--black-m);margin-top:3px}
   .xpassi{margin-top:18px;list-style:none;display:grid;gap:10px}
@@ -960,6 +988,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .xmfoot span{flex-basis:100%;margin-top:6px}
 }
 @media(prefers-reduced-motion:reduce){
+  .sim-list li{animation:none}
   .js .cresc .l1,.js .cresc .l2{stroke-dashoffset:0;transition:none}
   .js .cresc .a1,.js .cresc .a2,.js .cresc .pt,.js .cresc .lb,.js .cresc .gap{opacity:1;transition:none}
   .js .vs.fx .vr,.js .vs-why.fx .mks div{opacity:1;transform:none;transition:none}
@@ -1073,7 +1102,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   </section>
 
   <section class="xs xs6" id="m-chi">
-    <div class="xtesta"><img class="xr xsboccia" src="images/antonio-pratola.jpg" alt="Antonio Pratola, fondatore di Orizon ADV" width="333" height="444" loading="lazy"><div class="xr" style="--d:.2s"><h2>Antonio Pratola</h2><p class="xruolo">Founder &amp; CEO, Orizon ADV · Napoli</p></div></div>
+    <div class="xtesta"><img class="xr xsboccia" src="images/brand/ori.svg" alt="Ori, il robottino di Orizon" width="300" height="400" loading="lazy"><div class="xr" style="--d:.2s"><h2>Antonio Pratola</h2><p class="xruolo">Founder &amp; CEO, Orizon ADV · Napoli</p></div></div>
     <ol class="xpassi">
       <li class="xr xsx" style="--d:.35s"><i>1</i><span><b>Entro 24 ore</b> ricevi il documento: indice, pagella, le tre cose da accendere.</span></li>
       <li class="xr xsx" style="--d:.5s"><i>2</i><span><b>Mezz'ora al telefono</b>, io e te, sui tuoi numeri.</span></li>
@@ -1536,9 +1565,21 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       </div>
 
       <div class="vs-why fx">
-        <div class="bars" aria-hidden="true">
-          <div><i style="--h:47%"></i><b>46.700 €</b><span>sul ROAS</span></div>
-          <div class="on"><i style="--h:100%"></i><b>100.000 €</b><span>sull'utile</span></div>
+        <div class="sim" id="sim">
+          <div class="sim-top"><span>Lo stesso mese, ordine dopo ordine</span><button type="button" id="sim-go">Fai partire il mese</button></div>
+          <div class="sim-cols">
+            <div class="sim-col" id="sim-roas">
+              <h4>Lavorando sul ROAS</h4>
+              <div class="sim-k"><div><small>Incassato</small><b data-fine="700000">0 €</b></div><div><small>Utile</small><b data-fine="46700">0 €</b></div></div>
+              <ul class="sim-list" aria-live="off"></ul>
+            </div>
+            <div class="sim-col on" id="sim-utile">
+              <h4>Lavorando sull'utile</h4>
+              <div class="sim-k"><div><small>Incassato</small><b data-fine="660000">0 €</b></div><div><small>Utile</small><b data-fine="100000">0 €</b></div></div>
+              <ul class="sim-list" aria-live="off"></ul>
+            </div>
+          </div>
+          <p class="sim-nota">Simulazione: gli ordini scorrono come nel pannello Shopify, coi prodotti tipici del negozio di climatizzazione e quanto lascia davvero ognuno. I totali sono quelli del mese tipo qui accanto.</p>
         </div>
         <h3>Perché succede</h3>
         <ol>
@@ -1600,7 +1641,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 <section class="solo-d who" id="chi-guida">
   <div class="wrap">
     <div class="who-grid">
-      <div class="who-photo fx"><img src="images/antonio-pratola.jpg" alt="Antonio Pratola, fondatore di Orizon ADV" loading="lazy" width="333" height="444"></div>
+      <div class="who-photo fx"><img src="images/brand/ori.svg" alt="Ori, il robottino di Orizon" loading="lazy" width="300" height="400"></div>
       <div class="fx">
         <h2>Chi guida. <span>E cosa succede dopo lo scan.</span></h2>
         <p class="role">Antonio Pratola — Founder &amp; CEO, Orizon ADV · Napoli</p>
@@ -1939,6 +1980,65 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       e.target.querySelectorAll('.vr > span, .vr > span > b, .mks b, .bars b').forEach(function(el){ if (el.children.length) return; conta(el, el.textContent.trim()); });
     }); }, { threshold: 0.3 });
     document.querySelectorAll('.vs-sec .vs, .vs-sec .vs-why').forEach(function(x){ io.observe(x); });
+  })();
+  /* ── ROAS o utile: il mese ordine dopo ordine ── */
+  (function(){
+    var go = document.getElementById('sim-go'); if (!go) return;
+    var ridotto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var ROAS = [
+      ['Climatizzatore 12000 BTU, marca nota', 449, '+11 €'],
+      ['Split dual 9+12, in sconto', 899, '+22 €'],
+      ['Climatizzatore 12000 BTU, marca nota', 449, '+11 €'],
+      ['Climatizzatore 12000 BTU, marca nota', 449, 'reso', true],
+      ['Caldaia 24 kW, grande marca in sconto', 1190, '+38 €'],
+      ['Deumidificatore 20 l', 189, '+6 €'],
+      ['Climatizzatore 9000 BTU, sotto prezzo', 389, '+8 €'],
+      ['Split dual 9+12, in sconto', 899, 'reso', true],
+      ['Climatizzatore 12000 BTU, marca nota', 449, '+11 €'],
+      ['Ventilatore a piantana', 59, '+2 €']
+    ];
+    var UTILE = [
+      ['Pompa di calore aria-acqua 8 kW', 3490, '+520 €'],
+      ['Stufa a pellet 12 kW', 1790, '+310 €'],
+      ['Climatizzatore 12000 BTU, marca nota', 449, '+11 €'],
+      ['Fan coil a parete, 2 pezzi', 780, '+160 €'],
+      ['Caldaia 28 kW, margine pieno', 1590, '+330 €'],
+      ['Scaldacqua a pompa di calore', 1290, '+270 €'],
+      ['Radiatori in alluminio, 6 elementi', 640, '+130 €'],
+      ['Climatizzatore 12000 BTU, marca nota', 449, 'reso', true],
+      ['Pompa di calore aria-acqua 12 kW', 4290, '+640 €']
+    ];
+    var DUR = 5200, timer = [], inCorso = false;
+    function euro(n){ return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' €'; }
+    function riga(o){
+      var li = document.createElement('li'); if (o[3]) li.className = 'reso';
+      li.innerHTML = '<span class="nm"></span><span class="pr"></span><span class="ch"></span>';
+      li.querySelector('.nm').textContent = o[0];
+      li.querySelector('.pr').textContent = (o[3] ? '−' : '') + euro(o[1]);
+      li.querySelector('.ch').textContent = o[2];
+      return li;
+    }
+    function colonna(id, ordini){
+      var col = document.getElementById(id), lista = col.querySelector('.sim-list'), kb = col.querySelectorAll('.sim-k b');
+      col.classList.remove('fine'); lista.innerHTML = '';
+      var passo = DUR / (ordini.length + 1);
+      ordini.forEach(function(o, i){
+        timer.push(setTimeout(function(){ lista.insertBefore(riga(o), lista.firstChild); while (lista.children.length > 7) lista.removeChild(lista.lastChild); }, ridotto ? 0 : passo * (i + 1)));
+      });
+      kb.forEach(function(b){
+        var fine = +b.dataset.fine;
+        if (ridotto) { b.textContent = euro(fine); return; }
+        var t0 = null;
+        function passo2(ts){ if (t0 === null) t0 = ts; var f = Math.min(1, (ts - t0) / DUR); var e = 1 - Math.pow(1 - f, 2); b.textContent = euro(fine * e); if (f < 1 && inCorso) requestAnimationFrame(passo2); }
+        requestAnimationFrame(passo2);
+      });
+      timer.push(setTimeout(function(){ kb.forEach(function(b){ b.textContent = euro(+b.dataset.fine); }); col.classList.add('fine'); }, ridotto ? 0 : DUR + 60));
+    }
+    go.addEventListener('click', function(){
+      timer.forEach(clearTimeout); timer = []; inCorso = false;
+      requestAnimationFrame(function(){ inCorso = true; colonna('sim-roas', ROAS); colonna('sim-utile', UTILE); });
+      go.textContent = 'Rivedi il mese';
+    });
   })();
 </script>
 </body>

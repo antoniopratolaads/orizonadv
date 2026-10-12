@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400" width="300" height="400" role="img" aria-label="Ori, il robottino di Orizon">
+<style>
+.occhi{transform-origin:150px 140px;animation:ori-blink 4.6s infinite}
+.braccio{transform-origin:233px 254px;animation:ori-wave 3.2s ease-in-out infinite}
+.luce{animation:ori-luce 2.2s ease-in-out infinite}
+@keyframes ori-blink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.08)}}
+@keyframes ori-wave{0%,100%{transform:rotate(0)}50%{transform:rotate(-18deg)}}
+@keyframes ori-luce{0%,100%{opacity:1}50%{opacity:.45}}
+@media(prefers-reduced-motion:reduce){.occhi,.braccio,.luce{animation:none}}
+</style>
+<!-- antenna -->
+<rect x="147" y="44" width="6" height="30" rx="3" fill="#0C1713"/>
+<circle class="luce" cx="150" cy="38" r="10" fill="#60E787"/>
+<!-- testa: la O di Orizon -->
+<g transform="translate(45 70) scale(.3)">
+<path d="M662.155 121.431C639.608 84.2134 609.112 54.6788 570.568 32.7774C531.974 10.9757 488.33 0 439.587 0H256.863C208.32 0.0498894 164.626 11.0256 125.882 32.7774C86.9875 54.6788 56.2919 84.2134 33.7951 121.431C11.2484 158.698 0 201.004 0 248.449C0 295.894 11.2484 337.452 33.7951 375.018C56.2919 412.585 86.9875 442.12 125.882 463.672C164.626 485.174 208.27 495.95 256.863 496H439.587C487.73 496 531.224 485.224 570.118 463.672C608.963 442.12 639.658 412.585 662.205 375.018C684.752 337.452 696 295.295 696 248.449C696 201.603 684.752 158.748 662.205 121.431H662.155ZM537.723 310.362C528.474 328.821 515.476 343.588 498.828 354.713C482.181 365.789 462.434 371.327 439.587 371.327H256.863C234.216 371.277 214.469 365.739 197.622 354.713C180.674 343.638 167.576 328.821 158.277 310.362C149.029 291.903 144.379 270.949 144.379 247.551C144.379 224.153 149.029 204.147 158.277 185.638C167.526 167.179 180.674 152.362 197.622 141.337C214.469 130.311 234.216 124.773 256.863 124.673H439.587C462.384 124.673 482.181 130.211 498.828 141.337C515.476 152.412 528.424 167.179 537.723 185.638C546.971 204.147 551.621 224.752 551.621 247.551C551.621 270.35 547.021 291.903 537.723 310.362Z" fill="#3750F7"/>
+</g>
+<!-- la faccia, dentro la O -->
+<g class="occhi"><circle cx="128" cy="140" r="8" fill="#0C1713"/><circle cx="172" cy="140" r="8" fill="#0C1713"/><circle cx="131" cy="137" r="2.5" fill="#fff"/><circle cx="175" cy="137" r="2.5" fill="#fff"/></g>
+<path d="M132 160q18 14 36 0" fill="none" stroke="#0C1713" stroke-width="5" stroke-linecap="round"/>
+<!-- collo -->
+<rect x="138" y="218" width="24" height="18" rx="6" fill="#D2D8FF"/>
+<!-- busto -->
+<rect x="85" y="232" width="130" height="112" rx="30" fill="#0C1713"/>
+<!-- lo schermo sul petto: la curva che sale -->
+<rect x="112" y="256" width="76" height="48" rx="10" fill="#fff"/>
+<polyline points="122,292 138,286 152,289 166,276 178,266" fill="none" stroke="#3750F7" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="178" cy="266" r="3.5" fill="#3750F7"/>
+<!-- braccia -->
+<rect x="52" y="246" width="26" height="74" rx="13" fill="#3750F7"/>
+<rect class="braccio" x="222" y="246" width="26" height="74" rx="13" fill="#3750F7"/>
+<!-- gambe -->
+<rect x="104" y="342" width="34" height="44" rx="14" fill="#3750F7"/>
+<rect x="162" y="342" width="34" height="44" rx="14" fill="#3750F7"/>
+</svg>
