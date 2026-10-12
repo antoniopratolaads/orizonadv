@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Work — Orizon ADV</title>
-<meta name="description" content="I clienti Orizon con i loro numeri: Climando da 5,4 a 8,3 milioni in un anno, L'Arcolaio da zero a 2 milioni, Londonstore, VG Informatica, Fontana Hotellerie, Manfrellotti. Numeri dai pannelli dei clienti.">
+<meta name="description" content="I clienti Orizon con i loro numeri: Climando da 5,4 a 8,3 milioni in un anno, De Matteo Home 4,2 milioni di valore da Google Ads, L'Arcolaio da zero a 2 milioni, Londonstore, VG Informatica, Fontana, Manfrellotti. Numeri letti dagli account.">
 <link rel="canonical" href="https://www.orizonadv.it/work">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Work — Orizon ADV">
@@ -78,49 +78,66 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .chead .sub{margin-top:16px;font-size:18px;color:var(--black-m);max-width:640px;text-wrap:pretty}
 .chead .sub strong{color:var(--black);font-weight:600}
 
-/* ── I CLIENTI: uno spazio per ognuno, immagine e racconto ── */
-.cases{padding:8px 0 64px}
-.cliente{padding:56px 0 60px;border-top:1px solid var(--line-2)}
-.cliente:first-child{border-top:0;padding-top:24px}
-.cl-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:52px;align-items:center}
+/* ── I CLIENTI: foto grande, racconto, numeri, Google Ads ── */
+.cases{padding:16px 0 56px}
+.cliente{padding:64px 0 68px;border-top:1px solid var(--line)}
+.cliente:first-child{border-top:0;padding-top:28px}
+.cl-grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:64px;align-items:center}
 .cliente.flip .cl-img{order:2}
+.cl-img{position:relative}
+.cl-img::before{content:'';position:absolute;inset:-12% -8%;background:radial-gradient(ellipse at 50% 55%,rgba(55,80,247,.14),rgba(55,80,247,0) 65%);pointer-events:none;z-index:0}
+.shot{position:relative;z-index:1;margin:0;border-radius:28px;overflow:hidden;background:var(--white);border:1px solid rgba(12,23,19,.08);box-shadow:0 2px 4px rgba(12,23,19,.04),0 48px 90px -44px rgba(12,23,19,.38)}
+.shot img{width:100%;height:auto;display:block}
 .cl-eyebrow{display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--black-m)}
 .cl-eyebrow .num{font-weight:600;color:var(--blue);margin-right:6px}
 .cl-eyebrow i{font-style:normal;border:1px solid var(--line-2);border-radius:999px;padding:3px 10px;background:var(--white)}
-.cliente h2{margin-top:16px;font-size:clamp(30px,3.3vw,44px);line-height:1.04;letter-spacing:-.035em}
-.cl-sub{margin-top:8px;font-size:19px;font-weight:500;color:var(--black);letter-spacing:-.015em;line-height:1.3;text-wrap:balance}
-.cl-p{margin-top:12px;font-size:15.5px;color:var(--black-m);line-height:1.55}
+.cliente h2{margin-top:18px;font-size:clamp(34px,3.6vw,50px);line-height:1.02;letter-spacing:-.04em}
+.cl-sub{margin-top:10px;font-size:20px;font-weight:500;color:var(--black);letter-spacing:-.02em;line-height:1.3;text-wrap:balance}
+.cl-p{margin-top:14px;font-size:15.5px;color:var(--black-m);line-height:1.6}
 .cl-p strong{color:var(--black);font-weight:600}
-.cl-quote{margin-top:16px;padding:16px 18px;border-left:3px solid var(--blue);background:rgba(55,80,247,.05);border-radius:0 12px 12px 0}
-.cl-quote p{font-size:15.5px;font-style:italic;color:var(--black);line-height:1.5}
+.cl-quote{margin-top:18px;padding:18px 20px;border-radius:16px;background:rgba(55,80,247,.06);border:1px solid rgba(55,80,247,.14)}
+.cl-quote p{font-size:16px;font-style:italic;color:var(--black);line-height:1.5}
 .cl-quote footer{margin-top:8px;font-size:13px;color:var(--black-m)}
-.cl-kpi{margin-top:20px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.cl-kpi div{background:var(--white);border:1px solid var(--line-2);border-radius:14px;padding:16px 16px 14px;box-shadow:0 1px 2px rgba(12,23,19,.04),0 10px 24px -18px rgba(12,23,19,.18)}
-.cl-kpi b{display:block;font-weight:600;font-size:30px;letter-spacing:-.035em;line-height:1;color:var(--blue);font-variant-numeric:tabular-nums;white-space:nowrap}
-.cl-kpi span{display:block;margin-top:7px;font-size:12.5px;color:var(--black-m);line-height:1.35}
+.cl-kpi{margin-top:22px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.cl-kpi div{background:var(--white);border:1px solid var(--line-2);border-radius:18px;padding:18px 18px 16px;box-shadow:0 1px 2px rgba(12,23,19,.04),0 14px 30px -22px rgba(12,23,19,.2)}
+.cl-kpi b{display:block;font-weight:600;font-size:34px;letter-spacing:-.04em;line-height:1;color:var(--blue);font-variant-numeric:tabular-nums;white-space:nowrap}
+.cl-kpi span{display:block;margin-top:8px;font-size:12.5px;color:var(--black-m);line-height:1.35}
+.cl-ads{margin-top:14px;border:1px solid var(--line-2);border-radius:18px;background:var(--bg-2);overflow:hidden}
+.cl-ads .bar{display:flex;align-items:center;gap:8px;padding:10px 16px;border-bottom:1px solid var(--line);font-size:12.5px;color:var(--black-m);background:var(--white)}
+.cl-ads .bar .g{width:14px;height:14px;border-radius:50%;background:conic-gradient(#4285F4 0 25%,#34A853 0 50%,#FBBC05 0 75%,#EA4335 0);flex:none}
+.cl-ads .bar .t{font-weight:600;color:var(--black)}
+.cl-ads .bar .d{margin-left:auto;font-variant-numeric:tabular-nums}
+.cl-ads .n{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:0}
+.cl-ads .n div{padding:12px 16px 12px;border-left:1px solid var(--line)}
+.cl-ads .n div:first-child{border-left:0}
+.cl-ads .k{display:block;font-size:11.5px;color:var(--black-m)}
+.cl-ads b{display:block;margin-top:3px;font-size:19px;font-weight:600;letter-spacing:-.025em;color:var(--black);font-variant-numeric:tabular-nums;white-space:nowrap}
+.cl-ads small{display:block;font-size:11px;color:var(--black-l);margin-top:2px}
+.cl-ads.grande{margin-top:0;position:relative;z-index:1;border-radius:28px;box-shadow:0 2px 4px rgba(12,23,19,.04),0 48px 90px -44px rgba(12,23,19,.38)}
+.cl-ads.grande .n{grid-template-columns:1fr 1fr}
+.cl-ads.grande .n div{padding:20px 22px;border-top:1px solid var(--line)}
+.cl-ads.grande .n div:nth-child(-n+2){border-top:0}
+.cl-ads.grande .n div:nth-child(odd){border-left:0}
+.cl-ads.grande b{font-size:30px}
+.cl-ads .nota{padding:12px 22px 16px;font-size:12.5px;color:var(--black-m);border-top:1px solid var(--line);line-height:1.45}
 .cl-serv{margin-top:20px}
 .cl-serv .k{font-size:12.5px;font-weight:600;color:var(--black-m)}
 .cl-serv .tags{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px}
-.cl-serv .tags i{font-style:normal;font-size:12.5px;color:var(--black);border:1px solid var(--line-2);border-radius:999px;padding:4px 11px;background:var(--bg-2)}
+.cl-serv .tags i{font-style:normal;font-size:12.5px;color:var(--black);border:1px solid var(--line-2);border-radius:999px;padding:5px 12px;background:var(--white)}
 .cl-azioni{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px}
-.cl-go{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:var(--white);font-weight:600;font-size:14px;padding:11px 18px;border-radius:999px;text-decoration:none;transition:background .2s}
-.cl-go:hover{background:var(--blue-d)}
-.cl-go.ghost{background:var(--white);color:var(--blue);border:1px solid var(--blue-ll)}
+.cl-go{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:var(--white);font-weight:600;font-size:14px;padding:12px 20px;border-radius:999px;text-decoration:none;transition:background .2s,transform .2s;box-shadow:0 8px 20px -10px rgba(55,80,247,.6)}
+.cl-go:hover{background:var(--blue-d);transform:translateY(-1px)}
+.cl-go.ghost{background:var(--white);color:var(--blue);border:1px solid var(--blue-ll);box-shadow:none}
 .cl-go.ghost:hover{background:var(--blue-ll)}
-.shot{border:1px solid var(--line-2);border-radius:18px;overflow:hidden;background:var(--white);box-shadow:0 1px 2px rgba(12,23,19,.05),0 30px 60px -30px rgba(12,23,19,.28)}
-.shot .bar{display:flex;align-items:center;gap:6px;padding:10px 16px;background:var(--bg-2);border-bottom:1px solid var(--line);font-size:12.5px;color:var(--black-m)}
-.shot .bar i{width:9px;height:9px;border-radius:50%;background:var(--line-2)}
-.shot .bar span{margin-left:8px}
-.shot img{width:100%;height:auto;display:block}
-.shot figcaption{padding:10px 16px;border-top:1px solid var(--line);font-size:12.5px;color:var(--black-m)}
-.cliente.senza-img .cl-grid{grid-template-columns:minmax(0,1fr)}
-.cliente.senza-img .cl-txt{max-width:760px}
+/* ── il muro dei loghi ── */
+.loghi{padding:64px 0 72px;border-top:1px solid var(--line);background:var(--bg-2)}
+.loghi h3{font-size:14px;font-weight:600;color:var(--black-m);text-align:center}
+.loghi ul{margin:26px auto 0;max-width:1180px;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.loghi li{height:84px;display:flex;align-items:center;justify-content:center;background:var(--white);border:1px solid var(--line);border-radius:14px;padding:14px 18px}
+.loghi img{max-height:44px;max-width:120px;width:auto;height:auto;filter:grayscale(1);opacity:.72;transition:filter .25s,opacity .25s}
+.loghi li:hover img{filter:none;opacity:1}
+.loghi li span{font-size:15px;font-weight:600;color:var(--black-m);letter-spacing:-.01em;text-align:center}
 
-/* ── CON CHI LAVORIAMO ── */
-.names{padding:56px 0;border-top:1px solid var(--line);background:var(--bg-2)}
-.names h3{font-size:14px;font-weight:600;color:var(--black-m)}
-.names ul{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px 28px;list-style:none;font-size:19px;font-weight:600;letter-spacing:-.015em;color:var(--black)}
-.names li span{font-weight:400;font-size:13px;color:var(--black-m);margin-left:6px}
 /* ── SCAN FINALE ── */
 .end{padding:112px 0;background:var(--bg-2);border-top:1px solid var(--line);text-align:center;position:relative;overflow:hidden}
 .end::before{content:'';position:absolute;left:50%;top:-200px;width:900px;height:600px;transform:translateX(-50%);background:radial-gradient(ellipse at center,rgba(55,80,247,.12),rgba(55,80,247,0) 62%);pointer-events:none}
@@ -150,6 +167,9 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 @media(max-width:1000px){
   .cl-grid{grid-template-columns:1fr;gap:28px}
   .cliente.flip .cl-img{order:0}
+  .cl-ads .n{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .cl-ads .n div:nth-child(3n+1){border-left:0}
+  .cl-ads .n div:nth-child(n+4){border-top:1px solid var(--line)}
   .after{grid-template-columns:1fr}
   .foot{grid-template-columns:1fr 1fr}
 }
@@ -162,16 +182,30 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .chead h1{font-size:clamp(32px,8.6vw,40px)}
   .chead .sub{font-size:16px}
   .cases{padding:0 0 40px}
-  .cliente{padding:36px 0 40px}
+  .cliente{padding:40px 0 44px}
   .cliente:first-child{padding-top:8px}
-  .cliente h2{font-size:clamp(30px,8.6vw,36px)}
-  .cl-sub{font-size:17px}
+  .cliente h2{font-size:clamp(32px,9vw,38px)}
+  .cl-sub{font-size:18px}
   .cl-kpi{gap:8px}
-  .cl-kpi div{padding:12px 10px 10px;border-radius:12px}
-  .cl-kpi b{font-size:22px}
+  .cl-kpi div{padding:12px 10px 10px;border-radius:14px}
+  .cl-kpi b{font-size:24px}
   .cl-kpi span{font-size:11.5px}
-  .cl-go{padding:10px 14px;font-size:13.5px}
-  .names ul{font-size:17px;gap:6px 20px}
+  .shot{border-radius:18px}
+  .cl-ads .bar .d{display:none}
+  .cl-ads .n{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cl-ads .n div{padding:10px 12px}
+  .cl-ads .n div:nth-child(3n+1){border-left:1px solid var(--line)}
+  .cl-ads .n div:nth-child(odd){border-left:0}
+  .cl-ads .n div:nth-child(n+3){border-top:1px solid var(--line)}
+  .cl-ads b{font-size:17px}
+  .cl-ads.grande{border-radius:18px}
+  .cl-ads.grande b{font-size:24px}
+  .cl-go{padding:11px 16px;font-size:13.5px}
+  .loghi{padding:44px 0 48px}
+  .loghi ul{grid-template-columns:repeat(2,1fr);gap:8px}
+  .loghi li{height:72px;padding:12px}
+  .loghi img{max-height:36px;max-width:110px}
+  .loghi li span{font-size:13.5px}
   .end{padding:72px 0}
   .scan{flex-direction:column;padding:6px}
   .scan button{justify-content:center}
@@ -216,7 +250,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 <header class="chead">
   <div class="wrap">
     <h1 class="fx">Numeri veri. <span>Crescita reale.</span></h1>
-    <p class="sub fx">Sette clienti, uno spazio per ognuno. I numeri vengono dai loro pannelli: dove il pannello ce l'hanno dato lo mostriamo, dove il lavoro è in corso lo diciamo.</p>
+    <p class="sub fx">Otto clienti, uno spazio per ognuno, coi numeri letti dai loro account Google Ads il 12 ottobre 2026 e dai loro pannelli. Dove il lavoro è in corso, lo diciamo.</p>
   </div>
 </header>
 
@@ -224,15 +258,14 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   <div class="wrap">
     <article class="cliente fx" id="caso-01">
       <div class="cl-grid">
-      <div class="cl-img">
-        <figure class="shot pannello"><img src="images/cruscotto/shopify-vendite-12m.png" alt="Pannello analitico Shopify di Climando: vendite totali 8.266.784 €, +53%, sessioni 509 mila +143%, ordini 12,1 mila +51%" width="862" height="724" loading="lazy"><figcaption>Pannello Shopify · 11 ottobre 2025 – 11 ottobre 2026</figcaption></figure>
-      </div>
+      <div class="cl-img"><figure class="shot"><img src="images/clienti/climando.jpg" alt="La home di climando.it" width="1200" height="750" loading="lazy"></figure></div>
       <div class="cl-txt">
         <div class="cl-eyebrow"><span class="num">Caso studio · 01</span><i>Climatizzazione e riscaldamento</i><i>e-commerce Shopify</i><i>ottobre 2025 — in corso</i></div>
         <h2>Climando</h2>
         <p class="cl-sub">Da 5,4 a 8,3 milioni in un anno, con un catalogo acceso.</p>
-        <p class="cl-p">Climando vende climatizzatori, caldaie e termoidraulica online, con un business che vive di stagioni. Spendeva le stesse cifre ogni mese. Abbiamo rifatto la strategia e acceso il catalogo con Ignition: <strong>spesa nei momenti giusti, sulle categorie giuste, prodotti letti uno per uno</strong>, con le etichette che decidono chi va in asta. In dodici mesi 12.100 ordini, 509 mila visite e un luglio da 1,21 milioni, contro i 0,69 dell'anno prima. Campagne Meta e Google a percentuale sul venduto in più.</p>
+        <p class="cl-p">Climando vende climatizzatori, caldaie e termoidraulica online, con un business che vive di stagioni. Spendeva le stesse cifre ogni mese. Abbiamo rifatto la strategia e acceso il catalogo con Ignition: <strong>spesa nei momenti giusti, sulle categorie giuste, prodotti letti uno per uno</strong>, con le etichette che decidono chi va in asta. In dodici mesi 12.100 ordini, 509 mila visite e un luglio da 1,21 milioni. Campagne Meta e Google a percentuale sul venduto in più.</p>
         <div class="cl-kpi"><div><b>+53%</b><span>vendite anno su anno: 8,27 M€ in dodici mesi</span></div><div><b>+135%</b><span>luglio–settembre 2026 sullo stesso trimestre 2025</span></div><div><b>x50</b><span>vendite per euro di pubblicità, Meta e Google insieme</span></div></div>
+        <div class="cl-ads" aria-label="Google Ads, dodici mesi"><div class="bar"><span class="g"></span><span class="t">Google Ads · ultimi dodici mesi</span><span class="d">12 ott 2025 – 11 ott 2026</span></div><div class="n"><div><span class="k">Spesa</span><b>56.297 €</b></div><div><span class="k">Click</span><b>332 mila</b></div><div><span class="k">Conversioni</span><b>5.447</b></div><div><span class="k">Valore conversioni</span><b>3,50 M€</b></div><div><span class="k">Ritorno</span><b>62 €</b><small>per ogni euro speso</small></div></div></div>
         <div class="cl-serv"><span class="k">Cosa facciamo</span><div class="tags"><i>Meta Ads</i><i>Google Ads</i><i>Orizon Ignition</i><i>Labelizer</i><i>Report ogni mattina</i></div></div>
         <div class="cl-azioni"><a class="cl-go" href="/case-study/climatizzazione">Leggi il caso completo <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a><a class="cl-go ghost" href="https://climando.it/" target="_blank" rel="noopener">Visita climando.it <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a></div>
       </div>
@@ -241,11 +274,56 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 
     <article class="cliente fx flip" id="caso-02">
       <div class="cl-grid">
-      <div class="cl-img">
-        <figure class="shot"><div class="bar"><i></i><i></i><i></i><span>larcolaio.com</span></div><img src="images/clienti/larcolaio.jpg" alt="La home di larcolaio.com" width="1200" height="690" loading="lazy"></figure>
-      </div>
+      <div class="cl-img"><figure class="shot"><img src="images/clienti/dematteo.jpg" alt="La home di dematteohome.it" width="1200" height="750" loading="lazy"></figure></div>
       <div class="cl-txt">
-        <div class="cl-eyebrow"><span class="num">Caso studio · 02</span><i>Casa, tavola e cerimonia</i><i>e-commerce Shopify</i><i>da zero, due anni</i></div>
+        <div class="cl-eyebrow"><span class="num">Caso studio · 02</span><i>Materassi e casa</i><i>negozio e e-commerce</i><i>in corso</i></div>
+        <h2>De Matteo Home</h2>
+        <p class="cl-sub">Quattro milioni di valore da Google Ads, in dodici mesi.</p>
+        <p class="cl-p">De Matteo Home vende materassi e arredo per la casa, con il negozio di Pollena Trocchia e un e-commerce che spedisce in tutta Italia. Gestiamo le campagne Google: Shopping e Performance Max sul catalogo, ricerca sul marchio e sulle categorie. <strong>Ogni euro speso ne ha riportati quasi dodici</strong>, letti dall'account, non dalle impressioni.</p>
+        <div class="cl-kpi"><div><b>4,21 M€</b><span>valore delle conversioni in dodici mesi</span></div><div><b>13.032</b><span>conversioni da Google Ads</span></div><div><b>11,7</b><span>euro di valore per euro speso</span></div></div>
+        <div class="cl-ads" aria-label="Google Ads, dodici mesi"><div class="bar"><span class="g"></span><span class="t">Google Ads · ultimi dodici mesi</span><span class="d">12 ott 2025 – 11 ott 2026</span></div><div class="n"><div><span class="k">Spesa</span><b>360.011 €</b></div><div><span class="k">Click</span><b>580 mila</b></div><div><span class="k">Conversioni</span><b>13.032</b></div><div><span class="k">Valore conversioni</span><b>4,21 M€</b></div><div><span class="k">Ritorno</span><b>11,7 €</b><small>per ogni euro speso</small></div></div></div>
+        <div class="cl-serv"><span class="k">Cosa facciamo</span><div class="tags"><i>Google Ads</i><i>Shopping</i><i>Performance Max</i><i>Feed prodotto</i></div></div>
+        <div class="cl-azioni"><a class="cl-go ghost" href="https://dematteohome.it/" target="_blank" rel="noopener">Visita dematteohome.it <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a></div>
+      </div>
+      </div>
+    </article>
+
+    <article class="cliente fx" id="caso-03">
+      <div class="cl-grid">
+      <div class="cl-img"><div class="cl-ads grande" aria-label="Google Ads, dodici mesi"><div class="bar"><span class="g"></span><span class="t">Google Ads · ultimi dodici mesi</span><span class="d">12 ott 2025 – 11 ott 2026</span></div><div class="n"><div><span class="k">Impressioni</span><b>70,1 M</b></div><div><span class="k">Click</span><b>1,99 M</b></div><div><span class="k">Conversioni</span><b>609 mila</b></div><div><span class="k">Spesa</span><b>408 mila £</b><small>i due account sono in sterline</small></div><div><span class="k">Valore conversioni</span><b>4,58 M £</b></div></div><p class="nota">Due account, Italia e Spagna, letti dalla piattaforma il 12 ottobre 2026. Lo screenshot delle campagne Meta arriva.</p></div></div>
+      <div class="cl-txt">
+        <div class="cl-eyebrow"><span class="num">Caso studio · 03</span><i>Aste online</i><i>piattaforma con registrazione</i><i>Italia e Spagna</i><i>il cliente non compare col nome</i></div>
+        <h2>Aste online</h2>
+        <p class="cl-sub">561 mila registrazioni, 192 mila acquisti.</p>
+        <p class="cl-p">Un modello che vive di iscritti, in due Paesi. La spesa è stata letta sul ritorno reale degli acquisti, <strong>non sul costo per registrazione</strong>: così il budget è andato dove gli iscritti poi compravano. Su Google, in dodici mesi, 70 milioni di impressioni e due milioni di click.</p>
+        <div class="cl-kpi"><div><b>3,25 M€</b><span>di fatturato generato</span></div><div><b>953 K€</b><span>di spesa pubblicitaria</span></div><div><b>192 mila</b><span>acquisti, da 561 mila registrazioni</span></div></div>
+        <div class="cl-serv"><span class="k">Cosa facciamo</span><div class="tags"><i>Meta Ads</i><i>Google Ads</i><i>Registrazioni</i><i>Due mercati</i></div></div>
+        <div class="cl-azioni"></div>
+      </div>
+      </div>
+    </article>
+
+    <article class="cliente fx flip" id="caso-04">
+      <div class="cl-grid">
+      <div class="cl-img"><figure class="shot"><img src="images/clienti/londonstore.jpg" alt="La home di londonstore.it" width="1200" height="750" loading="lazy"></figure></div>
+      <div class="cl-txt">
+        <div class="cl-eyebrow"><span class="num">Caso studio · 04</span><i>Moda e streetwear</i><i>negozio multimarca su Shopify</i><i>in corso</i></div>
+        <h2>Londonstore</h2>
+        <p class="cl-sub">Fatturato quasi triplicato anno su anno.</p>
+        <p class="cl-p">Londonstore è un multimarca di moda e streetwear a Napoli, con un negozio online da 17.432 prodotti. <strong>Meta e Google insieme, creatività prodotte con l'AI</strong> per provare più varianti in meno tempo, e lavoro sul negozio perché chi arriva compri. Ora stiamo accendendo il catalogo: il cardigan dei piatti in home è suo.</p>
+        <div class="cl-kpi"><div><b>+180%</b><span>fatturato anno su anno</span></div><div><b>4,2x</b><span>ROAS sulle campagne</span></div><div><b>17.432</b><span>prodotti da accendere con Ignition</span></div></div>
+        <div class="cl-ads" aria-label="Google Ads, dodici mesi"><div class="bar"><span class="g"></span><span class="t">Google Ads · ultimi dodici mesi</span><span class="d">12 ott 2025 – 11 ott 2026</span></div><div class="n"><div><span class="k">Spesa</span><b>74.545 €</b></div><div><span class="k">Click</span><b>424 mila</b></div><div><span class="k">Conversioni</span><b>9.052</b></div><div><span class="k">Valore conversioni</span><b>603 K€</b></div><div><span class="k">Ritorno</span><b>8,1 €</b><small>per ogni euro speso</small></div></div></div>
+        <div class="cl-serv"><span class="k">Cosa facciamo</span><div class="tags"><i>Meta Ads</i><i>Google Ads</i><i>Creatività AI</i><i>CRO</i><i>Orizon Ignition</i></div></div>
+        <div class="cl-azioni"><a class="cl-go ghost" href="https://londonstore.it/" target="_blank" rel="noopener">Visita londonstore.it <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a></div>
+      </div>
+      </div>
+    </article>
+
+    <article class="cliente fx" id="caso-05">
+      <div class="cl-grid">
+      <div class="cl-img"><figure class="shot"><img src="images/clienti/larcolaio.jpg" alt="La home di larcolaio.com" width="1200" height="750" loading="lazy"></figure></div>
+      <div class="cl-txt">
+        <div class="cl-eyebrow"><span class="num">Caso studio · 05</span><i>Casa, tavola e cerimonia</i><i>e-commerce Shopify</i><i>da zero, due anni</i></div>
         <h2>L'Arcolaio</h2>
         <p class="cl-sub">Un negozio che non esisteva fattura due milioni.</p>
         <p class="cl-p">L'Arcolaio è nato online da zero. Marketplace, Meta, Google, TikTok, branding e sito Shopify <strong>gestiti da un'unica regia</strong>, con ogni canale letto sul venduto totale e non sul suo ritorno da solo. In due anni, due milioni di fatturato.</p>
@@ -256,44 +334,11 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       </div>
     </article>
 
-    <article class="cliente fx senza-img" id="caso-03">
+    <article class="cliente fx flip" id="caso-06">
       <div class="cl-grid">
+      <div class="cl-img"><figure class="shot"><img src="images/clienti/vginformatica.jpg" alt="La home di vginformatica.com" width="1200" height="750" loading="lazy"></figure></div>
       <div class="cl-txt">
-        <div class="cl-eyebrow"><span class="num">Caso studio · 03</span><i>piattaforma con registrazione</i><i>il cliente non compare col nome</i></div>
-        <h2>Aste online</h2>
-        <p class="cl-sub">561 mila registrazioni, 192 mila acquisti.</p>
-        <p class="cl-p">Un modello che vive di iscritti. La spesa è stata letta sul ritorno reale degli acquisti, <strong>non sul costo per registrazione</strong>: così il budget è andato dove gli iscritti poi compravano.</p>
-        <div class="cl-kpi"><div><b>3,25 M€</b><span>di fatturato generato</span></div><div><b>953 K€</b><span>di spesa pubblicitaria</span></div><div><b>192 mila</b><span>acquisti, da 561 mila registrazioni</span></div></div>
-        <div class="cl-serv"><span class="k">Cosa facciamo</span><div class="tags"><i>Meta Ads</i><i>Google Ads</i><i>Registrazioni</i></div></div>
-        <div class="cl-azioni"></div>
-      </div>
-      </div>
-    </article>
-
-    <article class="cliente fx flip" id="caso-04">
-      <div class="cl-grid">
-      <div class="cl-img">
-        <figure class="shot"><div class="bar"><i></i><i></i><i></i><span>londonstore.it</span></div><img src="images/clienti/londonstore.jpg" alt="La home di londonstore.it" width="1200" height="690" loading="lazy"></figure>
-      </div>
-      <div class="cl-txt">
-        <div class="cl-eyebrow"><span class="num">Caso studio · 04</span><i>Moda e streetwear</i><i>negozio multimarca su Shopify</i><i>in corso</i></div>
-        <h2>Londonstore</h2>
-        <p class="cl-sub">Fatturato quasi triplicato anno su anno.</p>
-        <p class="cl-p">Londonstore è un multimarca di moda e streetwear a Napoli, con un negozio online da 17.432 prodotti. <strong>Meta e Google insieme, creatività prodotte con l'AI</strong> per provare più varianti in meno tempo, e lavoro sul negozio perché chi arriva compri. Ora stiamo accendendo il catalogo: il cardigan dei piatti in home è suo.</p>
-        <div class="cl-kpi"><div><b>+180%</b><span>fatturato anno su anno</span></div><div><b>4,2x</b><span>ROAS sulle campagne</span></div><div><b>17.432</b><span>prodotti da accendere con Ignition</span></div></div>
-        <div class="cl-serv"><span class="k">Cosa facciamo</span><div class="tags"><i>Meta Ads</i><i>Google Ads</i><i>Creatività AI</i><i>CRO</i><i>Orizon Ignition</i></div></div>
-        <div class="cl-azioni"><a class="cl-go ghost" href="https://londonstore.it/" target="_blank" rel="noopener">Visita londonstore.it <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a></div>
-      </div>
-      </div>
-    </article>
-
-    <article class="cliente fx" id="caso-05">
-      <div class="cl-grid">
-      <div class="cl-img">
-        <figure class="shot"><div class="bar"><i></i><i></i><i></i><span>vginformatica.com</span></div><img src="images/clienti/vginformatica.jpg" alt="La home di vginformatica.com" width="1200" height="690" loading="lazy"></figure>
-      </div>
-      <div class="cl-txt">
-        <div class="cl-eyebrow"><span class="num">Caso studio · 05</span><i>Informatica B2B</i><i>soluzioni IT per aziende</i><i>richieste di preventivo</i></div>
+        <div class="cl-eyebrow"><span class="num">Caso studio · 06</span><i>Informatica B2B</i><i>soluzioni IT per aziende</i><i>richieste di preventivo</i></div>
         <h2>VG Informatica</h2>
         <p class="cl-sub">Più richieste, a meno della metà del costo.</p>
         <p class="cl-p">VG Informatica vende hardware, assistenza e PC su misura alle aziende. Niente carrello: richieste di preventivo. Landing dedicate e campagne lette <strong>sul valore delle richieste chiuse</strong>, non sul numero di contatti.</p>
@@ -304,35 +349,33 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       </div>
     </article>
 
-    <article class="cliente fx flip" id="caso-06">
+    <article class="cliente fx" id="caso-07">
       <div class="cl-grid">
-      <div class="cl-img">
-        <figure class="shot"><div class="bar"><i></i><i></i><i></i><span>fontanahotellerieshop.it</span></div><img src="images/clienti/fontana.jpg" alt="La home di fontanahotellerieshop.it" width="1200" height="690" loading="lazy"></figure>
-      </div>
+      <div class="cl-img"><figure class="shot"><img src="images/clienti/fontana.jpg" alt="La home di fontanahotellerieshop.it" width="1200" height="750" loading="lazy"></figure></div>
       <div class="cl-txt">
-        <div class="cl-eyebrow"><span class="num">Caso studio · 06</span><i>Forniture per hotel e ristoranti</i><i>e-commerce Shopify</i><i>2026 — in corso</i></div>
+        <div class="cl-eyebrow"><span class="num">Caso studio · 07</span><i>Forniture per hotel e ristoranti</i><i>e-commerce Shopify</i><i>2026 — in corso</i></div>
         <h2>F.lli Fontana Hotellerie</h2>
         <p class="cl-sub">1.446 prodotti accesi, uno per uno.</p>
         <p class="cl-p">Fontana fornisce pasticcerie, hotel e ristoranti. Il suo catalogo è stato acceso con Ignition: <strong>schede scritte dai fatti, quattro lingue pubblicate sul negozio</strong>, i dati che Google chiede messi in ordine. La padella sulla home è sua.</p>
         <div class="cl-kpi"><div><b>1.446</b><span>prodotti trattati uno per uno</span></div><div><b>4 lingue</b><span>titolo, scheda, snippet, tipo e indirizzo</span></div><div><b>23 → 100</b><span>indice di accensione per prodotto</span></div></div>
-        <div class="cl-serv"><span class="k">Cosa facciamo</span><div class="tags"><i>Orizon Ignition</i><i>SEO + GEO</i><i>Traduzioni</i><i>Dati prodotto</i></div></div>
+        <div class="cl-ads" aria-label="Google Ads, dodici mesi"><div class="bar"><span class="g"></span><span class="t">Google Ads · ultimi dodici mesi</span><span class="d">12 ott 2025 – 11 ott 2026</span></div><div class="n"><div><span class="k">Impressioni</span><b>5,17 M</b></div><div><span class="k">Click</span><b>64.547</b></div><div><span class="k">Conversioni</span><b>1.300</b></div><div><span class="k">Spesa</span><b>20.126 €</b></div></div></div>
+        <div class="cl-serv"><span class="k">Cosa facciamo</span><div class="tags"><i>Orizon Ignition</i><i>SEO + GEO</i><i>Traduzioni</i><i>Dati prodotto</i><i>Google Ads</i></div></div>
         <div class="cl-azioni"><a class="cl-go" href="/#ignition">Accendi un suo prodotto <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a><a class="cl-go ghost" href="https://fontanahotellerieshop.it/" target="_blank" rel="noopener">Visita fontanahotellerieshop.it <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a></div>
       </div>
       </div>
     </article>
 
-    <article class="cliente fx" id="caso-07">
+    <article class="cliente fx flip" id="caso-08">
       <div class="cl-grid">
-      <div class="cl-img">
-        <figure class="shot"><div class="bar"><i></i><i></i><i></i><span>manfrellotti.it</span></div><img src="images/clienti/manfrellotti.jpg" alt="La home di manfrellotti.it" width="1200" height="690" loading="lazy"></figure>
-      </div>
+      <div class="cl-img"><figure class="shot"><img src="images/clienti/manfrellotti.jpg" alt="La home di manfrellotti.it" width="1200" height="750" loading="lazy"></figure></div>
       <div class="cl-txt">
-        <div class="cl-eyebrow"><span class="num">Caso studio · 07</span><i>Moda</i><i>Shopify, oltre 20.000 prodotti</i><i>2026 — in corso</i></div>
+        <div class="cl-eyebrow"><span class="num">Caso studio · 08</span><i>Moda</i><i>Shopify, oltre 20.000 prodotti</i><i>2026 — in corso</i></div>
         <h2>Manfrellotti</h2>
         <p class="cl-sub">Il feed arriva vuoto. Ignition lo riempie dal catalogo.</p>
         <p class="cl-p">Manfrellotti è un negozio di moda a Napoli dal 1986, con oltre ventimila prodotti online. Colore, taglia, genere ed età mancavano nel feed di Shopping. Ignition li ricava dal catalogo <strong>senza inventare niente</strong> e pubblica un feed supplementare che Merchant Center legge da solo, ogni giorno.</p>
         <div class="cl-kpi"><div><b>17.201</b><span>prodotti nel feed supplementare</span></div><div><b>89%</b><span>con il colore, taglia 80%</span></div><div><b>98%</b><span>con l'età, genere 94%</span></div></div>
-        <div class="cl-serv"><span class="k">Cosa facciamo</span><div class="tags"><i>Orizon Ignition</i><i>Feed Google</i><i>Etichette</i></div></div>
+        <div class="cl-ads" aria-label="Google Ads, dodici mesi"><div class="bar"><span class="g"></span><span class="t">Google Ads · ultimi dodici mesi</span><span class="d">12 ott 2025 – 11 ott 2026</span></div><div class="n"><div><span class="k">Spesa</span><b>47.558 €</b></div><div><span class="k">Click</span><b>245 mila</b></div><div><span class="k">Conversioni</span><b>3.298</b></div><div><span class="k">Valore conversioni</span><b>333 K€</b></div><div><span class="k">Ritorno</span><b>7,0 €</b><small>per ogni euro speso</small></div></div></div>
+        <div class="cl-serv"><span class="k">Cosa facciamo</span><div class="tags"><i>Orizon Ignition</i><i>Feed Google</i><i>Etichette</i><i>Google Ads</i></div></div>
         <div class="cl-azioni"><a class="cl-go" href="/#piatto-feed">Guarda il feed campo per campo <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a><a class="cl-go ghost" href="https://manfrellotti.it/" target="_blank" rel="noopener">Visita manfrellotti.it <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a></div>
       </div>
       </div>
@@ -340,11 +383,27 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   </div>
 </section>
 
-<section class="names" aria-label="I settori in cui lavoriamo">
+<section class="loghi" aria-label="Altri clienti">
   <div class="wrap">
-    <h3>E con loro</h3>
+    <h3>Hanno scelto Orizon anche loro</h3>
     <ul>
-      <li>Buytutto</li><li>B-Power<span>in corso</span></li><li>De Matteo Home<span>in corso</span></li>
+      <li><img src="images/clienti/loghi/prestigio.png" alt="Prestigio Argenti e Ori" loading="lazy"></li>
+      <li><img src="images/clienti/loghi/panini.png" alt="Franco Cosimo Panini" loading="lazy"></li>
+      <li><img src="images/clienti/loghi/adnabu.webp" alt="AdNabu" loading="lazy"></li>
+      <li><img src="images/clienti/loghi/reset.svg" alt="Reset Energia" loading="lazy"></li>
+      <li><span>Casa Italia</span></li>
+      <li><img src="images/clienti/loghi/madamalu.png" alt="Madamalù" loading="lazy"></li>
+      <li><img src="images/clienti/loghi/marotta.png" alt="Pier Paolo Marotta" loading="lazy"></li>
+      <li><span>1000 Brico</span></li>
+      <li><span>Themoirè</span></li>
+      <li><img src="images/clienti/loghi/oofwear.svg" alt="OOF Wear" loading="lazy"></li>
+      <li><img src="images/clienti/loghi/paskal.png" alt="Paskal" loading="lazy"></li>
+      <li><img src="images/clienti/loghi/buytutto.png" alt="Buytutto" loading="lazy"></li>
+      <li><img src="images/clienti/loghi/driverso.png" alt="Driverso" loading="lazy"></li>
+      <li><img src="images/clienti/loghi/autouno.png" alt="Autouno" loading="lazy"></li>
+      <li><img src="images/clienti/loghi/ciclimattio.svg" alt="Cicli Mattio" loading="lazy"></li>
+      <li><img src="images/clienti/loghi/zampol.webp" alt="Zampol" loading="lazy"></li>
+      <li><span>B-Power</span></li>
     </ul>
   </div>
 </section>
