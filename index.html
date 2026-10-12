@@ -224,6 +224,15 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .leve .bridge{padding:0;margin:0}
 .leve .bridge h2{text-align:left;margin:0;max-width:820px}
 .leve .bl{margin-top:30px}
+.bl-row .lv{flex-wrap:wrap}
+.lv-a{flex-basis:100%;margin-left:30px;font-size:12.5px;font-weight:500;color:var(--blue);text-decoration:none}
+.lv-a:hover{text-decoration:underline}
+.ponte{margin:44px 0 0;max-width:760px;display:flex;gap:12px;align-items:flex-start;padding-top:22px;border-top:1px solid var(--line-2);font-size:19px;line-height:1.4;letter-spacing:-.01em;color:var(--black)}
+.ponte .ico{width:20px;height:20px;flex:none;margin-top:5px;color:var(--blue);stroke-width:1.8;transform:rotate(90deg)}
+.tesi{padding:104px 0 112px;background:var(--white);text-align:center;border-bottom:1px solid var(--line)}
+.tesi h2{font-size:clamp(30px,3.8vw,50px);line-height:1.08;letter-spacing:-.03em;max-width:980px;margin:0 auto;text-wrap:balance}
+.tesi h2 span{color:var(--blue)}
+.tesi p{margin:22px auto 0;font-size:18px;color:var(--black-m);max-width:640px;text-wrap:pretty}
 
 /* ── BLOCCO 2: quattro interruttori, una scheda che si accende ── */
 .feat{padding:112px 0 96px;background:var(--bg-2);border-top:1px solid var(--line);position:relative;overflow:hidden}
@@ -333,7 +342,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .tog::after{content:'';position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:var(--white);box-shadow:0 1px 3px rgba(0,0,0,.25);transition:transform .25s var(--ease)}
 .row.on .tog{background:var(--blue)}
 .row.on .tog::after{transform:translateX(20px)}
-.row.hint .tog{animation:hint 1.6s ease-in-out infinite}
+.row.hint .tog{animation:hint 1.6s ease-in-out 3}
 @keyframes hint{0%,100%{box-shadow:0 0 0 0 rgba(55,80,247,.35)}50%{box-shadow:0 0 0 8px rgba(55,80,247,0)}}
 .row h3{font-size:17px;line-height:1.25;letter-spacing:-.02em;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .row h3 em{font-style:normal;font-weight:600;font-size:11px;color:var(--blue);background:var(--blue-ll);border-radius:999px;padding:2px 8px}
@@ -478,7 +487,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .vs-why li::before{content:counter(n);position:absolute;left:0;top:1px;width:24px;height:24px;border-radius:50%;background:var(--bg-2);border:1px solid var(--line);font-size:12px;font-weight:600;color:var(--black);display:flex;align-items:center;justify-content:center}
 .vs-why li b{color:var(--black);font-weight:600}
 .vs-why li strong{color:var(--black);font-weight:600}
-.vs-note{margin-top:16px;padding-top:12px;border-top:1px solid var(--line);font-size:12.5px;color:var(--black-l);line-height:1.45}
+.vs-note{margin-top:16px;padding-top:12px;border-top:1px solid var(--line);font-size:13px;color:var(--black-m);line-height:1.45}
 .vs-sec.alt{background:var(--bg-2);position:relative;overflow:hidden}
 .vs-sec.alt::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(12,23,19,.11) 1px,transparent 1.2px);background-size:22px 22px;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse 40% 45% at 90% 10%,#000 10%,transparent 70%);mask-image:radial-gradient(ellipse 40% 45% at 90% 10%,#000 10%,transparent 70%)}
 .vs-sec.alt .wrap{position:relative;z-index:1}
@@ -681,6 +690,11 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .cap-mark{width:72vw;right:-34%;opacity:.12}
   .leve{padding:56px 0 64px}
   .leve .bridge h2{text-align:left}
+  .vs-grid.flip>.vs{order:0}
+  .ponte{font-size:17px;margin-top:32px}
+  .tesi{padding:64px 0 72px;text-align:left}
+  .tesi h2,.tesi p{margin-left:0}
+  .lv-a{margin-left:26px}
   .cta-m{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:90;align-items:center;justify-content:space-between;gap:12px;padding:10px 10px 10px 16px;background:rgba(12,23,19,.94);color:#fff;border-radius:14px;box-shadow:0 12px 32px -12px rgba(12,23,19,.5);transform:translateY(130%);transition:transform .3s}
   .cta-m.show{transform:none}
   .cta-m span{font-size:13.5px;line-height:1.3;color:rgba(255,255,255,.85)}
@@ -805,7 +819,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     <div class="nav-links">
       <a href="#scan" data-atto="diagnosi">Diagnosi</a>
       <a href="#atto-catalogo" data-atto="catalogo">Il catalogo</a>
-      <a href="#come-lavoriamo" data-atto="conti">I conti</a>
+      <a href="#atto-conti" data-atto="conti">I conti</a>
       <a href="#risultati" data-atto="prova">La prova</a>
       <a href="#chi-guida" data-atto="chi">Chi guida</a>
     </div>
@@ -817,7 +831,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   <button class="mobile-close" aria-label="Chiudi il menu"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
   <a href="#scan">Diagnosi</a>
   <a href="#atto-catalogo">Il catalogo</a>
-  <a href="#come-lavoriamo">I conti</a>
+  <a href="#atto-conti">I conti</a>
   <a href="#risultati">La prova</a>
   <a href="#chi-guida">Chi guida</a>
   <a href="#scan" style="color:var(--blue)">Fai lo scan</a>
@@ -881,12 +895,12 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       <p class="bl-legend" aria-hidden="true"><span><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i>il giorno dello scan</span><span class="on"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i>dodici mesi dopo</span></p>
       <div class="bl" role="table" aria-label="Sei leve del catalogo: il giorno dello scan e dodici mesi dopo">
         <div class="bl-head" role="row"><span role="columnheader">Leva</span><span role="columnheader">Il giorno dello scan</span><span class="on" role="columnheader">Dodici mesi dopo</span></div>
-        <div class="bl-row" role="row"><span class="lv" role="rowheader"><em>01</em>Ottimizzazione SEO+GEO</span><span class="no" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i><span>Copy del fornitore, duplicato su decine di store: nessuna differenziazione in SERP né nelle risposte AI.</span></span><span class="si" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i><span>Contenuto unico per SKU, multilingua, con dati strutturati: indicizzabile da Google, leggibile dagli assistenti AI.<span class="ch"><code>schema Product</code><code>FAQPage</code><code>multilingua</code><code>AI Overviews</code></span></span></span></div>
-        <div class="bl-row" role="row"><span class="lv" role="rowheader"><em>02</em>Titles CRO optimization</span><span class="no" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i><span>Titoli del fornitore, troncati in SERP e in Shopping: CTR sotto il potenziale.</span></span><span class="si" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i><span>Brand, modello e attributo chiave nella lunghezza visibile; il risultato si misura sul CTR di ogni SKU.<span class="ch"><code>≤ 70 caratteri</code><code>CTR per SKU</code><code>Search Console</code></span></span></span></div>
-        <div class="bl-row" role="row"><span class="lv" role="rowheader"><em>03</em>Feed Enrichment</span><span class="no" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i><span>Attributi Merchant Center vuoti: prodotti fuori dai filtri e dalle query long-tail.</span></span><span class="si" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i><span>Attributi completi, ricavati dal catalogo e mai inventati, in un feed supplementare aggiornato ogni giorno.<span class="ch"><code>color</code><code>material</code><code>gender</code><code>age_group</code><code>product_detail</code></span></span></span></div>
-        <div class="bl-row" role="row"><span class="lv" role="rowheader"><em>04</em>Tracking Server Side</span><span class="no" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i><span>Pixel solo lato browser: ad blocker, consenso e iOS tagliano le conversioni.</span></span><span class="si" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i><span>Server-side GTM, Meta CAPI ed Enhanced Conversions con deduplica: ogni ordine conta una volta, con il carrello.<span class="ch"><code>sGTM · Stape</code><code>Meta CAPI</code><code>Enhanced Conversions</code><code>Consent Mode v2</code><code>dedup event_id</code><code>cart data</code></span></span></span></div>
-        <div class="bl-row" role="row"><span class="lv" role="rowheader"><em>05</em>Labelizer</span><span class="no" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i><span>Catalogo in un'unica campagna: il budget va a chi assorbe spesa, non a chi genera margine.</span></span><span class="si" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i><span>SKU segmentati per margine, benchmark di prezzo e performance: budget e target per cluster.<span class="ch"><code>custom_label 0–4</code><code>price benchmark</code><code>margine netto</code></span></span></span></div>
-        <div class="bl-row" role="row"><span class="lv" role="rowheader"><em>06</em>Rotazione di magazzino</span><span class="no" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i><span>Out-of-stock in campagna, slow-mover fermi, riordini a sensazione.</span></span><span class="si" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i><span>Sell-through per SKU: esauriti fuori da feed e campagne, slow-mover con un target ROAS dedicato, riordini sulla stagionalità.<span class="ch"><code>sell-through</code><code>tROAS dedicato</code><code>stagionalità YoY</code></span></span></span></div>
+        <div class="bl-row" role="row"><span class="lv" role="rowheader"><em>01</em>Ottimizzazione SEO+GEO<a class="lv-a" href="#ignition">interruttori 1, 2 e 3 ↓</a></span><span class="no" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i><span>Copy del fornitore, duplicato su decine di store: nessuna differenziazione in SERP né nelle risposte AI.</span></span><span class="si" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i><span>Contenuto unico per SKU, multilingua, con dati strutturati: indicizzabile da Google, leggibile dagli assistenti AI.<span class="ch"><code>schema Product</code><code>FAQPage</code><code>multilingua</code><code>AI Overviews</code></span></span></span></div>
+        <div class="bl-row" role="row"><span class="lv" role="rowheader"><em>02</em>Titles CRO optimization<a class="lv-a" href="#ignition">interruttore 1 ↓</a></span><span class="no" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i><span>Titoli del fornitore, troncati in SERP e in Shopping: CTR sotto il potenziale.</span></span><span class="si" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i><span>Brand, modello e attributo chiave nella lunghezza visibile; il risultato si misura sul CTR di ogni SKU.<span class="ch"><code>≤ 70 caratteri</code><code>CTR per SKU</code><code>Search Console</code></span></span></span></div>
+        <div class="bl-row" role="row"><span class="lv" role="rowheader"><em>03</em>Feed Enrichment<a class="lv-a" href="#ignition">interruttori 4 e 6 ↓</a></span><span class="no" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i><span>Attributi Merchant Center vuoti: prodotti fuori dai filtri e dalle query long-tail.</span></span><span class="si" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i><span>Attributi completi, ricavati dal catalogo e mai inventati, in un feed supplementare aggiornato ogni giorno.<span class="ch"><code>color</code><code>material</code><code>gender</code><code>age_group</code><code>product_detail</code></span></span></span></div>
+        <div class="bl-row" role="row"><span class="lv" role="rowheader"><em>04</em>Tracking Server Side<a class="lv-a" href="#ignition">interruttore 7 ↓</a></span><span class="no" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i><span>Pixel solo lato browser: ad blocker, consenso e iOS tagliano le conversioni.</span></span><span class="si" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i><span>Server-side GTM, Meta CAPI ed Enhanced Conversions con deduplica: ogni ordine conta una volta, con il carrello.<span class="ch"><code>sGTM · Stape</code><code>Meta CAPI</code><code>Enhanced Conversions</code><code>Consent Mode v2</code><code>dedup event_id</code><code>cart data</code></span></span></span></div>
+        <div class="bl-row" role="row"><span class="lv" role="rowheader"><em>05</em>Labelizer<a class="lv-a" href="#budget">interruttore 5, poi il budget ↓</a></span><span class="no" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i><span>Catalogo in un'unica campagna: il budget va a chi assorbe spesa, non a chi genera margine.</span></span><span class="si" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i><span>SKU segmentati per margine, benchmark di prezzo e performance: budget e target per cluster.<span class="ch"><code>custom_label 0–4</code><code>price benchmark</code><code>margine netto</code></span></span></span></div>
+        <div class="bl-row" role="row"><span class="lv" role="rowheader"><em>06</em>Rotazione di magazzino<a class="lv-a" href="#magazzino">la merce ferma, nei conti ↓</a></span><span class="no" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i><span>Out-of-stock in campagna, slow-mover fermi, riordini a sensazione.</span></span><span class="si" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i><span>Sell-through per SKU: esauriti fuori da feed e campagne, slow-mover con un target ROAS dedicato, riordini sulla stagionalità.<span class="ch"><code>sell-through</code><code>tROAS dedicato</code><code>stagionalità YoY</code></span></span></span></div>
       </div>
       <p class="bl-note">Dove porta, su un negozio vero: <a href="#risultati"><strong>+53% di vendite in dodici mesi</strong>, la prova in fondo alla pagina</a>.</p>
     </div>
@@ -898,7 +912,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   <div class="wrap">
     <div class="sec-head">
       <h2>Sette interruttori. <span>Da 23 a 100 su ogni prodotto.</span></h2>
-      <p>Non sono servizi da comprare a parte: <strong>si attivano nella Suite</strong>, prodotto per prodotto, su centinaia o migliaia insieme. Qui una padella vera di un cliente vero, com'è oggi: indice di accensione <strong>23 su 100</strong>. <span class="m-hide">Accendila tu — scheda, feed, campagne e tracciamento — e guarda perché <strong>le aste si vincono così</strong>.</span><span class="m-only">Accendi un interruttore alla volta: l'effetto sta subito sotto.</span></p>
+      <p>Le leve, su un prodotto vero. <strong>Si accendono nella piattaforma Orizon</strong>, prodotto per prodotto, su centinaia o migliaia insieme. Qui una padella vera di un cliente vero, com'è oggi: indice di accensione <strong>23 su 100</strong>. <span class="m-hide">Accendila tu — scheda, feed, campagne e tracciamento — e guarda perché <strong>le aste si vincono così</strong>.</span><span class="m-only">Accendi un interruttore alla volta: l'effetto sta subito sotto.</span></p>
     </div>
 
     <div class="stage" id="stage">
@@ -991,7 +1005,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         <div class="row hint" data-k="title" role="switch" aria-checked="false" tabindex="0">
           <div class="tog" aria-hidden="true"></div>
           <div>
-            <h3>Titolo e snippet per Google <em>SEO + GEO</em></h3>
+            <h3>Titolo e snippet per Google <em>SEO + GEO · leve 01, 02</em></h3>
             <p class="off">Oggi: «Padella Alta Saltare Pensofal». Dice poco a Google e a chi cerca.</p>
             <p class="fact">Da «Padella Alta Saltare Pensofal» a <b>«Pensofal <mark>Academy Chef</mark> Padella Alta a Saltare | <mark>24-32 cm</mark>»</b> — le misure vengono dalle varianti. Sotto, lo snippet che Google mostra: alluminio riciclato 100%, doppio fondo, induzione, Made in Italy.</p>
           </div>
@@ -1000,7 +1014,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         <div class="row" data-k="desc" role="switch" aria-checked="false" tabindex="0">
           <div class="tog" aria-hidden="true"></div>
           <div>
-            <h3>La scheda, scritta dai fatti <em>Scheda</em></h3>
+            <h3>La scheda, scritta dai fatti <em>Scheda · leva 01</em></h3>
             <p class="off">Oggi: tre righe di catalogo, un paragrafo. Nessuna risposta a «quanto consuma», «dove si monta».</p>
             <p class="fact">Da <b>3 righe</b> a <b><mark>5.761 caratteri</mark></b>: caratteristiche, perché la forma alta conta, Pensofal dal 1955, <b>5 domande e risposte</b>. Niente inventato: ogni frase viene dai dati del prodotto. Giudice automatico: 72/100, approvata.</p>
           </div>
@@ -1009,7 +1023,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         <div class="row" data-k="langs" role="switch" aria-checked="false" tabindex="0">
           <div class="tog" aria-hidden="true"></div>
           <div>
-            <h3>In tutte le lingue dove vende <em>Traduzioni</em></h3>
+            <h3>In tutte le lingue dove vende <em>Traduzioni · leva 01</em></h3>
             <p class="off">Oggi: solo in italiano. Chi cerca in inglese o tedesco non la trova.</p>
             <p class="fact"><b><mark>4 lingue</mark>, 6 campi ciascuna</b> — titolo, scheda, snippet, tipo, indirizzo — pubblicati sul negozio, non in un file. Scegli la lingua:</p>
             <div class="lingue" id="lingue"><button type="button" data-l="en"><b>EN</b>High-Sided Sauté Pan</button><button type="button" data-l="de"><b>DE</b>Hohe Sauté-Pfanne</button><button type="button" data-l="fr"><b>FR</b>Poêle haute sauteuse</button><button type="button" data-l="es"><b>ES</b>Sartén Alta Saltear</button></div>
@@ -1019,16 +1033,16 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         <div class="row" data-k="fields" role="switch" aria-checked="false" tabindex="0">
           <div class="tog" aria-hidden="true"></div>
           <div>
-            <h3>I dati che Google chiede <em>Dati prodotto</em></h3>
+            <h3>I dati che Google chiede <em>Dati prodotto · leva 03</em></h3>
             <p class="off">Oggi: categoria, materiale e peso a metà. Nessuno li compila a mano su mille prodotti.</p>
-            <p class="fact"><b><mark>7 campi</mark> letti e messi in ordine</b>: categoria Google, tipo, materiale, tre varianti con giacenze, sei tag. <b>Peso e GTIN mancano</b>: la Suite li segnala e li propone, li mette solo col nostro sì.</p>
+            <p class="fact"><b><mark>7 campi</mark> letti e messi in ordine</b>: categoria Google, tipo, materiale, tre varianti con giacenze, sei tag. <b>Peso e GTIN mancano</b>: la piattaforma li segnalala e li propone, li mette solo col tuo sì.</p>
           </div>
         </div>
 
         <div class="row" data-k="labels" role="switch" aria-checked="false" tabindex="0">
           <div class="tog" aria-hidden="true"></div>
           <div>
-            <h3>Etichette per le campagne <em>Google Ads</em></h3>
+            <h3>Etichette per le campagne <em>Google Ads · leva 05</em></h3>
             <p class="off">Oggi: in campagna la padella vale quanto la pentola che non vende. Il budget si spalma su tutto.</p>
             <p class="fact"><b><mark>Tre etichette</mark> per prodotto, scritte nel feed</b>: il <b>margine netto</b> (prezzo − costo d'acquisto − IVA − resi), il <b>prezzo contro il benchmark di Google</b> (win o lose) e il <b>bucket di performance</b> — nove classi, da «supercompetitivo» a «supercaro, brucia budget» — calcolato su 20 giorni di Google Ads con ROAS target 12. In Ads diventano gruppi: budget a chi vince l'asta e rende, stop a chi brucia. Sulla scheda, il perché di ognuna.</p>
           </div>
@@ -1037,7 +1051,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         <div class="row" data-k="feed" role="switch" aria-checked="false" tabindex="0">
           <div class="tog" aria-hidden="true"></div>
           <div>
-            <h3>Il feed, arricchito <em>Orizon Boost</em></h3>
+            <h3>Il feed, arricchito <em>Feed · leva 03</em></h3>
             <p class="off">Oggi: a Google arrivano titolo, prezzo, foto e disponibilità. Colore, misura, materiale, domande: vuoti.</p>
             <p class="fact"><b><mark>13 attributi</mark> del feed Google</b> letti dal prodotto, non dal nome: <b>11 compilati, 2 lasciati vuoti apposta</b> — genere ed età non servono a una padella, e un campo vuoto batte un campo sbagliato. Vanno in un feed supplementare che Merchant Center legge da solo ogni giorno. Su un catalogo vero da 17.201 prodotti: colore 89%, taglia 80%, genere 94%, età 98%.</p>
           </div>
@@ -1046,14 +1060,14 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         <div class="row" data-k="track" role="switch" aria-checked="false" tabindex="0">
           <div class="tog" aria-hidden="true"></div>
           <div>
-            <h3>Tracciamento come si deve <em>Server-side</em></h3>
+            <h3>Tracciamento come si deve <em>Server-side · leva 04</em></h3>
             <p class="off">Oggi: gli acquisti li conta il browser. Tra blocchi, consensi e iOS, una parte non arriva mai a Google e Meta.</p>
             <p class="fact">Ogni evento parte <b>dal browser e dal server con lo stesso id</b>: GA4, Google Ads e Meta lo contano <b><mark>una volta sola</mark></b>, con email e telefono cifrati per l'abbinamento, e solo col consenso. Sulla scheda, l'acquisto riga per riga. Le campagne imparano dai numeri veri: anche così si vince l'asta.</p>
           </div>
         </div>
 
         <div class="done" id="done" aria-live="polite">
-          <div><b>100 su 100, su un prodotto.</b><span>2 testi per Google · 1 scheda · 24 testi in 4 lingue · 7 campi · 11 attributi nel feed · 3 etichette col perché · acquisto tracciato dal server. Il catalogo di questo fornitore per hotel e ristoranti ne ha 1.446: Ignition li tratta tutti così, col nostro sì prima di pubblicare.</span></div>
+          <div><b>100 su 100, su un prodotto.</b><span>2 testi per Google · 1 scheda · 24 testi in 4 lingue · 7 campi · 11 attributi nel feed · 3 etichette col perché · acquisto tracciato dal server. Il catalogo di questo fornitore per hotel e ristoranti ne ha 1.446: Ignition li tratta tutti così, col tuo sì prima di pubblicare.</span></div>
           <div class="n">× 1.446</div>
         </div>
       </div>
@@ -1063,6 +1077,16 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 
 <!-- ═══ RISULTATI ═══ -->
 <!-- ═══ L'UTILE ═══ -->
+<!-- ═══ CAPITOLO 03: i conti ═══ -->
+<section class="cap fx" id="atto-conti" aria-labelledby="cap-conti">
+  <div class="wrap">
+    <p class="cap-k">03 · I conti</p>
+    <h2 id="cap-conti">Poi si guida sull'utile.</h2>
+    <p>Un catalogo acceso vende di più. Ma il venduto non è tuo: dentro ci sono IVA, resi, spedizioni e il costo della merce. Da qui in poi si ragiona su quello che resta, ogni mattina.</p>
+  </div>
+  <img class="cap-mark" src="images/brand/mark-bianco.svg" alt="" aria-hidden="true">
+</section>
+
 <section class="vs-sec" id="come-lavoriamo">
   <div class="wrap">
     <div class="sec-head fx">
@@ -1096,6 +1120,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         <p class="vs-note">Numeri letti l'11 ottobre 2026 dal pannello Shopify del negozio: 374 ordini, 269 clienti nuovi e 81 di ritorno. Il costo d'acquisto non è ancora caricato: per questo l'utile qui non ha una cifra.</p>
       </div>
     </div>
+    <p class="ponte fx"><svg class="ico" aria-hidden="true"><use href="#arrow"/></svg><span>Letto quello che resta, la domanda dopo è dove mettere il budget. Non dove il ROAS è più alto.</span></p>
   </div>
 </section>
 
@@ -1104,10 +1129,10 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   <div class="wrap">
     <div class="sec-head fx">
       <h2>Il ROAS più alto <span>non è il mese migliore.</span></h2>
-      <p>Lo stesso negozio, lo stesso mese, due modi di muovere il budget. A sinistra si insegue il ROAS, come fanno quasi tutti. A destra si insegue l'utile. <strong>Tutti i costi dentro</strong>: IVA, resi, costo d'acquisto, spedizioni, commissioni, pubblicità.</p>
+      <p>Lo stesso negozio, un mese tipo simulato sui suoi ritmi veri, due modi di muovere il budget. A sinistra si insegue il ROAS, come fanno quasi tutti. A destra si insegue l'utile. <strong>Tutti i costi dentro</strong>: IVA, resi, costo d'acquisto, spedizioni, commissioni, pubblicità.</p>
     </div>
 
-    <div class="vs-grid">
+    <div class="vs-grid flip">
       <div class="vs fx" role="table" aria-label="Confronto fra un mese gestito sul ROAS e uno gestito sull'utile">
         <div class="vr head" role="row"><span role="columnheader">Un mese tipo</span><span role="columnheader">Lavorando sul ROAS</span><span class="b" role="columnheader">Lavorando sull'utile</span></div>
         <div class="vr" role="row"><span>Pubblicità spesa</span><span>20.000 €</span><span class="b">30.000 €</span></div>
@@ -1136,6 +1161,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         <p class="vs-note">Numeri tondi di un mese tipo, stesso negozio: cambia solo dove va il budget. IVA 22%, resi 11,4% (il ritmo vero del negozio di climatizzazione), spedizioni 3,5%, commissioni 1,5%; costo d'acquisto 80% del venduto sui prodotti «da ROAS», 66% su quelli scelti per margine.</p>
       </div>
     </div>
+    <p class="ponte fx"><svg class="ico" aria-hidden="true"><use href="#arrow"/></svg><span>Il budget si decide prodotto per prodotto, ogni mattina, con due domande.</span></p>
   </div>
 </section>
 
@@ -1198,7 +1224,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
           <div class="tm-branch on"><div class="tm-mid"><b>399</b><span>sotto o pari al benchmark · <strong>possono vincere</strong></span></div><p class="tm-q2">2 · Cosa fanno in campagna → l'etichetta, la campagna</p><ul><li class="budget"><i style="--r:66px"><b>276</b></i><span><b>Competitivi, bassa visibilità</b><code>competitivo_poco_visibile</code> → Shopping · Low Visibility</span></li><li class="budget"><i style="--r:20px"><b>4</b></i><span><b>Supercompetitivi</b><code>supercompetitivo</code> → Shopping · SuperCompetitive + Competitive</span></li><li class="budget"><i style="--r:17px"><b>1</b></i><span><b>Competitivi, in conversione</b><code>competitivo_ok</code> → Shopping · SuperCompetitive + Competitive</span></li><li class="fix"><i style="--r:28px"><b>20</b></i><span><b>Da verificare: scheda prodotto</b><code>prodotto_richiede_check</code> → In pausa fino alla correzione</span></li><li class="wait"><i style="--r:30px"><b>25</b></i><span><b>In osservazione</b><code>da_monitorare</code> → PMax di categoria</span></li><li class="out"><i style="--r:40px"><b>73</b></i><span><b>Senza impression</b><code>no_impression</code> → Shopping · Zombie</span></li></ul></div>
           <div class="tm-branch"><div class="tm-mid"><b>351</b><span>sopra il benchmark · <strong>non vincono, per quanto budget ci metti</strong></span></div><ul><li class="price"><i style="--r:64px"><b>256</b></i><span><b>Sopra benchmark, invisibili</b><code>supercaro_nascosto</code> → Esclusi: si lavora sul prezzo</span></li><li class="stop"><i style="--r:25px"><b>12</b></i><span><b>Sopra benchmark, spesa improduttiva</b><code>supercaro_brucia_budget</code> → Esclusi dalle campagne</span></li><li class="out"><i style="--r:42px"><b>83</b></i><span><b>Senza impression</b><code>no_impression</code> → Shopping · Zombie</span></li><li class="wait"><i style="--r:14px"><b>0</b></i><span><b>Sopra benchmark, in conversione</b><code>sopra_benchmark_ma_converte</code> → Shopping · SuperCompetitive + Competitive</span></li></ul></div>
         </div>
-        <div class="tree-foot"><div><b>281</b><span>prodotti prendono budget: possono vincere e hanno margine per farlo</span></div><div><b>469</b><span>no — e per 268 di questi il problema è il prezzo, che nessun budget risolve</span></div></div>
+        <div class="tree-foot"><div><b>281</b><span>prodotti prendono budget: possono vincere l'asta e in campagna rendono</span></div><div><b>469</b><span>no — e per 268 di questi il problema è il prezzo, che nessun budget risolve</span></div></div>
       </div>
       <div class="vs-why">
         <h3>Perché succede</h3>
@@ -1210,6 +1236,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         <p class="vs-note">Letto l'11 ottobre 2026 sui prodotti del negozio in campagna: benchmark di prezzo di Merchant Center, venti giorni di Google Ads, almeno cinque click per giudicare. Il margine entra nella stessa lettura: un prodotto che può vincere ma non guadagna non si spinge comunque.</p>
       </div>
     </div>
+    <p class="ponte fx"><svg class="ico" aria-hidden="true"><use href="#arrow"/></svg><span>E la merce che non gira è un costo che nessun ROAS racconta.</span></p>
   </div>
 </section>
 
@@ -1220,7 +1247,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       <h2>La merce ferma <span>è denaro fermo.</span></h2>
       <p>Giacenze, vendite degli ultimi 60 giorni e la stagione dell'anno scorso, letti ogni giorno sul negozio. I prodotti con <strong>tanto stock e poche vendite</strong> non si lasciano lì: si spingono in una campagna apposita, <strong>con un obiettivo di ritorno più basso</strong>, perché liberare il magazzino vale più del ROAS di quel prodotto. E quello che sta per finire si riordina prima. Il negozio di climatizzazione, oggi.</p>
     </div>
-    <div class="vs-grid">
+    <div class="vs-grid flip">
       <div class="vs four fx" role="table" aria-label="I prodotti fermi e quelli da riordinare del negozio di climatizzazione, con la mossa per ognuno">
         <div class="vr head" role="row"><span role="columnheader">Prodotto</span><span role="columnheader">In magazzino</span><span class="ve" role="columnheader">Venduti</span><span class="b" role="columnheader">La mossa</span></div>
         <div class="vr p down" role="row"><img src="images/magazzino/dab-multi-inox.jpg" alt="" width="240" height="240" loading="lazy"><span class="nm"><b>Elettropompa Dab Multi Inox 3M</b><small>termoidraulica</small></span><span class="va"><b>398 pezzi</b><small>94.457 €</small></span><span class="ve"><b>0</b><small>in 60 giorni</small></span><span class="b ac">campagna dedicata con <strong>ROAS obiettivo 6, non 12</strong>: libera 94 mila € di cassa, a prezzo pieno</span></div>
@@ -1242,9 +1269,16 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
           <li><b>Lo sconto è l'ultima mossa, non la prima.</b> 418 mila euro fermi oggi si muovono a prezzo pieno con la campagna giusta; a gennaio si muovono in perdita. Lo leggiamo dal negozio ogni giorno, con la mossa scritta accanto, nel report di ogni settimana.</li>
         </ol>
         <p class="vs-note">Letto l'11 ottobre 2026 sul negozio Shopify di climatizzazione: stagione di confronto 11 ottobre 2025 – 9 gennaio 2026. Foto dei prodotti dal suo catalogo.</p>
-        <p class="how-line">È il motivo per cui possiamo farci pagare così: <strong>a percentuale, con una quota decisa insieme in base alla situazione di partenza</strong>. Il rischio è dell'impresa, e lo sappiamo.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ═══ LA TESI: chiude i conti ═══ -->
+<section class="tesi" id="tesi" aria-labelledby="tesi-t">
+  <div class="wrap">
+    <h2 id="tesi-t" class="fx">Per questo possiamo farci pagare così: <span>a percentuale, con una quota decisa insieme in base alla situazione di partenza.</span></h2>
+    <p class="fx">Il rischio è dell'impresa, e lo sappiamo. Leggiamo l'utile ogni mattina, mettiamo il budget dove rende, trattiamo il magazzino come un costo. Nessuna fee fissa.</p>
   </div>
 </section>
 
@@ -1507,7 +1541,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 
   /* ── Il menu segue gli atti; sul telefono il bottone compare quando il campo è passato ── */
   var links = Array.prototype.slice.call(document.querySelectorAll('.nav-links a[data-atto]'));
-  var tappe = [['top','diagnosi'],['atto-catalogo','catalogo'],['come-lavoriamo','conti'],['risultati','prova'],['chi-guida','chi']]
+  var tappe = [['top','diagnosi'],['atto-catalogo','catalogo'],['atto-conti','conti'],['risultati','prova'],['chi-guida','chi']]
     .map(function(c){ return { el: document.getElementById(c[0]), atto: c[1] }; }).filter(function(c){ return c.el; });
   var ctaM = document.getElementById('cta-m'), scanTop = document.getElementById('scan'), scanEnd = document.getElementById('scan-finale');
   function segna(){
