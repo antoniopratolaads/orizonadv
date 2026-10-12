@@ -202,22 +202,26 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .rq code b{font-weight:600;color:var(--blue)}
 .dev:not(.on) .rq code b{color:var(--black)}
 .rq span{color:var(--black-m);line-height:1.4}
-.lz,.adz-l{margin-top:24px;border:1px solid var(--line-2);border-radius:12px;overflow:hidden;background:var(--white)}
-.lzr{display:grid;grid-template-columns:1.2fr .95fr 1fr 1.15fr 1.4fr;gap:14px;padding:11px 18px;border-top:1px solid var(--line);font-size:13.5px;align-items:baseline}
-.lzr.head{border-top:0;background:var(--bg-2);font-size:12.5px;font-weight:600;color:var(--black-m);padding:10px 18px}
-.lzr span{color:var(--black-m);line-height:1.4}
-.lzr span b{color:var(--black);font-weight:600}
-.lzr small{color:var(--black-l);font-size:12px}
-.lzr span.on{color:var(--black);font-weight:500}
-.lzr.head span.on{color:var(--blue);font-weight:600}
-.lzr span.on[data-k="etichette"]{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;font-weight:500}
-.adz{display:grid;grid-template-columns:1.25fr 1.4fr 1fr;gap:14px;padding:11px 18px;border-top:1px solid var(--line);font-size:13.5px;align-items:baseline}
-.adz.head{border-top:0;background:var(--bg-2);font-size:12.5px;font-weight:600;color:var(--black-m);padding:10px 18px}
-.adz span{color:var(--black-m);line-height:1.4}
-.adz span b{color:var(--black);font-weight:600}
-.adz.on{background:rgba(55,80,247,.05)}
-.adz.on span{color:var(--black)}
-.adz code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;color:var(--blue);margin-right:4px}
+.piatto-box{border:1px solid var(--line-2);border-radius:12px;background:var(--white);padding:22px 22px 20px}
+.flat b{display:block;font-size:17px;font-weight:600;letter-spacing:-.015em;line-height:1.3}
+.flat span{display:block;margin-top:8px;font-size:14px;color:var(--black-m);line-height:1.5}
+.mx{display:grid;grid-template-columns:130px 1fr 1fr;grid-template-rows:auto 1fr 1fr;gap:8px;border:1px solid rgba(55,80,247,.5);border-radius:12px;background:rgba(55,80,247,.035);padding:14px}
+.mx-ax{display:contents}
+.mx-ax span{font-size:12px;font-weight:600;color:var(--black-m);align-self:center}
+.mx-top span{text-align:center;padding-bottom:2px}
+.mx-top::before{content:'';display:block}
+.mx-left span{padding-right:8px;line-height:1.3}
+.mx-c{background:var(--white);border:1px solid var(--line-2);border-radius:10px;padding:14px 14px 12px;min-height:96px}
+.mx-c b{display:block;font-size:14.5px;font-weight:600;letter-spacing:-.01em}
+.mx-c span{display:block;margin-top:5px;font-size:12.5px;color:var(--black-m);line-height:1.4}
+.mx-c.on{border-color:var(--blue);background:var(--blue);color:var(--white)}
+.mx-c.on span{color:rgba(255,255,255,.82)}
+.mx-c.off{background:var(--bg-2);border-style:dashed}
+.mx-c.off b{color:var(--black-m)}
+.mx .mx-top span:nth-child(1){grid-column:2}
+.mx .mx-top span:nth-child(2){grid-column:3}
+.mx .mx-left span:nth-child(1){grid-row:2;grid-column:1}
+.mx .mx-left span:nth-child(2){grid-row:3;grid-column:1}
 .piatti-altre{margin-top:40px;font-size:14.5px;color:var(--black-m);text-align:center}
 .piatti-altre a{color:var(--blue);text-decoration:none;font-weight:500}
 .piatti-altre a:hover{text-decoration:underline}
@@ -698,11 +702,12 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .mr.grp{padding:7px 14px}
   .mr.grp span::before{content:none}
   .rq{grid-template-columns:1fr;gap:3px;padding:9px 14px}
-  .lzr,.adz{grid-template-columns:1fr;gap:4px;padding:10px 14px}
-  .lzr.head,.adz.head{display:none}
-  .lzr span::before{content:attr(data-k) ': ';color:var(--black-l);font-size:12px}
-  .lzr span[data-k="prodotto"]::before{content:none}
-  .lzr span.on::before{color:var(--blue);font-weight:600}
+  .mx{grid-template-columns:92px 1fr 1fr;gap:6px;padding:10px}
+  .mx-c{padding:10px 10px 9px;min-height:0}
+  .mx-c b{font-size:13.5px}
+  .mx-c span{font-size:12px}
+  .mx-ax span{font-size:11px}
+  .piatto-box{padding:16px}
   .mr{grid-template-columns:1fr;gap:4px;padding:10px 14px}
   .mr span.on{margin:4px -14px -10px;padding:8px 14px 10px;border-left:0;border-top:1px solid rgba(55,80,247,.15)}
   .mr.head{display:none}
@@ -1139,21 +1144,26 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     </article>
 
     <article class="piatto fx" id="piatto-labelizer">
-      <header><span class="pn">05</span><div><h3>Labelizer <span>le etichette che decidono chi va in asta</span></h3><p>Negozio di climatizzazione, 4.750 prodotti in Google Ads. Ogni venti giorni uno script confronta il prezzo di ogni prodotto col benchmark di Google e con i suoi click e vendite, e scrive due etichette nel feed. Le campagne le leggono. <strong>Oggi: nessuna etichetta, un'asta uguale per tutti. Acceso: in Shopping entra solo chi può vincere.</strong></p></div></header>
-      <div class="lz" role="table" aria-label="Quattro prodotti veri con le etichette del labelizer">
-        <div class="lzr head"><span>prodotto</span><span>prezzo · benchmark Google</span><span>20 giorni di Ads</span><span class="on">custom_label_1 · 2</span><span class="on">dove va</span></div>
-        <div class="lzr"><span data-k="prodotto"><b>Ventilconvettore a parete inverter 350</b></span><span data-k="prezzo · benchmark">283 € · 275,51 € <small>+2,7%</small></span><span data-k="20 giorni di Ads">401 click · 3,9 vendite · ROAS 39,6</span><span class="on" data-k="etichette">lose · sopra_benchmark_ma_converte</span><span class="on" data-k="dove va">in Shopping: converte anche sopra il benchmark, il prezzo si può limare</span></div>
-        <div class="lzr"><span data-k="prodotto"><b>Filmante protettivo per impianti</b></span><span data-k="prezzo · benchmark">44 € · 17,75 € <small>+147,9%</small></span><span data-k="20 giorni di Ads">5 click · 1 vendita · ROAS 45,4</span><span class="on" data-k="etichette">lose · sopra_benchmark_ma_converte</span><span class="on" data-k="dove va">in Shopping: caro ma rende, si lascia correre</span></div>
-        <div class="lzr"><span data-k="prodotto"><b>Recuperatore di calore puntuale 25</b></span><span data-k="prezzo · benchmark">291 € · 239,10 € <small>+21,7%</small></span><span data-k="20 giorni di Ads">76 click · 0 vendite</span><span class="on" data-k="etichette">lose · supercaro_brucia_budget</span><span class="on" data-k="dove va">fuori da Shopping: prima il prezzo, poi il budget</span></div>
-        <div class="lzr"><span data-k="prodotto"><b>Recuperatore di calore puntuale 50</b></span><span data-k="prezzo · benchmark">192 € · 202,30 € <small>−5,1%</small></span><span data-k="20 giorni di Ads">911 click · 2 vendite · ROAS 6,3</span><span class="on" data-k="etichette">win · prodotto_richiede_check</span><span class="on" data-k="dove va">sotto il benchmark ma non vende: campagna sua, in prova con un obiettivo di ritorno dedicato</span></div>
+      <header><span class="pn">05</span><div><h3>Labelizer <span>chi va in asta e chi aspetta</span></h3><p>Negozio di climatizzazione, 4.750 prodotti in Google Ads. Ogni venti giorni ogni prodotto viene confrontato con due cose: il prezzo di riferimento che Google vede sul mercato, e i suoi click e vendite. Da lì riceve un'etichetta nel feed, e le campagne la leggono. <strong>Il budget va a chi può vincere l'asta. Il resto aspetta il prezzo giusto.</strong></p></div></header>
+      <div class="pd2">
+        <div class="pd-oggi"><span class="tag">Oggi</span>
+          <div class="piatto-box">
+            <div class="flat"><b>Una campagna, 4.750 prodotti, lo stesso obiettivo per tutti.</b><span>Il prodotto fuori prezzo spende quanto quello giusto. Chi vende regge la spesa di chi non vende, e non si vede.</span></div>
+          </div>
+          <p class="pd-note">Così sono quasi tutte le campagne Shopping: il catalogo intero dentro, e l'asta decide da sola.</p>
+        </div>
+        <div class="pd-dopo"><span class="tag on">Acceso</span>
+          <div class="mx" role="table" aria-label="La logica delle etichette: prezzo contro riferimento, vendite contro click">
+            <div class="mx-ax mx-top"><span>vende</span><span>non vende</span></div>
+            <div class="mx-ax mx-left"><span>prezzo sotto il riferimento</span><span>prezzo sopra il riferimento</span></div>
+            <div class="mx-c on"><b>Qui va il budget</b><span>in asta può vincere, e vince: spesa in più, obiettivo di ritorno pieno</span></div>
+            <div class="mx-c"><b>Si controlla</b><span>è competitivo ma non converte: prima scheda e feed, poi la spesa</span></div>
+            <div class="mx-c"><b>Resta, con misura</b><span>caro ma rende: continua, e il prezzo si lima</span></div>
+            <div class="mx-c off"><b>Fuori dall'asta</b><span>caro e non vende: prima il prezzo, poi il budget</span></div>
+          </div>
+          <p class="pd-note">Quattro etichette, quattro trattamenti. Si riscrivono ogni venti giorni: un prodotto che cambia prezzo cambia casella da solo.</p>
+        </div>
       </div>
-      <div class="adz-l" aria-label="Le campagne vere, lette da Google Ads il 12 ottobre">
-        <div class="adz head"><span>campagna</span><span>filtro sul feed</span><span>perché</span></div>
-        <div class="adz on"><span><b>Shopping 4.1</b> · SuperCompetitive + Competitive</span><span><code>custom_label_2</code> supercompetitivo · competitivo_ok · sopra_benchmark_ma_converte</span><span>qui va il budget: solo chi può vincere l'asta</span></div>
-        <div class="adz"><span><b>PMax 2.1 · 2.2 · 2.3</b> · Riscaldamento, Condizionamento, Termoidraulica e altro</span><span><code>product_type</code> una campagna per categoria</span><span>il resto del catalogo, con la spesa letta per categoria</span></div>
-        <div class="adz"><span><b>Shopping 4.3</b> · un prodotto solo, con esperimento</span><span><code>brand</code> · obiettivo di ritorno dedicato</span><span>un prodotto che merita una prova a parte</span></div>
-      </div>
-      <p class="pd-note">Parametri dello script: 20 giorni di storico, ritorno obiettivo 12, almeno 5 click. Lo stesso foglio alimenta la lettura «il budget va dove si vince l'asta» più avanti.</p>
     </article>
 
     <p class="piatti-altre">La sesta leva, Rotazione di magazzino, si vede <a href="#magazzino">nella merce ferma</a>; tutte e sei insieme, <a href="#ignition">sulla padella</a>.</p>
