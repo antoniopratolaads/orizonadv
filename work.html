@@ -33,6 +33,7 @@ body{font-family:var(--font);font-size:17px;line-height:1.55;color:var(--black);
 :focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px}
 a{color:inherit}
 img{display:block;max-width:100%}
+.solo-m{display:none}
 h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .wrap{max-width:1240px;margin:0 auto;padding:0 32px}
 .ico{width:1em;height:1em;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;display:inline-block;vertical-align:-.12em}
@@ -88,6 +89,8 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .cl-img::before{content:'';position:absolute;inset:-12% -8%;background:radial-gradient(ellipse at 50% 55%,rgba(55,80,247,.14),rgba(55,80,247,0) 65%);pointer-events:none;z-index:0}
 .shot{position:relative;z-index:1;margin:0;border-radius:28px;overflow:hidden;background:var(--white);border:1px solid rgba(12,23,19,.08);box-shadow:0 2px 4px rgba(12,23,19,.04),0 48px 90px -44px rgba(12,23,19,.38)}
 .shot img{width:100%;height:auto;display:block}
+.shot.pannelli img+img{border-top:1px solid var(--line)}
+.shot figcaption{padding:10px 16px;border-top:1px solid var(--line);font-size:12.5px;color:var(--black-m)}
 .cl-eyebrow{display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--black-m)}
 .cl-eyebrow .num{font-weight:600;color:var(--blue);margin-right:6px}
 .cl-eyebrow i{font-style:normal;border:1px solid var(--line-2);border-radius:999px;padding:3px 10px;background:var(--white)}
@@ -175,6 +178,152 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 }
 @media(max-width:768px){
   .wrap{padding:0 20px}
+  /* ── telefono: un flusso solo, a fogli ── */
+  .solo-d{display:none!important}
+  .solo-m{display:block}
+  body{overflow-x:clip}
+  html{scroll-behavior:auto}
+  .mprog.solo-m{display:block;position:fixed;top:0;left:0;height:3px;width:100%;background:var(--blue);transform-origin:left center;transform:scaleX(0);z-index:95;pointer-events:none}
+  .mpill.solo-m{display:flex;position:fixed;top:12px;left:14px;right:14px;height:52px;z-index:94;align-items:center;justify-content:space-between;padding:0 18px;border-radius:100px;background:rgba(255,255,255,.74);backdrop-filter:blur(14px) saturate(1.6);-webkit-backdrop-filter:blur(14px) saturate(1.6);border:1px solid rgba(255,255,255,.85);box-shadow:0 10px 30px -16px rgba(12,23,19,.45),inset 0 1px 0 rgba(255,255,255,.9)}
+  .mpill img{height:20px;width:auto;display:block}
+  .mburger{width:22px;height:14px;display:flex;flex-direction:column;justify-content:space-between;background:none;border:0;padding:0;cursor:pointer}
+  .mburger i{display:block;height:2px;background:var(--black);border-radius:2px}
+  .mflow{position:relative;background:var(--white);text-align:left}
+  .xs{position:relative;padding:64px 22px 56px;background:var(--white)}
+  .xs+.xs{border-radius:30px 30px 0 0;margin-top:-26px;box-shadow:0 -22px 50px -30px rgba(12,23,19,.35)}
+  .xs>*{position:relative;z-index:1}
+  .xs1{min-height:88dvh;display:flex;flex-direction:column;justify-content:center;padding-top:100px;padding-bottom:84px;overflow:hidden}
+  .xs1-luce{position:absolute;z-index:0;left:-20%;top:-10%;width:140%;height:70%;background:radial-gradient(ellipse at 30% 30%,rgba(55,80,247,.22),transparent 55%),radial-gradient(ellipse at 80% 60%,rgba(96,231,135,.14),transparent 45%);animation:mluce 18s ease-in-out infinite alternate;pointer-events:none}
+  @keyframes mluce{0%{transform:translate(0,0) scale(1)}100%{transform:translate(-5%,4%) scale(1.08)}}
+  .xs2{background:var(--bg-2)}
+  .xs3{background:var(--white)}
+  .xs4{background:var(--bg-2)}
+  .xs5{background:var(--blue);color:#fff;overflow:hidden}
+  .xs5::before{content:'';position:absolute;z-index:0;inset:0;background-image:radial-gradient(rgba(255,255,255,.22) 1px,transparent 1.6px);background-size:22px 22px;animation:mderiva 24s linear infinite}
+  @keyframes mderiva{0%{background-position:0 0}100%{background-position:0 220px}}
+  .xs6{padding-bottom:40px}
+  .xs.xsmark{overflow:hidden}
+  .xs.xsmark::after{content:'';position:absolute;z-index:0;right:-26%;top:-6%;width:78vw;height:56vw;background:url(images/brand/mark-blu.svg) no-repeat center/contain;opacity:.055;pointer-events:none;transform:rotate(-8deg)}
+  .xs.xsmark.sx::after{right:auto;left:-34%;top:auto;bottom:-10%;transform:rotate(10deg)}
+  .xs.xs5::after{content:'';position:absolute;z-index:0;right:-30%;bottom:-16%;width:82vw;height:58vw;background:url(images/brand/mark-bianco.svg) no-repeat center/contain;opacity:.13;pointer-events:none}
+  /* comparsa */
+  .xr{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
+  .xs.on .xr{opacity:1;transform:none}
+  .xr.xpop{transform:translateY(20px) scale(.86)}
+  .xr.xsx{transform:translateX(-22px)}
+  .xr.xtilt{transform:perspective(900px) rotateX(16deg) translateY(34px);transition:opacity .8s var(--ease),transform 1.1s var(--ease);transition-delay:var(--d,0s)}
+  .xr.xsboccia{transform:scale(.4);transition:opacity .6s var(--ease),transform 1s cubic-bezier(.34,1.56,.64,1)}
+  .xs.on .xr.xpop,.xs.on .xr.xsx,.xs.on .xr.xtilt,.xs.on .xr.xsboccia{transform:none}
+  .xw{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.14em;margin-bottom:-.14em}
+  .xw>span{display:inline-block;transform:translateY(118%);transition:transform .9s var(--ease);transition-delay:var(--d,0s)}
+  .xs.on .xw>span{transform:none}
+  .xout{color:transparent;-webkit-text-stroke:1.5px rgba(12,23,19,.4);transition:color .8s var(--ease) 1.5s,-webkit-text-stroke-color .8s var(--ease) 1.5s}
+  .xs.on .xout{color:var(--blue);-webkit-text-stroke-color:transparent}
+  .xoutw{color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.8);transition:color .8s var(--ease) 1.3s,-webkit-text-stroke-color .8s var(--ease) 1.3s}
+  .xs.on .xoutw{color:#fff;-webkit-text-stroke-color:transparent}
+  [data-parallasse]{will-change:transform}
+  .xk{font-size:13px;font-weight:600;color:var(--blue)}
+  .xs5 .xk{color:rgba(255,255,255,.75)}
+  .xlead{margin-top:14px;font-size:15.5px;color:var(--black-m);line-height:1.5}
+  .xs5 .xlead{color:rgba(255,255,255,.85)}
+  .xblu{color:var(--blue)}
+  .xs h1,.xs h2{font-weight:600;letter-spacing:-.035em}
+  .xs1 h1{margin-top:12px;font-size:40px;line-height:1.02}
+  .xs1 .xlead{font-size:16.5px}
+  .xs1 .xlead strong{color:var(--black);font-weight:600}
+  .mscan{margin-top:22px;border:1px solid var(--line-2);border-radius:14px;padding:6px;background:var(--white);box-shadow:0 1px 2px rgba(12,23,19,.04),0 14px 34px -22px rgba(12,23,19,.3)}
+  .mscan input{width:100%;height:46px;padding:0 14px;border:0;font:inherit;font-size:16px;outline:none;background:transparent;color:var(--black)}
+  .mscan button{width:100%;height:48px;border:0;border-radius:10px;background:var(--blue);color:#fff;font:inherit;font-weight:600;font-size:16px;cursor:pointer;box-shadow:0 12px 28px -12px rgba(55,80,247,.8)}
+  .xmeta{margin-top:10px;font-size:13px;color:var(--black-m)}
+  .xhint{position:absolute;left:0;right:0;bottom:22px;text-align:center;font-size:12.5px;color:var(--black-m)}
+  .xhint i{display:block;width:1px;height:26px;margin:6px auto 0;background:linear-gradient(var(--black-l),transparent);animation:mgiu 1.6s ease-in-out infinite}
+  @keyframes mgiu{0%,100%{transform:translateY(0);opacity:1}50%{transform:translateY(8px);opacity:.3}}
+  .xbig{margin-top:10px;font-size:92px;font-weight:600;letter-spacing:-.06em;line-height:.9;color:var(--blue)}
+  .xbig .xriga{display:block;height:3px;width:0;background:var(--blue);border-radius:3px;margin-top:10px;transition:width 1.2s var(--ease) .6s}
+  .xs.on .xbig .xriga{width:120px}
+  .xbig small{display:block;margin-top:10px;font-size:15.5px;font-weight:400;letter-spacing:0;line-height:1.45;color:var(--black)}
+  .xshot{margin-top:18px;border:1px solid var(--line-2);border-radius:14px;overflow:hidden;background:var(--white);box-shadow:0 20px 44px -26px rgba(12,23,19,.35)}
+  .xshot img{width:100%;height:auto;display:block}
+  .xtre{margin-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .xtre div{border-top:1px solid var(--line-2);padding-top:8px}
+  .xtre b{display:block;font-size:21px;font-weight:600;letter-spacing:-.03em}
+  .xtre span{display:block;font-size:12px;color:var(--black-m);line-height:1.3;margin-top:3px}
+  .xlnk{margin-top:16px;font-size:14px;font-weight:600}
+  .xlnk a{color:var(--blue);text-decoration:none;margin-right:14px;white-space:nowrap}
+  .xs3 h2,.xs4 h2{margin-top:8px;font-size:30px;line-height:1.08}
+  .xdue{margin-top:18px;display:grid;gap:10px}
+  .xdue>div{border:1px solid var(--line-2);border-radius:16px;padding:14px 16px;position:relative;overflow:hidden;background:var(--white);box-shadow:0 14px 30px -24px rgba(12,23,19,.25)}
+  .xdue b{font-size:34px;font-weight:600;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+  .xdue .xsi b{color:var(--blue)}
+  .xdue span{display:block;margin-top:6px;font-size:13.5px;color:var(--black-m);line-height:1.4}
+  .xdue i{display:block;height:6px;border-radius:99px;background:var(--line);margin-top:12px;overflow:hidden}
+  .xdue i::after{content:'';display:block;height:100%;width:0;border-radius:99px;background:var(--black-l);transition:width 1.4s var(--ease) .5s}
+  .xdue .xsi i::after{background:linear-gradient(90deg,var(--blue),#6377FD)}
+  .xs.on .xdue .xsi i::after{width:37%}
+  .xs.on .xdue .xno i::after{width:63%}
+  .xs5 h2{margin-top:8px;font-size:36px;line-height:1.05}
+  .xpunti{list-style:none;margin-top:18px;display:grid;gap:10px}
+  .xpunti li{padding-left:16px;position:relative;font-size:15.5px}
+  .xpunti li::before{content:'';position:absolute;left:0;top:10px;width:7px;height:7px;border-radius:50%;background:var(--green)}
+  .xtesta{display:flex;gap:14px;align-items:center}
+  .xtesta img{width:76px;height:76px;object-fit:cover;object-position:top;border-radius:16px;box-shadow:0 0 0 3px var(--white),0 0 0 5px var(--blue-ll)}
+  .xtesta h2{font-size:24px;line-height:1.1}
+  .xruolo{font-size:13px;color:var(--black-m);margin-top:3px}
+  .xpassi{margin-top:18px;list-style:none;display:grid;gap:10px}
+  .xpassi li{display:grid;grid-template-columns:28px 1fr;gap:10px;font-size:15px;color:var(--black-m);line-height:1.45}
+  .xpassi li i{font-style:normal;width:26px;height:26px;border-radius:50%;background:var(--blue-ll);color:var(--blue);font-size:12.5px;font-weight:600;display:flex;align-items:center;justify-content:center}
+  .xpassi li b{color:var(--black);font-weight:600}
+  .xmfoot{margin-top:36px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--black-m);display:flex;flex-wrap:wrap;gap:6px 14px}
+  .xmfoot a{color:var(--black-m);text-decoration:none}
+  .xmfoot span{flex-basis:100%;margin-top:6px}
+  .xs h2.xt{margin-top:8px;font-size:30px;line-height:1.08}
+  .xsub{margin-top:8px;font-size:18px;font-weight:500;letter-spacing:-.02em;line-height:1.3}
+  .xtags{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px}
+  .xtags i{font-style:normal;font-size:12.5px;color:var(--black);border:1px solid var(--line-2);border-radius:999px;padding:5px 11px;background:var(--white)}
+  .xads{margin-top:14px;border:1px solid var(--line-2);border-radius:14px;background:var(--white);overflow:hidden}
+  .xads .b{display:flex;align-items:center;gap:8px;padding:9px 14px;border-bottom:1px solid var(--line);font-size:12px;color:var(--black-m)}
+  .xads .b .g{width:12px;height:12px;border-radius:50%;background:conic-gradient(#4285F4 0 25%,#34A853 0 50%,#FBBC05 0 75%,#EA4335 0);flex:none}
+  .xads .b b{color:var(--black);font-weight:600}
+  .xads .n{display:grid;grid-template-columns:1fr 1fr}
+  .xads .n div{padding:10px 14px;border-top:1px solid var(--line)}
+  .xads .n div:nth-child(-n+2){border-top:0}
+  .xads .n div:nth-child(even){border-left:1px solid var(--line)}
+  .xads .k{display:block;font-size:11px;color:var(--black-m)}
+  .xads b{display:block;font-size:18px;font-weight:600;letter-spacing:-.025em;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .xads small{display:block;font-size:11px;color:var(--black-l)}
+  .xshot figcaption{padding:8px 12px;border-top:1px solid var(--line);font-size:11.5px;color:var(--black-m)}
+  .xshot img+img{border-top:1px solid var(--line)}
+  .xmarq{margin:16px -22px 0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+  .xmarq ul{list-style:none;display:flex;gap:10px;width:max-content;animation:mscorri var(--t,40s) linear infinite}
+  .xmarq.rev ul{animation-direction:reverse}
+  .xmarq li{flex:none;height:64px;width:150px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:12px;background:var(--white);padding:10px 14px}
+  .xmarq img{max-height:34px;max-width:112px;width:auto;height:auto;filter:grayscale(1);opacity:.75}
+  .xmarq li span{font-size:13px;font-weight:600;color:var(--black-m)}
+  @keyframes mscorri{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+  .xlista{margin-top:14px;display:grid;gap:8px}
+  .xlista div{border:1px solid var(--line-2);border-radius:14px;padding:12px 14px;background:var(--white)}
+  .xlista b{display:block;font-size:15px;font-weight:600;letter-spacing:-.01em}
+  .xlista span{display:block;margin-top:3px;font-size:13.5px;color:var(--black-m);line-height:1.45}
+  .xchips{list-style:none;margin-top:14px;display:flex;flex-wrap:wrap;gap:7px}
+  .xchips li{font-size:13px;font-weight:500;border:1px solid var(--line-2);border-radius:999px;padding:6px 12px;background:var(--white);color:var(--black-m);display:flex;align-items:center;gap:7px;transform:scale(.92);transition:color .4s,border-color .4s,background .4s,transform .5s cubic-bezier(.34,1.56,.64,1);transition-delay:var(--d)}
+  .xchips li::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--black-l);transition:background .4s,box-shadow .4s;transition-delay:var(--d)}
+  .xs.on .xchips li{color:var(--black);border-color:rgba(55,80,247,.4);background:rgba(55,80,247,.06);transform:none}
+  .xs.on .xchips li::before{background:var(--blue);box-shadow:0 0 8px rgba(55,80,247,.6)}
+  .xnum{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .xnum div{border-top:1px solid var(--line-2);padding-top:8px}
+  .xnum b{display:block;font-size:24px;font-weight:600;letter-spacing:-.035em;line-height:1;color:var(--blue)}
+  .xnum span{display:block;font-size:12px;color:var(--black-m);line-height:1.3;margin-top:4px}
+  .xs5 .xnum b{color:#fff}
+  .xs5 .xnum span{color:rgba(255,255,255,.8)}
+  .xs5 .xnum div{border-top-color:rgba(255,255,255,.25)}
+  .xbtn{display:inline-flex;align-items:center;gap:8px;margin-top:16px;background:var(--blue);color:#fff;font-weight:600;font-size:14.5px;padding:12px 18px;border-radius:999px;text-decoration:none;box-shadow:0 12px 28px -12px rgba(55,80,247,.8)}
+  .xbtn.ghost{background:var(--white);color:var(--blue);border:1px solid var(--blue-ll);box-shadow:none}
+  .xs5 .xbtn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+  .xs.xsgrigio{background:var(--bg-2)}
+  .xs.xsbianco{background:var(--white)}
+  .xs5 .xmfoot,.xs5 .xmfoot a{color:rgba(255,255,255,.8);border-color:rgba(255,255,255,.25)}
+  .xs5 .xmfoot{border-top-color:rgba(255,255,255,.25)}
+  .xs5 .mscan{box-shadow:0 20px 50px -24px rgba(0,0,0,.5)}
   .nav-links,.nav .btn{display:none}
   .burger{display:block}
   .mobile-menu{display:flex}
@@ -212,6 +361,10 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .foot{grid-template-columns:1fr}
 }
 @media(prefers-reduced-motion:reduce){
+  .xr,.xw>span{opacity:1;transform:none;transition:none}
+  .xs1-luce,.xs5::before,.xhint i{animation:none}
+  .xbar em,.xdue i::after,.xout,.xoutw{transition:none}
+  [data-parallasse]{transform:none!important}
   html{scroll-behavior:auto}
   .js .fx{opacity:1;transform:none;transition:none}
 }
@@ -222,7 +375,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol></defs></svg>
 
 <!-- ═══ NAV ═══ -->
-<nav class="nav" aria-label="Principale">
+<nav class="solo-d nav" aria-label="Principale">
   <div class="wrap">
     <a class="brand" href="/" aria-label="Orizon ADV — home"><img src="images/brand/logo-blu.svg" alt="Orizon" width="720" height="182"></a>
     <div class="nav-links">
@@ -238,27 +391,27 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 </nav>
 <div class="mobile-menu">
   <button class="mobile-close" aria-label="Chiudi il menu"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
-  <a href="/#risultati">Risultati</a>
-  <a href="/#atto-catalogo">Il catalogo</a>
-  <a href="/#atto-conti">I conti</a>
-  <a href="/#chi-guida">Chi guida</a>
+  <a href="/#m-risultato">Risultati</a>
+  <a href="/#m-catalogo">Il catalogo</a>
+  <a href="/#m-conti">I conti</a>
+  <a href="/#m-chi">Chi guida</a>
   <a href="/work">Casi</a>
-  <a href="#scan-finale" style="color:var(--blue)">Fai lo scan</a>
+  <a href="/contatti" style="color:var(--blue)">Fai lo scan</a>
 </div>
 
 
-<header class="chead">
+<header class="solo-d chead">
   <div class="wrap">
     <h1 class="fx">Numeri veri. <span>Crescita reale.</span></h1>
     <p class="sub fx">Otto clienti, uno spazio per ognuno, coi numeri letti dai loro account Google Ads il 12 ottobre 2026 e dai loro pannelli. Dove il lavoro è in corso, lo diciamo.</p>
   </div>
 </header>
 
-<section class="cases" aria-label="Casi studio">
+<section class="solo-d cases" aria-label="Casi studio">
   <div class="wrap">
     <article class="cliente fx" id="caso-01">
       <div class="cl-grid">
-      <div class="cl-img"><figure class="shot"><img src="images/clienti/climando.jpg" alt="La home di climando.it" width="1200" height="750" loading="lazy"></figure></div>
+      <div class="cl-img"><figure class="shot pannelli"><img src="images/casi/climatizzazione-google-ads.jpg" alt="Panoramica Google Ads di Climando: 2,96 milioni di vendite, 5.200 conversioni, valore su costo 44,50, spesa 66,7 mila euro" width="900" height="231" loading="lazy"><img src="images/casi/climatizzazione-meta-ads.jpg" alt="Gestione inserzioni Meta di Climando: tre campagne con 455, 146 e 259 acquisti" width="875" height="278" loading="lazy"><figcaption>Google Ads e Meta del negozio, dai suoi account</figcaption></figure></div>
       <div class="cl-txt">
         <div class="cl-eyebrow"><span class="num">Caso studio · 01</span><i>Climatizzazione e riscaldamento</i><i>e-commerce Shopify</i><i>ottobre 2025 — in corso</i></div>
         <h2>Climando</h2>
@@ -383,7 +536,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   </div>
 </section>
 
-<section class="loghi" aria-label="Altri clienti">
+<section class="solo-d loghi" aria-label="Altri clienti">
   <div class="wrap">
     <h3>Hanno scelto Orizon anche loro</h3>
     <ul>
@@ -413,7 +566,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 </section>
 
 <!-- ═══ SCAN FINALE ═══ -->
-<section class="end" id="scan-finale">
+<section class="solo-d end" id="scan-finale">
   <div class="wrap">
     <h2 class="fx">Vediamo cosa c'è da accendere <span>nel tuo negozio.</span></h2>
     <p class="sub fx">Mettici l'indirizzo. Ti diciamo dove sta il fatturato che il catalogo lascia sul tavolo, e se vale la pena lavorare insieme.</p>
@@ -431,7 +584,112 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 
 
 <!-- ═══ FOOTER ═══ -->
-<footer>
+<div class="mprog solo-m" id="mprog" aria-hidden="true"></div>
+<nav class="mpill solo-m" aria-label="Principale, telefono"><a href="/" aria-label="Orizon ADV — home"><img src="images/brand/logo-blu.svg" alt="Orizon" width="720" height="182"></a><button class="mburger" id="mburger" type="button" aria-label="Apri il menu" aria-expanded="false"><i></i><i></i><i></i></button></nav>
+<main class="mflow solo-m" id="mflow">
+  <section class="xs xs1 xsmark" id="m-top">
+    <div class="xs1-luce" aria-hidden="true"></div>
+    <p class="xk xr">I clienti</p>
+    <h1><span class="xw"><span class="" style="--d:0.10s">Numeri</span></span> <span class="xw"><span class="" style="--d:0.17s">veri.</span></span> <span class="xw"><span class="xblu" style="--d:0.30s">Crescita</span></span> <span class="xw"><span class="xblu" style="--d:0.38s">reale.</span></span></h1>
+    <p class="xlead xr" style="--d:.6s">Otto clienti, i numeri letti dai loro account Google Ads il 12 ottobre 2026 e dai loro pannelli. Dove il lavoro è in corso, lo diciamo.</p>
+    <div class="xhint" aria-hidden="true"><span>scorri</span><i></i></div>
+  </section>
+  <section class="xs xsbianco" id="m-caso-01">
+    <p class="xk xr">Caso studio · 01 · Climatizzazione e riscaldamento</p>
+    <h2 class="xt xr" style="--d:.05s">Climando</h2>
+    <p class="xsub xr" style="--d:.12s">Da 5,4 a 8,3 milioni in un anno, con un catalogo acceso.</p>
+    <figure class="xshot xr xtilt" style="--d:.2s" data-parallasse="-0.06"><img src="images/cruscotto/shopify-vendite-12m-m.png" alt="Pannello Shopify di Climando: vendite totali 8.266.784 €, +53%" width="862" height="262" loading="lazy"><img src="images/casi/climatizzazione-google-ads.jpg" alt="Panoramica Google Ads di Climando: 2,96 milioni di vendite, 5.200 conversioni, valore su costo 44,50, spesa 66,7 mila euro" width="900" height="231" loading="lazy"><figcaption>Il suo pannello Shopify e la panoramica Google Ads, dai suoi account</figcaption></figure>
+    <div class="xtre"><div class="xr" style="--d:0.30s"><b>+53%</b><span>vendite anno su anno, 8,27 M€</span></div><div class="xr" style="--d:0.38s"><b>+135%</b><span>luglio–settembre</span></div><div class="xr" style="--d:0.46s"><b>x50</b><span>vendite per euro speso</span></div></div>
+    <div class="xads xr" style="--d:.4s"><div class="b"><span class="g"></span><b>Google Ads</b> · dodici mesi</div><div class="n"><div><span class="k">Spesa</span><b>56.297 €</b></div><div><span class="k">Valore conv.</span><b>3,50 M€</b></div><div><span class="k">Conversioni</span><b>5.447</b></div><div><span class="k">Ritorno</span><b>62 €</b><small>per euro speso</small></div></div></div>
+    <div class="xtags xr" style="--d:.5s"><i>Meta Ads</i><i>Google Ads</i><i>Orizon Ignition</i><i>Labelizer</i></div>
+    <p class="xlnk xr" style="--d:.6s"><a href="/case-study/climatizzazione">Il caso completo →</a> <a href="https://www.climando.it/" target="_blank" rel="noopener">climando.it →</a></p>
+  </section>
+  <section class="xs xsgrigio xsmark" id="m-caso-02">
+    <p class="xk xr">Caso studio · 02 · Materassi e casa</p>
+    <h2 class="xt xr" style="--d:.05s">De Matteo Home</h2>
+    <p class="xsub xr" style="--d:.12s">Quattro milioni di valore da Google Ads, in dodici mesi.</p>
+    
+    <div class="xtre"><div class="xr" style="--d:0.30s"><b>4,21 M€</b><span>valore delle conversioni</span></div><div class="xr" style="--d:0.38s"><b>13.032</b><span>conversioni</span></div><div class="xr" style="--d:0.46s"><b>11,7</b><span>euro per euro speso</span></div></div>
+    <div class="xads xr" style="--d:.4s"><div class="b"><span class="g"></span><b>Google Ads</b> · dodici mesi</div><div class="n"><div><span class="k">Spesa</span><b>360.011 €</b></div><div><span class="k">Click</span><b>580 mila</b></div><div><span class="k">Conversioni</span><b>13.032</b></div><div><span class="k">Valore conv.</span><b>4,21 M€</b></div></div></div>
+    <div class="xtags xr" style="--d:.5s"><i>Google Ads</i><i>Shopping</i><i>Performance Max</i></div>
+    <p class="xlnk xr" style="--d:.6s"><a href="https://dematteohome.it/" target="_blank" rel="noopener">dematteohome.it →</a></p>
+  </section>
+  <section class="xs xsbianco" id="m-caso-03">
+    <p class="xk xr">Caso studio · 03 · Piattaforma con registrazione · Italia e Spagna</p>
+    <h2 class="xt xr" style="--d:.05s">Aste online</h2>
+    <p class="xsub xr" style="--d:.12s">561 mila registrazioni, 192 mila acquisti.</p>
+    
+    <div class="xtre"><div class="xr" style="--d:0.30s"><b>3,25 M€</b><span>di fatturato generato</span></div><div class="xr" style="--d:0.38s"><b>953 K€</b><span>di spesa pubblicitaria</span></div><div class="xr" style="--d:0.46s"><b>192 mila</b><span>acquisti</span></div></div>
+    <div class="xads xr" style="--d:.4s"><div class="b"><span class="g"></span><b>Google Ads</b> · dodici mesi</div><div class="n"><div><span class="k">Impressioni</span><b>70,1 M</b></div><div><span class="k">Click</span><b>1,99 M</b></div><div><span class="k">Conversioni</span><b>609 mila</b></div><div><span class="k">Spesa</span><b>408 mila £</b><small>due account in sterline</small></div></div></div>
+    <div class="xtags xr" style="--d:.5s"><i>Meta Ads</i><i>Google Ads</i><i>Due mercati</i></div>
+    
+  </section>
+  <section class="xs xsgrigio" id="m-caso-04">
+    <p class="xk xr">Caso studio · 04 · Moda e streetwear</p>
+    <h2 class="xt xr" style="--d:.05s">Londonstore</h2>
+    <p class="xsub xr" style="--d:.12s">Fatturato quasi triplicato anno su anno.</p>
+    
+    <div class="xtre"><div class="xr" style="--d:0.30s"><b>+180%</b><span>fatturato anno su anno</span></div><div class="xr" style="--d:0.38s"><b>4,2x</b><span>ROAS sulle campagne</span></div><div class="xr" style="--d:0.46s"><b>17.432</b><span>prodotti da accendere</span></div></div>
+    <div class="xads xr" style="--d:.4s"><div class="b"><span class="g"></span><b>Google Ads</b> · dodici mesi</div><div class="n"><div><span class="k">Spesa</span><b>74.545 €</b></div><div><span class="k">Click</span><b>424 mila</b></div><div><span class="k">Conversioni</span><b>9.052</b></div><div><span class="k">Ritorno</span><b>8,1 €</b><small>per euro speso</small></div></div></div>
+    <div class="xtags xr" style="--d:.5s"><i>Meta Ads</i><i>Google Ads</i><i>Creatività AI</i><i>Orizon Ignition</i></div>
+    <p class="xlnk xr" style="--d:.6s"><a href="https://www.londonstore.it/" target="_blank" rel="noopener">londonstore.it →</a></p>
+  </section>
+  <section class="xs xsbianco xsmark" id="m-caso-05">
+    <p class="xk xr">Caso studio · 05 · Casa, tavola e cerimonia</p>
+    <h2 class="xt xr" style="--d:.05s">L'Arcolaio</h2>
+    <p class="xsub xr" style="--d:.12s">Un negozio che non esisteva fattura due milioni.</p>
+    
+    <div class="xtre"><div class="xr" style="--d:0.30s"><b>0 → 2 M€</b><span>in due anni</span></div><div class="xr" style="--d:0.38s"><b>x13</b><span>MER, vendite su spesa</span></div><div class="xr" style="--d:0.46s"><b>6</b><span>canali in una regia</span></div></div>
+    
+    <div class="xtags xr" style="--d:.5s"><i>Marketplace</i><i>Meta Ads</i><i>Google Ads</i><i>TikTok</i><i>Sito Shopify</i></div>
+    <p class="xlnk xr" style="--d:.6s"><a href="https://larcolaio.com/" target="_blank" rel="noopener">larcolaio.com →</a></p>
+  </section>
+  <section class="xs xsgrigio xsmark sx" id="m-caso-06">
+    <p class="xk xr">Caso studio · 06 · Informatica B2B · richieste di preventivo</p>
+    <h2 class="xt xr" style="--d:.05s">VG Informatica</h2>
+    <p class="xsub xr" style="--d:.12s">Più richieste, a meno della metà del costo.</p>
+    
+    <div class="xtre"><div class="xr" style="--d:0.30s"><b>+320%</b><span>richieste in più</span></div><div class="xr" style="--d:0.38s"><b>−45%</b><span>costo per richiesta</span></div></div>
+    
+    <div class="xtags xr" style="--d:.5s"><i>Google Ads</i><i>Meta Ads</i><i>Landing page</i></div>
+    <p class="xlnk xr" style="--d:.6s"><a href="/case-study/informatica-b2b">Il caso completo →</a> <a href="https://www.vginformatica.com/" target="_blank" rel="noopener">vginformatica.com →</a></p>
+  </section>
+  <section class="xs xsbianco" id="m-caso-07">
+    <p class="xk xr">Caso studio · 07 · Forniture per hotel e ristoranti</p>
+    <h2 class="xt xr" style="--d:.05s">F.lli Fontana Hotellerie</h2>
+    <p class="xsub xr" style="--d:.12s">1.446 prodotti accesi, uno per uno.</p>
+    
+    <div class="xtre"><div class="xr" style="--d:0.30s"><b>1.446</b><span>prodotti trattati</span></div><div class="xr" style="--d:0.38s"><b>4 lingue</b><span>pubblicate sul negozio</span></div><div class="xr" style="--d:0.46s"><b>23 → 100</b><span>indice di accensione</span></div></div>
+    <div class="xads xr" style="--d:.4s"><div class="b"><span class="g"></span><b>Google Ads</b> · dodici mesi</div><div class="n"><div><span class="k">Impressioni</span><b>5,17 M</b></div><div><span class="k">Click</span><b>64.547</b></div><div><span class="k">Conversioni</span><b>1.300</b></div><div><span class="k">Spesa</span><b>20.126 €</b></div></div></div>
+    <div class="xtags xr" style="--d:.5s"><i>Orizon Ignition</i><i>SEO + GEO</i><i>Traduzioni</i></div>
+    <p class="xlnk xr" style="--d:.6s"><a href="/#m-catalogo">Accendi la padella →</a> <a href="https://fontanahotellerieshop.it/" target="_blank" rel="noopener">fontanahotellerieshop.it →</a></p>
+  </section>
+  <section class="xs xsgrigio xsmark" id="m-caso-08">
+    <p class="xk xr">Caso studio · 08 · Moda</p>
+    <h2 class="xt xr" style="--d:.05s">Manfrellotti</h2>
+    <p class="xsub xr" style="--d:.12s">Il feed arriva vuoto. Ignition lo riempie dal catalogo.</p>
+    
+    <div class="xtre"><div class="xr" style="--d:0.30s"><b>17.201</b><span>prodotti nel feed</span></div><div class="xr" style="--d:0.38s"><b>89%</b><span>con il colore</span></div><div class="xr" style="--d:0.46s"><b>98%</b><span>con l'età</span></div></div>
+    <div class="xads xr" style="--d:.4s"><div class="b"><span class="g"></span><b>Google Ads</b> · dodici mesi</div><div class="n"><div><span class="k">Spesa</span><b>47.558 €</b></div><div><span class="k">Click</span><b>245 mila</b></div><div><span class="k">Conversioni</span><b>3.298</b></div><div><span class="k">Ritorno</span><b>7,0 €</b><small>per euro speso</small></div></div></div>
+    <div class="xtags xr" style="--d:.5s"><i>Orizon Ignition</i><i>Feed Google</i><i>Etichette</i></div>
+    <p class="xlnk xr" style="--d:.6s"><a href="https://www.manfrellotti.it/" target="_blank" rel="noopener">manfrellotti.it →</a></p>
+  </section>
+  <section class="xs xsbianco xsmark sx" id="m-loghi">
+    <p class="xk xr">E con loro</p>
+    <h2 class="xt xr" style="--d:.05s">Hanno scelto Orizon anche loro.</h2>
+    <div class="xmarq" style="--t:46s" aria-hidden="true"><ul><li><img src="images/clienti/loghi/prestigio.png" alt="Prestigio Argenti e Ori" loading="lazy"></li><li><img src="images/clienti/loghi/panini.png" alt="Franco Cosimo Panini" loading="lazy"></li><li><img src="images/clienti/loghi/adnabu.webp" alt="AdNabu" loading="lazy"></li><li><img src="images/clienti/loghi/reset.svg" alt="Reset Energia" loading="lazy"></li><li><span>Casa Italia</span></li><li><img src="images/clienti/loghi/madamalu.png" alt="Madamalù" loading="lazy"></li><li><img src="images/clienti/loghi/marotta.png" alt="Pier Paolo Marotta" loading="lazy"></li><li><span>1000 Brico</span></li><li><span>Themoirè</span></li><li><img src="images/clienti/loghi/oofwear.svg" alt="OOF Wear" loading="lazy"></li><li><img src="images/clienti/loghi/paskal.png" alt="Paskal" loading="lazy"></li><li><img src="images/clienti/loghi/prestigio.png" alt="Prestigio Argenti e Ori" loading="lazy"></li><li><img src="images/clienti/loghi/panini.png" alt="Franco Cosimo Panini" loading="lazy"></li><li><img src="images/clienti/loghi/adnabu.webp" alt="AdNabu" loading="lazy"></li><li><img src="images/clienti/loghi/reset.svg" alt="Reset Energia" loading="lazy"></li><li><span>Casa Italia</span></li><li><img src="images/clienti/loghi/madamalu.png" alt="Madamalù" loading="lazy"></li><li><img src="images/clienti/loghi/marotta.png" alt="Pier Paolo Marotta" loading="lazy"></li><li><span>1000 Brico</span></li><li><span>Themoirè</span></li><li><img src="images/clienti/loghi/oofwear.svg" alt="OOF Wear" loading="lazy"></li><li><img src="images/clienti/loghi/paskal.png" alt="Paskal" loading="lazy"></li></ul></div>
+    <div class="xmarq rev" style="--t:52s" aria-hidden="true"><ul><li><img src="images/clienti/loghi/buytutto.png" alt="Buytutto" loading="lazy"></li><li><img src="images/clienti/loghi/driverso.png" alt="Driverso" loading="lazy"></li><li><img src="images/clienti/loghi/autouno.png" alt="Autouno" loading="lazy"></li><li><img src="images/clienti/loghi/ciclimattio.svg" alt="Cicli Mattio" loading="lazy"></li><li><img src="images/clienti/loghi/zampol.webp" alt="Zampol" loading="lazy"></li><li><span>B-Power</span></li><li><span>Opposti</span></li><li><img src="images/clienti/loghi/chenzo.png" alt="Chenzo" loading="lazy"></li><li><img src="images/clienti/loghi/brancaccio.png" alt="Brancaccio Shop" loading="lazy"></li><li><span>Bluesinmoda</span></li><li><img src="images/clienti/loghi/buytutto.png" alt="Buytutto" loading="lazy"></li><li><img src="images/clienti/loghi/driverso.png" alt="Driverso" loading="lazy"></li><li><img src="images/clienti/loghi/autouno.png" alt="Autouno" loading="lazy"></li><li><img src="images/clienti/loghi/ciclimattio.svg" alt="Cicli Mattio" loading="lazy"></li><li><img src="images/clienti/loghi/zampol.webp" alt="Zampol" loading="lazy"></li><li><span>B-Power</span></li><li><span>Opposti</span></li><li><img src="images/clienti/loghi/chenzo.png" alt="Chenzo" loading="lazy"></li><li><img src="images/clienti/loghi/brancaccio.png" alt="Brancaccio Shop" loading="lazy"></li><li><span>Bluesinmoda</span></li></ul></div>
+  </section>
+  <section class="xs xs5" id="m-scan">
+    <p class="xk xr">Il prossimo caso</p>
+    <h2><span class="xw"><span class="" style="--d:0.10s">Potrebbe</span></span> <span class="xw"><span class="" style="--d:0.17s">essere</span></span> <span class="xw"><span class="xoutw" style="--d:0.30s">il</span></span> <span class="xw"><span class="xoutw" style="--d:0.38s">tuo</span></span> <span class="xw"><span class="xoutw" style="--d:0.46s">negozio.</span></span></h2>
+    <p class="xlead xr" style="--d:.6s">Mettici l'indirizzo: ti diciamo dove sta il fatturato che il catalogo lascia sul tavolo, e se vale la pena lavorare insieme.</p>
+    <form class="mscan xr" style="--d:.75s" action="/contatti" method="get"><input type="text" name="sito" placeholder="www.iltuonegozio.it" autocomplete="url" inputmode="url" aria-label="Indirizzo del tuo negozio online"><button type="submit">Fai lo scan gratis</button></form>
+    <footer class="xmfoot xmfoot-blu"><a href="/">Home</a><a href="/servizi">Servizi</a><a href="/work">Casi</a><a href="/contatti">Contatti</a><a href="mailto:antonio@orizonadv.it">Scrivimi</a><span>© 2026 Orizon ADV · Napoli</span></footer>
+  </section>
+</main>
+
+<footer class="solo-d">
   <div class="wrap">
     <div class="foot">
       <div>
@@ -480,6 +738,44 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && m.classList.contains('open')) closeMenu(); });
   }
 })();
+  /* ── telefono: il flusso, i numeri, la parallasse ── */
+  (function(){
+    var flow = document.getElementById('mflow'); if (!flow) return;
+    var stretto3 = window.matchMedia('(max-width: 768px)'), ridotto = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var secs = Array.prototype.slice.call(flow.querySelectorAll('.xs')), prog = document.getElementById('mprog');
+    function conta(el, fine, ms, da){ var t0 = null; function passo(ts){ if (t0 === null) t0 = ts; var f = Math.min(1, (ts - t0) / ms); f = 1 - Math.pow(1 - f, 3); el.textContent = Math.round(da + (fine - da) * f); if (f < 1) requestAnimationFrame(passo); } requestAnimationFrame(passo); setTimeout(function(){ el.textContent = fine; }, ms + 120); }
+    var fatto = [];
+    function accendi(s){
+      if (fatto.indexOf(s) >= 0) return; fatto.push(s);
+      s.classList.add('on');
+      s.querySelectorAll('[data-conta]').forEach(function(el){
+        var fine = parseInt(el.getAttribute('data-conta'), 10), da = parseInt(el.getAttribute('data-da') || '0', 10), ms = parseInt(el.getAttribute('data-ms') || '1200', 10);
+        setTimeout(function(){ conta(el, fine, ms, da); }, 250);
+      });
+    }
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) accendi(e.target); }); }, { threshold: 0.22 });
+    secs.forEach(function(s){ io.observe(s); });
+    /* barra di avanzamento e parallasse leggera: le immagini si muovono un po' più lente della pagina */
+    var par = Array.prototype.slice.call(flow.querySelectorAll('[data-parallasse]')), attesa = false;
+    function aggiorna(){
+      attesa = false;
+      if (!stretto3.matches) return;
+      var y = window.scrollY, vh = window.innerHeight, h = document.documentElement.scrollHeight - vh;
+      prog.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, y / h) : 0) + ')';
+      if (ridotto.matches) return;
+      par.forEach(function(el){
+        var r = el.getBoundingClientRect(), centro = r.top + r.height / 2 - vh / 2;
+        el.style.transform = 'translateY(' + (centro * parseFloat(el.getAttribute('data-parallasse'))).toFixed(1) + 'px)';
+      });
+    }
+    window.addEventListener('scroll', function(){ if (!attesa) { attesa = true; requestAnimationFrame(aggiorna); } }, { passive: true });
+    window.addEventListener('resize', aggiorna);
+    aggiorna();
+    /* la pillola apre il menu di sempre */
+    var mb = document.getElementById('mburger'), menu = document.querySelector('.mobile-menu');
+    if (mb && menu) mb.addEventListener('click', function(){ menu.classList.add('open'); document.body.style.overflow = 'hidden'; mb.setAttribute('aria-expanded', 'true'); });
+    if (menu) menu.querySelectorAll('a, .mobile-close').forEach(function(a){ a.addEventListener('click', function(){ if (mb) mb.setAttribute('aria-expanded', 'false'); }); });
+  })();
 </script>
 
 </body>
