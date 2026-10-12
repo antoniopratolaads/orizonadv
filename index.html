@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Orizon ADV — Il tuo e-commerce ha già tutto. Noi lo accendiamo.</title>
-<meta name="description" content="Orizon Ignition riscrive le schede, traduce in ogni lingua, completa dati e feed di tutto il catalogo. Noi gestiamo le campagne e ci paghi a percentuale, con una quota decisa insieme in base alla situazione di partenza. Fai lo scan del tuo negozio.">
+<meta name="description" content="Orizon Ignition riscrive le schede, traduce in ogni lingua, completa dati e feed di tutto il catalogo. Noi gestiamo le campagne e ci paghi a percentuale sul venduto in più, con una quota decisa insieme in base alla situazione di partenza. Fai lo scan del tuo negozio.">
 <link rel="canonical" href="https://www.orizonadv.it/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Orizon ADV — Il tuo e-commerce ha già tutto. Noi lo accendiamo.">
-<meta property="og:description" content="Orizon Ignition accende il catalogo: schede, traduzioni, dati, feed. Noi gestiamo le campagne e ci paghi a percentuale, con una quota decisa insieme in base alla situazione di partenza.">
+<meta property="og:description" content="Orizon Ignition accende il catalogo: schede, traduzioni, dati, feed. Noi gestiamo le campagne e ci paghi a percentuale sul venduto in più, con una quota decisa insieme in base alla situazione di partenza.">
 <meta property="og:url" content="https://www.orizonadv.it/">
 <meta property="og:locale" content="it_IT">
 <meta property="og:site_name" content="Orizon ADV">
@@ -49,7 +49,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .nav-links a{position:relative}
 .nav-links a[aria-current="true"]{color:var(--black)}
 .nav-links a[aria-current="true"]::after{content:'';position:absolute;left:0;right:0;bottom:-9px;height:2px;border-radius:2px;background:var(--blue)}
-.cta-m,.prova-m{display:none}
+.cta-m{display:none}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:14px;line-height:1;padding:10px 16px;border-radius:8px;text-decoration:none;cursor:pointer;border:1px solid transparent;transition:background .2s,color .2s,border-color .2s}
 .btn-primary{background:var(--blue);color:var(--white)}
 .btn-primary:hover{background:var(--blue-d)}
@@ -224,7 +224,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
 .legend .l1{background:var(--blue-ll)}.legend .l2{background:var(--blue)}.legend .l4{background:none;width:auto;height:auto;font-weight:600;color:var(--blue);font-size:12px;margin-right:4px}.legend .l4::before{content:'+%'}
 
-.hero-end{height:88px}
+.hero-end{height:72px}
 .hero-h2{margin:76px auto 0;font-size:clamp(24px,2.6vw,34px);line-height:1.12;letter-spacing:-.025em;max-width:880px;text-wrap:balance}
 .hero-h2 span{color:var(--blue)}
 .hero .gos{margin-top:26px}
@@ -235,6 +235,9 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .cap h2{font-size:clamp(34px,4.6vw,60px);line-height:1.04;letter-spacing:-.035em;max-width:820px;text-wrap:balance}
 .cap p:not(.cap-k){margin-top:20px;font-size:19px;line-height:1.5;color:rgba(255,255,255,.84);max-width:640px;text-wrap:pretty}
 .cap-mark{position:absolute;right:-4%;top:50%;width:min(40vw,520px);transform:translateY(-50%);opacity:.14;pointer-events:none}
+.diagnosi{padding:80px 0 96px;background:var(--white);text-align:center}
+.diagnosi .hero-h2{margin-top:0}
+.diagnosi .gos{text-align:left}
 .leve{padding:84px 0 96px;background:var(--white)}
 .leve .bridge{padding:0;margin:0}
 .leve .bridge h2{text-align:left;margin:0;max-width:820px}
@@ -385,7 +388,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .totale-note{margin-top:14px;font-size:14px;color:var(--black-m)}
 
 /* ── RISULTATI: la crescita, con la prova ── */
-.res{padding:112px 0;background:var(--bg-2);border-bottom:1px solid var(--line)}
+.res{padding:96px 0 104px;background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .res-grid{margin-top:44px;display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:center}
 .proof{border:1px solid var(--line-2);border-radius:14px;overflow:hidden;background:var(--white);box-shadow:0 2px 6px rgba(12,23,19,.04),0 30px 80px -24px rgba(55,80,247,.26),0 12px 0 -6px var(--white),0 12px 0 -5px var(--line-2),0 24px 0 -12px var(--white),0 24px 0 -11px var(--line)}
 .proof img{width:100%;height:auto;display:block}
@@ -709,6 +712,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .cap{padding:64px 0 60px}
   .cap-mark{width:72vw;right:-34%;opacity:.12}
   .leve{padding:56px 0 64px}
+  .diagnosi{padding:52px 0 60px}
   .leve .bridge h2{text-align:left}
   .vs-grid.flip>.vs{order:0}
   .ponte{font-size:17px;margin-top:32px}
@@ -727,11 +731,6 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .gos-top{grid-template-columns:1fr;gap:14px;padding:16px 16px 14px}
   .gos-ab b{font-size:38px}
   .gos-tab{padding:0 16px 4px}
-  .prova-m{display:block;margin:14px 0 0;padding:14px 16px;border:1px solid var(--line-2);border-radius:14px;background:var(--white);text-decoration:none;color:var(--black);text-align:left;box-shadow:0 1px 2px rgba(12,23,19,.04),0 14px 34px -18px rgba(12,23,19,.16)}
-  .prova-m .k{display:block;font-size:12.5px;color:var(--black-m)}
-  .prova-m b{display:block;font-size:30px;font-weight:600;letter-spacing:-.035em;line-height:1.1;margin-top:4px}
-  .prova-m b em{font-style:normal;color:var(--blue)}
-  .prova-m span:last-child{display:block;font-size:12.5px;color:var(--black-m);margin-top:4px}
   .gr{grid-template-columns:1fr 1fr;gap:6px 12px;padding:12px 0;position:relative;cursor:pointer}
   .gr-a{grid-column:1/-1;padding-right:28px}
   .gr-a::after{content:'';position:absolute;right:4px;top:16px;width:9px;height:9px;border-right:1.5px solid var(--black-m);border-bottom:1.5px solid var(--black-m);transform:rotate(45deg);transition:transform .2s}
@@ -865,10 +864,10 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   <div class="wrap">
     <a class="brand" href="/" aria-label="Orizon ADV — home"><img src="images/brand/logo-blu.svg" alt="Orizon" width="720" height="182"></a>
     <div class="nav-links">
-      <a href="#scan" data-atto="diagnosi">Diagnosi</a>
+      <a href="#risultati" data-atto="prova">Risultati</a>
+      <a href="#atto-diagnosi" data-atto="diagnosi">Diagnosi</a>
       <a href="#atto-catalogo" data-atto="catalogo">Il catalogo</a>
       <a href="#atto-conti" data-atto="conti">I conti</a>
-      <a href="#risultati" data-atto="prova">La prova</a>
       <a href="#chi-guida" data-atto="chi">Chi guida</a>
     </div>
     <a class="btn btn-primary" href="#scan">Fai lo scan</a>
@@ -877,10 +876,10 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 </nav>
 <div class="mobile-menu">
   <button class="mobile-close" aria-label="Chiudi il menu"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
-  <a href="#scan">Diagnosi</a>
+  <a href="#risultati">Risultati</a>
+  <a href="#atto-diagnosi">Diagnosi</a>
   <a href="#atto-catalogo">Il catalogo</a>
   <a href="#atto-conti">I conti</a>
-  <a href="#risultati">La prova</a>
   <a href="#chi-guida">Chi guida</a>
   <a href="#scan" style="color:var(--blue)">Fai lo scan</a>
 </div>
@@ -890,7 +889,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 <header class="hero" id="top">
   <div class="wrap">
     <h1 class="fx">Il tuo e-commerce ha già tutto. <br><span>Noi lo accendiamo.</span></h1>
-    <p class="sub fx">Accendiamo il catalogo con una macchina nostra e guidiamo le campagne. <strong>Ci paghi a percentuale.</strong></p>
+    <p class="sub fx">Accendiamo il catalogo con una macchina nostra e guidiamo le campagne. <strong>Ci paghi a percentuale sul venduto in più.</strong></p>
     <div class="scan-steps fx" aria-label="Cosa fa lo scan"><span><i>1</i>Legge il negozio da fuori</span><span><i>2</i>Voto da 0 a 100 su cinque aree</span><span><i>3</i>Documento entro 24 ore</span></div>
     <form class="scan big fx" id="scan" action="/contatti" method="get">
       <input type="text" name="sito" placeholder="www.iltuonegozio.it" autocomplete="url" inputmode="url" aria-label="Indirizzo del tuo negozio online">
@@ -898,6 +897,197 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     </form>
     <p class="scan-meta fx">Gratis, senza accessi. Orizon GOS, la diagnosi.</p>
 
+  </div>
+  <div class="hero-end"></div>
+</header>
+
+<section class="res" id="risultati">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Dodici mesi dopo l'accensione: <span>+53% di vendite.</span></h2>
+      <p>Un e-commerce di climatizzatori, caldaie ed elettrodomestici: <strong>catalogo acceso, campagne guidate sulla stagione e sulle categorie che rendono</strong>. Spendeva le stesse cifre ogni mese su un business stagionale; ora la spesa segue la stagione, categoria per categoria, prodotto per prodotto.</p>
+    </div>
+    <div class="growth fx" id="growth">
+      <div class="growth-head">
+        <div><span class="growth-k"><i class="tag on">Dodici mesi dopo</i>Un e-commerce di climatizzazione</span><span class="growth-s">vendite mese per mese dal suo pannello Shopify: <b>ottobre 2025 – settembre 2026</b> contro lo stesso mese dell'anno prima</span></div>
+        <div class="growth-stats">
+          <div><b>+53%</b><span>vendite totali dal pannello<br>8,27 contro 5,40 M€ · 11 ott – 11 ott</span></div>
+          <div><b>+49%</b><span>al netto di resi e sconti, le barre<br>8,08 contro 5,41 M€ · ott – set</span></div>
+          <div><b>+135%</b><span>luglio – settembre, netto<br>2,73 contro 1,16 M€</span></div>
+          <div><b>+51%</b><span>ordini<br>12.100 in dodici mesi</span></div>
+        </div>
+      </div>
+      <svg class="chart" viewBox="0 0 1180 404" role="img" aria-label="Vendite mensili di un e-commerce di climatizzazione, ottobre 2025 – settembre 2026 contro lo stesso mese dell'anno prima: 8,08 M€ contro 5,41 M€, +49%; luglio–settembre +135%">
+      <g class="grid">
+      <line x1="58" y1="338.0" x2="1180" y2="338.0"/><text x="50" y="342.0" text-anchor="end">0</text>
+      <line x1="58" y1="244.7" x2="1180" y2="244.7"/><text x="50" y="248.7" text-anchor="end">0,5 M€</text>
+      <line x1="58" y1="151.3" x2="1180" y2="151.3"/><text x="50" y="155.3" text-anchor="end">1 M€</text>
+      <line x1="58" y1="58.0" x2="1180" y2="58.0"/><text x="50" y="62.0" text-anchor="end">1,5 M€</text>
+      </g><g class="bars">
+      <rect class="b1" x="71.8" y="267.8" width="30" height="70.2" rx="4" style="--i:0"><title>ott 2024: 0,38 M€</title></rect>
+      <rect class="b2" x="107.8" y="264.8" width="30" height="73.2" rx="4" style="--i:1"><title>ott 2025: 0,39 M€</title></rect>
+      <rect class="b1" x="165.2" y="230.9" width="30" height="107.1" rx="4" style="--i:2"><title>nov 2024: 0,57 M€</title></rect>
+      <rect class="b2" x="201.2" y="243.0" width="30" height="95.0" rx="4" style="--i:3"><title>nov 2025: 0,51 M€</title></rect>
+      <rect class="b1" x="258.8" y="244.7" width="30" height="93.3" rx="4" style="--i:4"><title>dic 2024: 0,50 M€</title></rect>
+      <rect class="b2" x="294.8" y="244.0" width="30" height="94.0" rx="4" style="--i:5"><title>dic 2025: 0,50 M€</title></rect>
+      <rect class="b1" x="352.2" y="254.2" width="30" height="83.8" rx="4" style="--i:6"><title>gen 2025: 0,45 M€</title></rect>
+      <rect class="b2" x="388.2" y="238.2" width="30" height="99.8" rx="4" style="--i:7"><title>gen 2026: 0,53 M€</title></rect>
+      <rect class="b1" x="445.8" y="268.6" width="30" height="69.4" rx="4" style="--i:8"><title>feb 2025: 0,37 M€</title></rect>
+      <rect class="b2" x="481.8" y="237.1" width="30" height="100.9" rx="4" style="--i:9"><title>feb 2026: 0,54 M€</title></rect>
+      <rect class="b1" x="539.2" y="249.5" width="30" height="88.5" rx="4" style="--i:10"><title>mar 2025: 0,47 M€</title></rect>
+      <rect class="b2" x="575.2" y="224.2" width="30" height="113.8" rx="4" style="--i:11"><title>mar 2026: 0,61 M€</title></rect>
+      <rect class="b1" x="632.8" y="279.8" width="30" height="58.2" rx="4" style="--i:12"><title>apr 2025: 0,31 M€</title></rect>
+      <rect class="b2" x="668.8" y="241.4" width="30" height="96.6" rx="4" style="--i:13"><title>apr 2026: 0,52 M€</title></rect>
+      <rect class="b1" x="726.2" y="267.1" width="30" height="70.9" rx="4" style="--i:14"><title>mag 2025: 0,38 M€</title></rect>
+      <rect class="b2" x="762.2" y="208.2" width="30" height="129.8" rx="4" style="--i:15"><title>mag 2026: 0,70 M€</title></rect>
+      <rect class="b1" x="819.8" y="186.4" width="30" height="151.6" rx="4" style="--i:16"><title>giu 2025: 0,81 M€</title></rect>
+      <rect class="b2" x="855.8" y="143.2" width="30" height="194.8" rx="4" style="--i:17"><title>giu 2026: 1,04 M€</title></rect>
+      <rect class="b1" x="913.2" y="208.7" width="30" height="129.3" rx="4" style="--i:18"><title>lug 2025: 0,69 M€</title></rect>
+      <rect class="b2" x="949.2" y="112.2" width="30" height="225.8" rx="4" style="--i:19"><title>lug 2026: 1,21 M€</title></rect>
+      <rect class="b1" x="1006.8" y="308.1" width="30" height="29.9" rx="4" style="--i:20"><title>ago 2025: 0,16 M€</title></rect>
+      <rect class="b2" x="1042.8" y="215.7" width="30" height="122.3" rx="4" style="--i:21"><title>ago 2026: 0,66 M€</title></rect>
+      <rect class="b1" x="1100.2" y="280.1" width="30" height="57.9" rx="4" style="--i:22"><title>set 2025: 0,31 M€</title></rect>
+      <rect class="b2" x="1136.2" y="176.3" width="30" height="161.7" rx="4" style="--i:23"><title>set 2026: 0,87 M€</title></rect>
+      </g><g class="lab">
+      <text class="yoy" x="104.8" y="27" text-anchor="middle">+4%</text>
+      <text class="v" x="122.8" y="258.8" text-anchor="middle">0,39 M€</text>
+      <text x="104.8" y="360" text-anchor="middle">ott</text>
+      <text class="yoy n" x="198.2" y="27" text-anchor="middle">−11%</text>
+      <text class="v" x="216.2" y="237.0" text-anchor="middle">0,51 M€</text>
+      <text x="198.2" y="360" text-anchor="middle">nov</text>
+      <text class="yoy" x="291.8" y="27" text-anchor="middle">+1%</text>
+      <text class="v" x="309.8" y="238.0" text-anchor="middle">0,50 M€</text>
+      <text x="291.8" y="360" text-anchor="middle">dic</text>
+      <text class="yoy" x="385.2" y="27" text-anchor="middle">+19%</text>
+      <text class="v" x="403.2" y="232.2" text-anchor="middle">0,53 M€</text>
+      <text x="385.2" y="360" text-anchor="middle">gen</text>
+      <text class="yoy" x="478.8" y="27" text-anchor="middle">+45%</text>
+      <text class="v" x="496.8" y="231.1" text-anchor="middle">0,54 M€</text>
+      <text x="478.8" y="360" text-anchor="middle">feb</text>
+      <text class="yoy" x="572.2" y="27" text-anchor="middle">+29%</text>
+      <text class="v" x="590.2" y="218.2" text-anchor="middle">0,61 M€</text>
+      <text x="572.2" y="360" text-anchor="middle">mar</text>
+      <text class="yoy" x="665.8" y="27" text-anchor="middle">+66%</text>
+      <text class="v" x="683.8" y="235.4" text-anchor="middle">0,52 M€</text>
+      <text x="665.8" y="360" text-anchor="middle">apr</text>
+      <text class="yoy" x="759.2" y="27" text-anchor="middle">+83%</text>
+      <text class="v" x="777.2" y="202.2" text-anchor="middle">0,70 M€</text>
+      <text x="759.2" y="360" text-anchor="middle">mag</text>
+      <text class="yoy" x="852.8" y="27" text-anchor="middle">+29%</text>
+      <text class="v" x="870.8" y="137.2" text-anchor="middle">1,04 M€</text>
+      <text x="852.8" y="360" text-anchor="middle">giu</text>
+      <text class="yoy" x="946.2" y="27" text-anchor="middle">+75%</text>
+      <text class="v" x="964.2" y="106.2" text-anchor="middle">1,21 M€</text>
+      <text x="946.2" y="360" text-anchor="middle">lug</text>
+      <text class="yoy" x="1039.8" y="27" text-anchor="middle">+309%</text>
+      <text class="v" x="1057.8" y="209.7" text-anchor="middle">0,66 M€</text>
+      <text x="1039.8" y="360" text-anchor="middle">ago</text>
+      <text class="yoy" x="1133.2" y="27" text-anchor="middle">+179%</text>
+      <text class="v" x="1151.2" y="170.3" text-anchor="middle">0,87 M€</text>
+      <text x="1133.2" y="360" text-anchor="middle">set</text>
+      <text class="ax" x="50" y="26" text-anchor="end">sull'anno</text><text class="ax" x="50" y="39" text-anchor="end">prima</text>
+      <text class="k" x="58" y="388">in alto la crescita di ogni mese sullo stesso mese dell'anno prima · sulla barra blu le vendite del mese</text>
+      </g></svg>
+      <svg class="chart-m" viewBox="0 0 350 488" role="img" aria-label="Vendite mensili di un e-commerce di climatizzazione, ottobre 2025 – settembre 2026 contro lo stesso mese dell'anno prima: 8,08 M€ contro 5,41 M€, +49%">
+      <g class="bars">
+      <rect class="b1" x="34" y="10" width="57.1" height="10" rx="3" style="--i:0"><title>0,38 M€</title></rect>
+      <rect class="b2" x="34" y="23" width="59.6" height="10" rx="3" style="--i:1"><title>0,39 M€</title></rect>
+      <rect class="b1" x="34" y="50" width="87.2" height="10" rx="3" style="--i:2"><title>0,57 M€</title></rect>
+      <rect class="b2" x="34" y="63" width="77.3" height="10" rx="3" style="--i:3"><title>0,51 M€</title></rect>
+      <rect class="b1" x="34" y="90" width="76.0" height="10" rx="3" style="--i:4"><title>0,50 M€</title></rect>
+      <rect class="b2" x="34" y="103" width="76.5" height="10" rx="3" style="--i:5"><title>0,50 M€</title></rect>
+      <rect class="b1" x="34" y="130" width="68.2" height="10" rx="3" style="--i:6"><title>0,45 M€</title></rect>
+      <rect class="b2" x="34" y="143" width="81.3" height="10" rx="3" style="--i:7"><title>0,53 M€</title></rect>
+      <rect class="b1" x="34" y="170" width="56.5" height="10" rx="3" style="--i:8"><title>0,37 M€</title></rect>
+      <rect class="b2" x="34" y="183" width="82.2" height="10" rx="3" style="--i:9"><title>0,54 M€</title></rect>
+      <rect class="b1" x="34" y="210" width="72.0" height="10" rx="3" style="--i:10"><title>0,47 M€</title></rect>
+      <rect class="b2" x="34" y="223" width="92.7" height="10" rx="3" style="--i:11"><title>0,61 M€</title></rect>
+      <rect class="b1" x="34" y="250" width="47.4" height="10" rx="3" style="--i:12"><title>0,31 M€</title></rect>
+      <rect class="b2" x="34" y="263" width="78.6" height="10" rx="3" style="--i:13"><title>0,52 M€</title></rect>
+      <rect class="b1" x="34" y="290" width="57.7" height="10" rx="3" style="--i:14"><title>0,38 M€</title></rect>
+      <rect class="b2" x="34" y="303" width="105.7" height="10" rx="3" style="--i:15"><title>0,70 M€</title></rect>
+      <rect class="b1" x="34" y="330" width="123.4" height="10" rx="3" style="--i:16"><title>0,81 M€</title></rect>
+      <rect class="b2" x="34" y="343" width="158.6" height="10" rx="3" style="--i:17"><title>1,04 M€</title></rect>
+      <rect class="b1" x="34" y="370" width="105.2" height="10" rx="3" style="--i:18"><title>0,69 M€</title></rect>
+      <rect class="b2" x="34" y="383" width="183.8" height="10" rx="3" style="--i:19"><title>1,21 M€</title></rect>
+      <rect class="b1" x="34" y="410" width="24.3" height="10" rx="3" style="--i:20"><title>0,16 M€</title></rect>
+      <rect class="b2" x="34" y="423" width="99.6" height="10" rx="3" style="--i:21"><title>0,66 M€</title></rect>
+      <rect class="b1" x="34" y="450" width="47.2" height="10" rx="3" style="--i:22"><title>0,31 M€</title></rect>
+      <rect class="b2" x="34" y="463" width="131.6" height="10" rx="3" style="--i:23"><title>0,87 M€</title></rect>
+      </g><g class="lab">
+      <text x="0" y="27">ott</text>
+      <text class="v" x="98.6" y="32">0,39 M€</text>
+      <text class="yoy" x="342" y="28" text-anchor="end">+4%</text>
+      <text x="0" y="67">nov</text>
+      <text class="v" x="116.3" y="72">0,51 M€</text>
+      <text class="yoy n" x="342" y="68" text-anchor="end">−11%</text>
+      <text x="0" y="107">dic</text>
+      <text class="v" x="115.5" y="112">0,50 M€</text>
+      <text class="yoy" x="342" y="108" text-anchor="end">+1%</text>
+      <text x="0" y="147">gen</text>
+      <text class="v" x="120.3" y="152">0,53 M€</text>
+      <text class="yoy" x="342" y="148" text-anchor="end">+19%</text>
+      <text x="0" y="187">feb</text>
+      <text class="v" x="121.2" y="192">0,54 M€</text>
+      <text class="yoy" x="342" y="188" text-anchor="end">+45%</text>
+      <text x="0" y="227">mar</text>
+      <text class="v" x="131.7" y="232">0,61 M€</text>
+      <text class="yoy" x="342" y="228" text-anchor="end">+29%</text>
+      <text x="0" y="267">apr</text>
+      <text class="v" x="117.6" y="272">0,52 M€</text>
+      <text class="yoy" x="342" y="268" text-anchor="end">+66%</text>
+      <text x="0" y="307">mag</text>
+      <text class="v" x="144.7" y="312">0,70 M€</text>
+      <text class="yoy" x="342" y="308" text-anchor="end">+83%</text>
+      <text x="0" y="347">giu</text>
+      <text class="v" x="197.6" y="352">1,04 M€</text>
+      <text class="yoy" x="342" y="348" text-anchor="end">+29%</text>
+      <text x="0" y="387">lug</text>
+      <text class="v" x="222.8" y="392">1,21 M€</text>
+      <text class="yoy" x="342" y="388" text-anchor="end">+75%</text>
+      <text x="0" y="427">ago</text>
+      <text class="v" x="138.6" y="432">0,66 M€</text>
+      <text class="yoy" x="342" y="428" text-anchor="end">+309%</text>
+      <text x="0" y="467">set</text>
+      <text class="v" x="170.6" y="472">0,87 M€</text>
+      <text class="yoy" x="342" y="468" text-anchor="end">+179%</text>
+      </g></svg>
+      <div class="legend"><span><i class="l1"></i>ottobre 2024 – settembre 2025</span><span><i class="l2"></i>ottobre 2025 – settembre 2026</span><span><i class="l4"></i>crescita del mese sull'anno prima</span></div>
+      <p class="shot-note">Ogni mese due barre: l'anno prima chiaro, quest'anno blu, e sopra la crescita su quel mese. Due misure, due finestre: le barre sono vendite nette (resi e sconti tolti) da ottobre a settembre, +49%; il +53% e gli 8,27 M€ sono le vendite totali del pannello Shopify dall'11 ottobre 2025 all'11 ottobre 2026, con dentro IVA, spedizioni e resi non ancora tornati. Per questo l'anno prima vale 5,41 netto e 5,40 totale: non sono gli stessi dodici mesi.</p>
+    </div>
+    <div class="res-grid">
+      <div class="proof fx">
+        <img src="images/cruscotto/shopify-vendite-12m.png" alt="Pannello analitico Shopify del negozio di climatizzazione, 11 ottobre 2025 – 11 ottobre 2026: vendite totali 8.266.784,16 € (+53%), sessioni 509 mila (+143%), ordini 12,1 mila (+51%), con la curva delle vendite sopra quella dell'anno prima" loading="lazy" width="862" height="724">
+        <div class="proof-cap"><span><b>Il suo pannello Shopify</b> · 11 ottobre 2025 – 11 ottobre 2026, sull'anno prima</span><span>8.266.784 € · +53%</span></div>
+      </div>
+      <div class="proof-m fx">
+        <img src="images/cruscotto/shopify-vendite-12m-m.png" alt="Pannello Shopify del negozio di climatizzazione: vendite totali 8.266.784,16 €, +53%; sessioni 509 mila, +143%; ordini 12,1 mila, +51%" loading="lazy" width="862" height="262">
+        <span class="k">Il suo pannello Shopify · 11 ott 2025 – 11 ott 2026</span>
+        <b>8.266.784 €</b>
+        <em>+53% sull'anno prima · 12.100 ordini · 509 mila visite</em>
+      </div>
+      <div class="figs fx">
+        <div class="fig"><b>+143%</b><span><strong>Visite al negozio</strong>: 509 mila sessioni in dodici mesi, con gli ordini a +51%.</span></div>
+        <div class="fig"><b>1,21 M€</b><span><strong>Il mese più alto</strong>: luglio 2026, da 0,69 M€ del luglio 2025. Netto, come le barre sopra.</span></div>
+        <div class="fig"><b>x50</b><span><strong>MER</strong>: tutte le vendite dei dodici mesi su tutta la spesa pubblicitaria, Meta e Google insieme. È un'altra misura dal ROAS di una campagna: lì accettiamo un numero più basso per avere più utile.</span></div>
+      </div>
+    </div>
+    <p class="res-note">Tutti i numeri vengono dal pannello Shopify e dagli account pubblicitari del cliente, letti ogni mattina. <a href="/case-study/climatizzazione">Il caso completo →</a> · <a href="/work">Gli altri settori, stesso metodo →</a></p>
+  </div>
+</section>
+
+<!-- ═══ CAPITOLO 01: la diagnosi ═══ -->
+<section class="cap fx" id="atto-diagnosi" aria-labelledby="cap-diagnosi">
+  <div class="wrap">
+    <p class="cap-k">01 · La diagnosi</p>
+    <h2 id="cap-diagnosi">Si parte da una diagnosi.</h2>
+    <p>Il negozio si legge da fuori, in quattro minuti: dove sta il fatturato che il catalogo lascia sul tavolo, e cosa accendere per arrivare a 100.</p>
+  </div>
+  <img class="cap-mark" src="images/brand/mark-bianco.svg" alt="" aria-hidden="true">
+</section>
+
+<section class="diagnosi" id="diagnosi">
+  <div class="wrap">
     <!-- ── Orizon GOS: l'androide al lavoro, su un negozio vero ── -->
     <h2 class="hero-h2 fx">Così esce, <span>su un negozio vero.</span></h2>
     <div class="gos fx" id="gos">
@@ -958,10 +1148,8 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       <div class="gos-oltre"><b>Oltre il 100, da fuori si vede già:</b><i>5 lingue del sito, nessun mercato estero attivo</i><i>nessuna recensione visibile a Google</i><i>198 marche senza una pagina propria</i></div>
       <p class="gos-doc">Tutto questo arriva in un documento di quattro fogli, <b>entro 24 ore</b>, senza impegno. Poi, se vuoi, mezz'ora al telefono sui tuoi numeri.</p>
     </div>
-    <a class="prova-m fx" href="#risultati"><span class="k">Dodici mesi dopo l'accensione, un e-commerce di climatizzazione</span><b>8,27 M€ <em>+53%</em></b><span>12.100 ordini, +51% · dal suo pannello Shopify · la prova in fondo →</span></a>
   </div>
-  <div class="hero-end"></div>
-</header>
+</section>
 
 <!-- ═══ CAPITOLO 02: il catalogo ═══ -->
 <section class="cap fx" id="atto-catalogo" aria-labelledby="cap-catalogo">
@@ -980,14 +1168,14 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       <p class="bl-legend" aria-hidden="true"><span><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i>il giorno dello scan</span><span class="on"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i>dodici mesi dopo</span></p>
       <div class="bl" role="table" aria-label="Sei leve del catalogo: il giorno dello scan e dodici mesi dopo">
         <div class="bl-head" role="row"><span role="columnheader">Leva</span><span role="columnheader">Il giorno dello scan</span><span class="on" role="columnheader">Dodici mesi dopo</span></div>
-        <div class="bl-row" role="row"><span class="lv" role="rowheader"><em>01</em>Ottimizzazione SEO+GEO<a class="lv-a" href="#ignition">interruttori 1, 2 e 3 ↓</a></span><span class="no" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i><span>Copy del fornitore, duplicato su decine di store: nessuna differenziazione in SERP né nelle risposte AI.</span></span><span class="si" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i><span>Contenuto unico per SKU, multilingua, con dati strutturati: indicizzabile da Google, leggibile dagli assistenti AI.<span class="ch"><code>schema Product</code><code>FAQPage</code><code>multilingua</code><code>AI Overviews</code></span></span></span></div>
-        <div class="bl-row" role="row"><span class="lv" role="rowheader"><em>02</em>Titles CRO optimization<a class="lv-a" href="#ignition">interruttore 1 ↓</a></span><span class="no" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i><span>Titoli del fornitore, troncati in SERP e in Shopping: CTR sotto il potenziale.</span></span><span class="si" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i><span>Brand, modello e attributo chiave nella lunghezza visibile; il risultato si misura sul CTR di ogni SKU.<span class="ch"><code>≤ 70 caratteri</code><code>CTR per SKU</code><code>Search Console</code></span></span></span></div>
-        <div class="bl-row" role="row"><span class="lv" role="rowheader"><em>03</em>Feed Enrichment<a class="lv-a" href="#ignition">interruttori 4 e 6 ↓</a></span><span class="no" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i><span>Attributi Merchant Center vuoti: prodotti fuori dai filtri e dalle query long-tail.</span></span><span class="si" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i><span>Attributi completi, ricavati dal catalogo e mai inventati, in un feed supplementare aggiornato ogni giorno.<span class="ch"><code>color</code><code>material</code><code>gender</code><code>age_group</code><code>product_detail</code></span></span></span></div>
-        <div class="bl-row" role="row"><span class="lv" role="rowheader"><em>04</em>Tracking Server Side<a class="lv-a" href="#ignition">interruttore 7 ↓</a></span><span class="no" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i><span>Pixel solo lato browser: ad blocker, consenso e iOS tagliano le conversioni.</span></span><span class="si" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i><span>Server-side GTM, Meta CAPI ed Enhanced Conversions con deduplica: ogni ordine conta una volta, con il carrello.<span class="ch"><code>sGTM · Stape</code><code>Meta CAPI</code><code>Enhanced Conversions</code><code>Consent Mode v2</code><code>dedup event_id</code><code>cart data</code></span></span></span></div>
-        <div class="bl-row" role="row"><span class="lv" role="rowheader"><em>05</em>Labelizer<a class="lv-a" href="#budget">interruttore 5, poi il budget ↓</a></span><span class="no" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i><span>Catalogo in un'unica campagna: il budget va a chi assorbe spesa, non a chi genera margine.</span></span><span class="si" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i><span>SKU segmentati per margine, benchmark di prezzo e performance: budget e target per cluster.<span class="ch"><code>custom_label 0–4</code><code>price benchmark</code><code>margine netto</code></span></span></span></div>
+        <div class="bl-row" role="row"><span class="lv" role="rowheader"><em>01</em>Ottimizzazione SEO+GEO<a class="lv-a" href="#ignition">scheda e traduzioni, sul prodotto ↓</a></span><span class="no" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i><span>Copy del fornitore, duplicato su decine di store: nessuna differenziazione in SERP né nelle risposte AI.</span></span><span class="si" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i><span>Contenuto unico per SKU, multilingua, con dati strutturati: indicizzabile da Google, leggibile dagli assistenti AI.<span class="ch"><code>schema Product</code><code>FAQPage</code><code>multilingua</code><code>AI Overviews</code></span></span></span></div>
+        <div class="bl-row" role="row"><span class="lv" role="rowheader"><em>02</em>Titles CRO optimization<a class="lv-a" href="#ignition">titolo e snippet, sul prodotto ↓</a></span><span class="no" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i><span>Titoli del fornitore, troncati in SERP e in Shopping: CTR sotto il potenziale.</span></span><span class="si" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i><span>Brand, modello e attributo chiave nella lunghezza visibile; il risultato si misura sul CTR di ogni SKU.<span class="ch"><code>≤ 70 caratteri</code><code>CTR per SKU</code><code>Search Console</code></span></span></span></div>
+        <div class="bl-row" role="row"><span class="lv" role="rowheader"><em>03</em>Feed Enrichment<a class="lv-a" href="#ignition">dati e feed, sul prodotto ↓</a></span><span class="no" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i><span>Attributi Merchant Center vuoti: prodotti fuori dai filtri e dalle query long-tail.</span></span><span class="si" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i><span>Attributi completi, ricavati dal catalogo e mai inventati, in un feed supplementare aggiornato ogni giorno.<span class="ch"><code>color</code><code>material</code><code>gender</code><code>age_group</code><code>product_detail</code></span></span></span></div>
+        <div class="bl-row" role="row"><span class="lv" role="rowheader"><em>04</em>Tracking Server Side<a class="lv-a" href="#ignition">tracciamento, sul prodotto ↓</a></span><span class="no" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i><span>Pixel solo lato browser: ad blocker, consenso e iOS tagliano le conversioni.</span></span><span class="si" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i><span>Server-side GTM, Meta CAPI ed Enhanced Conversions con deduplica: ogni ordine conta una volta, con il carrello.<span class="ch"><code>sGTM · Stape</code><code>Meta CAPI</code><code>Enhanced Conversions</code><code>Consent Mode v2</code><code>dedup event_id</code><code>cart data</code></span></span></span></div>
+        <div class="bl-row" role="row"><span class="lv" role="rowheader"><em>05</em>Labelizer<a class="lv-a" href="#budget">etichette, poi il budget ↓</a></span><span class="no" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i><span>Catalogo in un'unica campagna: il budget va a chi assorbe spesa, non a chi genera margine.</span></span><span class="si" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i><span>SKU segmentati per margine, benchmark di prezzo e performance: budget e target per cluster.<span class="ch"><code>custom_label 0–4</code><code>price benchmark</code><code>margine netto</code></span></span></span></div>
         <div class="bl-row" role="row"><span class="lv" role="rowheader"><em>06</em>Rotazione di magazzino<a class="lv-a" href="#magazzino">la merce ferma, nei conti ↓</a></span><span class="no" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></i><span>Out-of-stock in campagna, slow-mover fermi, riordini a sensazione.</span></span><span class="si" role="cell"><i><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></i><span>Sell-through per SKU: esauriti fuori da feed e campagne, slow-mover con un target ROAS dedicato, riordini sulla stagionalità.<span class="ch"><code>sell-through</code><code>tROAS dedicato</code><code>stagionalità YoY</code></span></span></span></div>
       </div>
-      <p class="bl-note">Dove porta, su un negozio vero: <a href="#risultati"><strong>+53% di vendite in dodici mesi</strong>, la prova in fondo alla pagina</a>.</p>
+      <p class="bl-note">Da qui viene il <a href="#risultati"><strong>+53% in dodici mesi</strong> che hai visto in cima</a>.</p>
     </div>
   </div>
 </section>
@@ -996,8 +1184,8 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 <section class="feat" id="ignition">
   <div class="wrap">
     <div class="sec-head">
-      <h2>Sette interruttori. <span>Da 23 a 100 su ogni prodotto.</span></h2>
-      <p>Le leve, su un prodotto vero. <strong>Si accendono nella piattaforma Orizon</strong>, prodotto per prodotto, su centinaia o migliaia insieme. Qui una padella vera di un cliente vero, com'è oggi: indice di accensione <strong>23 su 100</strong>. <span class="m-hide">Accendila tu — scheda, feed, campagne e tracciamento — e guarda perché <strong>le aste si vincono così</strong>.</span><span class="m-only">Accendi un interruttore alla volta: l'effetto sta subito sotto.</span></p>
+      <h2>Le leve, su un prodotto vero. <span>Da 23 a 100.</span></h2>
+      <p><strong>Si accendono nella piattaforma Orizon</strong>, prodotto per prodotto, su centinaia o migliaia insieme. Qui una padella vera di un cliente vero, com'è oggi: indice di accensione <strong>23 su 100</strong>. <span class="m-hide">Accendila tu — scheda, feed, campagne e tracciamento — e guarda perché <strong>le aste si vincono così</strong>.</span><span class="m-only">Accendi un interruttore alla volta: l'effetto sta subito sotto.</span></p>
     </div>
 
     <div class="stage" id="stage">
@@ -1090,7 +1278,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         <div class="row hint" data-k="title" role="switch" aria-checked="false" tabindex="0">
           <div class="tog" aria-hidden="true"></div>
           <div>
-            <h3>Titolo e snippet per Google <em>SEO + GEO · leve 01, 02</em></h3>
+            <h3>Titolo e snippet per Google <em>Leva 02 · Titles CRO</em></h3>
             <p class="off">Oggi: «Padella Alta Saltare Pensofal». Dice poco a Google e a chi cerca.</p>
             <p class="fact">Da «Padella Alta Saltare Pensofal» a <b>«Pensofal <mark>Academy Chef</mark> Padella Alta a Saltare | <mark>24-32 cm</mark>»</b> — le misure vengono dalle varianti. Sotto, lo snippet che Google mostra: alluminio riciclato 100%, doppio fondo, induzione, Made in Italy.</p>
           </div>
@@ -1099,7 +1287,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         <div class="row" data-k="desc" role="switch" aria-checked="false" tabindex="0">
           <div class="tog" aria-hidden="true"></div>
           <div>
-            <h3>La scheda, scritta dai fatti <em>Scheda · leva 01</em></h3>
+            <h3>La scheda, scritta dai fatti <em>Leva 01 · SEO+GEO</em></h3>
             <p class="off">Oggi: tre righe di catalogo, un paragrafo. Nessuna risposta a «quanto consuma», «dove si monta».</p>
             <p class="fact">Da <b>3 righe</b> a <b><mark>5.761 caratteri</mark></b>: caratteristiche, perché la forma alta conta, Pensofal dal 1955, <b>5 domande e risposte</b>. Niente inventato: ogni frase viene dai dati del prodotto. Giudice automatico: 72/100, approvata.</p>
           </div>
@@ -1108,7 +1296,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         <div class="row" data-k="langs" role="switch" aria-checked="false" tabindex="0">
           <div class="tog" aria-hidden="true"></div>
           <div>
-            <h3>In tutte le lingue dove vende <em>Traduzioni · leva 01</em></h3>
+            <h3>In tutte le lingue dove vende <em>Leva 01 · SEO+GEO</em></h3>
             <p class="off">Oggi: solo in italiano. Chi cerca in inglese o tedesco non la trova.</p>
             <p class="fact"><b><mark>4 lingue</mark>, 6 campi ciascuna</b> — titolo, scheda, snippet, tipo, indirizzo — pubblicati sul negozio, non in un file. Scegli la lingua:</p>
             <div class="lingue" id="lingue"><button type="button" data-l="en"><b>EN</b>High-Sided Sauté Pan</button><button type="button" data-l="de"><b>DE</b>Hohe Sauté-Pfanne</button><button type="button" data-l="fr"><b>FR</b>Poêle haute sauteuse</button><button type="button" data-l="es"><b>ES</b>Sartén Alta Saltear</button></div>
@@ -1118,7 +1306,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         <div class="row" data-k="fields" role="switch" aria-checked="false" tabindex="0">
           <div class="tog" aria-hidden="true"></div>
           <div>
-            <h3>I dati che Google chiede <em>Dati prodotto · leva 03</em></h3>
+            <h3>I dati che Google chiede <em>Leva 03 · Feed Enrichment</em></h3>
             <p class="off">Oggi: categoria, materiale e peso a metà. Nessuno li compila a mano su mille prodotti.</p>
             <p class="fact"><b><mark>7 campi</mark> letti e messi in ordine</b>: categoria Google, tipo, materiale, tre varianti con giacenze, sei tag. <b>Peso e GTIN mancano</b>: la piattaforma li segnala e li propone, li mette solo col tuo sì.</p>
           </div>
@@ -1127,7 +1315,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         <div class="row" data-k="labels" role="switch" aria-checked="false" tabindex="0">
           <div class="tog" aria-hidden="true"></div>
           <div>
-            <h3>Etichette per le campagne <em>Google Ads · leva 05</em></h3>
+            <h3>Etichette per le campagne <em>Leva 05 · Labelizer</em></h3>
             <p class="off">Oggi: in campagna la padella vale quanto la pentola che non vende. Il budget si spalma su tutto.</p>
             <p class="fact"><b><mark>Tre etichette</mark> per prodotto, scritte nel feed</b>: il <b>margine netto</b> (prezzo − costo d'acquisto − IVA − resi), il <b>prezzo contro il benchmark di Google</b> (win o lose) e il <b>bucket di performance</b> — nove classi, da «supercompetitivo» a «supercaro, brucia budget» — calcolato su 20 giorni di Google Ads con ROAS target 12. In Ads diventano gruppi: budget a chi vince l'asta e rende, stop a chi brucia. Sulla scheda, il perché di ognuna.</p>
           </div>
@@ -1136,7 +1324,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         <div class="row" data-k="feed" role="switch" aria-checked="false" tabindex="0">
           <div class="tog" aria-hidden="true"></div>
           <div>
-            <h3>Il feed, arricchito <em>Feed · leva 03</em></h3>
+            <h3>Il feed, arricchito <em>Leva 03 · Feed Enrichment</em></h3>
             <p class="off">Oggi: a Google arrivano titolo, prezzo, foto e disponibilità. Colore, misura, materiale, domande: vuoti.</p>
             <p class="fact"><b><mark>13 attributi</mark> del feed Google</b> letti dal prodotto, non dal nome: <b>11 compilati, 2 lasciati vuoti apposta</b> — genere ed età non servono a una padella, e un campo vuoto batte un campo sbagliato. Vanno in un feed supplementare che Merchant Center legge da solo ogni giorno. Su un catalogo vero da 17.201 prodotti: colore 89%, taglia 80%, genere 94%, età 98%.</p>
           </div>
@@ -1145,7 +1333,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         <div class="row" data-k="track" role="switch" aria-checked="false" tabindex="0">
           <div class="tog" aria-hidden="true"></div>
           <div>
-            <h3>Tracciamento come si deve <em>Server-side · leva 04</em></h3>
+            <h3>Tracciamento come si deve <em>Leva 04 · Tracking Server Side</em></h3>
             <p class="off">Oggi: gli acquisti li conta il browser. Tra blocchi, consensi e iOS, una parte non arriva mai a Google e Meta.</p>
             <p class="fact">Ogni evento parte <b>dal browser e dal server con lo stesso id</b>: GA4, Google Ads e Meta lo contano <b><mark>una volta sola</mark></b>, con email e telefono cifrati per l'abbinamento, e solo col consenso. Sulla scheda, l'acquisto riga per riga. Le campagne imparano dai numeri veri: anche così si vince l'asta.</p>
           </div>
@@ -1362,187 +1550,12 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 <!-- ═══ LA TESI: chiude i conti ═══ -->
 <section class="tesi" id="tesi" aria-labelledby="tesi-t">
   <div class="wrap">
-    <h2 id="tesi-t" class="fx">Per questo possiamo farci pagare così: <span>a percentuale, con una quota decisa insieme in base alla situazione di partenza.</span></h2>
+    <h2 id="tesi-t" class="fx">Per questo possiamo farci pagare così: <span>a percentuale sul venduto in più, con una quota decisa insieme in base alla situazione di partenza.</span></h2>
     <p class="fx">Il rischio è dell'impresa, e lo sappiamo. Leggiamo l'utile ogni mattina, mettiamo il budget dove rende, trattiamo il magazzino come un costo. Nessuna fee fissa.</p>
   </div>
 </section>
 
 <!-- ═══ CHI GUIDA ═══ -->
-<section class="res" id="risultati">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>Dodici mesi dopo l'accensione. <span>+53% di vendite, con la prova.</span></h2>
-      <p>Un e-commerce di climatizzatori, caldaie ed elettrodomestici: <strong>catalogo acceso, campagne guidate sulla stagione e sulle categorie che rendono</strong>. Spendeva le stesse cifre ogni mese su un business stagionale; ora la spesa segue la stagione, categoria per categoria, prodotto per prodotto.</p>
-    </div>
-    <div class="growth fx" id="growth">
-      <div class="growth-head">
-        <div><span class="growth-k"><i class="tag on">Dodici mesi dopo</i>Un e-commerce di climatizzazione</span><span class="growth-s">vendite mese per mese dal suo pannello Shopify: <b>ottobre 2025 – settembre 2026</b> contro lo stesso mese dell'anno prima</span></div>
-        <div class="growth-stats">
-          <div><b>+53%</b><span>vendite totali dal pannello<br>8,27 contro 5,40 M€ · 11 ott – 11 ott</span></div>
-          <div><b>+49%</b><span>al netto di resi e sconti, le barre<br>8,08 contro 5,41 M€ · ott – set</span></div>
-          <div><b>+135%</b><span>luglio – settembre, netto<br>2,73 contro 1,16 M€</span></div>
-          <div><b>+51%</b><span>ordini<br>12.100 in dodici mesi</span></div>
-        </div>
-      </div>
-      <svg class="chart" viewBox="0 0 1180 404" role="img" aria-label="Vendite mensili di un e-commerce di climatizzazione, ottobre 2025 – settembre 2026 contro lo stesso mese dell'anno prima: 8,08 M€ contro 5,41 M€, +49%; luglio–settembre +135%">
-      <g class="grid">
-      <line x1="58" y1="338.0" x2="1180" y2="338.0"/><text x="50" y="342.0" text-anchor="end">0</text>
-      <line x1="58" y1="244.7" x2="1180" y2="244.7"/><text x="50" y="248.7" text-anchor="end">0,5 M€</text>
-      <line x1="58" y1="151.3" x2="1180" y2="151.3"/><text x="50" y="155.3" text-anchor="end">1 M€</text>
-      <line x1="58" y1="58.0" x2="1180" y2="58.0"/><text x="50" y="62.0" text-anchor="end">1,5 M€</text>
-      </g><g class="bars">
-      <rect class="b1" x="71.8" y="267.8" width="30" height="70.2" rx="4" style="--i:0"><title>ott 2024: 0,38 M€</title></rect>
-      <rect class="b2" x="107.8" y="264.8" width="30" height="73.2" rx="4" style="--i:1"><title>ott 2025: 0,39 M€</title></rect>
-      <rect class="b1" x="165.2" y="230.9" width="30" height="107.1" rx="4" style="--i:2"><title>nov 2024: 0,57 M€</title></rect>
-      <rect class="b2" x="201.2" y="243.0" width="30" height="95.0" rx="4" style="--i:3"><title>nov 2025: 0,51 M€</title></rect>
-      <rect class="b1" x="258.8" y="244.7" width="30" height="93.3" rx="4" style="--i:4"><title>dic 2024: 0,50 M€</title></rect>
-      <rect class="b2" x="294.8" y="244.0" width="30" height="94.0" rx="4" style="--i:5"><title>dic 2025: 0,50 M€</title></rect>
-      <rect class="b1" x="352.2" y="254.2" width="30" height="83.8" rx="4" style="--i:6"><title>gen 2025: 0,45 M€</title></rect>
-      <rect class="b2" x="388.2" y="238.2" width="30" height="99.8" rx="4" style="--i:7"><title>gen 2026: 0,53 M€</title></rect>
-      <rect class="b1" x="445.8" y="268.6" width="30" height="69.4" rx="4" style="--i:8"><title>feb 2025: 0,37 M€</title></rect>
-      <rect class="b2" x="481.8" y="237.1" width="30" height="100.9" rx="4" style="--i:9"><title>feb 2026: 0,54 M€</title></rect>
-      <rect class="b1" x="539.2" y="249.5" width="30" height="88.5" rx="4" style="--i:10"><title>mar 2025: 0,47 M€</title></rect>
-      <rect class="b2" x="575.2" y="224.2" width="30" height="113.8" rx="4" style="--i:11"><title>mar 2026: 0,61 M€</title></rect>
-      <rect class="b1" x="632.8" y="279.8" width="30" height="58.2" rx="4" style="--i:12"><title>apr 2025: 0,31 M€</title></rect>
-      <rect class="b2" x="668.8" y="241.4" width="30" height="96.6" rx="4" style="--i:13"><title>apr 2026: 0,52 M€</title></rect>
-      <rect class="b1" x="726.2" y="267.1" width="30" height="70.9" rx="4" style="--i:14"><title>mag 2025: 0,38 M€</title></rect>
-      <rect class="b2" x="762.2" y="208.2" width="30" height="129.8" rx="4" style="--i:15"><title>mag 2026: 0,70 M€</title></rect>
-      <rect class="b1" x="819.8" y="186.4" width="30" height="151.6" rx="4" style="--i:16"><title>giu 2025: 0,81 M€</title></rect>
-      <rect class="b2" x="855.8" y="143.2" width="30" height="194.8" rx="4" style="--i:17"><title>giu 2026: 1,04 M€</title></rect>
-      <rect class="b1" x="913.2" y="208.7" width="30" height="129.3" rx="4" style="--i:18"><title>lug 2025: 0,69 M€</title></rect>
-      <rect class="b2" x="949.2" y="112.2" width="30" height="225.8" rx="4" style="--i:19"><title>lug 2026: 1,21 M€</title></rect>
-      <rect class="b1" x="1006.8" y="308.1" width="30" height="29.9" rx="4" style="--i:20"><title>ago 2025: 0,16 M€</title></rect>
-      <rect class="b2" x="1042.8" y="215.7" width="30" height="122.3" rx="4" style="--i:21"><title>ago 2026: 0,66 M€</title></rect>
-      <rect class="b1" x="1100.2" y="280.1" width="30" height="57.9" rx="4" style="--i:22"><title>set 2025: 0,31 M€</title></rect>
-      <rect class="b2" x="1136.2" y="176.3" width="30" height="161.7" rx="4" style="--i:23"><title>set 2026: 0,87 M€</title></rect>
-      </g><g class="lab">
-      <text class="yoy" x="104.8" y="27" text-anchor="middle">+4%</text>
-      <text class="v" x="122.8" y="258.8" text-anchor="middle">0,39 M€</text>
-      <text x="104.8" y="360" text-anchor="middle">ott</text>
-      <text class="yoy n" x="198.2" y="27" text-anchor="middle">−11%</text>
-      <text class="v" x="216.2" y="237.0" text-anchor="middle">0,51 M€</text>
-      <text x="198.2" y="360" text-anchor="middle">nov</text>
-      <text class="yoy" x="291.8" y="27" text-anchor="middle">+1%</text>
-      <text class="v" x="309.8" y="238.0" text-anchor="middle">0,50 M€</text>
-      <text x="291.8" y="360" text-anchor="middle">dic</text>
-      <text class="yoy" x="385.2" y="27" text-anchor="middle">+19%</text>
-      <text class="v" x="403.2" y="232.2" text-anchor="middle">0,53 M€</text>
-      <text x="385.2" y="360" text-anchor="middle">gen</text>
-      <text class="yoy" x="478.8" y="27" text-anchor="middle">+45%</text>
-      <text class="v" x="496.8" y="231.1" text-anchor="middle">0,54 M€</text>
-      <text x="478.8" y="360" text-anchor="middle">feb</text>
-      <text class="yoy" x="572.2" y="27" text-anchor="middle">+29%</text>
-      <text class="v" x="590.2" y="218.2" text-anchor="middle">0,61 M€</text>
-      <text x="572.2" y="360" text-anchor="middle">mar</text>
-      <text class="yoy" x="665.8" y="27" text-anchor="middle">+66%</text>
-      <text class="v" x="683.8" y="235.4" text-anchor="middle">0,52 M€</text>
-      <text x="665.8" y="360" text-anchor="middle">apr</text>
-      <text class="yoy" x="759.2" y="27" text-anchor="middle">+83%</text>
-      <text class="v" x="777.2" y="202.2" text-anchor="middle">0,70 M€</text>
-      <text x="759.2" y="360" text-anchor="middle">mag</text>
-      <text class="yoy" x="852.8" y="27" text-anchor="middle">+29%</text>
-      <text class="v" x="870.8" y="137.2" text-anchor="middle">1,04 M€</text>
-      <text x="852.8" y="360" text-anchor="middle">giu</text>
-      <text class="yoy" x="946.2" y="27" text-anchor="middle">+75%</text>
-      <text class="v" x="964.2" y="106.2" text-anchor="middle">1,21 M€</text>
-      <text x="946.2" y="360" text-anchor="middle">lug</text>
-      <text class="yoy" x="1039.8" y="27" text-anchor="middle">+309%</text>
-      <text class="v" x="1057.8" y="209.7" text-anchor="middle">0,66 M€</text>
-      <text x="1039.8" y="360" text-anchor="middle">ago</text>
-      <text class="yoy" x="1133.2" y="27" text-anchor="middle">+179%</text>
-      <text class="v" x="1151.2" y="170.3" text-anchor="middle">0,87 M€</text>
-      <text x="1133.2" y="360" text-anchor="middle">set</text>
-      <text class="ax" x="50" y="26" text-anchor="end">sull'anno</text><text class="ax" x="50" y="39" text-anchor="end">prima</text>
-      <text class="k" x="58" y="388">in alto la crescita di ogni mese sullo stesso mese dell'anno prima · sulla barra blu le vendite del mese</text>
-      </g></svg>
-      <svg class="chart-m" viewBox="0 0 350 488" role="img" aria-label="Vendite mensili di un e-commerce di climatizzazione, ottobre 2025 – settembre 2026 contro lo stesso mese dell'anno prima: 8,08 M€ contro 5,41 M€, +49%">
-      <g class="bars">
-      <rect class="b1" x="34" y="10" width="57.1" height="10" rx="3" style="--i:0"><title>0,38 M€</title></rect>
-      <rect class="b2" x="34" y="23" width="59.6" height="10" rx="3" style="--i:1"><title>0,39 M€</title></rect>
-      <rect class="b1" x="34" y="50" width="87.2" height="10" rx="3" style="--i:2"><title>0,57 M€</title></rect>
-      <rect class="b2" x="34" y="63" width="77.3" height="10" rx="3" style="--i:3"><title>0,51 M€</title></rect>
-      <rect class="b1" x="34" y="90" width="76.0" height="10" rx="3" style="--i:4"><title>0,50 M€</title></rect>
-      <rect class="b2" x="34" y="103" width="76.5" height="10" rx="3" style="--i:5"><title>0,50 M€</title></rect>
-      <rect class="b1" x="34" y="130" width="68.2" height="10" rx="3" style="--i:6"><title>0,45 M€</title></rect>
-      <rect class="b2" x="34" y="143" width="81.3" height="10" rx="3" style="--i:7"><title>0,53 M€</title></rect>
-      <rect class="b1" x="34" y="170" width="56.5" height="10" rx="3" style="--i:8"><title>0,37 M€</title></rect>
-      <rect class="b2" x="34" y="183" width="82.2" height="10" rx="3" style="--i:9"><title>0,54 M€</title></rect>
-      <rect class="b1" x="34" y="210" width="72.0" height="10" rx="3" style="--i:10"><title>0,47 M€</title></rect>
-      <rect class="b2" x="34" y="223" width="92.7" height="10" rx="3" style="--i:11"><title>0,61 M€</title></rect>
-      <rect class="b1" x="34" y="250" width="47.4" height="10" rx="3" style="--i:12"><title>0,31 M€</title></rect>
-      <rect class="b2" x="34" y="263" width="78.6" height="10" rx="3" style="--i:13"><title>0,52 M€</title></rect>
-      <rect class="b1" x="34" y="290" width="57.7" height="10" rx="3" style="--i:14"><title>0,38 M€</title></rect>
-      <rect class="b2" x="34" y="303" width="105.7" height="10" rx="3" style="--i:15"><title>0,70 M€</title></rect>
-      <rect class="b1" x="34" y="330" width="123.4" height="10" rx="3" style="--i:16"><title>0,81 M€</title></rect>
-      <rect class="b2" x="34" y="343" width="158.6" height="10" rx="3" style="--i:17"><title>1,04 M€</title></rect>
-      <rect class="b1" x="34" y="370" width="105.2" height="10" rx="3" style="--i:18"><title>0,69 M€</title></rect>
-      <rect class="b2" x="34" y="383" width="183.8" height="10" rx="3" style="--i:19"><title>1,21 M€</title></rect>
-      <rect class="b1" x="34" y="410" width="24.3" height="10" rx="3" style="--i:20"><title>0,16 M€</title></rect>
-      <rect class="b2" x="34" y="423" width="99.6" height="10" rx="3" style="--i:21"><title>0,66 M€</title></rect>
-      <rect class="b1" x="34" y="450" width="47.2" height="10" rx="3" style="--i:22"><title>0,31 M€</title></rect>
-      <rect class="b2" x="34" y="463" width="131.6" height="10" rx="3" style="--i:23"><title>0,87 M€</title></rect>
-      </g><g class="lab">
-      <text x="0" y="27">ott</text>
-      <text class="v" x="98.6" y="32">0,39 M€</text>
-      <text class="yoy" x="342" y="28" text-anchor="end">+4%</text>
-      <text x="0" y="67">nov</text>
-      <text class="v" x="116.3" y="72">0,51 M€</text>
-      <text class="yoy n" x="342" y="68" text-anchor="end">−11%</text>
-      <text x="0" y="107">dic</text>
-      <text class="v" x="115.5" y="112">0,50 M€</text>
-      <text class="yoy" x="342" y="108" text-anchor="end">+1%</text>
-      <text x="0" y="147">gen</text>
-      <text class="v" x="120.3" y="152">0,53 M€</text>
-      <text class="yoy" x="342" y="148" text-anchor="end">+19%</text>
-      <text x="0" y="187">feb</text>
-      <text class="v" x="121.2" y="192">0,54 M€</text>
-      <text class="yoy" x="342" y="188" text-anchor="end">+45%</text>
-      <text x="0" y="227">mar</text>
-      <text class="v" x="131.7" y="232">0,61 M€</text>
-      <text class="yoy" x="342" y="228" text-anchor="end">+29%</text>
-      <text x="0" y="267">apr</text>
-      <text class="v" x="117.6" y="272">0,52 M€</text>
-      <text class="yoy" x="342" y="268" text-anchor="end">+66%</text>
-      <text x="0" y="307">mag</text>
-      <text class="v" x="144.7" y="312">0,70 M€</text>
-      <text class="yoy" x="342" y="308" text-anchor="end">+83%</text>
-      <text x="0" y="347">giu</text>
-      <text class="v" x="197.6" y="352">1,04 M€</text>
-      <text class="yoy" x="342" y="348" text-anchor="end">+29%</text>
-      <text x="0" y="387">lug</text>
-      <text class="v" x="222.8" y="392">1,21 M€</text>
-      <text class="yoy" x="342" y="388" text-anchor="end">+75%</text>
-      <text x="0" y="427">ago</text>
-      <text class="v" x="138.6" y="432">0,66 M€</text>
-      <text class="yoy" x="342" y="428" text-anchor="end">+309%</text>
-      <text x="0" y="467">set</text>
-      <text class="v" x="170.6" y="472">0,87 M€</text>
-      <text class="yoy" x="342" y="468" text-anchor="end">+179%</text>
-      </g></svg>
-      <div class="legend"><span><i class="l1"></i>ottobre 2024 – settembre 2025</span><span><i class="l2"></i>ottobre 2025 – settembre 2026</span><span><i class="l4"></i>crescita del mese sull'anno prima</span></div>
-      <p class="shot-note">Ogni mese due barre: l'anno prima chiaro, quest'anno blu, e sopra la crescita su quel mese. Due misure, due finestre: le barre sono vendite nette (resi e sconti tolti) da ottobre a settembre, +49%; il +53% e gli 8,27 M€ sono le vendite totali del pannello Shopify dall'11 ottobre 2025 all'11 ottobre 2026, con dentro IVA, spedizioni e resi non ancora tornati. Per questo l'anno prima vale 5,41 netto e 5,40 totale: non sono gli stessi dodici mesi.</p>
-    </div>
-    <div class="res-grid">
-      <div class="proof fx">
-        <img src="images/cruscotto/shopify-vendite-12m.png" alt="Pannello analitico Shopify del negozio di climatizzazione, 11 ottobre 2025 – 11 ottobre 2026: vendite totali 8.266.784,16 € (+53%), sessioni 509 mila (+143%), ordini 12,1 mila (+51%), con la curva delle vendite sopra quella dell'anno prima" loading="lazy" width="862" height="724">
-        <div class="proof-cap"><span><b>Il suo pannello Shopify</b> · 11 ottobre 2025 – 11 ottobre 2026, sull'anno prima</span><span>8.266.784 € · +53%</span></div>
-      </div>
-      <div class="proof-m fx">
-        <img src="images/cruscotto/shopify-vendite-12m-m.png" alt="Pannello Shopify del negozio di climatizzazione: vendite totali 8.266.784,16 €, +53%; sessioni 509 mila, +143%; ordini 12,1 mila, +51%" loading="lazy" width="862" height="262">
-        <span class="k">Il suo pannello Shopify · 11 ott 2025 – 11 ott 2026</span>
-        <b>8.266.784 €</b>
-        <em>+53% sull'anno prima · 12.100 ordini · 509 mila visite</em>
-      </div>
-      <div class="figs fx">
-        <div class="fig"><b>+143%</b><span><strong>Visite al negozio</strong>: 509 mila sessioni in dodici mesi, con gli ordini a +51%.</span></div>
-        <div class="fig"><b>1,21 M€</b><span><strong>Il mese più alto</strong>: luglio 2026, da 0,69 M€ del luglio 2025. Netto, come le barre sopra.</span></div>
-        <div class="fig"><b>x50</b><span><strong>MER</strong>: tutte le vendite dei dodici mesi su tutta la spesa pubblicitaria, Meta e Google insieme. È un'altra misura dal ROAS di una campagna: lì accettiamo un numero più basso per avere più utile.</span></div>
-      </div>
-    </div>
-    <p class="res-note">Tutti i numeri vengono dal pannello Shopify e dagli account pubblicitari del cliente, letti ogni mattina. <a href="/case-study/climatizzazione">Il caso completo →</a> · <a href="/work">Gli altri settori, stesso metodo →</a></p>
-  </div>
-</section>
-
 <section class="who" id="chi-guida">
   <div class="wrap">
     <div class="who-grid">
@@ -1550,7 +1563,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       <div class="fx">
         <h2>Chi guida. <span>E cosa succede dopo lo scan.</span></h2>
         <p class="role">Antonio Pratola — Founder &amp; CEO, Orizon ADV · Napoli</p>
-        <p>Ho fondato Orizon per lavorare con gli imprenditori da imprenditore: <strong>a percentuale, con i conti aperti ogni mattina.</strong> Ignition è nato per questo: con un catalogo spento nessuna campagna basta, e a mano non si accendono mille prodotti.</p>
+        <p>Ho fondato Orizon per lavorare con gli imprenditori da imprenditore: <strong>a percentuale sul venduto in più, con i conti aperti ogni mattina.</strong> Ignition è nato per questo: con un catalogo spento nessuna campagna basta, e a mano non si accendono mille prodotti.</p>
         <ol class="passi">
           <li><b>Entro 24 ore</b> ricevi il documento: indice, pagella, i tre problemi e cosa si fa.</li>
           <li><b>Mezz'ora al telefono</b>, io e te, sui tuoi numeri. Se non c'è margine, te lo dico.</li>
@@ -1577,7 +1590,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     </form>
     <div class="after fx">
       <div><b>Entro 24 ore</b>ti scriviamo noi, con il tuo indice di accensione e le prime tre cose da accendere.</div>
-      <div><b>Nessuna fee fissa</b>ci paghi a percentuale, con una quota decisa insieme in base alla situazione di partenza. Il rischio è dell'impresa, e lo sappiamo.</div>
+      <div><b>Nessuna fee fissa</b>ci paghi a percentuale sul venduto in più, con una quota decisa insieme in base alla situazione di partenza. Il rischio è dell'impresa, e lo sappiamo.</div>
       <div><b>Non lavoriamo con tutti</b>se il tuo catalogo non è pronto o non siamo la scelta giusta, te lo diciamo.</div>
     </div>
   </div>
@@ -1627,7 +1640,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 
   /* ── Il menu segue gli atti; sul telefono il bottone compare quando il campo è passato ── */
   var links = Array.prototype.slice.call(document.querySelectorAll('.nav-links a[data-atto]'));
-  var tappe = [['top','diagnosi'],['atto-catalogo','catalogo'],['atto-conti','conti'],['risultati','prova'],['chi-guida','chi']]
+  var tappe = [['risultati','prova'],['atto-diagnosi','diagnosi'],['atto-catalogo','catalogo'],['atto-conti','conti'],['chi-guida','chi']]
     .map(function(c){ return { el: document.getElementById(c[0]), atto: c[1] }; }).filter(function(c){ return c.el; });
   var ctaM = document.getElementById('cta-m'), scanTop = document.getElementById('scan'), scanEnd = document.getElementById('scan-finale');
   function segna(){
