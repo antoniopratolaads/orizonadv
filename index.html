@@ -265,8 +265,8 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .mtab .secondario{display:none}
 .mtab.tutti .secondario{display:grid}
 .mtab.spento .mr:not(.uguale):not(.grp):not(.head) span.on{opacity:.22;transform:translateX(8px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
-.mtab.spento .mr.lit span.on{opacity:1;transform:none}
-.mtab.spento .mr.lit.vuoto span.on{opacity:.6}
+.mtab.spento .mr.lit:not(.uguale):not(.grp):not(.head) span.on{opacity:1;transform:none}
+.mtab.spento .mr.lit.vuoto:not(.uguale) span.on{opacity:.6}
 .trk{margin-top:22px;border:1px solid var(--line-2);border-radius:14px;background:var(--white);padding:18px 20px 16px}
 .trk-stage{margin-top:18px;display:grid;grid-template-columns:150px 1fr 190px;gap:18px;align-items:stretch}
 .trk-col{display:flex;flex-direction:column;justify-content:center;gap:4px}
@@ -321,7 +321,8 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .tesi h2{font-size:clamp(30px,3.8vw,50px);line-height:1.08;letter-spacing:-.03em;max-width:980px;margin:0 auto;text-wrap:balance}
 .tesi h2{color:rgba(255,255,255,.78)}
 .tesi h2 span{color:var(--white)}
-.tesi p{margin:22px auto 0;font-size:18px;color:rgba(255,255,255,.82);max-width:640px;text-wrap:pretty}
+.tesi p{margin:22px auto 0;font-size:18px;color:rgba(255,255,255,.82);max-width:720px;text-wrap:pretty}
+.tesi p strong{color:var(--white);font-weight:600}
 
 /* ── BLOCCO 2: quattro interruttori, una scheda che si accende ── */
 .feat{padding:112px 0 96px;background:var(--bg-2);border-top:1px solid var(--line);position:relative;overflow:hidden}
@@ -542,6 +543,13 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .vs-sec{padding:112px 0;background:var(--white);border-bottom:1px solid var(--line)}
 .vs-grid{margin-top:44px;display:grid;grid-template-columns:1.25fr 1fr;gap:28px;align-items:start}
 .vs{background:var(--white);border:1px solid var(--line-2);border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(12,23,19,.04),0 24px 60px -24px rgba(12,23,19,.22)}
+.js .vs.fx .vr{opacity:0;transform:translateX(-14px);transition:opacity .55s var(--ease),transform .7s var(--ease);transition-delay:calc(.08s + var(--r,0) * .09s)}
+.js .vs.fx.in .vr{opacity:1;transform:none}
+.js .bars i{transform:scaleY(0);transition:transform 1.1s var(--ease) .35s}
+.js .vs-why.in .bars i{transform:scaleY(1)}
+.js .vs-why.fx .mks div{opacity:0;transform:translateY(12px);transition:opacity .6s var(--ease),transform .8s var(--ease)}
+.js .vs-why.fx .mks div:nth-child(2){transition-delay:.15s}
+.js .vs-why.fx.in .mks div{opacity:1;transform:none}
 .vr{display:grid;grid-template-columns:1.35fr 1fr 1fr;align-items:center;padding:10px 20px;border-top:1px solid var(--line);font-size:15px;color:var(--black)}
 .vr>span{display:block}
 .vr>span:nth-child(2),.vr>span:nth-child(3){text-align:right;font-variant-numeric:tabular-nums;font-weight:500}
@@ -970,6 +978,8 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .xmfoot span{flex-basis:100%;margin-top:6px}
 }
 @media(prefers-reduced-motion:reduce){
+  .js .vs.fx .vr,.js .vs-why.fx .mks div{opacity:1;transform:none;transition:none}
+  .js .bars i{transform:none}
   .hero-o,.trk-lane .dot{animation:none}
   .trk-lane .dot{left:calc(100% - 20px)}
   .trk.oggi .dot.p{left:46%;opacity:.4}
@@ -1075,7 +1085,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   <section class="xs xs5" id="m-paghi">
     <p class="xk xr">Come ci paghi</p>
     <h2><span class="xw"><span class="" style="--d:0.10s">A</span></span> <span class="xw"><span class="" style="--d:0.17s">percentuale</span></span> <span class="xw"><span class="xoutw" style="--d:0.30s">sul</span></span> <span class="xw"><span class="xoutw" style="--d:0.38s">venduto</span></span> <span class="xw"><span class="" style="--d:0.50s">in</span></span> <span class="xw"><span class="" style="--d:0.57s">più.</span></span></h2>
-    <p class="xlead xr" style="--d:.65s">Con una quota decisa insieme in base alla situazione di partenza. Nessuna fee fissa: il rischio è dell'impresa, e lo sappiamo.</p>
+    <p class="xlead xr" style="--d:.65s"><strong style="color:#fff">Un'agenzia classica vende servizi. Noi leggiamo i numeri e prendiamo decisioni.</strong> Per questo la quota la decidiamo insieme in base alla situazione di partenza. Nessuna fee fissa.</p>
     <ul class="xpunti"><li class="xr" style="--d:.8s">I conti aperti ogni mattina</li><li class="xr" style="--d:.9s">Il primo mese si accende il catalogo, dal terzo si guida sull'utile</li><li class="xr" style="--d:1s">Non lavoriamo con tutti: se non c'è margine, te lo diciamo</li></ul>
   </section>
 
@@ -1628,16 +1638,16 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     </div>
     <div class="vs-grid">
       <div class="vs two fx" role="table" aria-label="Il conto economico di un mese del negozio di climatizzazione, riga per riga">
-        <div class="vr head" role="row"><span role="columnheader">Un mese del negozio</span><span class="b" role="columnheader">letto oggi dal suo Shopify</span></div>
-        <div class="vr" role="row"><span>Venduto in Shopify, lordo <small>374 ordini</small></span><span class="b">350.095 €</span></div>
-        <div class="vr m" role="row"><span>− IVA <small>letta dagli ordini, aliquota per aliquota: non è tua, la giri allo Stato</small></span><span class="b">61.608 €</span></div>
-        <div class="vr m" role="row"><span>− Spedizioni <small>incassate dai clienti, girate al corriere</small></span><span class="b">15.275 €</span></div>
-        <div class="vr sub" role="row"><span>= Merce netta, prima dei resi</span><span class="b">273.211 €</span></div>
-        <div class="vr m" role="row"><span>− Resi, netti IVA <small>11,4% del lordo, letti il giorno del reso, non a fine mese</small></span><span class="b">32.715 €</span></div>
-        <div class="vr sub" role="row"><span>= Merce netta dopo i resi</span><span class="b">240.496 €</span></div>
-        <div class="vr m" role="row"><span>− Costo d'acquisto <small>prodotto per prodotto: due articoli allo stesso prezzo possono lasciare 5 € o 50 €</small></span><span class="b">lo carichiamo con te</span></div>
-        <div class="vr m" role="row"><span>− Pubblicità <small>Meta e Google, letti ogni mattina dagli account</small></span><span class="b">dai tuoi account</span></div>
-        <div class="vr tot" role="row"><span>= Utile del mese</span><span class="b"><b>quello che resta</b><small>il numero su cui guidiamo le campagne</small></span></div>
+        <div class="vr head" style="--r:1" role="row"><span role="columnheader">Un mese del negozio</span><span class="b" role="columnheader">letto oggi dal suo Shopify</span></div>
+        <div class="vr" style="--r:2" role="row"><span>Venduto in Shopify, lordo <small>374 ordini</small></span><span class="b">350.095 €</span></div>
+        <div class="vr m" style="--r:3" role="row"><span>− IVA <small>letta dagli ordini, aliquota per aliquota: non è tua, la giri allo Stato</small></span><span class="b">61.608 €</span></div>
+        <div class="vr m" style="--r:4" role="row"><span>− Spedizioni <small>incassate dai clienti, girate al corriere</small></span><span class="b">15.275 €</span></div>
+        <div class="vr sub" style="--r:5" role="row"><span>= Merce netta, prima dei resi</span><span class="b">273.211 €</span></div>
+        <div class="vr m" style="--r:6" role="row"><span>− Resi, netti IVA <small>11,4% del lordo, letti il giorno del reso, non a fine mese</small></span><span class="b">32.715 €</span></div>
+        <div class="vr sub" style="--r:7" role="row"><span>= Merce netta dopo i resi</span><span class="b">240.496 €</span></div>
+        <div class="vr m" style="--r:8" role="row"><span>− Costo d'acquisto <small>prodotto per prodotto: due articoli allo stesso prezzo possono lasciare 5 € o 50 €</small></span><span class="b">lo carichiamo con te</span></div>
+        <div class="vr m" style="--r:9" role="row"><span>− Pubblicità <small>Meta e Google, letti ogni mattina dagli account</small></span><span class="b">dai tuoi account</span></div>
+        <div class="vr tot" style="--r:10" role="row"><span>= Utile del mese</span><span class="b"><b>quello che resta</b><small>il numero su cui guidiamo le campagne</small></span></div>
       </div>
       <div class="vs-why fx">
         <div class="bars" aria-hidden="true">
@@ -1667,17 +1677,17 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 
     <div class="vs-grid flip">
       <div class="vs fx" role="table" aria-label="Confronto fra un mese gestito sul ROAS e uno gestito sull'utile">
-        <div class="vr head" role="row"><span role="columnheader">Un mese tipo</span><span role="columnheader">Lavorando sul ROAS</span><span class="b" role="columnheader">Lavorando sull'utile</span></div>
-        <div class="vr" role="row"><span>Pubblicità spesa</span><span>20.000 €</span><span class="b">30.000 €</span></div>
-        <div class="vr big" role="row"><span>ROAS</span><span><b>35</b></span><span class="b"><b>22</b></span></div>
-        <div class="vr" role="row"><span>Incassato, lordo</span><span>700.000 €</span><span class="b">660.000 €</span></div>
-        <div class="vr m" role="row"><span>− IVA 22%</span><span>126.230 €</span><span class="b">119.016 €</span></div>
-        <div class="vr m" role="row"><span>− Resi <small>11,4%, il ritmo vero del negozio</small></span><span>65.410 €</span><span class="b">61.672 €</span></div>
-        <div class="vr m" role="row"><span>− Costo d'acquisto <small>della merce venduta</small></span><span>406.689 €<small>80% del venduto</small></span><span class="b">316.346 €<small>66% del venduto</small></span></div>
-        <div class="vr m" role="row"><span>− Spedizioni <small>corriere, 3,5%</small></span><span>24.500 €</span><span class="b">23.100 €</span></div>
-        <div class="vr m" role="row"><span>− Commissioni di pagamento <small>1,5%</small></span><span>10.500 €</span><span class="b">9.900 €</span></div>
-        <div class="vr m" role="row"><span>− Pubblicità</span><span>20.000 €</span><span class="b">30.000 €</span></div>
-        <div class="vr tot" role="row"><span>= Utile del mese</span><span><b>46.700 €</b><small>9 € ogni 100 € venduti</small></span><span class="b"><b>100.000 €</b><small>21 € ogni 100 € venduti</small><em>+53.300 €</em></span></div>
+        <div class="vr head" style="--r:1" role="row"><span role="columnheader">Un mese tipo</span><span role="columnheader">Lavorando sul ROAS</span><span class="b" role="columnheader">Lavorando sull'utile</span></div>
+        <div class="vr" style="--r:2" role="row"><span>Pubblicità spesa</span><span>20.000 €</span><span class="b">30.000 €</span></div>
+        <div class="vr big" style="--r:3" role="row"><span>ROAS</span><span><b>35</b></span><span class="b"><b>22</b></span></div>
+        <div class="vr" style="--r:4" role="row"><span>Incassato, lordo</span><span>700.000 €</span><span class="b">660.000 €</span></div>
+        <div class="vr m" style="--r:5" role="row"><span>− IVA 22%</span><span>126.230 €</span><span class="b">119.016 €</span></div>
+        <div class="vr m" style="--r:6" role="row"><span>− Resi <small>11,4%, il ritmo vero del negozio</small></span><span>65.410 €</span><span class="b">61.672 €</span></div>
+        <div class="vr m" style="--r:7" role="row"><span>− Costo d'acquisto <small>della merce venduta</small></span><span>406.689 €<small>80% del venduto</small></span><span class="b">316.346 €<small>66% del venduto</small></span></div>
+        <div class="vr m" style="--r:8" role="row"><span>− Spedizioni <small>corriere, 3,5%</small></span><span>24.500 €</span><span class="b">23.100 €</span></div>
+        <div class="vr m" style="--r:9" role="row"><span>− Commissioni di pagamento <small>1,5%</small></span><span>10.500 €</span><span class="b">9.900 €</span></div>
+        <div class="vr m" style="--r:10" role="row"><span>− Pubblicità</span><span>20.000 €</span><span class="b">30.000 €</span></div>
+        <div class="vr tot" style="--r:11" role="row"><span>= Utile del mese</span><span><b>46.700 €</b><small>9 € ogni 100 € venduti</small></span><span class="b"><b>100.000 €</b><small>21 € ogni 100 € venduti</small><em>+53.300 €</em></span></div>
       </div>
 
       <div class="vs-why fx">
@@ -1707,13 +1717,13 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     </div>
     <div class="vs-grid flip">
       <div class="vs four fx" role="table" aria-label="I prodotti fermi e quelli da riordinare del negozio di climatizzazione, con la mossa per ognuno">
-        <div class="vr head" role="row"><span role="columnheader">Prodotto</span><span role="columnheader">In magazzino</span><span class="ve" role="columnheader">Venduti</span><span class="b" role="columnheader">La mossa</span></div>
-        <div class="vr p down" role="row"><img src="images/magazzino/dab-multi-inox.jpg" alt="" width="240" height="240" loading="lazy"><span class="nm"><b>Elettropompa Dab Multi Inox 3M</b><small>termoidraulica</small></span><span class="va"><b>398 pezzi</b><small>94.457 €</small></span><span class="ve"><b>0</b><small>in 60 giorni</small></span><span class="b ac">campagna dedicata con <strong>ROAS obiettivo 6, non 12</strong>: libera 94 mila € di cassa, a prezzo pieno</span></div>
-        <div class="vr p down" role="row"><img src="images/magazzino/edilkamin-blade.jpg" alt="" width="240" height="240" loading="lazy"><span class="nm"><b>Stufa a pellet EdilKamin Blade 12++ Evo</b><small>riscaldamento</small></span><span class="va"><b>28 pezzi</b><small>79.800 €</small></span><span class="ve"><b>0</b><small>in 60 giorni</small></span><span class="b ac">la stagione arriva: <strong>spinta ora a obiettivo basso</strong>, prima dello sconto di gennaio</span></div>
-        <div class="vr p down" role="row"><img src="images/magazzino/climaveneta-ilife2.jpg" alt="" width="240" height="240" loading="lazy"><span class="nm"><b>Fan coil Climaveneta i-LIFE2 Slim</b><small>condizionamento</small></span><span class="va"><b>99 pezzi</b><small>70.340 €</small></span><span class="ve"><b>0</b><small>in 60 giorni</small></span><span class="b ac">fuori stagione: <strong>bundle con le installazioni</strong>, obiettivo sul magazzino, non sul ritorno</span></div>
-        <div class="vr p up" role="row"><img src="images/magazzino/accoroni-ghibli.jpg" alt="" width="240" height="240" loading="lazy"><span class="nm"><b>Radiatore a gas Accoroni Ghibli Elite 6</b><small>riscaldamento</small></span><span class="va"><b>giacenza 0</b><small>niente da vendere</small></span><span class="ve"><b>8</b><small>l'anno scorso, in questi mesi</small></span><span class="b ac"><strong>riordina ora</strong>: 6.192 € a rischio se aspetti dicembre</span></div>
-        <div class="vr p up" role="row"><img src="images/magazzino/baxi-duotec.jpg" alt="" width="240" height="240" loading="lazy"><span class="nm"><b>Caldaia Baxi Duo-Tec Compact 24 kW</b><small>riscaldamento</small></span><span class="va"><b>giacenza 0</b><small>niente da vendere</small></span><span class="ve"><b>8</b><small>l'anno scorso, in questi mesi</small></span><span class="b ac"><strong>riordina ora</strong>: 5.785 € a rischio</span></div>
-        <div class="vr tot" role="row"><span>Oggi, su tutto il catalogo</span><span class="va"><b>6.502</b><small>articoli con stock e zero vendite in 60 giorni</small></span><span class="b"><b>22</b><small>prodotti da riordinare prima della stagione</small></span></div>
+        <div class="vr head" style="--r:1" role="row"><span role="columnheader">Prodotto</span><span role="columnheader">In magazzino</span><span class="ve" role="columnheader">Venduti</span><span class="b" role="columnheader">La mossa</span></div>
+        <div class="vr p down" style="--r:2" role="row"><img src="images/magazzino/dab-multi-inox.jpg" alt="" width="240" height="240" loading="lazy"><span class="nm"><b>Elettropompa Dab Multi Inox 3M</b><small>termoidraulica</small></span><span class="va"><b>398 pezzi</b><small>94.457 €</small></span><span class="ve"><b>0</b><small>in 60 giorni</small></span><span class="b ac">campagna dedicata con <strong>ROAS obiettivo 6, non 12</strong>: libera 94 mila € di cassa, a prezzo pieno</span></div>
+        <div class="vr p down" style="--r:3" role="row"><img src="images/magazzino/edilkamin-blade.jpg" alt="" width="240" height="240" loading="lazy"><span class="nm"><b>Stufa a pellet EdilKamin Blade 12++ Evo</b><small>riscaldamento</small></span><span class="va"><b>28 pezzi</b><small>79.800 €</small></span><span class="ve"><b>0</b><small>in 60 giorni</small></span><span class="b ac">la stagione arriva: <strong>spinta ora a obiettivo basso</strong>, prima dello sconto di gennaio</span></div>
+        <div class="vr p down" style="--r:4" role="row"><img src="images/magazzino/climaveneta-ilife2.jpg" alt="" width="240" height="240" loading="lazy"><span class="nm"><b>Fan coil Climaveneta i-LIFE2 Slim</b><small>condizionamento</small></span><span class="va"><b>99 pezzi</b><small>70.340 €</small></span><span class="ve"><b>0</b><small>in 60 giorni</small></span><span class="b ac">fuori stagione: <strong>bundle con le installazioni</strong>, obiettivo sul magazzino, non sul ritorno</span></div>
+        <div class="vr p up" style="--r:5" role="row"><img src="images/magazzino/accoroni-ghibli.jpg" alt="" width="240" height="240" loading="lazy"><span class="nm"><b>Radiatore a gas Accoroni Ghibli Elite 6</b><small>riscaldamento</small></span><span class="va"><b>giacenza 0</b><small>niente da vendere</small></span><span class="ve"><b>8</b><small>l'anno scorso, in questi mesi</small></span><span class="b ac"><strong>riordina ora</strong>: 6.192 € a rischio se aspetti dicembre</span></div>
+        <div class="vr p up" style="--r:6" role="row"><img src="images/magazzino/baxi-duotec.jpg" alt="" width="240" height="240" loading="lazy"><span class="nm"><b>Caldaia Baxi Duo-Tec Compact 24 kW</b><small>riscaldamento</small></span><span class="va"><b>giacenza 0</b><small>niente da vendere</small></span><span class="ve"><b>8</b><small>l'anno scorso, in questi mesi</small></span><span class="b ac"><strong>riordina ora</strong>: 5.785 € a rischio</span></div>
+        <div class="vr tot" style="--r:7" role="row"><span>Oggi, su tutto il catalogo</span><span class="va"><b>6.502</b><small>articoli con stock e zero vendite in 60 giorni</small></span><span class="b"><b>22</b><small>prodotti da riordinare prima della stagione</small></span></div>
       </div>
       <div class="vs-why fx">
         <div class="mks">
@@ -1736,8 +1746,8 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 <section class="solo-d tesi" id="tesi" aria-labelledby="tesi-t">
   <img class="mark-t" src="images/brand/mark-bianco.svg" alt="" aria-hidden="true">
   <div class="wrap">
-    <h2 id="tesi-t" class="fx">Per questo possiamo farci pagare così: <span>a percentuale sul venduto in più, con una quota decisa insieme in base alla situazione di partenza.</span></h2>
-    <p class="fx">Il rischio è dell'impresa, e lo sappiamo. Leggiamo l'utile ogni mattina, mettiamo il budget dove rende, trattiamo il magazzino come un costo. Nessuna fee fissa.</p>
+    <h2 id="tesi-t" class="fx">Un'agenzia classica vende servizi. <span>Noi leggiamo i numeri e prendiamo decisioni.</span></h2>
+    <p class="fx">Ogni mattina: cosa spingere, cosa fermare, cosa riordinare, quanto spendere. Decisioni analitiche, prodotto per prodotto: è l'unico modo per avere un vantaggio sugli altri. <strong>Per questo possiamo farci pagare a percentuale sul venduto in più, con una quota decisa insieme in base alla situazione di partenza.</strong> Nessuna fee fissa.</p>
   </div>
 </section>
 
@@ -2065,6 +2075,25 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       conta(vend, acceso ? 69000 : 40182, 1200, acceso ? 40182 : 69000, acceso ? ' € stimati' : ' €');
       fig.querySelectorAll('.tt').forEach(function(x){ x.classList.toggle('on', x === b); });
     }); });
+  })();
+  /* ── i conti: le cifre contano quando entrano ── */
+  (function(){
+    var ridotto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function conta(el, testo){
+      var m = /^([\d.]+)(.*)$/.exec(testo); if (!m) return;
+      var fine = parseInt(m[1].replace(/\./g, ''), 10), suff = m[2]; if (isNaN(fine) || fine < 100) return;
+      if (ridotto) return;
+      var t0 = null;
+      function passo(ts){ if (t0 === null) t0 = ts; var f = Math.min(1, (ts - t0) / 1300); f = 1 - Math.pow(1 - f, 3); el.textContent = Math.round(fine * f).toLocaleString('it-IT') + suff; if (f < 1) requestAnimationFrame(passo); }
+      el.textContent = '0' + suff; requestAnimationFrame(passo);
+      setTimeout(function(){ el.textContent = testo; }, 1450);
+    }
+    var fatti = [];
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){
+      if (!e.isIntersecting || fatti.indexOf(e.target) >= 0) return; fatti.push(e.target);
+      e.target.querySelectorAll('.vr > span, .vr > span > b, .mks b, .bars b').forEach(function(el){ if (el.children.length) return; conta(el, el.textContent.trim()); });
+    }); }, { threshold: 0.3 });
+    document.querySelectorAll('.vs-sec .vs, .vs-sec .vs-why').forEach(function(x){ io.observe(x); });
   })();
 </script>
 </body>
