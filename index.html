@@ -561,63 +561,6 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .mks b{display:block;font-size:30px;font-weight:600;letter-spacing:-.035em;color:var(--blue);line-height:1}
 .mks span{display:block;margin-top:6px;font-size:13.5px;color:var(--black-m);line-height:1.35}
 .vs-why .how-line{margin-top:22px;font-size:16px}
-/* l'albero delle decisioni */
-.tree-wrap{margin-top:44px}
-.tree-wrap .vs-why{margin-top:32px}
-.tree-wrap .vs-why ol{grid-template-columns:repeat(3,1fr);gap:24px}
-.tree-wrap .vs-why li{font-size:14.5px}
-.tree-card{background:var(--white);border:1px solid var(--line-2);border-radius:16px;padding:22px 24px 8px;box-shadow:0 2px 6px rgba(12,23,19,.04),0 24px 60px -24px rgba(12,23,19,.22)}
-.tree{width:100%;height:auto;display:block;font-family:var(--font)}
-.tree .link{fill:none;stroke:var(--black-ll);stroke-width:1.5}
-.tree .link.on{stroke:var(--blue);stroke-width:2}
-.tree .node circle{fill:var(--white);stroke:var(--black-ll);stroke-width:1.5}
-.tree .node.root circle{fill:var(--black);stroke:var(--black)}
-.tree .node.root .big{fill:var(--white);font-size:26px;font-weight:600;letter-spacing:-.03em}
-.tree .node.root .sm{fill:rgba(255,255,255,.75);font-size:11.5px}
-.tree .node.mid.on circle{fill:var(--blue);stroke:var(--blue)}
-.tree .node.mid.on .big{fill:var(--white)}
-.tree .node.mid.off circle{fill:var(--bg-2);stroke:var(--black-l)}
-.tree .node.mid .big{font-size:24px;font-weight:600;letter-spacing:-.03em;fill:var(--black)}
-.tree .node.leaf circle{fill:var(--bg-2)}
-.tree .node.leaf.budget circle{fill:var(--blue);stroke:var(--blue)}
-.tree .node.leaf.budget .n{fill:var(--white)}
-.tree .node.leaf.stop circle,.tree .node.leaf.fix circle{fill:var(--white);stroke:var(--black)}
-.tree .node.leaf.price circle{fill:var(--black-ll);stroke:var(--black-ll)}
-.tree .node.leaf .n{font-size:13px;font-weight:600;fill:var(--black)}
-.tree .lab{font-size:12.5px;fill:var(--black-m)}
-.tree .lab.b{font-weight:600;fill:var(--black);font-size:13.5px}
-.tree .q{font-size:13.5px;font-weight:600;fill:var(--black)}
-.tree .qs{font-size:11.5px;fill:var(--black-m)}
-.tree .ax{font-size:11.5px;fill:var(--black-m)}
-.tree-foot{margin-top:4px;padding:14px 4px 10px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.tree-foot b{display:block;font-size:26px;font-weight:600;letter-spacing:-.03em;line-height:1;color:var(--blue)}
-.tree-foot div+div b{color:var(--black-m)}
-.tree-foot span{display:block;margin-top:5px;font-size:13px;color:var(--black-m);line-height:1.4}
-.tree-m{display:none}
-.tm-root{display:flex;align-items:center;gap:12px;padding-bottom:12px}
-.tm-root b{width:64px;height:64px;border-radius:50%;background:var(--black);color:var(--white);display:inline-flex;align-items:center;justify-content:center;font-size:20px;font-weight:600;flex-shrink:0}
-.tm-root span{font-size:14px;color:var(--black-m)}
-.tm-q{font-size:13.5px;font-weight:600;margin:6px 0 8px}
-.tm-q2{font-size:12px;color:var(--black-m);margin:8px 0 6px 0}
-.tm-branch{border-left:2px solid var(--black-ll);margin:0 0 14px 10px;padding:0 0 4px 14px}
-.tm-branch.on{border-left-color:var(--blue)}
-.tm-mid{display:flex;align-items:center;gap:10px}
-.tm-mid b{width:48px;height:48px;border-radius:50%;background:var(--bg-2);border:1.5px solid var(--black-l);display:inline-flex;align-items:center;justify-content:center;font-size:16px;font-weight:600;flex-shrink:0}
-.tm-branch.on .tm-mid b{background:var(--blue);border-color:var(--blue);color:var(--white)}
-.tm-mid span{font-size:13.5px;color:var(--black-m);line-height:1.35}
-.tm-mid strong{color:var(--black);font-weight:600}
-.tm-branch ul{list-style:none;display:grid;gap:7px}
-.tm-branch li{display:grid;grid-template-columns:40px 1fr;gap:10px;align-items:center;font-size:12.5px;color:var(--black-m);line-height:1.35}
-.tm-branch li i{justify-self:center;width:min(var(--r),40px);height:min(var(--r),40px);min-width:22px;min-height:22px;border-radius:50%;background:var(--bg-2);border:1.5px solid var(--black-ll);display:inline-flex;align-items:center;justify-content:center;font-style:normal}
-.tm-branch li i b{font-size:11px;font-weight:600;color:var(--black)}
-.tm-branch li.budget i{background:var(--blue);border-color:var(--blue)}
-.tm-branch li.budget i b{color:var(--white)}
-.tm-branch li.stop i,.tm-branch li.fix i{background:var(--white);border-color:var(--black)}
-.tm-branch li.price i{background:var(--black-ll);border-color:var(--black-ll)}
-.tm-branch li span b{display:block;color:var(--black);font-weight:600}
-.tree .lbl{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11px;fill:var(--black-m)}
-.tree .arr{fill:var(--black-l)}
-.tm-branch li span code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:10.5px;color:var(--black-m);background:var(--white);border:1px solid var(--line);border-radius:5px;padding:0 5px;margin-right:2px}
 /* ── CHI GUIDA ── */
 .who{padding:112px 0;background:var(--white)}
 .who-grid{display:grid;grid-template-columns:300px 1fr;gap:48px;align-items:center}
@@ -669,7 +612,6 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .tools{grid-template-columns:1fr}
   .vs-grid{grid-template-columns:1fr;gap:20px}
   .vs-grid.flip>.vs{order:0}
-  .tree-wrap .vs-why ol{grid-template-columns:1fr;gap:12px}
   .who-grid{grid-template-columns:1fr}
   .who-photo{max-width:300px}
   .after{grid-template-columns:1fr}
@@ -785,12 +727,6 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .feat{padding:80px 0}
   .how{padding:72px 0}
   .vs-sec{padding:72px 0}
-  .tree{display:none}
-  .tree-m{display:block}
-  .tree-wrap{margin-top:28px}
-  .tree-card{padding:16px 14px 4px}
-  .tree-foot{grid-template-columns:1fr;gap:10px}
-  .tree-foot b{font-size:22px}
   .vs-grid{margin-top:28px}
   .vr{padding:9px 12px;font-size:13px}
   .vr>span.b{margin:-9px -12px -9px 0;padding:9px 12px 9px 8px}
@@ -956,8 +892,8 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .xdue i{display:block;height:6px;border-radius:99px;background:var(--line);margin-top:12px;overflow:hidden}
   .xdue i::after{content:'';display:block;height:100%;width:0;border-radius:99px;background:var(--black-l);transition:width 1.4s var(--ease) .5s}
   .xdue .xsi i::after{background:linear-gradient(90deg,var(--blue),#6377FD)}
-  .xs.on .xdue .xsi i::after{width:37%}
-  .xs.on .xdue .xno i::after{width:63%}
+  .xs.on .xdue .xsi i::after{width:78%}
+  .xs.on .xdue .xno i::after{width:18%}
   .xs5 h2{margin-top:8px;font-size:36px;line-height:1.05}
   .xpunti{list-style:none;margin-top:18px;display:grid;gap:10px}
   .xpunti li{padding-left:16px;position:relative;font-size:15.5px}
@@ -1067,10 +1003,10 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     <p class="xk xr">Poi si guida sull'utile</p>
     <h2><span class="xw"><span class="" style="--d:0.10s">Il</span></span> <span class="xw"><span class="" style="--d:0.17s">budget</span></span> <span class="xw"><span class="" style="--d:0.24s">va</span></span> <span class="xw"><span class="xblu" style="--d:0.30s">dove</span></span> <span class="xw"><span class="xblu" style="--d:0.37s">si</span></span> <span class="xw"><span class="xblu" style="--d:0.44s">vince</span></span> <span class="xw"><span class="xblu" style="--d:0.51s">l'asta.</span></span></h2>
     <div class="xdue">
-      <div class="xsi xr" style="--d:.5s"><b data-conta="281" data-ms="1300">0</b><span>prodotti prendono budget: possono vincere l'asta e in campagna rendono</span><i></i></div>
-      <div class="xno xr" style="--d:.65s"><b data-conta="469" data-ms="1300">0</b><span>no. Per 268 di questi il problema è il prezzo, che nessun budget risolve</span><i></i></div>
+      <div class="xsi xr" style="--d:.5s"><b><span data-conta="78" data-ms="1300">0</span>%</b><span>delle vendite dai 456 prodotti col prezzo giusto, col 31% della spesa</span><i></i></div>
+      <div class="xno xr" style="--d:.65s"><b><span data-conta="18" data-ms="1300">0</span>%</b><span>della spesa ai 386 fuori prezzo, che non vendono niente</span><i></i></div>
     </div>
-    <p class="xlead xr" style="--d:.8s">Ogni mattina leggiamo quello che resta dopo IVA, resi e costo della merce, prodotto per prodotto. I 750 in campagna del negozio di climatizzazione, oggi.</p>
+    <p class="xlead xr" style="--d:.8s">Venti giorni di Google Ads del negozio di climatizzazione, 1.056 prodotti con click. Ogni venti giorni l'etichetta si riscrive e le campagne la leggono: la spesa segue le vendite.</p>
   </section>
 
   <section class="xs xs5" id="m-paghi">
@@ -1672,81 +1608,6 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
           <li><b>Per questo spendiamo di più e accettiamo un ROAS più basso.</b> Diecimila euro in più di pubblicità, quarantamila di vendite in meno, <strong>il doppio dell'utile</strong>. Ed è il numero su cui guidiamo.</li>
         </ol>
         <p class="vs-note">Numeri tondi di un mese tipo, stesso negozio: cambia solo dove va il budget. IVA 22%, resi 11,4% (il ritmo vero del negozio di climatizzazione), spedizioni 3,5%, commissioni 1,5%; costo d'acquisto 80% del venduto sui prodotti «da ROAS», 66% su quelli scelti per margine.</p>
-      </div>
-    </div>
-    <p class="ponte fx"><svg class="ico" aria-hidden="true"><use href="#arrow"/></svg><span>Il budget si decide prodotto per prodotto, ogni mattina, con due domande.</span></p>
-  </div>
-</section>
-
-<!-- ═══ IL BUDGET ═══ -->
-<section class="solo-d vs-sec alt" id="budget">
-  <div class="wrap">
-    <div class="sec-head fx">
-      <h2>Il budget va <span>dove si vince l'asta.</span></h2>
-      <p>Ogni mattina, ogni prodotto in campagna risponde a due domande. <strong>Il prezzo può vincere l'asta?</strong> Google lo confronta con quello dei concorrenti: se sta sopra, nessun budget lo fa vendere. <strong>E cosa fa in campagna da venti giorni?</strong> Dalle due risposte esce la mossa. Qui i 750 prodotti del negozio di climatizzazione, oggi.</p>
-    </div>
-    <div class="tree-wrap fx">
-      <div class="tree-card">
-        <svg class="tree" viewBox="0 0 1180 600" role="img" aria-label="Albero delle decisioni sui 750 prodotti del negozio di climatizzazione: 399 con prezzo sotto o pari al benchmark possono vincere l'asta e 281 prendono budget; 351 sopra il benchmark non vincono e non prendono budget. Ogni foglia porta l'etichetta nel feed e la campagna in cui va">
-        <g class="node root"><circle cx="96" cy="300" r="56"/><text x="96" y="296" text-anchor="middle" class="big">750</text><text x="96" y="316" text-anchor="middle" class="sm">prodotti in</text><text x="96" y="331" text-anchor="middle" class="sm">campagna</text></g>
-        <text x="96" y="392" text-anchor="middle" class="ax">letti ogni mattina</text>
-        <text x="420" y="26" text-anchor="middle" class="q">1 · Il prezzo può vincere l'asta?</text>
-        <text x="420" y="44" text-anchor="middle" class="qs">confrontato con quello dei concorrenti, come lo vede Google</text>
-        <path class="link on" d="M152,300 C276,300 240,150 372.0387742490708,150"/>
-        <g class="node mid on"><circle cx="420" cy="150" r="48"/><text x="420" y="158" text-anchor="middle" class="big">399</text></g>
-        <text x="420" y="218" text-anchor="middle" class="lab b">sotto o pari al benchmark</text><text x="420" y="235" text-anchor="middle" class="lz">possono vincere l'asta</text>
-        <path class="link " d="M152,300 C276,300 240,440 373.96075930744746,440"/>
-        <g class="node mid off"><circle cx="420" cy="440" r="46"/><text x="420" y="448" text-anchor="middle" class="big">351</text></g>
-        <text x="420" y="506" text-anchor="middle" class="lab b">sopra il benchmark</text><text x="420" y="523" text-anchor="middle" class="lz">non vincono, per quanto budget ci metti</text>
-        <text x="730" y="26" class="q">2 · Cosa fa in campagna da venti giorni?</text>
-        <text x="730" y="44" class="qs">l'etichetta nel feed, e la campagna in cui va</text>
-        <path class="link on" d="M468,150 C580,150 570,70 657,70"/>
-        <g class="node leaf budget"><circle cx="690" cy="70" r="32.8"/><text x="690" y="75" text-anchor="middle" class="n">276</text></g>
-        <text x="730" y="66" class="lab b">Competitivi, bassa visibilità</text><text x="730" y="85" class="lz"><tspan class="lbl">competitivo_poco_visibile</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">Shopping · Low Visibility</tspan></text>
-        <path class="link on" d="M468,150 C580,150 570,124 680,124"/>
-        <g class="node leaf budget"><circle cx="690" cy="124" r="10.1"/><text x="690" y="129" text-anchor="middle" class="n">4</text></g>
-        <text x="730" y="120" class="lab b">Supercompetitivi</text><text x="730" y="139" class="lz"><tspan class="lbl">supercompetitivo</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">Shopping · SuperCompetitive + Competitive</tspan></text>
-        <path class="link on" d="M468,150 C580,150 570,178 681,178"/>
-        <g class="node leaf budget"><circle cx="690" cy="178" r="8.6"/><text x="690" y="183" text-anchor="middle" class="n">1</text></g>
-        <text x="730" y="174" class="lab b">Competitivi, in conversione</text><text x="730" y="193" class="lz"><tspan class="lbl">competitivo_ok</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">Shopping · SuperCompetitive + Competitive</tspan></text>
-        <path class="link " d="M468,150 C580,150 570,232 676,232"/>
-        <g class="node leaf fix"><circle cx="690" cy="232" r="13.9"/><text x="690" y="237" text-anchor="middle" class="n">20</text></g>
-        <text x="730" y="228" class="lab b">Da verificare: scheda prodotto</text><text x="730" y="247" class="lz"><tspan class="lbl">prodotto_richiede_check</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">In pausa fino alla correzione</tspan></text>
-        <path class="link " d="M468,150 C580,150 570,286 675,286"/>
-        <g class="node leaf wait"><circle cx="690" cy="286" r="14.8"/><text x="690" y="291" text-anchor="middle" class="n">25</text></g>
-        <text x="730" y="282" class="lab b">In osservazione</text><text x="730" y="301" class="lz"><tspan class="lbl">da_monitorare</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">PMax di categoria</tspan></text>
-        <path class="link " d="M468,150 C580,150 570,340 670,340"/>
-        <g class="node leaf out"><circle cx="690" cy="340" r="20.2"/><text x="690" y="345" text-anchor="middle" class="n">73</text></g>
-        <text x="730" y="336" class="lab b">Senza impression</text><text x="730" y="355" class="lz"><tspan class="lbl">no_impression</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">Shopping · Zombie</tspan></text>
-        <path class="link " d="M466,440 C580,440 570,400 658,400"/>
-        <g class="node leaf price"><circle cx="690" cy="400" r="31.8"/><text x="690" y="405" text-anchor="middle" class="n">256</text></g>
-        <text x="730" y="396" class="lab b">Sopra benchmark, invisibili</text><text x="730" y="415" class="lz"><tspan class="lbl">supercaro_nascosto</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">Esclusi: si lavora sul prezzo</tspan></text>
-        <path class="link " d="M466,440 C580,440 570,454 678,454"/>
-        <g class="node leaf stop"><circle cx="690" cy="454" r="12.4"/><text x="690" y="459" text-anchor="middle" class="n">12</text></g>
-        <text x="730" y="450" class="lab b">Sopra benchmark, spesa improduttiva</text><text x="730" y="469" class="lz"><tspan class="lbl">supercaro_brucia_budget</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">Esclusi dalle campagne</tspan></text>
-        <path class="link " d="M466,440 C580,440 570,508 669,508"/>
-        <g class="node leaf out"><circle cx="690" cy="508" r="21.1"/><text x="690" y="513" text-anchor="middle" class="n">83</text></g>
-        <text x="730" y="504" class="lab b">Senza impression</text><text x="730" y="523" class="lz"><tspan class="lbl">no_impression</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">Shopping · Zombie</tspan></text>
-        <path class="link " d="M466,440 C580,440 570,562 683,562"/>
-        <g class="node leaf wait"><circle cx="690" cy="562" r="7.0"/><text x="690" y="567" text-anchor="middle" class="n">0</text></g>
-        <text x="730" y="558" class="lab b">Sopra benchmark, in conversione</text><text x="730" y="577" class="lz"><tspan class="lbl">sopra_benchmark_ma_converte</tspan><tspan dx="10" class="arr">→</tspan><tspan dx="6">Shopping · SuperCompetitive + Competitive</tspan></text>
-        </svg>
-        <div class="tree-m" aria-hidden="true">
-          <div class="tm-root"><b>750</b><span>prodotti in campagna, letti ogni mattina</span></div>
-          <p class="tm-q">1 · Il prezzo può vincere l'asta?</p>
-          <div class="tm-branch on"><div class="tm-mid"><b>399</b><span>sotto o pari al benchmark · <strong>possono vincere</strong></span></div><p class="tm-q2">2 · Cosa fanno in campagna → l'etichetta, la campagna</p><ul><li class="budget"><i style="--r:66px"><b>276</b></i><span><b>Competitivi, bassa visibilità</b><code>competitivo_poco_visibile</code> → Shopping · Low Visibility</span></li><li class="budget"><i style="--r:20px"><b>4</b></i><span><b>Supercompetitivi</b><code>supercompetitivo</code> → Shopping · SuperCompetitive + Competitive</span></li><li class="budget"><i style="--r:17px"><b>1</b></i><span><b>Competitivi, in conversione</b><code>competitivo_ok</code> → Shopping · SuperCompetitive + Competitive</span></li><li class="fix"><i style="--r:28px"><b>20</b></i><span><b>Da verificare: scheda prodotto</b><code>prodotto_richiede_check</code> → In pausa fino alla correzione</span></li><li class="wait"><i style="--r:30px"><b>25</b></i><span><b>In osservazione</b><code>da_monitorare</code> → PMax di categoria</span></li><li class="out"><i style="--r:40px"><b>73</b></i><span><b>Senza impression</b><code>no_impression</code> → Shopping · Zombie</span></li></ul></div>
-          <div class="tm-branch"><div class="tm-mid"><b>351</b><span>sopra il benchmark · <strong>non vincono, per quanto budget ci metti</strong></span></div><ul><li class="price"><i style="--r:64px"><b>256</b></i><span><b>Sopra benchmark, invisibili</b><code>supercaro_nascosto</code> → Esclusi: si lavora sul prezzo</span></li><li class="stop"><i style="--r:25px"><b>12</b></i><span><b>Sopra benchmark, spesa improduttiva</b><code>supercaro_brucia_budget</code> → Esclusi dalle campagne</span></li><li class="out"><i style="--r:42px"><b>83</b></i><span><b>Senza impression</b><code>no_impression</code> → Shopping · Zombie</span></li><li class="wait"><i style="--r:14px"><b>0</b></i><span><b>Sopra benchmark, in conversione</b><code>sopra_benchmark_ma_converte</code> → Shopping · SuperCompetitive + Competitive</span></li></ul></div>
-        </div>
-        <div class="tree-foot"><div><b>281</b><span>prodotti prendono budget: possono vincere l'asta e in campagna rendono</span></div><div><b>469</b><span>no — e per 268 di questi il problema è il prezzo, che nessun budget risolve</span></div></div>
-      </div>
-      <div class="vs-why">
-        <h3>Perché succede</h3>
-        <ol>
-          <li><b>L'asta si vince prima col prezzo.</b> Google confronta il tuo prezzo con quello degli altri negozi per lo stesso prodotto: 351 articoli del negozio stanno sopra. Comprare click su quelli è buttare budget; lo diciamo, e si lavora sul prezzo o sul fornitore.</li>
-          <li><b>Chi può vincere, va fatto vedere.</b> 276 prodotti hanno il prezzo giusto ma Google li mostra poco: è lì che il budget rende di più, e ci va. 20 hanno click ma non vendono: il problema è la scheda, non la campagna.</li>
-          <li><b>L'etichetta sta nel feed, la campagna la legge.</b> Ogni prodotto porta la sua etichetta (è quella che vedi accanto a ogni gruppo); in Google Ads ogni campagna prende solo le etichette sue, col suo budget e il suo obiettivo di ritorno. Si rilegge ogni mattina: se un prodotto cambia etichetta, cambia campagna da solo.</li>
-        </ol>
-        <p class="vs-note">Letto l'11 ottobre 2026 sui prodotti del negozio in campagna: benchmark di prezzo di Merchant Center, venti giorni di Google Ads, almeno cinque click per giudicare. Il margine entra nella stessa lettura: un prodotto che può vincere ma non guadagna non si spinge comunque.</p>
       </div>
     </div>
     <p class="ponte fx"><svg class="ico" aria-hidden="true"><use href="#arrow"/></svg><span>E la merce che non gira è un costo che nessun ROAS racconta.</span></p>
