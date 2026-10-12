@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Work — Orizon ADV</title>
-<meta name="description" content="I casi, per settore: climatizzazione da 5,4 a 8,3 milioni in un anno, food e artigianato da zero a 2 milioni, aste online, moda, forniture per hotel, informatica B2B. Numeri dai pannelli dei clienti.">
+<meta name="description" content="I clienti Orizon con i loro numeri: Climando da 5,4 a 8,3 milioni in un anno, L'Arcolaio da zero a 2 milioni, Londonstore, VG Informatica, Fontana Hotellerie, Manfrellotti. Numeri dai pannelli dei clienti.">
 <link rel="canonical" href="https://www.orizonadv.it/work">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Work — Orizon ADV">
@@ -78,35 +78,43 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .chead .sub{margin-top:16px;font-size:18px;color:var(--black-m);max-width:640px;text-wrap:pretty}
 .chead .sub strong{color:var(--black);font-weight:600}
 
-/* ── I CASI: una riga per caso ── */
-.cases{padding:8px 0 72px}
-.caso{padding:44px 0 48px;border-top:1px solid var(--line-2)}
-.caso:first-child{border-top:0}
-.caso-testa{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;font-size:13.5px;color:var(--black-m)}
-.caso-testa .num{font-weight:600;color:var(--blue)}
-.caso-grid{margin-top:14px;display:grid;grid-template-columns:minmax(0,1fr);gap:40px;align-items:center}
-.caso.con-pannello .caso-grid{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)}
-.caso h2{font-size:clamp(26px,2.7vw,36px);line-height:1.1;letter-spacing:-.03em;max-width:620px;text-wrap:balance}
-.caso h2 span{color:var(--blue)}
-.caso p{margin-top:12px;font-size:16px;color:var(--black-m);line-height:1.5;max-width:620px}
-.caso p strong{color:var(--black);font-weight:600}
-.kpi3{margin-top:22px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;max-width:620px}
-.kpi3 div{padding-top:12px;border-top:1px solid var(--line-2)}
-.kpi3 b{display:block;font-weight:600;font-size:34px;letter-spacing:-.035em;line-height:1;color:var(--black);font-variant-numeric:tabular-nums}
-.kpi3 span{display:block;margin-top:6px;font-size:12.5px;color:var(--black-m);line-height:1.35}
-.caso .tags{margin-top:20px;display:flex;flex-wrap:wrap;gap:6px}
-.caso .tags i{font-style:normal;font-size:12.5px;color:var(--black-m);border:1px solid var(--line-2);border-radius:999px;padding:4px 10px}
-.caso .go{margin-top:16px;font-size:14px;font-weight:600;color:var(--blue);text-decoration:none;display:inline-flex;gap:6px;align-items:center}
-.caso .go:hover{text-decoration:underline;text-underline-offset:3px}
-.caso-lato{display:grid;gap:14px}
-.shot{position:relative;border:1px solid var(--line-2);border-radius:12px;overflow:hidden;background:var(--white);box-shadow:0 1px 2px rgba(12,23,19,.05),0 18px 40px -22px rgba(12,23,19,.22),0 0 0 1px var(--white),6px 6px 0 -1px rgba(12,23,19,.06),12px 12px 0 -2px rgba(12,23,19,.035)}
+/* ── I CLIENTI: uno spazio per ognuno, immagine e racconto ── */
+.cases{padding:8px 0 64px}
+.cliente{padding:56px 0 60px;border-top:1px solid var(--line-2)}
+.cliente:first-child{border-top:0;padding-top:24px}
+.cl-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:52px;align-items:center}
+.cliente.flip .cl-img{order:2}
+.cl-eyebrow{display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--black-m)}
+.cl-eyebrow .num{font-weight:600;color:var(--blue);margin-right:6px}
+.cl-eyebrow i{font-style:normal;border:1px solid var(--line-2);border-radius:999px;padding:3px 10px;background:var(--white)}
+.cliente h2{margin-top:16px;font-size:clamp(30px,3.3vw,44px);line-height:1.04;letter-spacing:-.035em}
+.cl-sub{margin-top:8px;font-size:19px;font-weight:500;color:var(--black);letter-spacing:-.015em;line-height:1.3;text-wrap:balance}
+.cl-p{margin-top:12px;font-size:15.5px;color:var(--black-m);line-height:1.55}
+.cl-p strong{color:var(--black);font-weight:600}
+.cl-quote{margin-top:16px;padding:16px 18px;border-left:3px solid var(--blue);background:rgba(55,80,247,.05);border-radius:0 12px 12px 0}
+.cl-quote p{font-size:15.5px;font-style:italic;color:var(--black);line-height:1.5}
+.cl-quote footer{margin-top:8px;font-size:13px;color:var(--black-m)}
+.cl-kpi{margin-top:20px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.cl-kpi div{background:var(--white);border:1px solid var(--line-2);border-radius:14px;padding:16px 16px 14px;box-shadow:0 1px 2px rgba(12,23,19,.04),0 10px 24px -18px rgba(12,23,19,.18)}
+.cl-kpi b{display:block;font-weight:600;font-size:30px;letter-spacing:-.035em;line-height:1;color:var(--blue);font-variant-numeric:tabular-nums;white-space:nowrap}
+.cl-kpi span{display:block;margin-top:7px;font-size:12.5px;color:var(--black-m);line-height:1.35}
+.cl-serv{margin-top:20px}
+.cl-serv .k{font-size:12.5px;font-weight:600;color:var(--black-m)}
+.cl-serv .tags{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px}
+.cl-serv .tags i{font-style:normal;font-size:12.5px;color:var(--black);border:1px solid var(--line-2);border-radius:999px;padding:4px 11px;background:var(--bg-2)}
+.cl-azioni{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px}
+.cl-go{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:var(--white);font-weight:600;font-size:14px;padding:11px 18px;border-radius:999px;text-decoration:none;transition:background .2s}
+.cl-go:hover{background:var(--blue-d)}
+.cl-go.ghost{background:var(--white);color:var(--blue);border:1px solid var(--blue-ll)}
+.cl-go.ghost:hover{background:var(--blue-ll)}
+.shot{border:1px solid var(--line-2);border-radius:18px;overflow:hidden;background:var(--white);box-shadow:0 1px 2px rgba(12,23,19,.05),0 30px 60px -30px rgba(12,23,19,.28)}
+.shot .bar{display:flex;align-items:center;gap:6px;padding:10px 16px;background:var(--bg-2);border-bottom:1px solid var(--line);font-size:12.5px;color:var(--black-m)}
+.shot .bar i{width:9px;height:9px;border-radius:50%;background:var(--line-2)}
+.shot .bar span{margin-left:8px}
 .shot img{width:100%;height:auto;display:block}
-.shot figcaption{padding:10px 14px;border-top:1px solid var(--line);font-size:12.5px;color:var(--black-m)}
-.altri{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-.altri div{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--bg-2)}
-.altri .k{font-size:12px;color:var(--black-m);display:block;margin-bottom:6px}
-.altri b{display:block;font-weight:600;font-size:22px;letter-spacing:-.03em;line-height:1;color:var(--black)}
-.altri span{display:block;margin-top:4px;font-size:12px;color:var(--black-m);line-height:1.35}
+.shot figcaption{padding:10px 16px;border-top:1px solid var(--line);font-size:12.5px;color:var(--black-m)}
+.cliente.senza-img .cl-grid{grid-template-columns:minmax(0,1fr)}
+.cliente.senza-img .cl-txt{max-width:760px}
 
 /* ── CON CHI LAVORIAMO ── */
 .names{padding:56px 0;border-top:1px solid var(--line);background:var(--bg-2)}
@@ -140,7 +148,8 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 
 /* ── RESPONSIVE ── */
 @media(max-width:1000px){
-  .caso.con-pannello .caso-grid{grid-template-columns:1fr;gap:24px}
+  .cl-grid{grid-template-columns:1fr;gap:28px}
+  .cliente.flip .cl-img{order:0}
   .after{grid-template-columns:1fr}
   .foot{grid-template-columns:1fr 1fr}
 }
@@ -152,14 +161,16 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .chead{padding:108px 0 28px}
   .chead h1{font-size:clamp(32px,8.6vw,40px)}
   .chead .sub{font-size:16px}
-  .cases{padding:0 0 48px}
-  .caso{padding:32px 0 36px}
-  .caso h2{font-size:clamp(26px,7vw,30px)}
-  .kpi3{gap:12px}
-  .kpi3 b{font-size:26px}
-  .altri{grid-template-columns:1fr 1fr 1fr;gap:8px}
-  .altri div{padding:10px}
-  .altri b{font-size:18px}
+  .cases{padding:0 0 40px}
+  .cliente{padding:36px 0 40px}
+  .cliente:first-child{padding-top:8px}
+  .cliente h2{font-size:clamp(30px,8.6vw,36px)}
+  .cl-sub{font-size:17px}
+  .cl-kpi{gap:8px}
+  .cl-kpi div{padding:12px 10px 10px;border-radius:12px}
+  .cl-kpi b{font-size:22px}
+  .cl-kpi span{font-size:11.5px}
+  .cl-go{padding:10px 14px;font-size:13.5px}
   .names ul{font-size:17px;gap:6px 20px}
   .end{padding:72px 0}
   .scan{flex-direction:column;padding:6px}
@@ -205,104 +216,125 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 <header class="chead">
   <div class="wrap">
     <h1 class="fx">Numeri veri. <span>Crescita reale.</span></h1>
-    <p class="sub fx">Sette casi, per settore, senza nomi. I numeri vengono dai pannelli dei clienti: dove il pannello ce l'hanno dato lo mostriamo, dove il lavoro è in corso lo diciamo.</p>
+    <p class="sub fx">Sette clienti, uno spazio per ognuno. I numeri vengono dai loro pannelli: dove il pannello ce l'hanno dato lo mostriamo, dove il lavoro è in corso lo diciamo.</p>
   </div>
 </header>
 
 <section class="cases" aria-label="Casi studio">
   <div class="wrap">
-    <article class="caso fx con-pannello" id="caso-01">
-      <div class="caso-testa"><span class="num">Caso studio · 01</span><span class="meta">Climatizzazione e riscaldamento · e-commerce su Shopify · ottobre 2025 – ottobre 2026</span></div>
-      <div class="caso-grid">
-        <div class="caso-txt">
-          <h2>Da 5,4 a 8,3 milioni in un anno, <span>con un catalogo acceso.</span></h2>
-          <p>Spendeva le stesse cifre ogni mese su un business stagionale. Abbiamo rifatto la strategia e acceso il catalogo con Ignition: <strong>spesa nei momenti giusti, sulle categorie giuste, prodotti letti uno per uno</strong>. Campagne Meta e Google a percentuale sul venduto in più.</p>
-          <div class="kpi3"><div><b>+53%</b><span>vendite anno su anno: 8,27 M€ in dodici mesi</span></div><div><b>+135%</b><span>luglio–settembre 2026 sullo stesso trimestre 2025</span></div><div><b>x50</b><span>vendite per euro di pubblicità, Meta e Google insieme</span></div></div>
-          <div class="tags"><i>Meta Ads</i><i>Google Ads</i><i>Orizon Ignition</i><i>A percentuale</i></div>
-          <a class="go" href="/case-study/climatizzazione">Leggi il caso completo <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a>
-        </div>
-      <div class="caso-lato">
-        <figure class="shot"><img src="images/cruscotto/shopify-vendite-12m.png" alt="Pannello analitico Shopify del negozio di climatizzazione: vendite totali 8.266.784 €, +53%, sessioni 509 mila +143%, ordini 12,1 mila +51%" width="862" height="724" loading="lazy"><figcaption>Il pannello Shopify del negozio, 11 ottobre 2025 – 11 ottobre 2026.</figcaption></figure>
-        <div class="altri"><div><span class="k">Ordini in dodici mesi</span><b>12.100</b><span>+51% sull'anno prima</span></div><div><span class="k">Visite al negozio</span><b>509 mila</b><span>+143% sull'anno prima</span></div><div><span class="k">Il mese più alto</span><b>1,21 M€</b><span>luglio 2026, da 0,69 M€ del luglio 2025</span></div></div>
+    <article class="cliente fx" id="caso-01">
+      <div class="cl-grid">
+      <div class="cl-img">
+        <figure class="shot pannello"><img src="images/cruscotto/shopify-vendite-12m.png" alt="Pannello analitico Shopify di Climando: vendite totali 8.266.784 €, +53%, sessioni 509 mila +143%, ordini 12,1 mila +51%" width="862" height="724" loading="lazy"><figcaption>Pannello Shopify · 11 ottobre 2025 – 11 ottobre 2026</figcaption></figure>
+      </div>
+      <div class="cl-txt">
+        <div class="cl-eyebrow"><span class="num">Caso studio · 01</span><i>Climatizzazione e riscaldamento</i><i>e-commerce Shopify</i><i>ottobre 2025 — in corso</i></div>
+        <h2>Climando</h2>
+        <p class="cl-sub">Da 5,4 a 8,3 milioni in un anno, con un catalogo acceso.</p>
+        <p class="cl-p">Climando vende climatizzatori, caldaie e termoidraulica online, con un business che vive di stagioni. Spendeva le stesse cifre ogni mese. Abbiamo rifatto la strategia e acceso il catalogo con Ignition: <strong>spesa nei momenti giusti, sulle categorie giuste, prodotti letti uno per uno</strong>, con le etichette che decidono chi va in asta. In dodici mesi 12.100 ordini, 509 mila visite e un luglio da 1,21 milioni, contro i 0,69 dell'anno prima. Campagne Meta e Google a percentuale sul venduto in più.</p>
+        <div class="cl-kpi"><div><b>+53%</b><span>vendite anno su anno: 8,27 M€ in dodici mesi</span></div><div><b>+135%</b><span>luglio–settembre 2026 sullo stesso trimestre 2025</span></div><div><b>x50</b><span>vendite per euro di pubblicità, Meta e Google insieme</span></div></div>
+        <div class="cl-serv"><span class="k">Cosa facciamo</span><div class="tags"><i>Meta Ads</i><i>Google Ads</i><i>Orizon Ignition</i><i>Labelizer</i><i>Report ogni mattina</i></div></div>
+        <div class="cl-azioni"><a class="cl-go" href="/case-study/climatizzazione">Leggi il caso completo <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a><a class="cl-go ghost" href="https://climando.it/" target="_blank" rel="noopener">Visita climando.it <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a></div>
       </div>
       </div>
     </article>
 
-    <article class="caso fx" id="caso-02">
-      <div class="caso-testa"><span class="num">Caso studio · 02</span><span class="meta">Food e artigianato · e-commerce su Shopify · due anni, da zero</span></div>
-      <div class="caso-grid">
-        <div class="caso-txt">
-          <h2>Un negozio che non esisteva <span>fattura due milioni.</span></h2>
-          <p>Da zero: <strong>marketplace, Meta, Google, TikTok, branding e sito Shopify</strong> gestiti da un'unica regia. Ogni canale letto sul venduto totale, non sul suo ritorno da solo.</p>
-          <div class="kpi3"><div><b>0 → 2 M€</b><span>di fatturato in due anni</span></div><div><b>x13</b><span>MER: vendite totali su spesa totale</span></div><div><b>6</b><span>canali in una regia sola</span></div></div>
-          <div class="tags"><i>Marketplace</i><i>Meta</i><i>Google</i><i>TikTok</i><i>Branding</i><i>Shopify</i></div>
-          
-        </div>
+    <article class="cliente fx flip" id="caso-02">
+      <div class="cl-grid">
+      <div class="cl-img">
+        <figure class="shot"><div class="bar"><i></i><i></i><i></i><span>larcolaio.com</span></div><img src="images/clienti/larcolaio.jpg" alt="La home di larcolaio.com" width="1200" height="690" loading="lazy"></figure>
+      </div>
+      <div class="cl-txt">
+        <div class="cl-eyebrow"><span class="num">Caso studio · 02</span><i>Casa, tavola e cerimonia</i><i>e-commerce Shopify</i><i>da zero, due anni</i></div>
+        <h2>L'Arcolaio</h2>
+        <p class="cl-sub">Un negozio che non esisteva fattura due milioni.</p>
+        <p class="cl-p">L'Arcolaio è nato online da zero. Marketplace, Meta, Google, TikTok, branding e sito Shopify <strong>gestiti da un'unica regia</strong>, con ogni canale letto sul venduto totale e non sul suo ritorno da solo. In due anni, due milioni di fatturato.</p>
+        <div class="cl-kpi"><div><b>0 → 2 M€</b><span>di fatturato in due anni</span></div><div><b>x13</b><span>MER: vendite totali su spesa totale</span></div><div><b>6</b><span>canali in una regia sola</span></div></div>
+        <div class="cl-serv"><span class="k">Cosa facciamo</span><div class="tags"><i>Marketplace</i><i>Meta Ads</i><i>Google Ads</i><i>TikTok</i><i>Branding</i><i>Sito Shopify</i></div></div>
+        <div class="cl-azioni"><a class="cl-go ghost" href="https://larcolaio.com/" target="_blank" rel="noopener">Visita larcolaio.com <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a></div>
+      </div>
       </div>
     </article>
 
-    <article class="caso fx" id="caso-03">
-      <div class="caso-testa"><span class="num">Caso studio · 03</span><span class="meta">Aste online · piattaforma con registrazione</span></div>
-      <div class="caso-grid">
-        <div class="caso-txt">
-          <h2>561 mila registrazioni, <span>192 mila acquisti.</span></h2>
-          <p>Un modello che vive di iscritti. La spesa è stata letta sul ritorno reale degli acquisti, <strong>non sul costo per registrazione</strong>: così il budget è andato dove gli iscritti poi compravano.</p>
-          <div class="kpi3"><div><b>3,25 M€</b><span>di fatturato generato</span></div><div><b>953 K€</b><span>di spesa pubblicitaria</span></div><div><b>192 mila</b><span>acquisti, da 561 mila registrazioni</span></div></div>
-          <div class="tags"><i>Meta Ads</i><i>Google Ads</i><i>Registrazioni</i></div>
-          
-        </div>
+    <article class="cliente fx senza-img" id="caso-03">
+      <div class="cl-grid">
+      <div class="cl-txt">
+        <div class="cl-eyebrow"><span class="num">Caso studio · 03</span><i>piattaforma con registrazione</i><i>il cliente non compare col nome</i></div>
+        <h2>Aste online</h2>
+        <p class="cl-sub">561 mila registrazioni, 192 mila acquisti.</p>
+        <p class="cl-p">Un modello che vive di iscritti. La spesa è stata letta sul ritorno reale degli acquisti, <strong>non sul costo per registrazione</strong>: così il budget è andato dove gli iscritti poi compravano.</p>
+        <div class="cl-kpi"><div><b>3,25 M€</b><span>di fatturato generato</span></div><div><b>953 K€</b><span>di spesa pubblicitaria</span></div><div><b>192 mila</b><span>acquisti, da 561 mila registrazioni</span></div></div>
+        <div class="cl-serv"><span class="k">Cosa facciamo</span><div class="tags"><i>Meta Ads</i><i>Google Ads</i><i>Registrazioni</i></div></div>
+        <div class="cl-azioni"></div>
+      </div>
       </div>
     </article>
 
-    <article class="caso fx" id="caso-04">
-      <div class="caso-testa"><span class="num">Caso studio · 04</span><span class="meta">Moda e streetwear · negozio multimarca su Shopify</span></div>
-      <div class="caso-grid">
-        <div class="caso-txt">
-          <h2>Fatturato quasi triplicato <span>anno su anno.</span></h2>
-          <p><strong>Meta e Google insieme, creatività prodotte con l'AI</strong> per provare più varianti in meno tempo, e lavoro sul negozio perché chi arriva compri.</p>
-          <div class="kpi3"><div><b>+180%</b><span>fatturato anno su anno</span></div><div><b>4,2x</b><span>ROAS sulle campagne</span></div></div>
-          <div class="tags"><i>Meta Ads</i><i>Google Ads</i><i>Creatività AI</i><i>CRO</i></div>
-          
-        </div>
+    <article class="cliente fx flip" id="caso-04">
+      <div class="cl-grid">
+      <div class="cl-img">
+        <figure class="shot"><div class="bar"><i></i><i></i><i></i><span>londonstore.it</span></div><img src="images/clienti/londonstore.jpg" alt="La home di londonstore.it" width="1200" height="690" loading="lazy"></figure>
+      </div>
+      <div class="cl-txt">
+        <div class="cl-eyebrow"><span class="num">Caso studio · 04</span><i>Moda e streetwear</i><i>negozio multimarca su Shopify</i><i>in corso</i></div>
+        <h2>Londonstore</h2>
+        <p class="cl-sub">Fatturato quasi triplicato anno su anno.</p>
+        <p class="cl-p">Londonstore è un multimarca di moda e streetwear a Napoli, con un negozio online da 17.432 prodotti. <strong>Meta e Google insieme, creatività prodotte con l'AI</strong> per provare più varianti in meno tempo, e lavoro sul negozio perché chi arriva compri. Ora stiamo accendendo il catalogo: il cardigan dei piatti in home è suo.</p>
+        <div class="cl-kpi"><div><b>+180%</b><span>fatturato anno su anno</span></div><div><b>4,2x</b><span>ROAS sulle campagne</span></div><div><b>17.432</b><span>prodotti da accendere con Ignition</span></div></div>
+        <div class="cl-serv"><span class="k">Cosa facciamo</span><div class="tags"><i>Meta Ads</i><i>Google Ads</i><i>Creatività AI</i><i>CRO</i><i>Orizon Ignition</i></div></div>
+        <div class="cl-azioni"><a class="cl-go ghost" href="https://londonstore.it/" target="_blank" rel="noopener">Visita londonstore.it <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a></div>
+      </div>
       </div>
     </article>
 
-    <article class="caso fx" id="caso-05">
-      <div class="caso-testa"><span class="num">Caso studio · 05</span><span class="meta">Informatica B2B · soluzioni IT per aziende, richieste di preventivo</span></div>
-      <div class="caso-grid">
-        <div class="caso-txt">
-          <h2>Più richieste, <span>a meno della metà del costo.</span></h2>
-          <p>Niente e-commerce: richieste di preventivo. Landing dedicate e campagne lette <strong>sul valore delle richieste chiuse</strong>, non sul numero di contatti.</p>
-          <div class="kpi3"><div><b>+320%</b><span>richieste in più</span></div><div><b>−45%</b><span>costo per richiesta</span></div></div>
-          <div class="tags"><i>Google Ads</i><i>Meta Ads</i><i>Landing page</i><i>Lead generation</i></div>
-          <a class="go" href="/case-study/informatica-b2b">Leggi il caso completo <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a>
-        </div>
+    <article class="cliente fx" id="caso-05">
+      <div class="cl-grid">
+      <div class="cl-img">
+        <figure class="shot"><div class="bar"><i></i><i></i><i></i><span>vginformatica.com</span></div><img src="images/clienti/vginformatica.jpg" alt="La home di vginformatica.com" width="1200" height="690" loading="lazy"></figure>
+      </div>
+      <div class="cl-txt">
+        <div class="cl-eyebrow"><span class="num">Caso studio · 05</span><i>Informatica B2B</i><i>soluzioni IT per aziende</i><i>richieste di preventivo</i></div>
+        <h2>VG Informatica</h2>
+        <p class="cl-sub">Più richieste, a meno della metà del costo.</p>
+        <p class="cl-p">VG Informatica vende hardware, assistenza e PC su misura alle aziende. Niente carrello: richieste di preventivo. Landing dedicate e campagne lette <strong>sul valore delle richieste chiuse</strong>, non sul numero di contatti.</p>
+        <div class="cl-kpi"><div><b>+320%</b><span>richieste in più</span></div><div><b>−45%</b><span>costo per richiesta</span></div></div>
+        <div class="cl-serv"><span class="k">Cosa facciamo</span><div class="tags"><i>Google Ads</i><i>Meta Ads</i><i>Landing page</i><i>Lead generation</i></div></div>
+        <div class="cl-azioni"><a class="cl-go" href="/case-study/informatica-b2b">Leggi il caso completo <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a><a class="cl-go ghost" href="https://vginformatica.com/" target="_blank" rel="noopener">Visita vginformatica.com <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a></div>
+      </div>
       </div>
     </article>
 
-    <article class="caso fx" id="caso-06">
-      <div class="caso-testa"><span class="num">Caso studio · 06</span><span class="meta">Forniture per hotel e ristoranti · e-commerce su Shopify · in corso</span></div>
-      <div class="caso-grid">
-        <div class="caso-txt">
-          <h2>1.446 prodotti accesi, <span>uno per uno.</span></h2>
-          <p>Schede scritte dai fatti, quattro lingue pubblicate sul negozio, i dati che Google chiede messi in ordine. <strong>La padella sulla home è sua.</strong></p>
-          <div class="kpi3"><div><b>1.446</b><span>prodotti trattati uno per uno</span></div><div><b>4 lingue</b><span>titolo, scheda, snippet, tipo e indirizzo</span></div><div><b>23 → 100</b><span>indice di accensione per prodotto</span></div></div>
-          <div class="tags"><i>Orizon Ignition</i><i>SEO + GEO</i><i>Traduzioni</i><i>Dati prodotto</i></div>
-          <a class="go" href="/#ignition">Accendi un suo prodotto <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a>
-        </div>
+    <article class="cliente fx flip" id="caso-06">
+      <div class="cl-grid">
+      <div class="cl-img">
+        <figure class="shot"><div class="bar"><i></i><i></i><i></i><span>fontanahotellerieshop.it</span></div><img src="images/clienti/fontana.jpg" alt="La home di fontanahotellerieshop.it" width="1200" height="690" loading="lazy"></figure>
+      </div>
+      <div class="cl-txt">
+        <div class="cl-eyebrow"><span class="num">Caso studio · 06</span><i>Forniture per hotel e ristoranti</i><i>e-commerce Shopify</i><i>2026 — in corso</i></div>
+        <h2>F.lli Fontana Hotellerie</h2>
+        <p class="cl-sub">1.446 prodotti accesi, uno per uno.</p>
+        <p class="cl-p">Fontana fornisce pasticcerie, hotel e ristoranti. Il suo catalogo è stato acceso con Ignition: <strong>schede scritte dai fatti, quattro lingue pubblicate sul negozio</strong>, i dati che Google chiede messi in ordine. La padella sulla home è sua.</p>
+        <div class="cl-kpi"><div><b>1.446</b><span>prodotti trattati uno per uno</span></div><div><b>4 lingue</b><span>titolo, scheda, snippet, tipo e indirizzo</span></div><div><b>23 → 100</b><span>indice di accensione per prodotto</span></div></div>
+        <div class="cl-serv"><span class="k">Cosa facciamo</span><div class="tags"><i>Orizon Ignition</i><i>SEO + GEO</i><i>Traduzioni</i><i>Dati prodotto</i></div></div>
+        <div class="cl-azioni"><a class="cl-go" href="/#ignition">Accendi un suo prodotto <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a><a class="cl-go ghost" href="https://fontanahotellerieshop.it/" target="_blank" rel="noopener">Visita fontanahotellerieshop.it <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a></div>
+      </div>
       </div>
     </article>
 
-    <article class="caso fx" id="caso-07">
-      <div class="caso-testa"><span class="num">Caso studio · 07</span><span class="meta">Moda · Shopify, oltre 20.000 prodotti · in corso</span></div>
-      <div class="caso-grid">
-        <div class="caso-txt">
-          <h2>Il feed arriva vuoto. <span>Ignition lo riempie dal catalogo.</span></h2>
-          <p>Colore, taglia, genere ed età mancano nel feed di Shopping. Ignition li ricava dal catalogo <strong>senza inventare niente</strong> e pubblica un feed supplementare che Merchant Center legge da solo, ogni giorno.</p>
-          <div class="kpi3"><div><b>17.201</b><span>prodotti nel feed supplementare</span></div><div><b>89%</b><span>con il colore, taglia 80%</span></div><div><b>98%</b><span>con l'età, genere 94%</span></div></div>
-          <div class="tags"><i>Orizon Ignition</i><i>Feed Google</i><i>Etichette</i></div>
-          <a class="go" href="/#piatto-feed">Guarda il feed campo per campo <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a>
-        </div>
+    <article class="cliente fx" id="caso-07">
+      <div class="cl-grid">
+      <div class="cl-img">
+        <figure class="shot"><div class="bar"><i></i><i></i><i></i><span>manfrellotti.it</span></div><img src="images/clienti/manfrellotti.jpg" alt="La home di manfrellotti.it" width="1200" height="690" loading="lazy"></figure>
+      </div>
+      <div class="cl-txt">
+        <div class="cl-eyebrow"><span class="num">Caso studio · 07</span><i>Moda</i><i>Shopify, oltre 20.000 prodotti</i><i>2026 — in corso</i></div>
+        <h2>Manfrellotti</h2>
+        <p class="cl-sub">Il feed arriva vuoto. Ignition lo riempie dal catalogo.</p>
+        <p class="cl-p">Manfrellotti è un negozio di moda a Napoli dal 1986, con oltre ventimila prodotti online. Colore, taglia, genere ed età mancavano nel feed di Shopping. Ignition li ricava dal catalogo <strong>senza inventare niente</strong> e pubblica un feed supplementare che Merchant Center legge da solo, ogni giorno.</p>
+        <div class="cl-kpi"><div><b>17.201</b><span>prodotti nel feed supplementare</span></div><div><b>89%</b><span>con il colore, taglia 80%</span></div><div><b>98%</b><span>con l'età, genere 94%</span></div></div>
+        <div class="cl-serv"><span class="k">Cosa facciamo</span><div class="tags"><i>Orizon Ignition</i><i>Feed Google</i><i>Etichette</i></div></div>
+        <div class="cl-azioni"><a class="cl-go" href="/#piatto-feed">Guarda il feed campo per campo <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a><a class="cl-go ghost" href="https://manfrellotti.it/" target="_blank" rel="noopener">Visita manfrellotti.it <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></a></div>
+      </div>
       </div>
     </article>
   </div>
@@ -310,9 +342,9 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 
 <section class="names" aria-label="I settori in cui lavoriamo">
   <div class="wrap">
-    <h3>I settori in cui lavoriamo</h3>
+    <h3>E con loro</h3>
     <ul>
-      <li>Climatizzazione e riscaldamento</li><li>Moda e streetwear</li><li>Food e artigianato</li><li>Aste online</li><li>Forniture per hotel e ristoranti</li><li>Informatica B2B</li><li>Casa e arredo<span>in corso</span></li>
+      <li>Buytutto</li><li>B-Power<span>in corso</span></li><li>De Matteo Home<span>in corso</span></li>
     </ul>
   </div>
 </section>
