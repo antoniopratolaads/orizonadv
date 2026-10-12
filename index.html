@@ -98,47 +98,49 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .gos-play:hover{border-color:var(--blue);color:var(--blue)}
 .gos-play .ico{width:14px;height:14px;stroke:none}
 .gos-play:disabled{opacity:.5;cursor:default}
-.gos-flow{display:grid;grid-template-columns:1fr 36px 1.35fr 36px 1fr;align-items:stretch}
-.gf{padding:20px 24px 22px;min-width:0}
-.gf h3{font-size:13px;font-weight:600;color:var(--black-m);margin-bottom:14px}
-.gf-arrow{display:flex;align-items:center;justify-content:center;color:var(--blue);background:linear-gradient(var(--line),var(--line)) center/1px 100% no-repeat}
-.gf-arrow .ico{width:18px;height:18px;background:var(--white);box-sizing:content-box;padding:6px 0;stroke-width:1.8}
-.gf-h{display:flex;align-items:center;gap:8px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11.5px;color:var(--black-m);margin-bottom:14px}
-.gf-h i{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(96,231,135,.22);flex:none}
-.gf-nums{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.gf-nums div{border:1px solid var(--line);border-radius:10px;padding:12px 12px 10px;background:var(--bg-2)}
-.gf-nums b{display:block;font-size:26px;font-weight:600;letter-spacing:-.03em;line-height:1;color:var(--black);font-variant-numeric:tabular-nums}
-.gf-nums span{display:block;font-size:12px;color:var(--black-m);margin-top:5px}
-.gf-in p,.gf-doc p{margin-top:14px;font-size:13px;color:var(--black-m);line-height:1.45}
-.gf-in p b,.gf-doc p b{color:var(--black);font-weight:600}
-.gos-score{display:grid;grid-template-columns:auto 1fr;column-gap:14px;align-items:baseline}
-.gos-score>span{font-size:13px;color:var(--black-m);grid-column:1/-1}
-.gos-score>b{font-size:20px;font-weight:600;color:var(--black-m);letter-spacing:-.02em;line-height:1}
-.gos-score>b em{font-style:normal;font-size:44px;color:var(--black);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
-.gos-sbar{display:block;height:8px;border-radius:999px;background:var(--black-ll);overflow:hidden;align-self:center}
+.gos-top{display:grid;grid-template-columns:380px 1fr;gap:28px;align-items:center;padding:20px 24px 18px;border-bottom:1px solid var(--line)}
+.gos-idx>span{display:block;font-size:13px;color:var(--black-m)}
+.gos-ab{display:flex;align-items:baseline;gap:10px;margin-top:2px}
+.gos-ab b{font-weight:600;font-size:44px;letter-spacing:-.04em;line-height:1;color:var(--black-m);font-variant-numeric:tabular-nums}
+.gos-ab b em{font-style:normal}
+.gos-ab b.post{color:var(--blue)}
+.gos-ab .ico{width:22px;height:22px;color:var(--blue);align-self:center;stroke-width:1.8}
+.gos-ab small{font-size:14px;color:var(--black-m)}
+.gos-sbar{display:block;height:9px;border-radius:999px;background:var(--black-ll);overflow:hidden;margin-top:10px;position:relative}
 .gos-sbar i{display:block;height:100%;width:var(--v);border-radius:999px;background:var(--blue)}
-.gos-score small{grid-column:1/-1;margin-top:8px;font-size:13.5px;color:var(--black-m);line-height:1.45}
-.gos-score small b{color:var(--black);font-weight:600}
-.gos-aree{margin-top:14px;display:grid;gap:7px;padding-top:12px;border-top:1px solid var(--line)}
-.ga{display:grid;grid-template-columns:132px 1fr 30px;column-gap:12px;align-items:center;font-size:13.5px}
-.ga-n{font-weight:600;color:var(--black)}
+.gos-sbar.two i{position:absolute;left:0;top:0}
+.gos-sbar.two .pre{background:var(--black-l);z-index:1}
+.gf-h{display:flex;align-items:center;gap:8px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11.5px;color:var(--black-m)}
+.gf-h i{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(96,231,135,.22);flex:none}
+.gos-top-t p{margin-top:8px;font-size:14px;color:var(--black-m);line-height:1.5;max-width:640px}
+.gos-top-t p b{color:var(--black);font-weight:600}
+.gos-tab{padding:4px 24px 8px}
+.gr{display:grid;grid-template-columns:138px 1fr 1.25fr 1.1fr 118px;gap:18px;align-items:start;padding:13px 0;border-top:1px solid var(--line)}
+.gr.head{padding:12px 0 8px;border-top:0;font-size:12px;font-weight:600;color:var(--black-m)}
+.gr.head .dopo{color:var(--blue)}
+.gr-a{font-weight:600;font-size:14px;color:var(--black);padding-top:1px}
+.gr-o,.gr-d{display:grid;grid-template-columns:1fr 30px;column-gap:10px;align-items:center;font-size:13.5px}
+.gr-o b,.gr-d b{font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+.gr-o b{color:var(--black-m)}
+.gr-d b{color:var(--blue)}
+.gr-o small{grid-column:1/-1;font-size:12px;color:var(--black-m);margin-top:2px;line-height:1.35}
 .ga-bar{display:block;height:7px;border-radius:999px;background:var(--bg-2);overflow:hidden}
 .ga-bar i{display:block;height:100%;width:var(--v);border-radius:999px;background:var(--blue)}
-.ga.male .ga-bar i{background:var(--black-l)}
-.ga>b{font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
-.ga.male>b{color:var(--black-m)}
-.ga small{grid-column:1/-1;font-size:12px;color:var(--black-m);margin-top:-3px}
-.gf-pages{display:grid;gap:8px}
-.pg{position:relative;border:1px solid var(--line-2);border-radius:8px;background:var(--white);padding:10px 12px 10px 42px;box-shadow:0 1px 2px rgba(12,23,19,.05)}
-.pg span{display:block;font-size:13px;font-weight:600;color:var(--black);line-height:1.3}
-.pg b{position:absolute;left:12px;top:10px;width:20px;height:20px;border-radius:50%;background:var(--blue-ll);color:var(--blue);font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center}
-.pg i{display:block;height:4px;border-radius:2px;background:var(--line);margin-top:6px;width:72%}
-.pg i+i{width:46%;margin-top:4px}
-/* «Guarda come legge»: i numeri contano, le barre si riempiono, i fogli arrivano */
-.gos.run .ga-bar i,.gos.run .gos-sbar i{transition:width .9s var(--ease)}
-.gos.zero .ga-bar i,.gos.zero .gos-sbar i{width:0!important}
-.gos.run .pg{opacity:0;transform:translateY(8px)}
-.gos.run .pg.on{opacity:1;transform:none;transition:opacity .35s var(--ease),transform .35s var(--ease)}
+.ga-bar.male i{background:var(--black-l)}
+.ga-bar.medio i{background:var(--blue-s)}
+.gr-c{font-size:13.5px;line-height:1.4}
+.gr-c a{color:var(--black);text-decoration:none}
+.gr-c a:hover{color:var(--blue)}
+.gr-c em{font-style:normal;font-size:11px;font-weight:600;color:var(--blue);background:var(--blue-ll);border-radius:999px;padding:2px 7px;margin-left:4px;white-space:nowrap;vertical-align:1px}
+.gr-g{font-size:13px;line-height:1.4;color:var(--black-m)}
+.gos-oltre{margin:6px 24px 0;padding:14px 0 0;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:12.5px}
+.gos-oltre b{color:var(--black);font-weight:600;margin-right:4px}
+.gos-oltre i{font-style:normal;color:var(--black);border:1px dashed var(--black-l);border-radius:999px;padding:4px 10px}
+.gos-doc{margin:0;padding:12px 24px 18px;font-size:13px;color:var(--black-m);line-height:1.45}
+.gos-doc b{color:var(--black);font-weight:600}
+/* «Accendi il negozio»: il dopo riparte dall'oggi e sale */
+.gos.run .post{transition:width 1.1s var(--ease)}
+.gos.zero .post{width:var(--from)!important}
 /* ── prima / dopo: le etichette sulle card e il ponte ── */
 .tag{display:inline-block;font-style:normal;font-weight:600;font-size:11px;letter-spacing:.02em;color:var(--black-m);background:var(--bg-2);border:1px solid var(--line-2);border-radius:6px;padding:3px 8px;margin-right:10px;vertical-align:3px;line-height:1.2}
 .tag.on{color:var(--white);background:var(--blue);border-color:var(--blue)}
@@ -705,12 +707,19 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .scan-k{margin-top:26px;font-size:16px}
   .gos{margin-top:36px}
   .gos-head{padding:14px 16px}
-  .gos-flow{grid-template-columns:1fr}
-  .gf{padding:16px 16px 18px}
-  .gf-arrow{height:30px;background:linear-gradient(var(--line),var(--line)) center/100% 1px no-repeat}
-  .gf-arrow .ico{transform:rotate(90deg);padding:0 6px}
-  .gos-score>b em{font-size:36px}
-  .ga{grid-template-columns:112px 1fr 28px;font-size:12.5px}
+  .gos-top{grid-template-columns:1fr;gap:14px;padding:16px 16px 14px}
+  .gos-ab b{font-size:38px}
+  .gos-tab{padding:0 16px 4px}
+  .gr{grid-template-columns:1fr;gap:8px;padding:14px 0}
+  .gr.head{display:none}
+  .gr-a{font-size:15px}
+  .gr-o::before,.gr-c::before,.gr-g::before,.gr-d::before{display:block;font-size:11.5px;font-weight:600;color:var(--black-m);margin-bottom:4px}
+  .gr-o::before{content:'Oggi';grid-column:1/-1}
+  .gr-c::before{content:'Cosa accendiamo'}
+  .gr-g::before{content:'Perché Google lo premia'}
+  .gr-d::before{content:'Acceso';color:var(--blue);grid-column:1/-1}
+  .gos-oltre{margin:4px 16px 0}
+  .gos-doc{padding:12px 16px 16px}
   .bridge{padding:28px 0 32px}
   .bridge h2{text-align:left}
   .bl-head{display:none}
@@ -854,45 +863,60 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     <h2 class="hero-h2 fx">Così legge un negozio, da fuori. <span>Questo è vero: moda, 17.432 prodotti, il 20 settembre 2026.</span></h2>
     <div class="gos fx" id="gos">
       <div class="gos-head">
-        <div><span class="gos-k"><i class="tag">Diagnosi</i>Orizon GOS <em>Growth Opportunity Scan</em></span><span class="gos-s">Legge il negozio da fuori, dà un voto a cinque aree, consegna un documento. <b>Quattro minuti, nessun accesso.</b></span></div>
-        <button type="button" class="gos-play" id="gos-play"><svg class="ico" aria-hidden="true" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor" stroke="none"/></svg> Guarda come legge</button>
+        <div><span class="gos-k"><i class="tag">Diagnosi</i>Orizon GOS <em>Growth Opportunity Scan</em></span><span class="gos-s">Legge il negozio da fuori, dà un voto a cinque aree e dice <b>cosa accendere per arrivare a 100</b>. Quattro minuti, nessun accesso.</span></div>
+        <button type="button" class="gos-play" id="gos-play"><svg class="ico" aria-hidden="true" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor" stroke="none"/></svg> Accendi il negozio</button>
       </div>
-      <div class="gos-flow">
-        <div class="gf gf-in">
-          <div class="gf-h"><i></i><span>OrizonScan · negozio di moda · 20 settembre 2026</span></div>
-          <h3>1 · Legge, da fuori</h3>
-          <div class="gf-nums">
-            <div><b data-n="17432">17.432</b><span>prodotti</span></div>
-            <div><b data-n="70099">70.099</b><span>varianti</span></div>
-            <div><b data-n="25">25</b><span>pagine fotografate</span></div>
-            <div><b data-n="12">12</b><span>attributi del feed</span></div>
-          </div>
-          <p>Catalogo pubblico, pagine prodotto, feed, codici a barre, lingue, tracciamento. <b>Solo quello che il negozio pubblica.</b></p>
+      <div class="gos-top">
+        <div class="gos-idx">
+          <span>Indice di accensione</span>
+          <div class="gos-ab"><b><em>38</em></b><svg class="ico" aria-hidden="true"><use href="#arrow"/></svg><b class="post"><em id="gos-n" data-from="38" data-n="100">100</em></b><small>/100</small></div>
+          <i class="gos-sbar two"><i class="post" style="--v:100%;--from:38%"></i><i class="pre" style="--v:38%"></i></i>
         </div>
-        <i class="gf-arrow" aria-hidden="true"><svg class="ico"><use href="#arrow"/></svg></i>
-        <div class="gf gf-score">
-          <h3>2 · Dà un voto a cinque aree</h3>
-          <div class="gos-score"><span>Indice di accensione</span><b><em id="gos-n" data-n="38">38</em>/100</b><i class="gos-sbar"><i style="--v:38%"></i></i><small>Catalogo caricato, ma spento: <b>14.763 prodotti su 17.432</b> senza un testo che Google possa preferire a un altro negozio.</small></div>
-          <div class="gos-aree">
-            <div class="ga male"><span class="ga-n">Schede prodotto</span><i class="ga-bar"><i style="--v:15%"></i></i><b>15</b><small>14.763 su 17.432 senza testo utile</small></div>
-            <div class="ga male"><span class="ga-n">Catalogo vivo</span><i class="ga-bar"><i style="--v:32%"></i></i><b>32</b><small>11.932 online ma esauriti</small></div>
-            <div class="ga medio"><span class="ga-n">Feed e attributi</span><i class="ga-bar"><i style="--v:45%"></i></i><b>45</b><small>senza codice a barre valido e peso</small></div>
-            <div class="ga medio"><span class="ga-n">Testo per Google</span><i class="ga-bar"><i style="--v:60%"></i></i><b>60</b><small>15 pagine su 25 senza descrizione</small></div>
-            <div class="ga medio"><span class="ga-n">Tracciamento</span><i class="ga-bar"><i style="--v:67%"></i></i><b>67</b><small>manca Meta</small></div>
-          </div>
-        </div>
-        <i class="gf-arrow" aria-hidden="true"><svg class="ico"><use href="#arrow"/></svg></i>
-        <div class="gf gf-doc">
-          <h3>3 · Consegna un documento</h3>
-          <div class="gf-pages" aria-label="Quattro fogli">
-            <div class="pg"><b>1</b><span>La diagnosi</span><i></i><i></i></div>
-            <div class="pg"><b>2</b><span>La pagella delle cinque aree</span><i></i><i></i></div>
-            <div class="pg"><b>3</b><span>I tre problemi, e cosa si fa</span><i></i><i></i></div>
-            <div class="pg"><b>4</b><span>Quello che da fuori non si vede</span><i></i><i></i></div>
-          </div>
-          <p><b>Entro 24 ore</b>, senza impegno. Poi, se vuoi, mezz'ora al telefono sui tuoi numeri.</p>
+        <div class="gos-top-t">
+          <div class="gf-h"><i></i><span>OrizonScan · negozio di moda · 17.432 prodotti · 20 settembre 2026</span></div>
+          <p><b>Oggi:</b> catalogo caricato ma spento, 14.763 prodotti su 17.432 senza un testo che Google possa preferire a un altro negozio. <b>Acceso:</b> ogni area a 100, con le cinque mosse qui sotto.</p>
         </div>
       </div>
+      <div class="gos-tab" role="table" aria-label="Le cinque aree: oggi, cosa accendiamo, perché Google lo premia, acceso">
+        <div class="gr head" role="row"><span role="columnheader">Area</span><span role="columnheader">Oggi</span><span role="columnheader">Cosa accendiamo</span><span role="columnheader">Perché Google lo premia</span><span class="dopo" role="columnheader">Acceso</span></div>
+        <div class="gr" role="row">
+          <span class="gr-a" role="rowheader">Schede prodotto</span>
+          <span class="gr-o" role="cell"><i class="ga-bar male"><i style="--v:15%"></i></i><b>15</b><small>14.763 su 17.432 senza un testo proprio</small></span>
+          <span class="gr-c" role="cell"><a href="#ignition">Una scheda per prodotto, scritta dai suoi dati, nelle 5 lingue del sito <em>leva 01</em></a></span>
+          <span class="gr-g" role="cell">Un testo unico si indicizza; gli assistenti AI hanno qualcosa da citare.</span>
+          <span class="gr-d" role="cell"><i class="ga-bar"><i class="post" style="--v:100%;--from:15%"></i></i><b data-from="15" data-n="100">100</b></span>
+        </div>
+        <div class="gr" role="row">
+          <span class="gr-a" role="rowheader">Catalogo vivo</span>
+          <span class="gr-o" role="cell"><i class="ga-bar male"><i style="--v:32%"></i></i><b>32</b><small>11.932 prodotti online ma esauriti</small></span>
+          <span class="gr-c" role="cell"><a href="#magazzino">Esauriti fuori da feed e campagne ogni mattina; riordini in lista <em>leva 06</em></a></span>
+          <span class="gr-g" role="cell">Nessun click pagato su un prodotto che non si può comprare.</span>
+          <span class="gr-d" role="cell"><i class="ga-bar"><i class="post" style="--v:100%;--from:32%"></i></i><b data-from="32" data-n="100">100</b></span>
+        </div>
+        <div class="gr" role="row">
+          <span class="gr-a" role="rowheader">Feed e attributi</span>
+          <span class="gr-o" role="cell"><i class="ga-bar medio"><i style="--v:45%"></i></i><b>45</b><small>codice a barre valido e peso: mancano</small></span>
+          <span class="gr-c" role="cell"><a href="#ignition">Codice a barre, peso, colore, materiale: campi pieni, feed supplementare <em>leva 03</em></a></span>
+          <span class="gr-g" role="cell">Shopping abbina il prodotto alla ricerca giusta e lo mostra nei filtri.</span>
+          <span class="gr-d" role="cell"><i class="ga-bar"><i class="post" style="--v:100%;--from:45%"></i></i><b data-from="45" data-n="100">100</b></span>
+        </div>
+        <div class="gr" role="row">
+          <span class="gr-a" role="rowheader">Testo per Google</span>
+          <span class="gr-o" role="cell"><i class="ga-bar medio"><i style="--v:60%"></i></i><b>60</b><small>15 pagine su 25 senza una descrizione</small></span>
+          <span class="gr-c" role="cell"><a href="#ignition">Titolo e riga nella misura che Google mostra intera <em>leva 02</em></a></span>
+          <span class="gr-g" role="cell">A parità di posizione, il click.</span>
+          <span class="gr-d" role="cell"><i class="ga-bar"><i class="post" style="--v:100%;--from:60%"></i></i><b data-from="60" data-n="100">100</b></span>
+        </div>
+        <div class="gr" role="row">
+          <span class="gr-a" role="rowheader">Tracciamento</span>
+          <span class="gr-o" role="cell"><i class="ga-bar medio"><i style="--v:67%"></i></i><b>67</b><small>manca Meta</small></span>
+          <span class="gr-c" role="cell"><a href="#ignition">Meta aggiunto; ogni evento dal server, contato una volta <em>leva 04</em></a></span>
+          <span class="gr-g" role="cell">Le campagne imparano da ogni ordine, non da una parte.</span>
+          <span class="gr-d" role="cell"><i class="ga-bar"><i class="post" style="--v:100%;--from:67%"></i></i><b data-from="67" data-n="100">100</b></span>
+        </div>
+      </div>
+      <div class="gos-oltre"><b>Oltre il 100, da fuori si vede già:</b><i>5 lingue del sito, nessun mercato estero attivo</i><i>nessuna recensione visibile a Google</i><i>198 marche senza una pagina propria</i></div>
+      <p class="gos-doc">Tutto questo arriva in un documento di quattro fogli, <b>entro 24 ore</b>, senza impegno. Poi, se vuoi, mezz'ora al telefono sui tuoi numeri.</p>
     </div>
   </div>
   <div class="hero-end"></div>
@@ -1679,26 +1703,27 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     rows.forEach(function(r){ r.addEventListener('click', syncChips); r.addEventListener('keydown', function(){ setTimeout(syncChips, 0); }); });
     document.getElementById('all').addEventListener('click', function(){ var n = 0; KEYS.forEach(function(k, i){ setTimeout(syncChips, reduce ? 0 : i * 200 + 20); }); });
   }
-  /* ── Orizon GOS: «Guarda come legge» rifà la lettura, a richiesta ── */
+  /* ── Orizon GOS: «Accendi il negozio» fa ripartire il dopo dall'oggi, a richiesta ── */
   var gplay = document.getElementById('gos-play'), gos = document.getElementById('gos');
   if (gplay && gos) gplay.addEventListener('click', function(){
     if (reduce) return;
-    gplay.disabled = true; gos.classList.add('run');
-    var pagine = Array.prototype.slice.call(gos.querySelectorAll('.pg'));
-    pagine.forEach(function(p){ p.classList.remove('on'); });
+    gplay.disabled = true;
+    // il dopo torna all'oggi di colpo (senza transizione), poi sale
+    gos.classList.remove('run'); gos.classList.add('zero'); void gos.offsetWidth;
+    gos.querySelectorAll('.gr-d b, #gos-n').forEach(function(el){ el.textContent = el.getAttribute('data-from'); });
     function conta(el, durata, ritardo){
-      var fine = parseInt(el.getAttribute('data-n'), 10), t0 = null;
-      setTimeout(function(){ (function passo(ts){ if (t0 === null) t0 = ts; var f = Math.min(1, (ts - t0) / durata); f = 1 - Math.pow(1 - f, 3); el.textContent = Math.round(fine * f).toLocaleString('it-IT'); if (f < 1) requestAnimationFrame(passo); })(performance.now()); }, ritardo);
+      var da = parseInt(el.getAttribute('data-from'), 10) || 0, fine = parseInt(el.getAttribute('data-n'), 10), t0 = null;
+      setTimeout(function(){ (function passo(ts){ if (t0 === null) t0 = ts; var f = Math.min(1, (ts - t0) / durata); f = 1 - Math.pow(1 - f, 3); el.textContent = Math.round(da + (fine - da) * f); if (f < 1) requestAnimationFrame(passo); })(performance.now()); }, ritardo);
       // se la scheda è in secondo piano i frame non girano: il numero finale arriva comunque
-      setTimeout(function(){ el.textContent = fine.toLocaleString('it-IT'); }, ritardo + durata + 80);
+      setTimeout(function(){ el.textContent = fine; }, ritardo + durata + 80);
     }
-    gos.querySelectorAll('.gf-nums b').forEach(function(b, i){ conta(b, 800, i * 120); });
     setTimeout(function(){
-      gos.classList.add('zero'); void gos.offsetWidth; gos.classList.remove('zero');
-      conta(document.getElementById('gos-n'), 900, 0);
-    }, 700);
-    setTimeout(function(){ pagine.forEach(function(p, i){ setTimeout(function(){ p.classList.add('on'); }, i * 150); }); }, 1500);
-    setTimeout(function(){ gos.classList.remove('run'); gplay.disabled = false; }, 2400);
+      gos.classList.add('run'); void gos.offsetWidth; gos.classList.remove('zero');
+      gos.querySelectorAll('.gr-d b').forEach(function(b, i){ conta(b, 1000, i * 90); });
+      conta(document.getElementById('gos-n'), 1100, 200);
+    }, 350);
+    // a fine corsa il valore finale si fissa anche se la scheda era in secondo piano (le transizioni lì si fermano)
+    setTimeout(function(){ gos.classList.remove('run'); gos.classList.add('zero'); void gos.offsetWidth; gos.classList.remove('zero'); gplay.disabled = false; }, 2200);
   });
   var b = document.querySelector('.burger'), m = document.querySelector('.mobile-menu'), c = document.querySelector('.mobile-close');
   function closeMenu(){ m.classList.remove('open'); document.body.style.overflow = ''; b.setAttribute('aria-expanded', 'false'); }
