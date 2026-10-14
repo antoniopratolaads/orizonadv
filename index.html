@@ -117,6 +117,26 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .scan.big{max-width:640px;margin-top:16px;padding:5px;border-radius:12px}
 .scan.big input{height:52px;font-size:17px;padding:0 18px}
 .scan.big button{height:52px;padding:0 22px;font-size:16px;border-radius:9px}
+/* ── L'hero col video di Ignition (14/10/2026): il video sta sopra il form, nel primo schermo; il testo va a sinistra ── */
+.hero-split{max-width:clamp(1100px,calc((100dvh - 300px) * 2.96 + 124px),1520px);display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:60px;align-items:center;text-align:left}
+.hero-split h1{font-size:clamp(36px,3.4vw,54px);max-width:none;margin:0}
+.hero-split .sub{margin:20px 0 0;font-size:18px;max-width:520px}
+.hero-split .scan-steps{justify-content:flex-start;margin:28px 0 0;max-width:none}
+.hero-media .scan.big{max-width:none;margin:16px 0 0}
+.hero-media .scan-meta{margin:10px 0 0;max-width:none;text-align:center}
+.hero-video{position:relative;margin:0;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:var(--black);box-shadow:0 34px 80px -30px rgba(35,59,217,.55),0 0 0 1px var(--line)}
+.hero-video video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.hv-audio{position:absolute;top:12px;right:12px;display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 15px 0 12px;border:0;border-radius:999px;background:rgba(12,23,19,.72);color:var(--white);font:inherit;font-size:14px;font-weight:600;cursor:pointer;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:background .2s}
+.hv-audio:hover{background:var(--blue)}
+.hv-audio svg{width:18px;height:18px;flex:none}
+.hv-audio .hv-on,.hv-audio[aria-pressed="true"] .hv-off{display:none}
+.hv-audio[aria-pressed="true"] .hv-on{display:block}
+@media(max-width:1100px){
+  .hero-split{grid-template-columns:1fr;gap:34px;text-align:center;max-width:820px}
+  .hero-split .sub{margin:20px auto 0}
+  .hero-split .scan-steps{justify-content:center}
+  .hero-media{width:100%;max-width:max(480px,min(100%,calc((100dvh - 430px) * 16 / 9)));margin:0 auto}
+}
 /* ── l'androide al lavoro ── */
 /* ── prima / dopo: le etichette sulle card e il ponte ── */
 .tag{display:inline-block;font-style:normal;font-weight:600;font-size:11px;letter-spacing:.02em;color:var(--black-m);background:var(--bg-2);border:1px solid var(--line-2);border-radius:6px;padding:3px 8px;margin-right:10px;vertical-align:3px;line-height:1.2}
@@ -1195,16 +1215,28 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   <img class="hero-o" src="images/brand/mark-contorno.svg" alt="" aria-hidden="true">
   <img class="hero-o2" src="images/brand/mark-blu.svg" alt="" aria-hidden="true">
   <img class="hero-o3" src="images/brand/mark-contorno.svg" alt="" aria-hidden="true">
-  <div class="wrap">
-    <h1 class="fx">Il tuo e-commerce ha già tutto. <br><span>Noi lo accendiamo.</span></h1>
-    <p class="sub fx">Accendiamo il catalogo con una macchina nostra e guidiamo le campagne. <strong>Ci paghi a percentuale sul venduto in più.</strong></p>
-    <div class="scan-steps fx" aria-label="Cosa fa lo scan"><span><i>1</i>Legge il negozio da fuori</span><span><i>2</i>Voto da 0 a 100 su cinque aree</span><span><i>3</i>Documento entro 24 ore</span></div>
-    <form class="scan big fx" id="scan" action="/contatti" method="get">
-      <input type="text" name="sito" placeholder="www.iltuonegozio.it" autocomplete="url" inputmode="url" aria-label="Indirizzo del tuo negozio online">
-      <button type="submit">Fai lo scan <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></button>
-    </form>
-    <p class="scan-meta fx">Gratis, senza accessi.</p>
-
+  <div class="wrap hero-split">
+    <div class="hero-testo">
+      <h1 class="fx">Il tuo e-commerce ha già tutto. <br><span>Noi lo accendiamo.</span></h1>
+      <p class="sub fx">Accendiamo il catalogo con una macchina nostra e guidiamo le campagne. <strong>Ci paghi a percentuale sul venduto in più.</strong></p>
+      <div class="scan-steps fx" aria-label="Cosa fa lo scan"><span><i>1</i>Legge il negozio da fuori</span><span><i>2</i>Voto da 0 a 100 su cinque aree</span><span><i>3</i>Documento entro 24 ore</span></div>
+    </div>
+    <div class="hero-media">
+      <!-- il video parte muto (coi sottotitoli dentro); il file si carica solo sul computer, vedi lo script in fondo -->
+      <figure class="hero-video fx">
+        <video id="hv" data-src="video/orizon-ignition-2026-10.mp4" data-poster="video/orizon-ignition-2026-10.webp" autoplay muted loop playsinline preload="auto" aria-label="Video di 2 minuti e 39 secondi su Orizon Ignition: il catalogo che si accende, la squadra di agenti AI, SEO e GEO, traduzioni, feed, tracciamento, budget, magazzino e utile, fino allo scan gratuito qui sotto. I sottotitoli sono nel video."></video>
+        <button type="button" class="hv-audio" id="hv-audio" aria-pressed="false" aria-controls="hv">
+          <svg class="hv-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M17 9.5l4 5M21 9.5l-4 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+          <svg class="hv-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+          <span>Attiva l’audio</span>
+        </button>
+      </figure>
+      <form class="scan big fx" id="scan" action="/contatti" method="get">
+        <input type="text" name="sito" placeholder="www.iltuonegozio.it" autocomplete="url" inputmode="url" aria-label="Indirizzo del tuo negozio online">
+        <button type="submit">Fai lo scan <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></button>
+      </form>
+      <p class="scan-meta fx">Gratis, senza accessi.</p>
+    </div>
   </div>
   <a class="hero-giu fx" href="#risultati" aria-label="Scorri ai risultati"><span>Scorri</span><i></i></a>
 </header>
@@ -1842,6 +1874,34 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   });
   window.addEventListener('resize', segna);
   segna();
+
+  /* ── Il video di Ignition nell'hero: si carica solo sul computer e parte muto; il bottone accende
+     l'audio e la prima volta lo fa ripartire dall'inizio. Fuori schermo, se è muto, si ferma ── */
+  (function(){
+    var v = document.getElementById('hv'), b = document.getElementById('hv-audio');
+    if (!v || !b || !window.matchMedia('(min-width: 769px)').matches) return;
+    var testo = b.querySelector('span'), sentito = false;
+    if (reduce) { v.removeAttribute('autoplay'); testo.textContent = 'Guarda il video'; }
+    v.poster = v.getAttribute('data-poster');
+    v.src = v.getAttribute('data-src');
+    b.addEventListener('click', function(){
+      if (v.muted || v.paused) {
+        v.muted = false;
+        if (!sentito) { v.currentTime = 0; sentito = true; }
+        v.play().catch(function(){});
+        b.setAttribute('aria-pressed', 'true'); testo.textContent = 'Togli l’audio';
+      } else {
+        v.muted = true;
+        b.setAttribute('aria-pressed', 'false'); testo.textContent = 'Attiva l’audio';
+      }
+    });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function(e){
+        if (e[0].isIntersecting) { if (!reduce || !v.muted) v.play().catch(function(){}); }
+        else if (v.muted) v.pause();
+      }, { threshold: .2 }).observe(v);
+    }
+  })();
 
   /* ── Quattro interruttori: ognuno accende una zona della scheda ── */
   var stage = document.getElementById('stage'), card = document.getElementById('card');
