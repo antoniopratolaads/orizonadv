@@ -946,6 +946,13 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .mscan input{width:100%;height:46px;padding:0 14px;border:0;font:inherit;font-size:16px;outline:none;background:transparent;color:var(--black)}
   .mscan button{width:100%;height:48px;border:0;border-radius:10px;background:var(--blue);color:#fff;font:inherit;font-weight:600;font-size:16px;cursor:pointer;box-shadow:0 12px 28px -12px rgba(55,80,247,.8)}
   .xmeta{margin-top:10px;font-size:13px;color:var(--black-m)}
+  /* il video di Ignition anche sul telefono (15/10/2026): un riquadro con l'immagine, il file si scarica solo al tocco */
+  .mvideo{position:relative;margin:20px 0 0;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:var(--black);box-shadow:0 22px 46px -24px rgba(35,59,217,.55),0 0 0 1px var(--line)}
+  .mvideo button{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;background:none;cursor:pointer}
+  .mvideo img,.mvideo video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .mvideo-cta{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px 0 10px;border-radius:999px;background:rgba(12,23,19,.74);color:var(--white);font-size:14px;font-weight:600;white-space:nowrap;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+  .mvideo-cta i{width:24px;height:24px;border-radius:50%;background:var(--blue);display:inline-flex;align-items:center;justify-content:center}
+  .mvideo-cta svg{width:11px;height:11px;margin-left:2px}
   .xhint{position:absolute;left:0;right:0;bottom:22px;text-align:center;font-size:12.5px;color:var(--black-m)}
   .xhint i{display:block;width:1px;height:26px;margin:6px auto 0;background:linear-gradient(var(--black-l),transparent);animation:mgiu 1.6s ease-in-out infinite}
   @keyframes mgiu{0%,100%{transform:translateY(0);opacity:1}50%{transform:translateY(8px);opacity:.3}}
@@ -1113,8 +1120,15 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     <p class="xk xr">Orizon ADV · Napoli</p>
     <h1><span class="xw"><span class="" style="--d:0.10s">Il</span></span> <span class="xw"><span class="" style="--d:0.17s">tuo</span></span> <span class="xw"><span class="" style="--d:0.24s">e-commerce</span></span> <span class="xw"><span class="" style="--d:0.31s">ha</span></span> <span class="xw"><span class="" style="--d:0.38s">già</span></span> <span class="xw"><span class="" style="--d:0.45s">tutto.</span></span><br><span class="xw"><span class="xout" style="--d:0.55s">Noi</span></span> <span class="xw"><span class="xout" style="--d:0.63s">lo</span></span> <span class="xw"><span class="xblu" style="--d:0.72s">accendiamo.</span></span></h1>
     <p class="xlead xr" style="--d:.9s">Accendiamo il catalogo e guidiamo le campagne. <strong>Ci paghi a percentuale sul venduto in più.</strong></p>
-    <form class="mscan xr" style="--d:1.05s" action="/contatti" method="get"><input type="text" name="sito" placeholder="www.iltuonegozio.it" autocomplete="url" inputmode="url" aria-label="Indirizzo del tuo negozio online"><button type="submit">Fai lo scan gratis</button></form>
-    <p class="xmeta xr" style="--d:1.15s">Senza accessi. Risposta entro 24 ore.</p>
+    <!-- il video di Ignition (15/10/2026): qui solo l'immagine; il file leggero si scarica al tocco, con l'audio -->
+    <figure class="mvideo xr" style="--d:1s" id="mv">
+      <button type="button" id="mv-play" data-src="video/orizon-ignition-2026-10-540.mp4" aria-label="Guarda il video su Orizon Ignition, 2 minuti e 39 secondi, con l'audio e i sottotitoli">
+        <img src="video/orizon-ignition-2026-10.webp" alt="" width="1280" height="720">
+        <span class="mvideo-cta"><i><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1.2v9.6L10.4 6z" fill="#fff"/></svg></i>Guarda il video · 2:39</span>
+      </button>
+    </figure>
+    <form class="mscan xr" style="--d:1.1s" action="/contatti" method="get"><input type="text" name="sito" placeholder="www.iltuonegozio.it" autocomplete="url" inputmode="url" aria-label="Indirizzo del tuo negozio online"><button type="submit">Fai lo scan gratis</button></form>
+    <p class="xmeta xr" style="--d:1.2s">Senza accessi. Risposta entro 24 ore.</p>
     <div class="xhint" aria-hidden="true"><span>scorri</span><i></i></div>
   </section>
 
@@ -1224,7 +1238,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     <div class="hero-media">
       <!-- il video parte muto (coi sottotitoli dentro); il file si carica solo sul computer, vedi lo script in fondo -->
       <figure class="hero-video fx">
-        <video id="hv" data-src="video/orizon-ignition-2026-10.mp4" data-poster="video/orizon-ignition-2026-10.webp" autoplay muted loop playsinline preload="auto" aria-label="Video di 2 minuti e 39 secondi su Orizon Ignition: il catalogo che si accende, la squadra di agenti AI, SEO e GEO, traduzioni, feed, tracciamento, budget, magazzino e utile, fino allo scan gratuito qui sotto. I sottotitoli sono nel video."></video>
+        <video id="hv" data-src="video/orizon-ignition-2026-10-720.mp4" data-poster="video/orizon-ignition-2026-10.webp" autoplay muted loop playsinline preload="auto" aria-label="Video di 2 minuti e 39 secondi su Orizon Ignition: il catalogo che si accende, la squadra di agenti AI, SEO e GEO, traduzioni, feed, tracciamento, budget, magazzino e utile, fino allo scan gratuito qui sotto. I sottotitoli sono nel video."></video>
         <button type="button" class="hv-audio" id="hv-audio" aria-pressed="false" aria-controls="hv">
           <svg class="hv-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M17 9.5l4 5M21 9.5l-4 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
           <svg class="hv-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
@@ -1901,6 +1915,22 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         else if (v.muted) v.pause();
       }, { threshold: .2 }).observe(v);
     }
+  })();
+
+  /* ── Il video di Ignition sul telefono (15/10/2026): al tocco l'immagine diventa il video, con l'audio.
+     Il file (5 MB) si scarica solo adesso: chi non lo guarda non lo paga sulla rete del telefono ── */
+  (function(){
+    var b = document.getElementById('mv-play'), box = document.getElementById('mv');
+    if (!b || !box) return;
+    b.addEventListener('click', function(){
+      var v = document.createElement('video');
+      v.src = b.getAttribute('data-src');
+      v.poster = b.querySelector('img').getAttribute('src');
+      v.controls = true; v.playsInline = true; v.setAttribute('playsinline', '');
+      v.setAttribute('aria-label', b.getAttribute('aria-label'));
+      box.replaceChild(v, b);
+      v.play().catch(function(){});
+    });
   })();
 
   /* ── Quattro interruttori: ognuno accende una zona della scheda ── */
