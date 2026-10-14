@@ -370,6 +370,46 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .tesi p{margin:22px auto 0;font-size:18px;color:rgba(255,255,255,.82);max-width:720px;text-wrap:pretty}
 .tesi p strong{color:var(--white);font-weight:600}
 
+/* ── LA SQUADRA (15/10/2026): i sei agenti del video coi loro nomi, ritagliati dal video stesso; sta sullo
+   stesso blu del capitolo del catalogo, che viene subito dopo ── */
+.squad{background:var(--blue);color:var(--white);padding:104px 0 40px;position:relative;overflow:hidden}
+.squad::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 42% at 50% 30%,rgba(255,255,255,.13),transparent 70%),radial-gradient(rgba(255,255,255,.15) 1px,transparent 1.6px) 0 0/22px 22px;-webkit-mask-image:linear-gradient(#000 45%,transparent 92%);mask-image:linear-gradient(#000 45%,transparent 92%);pointer-events:none}
+.squad .wrap{position:relative;z-index:1}
+.squad-k{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;color:var(--blue-ll);margin-bottom:18px}
+.squad-k::before{content:'';width:3px;height:18px;border-radius:2px;background:var(--green)}
+.squad h2{font-size:clamp(34px,4.6vw,60px);line-height:1.04;letter-spacing:-.035em;max-width:900px;text-wrap:balance}
+.squad h2 span{color:var(--blue-s)}
+.squad-lead{margin-top:20px;font-size:19px;line-height:1.5;color:rgba(255,255,255,.84);max-width:700px;text-wrap:pretty}
+.squad-albero{position:relative;margin-top:54px}
+.squad-o{display:block;width:62px;height:auto;margin:0 auto}
+.squad-tree{display:block;width:100%;height:auto;margin-top:-2px}
+.squad-tree path{fill:none;stroke-width:2;stroke-linecap:round}
+.squad-grid{list-style:none;display:grid;grid-template-columns:repeat(6,1fr);gap:24px;margin-top:-4px}
+.squad-grid li,.xsq-grid li{display:flex;flex-direction:column;align-items:center;text-align:center}
+.ag-fig{display:block;width:150px;max-width:100%;height:auto}
+.ag-fig img{width:100%;height:auto}
+.ag-nome{display:inline-flex;align-items:center;gap:7px;margin-top:4px;padding:6px 14px 6px 11px;border-radius:999px;background:var(--white);color:var(--black);font-weight:600;font-size:15px;line-height:1.1;box-shadow:0 10px 22px -12px rgba(12,23,19,.5)}
+.ag-nome i{width:8px;height:8px;border-radius:50%;background:var(--c);flex-shrink:0}
+.ag-ruolo{margin-top:8px;font-size:13px;font-weight:500;color:rgba(255,255,255,.72)}
+.ag-cosa{margin-top:14px;font-size:15px;line-height:1.45;color:rgba(255,255,255,.9);max-width:200px;text-wrap:pretty}
+.ag-vai{margin-top:12px;font-size:13px;font-weight:600;color:var(--white);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.4);transition:border-color .2s}
+.ag-vai:hover{border-color:var(--white)}
+.squad+.cap{padding-top:56px}
+.squad+.cap .wrap{border-top:1px solid rgba(255,255,255,.18);padding-top:56px}
+/* il movimento: le linee partono dalla O, i robottini arrivano uno alla volta e poi galleggiano */
+.js .squad-tree path{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.2s var(--ease);transition-delay:calc(.25s + var(--i) * .12s)}
+.js .squad.in .squad-tree path{stroke-dashoffset:0}
+.js .squad .ag-fig img{opacity:0;transform:translateY(26px) scale(.7);transition:opacity .6s var(--ease),transform 1s cubic-bezier(.34,1.56,.64,1);transition-delay:calc(.55s + var(--i) * .14s)}
+.js .squad.in .ag-fig img{opacity:1;transform:none}
+.js .squad .ag-nome,.js .squad .ag-ruolo,.js .squad .ag-cosa,.js .squad .ag-vai{opacity:0;transform:translateY(10px);transition:opacity .6s var(--ease),transform .8s var(--ease);transition-delay:calc(.8s + var(--i) * .14s)}
+.js .squad.in .ag-nome,.js .squad.in .ag-ruolo,.js .squad.in .ag-cosa,.js .squad.in .ag-vai{opacity:1;transform:none}
+.ag-fig{animation:ag-galleggia 3.8s ease-in-out infinite;animation-delay:calc(var(--i) * -.63s)}
+@keyframes ag-galleggia{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@media(max-width:1100px){
+  .squad-albero{display:none}
+  .squad-grid{grid-template-columns:repeat(3,1fr);gap:40px 24px;margin-top:48px}
+}
+
 /* ── BLOCCO 2: quattro interruttori, una scheda che si accende ── */
 .feat{padding:112px 0 96px;background:var(--bg-2);border-top:1px solid var(--line);position:relative;overflow:hidden}
 .feat::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(12,23,19,.11) 1px,transparent 1.2px);background-size:22px 22px;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse 45% 40% at 85% 12%,#000 10%,transparent 70%);mask-image:radial-gradient(ellipse 45% 40% at 85% 12%,#000 10%,transparent 70%)}
@@ -917,6 +957,17 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .xs.xsmark::after{content:'';position:absolute;z-index:0;right:-26%;top:-6%;width:78vw;height:56vw;background:url(images/brand/mark-blu.svg) no-repeat center/contain;opacity:.1;pointer-events:none;transform:rotate(-8deg)}
   .xs.xsmark.sx::after{right:auto;left:-34%;top:auto;bottom:-10%;transform:rotate(10deg)}
   .xs.xs5::after{content:'';position:absolute;z-index:0;right:-30%;bottom:-16%;width:82vw;height:58vw;background:url(images/brand/mark-bianco.svg) no-repeat center/contain;opacity:.18;pointer-events:none}
+  .xsq{background:var(--blue);color:#fff;overflow:hidden}
+  .xsq::before{content:'';position:absolute;z-index:0;inset:0;background-image:radial-gradient(rgba(255,255,255,.2) 1px,transparent 1.6px);background-size:22px 22px;animation:mderiva 24s linear infinite}
+  .xsq .xk{color:rgba(255,255,255,.75)}
+  .xsq h2{margin-top:8px;font-size:32px;line-height:1.06}
+  .xsq .xlead{color:rgba(255,255,255,.86)}
+  .xsq .xlead strong{color:#fff;font-weight:600}
+  .xsq-grid{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:26px 12px;margin-top:24px}
+  .xsq-grid .ag-fig{width:108px}
+  .xsq-grid .ag-nome{font-size:14px;padding:5px 12px 5px 9px}
+  .xsq-grid .ag-ruolo{margin-top:6px;font-size:12px}
+  .xsq-grid .ag-cosa{margin-top:8px;font-size:13.5px;line-height:1.42;max-width:none}
   /* comparsa */
   .xr{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
   .xs.on .xr{opacity:1;transform:none}
@@ -1063,6 +1114,9 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .js .mw i{transform:none;transition:none}
   .js .piatto.fx .pd2 > :nth-child(2),.js .cap.fx .cap-k,.js .cap.fx .wrap>p{opacity:1;transform:none;transition:none}
   .js .cap.fx .cap-mark{translate:0 0;rotate:0deg;transition:none}
+  .js .squad-tree path{stroke-dashoffset:0;transition:none}
+  .js .squad .ag-fig img,.js .squad .ag-nome,.js .squad .ag-ruolo,.js .squad .ag-cosa,.js .squad .ag-vai{opacity:1;transform:none;transition:none}
+  .ag-fig{animation:none}
   .sim-list li{animation:none}
   .js .cresc .l1,.js .cresc .l2{stroke-dashoffset:0;transition:none}
   .js .cresc .a1,.js .cresc .a2,.js .cresc .pt,.js .cresc .lb,.js .cresc .gap{opacity:1;transition:none}
@@ -1072,7 +1126,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .trk-lane .dot{left:calc(100% - 20px)}
   .trk.oggi .dot.p{left:46%;opacity:.4}
   .xr,.xw>span{opacity:1;transform:none;transition:none}
-  .xs1-luce,.xs5::before,.xd-go,.xhint i{animation:none}
+  .xs1-luce,.xs5::before,.xsq::before,.xd-go,.xhint i{animation:none}
   .xbar em,.xdue i::after,.xout,.xoutw{transition:none}
   [data-parallasse]{transform:none!important}
   html{scroll-behavior:auto}
@@ -1146,6 +1200,21 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     <div class="xtre"><div class="xr" style="--d:.5s"><b>+135%</b><span>luglio–settembre</span></div><div class="xr" style="--d:.6s"><b>12.100</b><span>ordini, +51%</span></div><div class="xr" style="--d:.7s"><b>x50</b><span>vendite per euro speso</span></div></div>
     <p class="xlead xr" style="--d:.75s"><strong>Sono i numeri a dare la direzione.</strong> Chi brancola nel buio non ha un vantaggio competitivo.</p>
     <p class="xlnk xr" style="--d:.85s"><a href="/case-study/climatizzazione">Il caso completo →</a> <a href="/work">Gli altri clienti →</a></p>
+  </section>
+
+  <section class="xs xsq" id="m-squadra">
+    <p class="xk xr">La squadra di Ignition</p>
+    <h2><span class="xw"><span class="" style="--d:0.10s">Dentro</span></span> <span class="xw"><span class="" style="--d:0.17s">lavorano</span></span> <span class="xw"><span class="xoutw" style="--d:0.24s">sei</span></span> <span class="xw"><span class="xoutw" style="--d:0.31s">agenti</span></span> <span class="xw"><span class="xoutw" style="--d:0.38s">AI.</span></span></h2>
+    <p class="xlead xr" style="--d:.4s">Uno scrive, uno controlla, uno traduce, uno prepara il feed, uno traccia, uno guida il budget.</p>
+    <ul class="xsq-grid">
+      <li class="xr xpop" style="--d:0.50s"><span class="ag-fig" style="--i:0"><img src="images/squadra/leonardo.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></span><span class="ag-nome"><i style="--c:#FFB15C"></i>Leonardo</span><span class="ag-ruolo">Scrittore SEO+GEO</span><p class="ag-cosa">Riscrive le schede perché le trovino Google e ChatGPT.</p></li>
+      <li class="xr xpop" style="--d:0.58s"><span class="ag-fig" style="--i:1"><img src="images/squadra/holmes.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></span><span class="ag-nome"><i style="--c:#7CD3FF"></i>Holmes</span><span class="ag-ruolo">Giudice AI</span><p class="ag-cosa">Rilegge ogni scheda: un numero inventato, e la rimanda indietro.</p></li>
+      <li class="xr xpop" style="--d:0.66s"><span class="ag-fig" style="--i:2"><img src="images/squadra/galileo.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></span><span class="ag-nome"><i style="--c:#6FE59A"></i>Galileo</span><span class="ag-ruolo">Traduttore</span><p class="ag-cosa">Traduce schede e sito con le parole che si cercano in ogni paese.</p></li>
+      <li class="xr xpop" style="--d:0.74s"><span class="ag-fig" style="--i:3"><img src="images/squadra/volta.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></span><span class="ag-nome"><i style="--c:#FFE16B"></i>Volta</span><span class="ag-ruolo">Feed</span><p class="ag-cosa">Riempie il feed di Google Shopping, campo per campo.</p></li>
+      <li class="xr xpop" style="--d:0.82s"><span class="ag-fig" style="--i:4"><img src="images/squadra/archimede.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></span><span class="ag-nome"><i style="--c:#C7B0FF"></i>Archimede</span><span class="ag-ruolo">Tracciamento</span><p class="ag-cosa">Porta ogni acquisto a Google e Meta, contato una volta.</p></li>
+      <li class="xr xpop" style="--d:0.90s"><span class="ag-fig" style="--i:5"><img src="images/squadra/fibonacci.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></span><span class="ag-nome"><i style="--c:#FF8F7E"></i>Fibonacci</span><span class="ag-ruolo">Budget</span><p class="ag-cosa">Sposta il budget dove ci sono margine e merce.</p></li>
+    </ul>
+    <p class="xlead xr" style="--d:1s"><strong>Nessuna modifica arriva sul tuo negozio senza il sì di una persona.</strong></p>
   </section>
 
   <section class="xs xs3" id="m-catalogo">
@@ -1292,6 +1361,61 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   </div>
 </section>
 
+
+<!-- ═══ LA SQUADRA: i sei agenti del video, coi loro nomi ═══ -->
+<section class="solo-d squad fx" id="squadra" aria-labelledby="squadra-t">
+  <div class="wrap">
+    <p class="squad-k">La squadra di Ignition</p>
+    <h2 id="squadra-t">Dentro lavorano sei agenti AI. <span>Un mestiere ciascuno.</span></h2>
+    <p class="squad-lead">Uno scrive, uno controlla, uno traduce, uno prepara il feed, uno traccia, uno guida il budget: sempre sullo stesso catalogo. Nessuna modifica arriva sul tuo negozio senza il sì di una persona.</p>
+    <div class="squad-albero" aria-hidden="true">
+      <img class="squad-o" src="images/brand/mark-bianco.svg" alt="" width="62" height="44">
+      <svg class="squad-tree" viewBox="0 0 1176 106"><path pathLength="1" style="--i:0" stroke="#FFB15C" d="M588 2 C588 62 88 40 88 104"/><path pathLength="1" style="--i:1" stroke="#7CD3FF" d="M588 2 C588 62 288 40 288 104"/><path pathLength="1" style="--i:2" stroke="#6FE59A" d="M588 2 C588 62 488 40 488 104"/><path pathLength="1" style="--i:3" stroke="#FFE16B" d="M588 2 C588 62 688 40 688 104"/><path pathLength="1" style="--i:4" stroke="#C7B0FF" d="M588 2 C588 62 888 40 888 104"/><path pathLength="1" style="--i:5" stroke="#FF8F7E" d="M588 2 C588 62 1088 40 1088 104"/></svg>
+    </div>
+    <ul class="squad-grid">
+      <li style="--i:0">
+        <span class="ag-fig"><img src="images/squadra/leonardo.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></span>
+        <span class="ag-nome"><i style="--c:#FFB15C"></i>Leonardo</span>
+        <span class="ag-ruolo">Scrittore SEO+GEO</span>
+        <p class="ag-cosa">Riscrive le schede perché le trovino Google e ChatGPT: i dati del prodotto, le domande vere, niente frasi vuote.</p>
+        <a class="ag-vai" href="#piatto-scheda">Guardalo al lavoro ↓</a>
+      </li>
+      <li style="--i:1">
+        <span class="ag-fig"><img src="images/squadra/holmes.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></span>
+        <span class="ag-nome"><i style="--c:#7CD3FF"></i>Holmes</span>
+        <span class="ag-ruolo">Giudice AI</span>
+        <p class="ag-cosa">Rilegge ogni scheda prima che vada online: un numero o una marca che il prodotto non ha, e la rimanda indietro.</p>
+      </li>
+      <li style="--i:2">
+        <span class="ag-fig"><img src="images/squadra/galileo.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></span>
+        <span class="ag-nome"><i style="--c:#6FE59A"></i>Galileo</span>
+        <span class="ag-ruolo">Traduttore</span>
+        <p class="ag-cosa">Porta schede e sito nelle lingue del negozio, con le parole che si cercano davvero in ogni paese.</p>
+      </li>
+      <li style="--i:3">
+        <span class="ag-fig"><img src="images/squadra/volta.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></span>
+        <span class="ag-nome"><i style="--c:#FFE16B"></i>Volta</span>
+        <span class="ag-ruolo">Feed</span>
+        <p class="ag-cosa">Riempie il file che legge Google Shopping, campo per campo: marca, materiale, misure, colore.</p>
+        <a class="ag-vai" href="#piatto-feed">Guardalo al lavoro ↓</a>
+      </li>
+      <li style="--i:4">
+        <span class="ag-fig"><img src="images/squadra/archimede.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></span>
+        <span class="ag-nome"><i style="--c:#C7B0FF"></i>Archimede</span>
+        <span class="ag-ruolo">Tracciamento</span>
+        <p class="ag-cosa">Porta ogni acquisto a Google e Meta dal server: contato una volta sola, e col consenso.</p>
+        <a class="ag-vai" href="#piatto-tracking">Guardalo al lavoro ↓</a>
+      </li>
+      <li style="--i:5">
+        <span class="ag-fig"><img src="images/squadra/fibonacci.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></span>
+        <span class="ag-nome"><i style="--c:#FF8F7E"></i>Fibonacci</span>
+        <span class="ag-ruolo">Budget</span>
+        <p class="ag-cosa">Sposta il budget dove ci sono margine e merce: chi rende va in asta, chi è fermo aspetta.</p>
+        <a class="ag-vai" href="#piatto-labelizer">Guardalo al lavoro ↓</a>
+      </li>
+    </ul>
+  </div>
+</section>
 
 <!-- ═══ CAPITOLO 02: il catalogo ═══ -->
 <section class="solo-d cap fx" id="atto-catalogo" aria-labelledby="cap-catalogo">
@@ -1840,7 +1964,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   /* ── i titoli a sipario: ogni parola in una maschera ── */
   (function(){
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.innerWidth < 768) return;
-    document.querySelectorAll('.sec-head h2, .cap h2, #tesi-t, .end h2, .who h2').forEach(function(h){
+    document.querySelectorAll('.sec-head h2, .cap h2, .squad h2, #tesi-t, .end h2, .who h2').forEach(function(h){
       var n = 0;
       function spezza(nodo){
         Array.prototype.slice.call(nodo.childNodes).forEach(function(c){
