@@ -370,6 +370,42 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .tesi p{margin:22px auto 0;font-size:18px;color:rgba(255,255,255,.82);max-width:720px;text-wrap:pretty}
 .tesi p strong{color:var(--white);font-weight:600}
 
+/* ── LE TRADUZIONI (15/10/2026): la leva 01 in ogni lingua, sul negozio di articoli per hotel e ristoranti della
+   padella; gli ordini dall'estero dagli scatti delle vendite, mese per mese ── */
+.piatto .pn.piu{font-size:34px}
+.lg-it{border:1px solid var(--line-2);border-radius:12px;padding:18px 20px;background:var(--bg-2)}
+.lg-it b{display:block;font-size:12px;font-weight:600;letter-spacing:.08em;color:var(--black-m);margin-bottom:6px}
+.lg-it p{font-size:19px;font-weight:600;letter-spacing:-.015em;line-height:1.3}
+.lg-carte{display:grid;gap:10px}
+.lg-carta{display:grid;grid-template-columns:42px 1fr;gap:12px;align-items:center;border:1px solid var(--blue-ll);border-radius:12px;padding:14px 16px;background:var(--white);box-shadow:0 14px 30px -24px rgba(55,80,247,.55)}
+.lg-carta i{font-style:normal;font-size:12px;font-weight:600;letter-spacing:.06em;color:var(--blue);background:rgba(55,80,247,.08);border-radius:8px;text-align:center;padding:6px 0}
+.lg-carta p{font-size:16.5px;font-weight:600;letter-spacing:-.01em;line-height:1.3}
+.js .piatto.fx .lg-carta{opacity:0;transform:translateX(18px)}
+.js .piatto.fx .lg-carta{transition:opacity .6s var(--ease),transform .8s var(--ease);transition-delay:calc(.35s + var(--i) * .15s)}
+.js .piatto.fx.in .lg-carta{opacity:1;transform:none}
+.lg-ordini{margin-top:30px;border:1px solid var(--line-2);border-radius:14px;padding:22px 24px 14px;background:var(--white)}
+.lg-ordini-k{display:flex;flex-wrap:wrap;gap:10px 34px;align-items:flex-end}
+.lg-ordini-k div b{display:block;font-size:34px;font-weight:600;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.lg-ordini-k div span{font-size:13.5px;color:var(--black-m)}
+.lg-ordini-k div.on b{color:var(--blue)}
+.lg-svg{display:block;width:100%;height:auto;margin-top:14px}
+.lg-svg .g{stroke:var(--line);stroke-width:1}
+.lg-svg .tk{font-size:11px;fill:var(--black-l)}
+.lg-svg .tk.an{font-weight:600;fill:var(--black-m)}
+.lg-svg .lb{font-size:12px;font-weight:600;fill:var(--black-m)}
+.lg-svg .lb.on{fill:var(--blue)}
+.lg-svg .val{font-size:12px;font-weight:600;fill:var(--blue)}
+.lg-svg .graffa{fill:none;stroke:var(--black-l);stroke-width:1.2}
+.lg-svg .online{stroke:var(--blue);stroke-width:1.5;stroke-dasharray:4 4}
+.lg-svg .b{fill:var(--black-ll)}
+.lg-svg .b.mezzo{fill:var(--blue-s)}
+.lg-svg .b.dopo{fill:var(--blue)}
+.js .lg-svg .b{transform:scaleY(0);transform-box:fill-box;transform-origin:50% 100%;transition:transform .9s var(--ease);transition-delay:calc(.2s + var(--i) * .04s)}
+.js .lg-svg .val{opacity:0;transition:opacity .5s var(--ease);transition-delay:calc(.9s + var(--i) * .04s)}
+.js .fx.in .lg-svg .b,.js .xs.on .lg-svg .b{transform:none}
+.js .fx.in .lg-svg .val,.js .xs.on .lg-svg .val{opacity:1}
+.lg-nota{margin-top:6px;font-size:13px;color:var(--black-m);line-height:1.45}
+
 /* ── IL PROBLEMA (15/10/2026): l'inizio del video, coi prodotti veri dei cataloghi che seguiamo; sta prima della
    squadra, sul fondo scuro del video ── */
 .prob{background:radial-gradient(ellipse 70% 55% at 50% 38%,#1B2470,transparent 72%),#090D24;color:var(--white);padding:104px 0 96px;position:relative;overflow:hidden}
@@ -979,6 +1015,18 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .xs.xsmark::after{content:'';position:absolute;z-index:0;right:-26%;top:-6%;width:78vw;height:56vw;background:url(images/brand/mark-blu.svg) no-repeat center/contain;opacity:.1;pointer-events:none;transform:rotate(-8deg)}
   .xs.xsmark.sx::after{right:auto;left:-34%;top:auto;bottom:-10%;transform:rotate(10deg)}
   .xs.xs5::after{content:'';position:absolute;z-index:0;right:-30%;bottom:-16%;width:82vw;height:58vw;background:url(images/brand/mark-bianco.svg) no-repeat center/contain;opacity:.18;pointer-events:none}
+  .xlingue{background:var(--bg-2)}
+  .xlingue h2{margin-top:8px;font-size:30px;line-height:1.08}
+  .xlingue .lg-carte{margin-top:18px}
+  .xlingue .lg-carta{grid-template-columns:36px 1fr;padding:11px 12px}
+  .xlingue .lg-carta p{font-size:14.5px}
+  .xlingue .lg-ordini{margin-top:18px;padding:16px 14px 10px}
+  .xlingue .lg-ordini-k{gap:8px 22px}
+  .xlingue .lg-ordini-k div b{font-size:28px}
+  .xlingue .lg-ordini-k div span{font-size:12.5px}
+  .xlingue .lg-svg .tk{font-size:10px}
+  .xlingue .lg-svg .lb{font-size:10.5px}
+  .xlingue .lg-svg .val{font-size:10px}
   .xprob{background:radial-gradient(ellipse 90% 50% at 50% 45%,#1B2470,transparent 75%),#090D24;color:#fff;overflow:hidden}
   .xprob .xk{color:var(--green)}
   .xprob h2{margin-top:8px;font-size:30px;line-height:1.08}
@@ -1148,6 +1196,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .js .piatto.fx .pd2 > :nth-child(2),.js .cap.fx .cap-k,.js .cap.fx .wrap>p{opacity:1;transform:none;transition:none}
   .js .cap.fx .cap-mark{translate:0 0;rotate:0deg;transition:none}
   .js .prob-griglia i{opacity:1;transform:none;transition:none}
+  .js .piatto.fx .lg-carta,.js .lg-svg .b,.js .lg-svg .val{opacity:1;transform:none;transition:none}
   .js .squad-tree path{stroke-dashoffset:0;transition:none}
   .js .squad .ag-fig img,.js .squad .ag-nome,.js .squad .ag-ruolo,.js .squad .ag-cosa,.js .squad .ag-vai{opacity:1;transform:none;transition:none}
   .ag-fig{animation:none}
@@ -1288,6 +1337,18 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       <button type="button" class="xd-go" id="xd-go">Accendi la padella</button>
     </div>
     <p class="xlead xr" style="--d:.7s">Così su tutti: il fornitore che ce l'ha data ne ha 1.446, accesi uno per uno. Niente inventato: ogni riga viene dai dati del prodotto.</p>
+  </section>
+
+  <section class="xs xlingue" id="m-lingue">
+    <p class="xk xr">Poi in ogni lingua</p>
+    <h2><span class="xw"><span class="" style="--d:0.10s">Tradotto,</span></span> <span class="xw"><span class="" style="--d:0.17s">si</span></span> <span class="xw"><span class="xout" style="--d:0.24s">apre</span></span> <span class="xw"><span class="xout" style="--d:0.31s">l'estero.</span></span></h2>
+    <p class="xlead xr" style="--d:.25s">Il negozio della padella, in inglese, francese e tedesco da metà maggio 2026: titolo, scheda, domande e meta di ogni prodotto.</p>
+    <div class="lg-carte"><div class="lg-carta xr" style="--d:0.35s"><i>EN</i><p>Pensofal Academy Chef Non-Stick Aluminium Sauté Pan</p></div><div class="lg-carta xr" style="--d:0.45s"><i>FR</i><p>Poêle haute à sauter antiadhésive en aluminium Pensofal Academy Chef</p></div><div class="lg-carta xr" style="--d:0.55s"><i>DE</i><p>Antihaft-Saltierpfanne aus Aluminium Pensofal Academy Chef</p></div></div>
+    <div class="lg-ordini xr" style="--d:.6s">
+      <div class="lg-ordini-k"><div><b>12</b><span>dall'estero nei 12 mesi prima</span></div><div class="on"><b>56–80</b><span>al mese da giugno</span></div></div>
+      <svg class="lg-svg" viewBox="0 0 360 208" role="img" aria-label="Ordini dall'estero mese per mese, da novembre 2024 a settembre 2026: 12 nei dodici mesi prima della traduzione, poi 65, 60, 56 e 80 al mese da giugno a settembre 2026"><line x1="26" y1="145.0" x2="354" y2="145.0" class="g"/><text x="20" y="149.0" text-anchor="end" class="tk">20</text><line x1="26" y1="108.0" x2="354" y2="108.0" class="g"/><text x="20" y="112.0" text-anchor="end" class="tk">40</text><line x1="26" y1="71.0" x2="354" y2="71.0" class="g"/><text x="20" y="75.0" text-anchor="end" class="tk">60</text><line x1="26" y1="34.0" x2="354" y2="34.0" class="g"/><text x="20" y="38.0" text-anchor="end" class="tk">80</text><path class="graffa" d="M113.6 148.1 V142.1 H280.7 V148.1"/><text x="197.1" y="135.1" text-anchor="middle" class="lb">12 in dodici mesi</text><rect class="b" style="--i:0" x="28.6" y="180.5" width="9" height="1.5" rx="3.0"/><rect class="b" style="--i:1" x="42.9" y="180.5" width="9" height="1.5" rx="3.0"/><rect class="b" style="--i:2" x="57.2" y="180.2" width="9" height="1.9" rx="3.0"/><rect class="b" style="--i:3" x="71.4" y="180.2" width="9" height="1.9" rx="3.0"/><rect class="b" style="--i:4" x="85.7" y="178.3" width="9" height="3.7" rx="3.0"/><rect class="b" style="--i:5" x="99.9" y="178.3" width="9" height="3.7" rx="3.0"/><rect class="b" style="--i:6" x="114.2" y="180.5" width="9" height="1.5" rx="3.0"/><rect class="b" style="--i:7" x="128.5" y="180.2" width="9" height="1.9" rx="3.0"/><rect class="b" style="--i:8" x="142.7" y="180.5" width="9" height="1.5" rx="3.0"/><rect class="b" style="--i:9" x="157.0" y="178.3" width="9" height="3.7" rx="3.0"/><rect class="b" style="--i:10" x="171.2" y="178.3" width="9" height="3.7" rx="3.0"/><rect class="b" style="--i:11" x="185.5" y="178.3" width="9" height="3.7" rx="3.0"/><rect class="b" style="--i:12" x="199.8" y="180.5" width="9" height="1.5" rx="3.0"/><rect class="b" style="--i:13" x="214.0" y="180.5" width="9" height="1.5" rx="3.0"/><rect class="b" style="--i:14" x="228.3" y="180.2" width="9" height="1.9" rx="3.0"/><rect class="b" style="--i:15" x="242.5" y="180.5" width="9" height="1.5" rx="3.0"/><rect class="b" style="--i:16" x="256.8" y="180.2" width="9" height="1.9" rx="3.0"/><rect class="b" style="--i:17" x="271.1" y="176.4" width="9" height="5.6" rx="3.0"/><rect class="b mezzo" style="--i:18" x="285.3" y="156.1" width="9" height="25.9" rx="3.0"/><rect class="b dopo" style="--i:19" x="299.6" y="61.8" width="9" height="120.2" rx="3.0"/><text x="304.1" y="54.8" text-anchor="middle" class="val" style="--i:19">65</text><rect class="b dopo" style="--i:20" x="313.8" y="71.0" width="9" height="111.0" rx="3.0"/><text x="318.3" y="64.0" text-anchor="middle" class="val" style="--i:20">60</text><rect class="b dopo" style="--i:21" x="328.1" y="78.4" width="9" height="103.6" rx="3.0"/><text x="332.6" y="71.4" text-anchor="middle" class="val" style="--i:21">56</text><rect class="b dopo" style="--i:22" x="342.4" y="34.0" width="9" height="148.0" rx="3.0"/><text x="346.9" y="27.0" text-anchor="middle" class="val" style="--i:22">80</text><line class="online" x1="289.8" y1="28" x2="289.8" y2="182"/><text x="281.8" y="36" text-anchor="end" class="lb on">online in EN · FR · DE, metà maggio</text><text x="33.1" y="198" text-anchor="middle" class="tk">nov 24</text><text x="118.7" y="198" text-anchor="middle" class="tk">mag 25</text><text x="204.3" y="198" text-anchor="middle" class="tk">nov 25</text><text x="289.8" y="198" text-anchor="middle" class="tk">mag 26</text><text x="346.9" y="198" text-anchor="middle" class="tk">set 26</text></svg>
+      <p class="lg-nota">Ordini con l'indirizzo fuori dall'Italia, dal pannello Shopify del negozio. A settembre, 4 su 10.</p>
+    </div>
   </section>
 
   <section class="xs xs4 xsmark sx" id="m-conti">
@@ -1456,6 +1517,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         <span class="ag-nome"><i style="--c:#6FE59A"></i>Galileo</span>
         <span class="ag-ruolo">Traduttore</span>
         <p class="ag-cosa">Porta schede e sito nelle lingue del negozio, con le parole che si cercano davvero in ogni paese.</p>
+        <a class="ag-vai" href="#piatto-lingue">Guardalo al lavoro ↓</a>
       </li>
       <li style="--i:3">
         <span class="ag-fig"><img src="images/squadra/volta.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></span>
@@ -1496,7 +1558,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   <div class="wrap">
     <div class="sec-head fx">
       <h2>Prima e dopo, su prodotti veri. <span>Cinque leve, cucinate.</span></h2>
-      <p>Un cardigan di un negozio di moda da 17.432 prodotti per la scheda, il titolo e il feed; due negozi di moda per il tracciamento; il negozio di climatizzazione per le etichette. A sinistra com'è oggi, a destra com'è acceso. <strong>Niente inventato</strong>: letture del 12 ottobre 2026, e niente è stato pubblicato senza il sì del negozio.</p>
+      <p>Un cardigan di un negozio di moda da 17.432 prodotti per la scheda, il titolo e il feed; il negozio di articoli per hotel e ristoranti per le lingue; due negozi di moda per il tracciamento; il negozio di climatizzazione per le etichette. A sinistra com'è oggi, a destra com'è acceso. <strong>Niente inventato</strong>: letture del 12 ottobre 2026, e niente è stato pubblicato senza il sì del negozio.</p>
     </div>
 
     <article class="piatto fx fx-sx" id="piatto-scheda">
@@ -1516,6 +1578,19 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
           </div>
           <p class="pd-note">Scritta dai dati del prodotto e controllata da un giudice automatico: <b>84 su 100</b>. Pubblicata solo col sì del negozio.</p>
         </div>
+      </div>
+    </article>
+
+    <article class="piatto fx fx-dx" id="piatto-lingue">
+      <header><span class="pn piu" aria-hidden="true">+</span><div><h3>Traduzioni <span>la stessa scheda, in ogni lingua</span></h3><p>Il negozio di articoli per hotel e ristoranti della padella, tradotto in inglese, francese e tedesco a metà maggio 2026: titolo, scheda, domande e meta di ogni prodotto. Nei dodici mesi prima, 12 ordini dall'estero. Da giugno, fra 56 e 80 al mese.</p></div></header>
+      <div class="pd2">
+        <div class="pd-oggi"><span class="tag">Prima</span><div class="lg-it"><b>IT · SOLO ITALIANO</b><p>Padella alta a saltare antiaderente in alluminio Pensofal Academy Chef</p></div><p class="pd-note">Una lingua sola: chi cerca in francese o in tedesco non la trova.</p></div>
+        <div class="pd-dopo"><span class="tag on">Acceso</span><div class="lg-carte"><div class="lg-carta" style="--i:0"><i>EN</i><p>Pensofal Academy Chef Non-Stick Aluminium Sauté Pan</p></div><div class="lg-carta" style="--i:1"><i>FR</i><p>Poêle haute à sauter antiadhésive en aluminium Pensofal Academy Chef</p></div><div class="lg-carta" style="--i:2"><i>DE</i><p>Antihaft-Saltierpfanne aus Aluminium Pensofal Academy Chef</p></div></div><p class="pd-note">I titoli veri, online sul negozio. <b>Galileo</b> traduce; il controllo ferma prima della pubblicazione una parola del glossario sbagliata o un titolo troppo lungo per Google.</p></div>
+      </div>
+      <div class="lg-ordini">
+        <div class="lg-ordini-k"><div><b>12</b><span>ordini dall'estero nei dodici mesi prima</span></div><div class="on"><b>56–80</b><span>al mese da giugno 2026</span></div><div class="on"><b>4 su 10</b><span>ordini dall'estero a settembre</span></div></div>
+        <svg class="lg-svg" viewBox="0 0 920 270" role="img" aria-label="Ordini dall'estero mese per mese, da novembre 2024 a settembre 2026: 12 nei dodici mesi prima della traduzione, poi 65, 60, 56 e 80 al mese da giugno a settembre 2026"><line x1="40" y1="170.5" x2="900" y2="170.5" class="g"/><text x="34" y="174.5" text-anchor="end" class="tk">20</text><line x1="40" y1="127.0" x2="900" y2="127.0" class="g"/><text x="34" y="131.0" text-anchor="end" class="tk">40</text><line x1="40" y1="83.5" x2="900" y2="83.5" class="g"/><text x="34" y="87.5" text-anchor="end" class="tk">60</text><line x1="40" y1="40.0" x2="900" y2="40.0" class="g"/><text x="34" y="44.0" text-anchor="end" class="tk">80</text><path class="graffa" d="M266.3 175.6 V169.6 H711.0 V175.6"/><text x="488.7" y="162.6" text-anchor="middle" class="lb">12 in dodici mesi</text><rect class="b" style="--i:0" x="47.7" y="212.5" width="22" height="1.5" rx="4.0"/><text x="58.7" y="230" text-anchor="middle" class="tk">nov</text><text x="58.7" y="244" text-anchor="middle" class="tk an">2024</text><rect class="b" style="--i:1" x="85.1" y="212.5" width="22" height="1.5" rx="4.0"/><text x="96.1" y="230" text-anchor="middle" class="tk">dic</text><rect class="b" style="--i:2" x="122.5" y="211.8" width="22" height="2.2" rx="4.0"/><text x="133.5" y="230" text-anchor="middle" class="tk">gen</text><text x="133.5" y="244" text-anchor="middle" class="tk an">2025</text><rect class="b" style="--i:3" x="159.9" y="211.8" width="22" height="2.2" rx="4.0"/><text x="170.9" y="230" text-anchor="middle" class="tk">feb</text><rect class="b" style="--i:4" x="197.3" y="209.7" width="22" height="4.3" rx="4.0"/><text x="208.3" y="230" text-anchor="middle" class="tk">mar</text><rect class="b" style="--i:5" x="234.7" y="209.7" width="22" height="4.3" rx="4.0"/><text x="245.7" y="230" text-anchor="middle" class="tk">apr</text><rect class="b" style="--i:6" x="272.0" y="212.5" width="22" height="1.5" rx="4.0"/><text x="283.0" y="230" text-anchor="middle" class="tk">mag</text><rect class="b" style="--i:7" x="309.4" y="211.8" width="22" height="2.2" rx="4.0"/><text x="320.4" y="230" text-anchor="middle" class="tk">giu</text><rect class="b" style="--i:8" x="346.8" y="212.5" width="22" height="1.5" rx="4.0"/><text x="357.8" y="230" text-anchor="middle" class="tk">lug</text><rect class="b" style="--i:9" x="384.2" y="209.7" width="22" height="4.3" rx="4.0"/><text x="395.2" y="230" text-anchor="middle" class="tk">ago</text><rect class="b" style="--i:10" x="421.6" y="209.7" width="22" height="4.3" rx="4.0"/><text x="432.6" y="230" text-anchor="middle" class="tk">set</text><rect class="b" style="--i:11" x="459.0" y="209.7" width="22" height="4.3" rx="4.0"/><text x="470.0" y="230" text-anchor="middle" class="tk">ott</text><rect class="b" style="--i:12" x="496.4" y="212.5" width="22" height="1.5" rx="4.0"/><text x="507.4" y="230" text-anchor="middle" class="tk">nov</text><rect class="b" style="--i:13" x="533.8" y="212.5" width="22" height="1.5" rx="4.0"/><text x="544.8" y="230" text-anchor="middle" class="tk">dic</text><rect class="b" style="--i:14" x="571.2" y="211.8" width="22" height="2.2" rx="4.0"/><text x="582.2" y="230" text-anchor="middle" class="tk">gen</text><text x="582.2" y="244" text-anchor="middle" class="tk an">2026</text><rect class="b" style="--i:15" x="608.6" y="212.5" width="22" height="1.5" rx="4.0"/><text x="619.6" y="230" text-anchor="middle" class="tk">feb</text><rect class="b" style="--i:16" x="646.0" y="211.8" width="22" height="2.2" rx="4.0"/><text x="657.0" y="230" text-anchor="middle" class="tk">mar</text><rect class="b" style="--i:17" x="683.3" y="207.5" width="22" height="6.5" rx="4.0"/><text x="694.3" y="230" text-anchor="middle" class="tk">apr</text><rect class="b mezzo" style="--i:18" x="720.7" y="183.6" width="22" height="30.4" rx="4.0"/><text x="731.7" y="230" text-anchor="middle" class="tk">mag</text><rect class="b dopo" style="--i:19" x="758.1" y="72.6" width="22" height="141.4" rx="4.0"/><text x="769.1" y="65.6" text-anchor="middle" class="val" style="--i:19">65</text><text x="769.1" y="230" text-anchor="middle" class="tk">giu</text><rect class="b dopo" style="--i:20" x="795.5" y="83.5" width="22" height="130.5" rx="4.0"/><text x="806.5" y="76.5" text-anchor="middle" class="val" style="--i:20">60</text><text x="806.5" y="230" text-anchor="middle" class="tk">lug</text><rect class="b dopo" style="--i:21" x="832.9" y="92.2" width="22" height="121.8" rx="4.0"/><text x="843.9" y="85.2" text-anchor="middle" class="val" style="--i:21">56</text><text x="843.9" y="230" text-anchor="middle" class="tk">ago</text><rect class="b dopo" style="--i:22" x="870.3" y="40.0" width="22" height="174.0" rx="4.0"/><text x="881.3" y="33.0" text-anchor="middle" class="val" style="--i:22">80</text><text x="881.3" y="230" text-anchor="middle" class="tk">set</text><line class="online" x1="731.7" y1="34" x2="731.7" y2="214"/><text x="723.7" y="42" text-anchor="end" class="lb on">online in EN · FR · DE, metà maggio</text></svg>
+        <p class="lg-nota">Ordini con l'indirizzo fuori dall'Italia, dal pannello Shopify del negozio, letti il 15 ottobre 2026. Ottobre è a metà: 81 ordini dall'estero nei primi quattordici giorni.</p>
       </div>
     </article>
 
