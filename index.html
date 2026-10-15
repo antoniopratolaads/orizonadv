@@ -370,6 +370,28 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .tesi p{margin:22px auto 0;font-size:18px;color:rgba(255,255,255,.82);max-width:720px;text-wrap:pretty}
 .tesi p strong{color:var(--white);font-weight:600}
 
+/* ── IL PROBLEMA (15/10/2026): l'inizio del video, coi prodotti veri dei cataloghi che seguiamo; sta prima della
+   squadra, sul fondo scuro del video ── */
+.prob{background:radial-gradient(ellipse 70% 55% at 50% 38%,#1B2470,transparent 72%),#090D24;color:var(--white);padding:104px 0 96px;position:relative;overflow:hidden}
+.prob::before{content:'';position:absolute;inset:0;background:radial-gradient(rgba(255,255,255,.22) 1px,transparent 1.5px) 0 0/34px 34px;opacity:.5;-webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 40%,#000,transparent);mask-image:radial-gradient(ellipse 80% 70% at 50% 40%,#000,transparent);pointer-events:none}
+.prob .wrap{position:relative;z-index:1}
+.prob h2{font-size:clamp(34px,4.6vw,60px);line-height:1.04;letter-spacing:-.035em;max-width:900px;text-wrap:balance}
+.prob h2 span{color:var(--green)}
+.prob-conta{margin-top:64px;text-align:center}
+.prob-num{font-size:clamp(76px,10vw,144px);font-weight:600;letter-spacing:-.045em;line-height:.95;font-variant-numeric:tabular-nums}
+.prob-unit{margin-top:8px;font-size:clamp(20px,2.2vw,30px);font-weight:600;letter-spacing:.1em;color:var(--blue-s)}
+.prob-passo{margin-top:14px;font-size:16px;color:rgba(255,255,255,.74);min-height:1.55em;transition:opacity .3s}
+.prob-pav{perspective:760px;margin:26px auto 0;max-width:1000px;height:210px;overflow:hidden;-webkit-mask-image:linear-gradient(transparent,#000 30%,#000 70%,transparent);mask-image:linear-gradient(transparent,#000 30%,#000 70%,transparent)}
+.prob-griglia{display:grid;grid-template-columns:repeat(16,1fr);gap:10px;transform:rotateX(58deg);transform-origin:50% 0}
+.prob-griglia i{display:block;aspect-ratio:1.55;border-radius:6px;background:rgba(159,171,255,.2);border:1px solid rgba(159,171,255,.22)}
+.js .prob-griglia i{opacity:0;transform:translateY(10px) scale(.85);transition:opacity .45s var(--ease),transform .6s var(--ease)}
+.js .prob-griglia i.on{opacity:1;transform:none}
+.prob-griglia i.v{background:rgba(96,231,135,.5);border-color:rgba(96,231,135,.6)}
+.prob-nota{margin-top:6px;font-size:13px;color:rgba(255,255,255,.5)}
+.prob-domanda{margin:56px auto 0;max-width:780px;text-align:center;font-size:clamp(26px,3vw,38px);font-weight:600;letter-spacing:-.025em;line-height:1.15;text-wrap:balance}
+.prob-risp{margin:16px auto 0;max-width:660px;text-align:center;font-size:18px;line-height:1.55;color:rgba(255,255,255,.78);text-wrap:pretty}
+.prob-risp b{color:var(--white);font-weight:600}
+
 /* ── LA SQUADRA (15/10/2026): i sei agenti del video coi loro nomi, ritagliati dal video stesso; sta sullo
    stesso blu del capitolo del catalogo, che viene subito dopo ── */
 .squad{background:var(--blue);color:var(--white);padding:104px 0 40px;position:relative;overflow:hidden}
@@ -957,6 +979,17 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .xs.xsmark::after{content:'';position:absolute;z-index:0;right:-26%;top:-6%;width:78vw;height:56vw;background:url(images/brand/mark-blu.svg) no-repeat center/contain;opacity:.1;pointer-events:none;transform:rotate(-8deg)}
   .xs.xsmark.sx::after{right:auto;left:-34%;top:auto;bottom:-10%;transform:rotate(10deg)}
   .xs.xs5::after{content:'';position:absolute;z-index:0;right:-30%;bottom:-16%;width:82vw;height:58vw;background:url(images/brand/mark-bianco.svg) no-repeat center/contain;opacity:.18;pointer-events:none}
+  .xprob{background:radial-gradient(ellipse 90% 50% at 50% 45%,#1B2470,transparent 75%),#090D24;color:#fff;overflow:hidden}
+  .xprob .xk{color:var(--green)}
+  .xprob h2{margin-top:8px;font-size:30px;line-height:1.08}
+  .xprob .prob-conta{margin-top:30px}
+  .xprob .prob-num{font-size:64px}
+  .xprob .prob-unit{font-size:18px}
+  .xprob .prob-passo{font-size:14px}
+  .xprob .prob-pav{height:120px;margin-top:16px}
+  .xprob .prob-griglia{grid-template-columns:repeat(10,1fr);gap:7px}
+  .xprob .prob-domanda{margin-top:30px;font-size:24px;text-align:left}
+  .xprob .prob-risp{text-align:left;font-size:15.5px;margin-top:12px}
   .xsq{background:var(--blue);color:#fff;overflow:hidden}
   .xsq::before{content:'';position:absolute;z-index:0;inset:0;background-image:radial-gradient(rgba(255,255,255,.2) 1px,transparent 1.6px);background-size:22px 22px;animation:mderiva 24s linear infinite}
   .xsq .xk{color:rgba(255,255,255,.75)}
@@ -1114,6 +1147,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .js .mw i{transform:none;transition:none}
   .js .piatto.fx .pd2 > :nth-child(2),.js .cap.fx .cap-k,.js .cap.fx .wrap>p{opacity:1;transform:none;transition:none}
   .js .cap.fx .cap-mark{translate:0 0;rotate:0deg;transition:none}
+  .js .prob-griglia i{opacity:1;transform:none;transition:none}
   .js .squad-tree path{stroke-dashoffset:0;transition:none}
   .js .squad .ag-fig img,.js .squad .ag-nome,.js .squad .ag-ruolo,.js .squad .ag-cosa,.js .squad .ag-vai{opacity:1;transform:none;transition:none}
   .ag-fig{animation:none}
@@ -1200,6 +1234,20 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     <div class="xtre"><div class="xr" style="--d:.5s"><b>+135%</b><span>luglio–settembre</span></div><div class="xr" style="--d:.6s"><b>12.100</b><span>ordini, +51%</span></div><div class="xr" style="--d:.7s"><b>x50</b><span>vendite per euro speso</span></div></div>
     <p class="xlead xr" style="--d:.75s"><strong>Sono i numeri a dare la direzione.</strong> Chi brancola nel buio non ha un vantaggio competitivo.</p>
     <p class="xlnk xr" style="--d:.85s"><a href="/case-study/climatizzazione">Il caso completo →</a> <a href="/work">Gli altri clienti →</a></p>
+  </section>
+
+  <section class="xs xprob" id="m-problema">
+    <p class="xk xr">Il problema</p>
+    <h2><span class="xw"><span class="" style="--d:0.10s">E</span></span> <span class="xw"><span class="" style="--d:0.17s">il</span></span> <span class="xw"><span class="" style="--d:0.24s">problema</span></span> <span class="xw"><span class="" style="--d:0.31s">è</span></span> <span class="xw"><span class="" style="--d:0.38s">sempre</span></span> <span class="xw"><span class="xoutw" style="--d:0.45s">lo</span></span> <span class="xw"><span class="" style="--d:0.52s">stesso.</span></span></h2>
+    <div class="prob-conta" data-passi="[[1418, &quot;1 negozio · articoli per hotel e ristoranti&quot;], [10039, &quot;2 negozi · + climatizzazione&quot;], [20299, &quot;3 negozi · + moda&quot;], [42411, &quot;4 negozi · + scarpe e moda&quot;]]">
+      <div class="prob-num" aria-live="off">42.411</div>
+      <div class="prob-unit">PRODOTTI</div>
+      <p class="prob-passo">4 negozi · + scarpe e moda</p>
+      <div class="prob-pav" aria-hidden="true"><div class="prob-griglia"><i style="--o:18"></i><i style="--o:4"></i><i style="--o:17"></i><i style="--o:15"></i><i style="--o:38"></i><i style="--o:31"></i><i style="--o:47"></i><i style="--o:10"></i><i style="--o:8"></i><i style="--o:3"></i><i style="--o:34"></i><i style="--o:13"></i><i style="--o:24"></i><i style="--o:21"></i><i style="--o:43"></i><i style="--o:22"></i><i style="--o:7"></i><i style="--o:44" class="v"></i><i style="--o:27"></i><i style="--o:1"></i><i style="--o:41"></i><i style="--o:16"></i><i style="--o:0"></i><i style="--o:26"></i><i style="--o:33"></i><i style="--o:36"></i><i style="--o:48" class="v"></i><i style="--o:23"></i><i style="--o:20"></i><i style="--o:14" class="v"></i><i style="--o:40"></i><i style="--o:25"></i><i style="--o:2"></i><i style="--o:5"></i><i style="--o:9"></i><i style="--o:19" class="v"></i><i style="--o:46"></i><i style="--o:6"></i><i style="--o:42"></i><i style="--o:39"></i><i style="--o:30"></i><i style="--o:45" class="v"></i><i style="--o:11"></i><i style="--o:12"></i><i style="--o:37"></i><i style="--o:32"></i><i style="--o:49"></i><i style="--o:29"></i><i style="--o:35"></i><i style="--o:28"></i></div></div>
+      <p class="prob-nota">I prodotti a catalogo dei negozi che seguiamo, a ottobre 2026.</p>
+    </div>
+    <p class="prob-domanda xr" style="--d:.3s">Come si ottimizza un catalogo da migliaia di prodotti?</p>
+    <p class="prob-risp xr" style="--d:.4s">Ognuno ha una scheda da scrivere, una da tradurre, una riga nel feed e un posto nel budget. <b>A mano non si finisce mai: per questo è nato Ignition.</b></p>
   </section>
 
   <section class="xs xsq" id="m-squadra">
@@ -1361,6 +1409,23 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   </div>
 </section>
 
+
+<!-- ═══ IL PROBLEMA: l'inizio del video, coi prodotti veri ═══ -->
+<section class="solo-d prob fx" id="problema" aria-labelledby="problema-t">
+  <div class="wrap">
+    <p class="squad-k">Il problema</p>
+    <h2 id="problema-t">Da anni guidiamo le campagne degli e-commerce. <span>E il problema è sempre lo stesso.</span></h2>
+    <div class="prob-conta" data-passi="[[1418, &quot;1 negozio · articoli per hotel e ristoranti&quot;], [10039, &quot;2 negozi · + climatizzazione&quot;], [20299, &quot;3 negozi · + moda&quot;], [42411, &quot;4 negozi · + scarpe e moda&quot;]]">
+      <div class="prob-num" aria-live="off">42.411</div>
+      <div class="prob-unit">PRODOTTI</div>
+      <p class="prob-passo">4 negozi · + scarpe e moda</p>
+      <div class="prob-pav" aria-hidden="true"><div class="prob-griglia"><i style="--o:78"></i><i style="--o:66"></i><i style="--o:86"></i><i style="--o:79"></i><i style="--o:21"></i><i style="--o:44"></i><i style="--o:51"></i><i style="--o:1"></i><i style="--o:0" class="v"></i><i style="--o:87"></i><i style="--o:62"></i><i style="--o:32" class="v"></i><i style="--o:38"></i><i style="--o:48"></i><i style="--o:84"></i><i style="--o:49"></i><i style="--o:42"></i><i style="--o:77"></i><i style="--o:33"></i><i style="--o:14"></i><i style="--o:10"></i><i style="--o:95"></i><i style="--o:16"></i><i style="--o:61"></i><i style="--o:18"></i><i style="--o:2"></i><i style="--o:59"></i><i style="--o:24"></i><i style="--o:22"></i><i style="--o:65"></i><i style="--o:25"></i><i style="--o:71"></i><i style="--o:57"></i><i style="--o:47"></i><i style="--o:45" class="v"></i><i style="--o:29"></i><i style="--o:20"></i><i style="--o:92"></i><i style="--o:60"></i><i style="--o:31"></i><i style="--o:13"></i><i style="--o:39"></i><i style="--o:3"></i><i style="--o:89"></i><i style="--o:82"></i><i style="--o:56"></i><i style="--o:80"></i><i style="--o:23"></i><i style="--o:88"></i><i style="--o:40"></i><i style="--o:58"></i><i style="--o:63"></i><i style="--o:67"></i><i style="--o:76"></i><i style="--o:43"></i><i style="--o:52"></i><i style="--o:35"></i><i style="--o:94"></i><i style="--o:36" class="v"></i><i style="--o:69"></i><i style="--o:34" class="v"></i><i style="--o:90"></i><i style="--o:26"></i><i style="--o:37" class="v"></i><i style="--o:17"></i><i style="--o:5"></i><i style="--o:75"></i><i style="--o:91"></i><i style="--o:93"></i><i style="--o:73"></i><i style="--o:28"></i><i style="--o:15"></i><i style="--o:72"></i><i style="--o:85"></i><i style="--o:54" class="v"></i><i style="--o:70"></i><i style="--o:81" class="v"></i><i style="--o:30"></i><i style="--o:8"></i><i style="--o:53"></i><i style="--o:55"></i><i style="--o:11"></i><i style="--o:4"></i><i style="--o:27"></i><i style="--o:64"></i><i style="--o:7" class="v"></i><i style="--o:74"></i><i style="--o:46"></i><i style="--o:12"></i><i style="--o:68" class="v"></i><i style="--o:9"></i><i style="--o:6"></i><i style="--o:83"></i><i style="--o:50"></i><i style="--o:19"></i><i style="--o:41"></i></div></div>
+      <p class="prob-nota">I prodotti a catalogo dei negozi che seguiamo, a ottobre 2026.</p>
+    </div>
+    <p class="prob-domanda">Come si ottimizza un catalogo da migliaia di prodotti?</p>
+    <p class="prob-risp">Ognuno ha una scheda da scrivere, una da tradurre, una riga nel feed e un posto nel budget. <b>A mano non si finisce mai: per questo è nato Ignition.</b></p>
+  </div>
+</section>
 
 <!-- ═══ LA SQUADRA: i sei agenti del video, coi loro nomi ═══ -->
 <section class="solo-d squad fx" id="squadra" aria-labelledby="squadra-t">
@@ -1964,7 +2029,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   /* ── i titoli a sipario: ogni parola in una maschera ── */
   (function(){
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.innerWidth < 768) return;
-    document.querySelectorAll('.sec-head h2, .cap h2, .squad h2, #tesi-t, .end h2, .who h2').forEach(function(h){
+    document.querySelectorAll('.sec-head h2, .cap h2, .prob h2, .squad h2, #tesi-t, .end h2, .who h2').forEach(function(h){
       var n = 0;
       function spezza(nodo){
         Array.prototype.slice.call(nodo.childNodes).forEach(function(c){
@@ -2163,6 +2228,40 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && m.classList.contains('open')) closeMenu(); });
   }
 })();
+  /* ── il problema: il contatore sale negozio per negozio e le tessere del catalogo si accendono ── */
+  (function(){
+    var conti = document.querySelectorAll('.prob-conta'); if (!conti.length) return;
+    var fermo = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function it(n){ return Math.round(n).toLocaleString('it-IT'); }
+    function parti(box){
+      var passi = JSON.parse(box.getAttribute('data-passi')), tot = passi[passi.length - 1][0];
+      var num = box.querySelector('.prob-num'), lab = box.querySelector('.prob-passo');
+      var tess = Array.prototype.slice.call(box.querySelectorAll('.prob-griglia i'))
+        .sort(function(a, b){ return a.style.getPropertyValue('--o') - b.style.getPropertyValue('--o'); });
+      function accendi(v){ var n = Math.max(Math.round(tess.length * v / tot), v > 0 ? 1 : 0); tess.forEach(function(t, k){ t.classList.toggle('on', k < n); }); }
+      if (fermo) { num.textContent = it(tot); lab.textContent = passi[passi.length - 1][1]; accendi(tot); return; }
+      num.textContent = '0'; lab.textContent = ''; accendi(0);
+      var i = 0, da = 0;
+      function passo(){
+        if (i >= passi.length) return;
+        var a = passi[i][0], t0 = null, ms = i === 0 ? 900 : 1300;
+        lab.style.opacity = 0;
+        setTimeout(function(){ lab.textContent = passi[i][1]; lab.style.opacity = 1; }, 160);
+        function f(ts){
+          if (t0 === null) t0 = ts;
+          var k = Math.min(1, (ts - t0) / ms); k = 1 - Math.pow(1 - k, 3);
+          var v = da + (a - da) * k; num.textContent = it(v); accendi(v);
+          if (k < 1) { requestAnimationFrame(f); return; }
+          da = a; i++; setTimeout(passo, 650);
+        }
+        requestAnimationFrame(f);
+      }
+      setTimeout(passo, 300);
+    }
+    if (!('IntersectionObserver' in window)) { conti.forEach(function(b){ b.querySelectorAll('.prob-griglia i').forEach(function(t){ t.classList.add('on'); }); }); return; }
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { io.unobserve(e.target); parti(e.target); } }); }, { threshold: .45 });
+    conti.forEach(function(b){ io.observe(b); });
+  })();
   /* ── telefono: il flusso, i numeri, la parallasse, la demo della padella ── */
   (function(){
     var flow = document.getElementById('mflow'); if (!flow) return;
