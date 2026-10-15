@@ -370,6 +370,35 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .tesi p{margin:22px auto 0;font-size:18px;color:rgba(255,255,255,.82);max-width:720px;text-wrap:pretty}
 .tesi p strong{color:var(--white);font-weight:600}
 
+/* ── IL CONTROLLO (15/10/2026): Holmes rilegge ogni scheda prima che vada online; i controlli veri, i numeri dal
+   database dei due negozi che hanno più schede ── */
+.ct-box{border:1px solid var(--line-2);border-radius:14px;background:var(--white);padding:20px 22px}
+.ct-chi{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.ct-chi span{width:52px;height:52px;border-radius:14px;background:var(--blue);display:grid;place-items:center;overflow:hidden;flex-shrink:0}
+.ct-chi img{width:58px;height:auto;margin-top:6px}
+.ct-chi b{display:block;font-size:15px;font-weight:600}
+.ct-chi small{display:block;font-size:13px;color:var(--black-m)}
+.ct-lista{list-style:none;display:grid;gap:9px}
+.ct-lista li{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start;font-size:15px;line-height:1.4}
+.ct-lista li i{width:22px;height:22px;border-radius:50%;background:rgba(96,231,135,.22);display:grid;place-items:center;margin-top:-1px}
+.ct-lista li i::after{content:'';width:9px;height:5px;border-left:2px solid #1E9E50;border-bottom:2px solid #1E9E50;transform:translateY(-1px) rotate(-45deg)}
+.ct-lista li small{display:block;font-size:12.5px;color:var(--black-m)}
+.ct-verdetto{margin-top:16px;display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border-radius:999px;background:rgba(96,231,135,.18);color:#167a3d;font-weight:600;font-size:14px}
+.ct-verdetto b{font-size:16px;color:var(--black)}
+.js .piatto.fx .ct-lista li,.js .piatto.fx .ct-verdetto{opacity:0;transform:translateY(8px);transition:opacity .5s var(--ease),transform .7s var(--ease);transition-delay:calc(.35s + var(--i) * .22s)}
+.js .piatto.fx.in .ct-lista li,.js .piatto.fx.in .ct-verdetto{opacity:1;transform:none}
+.ct-conti{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.ct-conti div{border:1px solid var(--line-2);border-radius:12px;padding:16px 16px 14px;background:var(--white)}
+.ct-conti b{display:block;font-size:30px;font-weight:600;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.ct-conti span{display:block;margin-top:6px;font-size:13px;color:var(--black-m);line-height:1.35}
+.ct-conti .on b{color:var(--blue)}
+.ct-barra{margin-top:14px;height:12px;border-radius:6px;background:rgba(255,143,126,.35);overflow:hidden}
+.ct-barra i{display:block;height:100%;width:95.3%;background:var(--blue);border-radius:6px 0 0 6px}
+.js .piatto.fx .ct-barra i{width:0;transition:width 1.6s var(--ease) .5s}
+.js .piatto.fx.in .ct-barra i{width:95.3%}
+.ct-motivi{margin-top:16px;font-size:13.5px;color:var(--black-m);line-height:1.5}
+.ct-motivi b{color:var(--black);font-weight:600}
+
 /* ── LE TRADUZIONI (15/10/2026): la leva 01 in ogni lingua, sul negozio di articoli per hotel e ristoranti della
    padella; gli ordini dall'estero dagli scatti delle vendite, mese per mese ── */
 .piatto .pn.piu{font-size:34px}
@@ -1015,6 +1044,15 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .xs.xsmark::after{content:'';position:absolute;z-index:0;right:-26%;top:-6%;width:78vw;height:56vw;background:url(images/brand/mark-blu.svg) no-repeat center/contain;opacity:.1;pointer-events:none;transform:rotate(-8deg)}
   .xs.xsmark.sx::after{right:auto;left:-34%;top:auto;bottom:-10%;transform:rotate(10deg)}
   .xs.xs5::after{content:'';position:absolute;z-index:0;right:-30%;bottom:-16%;width:82vw;height:58vw;background:url(images/brand/mark-bianco.svg) no-repeat center/contain;opacity:.18;pointer-events:none}
+  .xcontrollo{background:var(--white)}
+  .xcontrollo h2{margin-top:8px;font-size:30px;line-height:1.08}
+  .xcontrollo .ct-box{margin-top:18px;padding:16px 14px}
+  .xcontrollo .ct-lista li{font-size:14px}
+  .xcontrollo .ct-conti{margin-top:16px;gap:8px}
+  .xcontrollo .ct-conti div{padding:12px 10px}
+  .xcontrollo .ct-conti b{font-size:22px}
+  .xcontrollo .ct-conti span{font-size:12px}
+  .xcontrollo .ct-barra i{width:95.3%}
   .xlingue{background:var(--bg-2)}
   .xlingue h2{margin-top:8px;font-size:30px;line-height:1.08}
   .xlingue .lg-carte{margin-top:18px}
@@ -1197,6 +1235,8 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .js .cap.fx .cap-mark{translate:0 0;rotate:0deg;transition:none}
   .js .prob-griglia i{opacity:1;transform:none;transition:none}
   .js .piatto.fx .lg-carta,.js .lg-svg .b,.js .lg-svg .val{opacity:1;transform:none;transition:none}
+  .js .piatto.fx .ct-lista li,.js .piatto.fx .ct-verdetto{opacity:1;transform:none;transition:none}
+  .js .piatto.fx .ct-barra i{width:95.3%;transition:none}
   .js .squad-tree path{stroke-dashoffset:0;transition:none}
   .js .squad .ag-fig img,.js .squad .ag-nome,.js .squad .ag-ruolo,.js .squad .ag-cosa,.js .squad .ag-vai{opacity:1;transform:none;transition:none}
   .ag-fig{animation:none}
@@ -1337,6 +1377,17 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       <button type="button" class="xd-go" id="xd-go">Accendi la padella</button>
     </div>
     <p class="xlead xr" style="--d:.7s">Così su tutti: il fornitore che ce l'ha data ne ha 1.446, accesi uno per uno. Niente inventato: ogni riga viene dai dati del prodotto.</p>
+  </section>
+
+  <section class="xs xcontrollo" id="m-controllo">
+    <p class="xk xr">Prima che vada online</p>
+    <h2><span class="xw"><span class="" style="--d:0.10s">Ogni</span></span> <span class="xw"><span class="" style="--d:0.17s">scheda</span></span> <span class="xw"><span class="" style="--d:0.24s">la</span></span> <span class="xw"><span class="xout" style="--d:0.31s">rilegge</span></span> <span class="xw"><span class="xout" style="--d:0.38s">Holmes.</span></span></h2>
+    <div class="ct-box">
+      <div class="ct-chi"><span><img src="images/squadra/holmes.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></span><div><b>Holmes · Giudice AI</b><small>i controlli su ogni scheda</small></div></div>
+      <ul class="ct-lista"><li class="xr" style="--d:0.35s"><i></i><span>Ogni numero c'è nel testo del fornitore o nei dati del negozio</span></li><li class="xr" style="--d:0.45s"><i></i><span>Nessuna marca, certificazione o materiale che il prodotto non dichiara</span></li><li class="xr" style="--d:0.55s"><i></i><span>Nessun dato del fornitore perso per strada</span></li><li class="xr" style="--d:0.65s"><i></i><span>Domande sul prodotto, non su taglie, prezzi o spedizioni</span></li><li class="xr" style="--d:0.75s"><i></i><span>HTML pulito: niente codice che non c'era</span></li></ul>
+    </div>
+    <div class="ct-conti xr" style="--d:.9s"><div><b>9.476</b><span>giudicate in due negozi</span></div><div class="on"><b>9.030</b><span>promosse</span></div><div><b>446</b><span>rimandate a riscrivere</span></div></div>
+    <p class="xlead xr" style="--d:1s">Online va solo quella promossa.</p>
   </section>
 
   <section class="xs xlingue" id="m-lingue">
@@ -1511,6 +1562,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         <span class="ag-nome"><i style="--c:#7CD3FF"></i>Holmes</span>
         <span class="ag-ruolo">Giudice AI</span>
         <p class="ag-cosa">Rilegge ogni scheda prima che vada online: un numero o una marca che il prodotto non ha, e la rimanda indietro.</p>
+        <a class="ag-vai" href="#piatto-controllo">Guardalo al lavoro ↓</a>
       </li>
       <li style="--i:2">
         <span class="ag-fig"><img src="images/squadra/galileo.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></span>
@@ -1558,7 +1610,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   <div class="wrap">
     <div class="sec-head fx">
       <h2>Prima e dopo, su prodotti veri. <span>Cinque leve, cucinate.</span></h2>
-      <p>Un cardigan di un negozio di moda da 17.432 prodotti per la scheda, il titolo e il feed; il negozio di articoli per hotel e ristoranti per le lingue; due negozi di moda per il tracciamento; il negozio di climatizzazione per le etichette. A sinistra com'è oggi, a destra com'è acceso. <strong>Niente inventato</strong>: letture del 12 ottobre 2026, e niente è stato pubblicato senza il sì del negozio.</p>
+      <p>Un cardigan di un negozio di moda da 17.432 prodotti per la scheda, il titolo e il feed; due negozi per il controllo delle schede; il negozio di articoli per hotel e ristoranti per le lingue; due negozi di moda per il tracciamento; il negozio di climatizzazione per le etichette. A sinistra com'è oggi, a destra com'è acceso. <strong>Niente inventato</strong>: letture del 12 ottobre 2026, e niente è stato pubblicato senza il sì del negozio.</p>
     </div>
 
     <article class="piatto fx fx-sx" id="piatto-scheda">
@@ -1581,7 +1633,24 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       </div>
     </article>
 
-    <article class="piatto fx fx-dx" id="piatto-lingue">
+    <article class="piatto fx fx-dx" id="piatto-controllo">
+      <header><span class="pn piu" aria-hidden="true">+</span><div><h3>Il controllo <span>prima che vada online, la rilegge Holmes</span></h3><p>Ogni scheda scritta passa due controlli: uno a regole, che costa niente e toglie subito numeri e marche che il fornitore non dice; poi un giudice automatico che la confronta col testo di partenza e coi dati del negozio. Se non passa si riscrive, e online va solo quella promossa.</p></div></header>
+      <div class="pd2">
+        <div class="ct-box">
+          <div class="ct-chi"><span><img src="images/squadra/holmes.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></span><div><b>Holmes · Giudice AI</b><small>i controlli su ogni scheda</small></div></div>
+          <ul class="ct-lista"><li style="--i:0"><i></i><span>Ogni numero c'è nel testo del fornitore o nei dati del negozio<small>a regole, prima del giudice</small></span></li><li style="--i:1"><i></i><span>Nessuna marca, certificazione o materiale che il prodotto non dichiara<small>a regole e dal giudice</small></span></li><li style="--i:2"><i></i><span>Nessun dato del fornitore perso per strada<small>dal giudice</small></span></li><li style="--i:3"><i></i><span>Domande sul prodotto, non su taglie, prezzi o spedizioni<small>a regole</small></span></li><li style="--i:4"><i></i><span>HTML pulito: niente codice che non c'era<small>a regole</small></span></li></ul>
+          <p class="ct-verdetto" style="--i:5">Promossa <b>84 su 100</b> · il cardigan qui sopra</p>
+        </div>
+        <div>
+          <div class="ct-conti"><div><b>9.476</b><span>schede scritte e giudicate in due negozi</span></div><div class="on"><b>9.030</b><span>promosse</span></div><div><b>446</b><span>bocciate e rimandate a riscrivere</span></div></div>
+          <div class="ct-barra" role="img" aria-label="95 schede su 100 promosse, 5 bocciate"><i></i></div>
+          <p class="ct-motivi">Perché si boccia, nei lavori dal 21 settembre: <b>si è allontanata troppo dal testo del fornitore</b>, <b>ha aggiunto una cosa che il fornitore non dice</b>, <b>un numero non torna</b>, <b>ha perso un dato</b>.</p>
+          <p class="pd-note">Dal database dei due negozi con più schede, letto il 15 ottobre 2026.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="piatto fx fx-sx" id="piatto-lingue">
       <header><span class="pn piu" aria-hidden="true">+</span><div><h3>Traduzioni <span>la stessa scheda, in ogni lingua</span></h3><p>Il negozio di articoli per hotel e ristoranti della padella, tradotto in inglese, francese e tedesco a metà maggio 2026: titolo, scheda, domande e meta di ogni prodotto. Nei dodici mesi prima, 12 ordini dall'estero. Da giugno, fra 56 e 80 al mese.</p></div></header>
       <div class="pd2">
         <div class="pd-oggi"><span class="tag">Prima</span><div class="lg-it"><b>IT · SOLO ITALIANO</b><p>Padella alta a saltare antiaderente in alluminio Pensofal Academy Chef</p></div><p class="pd-note">Una lingua sola: chi cerca in francese o in tedesco non la trova.</p></div>
