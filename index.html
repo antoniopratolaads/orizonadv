@@ -986,7 +986,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .xprob .prob-num{font-size:64px}
   .xprob .prob-unit{font-size:18px}
   .xprob .prob-passo{font-size:14px}
-  .xprob .prob-pav{height:120px;margin-top:16px}
+  .xprob .prob-pav{height:96px;margin-top:14px}
   .xprob .prob-griglia{grid-template-columns:repeat(10,1fr);gap:7px}
   .xprob .prob-domanda{margin-top:30px;font-size:24px;text-align:left}
   .xprob .prob-risp{text-align:left;font-size:15.5px;margin-top:12px}
@@ -2232,7 +2232,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   (function(){
     var conti = document.querySelectorAll('.prob-conta'); if (!conti.length) return;
     var fermo = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    function it(n){ return Math.round(n).toLocaleString('it-IT'); }
+    function it(n){ return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
     function parti(box){
       var passi = JSON.parse(box.getAttribute('data-passi')), tot = passi[passi.length - 1][0];
       var num = box.querySelector('.prob-num'), lab = box.querySelector('.prob-passo');
