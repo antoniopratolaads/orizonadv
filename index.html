@@ -1479,6 +1479,8 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .xs .sim{margin:18px 0 0;padding:14px 12px 12px;border-radius:18px}
   .xs .wf{margin:18px 0 0;padding:14px 12px 12px;border-radius:18px}
   .xs .wf-tog{width:100%}
+  .xs .wf-svg .v{font-size:15px}
+  .xs .wf-svg .l{font-size:14px}
   .xs .wf-tog button{flex:1;padding:8px 6px;font-size:12px}
   .xs .ric{margin:18px 0 0;padding:14px 12px 12px;border-radius:18px}
   .xs .ric-top{flex-direction:column;align-items:stretch;gap:10px}
@@ -2804,6 +2806,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   (function(){
     var DATI = { roas: [700000, 126230, 65410, 406689, 24500, 10500, 20000, 46700], utile: [660000, 119016, 61672, 316346, 23100, 9900, 30000, 100000] };
     var NOMI = ['Incassato', 'IVA', 'Resi', 'Merce', 'Spedizioni', 'Commissioni', 'Pubblicità', 'Resta'];
+    var STRETTO = window.innerWidth < 768; if (STRETTO) NOMI = ['Incasso', 'IVA', 'Resi', 'Merce', 'Spediz.', 'Commis.', 'Pubbl.', 'Resta'];
     function euro(v){ return (Math.round(v / 100) / 10).toFixed(v >= 100000 ? 0 : 1).replace('.', ',') + ' mila'; }
     document.querySelectorAll('.wf').forEach(function(wf){
       var svg = wf.querySelector('.wf-svg'), NS = 'http://www.w3.org/2000/svg', W = 640, H = 300, top = 34, base = 262, n = NOMI.length, gap = 10, bw = (W - 40 - gap * (n - 1)) / n;
