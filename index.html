@@ -540,6 +540,28 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .js .lg-svg .val{opacity:0;transition:opacity .5s var(--ease);transition-delay:calc(.9s + var(--i) * .04s)}
 .js .fx.in .lg-svg .b,.js .xs.on .lg-svg .b{transform:none}
 .js .fx.in .lg-svg .val,.js .xs.on .lg-svg .val{opacity:1}
+/* il mondo del video: la Terra di notte, l'Italia che si accende, gli archi verso il mondo */
+.mo{position:relative;margin-top:22px;border-radius:18px;overflow:hidden;background:#06091C;aspect-ratio:1600/904;color:var(--white)}
+.mo-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:.92}
+.mo-svg{position:absolute;inset:0;width:100%;height:100%}
+.mo-a{fill:none;stroke:#7CD3FF;stroke-width:1.6;stroke-linecap:round;opacity:.9;stroke-dasharray:1;stroke-dashoffset:1}
+.mo-a:nth-child(odd){stroke:var(--green)}
+.mo-p{fill:var(--white);opacity:0}
+.mo-it{fill:var(--green);filter:drop-shadow(0 0 10px rgba(96,231,135,.9))}
+.mo.on .mo-a{transition:stroke-dashoffset 1.3s var(--ease);transition-delay:calc(.35s + var(--i) * .07s);stroke-dashoffset:0}
+.mo.on .mo-p{transition:opacity .4s;transition-delay:calc(1.5s + var(--i) * .07s);opacity:1}
+.mo-txt{position:absolute;left:36px;bottom:36px;max-width:440px}
+.mo-k{font-size:13.5px;color:rgba(255,255,255,.75)}
+.mo-n{margin-top:4px;font-size:clamp(40px,5vw,64px);font-weight:600;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.mo-n span{font-size:.55em;font-weight:500;letter-spacing:-.02em}
+.mo-l{margin-top:14px;display:flex;gap:6px}
+.mo-l i{font-style:normal;font-size:12.5px;font-weight:600;letter-spacing:.04em;padding:6px 10px;border-radius:8px;border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.55);background:rgba(255,255,255,.06);transition:background .4s,color .4s,border-color .4s;transition-delay:calc(var(--i,0) * .22s)}
+.mo-l i.on,.mo.on .mo-l i{background:var(--green);color:#06091C;border-color:var(--green)}
+.mo-go{margin-top:16px;font:inherit;font-size:13.5px;font-weight:600;color:#06091C;background:var(--green);border:0;border-radius:999px;padding:10px 18px;cursor:pointer;transition:transform .2s,filter .2s}
+.mo-go:hover{filter:brightness(1.06)}.mo-go:active{transform:scale(.97)}
+.mo-pill{position:absolute;right:28px;bottom:36px;max-width:300px;padding:12px 16px;border-radius:14px;background:rgba(6,9,28,.72);border:1px solid rgba(255,255,255,.18);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);font-size:13px;line-height:1.4;color:rgba(255,255,255,.8)}
+.mo-pill b{display:block;font-size:22px;color:var(--white);letter-spacing:-.02em}
+@media(max-width:900px){.mo{aspect-ratio:4/3}.mo-txt{left:18px;bottom:18px}.mo-pill{display:none}.mo-n{font-size:40px}}
 .lg-paesi{list-style:none;margin-top:18px;display:grid;gap:7px}
 .lg-paesi li{display:grid;grid-template-columns:120px 1fr 52px;gap:12px;align-items:center;font-size:13.5px}
 .lg-paesi li span{color:var(--black-m)}
@@ -916,6 +938,27 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 @keyframes sim-in{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
 .sim-nota{margin-top:12px;font-size:12px;color:var(--black-m);line-height:1.45}
 /* due ordini da 100 €: la ricevuta, voce per voce, a richiesta */
+/* il conto del mese a cascata, come nel video */
+.wf{border:1px solid var(--line-2);border-radius:16px;background:var(--white);padding:16px 16px 14px;margin-bottom:22px;box-shadow:0 24px 50px -34px rgba(12,23,19,.35)}
+.wf-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.wf-k{font-size:13.5px;font-weight:600;color:var(--blue)}
+.wf-tog{display:inline-flex;border:1px solid var(--line-2);border-radius:999px;padding:3px;background:var(--bg-2)}
+.wf-tog button{font:inherit;font-size:12.5px;font-weight:600;color:var(--black-m);background:none;border:0;border-radius:999px;padding:6px 12px;cursor:pointer;transition:background .25s,color .25s}
+.wf-tog button.on{background:var(--white);color:var(--blue);box-shadow:0 4px 12px -6px rgba(12,23,19,.4)}
+.wf-svg{display:block;width:100%;height:auto}
+.wf-svg rect{transition:y .8s var(--ease),height .8s var(--ease),x .5s var(--ease),width .5s var(--ease)}
+.wf-svg .b-inc{fill:var(--blue)}
+.wf-svg .b-meno{fill:#E0356A}
+.wf-svg .b-resta{fill:var(--green)}
+.wf-svg .g{stroke:var(--line);stroke-width:1}
+.wf-svg .v{font-size:11px;font-weight:600;fill:var(--black);font-variant-numeric:tabular-nums}
+.wf-svg .v.meno{fill:#B4322B}
+.wf-svg .v.resta{fill:#17633A}
+.wf-svg .l{font-size:10.5px;fill:var(--black-m)}
+.wf-svg .lnk{stroke:rgba(12,23,19,.25);stroke-width:1;stroke-dasharray:2 3}
+.wf-mese{margin-top:12px;font-size:13px;color:var(--black-m);line-height:1.5}
+.wf-mese b{color:var(--black);font-weight:600}
+.vs-why .wf .wf-mese b{color:var(--black)}
 .ric{border:1px solid var(--line-2);border-radius:16px;background:var(--white);padding:16px 16px 14px;margin-bottom:22px}
 .ric-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}
 .ric-top span{font-size:14px;font-weight:600;color:var(--black)}
@@ -1434,6 +1477,9 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .js .xs.on .xcresc .a1,.js .xs.on .xcresc .a2,.js .xs.on .xcresc .pt,.js .xs.on .xcresc .lb{opacity:1}
   .xconf{margin-top:18px}
   .xs .sim{margin:18px 0 0;padding:14px 12px 12px;border-radius:18px}
+  .xs .wf{margin:18px 0 0;padding:14px 12px 12px;border-radius:18px}
+  .xs .wf-tog{width:100%}
+  .xs .wf-tog button{flex:1;padding:8px 6px;font-size:12px}
   .xs .ric{margin:18px 0 0;padding:14px 12px 12px;border-radius:18px}
   .xs .ric-top{flex-direction:column;align-items:stretch;gap:10px}
   .xs .ric-go{height:46px;border-radius:12px;font-size:14px}
@@ -1651,33 +1697,12 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 
   <section class="xs xs4b" id="m-roas">
     <p class="xk xr">Il ROAS più alto non è il mese migliore</p>
-    <h2><span class="xw"><span class="" style="--d:0.10s">Cento</span></span> <span class="xw"><span class="" style="--d:0.17s">euro</span></span> <span class="xw"><span class="" style="--d:0.24s">venduti.</span></span> <span class="xw"><span class="xout" style="--d:0.34s">Quanto</span></span> <span class="xw"><span class="xout" style="--d:0.41s">resta?</span></span></h2>
-    <p class="xlead xr" style="--d:.4s">Due ordini da 100 €. A sinistra il prodotto facile che fa volare il ROAS; a destra quello scelto per il margine. Tutti i costi dentro: guarda cosa resta.</p>
-    <div class="ric xr" style="--d:.55s">
-      <div class="ric-top"><span>Cento euro venduti. Quanto resta?</span><button type="button" class="ric-go">Fai i conti</button></div>
-      <div class="ric-cols">
-        <div class="ric-col roas">
-          <h4>Lavorando sul ROAS</h4>
-          <p class="ric-prod">Bestseller scontato, grande marca, prezzo sotto il benchmark</p>
-          <ul class="ric-righe">
-            <li class="inc" style="--i:0"><span>Incassato</span><b>100,00 €</b></li>
-            <li style="--i:1"><span>− IVA</span><b>18,03 €</b></li><li style="--i:2"><span>− Reso atteso</span><b>9,34 €</b></li><li style="--i:3"><span>− Costo della merce</span><b>58,10 €</b></li><li style="--i:4"><span>− Spedizione</span><b>3,50 €</b></li><li style="--i:5"><span>− Commissioni</span><b>1,50 €</b></li><li style="--i:6"><span>− Pubblicità</span><b>2,86 €</b></li>
-            <li class="resta" style="--i:7"><span>Resta</span><b>6,70 €</b></li>
-          </ul>
-          <div class="ric-bar" aria-hidden="true"><i style="--w:6.7%"></i></div>
-        </div>
-        <div class="ric-col utile">
-          <h4>Lavorando sull'utile</h4>
-          <p class="ric-prod">Prodotto scelto per il margine, prezzo pieno</p>
-          <ul class="ric-righe">
-            <li class="inc" style="--i:0"><span>Incassato</span><b>100,00 €</b></li>
-            <li style="--i:1"><span>− IVA</span><b>18,03 €</b></li><li style="--i:2"><span>− Reso atteso</span><b>9,34 €</b></li><li style="--i:3"><span>− Costo della merce</span><b>47,93 €</b></li><li style="--i:4"><span>− Spedizione</span><b>3,50 €</b></li><li style="--i:5"><span>− Commissioni</span><b>1,50 €</b></li><li style="--i:6"><span>− Pubblicità</span><b>4,55 €</b></li>
-            <li class="resta" style="--i:7"><span>Resta</span><b>15,15 €</b></li>
-          </ul>
-          <div class="ric-bar" aria-hidden="true"><i style="--w:15.2%"></i></div>
-        </div>
-      </div>
-      <p class="ric-mese"><b>Sul mese:</b> ROAS 35 e 46.700 € di utile, o ROAS 22 e 100.000 €. Diecimila euro in più di pubblicità, quarantamila di vendite in meno, <b>il doppio dell'utile</b>.</p>
+    <h2><span class="xw"><span class="" style="--d:0.10s">Quanto</span></span> <span class="xw"><span class="" style="--d:0.17s">ti</span></span> <span class="xw"><span class="xout" style="--d:0.27s">resta,</span></span> <span class="xw"><span class="" style="--d:0.34s">davvero.</span></span></h2>
+    <p class="xlead xr" style="--d:.4s">Lo stesso negozio, lo stesso mese, due modi di muovere il budget. Tutti i costi dentro, uno alla volta: guarda cosa resta.</p>
+    <div class="wf xr" style="--d:.55s" data-modo="roas">
+      <div class="wf-top"><span class="wf-k">Il conto di ogni mese, ordine per ordine</span><div class="wf-tog" role="group" aria-label="Lavorando sul ROAS o sull'utile"><button type="button" class="on" data-m="roas">Lavorando sul ROAS</button><button type="button" data-m="utile">Lavorando sull'utile</button></div></div>
+      <svg class="wf-svg" viewBox="0 0 640 300" role="img" aria-label="Cascata del mese: incassato, poi IVA, resi, merce, spedizioni, commissioni e pubblicità tolte una alla volta, e quanto resta. Sul ROAS 700.000 incassati e 46.700 che restano; sull'utile 660.000 e 100.000."></svg>
+      <p class="wf-mese"><b>Sul ROAS:</b> 700.000 € incassati, ROAS 35, restano <b>46.700 €</b>. <b>Sull'utile:</b> 660.000 € incassati, ROAS 22, restano <b>100.000 €</b>. Diecimila euro in più di pubblicità, quarantamila di vendite in meno, <b>il doppio dell'utile</b>.</p>
     </div>
   </section>
   <section class="xs xs5" id="m-paghi">
@@ -1895,7 +1920,18 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     </article>
 
     <article class="piatto fx fx-sx" id="piatto-lingue">
-      <header class="firma"><img class="fv" src="images/squadra/galileo.webp" alt="" width="400" height="416" loading="lazy" decoding="async"><div><p class="fa" style="--c:#6FE59A"><i></i><b>Galileo</b> · Traduttore</p><h3>Traduzioni <span>la stessa scheda, in ogni lingua</span></h3><p class="fl">Titolo, scheda e domande nelle lingue del negozio: chi compra dall'estero c'è già.</p></div></header>
+      <header class="firma"><img class="fv" src="images/squadra/galileo.webp" alt="" width="400" height="416" loading="lazy" decoding="async"><div><p class="fa" style="--c:#6FE59A"><i></i><b>Galileo</b> · Traduttore</p><h3>Traduzioni <span>la stessa scheda, in ogni lingua</span></h3><p class="fl">Da 60 milioni di persone a più di 2 miliardi: titolo, scheda e domande nelle lingue del negozio.</p></div></header>
+      <div class="mo" id="mo">
+        <img class="mo-bg" src="images/video/terra-1600.webp" srcset="images/video/terra-800.webp 800w, images/video/terra-1600.webp 1600w" sizes="(max-width:1240px) 94vw, 1176px" alt="" width="1600" height="904" loading="lazy" decoding="async">
+        <svg class="mo-svg" viewBox="0 0 1600 904" aria-hidden="true"><path class="mo-a" pathLength="1" style="--i:0" d="M1185 480 Q 912 242 640 560"/><path class="mo-a" pathLength="1" style="--i:1" d="M1185 480 Q 872 78 560 330"/><path class="mo-a" pathLength="1" style="--i:2" d="M1185 480 Q 942 -57 700 170"/><path class="mo-a" pathLength="1" style="--i:3" d="M1185 480 Q 1002 54 820 260"/><path class="mo-a" pathLength="1" style="--i:4" d="M1185 480 Q 1058 -66 930 120"/><path class="mo-a" pathLength="1" style="--i:5" d="M1185 480 Q 1098 -112 1010 60"/><path class="mo-a" pathLength="1" style="--i:6" d="M1185 480 Q 1138 -137 1090 20"/><path class="mo-a" pathLength="1" style="--i:7" d="M1185 480 Q 1222 -64 1260 90"/><path class="mo-a" pathLength="1" style="--i:8" d="M1185 480 Q 1322 -60 1460 130"/><path class="mo-a" pathLength="1" style="--i:9" d="M1185 480 Q 1372 92 1560 300"/><path class="mo-a" pathLength="1" style="--i:10" d="M1185 480 Q 1302 298 1420 520"/><path class="mo-a" pathLength="1" style="--i:11" d="M1185 480 Q 1082 253 980 430"/><path class="mo-a" pathLength="1" style="--i:12" d="M1185 480 Q 802 162 420 440"/><path class="mo-a" pathLength="1" style="--i:13" d="M1185 480 Q 712 -110 240 200"/><path class="mo-a" pathLength="1" style="--i:14" d="M1185 480 Q 1382 269 1580 620"/><circle class="mo-p" style="--i:0" cx="640" cy="560" r="4"/><circle class="mo-p" style="--i:1" cx="560" cy="330" r="4"/><circle class="mo-p" style="--i:2" cx="700" cy="170" r="4"/><circle class="mo-p" style="--i:3" cx="820" cy="260" r="4"/><circle class="mo-p" style="--i:4" cx="930" cy="120" r="4"/><circle class="mo-p" style="--i:5" cx="1010" cy="60" r="4"/><circle class="mo-p" style="--i:6" cx="1090" cy="20" r="4"/><circle class="mo-p" style="--i:7" cx="1260" cy="90" r="4"/><circle class="mo-p" style="--i:8" cx="1460" cy="130" r="4"/><circle class="mo-p" style="--i:9" cx="1560" cy="300" r="4"/><circle class="mo-p" style="--i:10" cx="1420" cy="520" r="4"/><circle class="mo-p" style="--i:11" cx="980" cy="430" r="4"/><circle class="mo-p" style="--i:12" cx="420" cy="440" r="4"/><circle class="mo-p" style="--i:13" cx="240" cy="200" r="4"/><circle class="mo-p" style="--i:14" cx="1580" cy="620" r="4"/><circle class="mo-it" cx="1185" cy="480" r="7"/></svg>
+        <div class="mo-txt">
+          <p class="mo-k">persone che possono leggere la scheda</p>
+          <p class="mo-n"><b id="mo-n">60</b> <span id="mo-u">milioni</span></p>
+          <p class="mo-l"><i class="on">IT</i><i style="--i:1">EN</i><i style="--i:2">DE</i><i style="--i:3">FR</i><i style="--i:4">ES</i></p>
+          <button type="button" class="mo-go" id="mo-go">Accendi le lingue</button>
+        </div>
+        <div class="mo-pill"><b>84 su 100</b> ordini vanno fuori dall'Italia, nel negozio di streetwear che seguiamo</div>
+      </div>
       <div class="pd2">
         <div class="pd-oggi"><span class="tag">Prima</span><div class="lg-it"><b>IT · SOLO ITALIANO</b><p>Padella alta a saltare antiaderente in alluminio Pensofal Academy Chef</p></div><p class="pd-note">Una lingua sola: chi cerca in francese o in tedesco non la trova. Il fornitore per hotel e ristoranti, prima di maggio 2026.</p></div>
         <div class="pd-dopo"><span class="tag on">Acceso</span><div class="lg-carte"><div class="lg-carta" style="--i:0"><i>EN</i><p>Pensofal Academy Chef Non-Stick Aluminium Sauté Pan</p></div><div class="lg-carta" style="--i:1"><i>FR</i><p>Poêle haute à sauter antiadhésive en aluminium Pensofal Academy Chef</p></div><div class="lg-carta" style="--i:2"><i>DE</i><p>Antihaft-Saltierpfanne aus Aluminium Pensofal Academy Chef</p></div></div><p class="pd-note">I titoli veri, online sul negozio. <b>Galileo</b> traduce; il controllo ferma prima della pubblicazione una parola del glossario sbagliata o un titolo troppo lungo per Google.</p></div>
@@ -2098,31 +2134,10 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       </div>
 
       <div class="vs-why fx fx-dx">
-        <div class="ric" id="ric">
-      <div class="ric-top"><span>Cento euro venduti. Quanto resta?</span><button type="button" class="ric-go">Fai i conti</button></div>
-      <div class="ric-cols">
-        <div class="ric-col roas">
-          <h4>Lavorando sul ROAS</h4>
-          <p class="ric-prod">Bestseller scontato, grande marca, prezzo sotto il benchmark</p>
-          <ul class="ric-righe">
-            <li class="inc" style="--i:0"><span>Incassato</span><b>100,00 €</b></li>
-            <li style="--i:1"><span>− IVA</span><b>18,03 €</b></li><li style="--i:2"><span>− Reso atteso</span><b>9,34 €</b></li><li style="--i:3"><span>− Costo della merce</span><b>58,10 €</b></li><li style="--i:4"><span>− Spedizione</span><b>3,50 €</b></li><li style="--i:5"><span>− Commissioni</span><b>1,50 €</b></li><li style="--i:6"><span>− Pubblicità</span><b>2,86 €</b></li>
-            <li class="resta" style="--i:7"><span>Resta</span><b>6,70 €</b></li>
-          </ul>
-          <div class="ric-bar" aria-hidden="true"><i style="--w:6.7%"></i></div>
-        </div>
-        <div class="ric-col utile">
-          <h4>Lavorando sull'utile</h4>
-          <p class="ric-prod">Prodotto scelto per il margine, prezzo pieno</p>
-          <ul class="ric-righe">
-            <li class="inc" style="--i:0"><span>Incassato</span><b>100,00 €</b></li>
-            <li style="--i:1"><span>− IVA</span><b>18,03 €</b></li><li style="--i:2"><span>− Reso atteso</span><b>9,34 €</b></li><li style="--i:3"><span>− Costo della merce</span><b>47,93 €</b></li><li style="--i:4"><span>− Spedizione</span><b>3,50 €</b></li><li style="--i:5"><span>− Commissioni</span><b>1,50 €</b></li><li style="--i:6"><span>− Pubblicità</span><b>4,55 €</b></li>
-            <li class="resta" style="--i:7"><span>Resta</span><b>15,15 €</b></li>
-          </ul>
-          <div class="ric-bar" aria-hidden="true"><i style="--w:15.2%"></i></div>
-        </div>
-      </div>
-      <p class="ric-mese"><b>Sul mese:</b> ROAS 35 e 46.700 € di utile, o ROAS 22 e 100.000 €. Diecimila euro in più di pubblicità, quarantamila di vendite in meno, <b>il doppio dell'utile</b>.</p>
+        <div class="wf" id="wf" data-modo="roas">
+      <div class="wf-top"><span class="wf-k">Il conto di ogni mese, ordine per ordine</span><div class="wf-tog" role="group" aria-label="Lavorando sul ROAS o sull'utile"><button type="button" class="on" data-m="roas">Lavorando sul ROAS</button><button type="button" data-m="utile">Lavorando sull'utile</button></div></div>
+      <svg class="wf-svg" viewBox="0 0 640 300" role="img" aria-label="Cascata del mese: incassato, poi IVA, resi, merce, spedizioni, commissioni e pubblicità tolte una alla volta, e quanto resta. Sul ROAS 700.000 incassati e 46.700 che restano; sull'utile 660.000 e 100.000."></svg>
+      <p class="wf-mese"><b>Sul ROAS:</b> 700.000 € incassati, ROAS 35, restano <b>46.700 €</b>. <b>Sull'utile:</b> 660.000 € incassati, ROAS 22, restano <b>100.000 €</b>. Diecimila euro in più di pubblicità, quarantamila di vendite in meno, <b>il doppio dell'utile</b>.</p>
     </div>
         <h3>Perché succede</h3>
         <ol>
@@ -2768,6 +2783,62 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       if (fe.classList.contains('on')) { fe.classList.remove('on'); n.textContent = '14'; em.style.width = '52%'; go.textContent = 'Riempi il feed'; return; }
       fe.classList.add('on'); go.textContent = 'Svuota';
       for (var i = 1; i <= 10; i++) (function(i){ timer.push(setTimeout(function(){ n.textContent = String(14 + i); em.style.width = Math.round((14 + i) / 27 * 100) + '%'; }, i * 130)); })(i);
+    });
+  })();
+
+  /* ── il mondo: le lingue si accendono, il numero sale da 60 milioni a 2,1 miliardi, gli archi partono dall'Italia ── */
+  (function(){
+    var mo = document.getElementById('mo'), go = document.getElementById('mo-go'); if (!mo || !go) return;
+    var n = document.getElementById('mo-n'), u = document.getElementById('mo-u'), raf = null;
+    go.addEventListener('click', function(){
+      if (mo.classList.contains('on')) { mo.classList.remove('on'); n.textContent = '60'; u.textContent = 'milioni'; go.textContent = 'Accendi le lingue'; return; }
+      mo.classList.add('on'); go.textContent = 'Spegni';
+      var t0 = null, DUR = 1800; if (raf) cancelAnimationFrame(raf);
+      function passo(ts){ if (!t0) t0 = ts; var p = Math.min(1, (ts - t0) / DUR), e = 1 - Math.pow(1 - p, 3), v = 60 + (2100 - 60) * e;
+        if (v < 1000) { n.textContent = String(Math.round(v)); u.textContent = 'milioni'; } else { n.textContent = (v / 1000).toFixed(1).replace('.', ','); u.textContent = 'miliardi'; }
+        if (p < 1) raf = requestAnimationFrame(passo); else { n.textContent = '2,1'; u.textContent = 'miliardi'; } }
+      raf = requestAnimationFrame(passo);
+    });
+  })();
+  /* ── il conto del mese a cascata: le barre scendono una alla volta, due modi di spendere ── */
+  (function(){
+    var DATI = { roas: [700000, 126230, 65410, 406689, 24500, 10500, 20000, 46700], utile: [660000, 119016, 61672, 316346, 23100, 9900, 30000, 100000] };
+    var NOMI = ['Incassato', 'IVA', 'Resi', 'Merce', 'Spedizioni', 'Commissioni', 'Pubblicità', 'Resta'];
+    function euro(v){ return (Math.round(v / 100) / 10).toFixed(v >= 100000 ? 0 : 1).replace('.', ',') + ' mila'; }
+    document.querySelectorAll('.wf').forEach(function(wf){
+      var svg = wf.querySelector('.wf-svg'), NS = 'http://www.w3.org/2000/svg', W = 640, H = 300, top = 34, base = 262, n = NOMI.length, gap = 10, bw = (W - 40 - gap * (n - 1)) / n;
+      var rects = [], vals = [], lnks = [];
+      function el(tag, attrs, cls){ var e = document.createElementNS(NS, tag); for (var k in attrs) e.setAttribute(k, attrs[k]); if (cls) e.setAttribute('class', cls); svg.appendChild(e); return e; }
+      el('line', { x1: 20, y1: base, x2: W - 20, y2: base }, 'g');
+      NOMI.forEach(function(nome, i){
+        var x = 20 + i * (bw + gap);
+        var cls = i === 0 ? 'b-inc' : (i === n - 1 ? 'b-resta' : 'b-meno');
+        rects.push(el('rect', { x: x, y: base, width: bw, height: 0, rx: 4 }, cls));
+        vals.push(el('text', { x: x + bw / 2, y: base - 6, 'text-anchor': 'middle' }, 'v' + (i === 0 ? '' : (i === n - 1 ? ' resta' : ' meno'))));
+        el('text', { x: x + bw / 2, y: base + 18, 'text-anchor': 'middle' }, 'l').textContent = nome;
+        if (i < n - 1) lnks.push(el('line', { x1: x + bw, y1: base, x2: x + bw + gap, y2: base }, 'lnk'));
+      });
+      function disegna(modo, subito){
+        var d = DATI[modo], max = d[0], k = (base - top) / max, run = d[0];
+        rects.forEach(function(r, i){
+          var v = d[i], y, h;
+          if (i === 0) { y = base - v * k; h = v * k; }
+          else if (i === n - 1) { y = base - v * k; h = v * k; }
+          else { h = v * k; y = base - run * k; run -= v; }
+          var t = subito ? 0 : i * 110;
+          setTimeout(function(){ r.setAttribute('y', y); r.setAttribute('height', h); vals[i].setAttribute('y', y - 6); vals[i].textContent = (i === 0 || i === n - 1 ? '' : '−') + euro(v); }, t);
+          if (i < n - 1) { var yl = (i === 0 ? y : y + h); setTimeout(function(){ lnks[i].setAttribute('y1', yl); lnks[i].setAttribute('y2', yl); }, t); }
+        });
+      }
+      wf.querySelectorAll('.wf-tog button').forEach(function(b){ b.addEventListener('click', function(){
+        wf.querySelectorAll('.wf-tog button').forEach(function(x){ x.classList.toggle('on', x === b); });
+        wf.setAttribute('data-modo', b.getAttribute('data-m')); disegna(b.getAttribute('data-m'));
+      }); });
+      var ridotto = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if ('IntersectionObserver' in window && !ridotto) {
+        var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { io.unobserve(wf); disegna(wf.getAttribute('data-modo')); } }); }, { threshold: .35 });
+        io.observe(wf);
+      } else disegna(wf.getAttribute('data-modo'), true);
     });
   })();
 </script>
