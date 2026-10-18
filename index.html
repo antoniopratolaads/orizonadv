@@ -295,6 +295,52 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .lab-bar .gx{background:repeating-linear-gradient(135deg,var(--blue-ll) 0 6px,#fff 6px 10px);color:var(--blue);box-shadow:inset 1px 0 0 var(--blue)}
 .lab-nota{display:none;margin-top:14px;font-size:12.5px;color:var(--black-m);line-height:1.45}
 .lab-fig.acceso .lab-nota{display:block}
+/* il feed: la scheda come la vede Google e i 27 campi che si riempiono */
+.fe{margin-top:22px;display:grid;grid-template-columns:340px minmax(0,1fr);gap:28px;align-items:start}
+.fe-k{font-size:12.5px;font-weight:600;color:var(--black-m);margin-bottom:10px}
+.fe-card{border:1px solid var(--line-2);border-radius:14px;background:var(--white);overflow:hidden;box-shadow:0 18px 40px -28px rgba(12,23,19,.35)}
+.fe-card img{width:100%;aspect-ratio:3/2;object-fit:cover;object-position:50% 42%;display:block;background:var(--bg-2)}
+.fe-body{padding:14px 16px 16px}
+.fe-t{font-size:15px;line-height:1.3;color:#1a0dab;display:grid}
+.fe-t span{grid-area:1/1;transition:opacity .5s var(--ease)}
+.fe-t .dopo{opacity:0;font-weight:600}
+.fe.on .fe-t .oggi{opacity:0}.fe.on .fe-t .dopo{opacity:1}
+.fe-p{margin-top:6px;font-size:17px;font-weight:600}
+.fe-p small{font-weight:400;font-size:12.5px;color:var(--black-m)}
+.fe-ln{list-style:none;margin-top:10px;display:grid;gap:5px;font-size:12.5px;color:var(--black-m);line-height:1.4}
+.fe-ln b{color:var(--black);font-weight:600}
+.fe-ln i{font-style:normal;display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;background:var(--blue-ll);color:var(--blue);margin:2px 4px 0 0}
+.js .fe .fe-ln li{opacity:0;transform:translateY(5px);transition:opacity .4s var(--ease),transform .5s var(--ease);transition-delay:calc(.5s + var(--i) * .14s)}
+.js .fe.on .fe-ln li{opacity:1;transform:none}
+.fe-nota{margin-top:12px;font-size:13px;color:var(--black-m);line-height:1.45}
+.fe-top{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.fe-cnt{display:grid;grid-template-columns:auto auto;align-items:baseline;gap:4px 10px}
+.fe-cnt b{font-size:30px;font-weight:600;letter-spacing:-.035em;line-height:1;font-variant-numeric:tabular-nums}
+.fe-cnt b em{font-style:normal;color:var(--blue)}
+.fe-cnt>span{font-size:13px;color:var(--black-m)}
+.fe-bar{grid-column:1/-1;display:block;width:220px;height:7px;border-radius:99px;background:var(--line);overflow:hidden}
+.fe-bar em{display:block;height:100%;border-radius:99px;background:var(--blue);transition:width .9s var(--ease)}
+.fe-go{font:inherit;font-size:14.5px;font-weight:600;color:#fff;background:var(--blue);border:0;border-radius:999px;padding:12px 22px;cursor:pointer;box-shadow:0 14px 30px -14px rgba(55,80,247,.8);transition:transform .2s,background .2s}
+.fe-go:hover{background:var(--blue-d)}.fe-go:active{transform:scale(.97)}
+.fe-grid{list-style:none;margin-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.sl{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:8px 11px;border-radius:9px;border:1px solid var(--line-2);background:var(--white);font-size:12px;min-height:36px;transition:background .35s var(--ease),border-color .35s var(--ease),color .35s}
+.sl code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11.5px;color:var(--black);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sl.pieno{background:rgba(55,80,247,.09);border-color:rgba(55,80,247,.35)}
+.sl.pieno code{color:var(--blue);font-weight:600}
+.sl.nuovo{border-style:dashed;color:var(--black-l)}
+.sl.nuovo code{color:var(--black-l)}
+.sl.vuoto{border-style:dashed;background:repeating-linear-gradient(135deg,transparent 0 6px,rgba(12,23,19,.04) 6px 8px)}
+.sl.vuoto code{color:var(--black-l)}
+.sl small{font-size:10px;color:var(--black-l);white-space:nowrap}
+.fe.on .sl.nuovo{border-style:solid;background:rgba(96,231,135,.18);border-color:rgba(96,231,135,.8);transition-delay:calc(var(--i) * .13s)}
+.fe.on .sl.nuovo code{color:#17633A;font-weight:600;transition-delay:calc(var(--i) * .13s)}
+.fe-leg{margin-top:12px;font-size:12px;color:var(--black-m);display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.fe-leg i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:5px;vertical-align:-1px;border:1px solid var(--line-2)}
+.fe-leg i.pieno{background:rgba(55,80,247,.3);border-color:rgba(55,80,247,.5)}
+.fe-leg i.nuovo{background:rgba(96,231,135,.4);border-color:rgba(96,231,135,.9)}
+.fe-leg i.vuoto{border-style:dashed}
+.fe-slots .lg-nota a{color:var(--blue);font-weight:600;text-decoration:none}
+@media(max-width:1100px){.fe{grid-template-columns:1fr}.fe-grid{grid-template-columns:repeat(2,1fr)}}
 .feed-top{margin-top:22px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .feed-cnt{display:grid;grid-template-columns:auto auto;align-items:baseline;gap:4px 10px}
 .feed-cnt b{font-size:30px;font-weight:600;letter-spacing:-.035em;line-height:1;font-variant-numeric:tabular-nums}
@@ -1870,48 +1916,33 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     </article>
 
     <article class="piatto fx fx-sx" id="piatto-feed">
-      <header class="firma"><img class="fv" src="images/squadra/volta.webp" alt="" width="400" height="416" loading="lazy" decoding="async"><div><p class="fa" style="--c:#FFE16B"><i></i><b>Volta</b> · Feed</p><h3>Feed Enrichment <span>il file che Google Shopping legge</span></h3><p class="fl">La riga vera nel Merchant Center: 14 campi pieni su 27, accesi 24.</p></div></header>
-      <div class="feed-top">
-        <div class="feed-cnt"><b><em id="feed-n">14</em>/27</b><span>campi pieni</span><i class="feed-bar"><em id="feed-bar" style="width:52%"></em></i></div>
-        <div class="feed-az"><button type="button" class="feed-piu" id="feed-piu">Mostra anche i 13 campi già pieni</button><button type="button" class="feed-go" id="feed-go">Accendi il feed</button></div>
+      <header class="firma"><img class="fv" src="images/squadra/volta.webp" alt="" width="400" height="416" loading="lazy" decoding="async"><div><p class="fa" style="--c:#FFE16B"><i></i><b>Volta</b> · Feed</p><h3>Feed Enrichment <span>il file che Google Shopping legge</span></h3><p class="fl">La riga vera nel Merchant Center: 14 campi pieni su 27, accesi 24. Più dati, più ricerche, più aste vinte.</p></div></header>
+      <div class="fe" id="fe">
+        <div class="fe-ad">
+          <p class="fe-k">Come la vede Google Shopping</p>
+          <div class="fe-card">
+            <img src="images/piatti/cardigan.jpg" alt="" width="450" height="600" loading="lazy" decoding="async">
+            <div class="fe-body">
+              <p class="fe-t"><span class="oggi">Levi's Mammoth Cardigan Obsidian Heather Cardi Brown - Cardigan Uomo Marrone Uomo LEVIS | tg. S | codice 007T5</span><span class="dopo">Cardigan Levi's Mammoth Uomo Marrone Obsidian Heather</span></p>
+              <p class="fe-p">120,00 € <small>· negozio di moda</small></p>
+              <ul class="fe-ln">
+                <li style="--i:0"><b>Poliestere/Lana</b> · maniche lunghe · chiusura con bottoni · tasche frontali</li>
+                <li style="--i:1">Abbigliamento e accessori › Abbigliamento</li>
+                <li style="--i:2">Spedito dall'Italia · GLS 1-2 giorni · gratis</li>
+                <li style="--i:3">6 domande e risposte · scheda tecnica</li>
+                <li style="--i:4"><i>fascia premium</i> <i>sotto il benchmark</i> <i>novità</i></li>
+              </ul>
+            </div>
+          </div>
+          <p class="fe-nota">Oggi a Google arrivano titolo, prezzo, foto e disponibilità: il resto è vuoto, e l'annuncio dice poco. Acceso, ogni riga qui sopra è un campo del feed, letto dal prodotto, non inventato.</p>
+        </div>
+        <div class="fe-slots">
+          <div class="fe-top"><div class="fe-cnt"><b><em id="fe-n">14</em>/27</b><span>campi pieni</span><i class="fe-bar"><em id="fe-em" style="width:52%"></em></i></div><button type="button" class="fe-go" id="fe-go">Riempi il feed</button></div>
+          <ul class="fe-grid"><li class="sl pieno"><code>id</code></li><li class="sl pieno"><code>item_group_id</code></li><li class="sl pieno"><code>gtin</code></li><li class="sl pieno"><code>brand</code></li><li class="sl pieno"><code>condition</code></li><li class="sl pieno"><code>title</code></li><li class="sl pieno"><code>description</code></li><li class="sl nuovo" style="--i:0"><code>short_title</code></li><li class="sl nuovo" style="--i:1"><code>product_highlight</code></li><li class="sl nuovo" style="--i:2"><code>product_detail</code></li><li class="sl nuovo" style="--i:3"><code>question_and_answer</code></li><li class="sl pieno"><code>color</code></li><li class="sl pieno"><code>size · size_system</code></li><li class="sl pieno"><code>gender · age_group</code></li><li class="sl nuovo" style="--i:4"><code>material</code></li><li class="sl vuoto"><code>pattern</code><small>vuoto apposta</small></li><li class="sl pieno"><code>product_type</code></li><li class="sl nuovo" style="--i:5"><code>google_product_category</code></li><li class="sl pieno"><code>price · availability</code></li><li class="sl pieno"><code>shipping</code></li><li class="sl vuoto"><code>shipping_weight</code><small>vuoto apposta</small></li><li class="sl nuovo" style="--i:6"><code>ships_from_country</code></li><li class="sl pieno"><code>custom_label_0</code></li><li class="sl nuovo" style="--i:7"><code>custom_label_1</code></li><li class="sl nuovo" style="--i:8"><code>custom_label_2</code></li><li class="sl vuoto"><code>custom_label_3</code><small>vuoto apposta</small></li><li class="sl nuovo" style="--i:9"><code>custom_label_4</code></li></ul>
+          <p class="fe-leg"><i class="pieno"></i>già pieno <i class="nuovo"></i>lo scrive la piattaforma <i class="vuoto"></i>vuoto apposta: non si inventa</p>
+          <p class="lg-nota">La riga vera del cardigan nel Merchant Center, letta il 12 ottobre 2026. I campi accesi vanno in un feed supplementare che Merchant rilegge da solo ogni giorno: tre restano vuoti perché il negozio non ha il peso, il fornitore non dice la fantasia, e senza costo d'acquisto il margine non si scrive. <a href="/leve/feed">Tutti i 27 campi, con i valori →</a></p>
+        </div>
       </div>
-      <div class="mtab spento" id="mtab" role="table" aria-label="I 27 campi del feed del cardigan, oggi e acceso">
-        <div class="mr head"><code>campo</code><span>oggi</span><span class="on">acceso</span></div>
-        <div class="mr grp secondario"><span>Identità</span></div>
-        <div class="mr uguale secondario"><code>id</code><span>shopify_IT_16069175968075_58774819963211</span><span class="on">shopify_IT_16069175968075_58774819963211</span></div>
-        <div class="mr uguale secondario"><code>item_group_id</code><span>16069175968075</span><span class="on">16069175968075</span></div>
-        <div class="mr uguale secondario"><code>gtin</code><span>5401235272968</span><span class="on">5401235272968</span></div>
-        <div class="mr uguale secondario"><code>brand</code><span>LEVIS</span><span class="on">LEVIS</span></div>
-        <div class="mr uguale secondario"><code>condition</code><span>new</span><span class="on">new</span></div>
-        <div class="mr grp"><span>Testo</span></div>
-        <div class="mr scheda"><code>title</code><span>Levi's Mammoth Cardigan Obsidian Heather Cardi Brown - Cardigan Uomo Marrone Uomo LEVIS | tg. S | codice 007T5 <small>110 caratteri</small></span><span class="on">Levi's Mammoth Cardigan Uomo Marrone taglia S 007T5 <small>51 caratteri</small> <i class="da">dalla scheda nuova</i></span></div>
-        <div class="mr scheda"><code>description</code><span>testo del fornitore più le righe degli attributi, 71 parole</span><span class="on">scheda propria: 203 parole, scheda tecnica, 6 domande e risposte <i class="da">dalla scheda nuova</i></span></div>
-        <div class="mr scheda"><code>short_title</code><span><span class="vuoto">vuoto</span></span><span class="on">Cardigan Levi's Mammoth Uomo <i class="da">dalla scheda nuova</i></span></div>
-        <div class="mr scheda"><code>product_highlight</code><span><span class="vuoto">vuoto</span></span><span class="on">Maniche lunghe · Chiusura frontale con bottoni · Tasche frontali · Polsini e fondo a coste · Poliestere riciclato 64% <i class="da">dalla scheda nuova</i></span></div>
-        <div class="mr scheda"><code>product_detail</code><span><span class="vuoto">vuoto</span></span><span class="on">Caratteristiche:Modello:Mammoth Cardigan · Colletto:classico · Chiusura:frontale con bottoni · Polsini:a coste · … <i class="da">dalla scheda nuova</i></span></div>
-        <div class="mr scheda"><code>question_and_answer</code><span><span class="vuoto">vuoto</span></span><span class="on">le 6 domande e risposte della scheda (ha le tasche? come si chiude? che colletto ha?) <i class="da">dalla scheda nuova</i></span></div>
-        <div class="mr grp"><span>Filtri di Shopping</span></div>
-        <div class="mr uguale secondario"><code>color</code><span>MARRONE</span><span class="on">Marrone</span></div>
-        <div class="mr uguale secondario"><code>size · size_system</code><span>S · EU</span><span class="on">S · EU</span></div>
-        <div class="mr uguale secondario"><code>gender · age_group</code><span>male · adult</span><span class="on">male · adult</span></div>
-        <div class="mr"><code>material</code><span><span class="vuoto">vuoto</span></span><span class="on">Poliestere/Lana</span></div>
-        <div class="mr vuoto"><code>pattern</code><span><span class="vuoto">vuoto</span></span><span class="on">resta vuoto: non si inventa</span></div>
-        <div class="mr grp"><span>Categoria</span></div>
-        <div class="mr uguale secondario"><code>product_type</code><span>MAGLIERIA</span><span class="on">MAGLIERIA</span></div>
-        <div class="mr"><code>google_product_category</code><span><span class="vuoto">vuoto</span></span><span class="on">Abbigliamento e accessori &gt; Abbigliamento <small>1604</small></span></div>
-        <div class="mr grp"><span>Prezzo e consegna</span></div>
-        <div class="mr uguale secondario"><code>price · availability</code><span>120,00 EUR · in stock</span><span class="on">120,00 EUR · in stock</span></div>
-        <div class="mr uguale secondario"><code>shipping</code><span>IT · GLS 1-2 gg · 0,00 EUR</span><span class="on">IT · GLS 1-2 gg · 0,00 EUR</span></div>
-        <div class="mr vuoto"><code>shipping_weight</code><span><span class="vuoto">vuoto</span></span><span class="on">resta vuoto: il negozio non ha il peso</span></div>
-        <div class="mr"><code>ships_from_country</code><span><span class="vuoto">vuoto</span></span><span class="on">IT</span></div>
-        <div class="mr grp"><span>Etichette per le campagne</span></div>
-        <div class="mr uguale secondario"><code>custom_label_0</code><span>F26 <small>codice di stagione</small></span><span class="on">F26 <small>lo usano già le campagne: non si tocca</small></span></div>
-        <div class="mr poi"><code>custom_label_1</code><span><span class="vuoto">vuoto</span></span><span class="on">sotto o sopra il benchmark di prezzo di Google <i class="da">dopo 20 giorni di campagna</i></span></div>
-        <div class="mr"><code>custom_label_2</code><span><span class="vuoto">vuoto</span></span><span class="on">premium <small>fascia di prezzo</small></span></div>
-        <div class="mr vuoto"><code>custom_label_3</code><span><span class="vuoto">vuoto</span></span><span class="on">resta vuoto: margine, manca il costo d'acquisto</span></div>
-        <div class="mr"><code>custom_label_4</code><span><span class="vuoto">vuoto</span></span><span class="on">novita <small>ciclo di vita</small></span></div>
-      </div>
-      <p class="pd-note">I campi accesi li scrive la piattaforma in un feed supplementare che Merchant Center rilegge da solo, ogni giorno: colore, taglia, genere, età e categoria dal catalogo, materiale e specifiche dalla scheda, le etichette dai conti. Quelli segnati «dalla scheda nuova» arrivano quando il negozio dice sì alla scheda del piatto 01.</p>
     </article>
 
     <article class="piatto fx fx-dx" id="piatto-tracking">
@@ -2725,6 +2756,18 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       if (m0 && m0.beginElement) { m0.beginElement(); }
       dests.forEach(function(d, i){ timer.push(setTimeout(function(){ d.classList.add('on'); }, 1100 + 900 + i * 60)); });
       timer.push(setTimeout(function(){ fr.innerHTML = 'arrivato a <b>8 su 8</b>, con lo stesso <code>event_id</code>: contato una volta sola, col consenso del visitatore. Le campagne imparano dai numeri veri.'; go.textContent = 'Mandane un altro'; }, 2300));
+    });
+  })();
+
+  /* ── il feed: i dieci campi si riempiono uno alla volta, al clic; il contatore sale 14 → 24 ── */
+  (function(){
+    var fe = document.getElementById('fe'), go = document.getElementById('fe-go'); if (!fe || !go) return;
+    var n = document.getElementById('fe-n'), em = document.getElementById('fe-em'), timer = [];
+    go.addEventListener('click', function(){
+      timer.forEach(clearTimeout); timer = [];
+      if (fe.classList.contains('on')) { fe.classList.remove('on'); n.textContent = '14'; em.style.width = '52%'; go.textContent = 'Riempi il feed'; return; }
+      fe.classList.add('on'); go.textContent = 'Svuota';
+      for (var i = 1; i <= 10; i++) (function(i){ timer.push(setTimeout(function(){ n.textContent = String(14 + i); em.style.width = Math.round((14 + i) / 27 * 100) + '%'; }, i * 130)); })(i);
     });
   })();
 </script>
