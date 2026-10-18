@@ -854,6 +854,26 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .totale-note{margin-top:14px;font-size:14px;color:var(--black-m)}
 
 /* ── RISULTATI: la crescita, con la prova ── */
+/* cosa facciamo per te: tre carte, l'offerta prima della macchina */
+.servizi-home{padding:96px 0 88px;background:var(--white);border-top:1px solid var(--line)}
+.cap-k.blu{color:var(--blue)}
+.servizi-home .sec-head p{margin-top:14px;font-size:18px;color:var(--black-m)}
+.sv-grid{margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.sv{display:flex;flex-direction:column;padding:26px 26px 22px;border-radius:20px;border:1px solid var(--line-2);background:var(--bg-2);color:var(--black);text-decoration:none;position:relative;overflow:hidden;transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .3s}
+.sv::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 100% 0%,rgba(55,80,247,.10),transparent 70%);opacity:0;transition:opacity .5s}
+.sv:hover{transform:translateY(-4px);box-shadow:0 30px 60px -36px rgba(35,59,217,.45);border-color:rgba(55,80,247,.4)}
+.sv:hover::before{opacity:1}
+.sv>*{position:relative}
+.sv-k{font-size:13px;font-weight:600;color:var(--blue);letter-spacing:.01em}
+.sv h3{margin-top:12px;font-size:24px;font-weight:600;letter-spacing:-.025em;line-height:1.12;text-wrap:balance}
+.sv p{margin-top:12px;font-size:15.5px;line-height:1.5;color:var(--black-m);text-wrap:pretty}
+.sv-n{margin-top:auto;padding-top:22px;display:block}
+.sv-n b{display:block;font-size:38px;font-weight:600;letter-spacing:-.04em;line-height:1;color:var(--black);font-variant-numeric:tabular-nums}
+.sv.ignition .sv-n b{color:var(--blue)}
+.sv-n small{display:block;margin-top:6px;font-size:12.5px;color:var(--black-m);line-height:1.4}
+.sv-vai{margin-top:16px;font-size:14px;font-weight:600;color:var(--blue)}
+.sv.ignition{background:linear-gradient(180deg,#FFFFFF,#EEF0F7)}
+@media(max-width:1100px){.sv-grid{grid-template-columns:1fr}}
 .res{padding:96px 0 104px;background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .res-grid{margin-top:44px;display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:center}
 .res-note{margin-top:18px;font-size:14px;color:var(--black-m)}
@@ -1316,6 +1336,14 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .xs1-luce{position:absolute;z-index:0;left:-20%;top:-10%;width:140%;height:70%;background:radial-gradient(ellipse at 30% 30%,rgba(55,80,247,.22),transparent 55%),radial-gradient(ellipse at 80% 60%,rgba(96,231,135,.14),transparent 45%);animation:mluce 18s ease-in-out infinite alternate;pointer-events:none}
   @keyframes mluce{0%{transform:translate(0,0) scale(1)}100%{transform:translate(-5%,4%) scale(1.08)}}
   .xs2{background:var(--bg-2)}
+  .xsv{background:var(--white)}
+  .xsv-grid{margin-top:18px;gap:10px}
+  .xsv .sv{padding:18px 18px 16px;border-radius:16px}
+  .xsv .sv h3{font-size:20px;margin-top:8px}
+  .xsv .sv p{font-size:14px;margin-top:8px}
+  .xsv .sv-n{padding-top:14px}
+  .xsv .sv-n b{font-size:30px}
+  .xsv .sv-vai{margin-top:10px;font-size:13.5px}
   .xs3{background:var(--white)}
   .xs4{background:var(--bg-2)}
   .xs5{background:var(--blue);color:#fff;overflow:hidden}
@@ -1646,7 +1674,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     <div class="xs1-luce" aria-hidden="true"></div>
     <p class="xk xr">Orizon ADV · Napoli</p>
     <h1><span class="xw"><span class="" style="--d:0.10s">Il</span></span> <span class="xw"><span class="" style="--d:0.17s">tuo</span></span> <span class="xw"><span class="" style="--d:0.24s">e-commerce</span></span> <span class="xw"><span class="" style="--d:0.31s">ha</span></span> <span class="xw"><span class="" style="--d:0.38s">già</span></span> <span class="xw"><span class="" style="--d:0.45s">tutto.</span></span><br><span class="xw"><span class="xout" style="--d:0.55s">Noi</span></span> <span class="xw"><span class="xout" style="--d:0.63s">lo</span></span> <span class="xw"><span class="xblu" style="--d:0.72s">accendiamo.</span></span></h1>
-    <p class="xlead xr" style="--d:.9s">Accendiamo il catalogo e guidiamo le campagne. <strong>Ci paghi a percentuale sul venduto in più.</strong></p>
+    <p class="xlead xr" style="--d:.9s">Agenzia performance: guidiamo le campagne <strong>a percentuale sul venduto in più</strong>, e accendiamo il catalogo con Ignition, la nostra macchina.</p>
     <!-- il video di Ignition (15/10/2026): qui solo l'immagine; il file leggero si scarica al tocco, con l'audio -->
     <figure class="mvideo xr" style="--d:1s" id="mv">
       <button type="button" id="mv-play" data-src="video/orizon-ignition-2026-10-540.mp4" aria-label="Guarda il video su Orizon Ignition, 2 minuti e 39 secondi, con l'audio e i sottotitoli">
@@ -1660,6 +1688,17 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     <p class="xmeta xr" style="--d:1.2s">Senza accessi. Risposta entro 24 ore.</p>
     <ul class="st-squadra xst-squadra hero-ag xr" style="--d:1.3s" aria-label="La squadra di Ignition"><li><a class="st-ag" href="#m-squadra" data-ag="leonardo" style="--c:#FFB15C;--i:0" aria-label="Leonardo, Scrittore SEO+GEO"><img src="images/squadra/leonardo.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></a></li><li><a class="st-ag" href="#m-squadra" data-ag="holmes" style="--c:#7CD3FF;--i:1" aria-label="Holmes, Giudice AI"><img src="images/squadra/holmes.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></a></li><li><a class="st-ag" href="#m-squadra" data-ag="galileo" style="--c:#6FE59A;--i:2" aria-label="Galileo, Traduttore"><img src="images/squadra/galileo.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></a></li><li><a class="st-ag" href="#m-squadra" data-ag="volta" style="--c:#FFE16B;--i:3" aria-label="Volta, Feed"><img src="images/squadra/volta.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></a></li><li><a class="st-ag" href="#m-squadra" data-ag="archimede" style="--c:#C7B0FF;--i:4" aria-label="Archimede, Tracciamento"><img src="images/squadra/archimede.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></a></li><li><a class="st-ag" href="#m-squadra" data-ag="fibonacci" style="--c:#FF8F7E;--i:5" aria-label="Fibonacci, Budget"><img src="images/squadra/fibonacci.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></a></li></ul>
     <div class="xhint" aria-hidden="true"><span>scorri</span><i></i></div>
+  </section>
+
+  <section class="xs xsv" id="m-cosa">
+    <p class="xk xr">Cosa facciamo per te</p>
+    <h2><span class="xw"><span class="" style="--d:0.10s">Un'agenzia</span></span> <span class="xw"><span class="" style="--d:0.17s">performance,</span></span> <span class="xw"><span class="xout" style="--d:0.27s">con</span></span> <span class="xw"><span class="xout" style="--d:0.34s">una</span></span> <span class="xw"><span class="xout" style="--d:0.41s">macchina</span></span> <span class="xw"><span class="xout" style="--d:0.48s">dentro.</span></span></h2>
+    <p class="xlead xr" style="--d:.5s">Tre cose, misurate su una: quanto ti resta in tasca a fine mese.</p>
+    <div class="sv-grid xsv-grid">
+      <a style="--d:0.6s" class="sv campagne xr" href="#m-risultato"><span class="sv-k">01 · Campagne</span><h3>Guidiamo le campagne sull'utile.</h3><p>Google e Meta, lette ogni mattina: cosa spingere, cosa fermare, quanto spendere. A percentuale sul venduto in più, nessuna fee fissa.</p><span class="sv-n"><b>+53%</b><small>vendite in dodici mesi, negozio di climatizzazione</small></span><span class="sv-vai">Vedi come →</span></a>
+<a style="--d:0.7s" class="sv ignition xr" href="#m-squadra"><span class="sv-k">02 · Ignition</span><h3>Accendiamo il catalogo.</h3><p>Sei agenti AI scrivono le schede, le traducono, riempiono il feed, tracciano dal server e mettono le etichette per le campagne. Col tuo sì prima di pubblicare.</p><span class="sv-n"><b>6</b><small>agenti, un mestiere ciascuno, su migliaia di prodotti</small></span><span class="sv-vai">Vedi come →</span></a>
+<a style="--d:0.8s" class="sv conti xr" href="#m-conti"><span class="sv-k">03 · I conti</span><h3>Leggiamo quello che resta.</h3><p>Utile, resi, merce ferma e riordini, letti ogni giorno dal negozio. Il budget va dove ogni vendita lascia di più, non dove il ROAS è più alto.</p><span class="sv-n"><b>418.538 €</b><small>di merce ferma trovata in un negozio, da muovere a prezzo pieno</small></span><span class="sv-vai">Vedi come →</span></a>
+    </div>
   </section>
 
   <section class="xs xs2 xsmark" id="m-risultato">
@@ -1814,7 +1853,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   <div class="wrap hero-split">
     <div class="hero-testo">
       <h1 class="fx">Il tuo e-commerce ha già tutto. <br><span>Noi lo accendiamo.</span></h1>
-      <p class="sub fx">Accendiamo il catalogo con una macchina nostra e guidiamo le campagne. <strong>Ci paghi a percentuale sul venduto in più.</strong></p>
+      <p class="sub fx">Agenzia performance: guidiamo le campagne del tuo e-commerce <strong>a percentuale sul venduto in più</strong>, e accendiamo il catalogo con Ignition, la nostra macchina.</p>
       <div class="scan-steps fx" aria-label="Cosa fa lo scan"><span><i>1</i>Legge il negozio da fuori</span><span><i>2</i>Voto da 0 a 100 su cinque aree</span><span><i>3</i>Documento entro 24 ore</span></div>
     </div>
     <div class="hero-media">
@@ -1839,6 +1878,22 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   </div>
   <a class="hero-giu fx" href="#risultati" aria-label="Scorri ai risultati"><span>Scorri</span><i></i></a>
 </header>
+
+<!-- ═══ COSA FACCIAMO PER TE ═══ -->
+<section class="solo-d servizi-home" id="cosa-facciamo" aria-labelledby="cosa-t">
+  <div class="wrap">
+    <div class="sec-head fx">
+      <p class="cap-k blu">Cosa facciamo per te</p>
+      <h2 id="cosa-t">Un'agenzia performance, <span>con una macchina dentro.</span></h2>
+      <p>Tre cose, misurate su una: quanto ti resta in tasca a fine mese.</p>
+    </div>
+    <div class="sv-grid">
+      <a class="sv campagne fx fx-pop" href="#risultati"><span class="sv-k">01 · Campagne</span><h3>Guidiamo le campagne sull'utile.</h3><p>Google e Meta, lette ogni mattina: cosa spingere, cosa fermare, quanto spendere. A percentuale sul venduto in più, nessuna fee fissa.</p><span class="sv-n"><b>+53%</b><small>vendite in dodici mesi, negozio di climatizzazione</small></span><span class="sv-vai">Vedi come →</span></a>
+<a class="sv ignition fx fx-pop" href="#squadra"><span class="sv-k">02 · Ignition</span><h3>Accendiamo il catalogo.</h3><p>Sei agenti AI scrivono le schede, le traducono, riempiono il feed, tracciano dal server e mettono le etichette per le campagne. Col tuo sì prima di pubblicare.</p><span class="sv-n"><b>6</b><small>agenti, un mestiere ciascuno, su migliaia di prodotti</small></span><span class="sv-vai">Vedi come →</span></a>
+<a class="sv conti fx fx-pop" href="#atto-conti"><span class="sv-k">03 · I conti</span><h3>Leggiamo quello che resta.</h3><p>Utile, resi, merce ferma e riordini, letti ogni giorno dal negozio. Il budget va dove ogni vendita lascia di più, non dove il ROAS è più alto.</p><span class="sv-n"><b>418.538 €</b><small>di merce ferma trovata in un negozio, da muovere a prezzo pieno</small></span><span class="sv-vai">Vedi come →</span></a>
+    </div>
+  </div>
+</section>
 
 <section class="solo-d res" id="risultati">
   <img class="mark-d mark-sx" src="images/brand/mark-blu.svg" alt="" aria-hidden="true">
