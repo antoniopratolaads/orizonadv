@@ -336,6 +336,38 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .trk.acceso .trk-server{opacity:1}
 .trk.acceso .trk-col.fine em{color:var(--blue)}
 .trk-nota{margin-top:12px;font-size:12.5px;color:var(--black-m);line-height:1.45}
+/* server-side come nel video: eventi → server → piattaforme */
+.ss{margin-top:22px;border-radius:18px;background:radial-gradient(ellipse 60% 70% at 50% 50%,#1B2470,transparent 75%),#090D24;color:var(--white);padding:20px 22px 18px;overflow:hidden}
+.ss-top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.ss-top b{display:block;font-size:17px;font-weight:600;letter-spacing:-.015em}
+.ss-top span{display:block;margin-top:3px;font-size:13.5px;color:rgba(255,255,255,.72)}
+.ss-go{font:inherit;font-size:13.5px;font-weight:600;color:#090D24;background:var(--green);border:0;border-radius:999px;padding:10px 18px;cursor:pointer;transition:transform .2s,filter .2s;white-space:nowrap}
+.ss-go:hover{filter:brightness(1.06)}.ss-go:active{transform:scale(.97)}
+.ss-svg{display:block;width:100%;height:auto;margin-top:14px;font-family:inherit}
+.ss-l{fill:none;stroke:rgba(255,255,255,.22);stroke-width:1.5}
+.ss-l.r{stroke:rgba(96,231,135,.35)}
+.ss-ev rect{fill:rgba(255,255,255,.07);stroke:rgba(255,255,255,.16)}
+.ss-ev.p rect{fill:rgba(96,231,135,.14);stroke:rgba(96,231,135,.6)}
+.ss-code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;fill:var(--white);font-weight:600}
+.ss-ev.p .ss-code{fill:var(--green)}
+.ss-sub{font-size:11px;fill:rgba(255,255,255,.62)}
+.ss-de rect{fill:rgba(255,255,255,.07);stroke:rgba(255,255,255,.16);transition:fill .3s,stroke .3s}
+.ss-de.on rect{fill:rgba(96,231,135,.16);stroke:rgba(96,231,135,.7)}
+.ss-name{font-size:13px;fill:var(--white);font-weight:500}
+.ss-ok{font-size:13px;fill:var(--green);font-weight:600;opacity:0;transition:opacity .3s}
+.ss-de.on .ss-ok{opacity:1}
+.ss-srv rect{fill:rgba(55,80,247,.35);stroke:#6377FD;stroke-width:1.5;filter:drop-shadow(0 0 18px rgba(99,119,253,.6))}
+.ss-srvt{font-size:16px;font-weight:600;fill:var(--white)}
+.ss-srvs{font-size:11px;fill:rgba(255,255,255,.75)}
+.ss-dot{fill:var(--green);opacity:0;filter:drop-shadow(0 0 6px rgba(96,231,135,.9))}
+.ss.go .ss-dot{opacity:1}
+.ss-esito{margin-top:12px;display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:13px;line-height:1.45;color:rgba(255,255,255,.8)}
+.ss-k{font-size:11.5px;font-weight:600;letter-spacing:.02em;color:rgba(255,255,255,.6);padding-top:2px;white-space:nowrap}
+.ss-k.on{color:var(--green)}
+.ss-esito code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;color:var(--white)}
+.js .piatto.fx .ss-l{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.3s var(--ease) .3s}
+.js .piatto.fx.in .ss-l{stroke-dashoffset:0}
+@media(max-width:768px){.ss{padding:14px}.ss-svg{min-width:720px}.ss-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}}
 .piatto-box{border:1px solid var(--line-2);border-radius:12px;background:var(--white);padding:22px 22px 20px}
 .flat b{display:block;font-size:17px;font-weight:600;letter-spacing:-.015em;line-height:1.3}
 .flat span{display:block;margin-top:8px;font-size:14px;color:var(--black-m);line-height:1.5}
@@ -1883,19 +1915,16 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     </article>
 
     <article class="piatto fx fx-dx" id="piatto-tracking">
-      <header class="firma"><img class="fv" src="images/squadra/archimede.webp" alt="" width="400" height="416" loading="lazy" decoding="async"><div><p class="fa" style="--c:#C7B0FF"><i></i><b>Archimede</b> · Tracciamento</p><h3>Tracking Server Side <span>dove vanno i dati di una visita</span></h3><p class="fl">Dal browser si perdono acquisti; dal server arrivano tutti, contati una volta, col consenso.</p></div></header>
-      <div class="trk oggi" id="trk">
-        <div class="trk-tog" role="group" aria-label="Oggi o acceso"><button type="button" class="tt on" data-m="oggi">Oggi <small>i pixel nel browser</small></button><button type="button" class="tt" data-m="acceso">Acceso <small>dal server del negozio</small></button></div>
-        <div class="trk-stage" aria-hidden="true">
-          <div class="trk-col"><b>Dieci acquisti</b><span>sul negozio</span></div>
-          <div class="trk-lane">
-            <div class="trk-muro"><b>Qui si perdono</b><span>blocker nel browser</span><span>Safari cancella il cookie dopo 7 giorni</span><span>pagina chiusa prima che il pixel parta</span></div>
-            <div class="trk-server"><b>Server del negozio</b><span>un id per acquisto, contato una volta, col consenso</span></div>
-            <i class="dot" style="--i:0"></i><i class="dot" style="--i:1"></i><i class="dot p" style="--i:2"></i><i class="dot" style="--i:3"></i><i class="dot" style="--i:4"></i><i class="dot p" style="--i:5"></i><i class="dot" style="--i:6"></i><i class="dot" style="--i:7"></i><i class="dot p" style="--i:8"></i><i class="dot" style="--i:9"></i>
-          </div>
-          <div class="trk-col fine"><b>GA4 · Google Ads · Meta</b><span>arrivati <em id="trk-n">7</em> su 10</span></div>
-        </div>
-        <p class="trk-nota" id="trk-nota">Esempio, non una misura: quanti si perdono dipende dal pubblico, e si legge sul negozio prima e dopo. Quelli persi sono acquisti veri che le campagne non vedono: imparano su numeri più bassi del vero.</p>
+      <header class="firma"><img class="fv" src="images/squadra/archimede.webp" alt="" width="400" height="416" loading="lazy" decoding="async"><div><p class="fa" style="--c:#C7B0FF"><i></i><b>Archimede</b> · Tracciamento</p><h3>Tracking Server Side <span>dove vanno i dati di una visita</span></h3><p class="fl">Dal browser una parte degli acquisti non arriva mai; dal server arriva tutto, una volta sola, col consenso.</p></div></header>
+      <div class="ss" id="ss">
+        <div class="ss-top"><div><b>Il 100% di quello che succede sul sito</b><span>arriva intero a Google, Meta, TikTok e al tuo CRM, dal server del negozio.</span></div><button type="button" class="ss-go" id="ss-go">Manda un acquisto</button></div>
+        <svg class="ss-svg" viewBox="0 0 920 380" role="img" aria-label="Gli eventi del negozio (visita, prodotto visto, carrello, cassa, acquisto, dati cifrati) entrano nel server del negozio e da lì escono una volta sola verso GA4, Google Ads, Meta, TikTok, Pinterest, Microsoft Ads, Klaviyo e il CRM">
+          <path class="ss-l" pathLength="1" d="M232 48 C 312 48, 320 190, 400 190"/><path class="ss-l" pathLength="1" d="M232 104 C 312 104, 320 190, 400 190"/><path class="ss-l" pathLength="1" d="M232 160 C 312 160, 320 190, 400 190"/><path class="ss-l" pathLength="1" d="M232 216 C 312 216, 320 190, 400 190"/><path class="ss-l" pathLength="1" d="M232 272 C 312 272, 320 190, 400 190"/><path class="ss-l" pathLength="1" d="M232 328 C 312 328, 320 190, 400 190"/><path class="ss-l r" pathLength="1" d="M540 190 C 610 190, 630 36, 700 36"/><path class="ss-l r" pathLength="1" d="M540 190 C 610 190, 630 80, 700 80"/><path class="ss-l r" pathLength="1" d="M540 190 C 610 190, 630 124, 700 124"/><path class="ss-l r" pathLength="1" d="M540 190 C 610 190, 630 168, 700 168"/><path class="ss-l r" pathLength="1" d="M540 190 C 610 190, 630 212, 700 212"/><path class="ss-l r" pathLength="1" d="M540 190 C 610 190, 630 256, 700 256"/><path class="ss-l r" pathLength="1" d="M540 190 C 610 190, 630 300, 700 300"/><path class="ss-l r" pathLength="1" d="M540 190 C 610 190, 630 344, 700 344"/>
+          <g class="ss-ev"><rect x="20" y="28" width="212" height="40" rx="10"/><text x="34" y="45" class="ss-code">page_view</text><text x="34" y="61" class="ss-sub">la visita</text></g><g class="ss-ev"><rect x="20" y="84" width="212" height="40" rx="10"/><text x="34" y="101" class="ss-code">view_item</text><text x="34" y="117" class="ss-sub">prodotto visto</text></g><g class="ss-ev"><rect x="20" y="140" width="212" height="40" rx="10"/><text x="34" y="157" class="ss-code">add_to_cart</text><text x="34" y="173" class="ss-sub">nel carrello</text></g><g class="ss-ev"><rect x="20" y="196" width="212" height="40" rx="10"/><text x="34" y="213" class="ss-code">begin_checkout</text><text x="34" y="229" class="ss-sub">alla cassa</text></g><g class="ss-ev p"><rect x="20" y="252" width="212" height="40" rx="10"/><text x="34" y="269" class="ss-code">purchase</text><text x="34" y="285" class="ss-sub">l'acquisto</text></g><g class="ss-ev"><rect x="20" y="308" width="212" height="40" rx="10"/><text x="34" y="325" class="ss-code">user_data</text><text x="34" y="341" class="ss-sub">email e telefono cifrati</text></g><g class="ss-de" id="ss-de0"><rect x="700" y="20" width="200" height="32" rx="9"/><text x="714" y="41" class="ss-name">GA4</text><text x="888" y="41" class="ss-ok" text-anchor="end">✓</text></g><g class="ss-de" id="ss-de1"><rect x="700" y="64" width="200" height="32" rx="9"/><text x="714" y="85" class="ss-name">Google Ads</text><text x="888" y="85" class="ss-ok" text-anchor="end">✓</text></g><g class="ss-de" id="ss-de2"><rect x="700" y="108" width="200" height="32" rx="9"/><text x="714" y="129" class="ss-name">Meta CAPI</text><text x="888" y="129" class="ss-ok" text-anchor="end">✓</text></g><g class="ss-de" id="ss-de3"><rect x="700" y="152" width="200" height="32" rx="9"/><text x="714" y="173" class="ss-name">TikTok</text><text x="888" y="173" class="ss-ok" text-anchor="end">✓</text></g><g class="ss-de" id="ss-de4"><rect x="700" y="196" width="200" height="32" rx="9"/><text x="714" y="217" class="ss-name">Pinterest</text><text x="888" y="217" class="ss-ok" text-anchor="end">✓</text></g><g class="ss-de" id="ss-de5"><rect x="700" y="240" width="200" height="32" rx="9"/><text x="714" y="261" class="ss-name">Microsoft Ads</text><text x="888" y="261" class="ss-ok" text-anchor="end">✓</text></g><g class="ss-de" id="ss-de6"><rect x="700" y="284" width="200" height="32" rx="9"/><text x="714" y="305" class="ss-name">Klaviyo</text><text x="888" y="305" class="ss-ok" text-anchor="end">✓</text></g><g class="ss-de" id="ss-de7"><rect x="700" y="328" width="200" height="32" rx="9"/><text x="714" y="349" class="ss-name">il tuo CRM</text><text x="888" y="349" class="ss-ok" text-anchor="end">✓</text></g>
+          <g class="ss-srv"><rect x="400" y="132" width="140" height="116" rx="16"/><text x="470" y="168" text-anchor="middle" class="ss-srvt">Server</text><text x="470" y="186" text-anchor="middle" class="ss-srvs">del negozio</text><text x="470" y="210" text-anchor="middle" class="ss-srvs">consenso · un id</text><text x="470" y="228" text-anchor="middle" class="ss-srvs">dati cifrati</text></g>
+          <circle class="ss-dot" r="7"><animateMotion id="ss-m0" dur="1.1s" begin="indefinite" fill="freeze" path="M232 272 C 312 272, 320 190, 400 190"/></circle><circle class="ss-dot d" r="6"><animateMotion dur=".9s" begin="ss-m0.end+0.00s" fill="freeze" path="M540 190 C 610 190, 630 36, 700 36"/></circle><circle class="ss-dot d" r="6"><animateMotion dur=".9s" begin="ss-m0.end+0.06s" fill="freeze" path="M540 190 C 610 190, 630 80, 700 80"/></circle><circle class="ss-dot d" r="6"><animateMotion dur=".9s" begin="ss-m0.end+0.12s" fill="freeze" path="M540 190 C 610 190, 630 124, 700 124"/></circle><circle class="ss-dot d" r="6"><animateMotion dur=".9s" begin="ss-m0.end+0.18s" fill="freeze" path="M540 190 C 610 190, 630 168, 700 168"/></circle><circle class="ss-dot d" r="6"><animateMotion dur=".9s" begin="ss-m0.end+0.24s" fill="freeze" path="M540 190 C 610 190, 630 212, 700 212"/></circle><circle class="ss-dot d" r="6"><animateMotion dur=".9s" begin="ss-m0.end+0.30s" fill="freeze" path="M540 190 C 610 190, 630 256, 700 256"/></circle><circle class="ss-dot d" r="6"><animateMotion dur=".9s" begin="ss-m0.end+0.36s" fill="freeze" path="M540 190 C 610 190, 630 300, 700 300"/></circle><circle class="ss-dot d" r="6"><animateMotion dur=".9s" begin="ss-m0.end+0.42s" fill="freeze" path="M540 190 C 610 190, 630 344, 700 344"/></circle>
+        </svg>
+        <div class="ss-esito" id="ss-esito" aria-live="polite"><span class="ss-k">Oggi, dal browser</span><span>un evento per piattaforma, tre cookie di terzi, nessun id in comune: chi blocca i pixel sparisce, chi non li blocca può contare due volte.</span><span class="ss-k on">Acceso</span><span id="ss-fr">un acquisto, un <code>event_id</code>, tutte le piattaforme: contato una volta sola, col consenso. Premi il bottone e guardalo partire.</span></div>
       </div>
       <div class="pd2">
         <div class="pd-oggi"><span class="tag">Oggi</span>
@@ -2683,6 +2712,21 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     });
   });
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.querySelectorAll('.ric').forEach(function(r){ r.classList.add('on'); });
+
+  /* ── server-side: un acquisto parte dal browser, entra nel server, esce verso tutte le piattaforme ── */
+  (function(){
+    var ss = document.getElementById('ss'), go = document.getElementById('ss-go'); if (!ss || !go) return;
+    var dests = ss.querySelectorAll('.ss-de'), fr = document.getElementById('ss-fr'), m0 = document.getElementById('ss-m0'), timer = [];
+    var motions = ss.querySelectorAll('animateMotion');
+    go.addEventListener('click', function(){
+      timer.forEach(clearTimeout); timer = [];
+      dests.forEach(function(d){ d.classList.remove('on'); });
+      ss.classList.remove('go'); void ss.offsetWidth; ss.classList.add('go');
+      if (m0 && m0.beginElement) { m0.beginElement(); }
+      dests.forEach(function(d, i){ timer.push(setTimeout(function(){ d.classList.add('on'); }, 1100 + 900 + i * 60)); });
+      timer.push(setTimeout(function(){ fr.innerHTML = 'arrivato a <b>8 su 8</b>, con lo stesso <code>event_id</code>: contato una volta sola, col consenso del visitatore. Le campagne imparano dai numeri veri.'; go.textContent = 'Mandane un altro'; }, 2300));
+    });
+  })();
 </script>
 </body>
 </html>
