@@ -672,6 +672,17 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .st-ag:hover img{transform:translateY(-3px) rotate(-4deg)}
 .st-ag[aria-pressed="true"]{background:var(--white);border-color:var(--c);box-shadow:0 14px 30px -16px var(--c),0 0 0 3px color-mix(in srgb,var(--c) 30%,transparent)}
 .st-ag:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+/* la squadra sotto lo scan, in testa: stessi robottini, portano nello studio */
+.hero-ag{max-width:760px;margin:18px auto 0;gap:8px;grid-template-columns:repeat(6,minmax(0,1fr))}
+.hero-ag .st-ag small{display:none}
+.hero-ag .st-ag span{min-width:0}
+.hero-ag .st-ag b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block}
+.hero-ag .st-ag{text-decoration:none;padding:6px 8px 6px 6px;gap:8px;border-radius:14px}
+.hero-ag .st-ag img{width:34px;height:36px}
+.hero-ag .st-ag b{font-size:13px}
+.hero-ag .st-ag small{font-size:10.5px}
+.hero .hero-ag .st-ag{background:rgba(255,255,255,.75)}
+@media(max-width:1100px){.hero-ag{grid-template-columns:repeat(6,1fr)}.hero-ag .st-ag span{display:none}.hero-ag .st-ag{justify-content:center;padding:6px 0}}
 .js .squad .studio{opacity:0;transform:translateY(30px) scale(.985);transition:opacity .9s var(--ease),transform 1.2s var(--ease);transition-delay:.25s}
 .js .squad.in .studio{opacity:1;transform:none}
 .js .squad .st-squadra li{opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease),transform .8s cubic-bezier(.34,1.56,.64,1)}
@@ -1338,6 +1349,8 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .xsq .xlead strong{color:var(--black);font-weight:600}
   .xstudio{margin-top:22px;border-radius:22px}
   .xst-squadra{grid-template-columns:repeat(6,1fr);gap:6px;margin-top:14px}
+  .hero-ag.xst-squadra{margin-top:16px}
+  .hero-ag.xst-squadra .st-ag{background:rgba(255,255,255,.85)}
   .xst-squadra .st-ag{justify-content:center;padding:6px 0;border-radius:14px}
   .xst-squadra .st-ag img{width:36px;height:38px}
   .xst-testi{display:grid;margin-top:14px;position:relative}
@@ -1627,6 +1640,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     </figure>
     <form class="mscan xr" style="--d:1.1s" action="/contatti" method="get"><input type="text" name="sito" placeholder="www.iltuonegozio.it" autocomplete="url" inputmode="url" aria-label="Indirizzo del tuo negozio online"><button type="submit">Fai lo scan gratis</button></form>
     <p class="xmeta xr" style="--d:1.2s">Senza accessi. Risposta entro 24 ore.</p>
+    <ul class="st-squadra xst-squadra hero-ag xr" style="--d:1.3s" aria-label="La squadra di Ignition"><li><a class="st-ag" href="#m-squadra" data-ag="leonardo" style="--c:#FFB15C;--i:0" aria-label="Leonardo, Scrittore SEO+GEO"><img src="images/squadra/leonardo.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></a></li><li><a class="st-ag" href="#m-squadra" data-ag="holmes" style="--c:#7CD3FF;--i:1" aria-label="Holmes, Giudice AI"><img src="images/squadra/holmes.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></a></li><li><a class="st-ag" href="#m-squadra" data-ag="galileo" style="--c:#6FE59A;--i:2" aria-label="Galileo, Traduttore"><img src="images/squadra/galileo.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></a></li><li><a class="st-ag" href="#m-squadra" data-ag="volta" style="--c:#FFE16B;--i:3" aria-label="Volta, Feed"><img src="images/squadra/volta.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></a></li><li><a class="st-ag" href="#m-squadra" data-ag="archimede" style="--c:#C7B0FF;--i:4" aria-label="Archimede, Tracciamento"><img src="images/squadra/archimede.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></a></li><li><a class="st-ag" href="#m-squadra" data-ag="fibonacci" style="--c:#FF8F7E;--i:5" aria-label="Fibonacci, Budget"><img src="images/squadra/fibonacci.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></a></li></ul>
     <div class="xhint" aria-hidden="true"><span>scorri</span><i></i></div>
   </section>
 
@@ -1800,6 +1814,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         <button type="submit">Fai lo scan <svg class="ico" aria-hidden="true"><use href="#arrow"/></svg></button>
       </form>
       <p class="scan-meta fx">Gratis, senza accessi.</p>
+      <ul class="st-squadra hero-ag fx" aria-label="La squadra di Ignition"><li><a class="st-ag" href="#squadra" data-ag="leonardo" style="--c:#FFB15C;--i:0" title="Leonardo, Scrittore SEO+GEO"><img src="images/squadra/leonardo.webp" alt="" width="400" height="416" loading="lazy" decoding="async"><span><b>Leonardo</b><small>Scrittore SEO+GEO</small></span></a></li><li><a class="st-ag" href="#squadra" data-ag="holmes" style="--c:#7CD3FF;--i:1" title="Holmes, Giudice AI"><img src="images/squadra/holmes.webp" alt="" width="400" height="416" loading="lazy" decoding="async"><span><b>Holmes</b><small>Giudice AI</small></span></a></li><li><a class="st-ag" href="#squadra" data-ag="galileo" style="--c:#6FE59A;--i:2" title="Galileo, Traduttore"><img src="images/squadra/galileo.webp" alt="" width="400" height="416" loading="lazy" decoding="async"><span><b>Galileo</b><small>Traduttore</small></span></a></li><li><a class="st-ag" href="#squadra" data-ag="volta" style="--c:#FFE16B;--i:3" title="Volta, Feed"><img src="images/squadra/volta.webp" alt="" width="400" height="416" loading="lazy" decoding="async"><span><b>Volta</b><small>Feed</small></span></a></li><li><a class="st-ag" href="#squadra" data-ag="archimede" style="--c:#C7B0FF;--i:4" title="Archimede, Tracciamento"><img src="images/squadra/archimede.webp" alt="" width="400" height="416" loading="lazy" decoding="async"><span><b>Archimede</b><small>Tracciamento</small></span></a></li><li><a class="st-ag" href="#squadra" data-ag="fibonacci" style="--c:#FF8F7E;--i:5" title="Fibonacci, Budget"><img src="images/squadra/fibonacci.webp" alt="" width="400" height="416" loading="lazy" decoding="async"><span><b>Fibonacci</b><small>Budget</small></span></a></li></ul>
     </div>
   </div>
   <a class="hero-giu fx" href="#risultati" aria-label="Scorri ai risultati"><span>Scorri</span><i></i></a>
@@ -2786,6 +2801,14 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         v.classList.toggle('on', on);
       });
     }
+    document.querySelectorAll('.hero-ag .st-ag').forEach(function(a, i){
+      a.style.setProperty('--i', i);
+      a.addEventListener('click', function(){
+        var sez = document.getElementById(a.getAttribute('href').slice(1)); if (!sez) return;
+        sez.querySelectorAll('.st-ag').forEach(function(b){ b.setAttribute('aria-pressed', 'false'); });
+        scegli(sez, a.getAttribute('data-ag'));
+      });
+    });
     ['squadra', 'm-squadra'].forEach(function(id){
       var sez = document.getElementById(id); if (!sez) return;
       sez.querySelectorAll('.st-ag').forEach(function(b, i){
