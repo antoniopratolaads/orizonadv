@@ -945,7 +945,23 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .mp b{display:block;font-size:14.5px;font-weight:600;line-height:1.3;margin-top:2px}
 .mp span{display:block;font-size:13px;color:var(--black-m);margin-top:4px;line-height:1.4}
 /* ── ROAS o utile: lo stesso mese, due modi ── */
-.vs-sec{padding:112px 0;background:var(--white);border-bottom:1px solid var(--line)}
+.vs-sec{padding:88px 0;background:var(--white);border-bottom:1px solid var(--line)}
+/* le spiegazioni dei conti si aprono a richiesta: la prova resta in vista */
+.vs-det{margin-top:18px;border:1px solid var(--line-2);border-radius:14px;background:var(--white)}
+.vs-det summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;font-size:15px;font-weight:600;color:var(--black)}
+.vs-det summary::-webkit-details-marker{display:none}
+.vs-det summary i{width:22px;height:22px;border-radius:50%;border:1px solid var(--line-2);position:relative;flex:none;transition:transform .35s var(--ease),background .25s}
+.vs-det summary i::before,.vs-det summary i::after{content:'';position:absolute;left:50%;top:50%;width:10px;height:2px;background:var(--blue);transform:translate(-50%,-50%)}
+.vs-det summary i::after{transform:translate(-50%,-50%) rotate(90deg)}
+.vs-det[open] summary i{transform:rotate(45deg);background:var(--bg-2)}
+.vs-det summary:hover{color:var(--blue)}
+.vs-det-in{padding:4px 18px 18px}
+.vs-det-in ol{margin-top:4px}
+.vs-det.largo{margin-top:26px;max-width:960px}
+.vs-det.largo .vs-det-in{padding:0 12px 12px}
+.vs-det.largo .vs{box-shadow:none;border:0;margin-top:0}
+.vs-grid.solo{grid-template-columns:minmax(0,760px);justify-content:start}
+.vs-grid.solo .vs-why .wf{margin-bottom:0}
 .vs-grid{margin-top:44px;display:grid;grid-template-columns:1.25fr 1fr;gap:28px;align-items:start}
 .vs{background:var(--white);border:1px solid var(--line-2);border-radius:16px;overflow:hidden;box-shadow:0 1px 2px rgba(12,23,19,.04),0 24px 60px -24px rgba(12,23,19,.22)}
 .js .vs.fx .vr{opacity:0;transform:translateX(-14px);transition:opacity .55s var(--ease),transform .7s var(--ease);transition-delay:calc(.08s + var(--r,0) * .09s)}
@@ -2037,13 +2053,13 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
           <div><i style="--h:100%"></i><b>350.095 €</b><span>il «venduto» in Shopify</span></div>
           <div class="on"><i style="--h:69%"></i><b>240.496 €</b><span>davvero tuo, prima del costo d'acquisto</span></div>
         </div>
-        <h3>Perché conta</h3>
+        <details class="vs-det"><summary>Perché conta<i></i></summary><div class="vs-det-in">
         <ol>
           <li><b>Il 31% del «venduto» non è tuo.</b> IVA, spedizioni e resi: 109.599 € in un mese che un report sul fatturato ti mostra come incasso.</li>
           <li><b>I resi tornano dopo.</b> Un mese che sembrava buono si riapre tre settimane più tardi. Li leggiamo il giorno in cui arrivano, prodotto per prodotto, e li togliamo dal budget di quel prodotto.</li>
           <li><b>Il costo d'acquisto decide tutto.</b> È l'unico numero che non sta in Shopify: lo carichiamo con te, prodotto per prodotto, e da lì in poi ogni decisione di spesa parte dal margine, non dal prezzo.</li>
         </ol>
-        <p class="vs-note">Numeri letti l'11 ottobre 2026 dal pannello Shopify del negozio: 374 ordini, 269 clienti nuovi e 81 di ritorno. Il costo d'acquisto non è ancora caricato: per questo l'utile qui non ha una cifra.</p>
+        <p class="vs-note">Numeri letti l'11 ottobre 2026 dal pannello Shopify del negozio: 374 ordini, 269 clienti nuovi e 81 di ritorno. Il costo d'acquisto non è ancora caricato: per questo l'utile qui non ha una cifra.</p></div></details>
       </div>
     </div>
     <p class="ponte fx fx-sx"><svg class="ico" aria-hidden="true"><use href="#arrow"/></svg><span>Letto quello che resta, la domanda dopo è dove mettere il budget. Non dove il ROAS è più alto.</span></p>
@@ -2058,8 +2074,23 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       <p>Lo stesso negozio, un mese tipo sui suoi ritmi veri, due modi di muovere il budget. Da una parte si insegue il ROAS, come fanno quasi tutti. Dall'altra si insegue l'utile. <strong>Tutti i costi dentro</strong>: IVA, resi, costo d'acquisto, spedizioni, commissioni, pubblicità.</p>
     </div>
 
-    <div class="vs-grid flip">
-      <div class="vs fx" role="table" aria-label="Confronto fra un mese gestito sul ROAS e uno gestito sull'utile">
+    <div class="vs-grid solo">
+      <div class="vs-why fx fx-dx">
+        <div class="wf" id="wf" data-modo="roas">
+      <div class="wf-top"><span class="wf-k">Il conto di ogni mese, ordine per ordine</span><div class="wf-tog" role="group" aria-label="Lavorando sul ROAS o sull'utile"><button type="button" class="on" data-m="roas">Lavorando sul ROAS</button><button type="button" data-m="utile">Lavorando sull'utile</button></div></div>
+      <svg class="wf-svg" viewBox="0 0 640 300" role="img" aria-label="Cascata del mese: incassato, poi IVA, resi, merce, spedizioni, commissioni e pubblicità tolte una alla volta, e quanto resta. Sul ROAS 700.000 incassati e 46.700 che restano; sull'utile 660.000 e 100.000."></svg>
+      <p class="wf-mese"><b>Sul ROAS:</b> 700.000 € incassati, ROAS 35, restano <b>46.700 €</b>. <b>Sull'utile:</b> 660.000 € incassati, ROAS 22, restano <b>100.000 €</b>. Diecimila euro in più di pubblicità, quarantamila di vendite in meno, <b>il doppio dell'utile</b>.</p>
+    </div>
+        <details class="vs-det"><summary>Perché succede<i></i></summary><div class="vs-det-in">
+        <ol>
+          <li><b>Il ROAS premia i prodotti facili.</b> Bestseller scontati, grandi marche a margine sottile, prezzo sotto il benchmark: convertono subito, il ROAS vola — e ogni vendita lascia pochi euro. Spesso tornano anche indietro.</li>
+          <li><b>L'utile legge il margine di ogni prodotto.</b> Prezzo meno costo d'acquisto, meno IVA, meno resi: è l'etichetta nel feed. Il budget va dove ogni vendita lascia di più, anche se costa qualche click in più.</li>
+          <li><b>Per questo spendiamo di più e accettiamo un ROAS più basso.</b> Diecimila euro in più di pubblicità, quarantamila di vendite in meno, <strong>il doppio dell'utile</strong>. Ed è il numero su cui guidiamo.</li>
+        </ol>
+        <p class="vs-note">Numeri tondi di un mese tipo, stesso negozio: cambia solo dove va il budget. IVA 22%, resi 11,4% (il ritmo vero del negozio di climatizzazione), spedizioni 3,5%, commissioni 1,5%; costo d'acquisto 80% del venduto sui prodotti «da ROAS», 66% su quelli scelti per margine.</p></div></details>
+      </div>
+    </div>
+    <details class="vs-det largo fx"><summary>I numeri del mese tipo, riga per riga<i></i></summary><div class="vs-det-in"><div class="vs fx" role="table" aria-label="Confronto fra un mese gestito sul ROAS e uno gestito sull'utile">
         <div class="vr head" style="--r:1" role="row"><span role="columnheader">Un mese tipo</span><span role="columnheader">Lavorando sul ROAS</span><span class="b" role="columnheader">Lavorando sull'utile</span></div>
         <div class="vr" style="--r:2" role="row"><span>Pubblicità spesa</span><span>20.000 €</span><span class="b">30.000 €</span></div>
         <div class="vr big" style="--r:3" role="row"><span>ROAS</span><span><b>35</b></span><span class="b"><b>22</b></span></div>
@@ -2071,23 +2102,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         <div class="vr m" style="--r:9" role="row"><span>− Commissioni di pagamento <small>1,5%</small></span><span>10.500 €</span><span class="b">9.900 €</span></div>
         <div class="vr m" style="--r:10" role="row"><span>− Pubblicità</span><span>20.000 €</span><span class="b">30.000 €</span></div>
         <div class="vr tot" style="--r:11" role="row"><span>= Utile del mese</span><span><b>46.700 €</b><small>6,70 € ogni 100 € incassati</small></span><span class="b"><b>100.000 €</b><small>15,15 € ogni 100 € incassati</small><em>+53.300 €</em></span></div>
-      </div>
-
-      <div class="vs-why fx fx-dx">
-        <div class="wf" id="wf" data-modo="roas">
-      <div class="wf-top"><span class="wf-k">Il conto di ogni mese, ordine per ordine</span><div class="wf-tog" role="group" aria-label="Lavorando sul ROAS o sull'utile"><button type="button" class="on" data-m="roas">Lavorando sul ROAS</button><button type="button" data-m="utile">Lavorando sull'utile</button></div></div>
-      <svg class="wf-svg" viewBox="0 0 640 300" role="img" aria-label="Cascata del mese: incassato, poi IVA, resi, merce, spedizioni, commissioni e pubblicità tolte una alla volta, e quanto resta. Sul ROAS 700.000 incassati e 46.700 che restano; sull'utile 660.000 e 100.000."></svg>
-      <p class="wf-mese"><b>Sul ROAS:</b> 700.000 € incassati, ROAS 35, restano <b>46.700 €</b>. <b>Sull'utile:</b> 660.000 € incassati, ROAS 22, restano <b>100.000 €</b>. Diecimila euro in più di pubblicità, quarantamila di vendite in meno, <b>il doppio dell'utile</b>.</p>
-    </div>
-        <h3>Perché succede</h3>
-        <ol>
-          <li><b>Il ROAS premia i prodotti facili.</b> Bestseller scontati, grandi marche a margine sottile, prezzo sotto il benchmark: convertono subito, il ROAS vola — e ogni vendita lascia pochi euro. Spesso tornano anche indietro.</li>
-          <li><b>L'utile legge il margine di ogni prodotto.</b> Prezzo meno costo d'acquisto, meno IVA, meno resi: è l'etichetta nel feed. Il budget va dove ogni vendita lascia di più, anche se costa qualche click in più.</li>
-          <li><b>Per questo spendiamo di più e accettiamo un ROAS più basso.</b> Diecimila euro in più di pubblicità, quarantamila di vendite in meno, <strong>il doppio dell'utile</strong>. Ed è il numero su cui guidiamo.</li>
-        </ol>
-        <p class="vs-note">Numeri tondi di un mese tipo, stesso negozio: cambia solo dove va il budget. IVA 22%, resi 11,4% (il ritmo vero del negozio di climatizzazione), spedizioni 3,5%, commissioni 1,5%; costo d'acquisto 80% del venduto sui prodotti «da ROAS», 66% su quelli scelti per margine.</p>
-      </div>
-    </div>
+      </div></div></details>
     <p class="ponte fx fx-sx"><svg class="ico" aria-hidden="true"><use href="#arrow"/></svg><span>E la merce che non gira è un costo che nessun ROAS racconta.</span></p>
   </div>
 </section>
@@ -2114,13 +2129,13 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
           <div><b>418.538 €</b><span>di merce con stock alto e zero vendite in 60 giorni</span></div>
           <div><b>57.655 €</b><span>di vendite a rischio nei prossimi 90 giorni, se non si riordina</span></div>
         </div>
-        <h3>Perché conta</h3>
+        <details class="vs-det"><summary>Perché conta<i></i></summary><div class="vs-det-in">
         <ol>
           <li><b>Alto stock, basse vendite: si spinge con un obiettivo più basso.</b> Un prodotto fermo che vende a ROAS 6 libera cassa che a ROAS 12 non uscirebbe mai. Ha una campagna sua, con un obiettivo suo, separata da quella dei prodotti che rendono: così non sporca il resto.</li>
           <li><b>Il riordino si decide sulla stagione dell'anno scorso.</b> Quel radiatore in questi mesi ne ha venduti 8; oggi ha giacenza zero. Ogni settimana senza riordinare è una vendita persa a un cliente che la trova altrove.</li>
           <li><b>Lo sconto è l'ultima mossa, non la prima.</b> 418 mila euro fermi oggi si muovono a prezzo pieno con la campagna giusta; a gennaio si muovono in perdita. Lo leggiamo dal negozio ogni giorno, con la mossa scritta accanto, nel report di ogni settimana.</li>
         </ol>
-        <p class="vs-note">Letto l'11 ottobre 2026 sul negozio Shopify di climatizzazione: stagione di confronto 11 ottobre 2025 – 9 gennaio 2026. Foto dei prodotti dal suo catalogo.</p>
+        <p class="vs-note">Letto l'11 ottobre 2026 sul negozio Shopify di climatizzazione: stagione di confronto 11 ottobre 2025 – 9 gennaio 2026. Foto dei prodotti dal suo catalogo.</p></div></details>
       </div>
     </div>
   </div>
