@@ -459,43 +459,55 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 
 /* ── LA SQUADRA (15/10/2026): i sei agenti del video coi loro nomi, ritagliati dal video stesso; sta sullo
    stesso blu del capitolo del catalogo, che viene subito dopo ── */
-.squad{background:var(--blue);color:var(--white);padding:104px 0 40px;position:relative;overflow:hidden}
-.squad::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 42% at 50% 30%,rgba(255,255,255,.13),transparent 70%),radial-gradient(rgba(255,255,255,.15) 1px,transparent 1.6px) 0 0/22px 22px;-webkit-mask-image:linear-gradient(#000 45%,transparent 92%);mask-image:linear-gradient(#000 45%,transparent 92%);pointer-events:none}
+/* la squadra: lo studio bianco del video, un agente alla volta */
+.squad{background:radial-gradient(ellipse 60% 50% at 50% 62%,rgba(55,80,247,.10),transparent 70%),linear-gradient(#FFFFFF,#EEF0F7);color:var(--black);padding:112px 0 104px;position:relative;overflow:hidden}
 .squad .wrap{position:relative;z-index:1}
-.squad-k{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;color:var(--blue-ll);margin-bottom:18px}
-.squad-k::before{content:'';width:3px;height:18px;border-radius:2px;background:var(--green)}
+.squad-k{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;color:var(--blue);margin-bottom:18px}
+.squad-k::before{content:'';width:3px;height:18px;border-radius:2px;background:var(--blue)}
 .squad h2{font-size:clamp(34px,4.6vw,60px);line-height:1.04;letter-spacing:-.035em;max-width:900px;text-wrap:balance}
-.squad h2 span{color:var(--blue-s)}
-.squad-lead{margin-top:20px;font-size:19px;line-height:1.5;color:rgba(255,255,255,.84);max-width:700px;text-wrap:pretty}
-.squad-albero{position:relative;margin-top:54px}
-.squad-o{display:block;width:62px;height:auto;margin:0 auto}
-.squad-tree{display:block;width:100%;height:auto;margin-top:-2px}
-.squad-tree path{fill:none;stroke-width:2;stroke-linecap:round}
-.squad-grid{list-style:none;display:grid;grid-template-columns:repeat(6,1fr);gap:24px;margin-top:-4px}
-.squad-grid li,.xsq-grid li{display:flex;flex-direction:column;align-items:center;text-align:center}
-.ag-fig{display:block;width:150px;max-width:100%;height:auto}
-.ag-fig img{width:100%;height:auto}
-.ag-nome{display:inline-flex;align-items:center;gap:7px;margin-top:4px;padding:6px 14px 6px 11px;border-radius:999px;background:var(--white);color:var(--black);font-weight:600;font-size:15px;line-height:1.1;box-shadow:0 10px 22px -12px rgba(12,23,19,.5)}
-.ag-nome i{width:8px;height:8px;border-radius:50%;background:var(--c);flex-shrink:0}
-.ag-ruolo{margin-top:8px;font-size:13px;font-weight:500;color:rgba(255,255,255,.72)}
-.ag-cosa{margin-top:14px;font-size:15px;line-height:1.45;color:rgba(255,255,255,.9);max-width:200px;text-wrap:pretty}
-.ag-vai{margin-top:12px;font-size:13px;font-weight:600;color:var(--white);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.4);transition:border-color .2s}
-.ag-vai:hover{border-color:var(--white)}
-.squad+.cap{padding-top:56px}
-.squad+.cap .wrap{border-top:1px solid rgba(255,255,255,.18);padding-top:56px}
-/* il movimento: le linee partono dalla O, i robottini arrivano uno alla volta e poi galleggiano */
-.js .squad-tree path{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.2s var(--ease);transition-delay:calc(.25s + var(--i) * .12s)}
-.js .squad.in .squad-tree path{stroke-dashoffset:0}
-.js .squad .ag-fig img{opacity:0;transform:translateY(26px) scale(.7);transition:opacity .6s var(--ease),transform 1s cubic-bezier(.34,1.56,.64,1);transition-delay:calc(.55s + var(--i) * .14s)}
-.js .squad.in .ag-fig img{opacity:1;transform:none}
-.js .squad .ag-nome,.js .squad .ag-ruolo,.js .squad .ag-cosa,.js .squad .ag-vai{opacity:0;transform:translateY(10px);transition:opacity .6s var(--ease),transform .8s var(--ease);transition-delay:calc(.8s + var(--i) * .14s)}
-.js .squad.in .ag-nome,.js .squad.in .ag-ruolo,.js .squad.in .ag-cosa,.js .squad.in .ag-vai{opacity:1;transform:none}
-.ag-fig{animation:ag-galleggia 3.8s ease-in-out infinite;animation-delay:calc(var(--i) * -.63s)}
-@keyframes ag-galleggia{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.squad h2 span{color:var(--blue)}
+.squad-lead{margin-top:20px;font-size:19px;line-height:1.5;color:var(--black-m);max-width:700px;text-wrap:pretty}
+.studio{position:relative;margin-top:48px;aspect-ratio:1600/904;border-radius:28px;overflow:hidden;background:#E9ECF4;box-shadow:0 40px 80px -40px rgba(35,59,217,.35),0 0 0 1px rgba(12,23,19,.05)}
+.st-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.035);transition:opacity .7s var(--ease),transform 1.4s var(--ease)}
+.st-img.on{opacity:1;transform:none}
+.st-carta{position:absolute;top:32px;right:32px;width:340px;padding:20px 22px 18px;border-radius:18px;background:rgba(255,255,255,.82);-webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4);border:1px solid rgba(255,255,255,.9);box-shadow:0 24px 50px -24px rgba(12,23,19,.35);opacity:0;transform:translateY(14px);transition:opacity .45s var(--ease),transform .7s var(--ease);pointer-events:none}
+.st-carta[data-lato="sx"]{right:auto;left:32px}
+.st-carta[data-lato="sx-basso"]{top:auto;right:auto;left:32px;bottom:32px}
+.st-carta.on{opacity:1;transform:none;pointer-events:auto;transition-delay:.15s}
+.st-nome{display:flex;align-items:center;gap:9px;font-weight:600;font-size:18px;letter-spacing:-.01em;color:var(--black)}
+.st-nome i{width:10px;height:10px;border-radius:50%;background:var(--c);box-shadow:0 0 0 4px color-mix(in srgb,var(--c) 28%,transparent);flex-shrink:0}
+.st-ruolo{display:block;margin:4px 0 0 19px;font-size:13px;font-weight:500;color:var(--black-m)}
+.st-carta p,.xst-t p{margin-top:12px;font-size:15px;line-height:1.48;color:var(--black);text-wrap:pretty}
+.st-vai{display:inline-block;margin-top:12px;font-size:14px;font-weight:600;color:var(--blue);text-decoration:none;border-bottom:1px solid rgba(55,80,247,.35)}
+.st-vai:hover{border-color:var(--blue)}
+.st-squadra{list-style:none;display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:22px}
+.st-ag{width:100%;display:flex;align-items:center;gap:10px;padding:8px 14px 8px 8px;border-radius:16px;background:rgba(255,255,255,.7);border:1px solid var(--line);cursor:pointer;font:inherit;color:var(--black);text-align:left;transition:background .25s,border-color .25s,box-shadow .35s var(--ease),transform .35s var(--ease)}
+.st-ag img{width:44px;height:46px;object-fit:contain;flex-shrink:0;transition:transform .5s cubic-bezier(.34,1.56,.64,1)}
+.st-ag span{display:flex;flex-direction:column;min-width:0}
+.st-ag b{font-weight:600;font-size:15px;line-height:1.15}
+.st-ag small{font-size:12px;color:var(--black-m);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.st-ag:hover{background:var(--white);transform:translateY(-2px)}
+.st-ag:hover img{transform:translateY(-3px) rotate(-4deg)}
+.st-ag[aria-pressed="true"]{background:var(--white);border-color:var(--c);box-shadow:0 14px 30px -16px var(--c),0 0 0 3px color-mix(in srgb,var(--c) 30%,transparent)}
+.st-ag:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.js .squad .studio{opacity:0;transform:translateY(30px) scale(.985);transition:opacity .9s var(--ease),transform 1.2s var(--ease);transition-delay:.25s}
+.js .squad.in .studio{opacity:1;transform:none}
+.js .squad .st-squadra li{opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease),transform .8s cubic-bezier(.34,1.56,.64,1)}
+.js .squad.in .st-squadra li{opacity:1;transform:none}
+.js .squad.in .st-squadra li:nth-child(1){transition-delay:.55s}.js .squad.in .st-squadra li:nth-child(2){transition-delay:.62s}.js .squad.in .st-squadra li:nth-child(3){transition-delay:.69s}
+.js .squad.in .st-squadra li:nth-child(4){transition-delay:.76s}.js .squad.in .st-squadra li:nth-child(5){transition-delay:.83s}.js .squad.in .st-squadra li:nth-child(6){transition-delay:.9s}
 @media(max-width:1100px){
-  .squad-albero{display:none}
-  .squad-grid{grid-template-columns:repeat(3,1fr);gap:40px 24px;margin-top:48px}
+  .st-squadra{grid-template-columns:repeat(3,1fr)}
+  .st-carta{width:300px;top:20px;right:20px}
+  .st-carta[data-lato="sx"]{left:20px}.st-carta[data-lato="sx-basso"]{left:20px;bottom:20px}
 }
+/* la testa di ogni leva: una riga, firmata dall'agente */
+.piatto header.firma{display:flex;gap:16px;align-items:flex-start}
+.fv{width:52px;height:54px;object-fit:contain;flex-shrink:0;margin-top:2px}
+.fa{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--black-m);margin-bottom:6px}
+.fa i{width:8px;height:8px;border-radius:50%;background:var(--c);box-shadow:0 0 0 3px color-mix(in srgb,var(--c) 30%,transparent)}
+.fa b{color:var(--black);font-weight:600}
+.piatto .fl{margin-top:8px;font-size:16.5px;line-height:1.5;color:var(--black-m);max-width:720px;text-wrap:pretty}
 
 /* ── BLOCCO 2: quattro interruttori, una scheda che si accende ── */
 .feat{padding:112px 0 96px;background:var(--bg-2);border-top:1px solid var(--line);position:relative;overflow:hidden}
@@ -822,6 +834,7 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .who-grid{display:grid;grid-template-columns:300px 1fr;gap:48px;align-items:center}
 .who-photo{border-radius:20px;overflow:hidden;border:1px solid var(--line-2);background:radial-gradient(rgba(55,80,247,.16) 1px,transparent 1.2px) 0 0/18px 18px var(--bg-2);box-shadow:0 24px 70px -28px rgba(12,23,19,.22)}
 .who-photo img{width:100%;height:auto;aspect-ratio:3/4;object-fit:contain;display:block}
+.who-photo.mark img{aspect-ratio:1/1;padding:20%;box-sizing:border-box}
 .who h2{font-size:clamp(30px,3.6vw,46px);line-height:1.1;letter-spacing:-.03em}
 .who .role{margin-top:8px;font-size:14px;color:var(--blue);font-weight:600}
 .who p{margin-top:16px;font-size:17px;color:var(--black-m);max-width:600px}
@@ -1076,17 +1089,20 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .xprob .prob-griglia{grid-template-columns:repeat(10,1fr);gap:7px}
   .xprob .prob-domanda{margin-top:30px;font-size:24px;text-align:left}
   .xprob .prob-risp{text-align:left;font-size:15.5px;margin-top:12px}
-  .xsq{background:var(--blue);color:#fff;overflow:hidden}
-  .xsq::before{content:'';position:absolute;z-index:0;inset:0;background-image:radial-gradient(rgba(255,255,255,.2) 1px,transparent 1.6px);background-size:22px 22px;animation:mderiva 24s linear infinite}
-  .xsq .xk{color:rgba(255,255,255,.75)}
+  .xsq{background:radial-gradient(ellipse 80% 40% at 50% 55%,rgba(55,80,247,.10),transparent 70%),linear-gradient(#FFFFFF,#EEF0F7);color:var(--black);overflow:hidden}
+  .xsq .xk{color:var(--blue)}
   .xsq h2{margin-top:8px;font-size:32px;line-height:1.06}
-  .xsq .xlead{color:rgba(255,255,255,.86)}
-  .xsq .xlead strong{color:#fff;font-weight:600}
-  .xsq-grid{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:26px 12px;margin-top:24px}
-  .xsq-grid .ag-fig{width:108px}
-  .xsq-grid .ag-nome{font-size:14px;padding:5px 12px 5px 9px}
-  .xsq-grid .ag-ruolo{margin-top:6px;font-size:12px}
-  .xsq-grid .ag-cosa{margin-top:8px;font-size:13.5px;line-height:1.42;max-width:none}
+  .xsq .xlead{color:var(--black-m)}
+  .xsq .xlead strong{color:var(--black);font-weight:600}
+  .xstudio{margin-top:22px;border-radius:22px}
+  .xst-squadra{grid-template-columns:repeat(6,1fr);gap:6px;margin-top:14px}
+  .xst-squadra .st-ag{justify-content:center;padding:6px 0;border-radius:14px}
+  .xst-squadra .st-ag img{width:36px;height:38px}
+  .xst-testi{display:grid;margin-top:14px}
+  .xst-t{grid-area:1/1;padding:16px 18px;border-radius:16px;background:rgba(255,255,255,.85);border:1px solid var(--line);opacity:0;transform:translateY(8px);transition:opacity .4s var(--ease),transform .6s var(--ease);pointer-events:none}
+  .xst-t.on{opacity:1;transform:none;pointer-events:auto}
+  .xst-t .st-nome{font-size:16px}
+  .xst-t p{margin-top:8px;font-size:14.5px}
   /* comparsa */
   .xr{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
   .xs.on .xr{opacity:1;transform:none}
@@ -1216,6 +1232,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .xpunti li::before{content:'';position:absolute;left:0;top:10px;width:7px;height:7px;border-radius:50%;background:var(--green)}
   .xtesta{display:flex;gap:14px;align-items:center}
   .xtesta img{width:76px;height:76px;object-fit:cover;object-position:top;border-radius:16px;background:var(--bg-2);padding:4px;box-shadow:0 0 0 3px var(--white),0 0 0 5px var(--blue-ll)}
+  .xtesta img.xmark{object-fit:contain;padding:16px}
   .xtesta h2{font-size:24px;line-height:1.1}
   .xruolo{font-size:13px;color:var(--black-m);margin-top:3px}
   .xpassi{margin-top:18px;list-style:none;display:grid;gap:10px}
@@ -1343,40 +1360,33 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     <p class="xk xr">La squadra di Ignition</p>
     <h2><span class="xw"><span class="" style="--d:0.10s">Dentro</span></span> <span class="xw"><span class="" style="--d:0.17s">lavorano</span></span> <span class="xw"><span class="xoutw" style="--d:0.24s">sei</span></span> <span class="xw"><span class="xoutw" style="--d:0.31s">agenti</span></span> <span class="xw"><span class="xoutw" style="--d:0.38s">AI.</span></span></h2>
     <p class="xlead xr" style="--d:.4s">Uno scrive, uno controlla, uno traduce, uno prepara il feed, uno traccia, uno guida il budget.</p>
-    <ul class="xsq-grid">
-      <li class="xr xpop" style="--d:0.50s"><span class="ag-fig" style="--i:0"><img src="images/squadra/leonardo.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></span><span class="ag-nome"><i style="--c:#FFB15C"></i>Leonardo</span><span class="ag-ruolo">Scrittore SEO+GEO</span><p class="ag-cosa">Riscrive le schede perché le trovino Google e ChatGPT.</p></li>
-      <li class="xr xpop" style="--d:0.58s"><span class="ag-fig" style="--i:1"><img src="images/squadra/holmes.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></span><span class="ag-nome"><i style="--c:#7CD3FF"></i>Holmes</span><span class="ag-ruolo">Giudice AI</span><p class="ag-cosa">Rilegge ogni scheda: un numero inventato, e la rimanda indietro.</p></li>
-      <li class="xr xpop" style="--d:0.66s"><span class="ag-fig" style="--i:2"><img src="images/squadra/galileo.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></span><span class="ag-nome"><i style="--c:#6FE59A"></i>Galileo</span><span class="ag-ruolo">Traduttore</span><p class="ag-cosa">Traduce schede e sito con le parole che si cercano in ogni paese.</p></li>
-      <li class="xr xpop" style="--d:0.74s"><span class="ag-fig" style="--i:3"><img src="images/squadra/volta.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></span><span class="ag-nome"><i style="--c:#FFE16B"></i>Volta</span><span class="ag-ruolo">Feed</span><p class="ag-cosa">Riempie il feed di Google Shopping, campo per campo.</p></li>
-      <li class="xr xpop" style="--d:0.82s"><span class="ag-fig" style="--i:4"><img src="images/squadra/archimede.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></span><span class="ag-nome"><i style="--c:#C7B0FF"></i>Archimede</span><span class="ag-ruolo">Tracciamento</span><p class="ag-cosa">Porta ogni acquisto a Google e Meta, contato una volta.</p></li>
-      <li class="xr xpop" style="--d:0.90s"><span class="ag-fig" style="--i:5"><img src="images/squadra/fibonacci.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></span><span class="ag-nome"><i style="--c:#FF8F7E"></i>Fibonacci</span><span class="ag-ruolo">Budget</span><p class="ag-cosa">Sposta il budget dove ci sono margine e merce.</p></li>
-    </ul>
-    <p class="xlead xr" style="--d:1s"><strong>Nessuna modifica arriva sul tuo negozio senza il sì di una persona.</strong></p>
-  </section>
-
-  <section class="xs xs3" id="m-catalogo">
-    <p class="xk xr">Prima si accende il catalogo</p>
-    <h2><span class="xw"><span class="" style="--d:0.10s">Una</span></span> <span class="xw"><span class="" style="--d:0.17s">padella</span></span> <span class="xw"><span class="" style="--d:0.24s">vera.</span></span> <span class="xw"><span class="xblu" style="--d:0.35s">Accendila</span></span> <span class="xw"><span class="xblu" style="--d:0.43s">tu.</span></span></h2>
-    <p class="xlead xr" style="--d:.5s">È un prodotto di un fornitore per hotel e ristoranti, com'è oggi sul suo negozio. Un tocco, e la Suite fa quello che fa su ogni prodotto.</p>
-    <div class="xdemo xr" style="--d:.6s" id="xdemo" data-parallasse="-0.05">
-      <div class="xd-top"><div><span class="xd-k">Indice di accensione</span><b><strong id="xd-n">23</strong><em>/100</em></b></div><span class="xd-stato" id="xd-stato">spenta</span></div>
-      <i class="xbar"><em id="xd-bar" style="width:23%"></em></i>
-      <div class="xd-card">
-        <img class="xd-foto" src="images/suite/padella-pensofal.jpg" alt="Padella Pensofal Academy Chef" width="480" height="480" loading="lazy">
-        <div class="xd-body">
-          <div class="xd-tit" id="xd-tit">Padella Alta Saltare Pensofal</div>
-          <div class="xd-prezzo">29,90 € <small>24 · 28 · 32 cm</small></div>
-          <div class="xd-desc" id="xd-desc"><p>Padella alta a saltare in alluminio.</p></div>
-        </div>
-        <div class="xd-righe" id="xd-lang" hidden></div>
-        <div class="xd-righe" id="xd-attr" hidden></div>
-        <div class="xd-righe" id="xd-lab" hidden></div>
-        <div class="xd-righe" id="xd-trk" hidden></div>
-      </div>
-      <ol class="xd-log" id="xd-log" aria-live="polite"></ol>
-      <button type="button" class="xd-go" id="xd-go">Accendi la padella</button>
+    <div class="studio xstudio xr" style="--d:.5s">
+      <img class="st-img on" data-ag="squadra" src="images/squadra/studio/squadra-800.webp" alt="I sei agenti di Ignition attorno a una sneaker bianca" width="800" height="452" loading="lazy" decoding="async">
+      <img class="st-img" data-ag="leonardo" src="images/squadra/studio/leonardo-800.webp" alt="Leonardo al lavoro sulla sneaker" width="800" height="452" loading="lazy" decoding="async">
+      <img class="st-img" data-ag="holmes" src="images/squadra/studio/holmes-800.webp" alt="Holmes al lavoro sulla sneaker" width="800" height="452" loading="lazy" decoding="async">
+      <img class="st-img" data-ag="galileo" src="images/squadra/studio/galileo-800.webp" alt="Galileo al lavoro sulla sneaker" width="800" height="452" loading="lazy" decoding="async">
+      <img class="st-img" data-ag="volta" src="images/squadra/studio/volta-800.webp" alt="Volta al lavoro sulla sneaker" width="800" height="452" loading="lazy" decoding="async">
+      <img class="st-img" data-ag="archimede" src="images/squadra/studio/archimede-800.webp" alt="Archimede al lavoro sulla sneaker" width="800" height="452" loading="lazy" decoding="async">
+      <img class="st-img" data-ag="fibonacci" src="images/squadra/studio/fibonacci-800.webp" alt="Fibonacci al lavoro sulla sneaker" width="800" height="452" loading="lazy" decoding="async">
     </div>
-    <p class="xlead xr" style="--d:.7s">Così su tutti: il fornitore che ce l'ha data ne ha 1.446, accesi uno per uno. Niente inventato: ogni riga viene dai dati del prodotto.</p>
+    <ul class="st-squadra xst-squadra xr" style="--d:.6s" aria-label="Scegli un agente">
+      <li><button type="button" class="st-ag" data-ag="leonardo" aria-pressed="false" aria-label="Leonardo, Scrittore SEO+GEO" style="--c:#FFB15C"><img src="images/squadra/leonardo.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></button></li>
+      <li><button type="button" class="st-ag" data-ag="holmes" aria-pressed="false" aria-label="Holmes, Giudice AI" style="--c:#7CD3FF"><img src="images/squadra/holmes.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></button></li>
+      <li><button type="button" class="st-ag" data-ag="galileo" aria-pressed="false" aria-label="Galileo, Traduttore" style="--c:#6FE59A"><img src="images/squadra/galileo.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></button></li>
+      <li><button type="button" class="st-ag" data-ag="volta" aria-pressed="false" aria-label="Volta, Feed" style="--c:#FFE16B"><img src="images/squadra/volta.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></button></li>
+      <li><button type="button" class="st-ag" data-ag="archimede" aria-pressed="false" aria-label="Archimede, Tracciamento" style="--c:#C7B0FF"><img src="images/squadra/archimede.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></button></li>
+      <li><button type="button" class="st-ag" data-ag="fibonacci" aria-pressed="false" aria-label="Fibonacci, Budget" style="--c:#FF8F7E"><img src="images/squadra/fibonacci.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></button></li>
+    </ul>
+    <div class="xst-testi xr" style="--d:.7s" aria-live="polite">
+      <div class="xst-t on" data-ag="squadra"><span class="st-nome"><i style="--c:var(--blue)"></i>Sei agenti, un prodotto</span><p>Tocca un agente e guardalo al lavoro.</p></div>
+      <div class="xst-t" data-ag="leonardo"><span class="st-nome"><i style="--c:#FFB15C"></i>Leonardo</span><span class="st-ruolo">Scrittore SEO+GEO</span><p>Riscrive le schede perché le trovino Google e ChatGPT.</p></div>
+      <div class="xst-t" data-ag="holmes"><span class="st-nome"><i style="--c:#7CD3FF"></i>Holmes</span><span class="st-ruolo">Giudice AI</span><p>Rilegge ogni scheda: un numero inventato, e la rimanda indietro.</p></div>
+      <div class="xst-t" data-ag="galileo"><span class="st-nome"><i style="--c:#6FE59A"></i>Galileo</span><span class="st-ruolo">Traduttore</span><p>Traduce schede e sito con le parole che si cercano in ogni paese.</p></div>
+      <div class="xst-t" data-ag="volta"><span class="st-nome"><i style="--c:#FFE16B"></i>Volta</span><span class="st-ruolo">Feed</span><p>Riempie il feed di Google Shopping, campo per campo.</p></div>
+      <div class="xst-t" data-ag="archimede"><span class="st-nome"><i style="--c:#C7B0FF"></i>Archimede</span><span class="st-ruolo">Tracciamento</span><p>Porta ogni acquisto a Google e Meta, contato una volta.</p></div>
+      <div class="xst-t" data-ag="fibonacci"><span class="st-nome"><i style="--c:#FF8F7E"></i>Fibonacci</span><span class="st-ruolo">Budget</span><p>Sposta il budget dove ci sono margine e merce.</p></div>
+    </div>
+    <p class="xlead xr" style="--d:.8s"><strong>Nessuna modifica arriva sul tuo negozio senza il sì di una persona.</strong></p>
   </section>
 
   <section class="xs xcontrollo" id="m-controllo">
@@ -1392,6 +1402,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 
   <section class="xs xlingue" id="m-lingue">
     <p class="xk xr">Poi in ogni lingua</p>
+    <p class="pt-ag xr" style="--c:#6FE59A"><i></i><b>Galileo</b> · Traduttore</p>
     <h2><span class="xw"><span class="" style="--d:0.10s">Tradotto,</span></span> <span class="xw"><span class="" style="--d:0.17s">si</span></span> <span class="xw"><span class="xout" style="--d:0.24s">apre</span></span> <span class="xw"><span class="xout" style="--d:0.31s">l'estero.</span></span></h2>
     <p class="xlead xr" style="--d:.25s">Il negozio della padella, in inglese, francese e tedesco da metà maggio 2026: titolo, scheda, domande e meta di ogni prodotto.</p>
     <div class="lg-carte"><div class="lg-carta xr" style="--d:0.35s"><i>EN</i><p>Pensofal Academy Chef Non-Stick Aluminium Sauté Pan</p></div><div class="lg-carta xr" style="--d:0.45s"><i>FR</i><p>Poêle haute à sauter antiadhésive en aluminium Pensofal Academy Chef</p></div><div class="lg-carta xr" style="--d:0.55s"><i>DE</i><p>Antihaft-Saltierpfanne aus Aluminium Pensofal Academy Chef</p></div></div>
@@ -1441,7 +1452,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   </section>
 
   <section class="xs xs6" id="m-chi">
-    <div class="xtesta"><img class="xr xsboccia" src="images/brand/ori.svg" alt="Ori, il robottino di Orizon" width="300" height="400" loading="lazy"><div class="xr" style="--d:.2s"><h2>Antonio Pratola</h2><p class="xruolo">Founder &amp; CEO, Orizon ADV · Napoli</p></div></div>
+    <div class="xtesta"><img class="xr xsboccia xmark" src="images/brand/mark-blu.svg" alt="Il marchio Orizon" width="696" height="496" loading="lazy"><div class="xr" style="--d:.2s"><h2>Antonio Pratola</h2><p class="xruolo">Founder &amp; CEO, Orizon ADV · Napoli</p></div></div>
     <ol class="xpassi">
       <li class="xr xsx" style="--d:.35s"><i>1</i><span><b>Entro 24 ore</b> ricevi il documento: indice, pagella, le tre cose da accendere.</span></li>
       <li class="xr xsx" style="--d:.5s"><i>2</i><span><b>Mezz'ora al telefono</b>, io e te, sui tuoi numeri.</span></li>
@@ -1545,53 +1556,29 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     <p class="squad-k">La squadra di Ignition</p>
     <h2 id="squadra-t">Dentro lavorano sei agenti AI. <span>Un mestiere ciascuno.</span></h2>
     <p class="squad-lead">Uno scrive, uno controlla, uno traduce, uno prepara il feed, uno traccia, uno guida il budget: sempre sullo stesso catalogo. Nessuna modifica arriva sul tuo negozio senza il sì di una persona.</p>
-    <div class="squad-albero" aria-hidden="true">
-      <img class="squad-o" src="images/brand/mark-bianco.svg" alt="" width="62" height="44">
-      <svg class="squad-tree" viewBox="0 0 1176 106"><path pathLength="1" style="--i:0" stroke="#FFB15C" d="M588 2 C588 62 88 40 88 104"/><path pathLength="1" style="--i:1" stroke="#7CD3FF" d="M588 2 C588 62 288 40 288 104"/><path pathLength="1" style="--i:2" stroke="#6FE59A" d="M588 2 C588 62 488 40 488 104"/><path pathLength="1" style="--i:3" stroke="#FFE16B" d="M588 2 C588 62 688 40 688 104"/><path pathLength="1" style="--i:4" stroke="#C7B0FF" d="M588 2 C588 62 888 40 888 104"/><path pathLength="1" style="--i:5" stroke="#FF8F7E" d="M588 2 C588 62 1088 40 1088 104"/></svg>
+    <div class="studio" id="studio">
+      <img class="st-img on" data-ag="squadra" src="images/squadra/studio/squadra-1600.webp" srcset="images/squadra/studio/squadra-800.webp 800w, images/squadra/studio/squadra-1600.webp 1600w" sizes="(max-width:1240px) 94vw, 1176px" alt="I sei agenti di Ignition attorno a una sneaker bianca, nello studio del video" width="1600" height="904" loading="lazy" decoding="async">
+      <img class="st-img" data-ag="leonardo" src="images/squadra/studio/leonardo-1600.webp" srcset="images/squadra/studio/leonardo-800.webp 800w, images/squadra/studio/leonardo-1600.webp 1600w" sizes="(max-width:1240px) 94vw, 1176px" alt="Leonardo al lavoro sulla sneaker" width="1600" height="904" loading="lazy" decoding="async">
+      <img class="st-img" data-ag="holmes" src="images/squadra/studio/holmes-1600.webp" srcset="images/squadra/studio/holmes-800.webp 800w, images/squadra/studio/holmes-1600.webp 1600w" sizes="(max-width:1240px) 94vw, 1176px" alt="Holmes al lavoro sulla sneaker" width="1600" height="904" loading="lazy" decoding="async">
+      <img class="st-img" data-ag="galileo" src="images/squadra/studio/galileo-1600.webp" srcset="images/squadra/studio/galileo-800.webp 800w, images/squadra/studio/galileo-1600.webp 1600w" sizes="(max-width:1240px) 94vw, 1176px" alt="Galileo al lavoro sulla sneaker" width="1600" height="904" loading="lazy" decoding="async">
+      <img class="st-img" data-ag="volta" src="images/squadra/studio/volta-1600.webp" srcset="images/squadra/studio/volta-800.webp 800w, images/squadra/studio/volta-1600.webp 1600w" sizes="(max-width:1240px) 94vw, 1176px" alt="Volta al lavoro sulla sneaker" width="1600" height="904" loading="lazy" decoding="async">
+      <img class="st-img" data-ag="archimede" src="images/squadra/studio/archimede-1600.webp" srcset="images/squadra/studio/archimede-800.webp 800w, images/squadra/studio/archimede-1600.webp 1600w" sizes="(max-width:1240px) 94vw, 1176px" alt="Archimede al lavoro sulla sneaker" width="1600" height="904" loading="lazy" decoding="async">
+      <img class="st-img" data-ag="fibonacci" src="images/squadra/studio/fibonacci-1600.webp" srcset="images/squadra/studio/fibonacci-800.webp 800w, images/squadra/studio/fibonacci-1600.webp 1600w" sizes="(max-width:1240px) 94vw, 1176px" alt="Fibonacci al lavoro sulla sneaker" width="1600" height="904" loading="lazy" decoding="async">
+      <div class="st-carta on" data-ag="squadra" data-lato="sx-basso"><span class="st-nome"><i style="--c:var(--blue)"></i>Sei agenti, un prodotto alla volta</span><p>Ognuno fa il suo mestiere sullo stesso prodotto, poi lo passa al successivo. Scegline uno qui sotto e guardalo al lavoro.</p></div>
+      <div class="st-carta" data-ag="leonardo" data-lato="dx"><span class="st-nome"><i style="--c:#FFB15C"></i>Leonardo</span><span class="st-ruolo">Scrittore SEO+GEO</span><p>Riscrive le schede perché le trovino Google e ChatGPT: i dati del prodotto, le domande vere, niente frasi vuote.</p><a class="st-vai" href="#piatto-scheda">Guardalo al lavoro ↓</a></div>
+      <div class="st-carta" data-ag="holmes" data-lato="sx"><span class="st-nome"><i style="--c:#7CD3FF"></i>Holmes</span><span class="st-ruolo">Giudice AI</span><p>Rilegge ogni scheda prima che vada online: un numero o una marca che il prodotto non ha, e la rimanda indietro.</p><a class="st-vai" href="#piatto-controllo">Guardalo al lavoro ↓</a></div>
+      <div class="st-carta" data-ag="galileo" data-lato="dx"><span class="st-nome"><i style="--c:#6FE59A"></i>Galileo</span><span class="st-ruolo">Traduttore</span><p>Porta schede e sito nelle lingue del negozio, con le parole che si cercano davvero in ogni paese.</p><a class="st-vai" href="#piatto-lingue">Guardalo al lavoro ↓</a></div>
+      <div class="st-carta" data-ag="volta" data-lato="dx"><span class="st-nome"><i style="--c:#FFE16B"></i>Volta</span><span class="st-ruolo">Feed</span><p>Riempie il file che legge Google Shopping, campo per campo: marca, materiale, misure, colore.</p><a class="st-vai" href="#piatto-feed">Guardalo al lavoro ↓</a></div>
+      <div class="st-carta" data-ag="archimede" data-lato="sx"><span class="st-nome"><i style="--c:#C7B0FF"></i>Archimede</span><span class="st-ruolo">Tracciamento</span><p>Porta ogni acquisto a Google e Meta dal server: contato una volta sola, e col consenso.</p><a class="st-vai" href="#piatto-tracking">Guardalo al lavoro ↓</a></div>
+      <div class="st-carta" data-ag="fibonacci" data-lato="dx"><span class="st-nome"><i style="--c:#FF8F7E"></i>Fibonacci</span><span class="st-ruolo">Budget</span><p>Sposta il budget dove ci sono margine e merce: chi rende va in asta, chi è fermo aspetta.</p><a class="st-vai" href="#piatto-labelizer">Guardalo al lavoro ↓</a></div>
     </div>
-    <ul class="squad-grid">
-      <li style="--i:0">
-        <span class="ag-fig"><img src="images/squadra/leonardo.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></span>
-        <span class="ag-nome"><i style="--c:#FFB15C"></i>Leonardo</span>
-        <span class="ag-ruolo">Scrittore SEO+GEO</span>
-        <p class="ag-cosa">Riscrive le schede perché le trovino Google e ChatGPT: i dati del prodotto, le domande vere, niente frasi vuote.</p>
-        <a class="ag-vai" href="#piatto-scheda">Guardalo al lavoro ↓</a>
-      </li>
-      <li style="--i:1">
-        <span class="ag-fig"><img src="images/squadra/holmes.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></span>
-        <span class="ag-nome"><i style="--c:#7CD3FF"></i>Holmes</span>
-        <span class="ag-ruolo">Giudice AI</span>
-        <p class="ag-cosa">Rilegge ogni scheda prima che vada online: un numero o una marca che il prodotto non ha, e la rimanda indietro.</p>
-        <a class="ag-vai" href="#piatto-controllo">Guardalo al lavoro ↓</a>
-      </li>
-      <li style="--i:2">
-        <span class="ag-fig"><img src="images/squadra/galileo.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></span>
-        <span class="ag-nome"><i style="--c:#6FE59A"></i>Galileo</span>
-        <span class="ag-ruolo">Traduttore</span>
-        <p class="ag-cosa">Porta schede e sito nelle lingue del negozio, con le parole che si cercano davvero in ogni paese.</p>
-        <a class="ag-vai" href="#piatto-lingue">Guardalo al lavoro ↓</a>
-      </li>
-      <li style="--i:3">
-        <span class="ag-fig"><img src="images/squadra/volta.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></span>
-        <span class="ag-nome"><i style="--c:#FFE16B"></i>Volta</span>
-        <span class="ag-ruolo">Feed</span>
-        <p class="ag-cosa">Riempie il file che legge Google Shopping, campo per campo: marca, materiale, misure, colore.</p>
-        <a class="ag-vai" href="#piatto-feed">Guardalo al lavoro ↓</a>
-      </li>
-      <li style="--i:4">
-        <span class="ag-fig"><img src="images/squadra/archimede.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></span>
-        <span class="ag-nome"><i style="--c:#C7B0FF"></i>Archimede</span>
-        <span class="ag-ruolo">Tracciamento</span>
-        <p class="ag-cosa">Porta ogni acquisto a Google e Meta dal server: contato una volta sola, e col consenso.</p>
-        <a class="ag-vai" href="#piatto-tracking">Guardalo al lavoro ↓</a>
-      </li>
-      <li style="--i:5">
-        <span class="ag-fig"><img src="images/squadra/fibonacci.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></span>
-        <span class="ag-nome"><i style="--c:#FF8F7E"></i>Fibonacci</span>
-        <span class="ag-ruolo">Budget</span>
-        <p class="ag-cosa">Sposta il budget dove ci sono margine e merce: chi rende va in asta, chi è fermo aspetta.</p>
-        <a class="ag-vai" href="#piatto-labelizer">Guardalo al lavoro ↓</a>
-      </li>
+    <ul class="st-squadra" aria-label="Scegli un agente">
+      <li><button type="button" class="st-ag" data-ag="leonardo" aria-pressed="false" style="--c:#FFB15C"><img src="images/squadra/leonardo.webp" alt="" width="400" height="416" loading="lazy" decoding="async"><span><b>Leonardo</b><small>Scrittore SEO+GEO</small></span></button></li>
+      <li><button type="button" class="st-ag" data-ag="holmes" aria-pressed="false" style="--c:#7CD3FF"><img src="images/squadra/holmes.webp" alt="" width="400" height="416" loading="lazy" decoding="async"><span><b>Holmes</b><small>Giudice AI</small></span></button></li>
+      <li><button type="button" class="st-ag" data-ag="galileo" aria-pressed="false" style="--c:#6FE59A"><img src="images/squadra/galileo.webp" alt="" width="400" height="416" loading="lazy" decoding="async"><span><b>Galileo</b><small>Traduttore</small></span></button></li>
+      <li><button type="button" class="st-ag" data-ag="volta" aria-pressed="false" style="--c:#FFE16B"><img src="images/squadra/volta.webp" alt="" width="400" height="416" loading="lazy" decoding="async"><span><b>Volta</b><small>Feed</small></span></button></li>
+      <li><button type="button" class="st-ag" data-ag="archimede" aria-pressed="false" style="--c:#C7B0FF"><img src="images/squadra/archimede.webp" alt="" width="400" height="416" loading="lazy" decoding="async"><span><b>Archimede</b><small>Tracciamento</small></span></button></li>
+      <li><button type="button" class="st-ag" data-ag="fibonacci" aria-pressed="false" style="--c:#FF8F7E"><img src="images/squadra/fibonacci.webp" alt="" width="400" height="416" loading="lazy" decoding="async"><span><b>Fibonacci</b><small>Budget</small></span></button></li>
     </ul>
   </div>
 </section>
@@ -1601,7 +1588,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   <div class="wrap">
     <p class="cap-k">01 · Il catalogo</p>
     <h2 id="cap-catalogo">Prima si accende il catalogo.</h2>
-    <p>Lo scan dice cosa è spento. Ignition lo accende, prodotto per prodotto: sei leve, poi una scheda vera che le prova una alla volta.</p>
+    <p>Lo scan dice cosa è spento. Ignition lo accende, prodotto per prodotto: sei leve, ognuna col suo agente, su prodotti veri.</p>
   </div>
   <img class="cap-mark" src="images/brand/mark-bianco.svg" alt="" aria-hidden="true">
 </section>
@@ -1610,11 +1597,11 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   <div class="wrap">
     <div class="sec-head fx">
       <h2>Prima e dopo, su prodotti veri. <span>Cinque leve, cucinate.</span></h2>
-      <p>Un cardigan di un negozio di moda da 17.432 prodotti per la scheda, il titolo e il feed; due negozi per il controllo delle schede; il negozio di articoli per hotel e ristoranti per le lingue; due negozi di moda per il tracciamento; il negozio di climatizzazione per le etichette. A sinistra com'è oggi, a destra com'è acceso. <strong>Niente inventato</strong>: letture del 12 ottobre 2026, e niente è stato pubblicato senza il sì del negozio.</p>
+      <p>A sinistra com'è oggi, a destra com'è acceso, su prodotti veri dei negozi che seguiamo: un cardigan di un negozio di moda da 17.432 prodotti, il negozio di climatizzazione, due negozi per il controllo e per il tracciamento. <strong>Niente inventato</strong>: letture del 12 ottobre 2026, e niente è stato pubblicato senza il sì del negozio.</p>
     </div>
 
     <article class="piatto fx fx-sx" id="piatto-scheda">
-      <header><span class="pn">01</span><div><h3>Ottimizzazione SEO+GEO <span>la scheda</span></h3><p>Oggi 66 parole del fornitore, le stesse negli altri negozi che lo vendono. Dopo: scheda tecnica, 6 domande e risposte, 203 parole sue, in 5 lingue.</p></div></header>
+      <header class="firma"><img class="fv" src="images/squadra/leonardo.webp" alt="" width="400" height="416" loading="lazy" decoding="async"><div><p class="fa" style="--c:#FFB15C"><i></i><b>Leonardo</b> · Scrittore SEO+GEO</p><h3>Ottimizzazione SEO+GEO <span>la scheda</span></h3><p class="fl">Oggi 66 parole del fornitore; dopo, scheda tecnica, 6 domande e risposte, 5 lingue.</p></div></header>
       <div class="pd2">
         <figure class="pd-oggi"><span class="tag">Oggi</span><img src="images/piatti/cardigan-oggi.jpg" alt="La descrizione del cardigan sulla pagina di oggi: un paragrafo del fornitore e nove righe di attributi" loading="lazy" width="456" height="462"><figcaption>La pagina com'è oggi. Nessuna scheda tecnica, nessuna domanda, una lingua.</figcaption></figure>
         <div class="pd-dopo"><span class="tag on">Acceso</span>
@@ -1634,7 +1621,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     </article>
 
     <article class="piatto fx fx-dx" id="piatto-controllo">
-      <header><span class="pn piu" aria-hidden="true">+</span><div><h3>Il controllo <span>prima che vada online, la rilegge Holmes</span></h3><p>Ogni scheda scritta passa due controlli: uno a regole, che costa niente e toglie subito numeri e marche che il fornitore non dice; poi un giudice automatico che la confronta col testo di partenza e coi dati del negozio. Se non passa si riscrive, e online va solo quella promossa.</p></div></header>
+      <header class="firma"><img class="fv" src="images/squadra/holmes.webp" alt="" width="400" height="416" loading="lazy" decoding="async"><div><p class="fa" style="--c:#7CD3FF"><i></i><b>Holmes</b> · Giudice AI</p><h3>Il controllo <span>prima che vada online, la rilegge Holmes</span></h3><p class="fl">Due controlli prima di pubblicare, a regole e col giudice: online va solo la promossa.</p></div></header>
       <div class="pd2">
         <div class="ct-box">
           <div class="ct-chi"><span><img src="images/squadra/holmes.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></span><div><b>Holmes · Giudice AI</b><small>i controlli su ogni scheda</small></div></div>
@@ -1651,7 +1638,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     </article>
 
     <article class="piatto fx fx-sx" id="piatto-lingue">
-      <header><span class="pn piu" aria-hidden="true">+</span><div><h3>Traduzioni <span>la stessa scheda, in ogni lingua</span></h3><p>Il negozio di articoli per hotel e ristoranti della padella, tradotto in inglese, francese e tedesco a metà maggio 2026: titolo, scheda, domande e meta di ogni prodotto. Nei dodici mesi prima, 12 ordini dall'estero. Da giugno, fra 56 e 80 al mese.</p></div></header>
+      <header class="firma"><img class="fv" src="images/squadra/galileo.webp" alt="" width="400" height="416" loading="lazy" decoding="async"><div><p class="fa" style="--c:#6FE59A"><i></i><b>Galileo</b> · Traduttore</p><h3>Traduzioni <span>la stessa scheda, in ogni lingua</span></h3><p class="fl">Titolo, scheda e domande di ogni prodotto nelle lingue del negozio, con le parole giuste.</p></div></header>
       <div class="pd2">
         <div class="pd-oggi"><span class="tag">Prima</span><div class="lg-it"><b>IT · SOLO ITALIANO</b><p>Padella alta a saltare antiaderente in alluminio Pensofal Academy Chef</p></div><p class="pd-note">Una lingua sola: chi cerca in francese o in tedesco non la trova.</p></div>
         <div class="pd-dopo"><span class="tag on">Acceso</span><div class="lg-carte"><div class="lg-carta" style="--i:0"><i>EN</i><p>Pensofal Academy Chef Non-Stick Aluminium Sauté Pan</p></div><div class="lg-carta" style="--i:1"><i>FR</i><p>Poêle haute à sauter antiadhésive en aluminium Pensofal Academy Chef</p></div><div class="lg-carta" style="--i:2"><i>DE</i><p>Antihaft-Saltierpfanne aus Aluminium Pensofal Academy Chef</p></div></div><p class="pd-note">I titoli veri, online sul negozio. <b>Galileo</b> traduce; il controllo ferma prima della pubblicazione una parola del glossario sbagliata o un titolo troppo lungo per Google.</p></div>
@@ -1664,7 +1651,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     </article>
 
     <article class="piatto fx fx-dx" id="piatto-titolo">
-      <header><span class="pn">02</span><div><h3>Titles CRO optimization <span>il titolo su Google</span></h3><p>Google mostra circa 60 caratteri di titolo e 150 di riga. Oggi il titolo ne ha 88: il nome del prodotto si legge a metà. Dopo, 53 e 148: entrano interi.</p></div></header>
+      <header class="firma"><img class="fv" src="images/squadra/leonardo.webp" alt="" width="400" height="416" loading="lazy" decoding="async"><div><p class="fa" style="--c:#FFB15C"><i></i><b>Leonardo</b> · Scrittore SEO+GEO</p><h3>Titles CRO optimization <span>il titolo su Google</span></h3><p class="fl">Google mostra 60 caratteri: oggi il titolo ne ha 88, dopo 53. Entra intero.</p></div></header>
       <div class="pd2">
         <div class="pd-oggi"><span class="tag">Oggi</span><div class="serp"><div class="url">www.negoziodimoda.it › products › levis-levi-s-mammoth-cardigan-obsidian-…</div><div class="tit">Levi's Mammoth Cardigan Obsidian Heather Cardi Brown -<s> Cardigan Uomo Marrone  Uomo LEVIS</s></div><div class="des">Il Levi's Mammoth Cardigan è un cardigan dalla linea calda e confortevole, caratterizzato da una struttura morbida e da una tonalità marrone. Il<s> design versatile lo rende ideale per la stagione più fredda e per look casual.</s></div></div><p class="pd-note">Titolo e riga veri, nello spazio che Google concede. Barrato quello che non si vede.</p></div>
         <div class="pd-dopo"><span class="tag on">Acceso</span><div class="serp on"><div class="url">www.negoziodimoda.it › products › cardigan-levis-mammoth-uomo-marrone</div><div class="tit">Cardigan Levi's Mammoth Uomo Marrone Obsidian Heather</div><div class="des">Cardigan Levi's Mammoth uomo Obsidian Heather Marrone: maniche lunghe, chiusura con bottoni, tasche frontali, polsini a coste. 120 EUR, taglie S-XL.</div></div><p class="pd-note">Marca, modello, chi lo porta e il colore nel titolo; cosa è, taglie e prezzo nella riga.</p></div>
@@ -1672,7 +1659,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     </article>
 
     <article class="piatto fx fx-sx" id="piatto-feed">
-      <header><span class="pn">03</span><div><h3>Feed Enrichment <span>il file che Google Shopping legge</span></h3><p>La riga vera del cardigan nel Merchant Center, letta il 12 ottobre. I filtri ci sono già: colore, taglia, genere, età. Mancano i campi che decidono l'asta: categoria Google, materiale, punti di forza, specifiche, domande e risposte, etichette per le campagne. <strong>Oggi 14 campi pieni su 27, acceso 24</strong>: tre restano vuoti apposta, perché non si inventa.</p></div></header>
+      <header class="firma"><img class="fv" src="images/squadra/volta.webp" alt="" width="400" height="416" loading="lazy" decoding="async"><div><p class="fa" style="--c:#FFE16B"><i></i><b>Volta</b> · Feed</p><h3>Feed Enrichment <span>il file che Google Shopping legge</span></h3><p class="fl">La riga vera nel Merchant Center: 14 campi pieni su 27, accesi 24.</p></div></header>
       <div class="feed-top">
         <div class="feed-cnt"><b><em id="feed-n">14</em>/27</b><span>campi pieni</span><i class="feed-bar"><em id="feed-bar" style="width:52%"></em></i></div>
         <div class="feed-az"><button type="button" class="feed-piu" id="feed-piu">Mostra anche i 13 campi già pieni</button><button type="button" class="feed-go" id="feed-go">Accendi il feed</button></div>
@@ -1717,7 +1704,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     </article>
 
     <article class="piatto fx fx-dx" id="piatto-tracking">
-      <header><span class="pn">04</span><div><h3>Tracking Server Side <span>dove vanno i dati di una visita</span></h3><p>Letto dal browser il 12 ottobre su due negozi di moda: uno col tracciamento standard, uno acceso. Qui non c'è un numero: quanto si recupera dipende da quanti visitatori bloccano i pixel, e si misura sul negozio, prima e dopo.</p></div></header>
+      <header class="firma"><img class="fv" src="images/squadra/archimede.webp" alt="" width="400" height="416" loading="lazy" decoding="async"><div><p class="fa" style="--c:#C7B0FF"><i></i><b>Archimede</b> · Tracciamento</p><h3>Tracking Server Side <span>dove vanno i dati di una visita</span></h3><p class="fl">Dal browser si perdono acquisti; dal server arrivano tutti, contati una volta, col consenso.</p></div></header>
       <div class="trk oggi" id="trk">
         <div class="trk-tog" role="group" aria-label="Oggi o acceso"><button type="button" class="tt on" data-m="oggi">Oggi <small>i pixel nel browser</small></button><button type="button" class="tt" data-m="acceso">Acceso <small>dal server del negozio</small></button></div>
         <div class="trk-stage" aria-hidden="true">
@@ -1755,7 +1742,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     </article>
 
     <article class="piatto fx fx-sx" id="piatto-labelizer">
-      <header><span class="pn">05</span><div><h3>Labelizer <span>chi va in asta e chi aspetta</span></h3><p>Negozio di climatizzazione, 4.750 prodotti in Google Ads: 1.056 hanno avuto click negli ultimi venti giorni. Ogni prodotto viene confrontato con due cose: il prezzo di riferimento che Google vede sul mercato, e i suoi click e vendite. Da lì riceve un'etichetta nel feed, e le campagne la leggono. <strong>Il budget va a chi può vincere l'asta. Il resto aspetta il prezzo giusto.</strong></p></div></header>
+      <header class="firma"><img class="fv" src="images/squadra/fibonacci.webp" alt="" width="400" height="416" loading="lazy" decoding="async"><div><p class="fa" style="--c:#FF8F7E"><i></i><b>Fibonacci</b> · Budget</p><h3>Labelizer <span>chi va in asta e chi aspetta</span></h3><p class="fl">Ogni prodotto riceve le sue etichette. Il budget va solo su chi vince l'asta.</p></div></header>
       <div class="lab-fig" id="lab-fig">
         <div class="lab-top"><b>Venti giorni di Google Ads, 1.056 prodotti con click</b><span class="lab-data">letti il 12 ottobre 2026</span></div>
         <div class="lab-tog" role="group" aria-label="Oggi o col budget spostato"><button type="button" class="tt on" data-m="oggi">Oggi <small>una campagna per tutti</small></button><button type="button" class="tt" data-m="acceso">Sposta il budget <small>la spesa segue le vendite</small></button></div>
@@ -1775,180 +1762,10 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       <p class="pd-note">Oggi la spesa è spalmata su tutti: i 386 fuori prezzo prendono il 18% e non vendono niente, i 75 da controllare il 39% per il 3% delle vendite. I 456 col prezzo giusto fanno il 78% delle vendite col 31% della spesa. Acceso, ogni venti giorni l'etichetta si riscrive e le campagne la leggono: la spesa segue le vendite.</p>
     </article>
 
-    <p class="piatti-altre">La sesta leva, Rotazione di magazzino, si vede <a href="#magazzino">nella merce ferma</a>; tutte e sei insieme, <a href="#ignition">sulla padella</a>.</p>
+    <p class="piatti-altre">La sesta leva, Rotazione di magazzino, si vede <a href="#magazzino">nella merce ferma</a>.</p>
   </div>
 </section>
 
-<!-- ═══ BLOCCO 2: QUATTRO INTERRUTTORI, UNA SCHEDA CHE SI ACCENDE ═══ -->
-<section class="solo-d feat" id="ignition">
-  <div class="wrap">
-    <div class="sec-head fx">
-      <h2>Poi tutte e sei insieme, su una padella. <span>Da 23 a 100.</span></h2>
-      <p><strong>Si accendono nella piattaforma Orizon</strong>, prodotto per prodotto, su centinaia o migliaia insieme. Qui una padella vera di un cliente vero, com'è oggi: indice di accensione <strong>23 su 100</strong>. <span class="m-hide">Accendila tu — scheda, feed, campagne e tracciamento — e guarda perché <strong>le aste si vincono così</strong>.</span><span class="m-only">Accendi una leva alla volta: l'effetto sta subito sotto.</span></p>
-    </div>
-
-    <div class="stage" id="stage">
-      <div class="card" id="card">
-        <div class="shopbar"><i aria-hidden="true"></i><i aria-hidden="true"></i><span>forniture per hotel e ristoranti · Shopify</span></div>
-        <div class="photo">
-          <img src="images/suite/padella-pensofal.jpg" alt="Padella alta a saltare Pensofal Academy Chef, foto del negozio" loading="lazy" width="480" height="480">
-          <div class="langs" id="langs" aria-label="Lingua della scheda"><button type="button" data-l="it" class="on">IT</button><button type="button" data-l="en">EN</button><button type="button" data-l="de">DE</button><button type="button" data-l="fr">FR</button><button type="button" data-l="es">ES</button></div>
-        </div>
-        <div class="body">
-          <div class="zone tt" id="z-title" aria-live="polite">
-            <span class="sw old">Padella Alta Saltare Pensofal</span>
-            <span class="sw new out" id="tnew">Pensofal <b>Academy Chef</b> Padella Alta a Saltare | <b>24-32 cm</b></span>
-          </div>
-          <div class="price">29,90 €<small>24 · 28 · 32 cm</small></div>
-          <div class="zone" id="z-desc">
-            <div class="desc">
-              <span class="sw old">Salta, rosola e cucina con la precisione di uno chef professionista. La padella alta a saltare Pensofal Academy Chef unisce tecnologia avanzata, materiali sostenibili e prestazioni da cucina professionale.</span>
-              <span class="sw new out">Padella professionale in <b>alluminio riciclato 100%</b>, <b>doppio fondo brevettato</b> Pensofal e rivestimento antiaderente ad alte prestazioni. Compatibile con <b>induzione</b>, gas, vetroceramica, elettrico e forno; tre misure, 24, 28 e 32 cm.</span>
-            </div>
-            <div class="chips" aria-hidden="true"><b>Caratteristiche tecniche</b><b>Perché la forma alta</b><b>Pensofal dal 1955</b><b>5 domande e risposte</b></div>
-          </div>
-          <div class="zone fields" id="z-fields">
-            <div><span>Categoria Google</span><span>Cookware › Frying Pans</span></div>
-            <div><span>Tipo</span><span>Utensili &amp; Pentolame</span></div>
-            <div><span>Materiale</span><span>Alluminio, acciaio</span></div>
-            <div><span>Varianti in stock</span><span>24 cm · 28 cm · 32 cm</span></div>
-            <div class="miss"><span>Peso</span><span>manca → proposto</span></div>
-            <div class="miss"><span>GTIN</span><span>manca → proposto</span></div>
-          </div>
-          <div class="zone extra" id="z-labels">
-            <span class="zl">Etichette per Google Ads<b class="zon-i">tre per prodotto, col perché</b></span>
-            <p class="zoff">Nessuna: in campagna questa padella vale quanto la pentola che non vende.</p>
-            <div class="zon lbl">
-              <div><code>custom_label_0</code><span><b>margine_alto</b>prezzo − costo d'acquisto − IVA − resi attesi = margine netto. Sopra la soglia del catalogo.</span></div>
-              <div><code>custom_label_1</code><span><b>win</b>29,90 € sta sotto il benchmark che Google calcola sui concorrenti dello stesso prodotto.</span></div>
-              <div><code>custom_label_2</code><span><b>supercompetitivo</b>sotto il benchmark e converte: ROAS sopra il target 12 negli ultimi 20 giorni, con almeno 5 click.</span></div>
-              <div class="go"><code>Google Ads</code><span><b>gruppo «supercompetitivo»</b>il budget più alto. Con «supercaro_brucia_budget» sarebbe esclusa finché il prezzo non torna in linea.</span></div>
-            </div>
-          </div>
-          <div class="zone extra" id="z-feed">
-            <span class="zl">Feed Google<b class="zon-i">11 attributi compilati, 2 vuoti apposta</b></span>
-            <p class="zoff">Oggi nel feed: titolo, prezzo, foto, disponibilità, categoria. Tutto il resto: vuoto.</p>
-            <div class="zon feedt">
-              <div><code>color</code><span>Grigio acciaio</span></div>
-              <div><code>size</code><span>24 cm · 28 cm · 32 cm</span></div>
-              <div><code>material</code><span>Alluminio riciclato</span></div>
-              <div><code>pattern</code><span>Tinta unita</span></div>
-              <div><code>product_detail</code><span>Fondo: doppio fondo brevettato · Fonti: induzione, gas, vetroceramica, elettrico, forno · Rivestimento: antiaderente</span></div>
-              <div><code>product_highlight</code><span>Alluminio riciclato 100% · Va in forno · Pensofal dal 1955, Made in Italy</span></div>
-              <div><code>question_and_answer</code><span>«Va sull'induzione?» «Sì, e anche in forno» · più altre 4</span></div>
-              <div><code>short_title</code><span>Padella alta a saltare 24-32 cm</span></div>
-              <div><code>item_group_title</code><span>Pensofal Academy Chef Padella Alta a Saltare</span></div>
-              <div><code>variant_option</code><span>Misura: 24 · 28 · 32</span></div>
-              <div><code>custom_label_0</code><span>misure_piene</span></div>
-              <div><code>gender</code><span class="na">vuoto apposta: non è un capo</span></div>
-              <div><code>age_group</code><span class="na">vuoto apposta: campo vuoto batte campo sbagliato</span></div>
-            </div>
-          </div>
-          <div class="zone extra" id="z-track">
-            <span class="zl">Tracciamento<b class="zon-i">dal server, evento per evento</b></span>
-            <p class="zoff">Dal browser: tra blocchi, consensi e iOS, una parte degli acquisti non arriva mai a Google e Meta.</p>
-            <div class="zon trk">
-              <div class="ev-row"><code>view_item</code><span>browser → server</span><i>GA4</i><i>Ads</i><i>Meta</i></div>
-              <div class="ev-row"><code>add_to_cart</code><span>browser → server</span><i>GA4</i><i>Ads</i><i>Meta</i></div>
-              <div class="ev-row main"><code>purchase</code><span>29,90 € · 1 articolo</span><i>GA4</i><i>Ads</i><i>Meta</i></div>
-              <dl class="ev-detail">
-                <div><dt>event_id</dt><dd>lo stesso id dal browser e dal server: <b>contato una volta sola</b>, niente doppi acquisti</dd></div>
-                <div><dt>consent</dt><dd>ad_storage e analytics_storage <b>granted</b> — chi nega, non viene tracciato</dd></div>
-                <div><dt>user_data</dt><dd>email e telefono cifrati in sha256, ip, user agent, fbp/fbc — <b>conversioni avanzate</b> Google, <b>CAPI</b> Meta</dd></div>
-                <div><dt>match</dt><dd>qualità dell'abbinamento Meta <b>sopra 8 su 10</b>: le campagne imparano da chi compra davvero</dd></div>
-                <div><dt>server</dt><dd>tagging su server in Europa, <b>sotto i 200 ms</b> dal click</dd></div>
-              </dl>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="panel" id="panel">
-        <div class="panel-head">
-          <div class="score" id="score" aria-live="polite">
-            <span class="score-l">Indice di accensione</span>
-            <b class="score-n"><span id="score-n">23</span>/100</b>
-            <span class="score-s" id="score-s">spenta</span>
-            <i class="score-bar" aria-hidden="true"><i id="score-fill" style="width:23%"></i></i>
-          </div>
-          <button type="button" id="all">Accendi tutto</button>
-        </div>
-
-        <div class="row hint" data-k="title" role="switch" aria-checked="false" tabindex="0">
-          <div class="tog" aria-hidden="true"></div>
-          <div>
-            <h3>Titolo e snippet per Google <em>Leva 02 · Titles CRO</em></h3>
-            <p class="off">Oggi: «Padella Alta Saltare Pensofal». Dice poco a Google e a chi cerca.</p>
-            <p class="fact">Da «Padella Alta Saltare Pensofal» a <b>«Pensofal <mark>Academy Chef</mark> Padella Alta a Saltare | <mark>24-32 cm</mark>»</b> — le misure vengono dalle varianti. Sotto, lo snippet che Google mostra: alluminio riciclato 100%, doppio fondo, induzione, Made in Italy.</p>
-          </div>
-        </div>
-
-        <div class="row" data-k="desc" role="switch" aria-checked="false" tabindex="0">
-          <div class="tog" aria-hidden="true"></div>
-          <div>
-            <h3>La scheda, scritta dai fatti <em>Leva 01 · SEO+GEO</em></h3>
-            <p class="off">Oggi: tre righe di catalogo, un paragrafo. Nessuna risposta a «quanto consuma», «dove si monta».</p>
-            <p class="fact">Da <b>3 righe</b> a <b><mark>5.761 caratteri</mark></b>: caratteristiche, perché la forma alta conta, Pensofal dal 1955, <b>5 domande e risposte</b>. Niente inventato: ogni frase viene dai dati del prodotto. Giudice automatico: 72/100, approvata.</p>
-          </div>
-        </div>
-
-        <div class="row" data-k="langs" role="switch" aria-checked="false" tabindex="0">
-          <div class="tog" aria-hidden="true"></div>
-          <div>
-            <h3>In tutte le lingue dove vende <em>Leva 01 · SEO+GEO</em></h3>
-            <p class="off">Oggi: solo in italiano. Chi cerca in inglese o tedesco non la trova.</p>
-            <p class="fact"><b><mark>4 lingue</mark>, 6 campi ciascuna</b> — titolo, scheda, snippet, tipo, indirizzo — pubblicati sul negozio, non in un file. Scegli la lingua:</p>
-            <div class="lingue" id="lingue"><button type="button" data-l="en"><b>EN</b>High-Sided Sauté Pan</button><button type="button" data-l="de"><b>DE</b>Hohe Sauté-Pfanne</button><button type="button" data-l="fr"><b>FR</b>Poêle haute sauteuse</button><button type="button" data-l="es"><b>ES</b>Sartén Alta Saltear</button></div>
-          </div>
-        </div>
-
-        <div class="row" data-k="fields" role="switch" aria-checked="false" tabindex="0">
-          <div class="tog" aria-hidden="true"></div>
-          <div>
-            <h3>I dati che Google chiede <em>Leva 03 · Feed Enrichment</em></h3>
-            <p class="off">Oggi: categoria, materiale e peso a metà. Nessuno li compila a mano su mille prodotti.</p>
-            <p class="fact"><b><mark>7 campi</mark> letti e messi in ordine</b>: categoria Google, tipo, materiale, tre varianti con giacenze, sei tag. <b>Peso e GTIN mancano</b>: la piattaforma li segnala e li propone, li mette solo col tuo sì.</p>
-          </div>
-        </div>
-
-        <div class="row" data-k="labels" role="switch" aria-checked="false" tabindex="0">
-          <div class="tog" aria-hidden="true"></div>
-          <div>
-            <h3>Etichette per le campagne <em>Leva 05 · Labelizer</em></h3>
-            <p class="off">Oggi: in campagna la padella vale quanto la pentola che non vende. Il budget si spalma su tutto.</p>
-            <p class="fact"><b><mark>Tre etichette</mark> per prodotto, scritte nel feed</b>: il <b>margine netto</b> (prezzo − costo d'acquisto − IVA − resi), il <b>prezzo contro il benchmark di Google</b> (win o lose) e il <b>bucket di performance</b> — nove classi, da «supercompetitivo» a «supercaro, brucia budget» — calcolato su 20 giorni di Google Ads con ROAS target 12. In Ads diventano gruppi: budget a chi vince l'asta e rende, stop a chi brucia. Sulla scheda, il perché di ognuna.</p>
-          </div>
-        </div>
-
-        <div class="row" data-k="feed" role="switch" aria-checked="false" tabindex="0">
-          <div class="tog" aria-hidden="true"></div>
-          <div>
-            <h3>Il feed, arricchito <em>Leva 03 · Feed Enrichment</em></h3>
-            <p class="off">Oggi: a Google arrivano titolo, prezzo, foto e disponibilità. Colore, misura, materiale, domande: vuoti.</p>
-            <p class="fact"><b><mark>13 attributi</mark> del feed Google</b> letti dal prodotto, non dal nome: <b>11 compilati, 2 lasciati vuoti apposta</b> — genere ed età non servono a una padella, e un campo vuoto batte un campo sbagliato. Vanno in un feed supplementare che Merchant Center legge da solo ogni giorno. Su un catalogo vero da 17.201 prodotti: colore 89%, taglia 80%, genere 94%, età 98%.</p>
-          </div>
-        </div>
-
-        <div class="row" data-k="track" role="switch" aria-checked="false" tabindex="0">
-          <div class="tog" aria-hidden="true"></div>
-          <div>
-            <h3>Tracciamento come si deve <em>Leva 04 · Tracking Server Side</em></h3>
-            <p class="off">Oggi: gli acquisti li conta il browser. Tra blocchi, consensi e iOS, una parte non arriva mai a Google e Meta.</p>
-            <p class="fact">Ogni evento parte <b>dal browser e dal server con lo stesso id</b>: GA4, Google Ads e Meta lo contano <b><mark>una volta sola</mark></b>, con email e telefono cifrati per l'abbinamento, e solo col consenso. Sulla scheda, l'acquisto riga per riga. Le campagne imparano dai numeri veri: anche così si vince l'asta.</p>
-          </div>
-        </div>
-
-        <div class="done" id="done" aria-live="polite">
-          <div><b>100 su 100, su un prodotto.</b><span>2 testi per Google · 1 scheda · 24 testi in 4 lingue · 7 campi · 11 attributi nel feed · 3 etichette col perché · acquisto tracciato dal server. Il catalogo di questo fornitore per hotel e ristoranti ne ha 1.446: Ignition li tratta tutti così, col tuo sì prima di pubblicare.</span></div>
-          <div class="n">× 1.446</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ RISULTATI ═══ -->
-<!-- ═══ L'UTILE ═══ -->
 <!-- ═══ CAPITOLO 03: i conti ═══ -->
 <section class="solo-d cap nero fx" id="atto-conti" aria-labelledby="cap-conti">
   <div class="wrap">
@@ -2096,7 +1913,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 <section class="solo-d who" id="chi-guida">
   <div class="wrap">
     <div class="who-grid">
-      <div class="who-photo fx fx-pop"><img src="images/brand/ori.svg" alt="Ori, il robottino di Orizon" loading="lazy" width="300" height="400"></div>
+      <div class="who-photo mark fx fx-pop"><img src="images/brand/mark-blu.svg" alt="Il marchio Orizon" loading="lazy" width="696" height="496"></div>
       <div class="fx fx-dx">
         <h2>Chi guida. <span>E cosa succede dopo lo scan.</span></h2>
         <p class="role">Antonio Pratola — Founder &amp; CEO, Orizon ADV · Napoli</p>
@@ -2596,6 +2413,26 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       inCorso = true; colonna('roas', ROAS); colonna('utile', UTILE);
       go.textContent = 'Rivedi il mese';
     });
+    });
+  })();
+
+  /* ── la squadra: un agente alla volta, nello studio (solo a richiesta, niente giro automatico) ── */
+  (function(){
+    function scegli(sez, ag){
+      var stesso = false;
+      sez.querySelectorAll('.st-ag').forEach(function(b){
+        var on = b.getAttribute('data-ag') === ag;
+        if (on && b.getAttribute('aria-pressed') === 'true') stesso = true;
+      });
+      if (stesso) ag = 'squadra';
+      sez.querySelectorAll('.st-ag').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-ag') === ag ? 'true' : 'false'); });
+      sez.querySelectorAll('.st-img, .st-carta, .xst-t').forEach(function(el){ el.classList.toggle('on', el.getAttribute('data-ag') === ag); });
+    }
+    ['squadra', 'm-squadra'].forEach(function(id){
+      var sez = document.getElementById(id); if (!sez) return;
+      sez.querySelectorAll('.st-ag').forEach(function(b){
+        b.addEventListener('click', function(){ scegli(sez, b.getAttribute('data-ag')); });
+      });
     });
   })();
 </script>
