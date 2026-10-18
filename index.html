@@ -442,6 +442,34 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .lg-paesi li:first-child b{color:var(--blue)}
 .js .piatto.fx:not(.in) .lg-paesi em{transform:scaleX(0)}
 .lg-nota{margin-top:14px;font-size:13px;color:var(--black-m);line-height:1.45}
+/* il labelizer: i prodotti sui piedistalli, con le etichette addosso */
+.et-grid{list-style:none;margin-top:26px;display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.et{border:1px solid var(--line-2);border-radius:16px;background:var(--white);overflow:hidden;display:flex;flex-direction:column;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.et:hover{transform:translateY(-4px);box-shadow:0 24px 44px -28px rgba(12,23,19,.35)}
+.et img{width:100%;aspect-ratio:1;object-fit:cover;display:block;background:var(--bg-2)}
+.et.fuori img{filter:grayscale(.7);opacity:.75}
+.et-body{padding:12px 14px 14px;display:flex;flex-direction:column;flex:1}
+.et h4{font-size:14.5px;font-weight:600;letter-spacing:-.01em;line-height:1.25}
+.et .pz{margin-top:3px;font-size:12.5px;color:var(--black-m)}
+.et .chips{margin-top:9px;display:flex;flex-wrap:wrap;gap:5px}
+.chip{font-style:normal;font-size:11px;font-weight:600;padding:3px 8px;border-radius:999px;background:var(--bg-2);border:1px solid var(--line-2);color:var(--black-m);white-space:nowrap}
+.chip.ok{background:rgba(96,231,135,.2);border-color:rgba(96,231,135,.7);color:#17633A}
+.chip.no{background:rgba(255,143,126,.18);border-color:rgba(255,143,126,.7);color:#9A3A2C}
+.et-num{margin-top:9px;font-size:12.5px;color:var(--black-m);line-height:1.4}
+.et-num b{color:var(--black);font-weight:600}
+.et-ver{margin-top:auto;padding-top:10px;border-top:1px solid var(--line);font-size:13px;font-weight:600;line-height:1.35}
+.et.in-asta .et-ver{color:var(--blue)}
+.et.fuori .et-ver{color:var(--black-m)}
+.et-conti{margin-top:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.et-conti div{padding:16px 18px;border-radius:14px;border:1px solid var(--line-2);background:var(--white)}
+.et-conti div.on{border-color:rgba(55,80,247,.35);background:rgba(55,80,247,.04)}
+.et-conti b{display:block;font-size:30px;font-weight:600;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.et-conti div.on b{color:var(--blue)}
+.et-conti span{display:block;margin-top:6px;font-size:13px;color:var(--black-m);line-height:1.4}
+.js .piatto.fx .et{opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease),transform .9s cubic-bezier(.34,1.56,.64,1);transition-delay:calc(.15s + var(--i) * .1s)}
+.js .piatto.fx.in .et{opacity:1;transform:none}
+@media(max-width:1100px){.et-grid{grid-template-columns:repeat(3,1fr)}.et-conti{grid-template-columns:1fr}}
+@media(max-width:768px){.et-grid{grid-template-columns:1fr 1fr;gap:10px}.et-body{padding:10px 12px 12px}.et h4{font-size:13.5px}}
 
 /* ── IL PROBLEMA (15/10/2026): l'inizio del video, coi prodotti veri dei cataloghi che seguiamo; sta prima della
    squadra, sul fondo scuro del video ── */
@@ -1126,6 +1154,16 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .xp-nums b i{font-style:normal;font-size:12px;color:var(--black-m)}
   .xp-nums span{display:block;margin-top:2px;font-size:11.5px;color:var(--black-m)}
   .xp-nota{font-size:12.5px;color:var(--black-m);line-height:1.4}
+  .xet{list-style:none;display:grid;gap:8px}
+  .xet li{display:grid;grid-template-columns:72px 1fr;gap:10px;align-items:center;padding:8px;border-radius:12px;border:1px solid var(--line);background:var(--bg-2)}
+  .xet li.in-asta{background:rgba(55,80,247,.06);border-color:rgba(55,80,247,.3)}
+  .xet img{width:72px;height:72px;border-radius:9px;object-fit:cover;display:block}
+  .xet li.fuori img{filter:grayscale(.7);opacity:.8}
+  .xet b{display:block;font-size:13.5px;font-weight:600;line-height:1.2}
+  .xet .chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+  .xet small{display:block;margin-top:4px;font-size:12px;color:var(--black-m)}
+  .xet em{display:block;margin-top:3px;font-style:normal;font-size:12.5px;font-weight:600;color:var(--blue)}
+  .xet li.fuori em{color:var(--black-m)}
   .xp-lista{list-style:none;display:grid;gap:6px;font-size:14px}
   .xp-lista li{padding-left:22px;position:relative}
   .xp-lista li::before{content:'';position:absolute;left:4px;top:6px;width:8px;height:5px;border-left:2px solid var(--green);border-bottom:2px solid var(--green);transform:rotate(-45deg)}
@@ -1433,8 +1471,10 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 <div class="xp-righe"><div><code>material</code><s>vuoto</s><b>Poliestere/Lana</b></div><div><code>google_product_category</code><s>vuoto</s><b>Abbigliamento e accessori › Abbigliamento</b></div><div><code>product_highlight</code><s>vuoto</s><b>Maniche lunghe · Bottoni · Tasche frontali</b></div></div></div><a class="xst-vai" href="/leve/feed">Tutta la leva di Volta →</a></div>
       <div class="xst-t" data-ag="archimede"><span class="st-nome"><i style="--c:#C7B0FF"></i>Archimede</span><span class="st-ruolo">Tracciamento</span><p>Porta ogni acquisto a Google e Meta, contato una volta.</p><div class="xst-piatto"><div class="xp"><span class="xp-k">Oggi</span><b>7 acquisti su 10</b> arrivano a Google e Meta<small>pixel nel browser: blocker, Safari, pagine chiuse prima</small></div>
 <div class="xp on"><span class="xp-k">Acceso</span><b>10 su 10</b>, contati una volta sola<small>dal server del negozio, con lo stesso id, e col consenso</small></div></div><a class="xst-vai" href="/leve/tracciamento">Tutta la leva di Archimede →</a></div>
-      <div class="xst-t" data-ag="fibonacci"><span class="st-nome"><i style="--c:#FF8F7E"></i>Fibonacci</span><span class="st-ruolo">Budget</span><p>Sposta il budget dove ci sono margine e merce.</p><div class="xst-piatto"><div class="xp"><span class="xp-k">Oggi</span><b>Una campagna per tutti</b><small>i 386 fuori prezzo prendono il 18% della spesa e non vendono niente</small></div>
-<div class="xp on"><span class="xp-k">Acceso</span><b>Il budget ai 456 col prezzo giusto</b><small>78% delle vendite col 31% della spesa: ogni venti giorni l'etichetta si riscrive</small></div></div><a class="xst-vai" href="/leve/budget">Tutta la leva di Fibonacci →</a></div>
+      <div class="xst-t" data-ag="fibonacci"><span class="st-nome"><i style="--c:#FF8F7E"></i>Fibonacci</span><span class="st-ruolo">Budget</span><p>Sposta il budget dove ci sono margine e merce.</p><div class="xst-piatto"><ul class="xet"><li class="in-asta"><img src="images/piatti/etichette/10544309240151.webp" alt="" width="600" height="600" loading="lazy"><div><b>Stivaletti Jammers Tore</b><span class="chips"><i class="chip ok">taglie piene</i><i class="chip ok">taglie forti</i></span><small>85 € spesi → 1.377 € venduti</small><em>In asta</em></div></li>
+<li class="fuori"><img src="images/piatti/etichette/11067990606167.webp" alt="" width="600" height="600" loading="lazy"><div><b>Adidas XLG Runner</b><span class="chips"><i class="chip no">taglie scarse</i><i class="chip no">taglie deboli</i></span><small>2 paia in 12 taglie, 830 clic</small><em>Fuori: prima si riassortisce</em></div></li></ul>
+<div class="xp-nums"><div class="on"><b>1.650</b><span>in asta</span></div><div><b>3.999</b><span>aspettano</span></div><div class="on"><b>+77<i>%</i></b><span>stessa spesa</span></div></div>
+<p class="xp-nota">Negozio di moda, 18 ottobre: etichette del feed pubblicato, campagne lette da Google Ads.</p></div><a class="xst-vai" href="/leve/budget">Tutta la leva di Fibonacci →</a></div>
     </div>
     <p class="xlead xr" style="--d:.8s"><strong>Nessuna modifica arriva sul tuo negozio senza il sì di una persona.</strong></p>
   </section>
@@ -1768,24 +1808,46 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     </article>
 
     <article class="piatto fx fx-sx" id="piatto-labelizer">
-      <header class="firma"><img class="fv" src="images/squadra/fibonacci.webp" alt="" width="400" height="416" loading="lazy" decoding="async"><div><p class="fa" style="--c:#FF8F7E"><i></i><b>Fibonacci</b> · Budget</p><h3>Labelizer <span>chi va in asta e chi aspetta</span></h3><p class="fl">Ogni prodotto riceve le sue etichette. Il budget va solo su chi vince l'asta.</p></div></header>
-      <div class="lab-fig" id="lab-fig">
-        <div class="lab-top"><b>Venti giorni di Google Ads, 1.056 prodotti con click</b><span class="lab-data">letti il 12 ottobre 2026</span></div>
-        <div class="lab-tog" role="group" aria-label="Oggi o col budget spostato"><button type="button" class="tt on" data-m="oggi">Oggi <small>una campagna per tutti</small></button><button type="button" class="tt" data-m="acceso">Sposta il budget <small>la spesa segue le vendite</small></button></div>
-        <div class="lab-rows">
-          <div class="lab-row"><div class="lab-k"><b>Dove va la spesa oggi</b><span>1.273 €</span></div><div class="lab-bar" role="img" aria-label="Spesa: 31% ai prodotti col prezzo giusto, 7% a quelli sopra il riferimento che vendono, 39% a quelli da controllare, 6% ai margini, 18% ai fuori prezzo"><i class="gb" style="--w:30.6%"><em>31%</em></i><i class="gr" style="--w:6.7%"><em>7%</em></i><i class="gc" style="--w:38.7%"><em>39%</em></i><i class="gm stretto" style="--w:5.7%"><em>6%</em></i><i class="gf" style="--w:18.3%"><em>18%</em></i></div></div>
-          <div class="lab-row"><div class="lab-k"><b>Da dove arrivano le vendite</b><span id="lab-vend">40.182 €</span></div><div class="lab-bar" role="img" aria-label="Vendite: 78% dai prodotti col prezzo giusto, 19% da quelli sopra il riferimento che vendono, 3% da quelli da controllare, zero dai margini e dai fuori prezzo"><div class="lab-inner" style="--scala:.58"><i class="gb" style="--w:78.1%"><em>78%</em></i><i class="gr" style="--w:18.9%"><em>19%</em></i><i class="gc stretto" style="--w:3.0%"><em>3%</em></i><i class="gm vuoto" style="--w:0%"><em></em></i><i class="gf vuoto" style="--w:0%"><em></em></i></div><i class="gx vuoto" style="--w:0%"><em>+29.000 € stimati</em></i></div></div>
-        </div>
-        <p class="lab-nota">Stima prudente: alla spesa spostata diamo metà della resa che i prodotti col prezzo giusto hanno oggi (80 € di vendite per euro speso). Il numero vero si legge sul negozio, mese dopo mese.</p>
-        <ul class="lab-leg">
-          <li><i class="gb"></i><div><b>Prezzo giusto · 456</b><small>possono vincere l'asta: qui va il budget</small></div></li>
-          <li><i class="gr"></i><div><b>Cari ma vendono · 9</b><small>restano, con misura</small></div></li>
-          <li><i class="gc"></i><div><b>Da controllare · 75</b><small>prezzo giusto, click, niente vendite: scheda e feed</small></div></li>
-          <li><i class="gm"></i><div><b>Ai margini · 130</b><small>pochi dati, si aspetta</small></div></li>
-          <li><i class="gf"></i><div><b>Fuori prezzo · 386</b><small>sopra il riferimento e non vendono: fuori dall'asta</small></div></li>
-        </ul>
-      </div>
-      <p class="pd-note">Oggi la spesa è spalmata su tutti: i 386 fuori prezzo prendono il 18% e non vendono niente, i 75 da controllare il 39% per il 3% delle vendite. I 456 col prezzo giusto fanno il 78% delle vendite col 31% della spesa. Acceso, ogni venti giorni l'etichetta si riscrive e le campagne la leggono: la spesa segue le vendite.</p>
+      <header class="firma"><img class="fv" src="images/squadra/fibonacci.webp" alt="" width="400" height="416" loading="lazy" decoding="async"><div><p class="fa" style="--c:#FF8F7E"><i></i><b>Fibonacci</b> · Budget</p><h3>Labelizer <span>ogni prodotto riceve le sue etichette</span></h3><p class="fl">Taglie, forza delle taglie, ciclo di vita: scritte nel feed. Il budget va solo su chi vince l'asta.</p></div></header>
+      <ul class="et-grid">
+        <li class="et in-asta" style="--i:0">
+          <img src="images/piatti/etichette/10544309240151.webp" alt="Stivaletti Jammers Tore" width="600" height="600" loading="lazy" decoding="async">
+          <div class="et-body"><h4>Stivaletti Jammers Tore</h4><p class="pz">105 € · 20 paia in 9 taglie</p>
+            <p class="chips"><i class="chip ok">taglie piene</i><i class="chip ok">taglie forti</i><i class="chip ">stagione</i></p>
+            <p class="et-num">90 giorni: spesa <b>85 €</b> · venduto <b>1.377 €</b> · <b>16</b> paia</p>
+            <p class="et-ver">In asta: ha tutte le taglie e vende.</p></div>
+        </li>
+<li class="et in-asta" style="--i:1">
+          <img src="images/piatti/etichette/10863590375767.webp" alt="Sandali SENSI La Jolla" width="600" height="600" loading="lazy" decoding="async">
+          <div class="et-body"><h4>Sandali SENSI La Jolla</h4><p class="pz">45 € · 40 paia in 38 taglie</p>
+            <p class="chips"><i class="chip ok">taglie piene</i><i class="chip ok">taglie forti</i><i class="chip ">normale</i></p>
+            <p class="et-num">90 giorni: spesa <b>145 €</b> · venduto <b>863 €</b> · <b>31</b> paia</p>
+            <p class="et-ver">In asta: 31 paia in 90 giorni.</p></div>
+        </li>
+<li class="et in-asta" style="--i:2">
+          <img src="images/piatti/etichette/10265458934103.webp" alt="Timberland 6 Inch bambino" width="600" height="600" loading="lazy" decoding="async">
+          <div class="et-body"><h4>Timberland 6 Inch bambino</h4><p class="pz">165 € · 56 paia in 5 taglie</p>
+            <p class="chips"><i class="chip ok">taglie piene</i><i class="chip ok">taglie forti</i><i class="chip ">stagione</i></p>
+            <p class="et-num">90 giorni: spesa <b>34 €</b> · venduto <b>406 €</b> · <b>4</b> paia</p>
+            <p class="et-ver">In asta: stagione giusta, taglie piene.</p></div>
+        </li>
+<li class="et fuori" style="--i:3">
+          <img src="images/piatti/etichette/11067990606167.webp" alt="Adidas XLG Runner Deluxe" width="600" height="600" loading="lazy" decoding="async">
+          <div class="et-body"><h4>Adidas XLG Runner Deluxe</h4><p class="pz">155 € · 2 paia in 12 taglie</p>
+            <p class="chips"><i class="chip no">taglie scarse</i><i class="chip no">taglie deboli</i><i class="chip ">stagione</i></p>
+            <p class="et-num">90 giorni: spesa <b>228 €</b> · venduto <b>1.143 €</b> · <b>12</b> paia</p>
+            <p class="et-ver">Fuori dall'asta: 830 clic, e chi arriva non trova la sua taglia. Prima si riassortisce.</p></div>
+        </li>
+<li class="et fuori" style="--i:4">
+          <img src="images/piatti/etichette/10022796984663.webp" alt="Converse Chuck Taylor Wedge" width="600" height="600" loading="lazy" decoding="async">
+          <div class="et-body"><h4>Converse Chuck Taylor Wedge</h4><p class="pz">47,50 € · 6 paia in 9 taglie</p>
+            <p class="chips"><i class="chip no">taglie scarse</i><i class="chip no">fondo magazzino</i><i class="chip ">nella media</i></p>
+            <p class="et-num">90 giorni: spesa <b>3 €</b> · venduto <b>0 €</b> · <b>0</b> paia</p>
+            <p class="et-ver">Fuori dall'asta: fondo magazzino, zero vendite in 90 giorni.</p></div>
+        </li>
+      </ul>
+      <div class="et-conti"><div class="on"><b>1.650</b><span>prodotti con le taglie, in asta nella campagna dei supercompetitivi</span></div><div><b>3.999</b><span>senza taglie o a fondo magazzino: aspettano, senza bruciare budget</span></div><div class="on"><b>+77%</b><span>stessa spesa, performance migliori, in media sui nostri account</span></div></div>
+      <p class="lg-nota">Negozio di moda, letto il 18 ottobre 2026: le etichette sono quelle del feed supplementare pubblicato quella mattina, e la campagna Shopping le legge dall'account Google Ads (dentro solo chi ha <em>taglie piene</em> o <em>medie</em>). Spesa e venduto da Google Ads, 20 luglio – 17 ottobre; paia vendute in 90 giorni dal pannello Shopify.</p>
     </article>
 
     <p class="piatti-altre">La sesta leva, Rotazione di magazzino, si vede <a href="#magazzino">nella merce ferma</a>.</p>
