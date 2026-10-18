@@ -635,6 +635,23 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .studio{position:relative;margin-top:48px;aspect-ratio:1600/904;border-radius:28px;overflow:hidden;background:#E9ECF4;box-shadow:0 40px 80px -40px rgba(35,59,217,.35),0 0 0 1px rgba(12,23,19,.05)}
 .st-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.035);transition:opacity .7s var(--ease),transform 1.4s var(--ease)}
 .st-img.on{opacity:1;transform:none}
+/* lo studio vive: la squadra respira, l'agente scelto è la clip del video */
+@keyframes st-respira{0%{transform:scale(1) translateY(0)}50%{transform:scale(1.045) translateY(-6px)}100%{transform:scale(1) translateY(0)}}
+.st-img[data-ag="squadra"].on{animation:st-respira 14s ease-in-out infinite}
+.studio::after{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 45% 30% at 50% 66%,rgba(99,119,253,.22),transparent 70%);opacity:0;transition:opacity 1s var(--ease)}
+.studio.squadra::after{opacity:1;animation:st-alone 4s ease-in-out infinite}
+@keyframes st-alone{0%,100%{opacity:.55}50%{opacity:1}}
+.st-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s var(--ease);pointer-events:none}
+.st-vid.on{opacity:1}
+/* i robottini sotto: ognuno ondeggia col suo passo, chi è scelto saluta */
+@keyframes ag-bob{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-3px) rotate(-3deg)}}
+@keyframes ag-salta{0%{transform:translateY(0) scale(1)}30%{transform:translateY(-9px) scale(1.12) rotate(-8deg)}60%{transform:translateY(0) scale(1)}80%{transform:translateY(-4px) rotate(5deg)}100%{transform:translateY(0) rotate(0)}}
+.st-ag img{animation:ag-bob 3.6s ease-in-out infinite;animation-delay:calc(var(--i,0) * -.6s)}
+.st-ag:hover img{animation-duration:1.4s}
+.st-ag[aria-pressed="true"] img{animation:ag-salta .9s cubic-bezier(.34,1.56,.64,1) 1,ag-bob 3.6s ease-in-out .9s infinite;filter:drop-shadow(0 6px 10px color-mix(in srgb,var(--c) 70%,transparent))}
+.mo-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s var(--ease)}
+.mo-vid.on{opacity:1}
+@media(prefers-reduced-motion:reduce){.st-img[data-ag="squadra"].on,.studio.squadra::after,.st-ag img{animation:none}}
 .st-carta{position:absolute;top:32px;right:32px;width:340px;padding:20px 22px 18px;border-radius:18px;background:rgba(255,255,255,.82);-webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4);border:1px solid rgba(255,255,255,.9);box-shadow:0 24px 50px -24px rgba(12,23,19,.35);opacity:0;transform:translateY(14px);transition:opacity .45s var(--ease),transform .7s var(--ease);pointer-events:none}
 .st-carta[data-lato="sx"]{right:auto;left:32px}
 .st-carta[data-lato="sx-basso"]{top:auto;right:auto;left:32px;bottom:32px}
@@ -1654,6 +1671,14 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       <img class="st-img" data-ag="volta" src="images/squadra/studio/volta-800.webp" alt="Volta al lavoro sulla sneaker" width="800" height="452" loading="lazy" decoding="async">
       <img class="st-img" data-ag="archimede" src="images/squadra/studio/archimede-800.webp" alt="Archimede al lavoro sulla sneaker" width="800" height="452" loading="lazy" decoding="async">
       <img class="st-img" data-ag="fibonacci" src="images/squadra/studio/fibonacci-800.webp" alt="Fibonacci al lavoro sulla sneaker" width="800" height="452" loading="lazy" decoding="async">
+
+      <video class="st-vid" data-ag="squadra" data-src="video/studio/squadra.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+      <video class="st-vid" data-ag="leonardo" data-src="video/studio/leonardo.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+      <video class="st-vid" data-ag="holmes" data-src="video/studio/holmes.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+      <video class="st-vid" data-ag="galileo" data-src="video/studio/galileo.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+      <video class="st-vid" data-ag="volta" data-src="video/studio/volta.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+      <video class="st-vid" data-ag="archimede" data-src="video/studio/archimede.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+      <video class="st-vid" data-ag="fibonacci" data-src="video/studio/fibonacci.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
     </div>
     <ul class="st-squadra xst-squadra xr" style="--d:.6s" aria-label="Scegli un agente">
       <li><button type="button" class="st-ag" data-ag="leonardo" aria-pressed="false" aria-label="Leonardo, Scrittore SEO+GEO" style="--c:#FFB15C"><img src="images/squadra/leonardo.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></button></li>
@@ -1855,6 +1880,14 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       <div class="st-carta" data-ag="volta" data-lato="dx"><span class="st-nome"><i style="--c:#FFE16B"></i>Volta</span><span class="st-ruolo">Feed</span><p>Riempie il file che legge Google Shopping, campo per campo: marca, materiale, misure, colore.</p><a class="st-vai" href="#piatto-feed">Guardalo al lavoro ↓</a></div>
       <div class="st-carta" data-ag="archimede" data-lato="sx"><span class="st-nome"><i style="--c:#C7B0FF"></i>Archimede</span><span class="st-ruolo">Tracciamento</span><p>Porta ogni acquisto a Google e Meta dal server: contato una volta sola, e col consenso.</p><a class="st-vai" href="#piatto-tracking">Guardalo al lavoro ↓</a></div>
       <div class="st-carta" data-ag="fibonacci" data-lato="dx"><span class="st-nome"><i style="--c:#FF8F7E"></i>Fibonacci</span><span class="st-ruolo">Budget</span><p>Sposta il budget dove ci sono margine e merce: chi rende va in asta, chi è fermo aspetta.</p><a class="st-vai" href="#piatto-labelizer">Guardalo al lavoro ↓</a></div>
+
+      <video class="st-vid" data-ag="squadra" data-src="video/studio/squadra.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+      <video class="st-vid" data-ag="leonardo" data-src="video/studio/leonardo.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+      <video class="st-vid" data-ag="holmes" data-src="video/studio/holmes.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+      <video class="st-vid" data-ag="galileo" data-src="video/studio/galileo.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+      <video class="st-vid" data-ag="volta" data-src="video/studio/volta.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+      <video class="st-vid" data-ag="archimede" data-src="video/studio/archimede.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+      <video class="st-vid" data-ag="fibonacci" data-src="video/studio/fibonacci.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
     </div>
     <ul class="st-squadra" aria-label="Scegli un agente">
       <li><button type="button" class="st-ag" data-ag="leonardo" aria-pressed="false" style="--c:#FFB15C"><img src="images/squadra/leonardo.webp" alt="" width="400" height="416" loading="lazy" decoding="async"><span><b>Leonardo</b><small>Scrittore SEO+GEO</small></span></button></li>
@@ -1925,6 +1958,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       <header class="firma"><img class="fv" src="images/squadra/galileo.webp" alt="" width="400" height="416" loading="lazy" decoding="async"><div><p class="fa" style="--c:#6FE59A"><i></i><b>Galileo</b> · Traduttore</p><h3>Traduzioni <span>la stessa scheda, in ogni lingua</span></h3><p class="fl">Da 60 milioni di persone a più di 2 miliardi: titolo, scheda e domande nelle lingue del negozio.</p></div></header>
       <div class="mo" id="mo">
         <img class="mo-bg" src="images/video/terra-1600.webp" srcset="images/video/terra-800.webp 800w, images/video/terra-1600.webp 1600w" sizes="(max-width:1240px) 94vw, 1176px" alt="" width="1600" height="904" loading="lazy" decoding="async">
+        <video class="mo-vid" data-src="video/studio/terra.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
         <svg class="mo-svg" viewBox="0 0 1600 904" aria-hidden="true"><path class="mo-a" pathLength="1" style="--i:0" d="M1185 480 Q 912 242 640 560"/><path class="mo-a" pathLength="1" style="--i:1" d="M1185 480 Q 872 78 560 330"/><path class="mo-a" pathLength="1" style="--i:2" d="M1185 480 Q 942 -57 700 170"/><path class="mo-a" pathLength="1" style="--i:3" d="M1185 480 Q 1002 54 820 260"/><path class="mo-a" pathLength="1" style="--i:4" d="M1185 480 Q 1058 -66 930 120"/><path class="mo-a" pathLength="1" style="--i:5" d="M1185 480 Q 1098 -112 1010 60"/><path class="mo-a" pathLength="1" style="--i:6" d="M1185 480 Q 1138 -137 1090 20"/><path class="mo-a" pathLength="1" style="--i:7" d="M1185 480 Q 1222 -64 1260 90"/><path class="mo-a" pathLength="1" style="--i:8" d="M1185 480 Q 1322 -60 1460 130"/><path class="mo-a" pathLength="1" style="--i:9" d="M1185 480 Q 1372 92 1560 300"/><path class="mo-a" pathLength="1" style="--i:10" d="M1185 480 Q 1302 298 1420 520"/><path class="mo-a" pathLength="1" style="--i:11" d="M1185 480 Q 1082 253 980 430"/><path class="mo-a" pathLength="1" style="--i:12" d="M1185 480 Q 802 162 420 440"/><path class="mo-a" pathLength="1" style="--i:13" d="M1185 480 Q 712 -110 240 200"/><path class="mo-a" pathLength="1" style="--i:14" d="M1185 480 Q 1382 269 1580 620"/><circle class="mo-p" style="--i:0" cx="640" cy="560" r="4"/><circle class="mo-p" style="--i:1" cx="560" cy="330" r="4"/><circle class="mo-p" style="--i:2" cx="700" cy="170" r="4"/><circle class="mo-p" style="--i:3" cx="820" cy="260" r="4"/><circle class="mo-p" style="--i:4" cx="930" cy="120" r="4"/><circle class="mo-p" style="--i:5" cx="1010" cy="60" r="4"/><circle class="mo-p" style="--i:6" cx="1090" cy="20" r="4"/><circle class="mo-p" style="--i:7" cx="1260" cy="90" r="4"/><circle class="mo-p" style="--i:8" cx="1460" cy="130" r="4"/><circle class="mo-p" style="--i:9" cx="1560" cy="300" r="4"/><circle class="mo-p" style="--i:10" cx="1420" cy="520" r="4"/><circle class="mo-p" style="--i:11" cx="980" cy="430" r="4"/><circle class="mo-p" style="--i:12" cx="420" cy="440" r="4"/><circle class="mo-p" style="--i:13" cx="240" cy="200" r="4"/><circle class="mo-p" style="--i:14" cx="1580" cy="620" r="4"/><circle class="mo-it" cx="1185" cy="480" r="7"/></svg>
         <div class="mo-txt">
           <p class="mo-k">persone che possono leggere la scheda</p>
@@ -2733,6 +2767,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 
   /* ── la squadra: un agente alla volta, nello studio (solo a richiesta, niente giro automatico) ── */
   (function(){
+    var fermo = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     function scegli(sez, ag){
       var stesso = false;
       sez.querySelectorAll('.st-ag').forEach(function(b){
@@ -2742,12 +2777,30 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       if (stesso) ag = 'squadra';
       sez.querySelectorAll('.st-ag').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-ag') === ag ? 'true' : 'false'); });
       sez.querySelectorAll('.st-img, .st-carta, .xst-t').forEach(function(el){ el.classList.toggle('on', el.getAttribute('data-ag') === ag); });
+      var studio = sez.querySelector('.studio'); if (studio) studio.classList.toggle('squadra', ag === 'squadra');
+      sez.querySelectorAll('.st-vid').forEach(function(v){
+        var on = v.getAttribute('data-ag') === ag && !fermo;
+        if (on) { if (!v.getAttribute('src')) v.setAttribute('src', v.getAttribute('data-src')); var p = v.play(); if (p && p.catch) p.catch(function(){}); }
+        else if (!v.paused) v.pause();
+        v.classList.toggle('on', on);
+      });
     }
     ['squadra', 'm-squadra'].forEach(function(id){
       var sez = document.getElementById(id); if (!sez) return;
-      sez.querySelectorAll('.st-ag').forEach(function(b){
+      sez.querySelectorAll('.st-ag').forEach(function(b, i){
+        b.style.setProperty('--i', i);
         b.addEventListener('click', function(){ scegli(sez, b.getAttribute('data-ag')); });
       });
+      var st = sez.querySelector('.studio'); if (st) st.classList.add('squadra');
+      /* la clip della squadra parte da sola solo quando lo studio è in vista, e si ferma quando esce */
+      if ('IntersectionObserver' in window && !fermo && st) {
+        var vis = new IntersectionObserver(function(es){ es.forEach(function(e){
+          var vs = sez.querySelectorAll('.st-vid'), on = null; vs.forEach(function(v){ if (v.classList.contains('on')) on = v; });
+          if (e.isIntersecting) { if (!on) scegli(sez, 'squadra'); else if (on.paused) { var pr = on.play(); if (pr && pr.catch) pr.catch(function(){}); } }
+          else if (on && !on.paused) on.pause();
+        }); }, { threshold: .25 });
+        vis.observe(st);
+      }
     });
   })();
 
@@ -2793,8 +2846,9 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     var mo = document.getElementById('mo'), go = document.getElementById('mo-go'); if (!mo || !go) return;
     var n = document.getElementById('mo-n'), u = document.getElementById('mo-u'), raf = null;
     go.addEventListener('click', function(){
-      if (mo.classList.contains('on')) { mo.classList.remove('on'); n.textContent = '60'; u.textContent = 'milioni'; go.textContent = 'Accendi le lingue'; return; }
+      if (mo.classList.contains('on')) { mo.classList.remove('on'); n.textContent = '60'; u.textContent = 'milioni'; go.textContent = 'Accendi le lingue'; var tv0 = mo.querySelector('.mo-vid'); if (tv0) { tv0.classList.remove('on'); tv0.pause(); } return; }
       mo.classList.add('on'); go.textContent = 'Spegni';
+      var tv = mo.querySelector('.mo-vid'); if (tv && !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) { if (!tv.getAttribute('src')) tv.setAttribute('src', tv.getAttribute('data-src')); var pp = tv.play(); if (pp && pp.catch) pp.catch(function(){}); tv.classList.add('on'); }
       var t0 = null, DUR = 1800; if (raf) cancelAnimationFrame(raf);
       function passo(ts){ if (!t0) t0 = ts; var p = Math.min(1, (ts - t0) / DUR), e = 1 - Math.pow(1 - p, 3), v = 60 + (2100 - 60) * e;
         if (v < 1000) { n.textContent = String(Math.round(v)); u.textContent = 'milioni'; } else { n.textContent = (v / 1000).toFixed(1).replace('.', ','); u.textContent = 'miliardi'; }
