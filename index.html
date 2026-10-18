@@ -1103,6 +1103,37 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .xst-t.on{opacity:1;transform:none;pointer-events:auto}
   .xst-t .st-nome{font-size:16px}
   .xst-t p{margin-top:8px;font-size:14.5px}
+  .xst-piatto{margin-top:14px;display:grid;gap:8px}
+  .xp{position:relative;padding:12px 14px 12px 14px;border-radius:12px;background:var(--bg-2);border:1px solid var(--line);font-size:14px;line-height:1.4}
+  .xp.on{background:rgba(55,80,247,.06);border-color:rgba(55,80,247,.3)}
+  .xp-k{display:inline-block;font-size:10.5px;font-weight:600;letter-spacing:.02em;color:var(--black-m);background:var(--white);border:1px solid var(--line-2);border-radius:6px;padding:2px 7px;margin-bottom:6px;line-height:1.2}
+  .xp.on .xp-k{color:#fff;background:var(--blue);border-color:var(--blue)}
+  .xp s{color:var(--black-l)}
+  .xp b{font-weight:600;color:var(--black)}
+  .xp small{display:block;margin-top:4px;font-size:12.5px;color:var(--black-m)}
+  .xp-nums{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:2px}
+  .xp-nums div{padding:10px 8px;border-radius:12px;background:var(--bg-2);border:1px solid var(--line);text-align:center}
+  .xp-nums div.on{background:rgba(55,80,247,.06);border-color:rgba(55,80,247,.3)}
+  .xp-nums b{display:block;font-size:20px;font-weight:600;letter-spacing:-.02em;color:var(--black);font-variant-numeric:tabular-nums}
+  .xp-nums b i{font-style:normal;font-size:12px;color:var(--black-m)}
+  .xp-nums span{display:block;margin-top:2px;font-size:11.5px;color:var(--black-m)}
+  .xp-lista{list-style:none;display:grid;gap:6px;font-size:14px}
+  .xp-lista li{padding-left:22px;position:relative}
+  .xp-lista li::before{content:'';position:absolute;left:4px;top:6px;width:8px;height:5px;border-left:2px solid var(--green);border-bottom:2px solid var(--green);transform:rotate(-45deg)}
+  .xp-bar{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;align-items:baseline;padding:10px 14px;border-radius:12px;background:var(--bg-2);border:1px solid var(--line)}
+  .xp-bar.on{background:rgba(55,80,247,.06);border-color:rgba(55,80,247,.3)}
+  .xp-bar b{font-size:22px;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  .xp-bar b i{font-style:normal;font-size:13px;color:var(--black-m)}
+  .xp-bar span{font-size:12.5px;color:var(--black-m)}
+  .xp-bar em{grid-column:1/-1;display:block;height:6px;border-radius:3px;background:rgba(12,23,19,.08);position:relative;overflow:hidden}
+  .xp-bar em::after{content:'';position:absolute;inset:0;width:var(--w);background:var(--black-l);border-radius:3px}
+  .xp-bar.on em::after{background:var(--blue)}
+  .xp-righe{display:grid;gap:6px}
+  .xp-righe div{display:grid;grid-template-columns:1fr;gap:1px;padding:8px 12px;border-radius:10px;border:1px solid var(--line);font-size:13px;line-height:1.35}
+  .xp-righe code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11.5px;color:var(--black-m)}
+  .xp-righe s{color:var(--black-l);font-style:italic}
+  .xp-righe b{font-weight:500;color:var(--blue)}
+  .xst-vai{display:inline-block;margin-top:12px;font-size:14px;font-weight:600;color:var(--blue);text-decoration:none;border-bottom:1px solid rgba(55,80,247,.35)}
   /* comparsa */
   .xr{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
   .xs.on .xr{opacity:1;transform:none}
@@ -1378,39 +1409,23 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
       <li><button type="button" class="st-ag" data-ag="fibonacci" aria-pressed="false" aria-label="Fibonacci, Budget" style="--c:#FF8F7E"><img src="images/squadra/fibonacci.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></button></li>
     </ul>
     <div class="xst-testi xr" style="--d:.7s" aria-live="polite">
-      <div class="xst-t on" data-ag="squadra"><span class="st-nome"><i style="--c:var(--blue)"></i>Sei agenti, un prodotto</span><p>Tocca un agente e guardalo al lavoro.</p></div>
-      <div class="xst-t" data-ag="leonardo"><span class="st-nome"><i style="--c:#FFB15C"></i>Leonardo</span><span class="st-ruolo">Scrittore SEO+GEO</span><p>Riscrive le schede perché le trovino Google e ChatGPT.</p></div>
-      <div class="xst-t" data-ag="holmes"><span class="st-nome"><i style="--c:#7CD3FF"></i>Holmes</span><span class="st-ruolo">Giudice AI</span><p>Rilegge ogni scheda: un numero inventato, e la rimanda indietro.</p></div>
-      <div class="xst-t" data-ag="galileo"><span class="st-nome"><i style="--c:#6FE59A"></i>Galileo</span><span class="st-ruolo">Traduttore</span><p>Traduce schede e sito con le parole che si cercano in ogni paese.</p></div>
-      <div class="xst-t" data-ag="volta"><span class="st-nome"><i style="--c:#FFE16B"></i>Volta</span><span class="st-ruolo">Feed</span><p>Riempie il feed di Google Shopping, campo per campo.</p></div>
-      <div class="xst-t" data-ag="archimede"><span class="st-nome"><i style="--c:#C7B0FF"></i>Archimede</span><span class="st-ruolo">Tracciamento</span><p>Porta ogni acquisto a Google e Meta, contato una volta.</p></div>
-      <div class="xst-t" data-ag="fibonacci"><span class="st-nome"><i style="--c:#FF8F7E"></i>Fibonacci</span><span class="st-ruolo">Budget</span><p>Sposta il budget dove ci sono margine e merce.</p></div>
+      <div class="xst-t on" data-ag="squadra"><span class="st-nome"><i style="--c:var(--blue)"></i>Sei agenti, un prodotto</span><p>Tocca un agente: sotto c'è il suo lavoro, prima e dopo, su un prodotto vero.</p></div>
+      <div class="xst-t" data-ag="leonardo"><span class="st-nome"><i style="--c:#FFB15C"></i>Leonardo</span><span class="st-ruolo">Scrittore SEO+GEO</span><p>Riscrive le schede perché le trovino Google e ChatGPT.</p><div class="xst-piatto"><div class="xp"><span class="xp-k">Oggi</span><s>Levi's Mammoth Cardigan Obsidian Heather Cardi Brown - Cardigan Uomo Marrone Uomo LEVIS</s><small>88 caratteri, 66 parole del fornitore</small></div>
+<div class="xp on"><span class="xp-k">Acceso</span><b>Cardigan Levi's Mammoth Uomo Marrone Obsidian Heather</b><small>53 caratteri · scheda tecnica, 6 domande e risposte, 203 parole, 5 lingue</small></div>
+<div class="xp-nums"><div><b>84<i>/100</i></b><span>voto del giudice</span></div><div><b>5</b><span>lingue</span></div><div><b>6</b><span>domande e risposte</span></div></div></div><a class="xst-vai" href="/leve/scheda">Tutta la leva di Leonardo →</a></div>
+      <div class="xst-t" data-ag="holmes"><span class="st-nome"><i style="--c:#7CD3FF"></i>Holmes</span><span class="st-ruolo">Giudice AI</span><p>Rilegge ogni scheda: un numero inventato, e la rimanda indietro.</p><div class="xst-piatto"><ul class="xp-lista"><li>Ogni numero c'è nel testo del fornitore</li><li>Nessuna marca o materiale che il prodotto non dichiara</li><li>Nessun dato del fornitore perso per strada</li></ul>
+<div class="xp-nums"><div><b>9.476</b><span>giudicate</span></div><div class="on"><b>9.030</b><span>promosse</span></div><div><b>446</b><span>rimandate</span></div></div></div><a class="xst-vai" href="/leve/controllo">Tutta la leva di Holmes →</a></div>
+      <div class="xst-t" data-ag="galileo"><span class="st-nome"><i style="--c:#6FE59A"></i>Galileo</span><span class="st-ruolo">Traduttore</span><p>Traduce schede e sito con le parole che si cercano in ogni paese.</p><div class="xst-piatto"><div class="xp"><span class="xp-k">Oggi</span><b>Padella alta a saltare antiaderente in alluminio Pensofal Academy Chef</b><small>solo italiano</small></div>
+<div class="xp on"><span class="xp-k">Acceso</span><b>EN</b> Pensofal Academy Chef Non-Stick Aluminium Sauté Pan<br><b>DE</b> Antihaft-Saltierpfanne aus Aluminium Pensofal Academy Chef<small>titolo, scheda, domande e meta, in ogni lingua</small></div></div><a class="xst-vai" href="/leve/lingue">Tutta la leva di Galileo →</a></div>
+      <div class="xst-t" data-ag="volta"><span class="st-nome"><i style="--c:#FFE16B"></i>Volta</span><span class="st-ruolo">Feed</span><p>Riempie il feed di Google Shopping, campo per campo.</p><div class="xst-piatto"><div class="xp-bar"><b>14<i>/27</i></b><span>campi pieni oggi</span><em style="--w:52%"></em></div>
+<div class="xp-bar on"><b>24<i>/27</i></b><span>acceso: 3 restano vuoti apposta</span><em style="--w:89%"></em></div>
+<div class="xp-righe"><div><code>material</code><s>vuoto</s><b>Poliestere/Lana</b></div><div><code>google_product_category</code><s>vuoto</s><b>Abbigliamento e accessori › Abbigliamento</b></div><div><code>product_highlight</code><s>vuoto</s><b>Maniche lunghe · Bottoni · Tasche frontali</b></div></div></div><a class="xst-vai" href="/leve/feed">Tutta la leva di Volta →</a></div>
+      <div class="xst-t" data-ag="archimede"><span class="st-nome"><i style="--c:#C7B0FF"></i>Archimede</span><span class="st-ruolo">Tracciamento</span><p>Porta ogni acquisto a Google e Meta, contato una volta.</p><div class="xst-piatto"><div class="xp"><span class="xp-k">Oggi</span><b>7 acquisti su 10</b> arrivano a Google e Meta<small>pixel nel browser: blocker, Safari, pagine chiuse prima</small></div>
+<div class="xp on"><span class="xp-k">Acceso</span><b>10 su 10</b>, contati una volta sola<small>dal server del negozio, con lo stesso id, e col consenso</small></div></div><a class="xst-vai" href="/leve/tracciamento">Tutta la leva di Archimede →</a></div>
+      <div class="xst-t" data-ag="fibonacci"><span class="st-nome"><i style="--c:#FF8F7E"></i>Fibonacci</span><span class="st-ruolo">Budget</span><p>Sposta il budget dove ci sono margine e merce.</p><div class="xst-piatto"><div class="xp"><span class="xp-k">Oggi</span><b>Una campagna per tutti</b><small>i 386 fuori prezzo prendono il 18% della spesa e non vendono niente</small></div>
+<div class="xp on"><span class="xp-k">Acceso</span><b>Il budget ai 456 col prezzo giusto</b><small>78% delle vendite col 31% della spesa: ogni venti giorni l'etichetta si riscrive</small></div></div><a class="xst-vai" href="/leve/budget">Tutta la leva di Fibonacci →</a></div>
     </div>
     <p class="xlead xr" style="--d:.8s"><strong>Nessuna modifica arriva sul tuo negozio senza il sì di una persona.</strong></p>
-  </section>
-
-  <section class="xs xcontrollo" id="m-controllo">
-    <p class="xk xr">Prima che vada online</p>
-    <h2><span class="xw"><span class="" style="--d:0.10s">Ogni</span></span> <span class="xw"><span class="" style="--d:0.17s">scheda</span></span> <span class="xw"><span class="" style="--d:0.24s">la</span></span> <span class="xw"><span class="xout" style="--d:0.31s">rilegge</span></span> <span class="xw"><span class="xout" style="--d:0.38s">Holmes.</span></span></h2>
-    <div class="ct-box">
-      <div class="ct-chi"><span><img src="images/squadra/holmes.webp" alt="" width="400" height="416" loading="lazy" decoding="async"></span><div><b>Holmes · Giudice AI</b><small>i controlli su ogni scheda</small></div></div>
-      <ul class="ct-lista"><li class="xr" style="--d:0.35s"><i></i><span>Ogni numero c'è nel testo del fornitore o nei dati del negozio</span></li><li class="xr" style="--d:0.45s"><i></i><span>Nessuna marca, certificazione o materiale che il prodotto non dichiara</span></li><li class="xr" style="--d:0.55s"><i></i><span>Nessun dato del fornitore perso per strada</span></li><li class="xr" style="--d:0.65s"><i></i><span>Domande sul prodotto, non su taglie, prezzi o spedizioni</span></li><li class="xr" style="--d:0.75s"><i></i><span>HTML pulito: niente codice che non c'era</span></li></ul>
-    </div>
-    <div class="ct-conti xr" style="--d:.9s"><div><b>9.476</b><span>giudicate in due negozi</span></div><div class="on"><b>9.030</b><span>promosse</span></div><div><b>446</b><span>rimandate a riscrivere</span></div></div>
-    <p class="xlead xr" style="--d:1s">Online va solo quella promossa.</p>
-  </section>
-
-  <section class="xs xlingue" id="m-lingue">
-    <p class="xk xr">Poi in ogni lingua</p>
-    <p class="pt-ag xr" style="--c:#6FE59A"><i></i><b>Galileo</b> · Traduttore</p>
-    <h2><span class="xw"><span class="" style="--d:0.10s">Tradotto,</span></span> <span class="xw"><span class="" style="--d:0.17s">si</span></span> <span class="xw"><span class="xout" style="--d:0.24s">apre</span></span> <span class="xw"><span class="xout" style="--d:0.31s">l'estero.</span></span></h2>
-    <p class="xlead xr" style="--d:.25s">Il negozio della padella, in inglese, francese e tedesco da metà maggio 2026: titolo, scheda, domande e meta di ogni prodotto.</p>
-    <div class="lg-carte"><div class="lg-carta xr" style="--d:0.35s"><i>EN</i><p>Pensofal Academy Chef Non-Stick Aluminium Sauté Pan</p></div><div class="lg-carta xr" style="--d:0.45s"><i>FR</i><p>Poêle haute à sauter antiadhésive en aluminium Pensofal Academy Chef</p></div><div class="lg-carta xr" style="--d:0.55s"><i>DE</i><p>Antihaft-Saltierpfanne aus Aluminium Pensofal Academy Chef</p></div></div>
-    <div class="lg-ordini xr" style="--d:.6s">
-      <div class="lg-ordini-k"><div><b>12</b><span>dall'estero nei 12 mesi prima</span></div><div class="on"><b>56–80</b><span>al mese da giugno</span></div></div>
-      <svg class="lg-svg" viewBox="0 0 360 208" role="img" aria-label="Ordini dall'estero mese per mese, da novembre 2024 a settembre 2026: 12 nei dodici mesi prima della traduzione, poi 65, 60, 56 e 80 al mese da giugno a settembre 2026"><line x1="26" y1="145.0" x2="354" y2="145.0" class="g"/><text x="20" y="149.0" text-anchor="end" class="tk">20</text><line x1="26" y1="108.0" x2="354" y2="108.0" class="g"/><text x="20" y="112.0" text-anchor="end" class="tk">40</text><line x1="26" y1="71.0" x2="354" y2="71.0" class="g"/><text x="20" y="75.0" text-anchor="end" class="tk">60</text><line x1="26" y1="34.0" x2="354" y2="34.0" class="g"/><text x="20" y="38.0" text-anchor="end" class="tk">80</text><path class="graffa" d="M113.6 148.1 V142.1 H280.7 V148.1"/><text x="197.1" y="135.1" text-anchor="middle" class="lb">12 in dodici mesi</text><rect class="b" style="--i:0" x="28.6" y="180.5" width="9" height="1.5" rx="3.0"/><rect class="b" style="--i:1" x="42.9" y="180.5" width="9" height="1.5" rx="3.0"/><rect class="b" style="--i:2" x="57.2" y="180.2" width="9" height="1.9" rx="3.0"/><rect class="b" style="--i:3" x="71.4" y="180.2" width="9" height="1.9" rx="3.0"/><rect class="b" style="--i:4" x="85.7" y="178.3" width="9" height="3.7" rx="3.0"/><rect class="b" style="--i:5" x="99.9" y="178.3" width="9" height="3.7" rx="3.0"/><rect class="b" style="--i:6" x="114.2" y="180.5" width="9" height="1.5" rx="3.0"/><rect class="b" style="--i:7" x="128.5" y="180.2" width="9" height="1.9" rx="3.0"/><rect class="b" style="--i:8" x="142.7" y="180.5" width="9" height="1.5" rx="3.0"/><rect class="b" style="--i:9" x="157.0" y="178.3" width="9" height="3.7" rx="3.0"/><rect class="b" style="--i:10" x="171.2" y="178.3" width="9" height="3.7" rx="3.0"/><rect class="b" style="--i:11" x="185.5" y="178.3" width="9" height="3.7" rx="3.0"/><rect class="b" style="--i:12" x="199.8" y="180.5" width="9" height="1.5" rx="3.0"/><rect class="b" style="--i:13" x="214.0" y="180.5" width="9" height="1.5" rx="3.0"/><rect class="b" style="--i:14" x="228.3" y="180.2" width="9" height="1.9" rx="3.0"/><rect class="b" style="--i:15" x="242.5" y="180.5" width="9" height="1.5" rx="3.0"/><rect class="b" style="--i:16" x="256.8" y="180.2" width="9" height="1.9" rx="3.0"/><rect class="b" style="--i:17" x="271.1" y="176.4" width="9" height="5.6" rx="3.0"/><rect class="b mezzo" style="--i:18" x="285.3" y="156.1" width="9" height="25.9" rx="3.0"/><rect class="b dopo" style="--i:19" x="299.6" y="61.8" width="9" height="120.2" rx="3.0"/><text x="304.1" y="54.8" text-anchor="middle" class="val" style="--i:19">65</text><rect class="b dopo" style="--i:20" x="313.8" y="71.0" width="9" height="111.0" rx="3.0"/><text x="318.3" y="64.0" text-anchor="middle" class="val" style="--i:20">60</text><rect class="b dopo" style="--i:21" x="328.1" y="78.4" width="9" height="103.6" rx="3.0"/><text x="332.6" y="71.4" text-anchor="middle" class="val" style="--i:21">56</text><rect class="b dopo" style="--i:22" x="342.4" y="34.0" width="9" height="148.0" rx="3.0"/><text x="346.9" y="27.0" text-anchor="middle" class="val" style="--i:22">80</text><line class="online" x1="289.8" y1="28" x2="289.8" y2="182"/><text x="281.8" y="36" text-anchor="end" class="lb on">online in EN · FR · DE, metà maggio</text><text x="33.1" y="198" text-anchor="middle" class="tk">nov 24</text><text x="118.7" y="198" text-anchor="middle" class="tk">mag 25</text><text x="204.3" y="198" text-anchor="middle" class="tk">nov 25</text><text x="289.8" y="198" text-anchor="middle" class="tk">mag 26</text><text x="346.9" y="198" text-anchor="middle" class="tk">set 26</text></svg>
-      <p class="lg-nota">Ordini con l'indirizzo fuori dall'Italia, dal pannello Shopify del negozio. A settembre, 4 su 10.</p>
-    </div>
   </section>
 
   <section class="xs xs4 xsmark sx" id="m-conti">
