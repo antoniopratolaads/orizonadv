@@ -369,6 +369,35 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .tesi h2 span{color:var(--white)}
 .tesi p{margin:22px auto 0;font-size:18px;color:rgba(255,255,255,.82);max-width:720px;text-wrap:pretty}
 .tesi p strong{color:var(--white);font-weight:600}
+/* la percentuale: tesi, tre righe, la curva */
+.tesi{text-align:left}
+.pc-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:56px;align-items:center}
+.pc-k{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:500;color:var(--blue-ll);margin-bottom:18px}
+.pc-k::before{content:'';width:3px;height:18px;border-radius:2px;background:var(--green)}
+.tesi .pc-testo h2{margin:0;max-width:none;text-wrap:balance}
+.tesi .pc-lead{margin:20px 0 0;max-width:none}
+.pc-righe{list-style:none;counter-reset:pc;margin-top:26px;display:grid;gap:12px}
+.pc-righe li{counter-increment:pc;position:relative;padding:14px 16px 14px 52px;border-radius:14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);font-size:15.5px;line-height:1.5;color:rgba(255,255,255,.86)}
+.pc-righe li::before{content:counter(pc);position:absolute;left:16px;top:14px;width:24px;height:24px;border-radius:50%;background:var(--white);color:var(--blue);font-size:12.5px;font-weight:600;display:grid;place-items:center}
+.pc-righe li b{color:var(--white);font-weight:600}
+.pc-fig{margin:0;padding:22px 22px 18px;border-radius:20px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16)}
+.pc-svg{display:block;width:100%;height:auto}
+.pc-asse{stroke:rgba(255,255,255,.25);stroke-width:1}
+.pc-prima{fill:none;stroke:rgba(255,255,255,.55);stroke-width:2.5;stroke-linecap:round}
+.pc-base{fill:none;stroke:rgba(255,255,255,.35);stroke-width:2;stroke-dasharray:4 5;stroke-linecap:round}
+.pc-area{fill:url(#pc-g)}
+.pc-dopo{fill:none;stroke:var(--green);stroke-width:3.5;stroke-linecap:round}
+.pc-acc{stroke:rgba(255,255,255,.45);stroke-width:1;stroke-dasharray:3 4}
+.pc-punto{fill:var(--white);stroke:var(--green);stroke-width:3}
+.pc-t{font-size:12px;fill:rgba(255,255,255,.7);font-weight:500}
+.pc-t.on{fill:var(--white);font-weight:600}
+.pc-t.verde{fill:var(--green);font-weight:600}
+.pc-fig figcaption{margin-top:12px;font-size:13px;color:rgba(255,255,255,.72);line-height:1.45}
+.js .pc-fig .pc-dopo{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.6s var(--ease) .4s}
+.js .pc-fig.in .pc-dopo{stroke-dashoffset:0}
+.js .pc-fig .pc-area{opacity:0;transition:opacity .8s var(--ease) 1.4s}
+.js .pc-fig.in .pc-area{opacity:1}
+@media(max-width:1100px){.pc-grid{grid-template-columns:1fr;gap:32px}}
 
 /* ── IL CONTROLLO (15/10/2026): Holmes rilegge ogni scheda prima che vada online; i controlli veri, i numeri dal
    database dei due negozi che hanno più schede ── */
@@ -1353,6 +1382,12 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   .xs.on .xdue .xno i::after{width:18%}
   .xs5 h2{margin-top:8px;font-size:36px;line-height:1.05}
   .xpunti{list-style:none;margin-top:18px;display:grid;gap:10px}
+  .xpc{margin-top:18px;gap:8px}
+  .xpc li{padding:12px 14px 12px 46px;font-size:14.5px}
+  .xpc li::before{left:13px;top:12px}
+  .xpc-fig{margin-top:16px;padding:14px 14px 12px}
+  .xs.on .xpc-fig .pc-dopo{stroke-dashoffset:0}
+  .xs.on .xpc-fig .pc-area{opacity:1}
   .xpunti li{padding-left:16px;position:relative;font-size:15.5px}
   .xpunti li::before{content:'';position:absolute;left:0;top:10px;width:7px;height:7px;border-radius:50%;background:var(--green)}
   .xtesta{display:flex;gap:14px;align-items:center}
@@ -1570,8 +1605,29 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
   <section class="xs xs5" id="m-paghi">
     <p class="xk xr">Come ci paghi</p>
     <h2><span class="xw"><span class="" style="--d:0.10s">A</span></span> <span class="xw"><span class="" style="--d:0.17s">percentuale</span></span> <span class="xw"><span class="xoutw" style="--d:0.30s">sul</span></span> <span class="xw"><span class="xoutw" style="--d:0.38s">venduto</span></span> <span class="xw"><span class="" style="--d:0.50s">in</span></span> <span class="xw"><span class="" style="--d:0.57s">più.</span></span></h2>
-    <p class="xlead xr" style="--d:.65s"><strong style="color:#fff">Un'agenzia classica vende servizi. Noi leggiamo i numeri e prendiamo decisioni.</strong> Per questo la quota la decidiamo insieme in base alla situazione di partenza. Nessuna fee fissa.</p>
-    <ul class="xpunti"><li class="xr" style="--d:.8s">I conti aperti ogni mattina</li><li class="xr" style="--d:.9s">Il primo mese si accende il catalogo, dal terzo si guida sull'utile</li><li class="xr" style="--d:1s">Non lavoriamo con tutti: se non c'è margine, te lo diciamo</li></ul>
+    <p class="xlead xr" style="--d:.65s"><strong style="color:#fff">Un'agenzia classica vende servizi. Noi leggiamo i numeri e prendiamo decisioni.</strong> Per questo possiamo farci pagare a percentuale sul venduto in più.</p>
+    <ol class="pc-righe xpc">
+      <li class="xr" style="--d:.75s"><b>Il venduto in più</b> si misura sui dodici mesi prima, letti dal tuo Shopify.</li>
+      <li class="xr" style="--d:.85s"><b>La quota</b> la decidiamo insieme in base alla situazione di partenza.</li>
+      <li class="xr" style="--d:.95s"><b>Se non cresci, non guadagniamo.</b> Nessuna fee fissa, niente minimi.</li>
+    </ol>
+    <figure class="pc-fig xpc-fig xr" style="--d:1.05s">
+      <svg class="pc-svg" viewBox="0 0 520 260" role="img" aria-label="La tua crescita: dodici mesi prima in grigio, poi l'accensione e la curva che sale; l'area fra le due è il venduto in più, su cui si calcola la quota">
+        <defs><linearGradient id="pc-g-m" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#60E787" stop-opacity=".45"/><stop offset="1" stop-color="#60E787" stop-opacity="0"/></linearGradient></defs>
+        <line x1="30" y1="222" x2="500" y2="222" class="pc-asse"/>
+        <path class="pc-prima" d="M30 160 C 90 158, 150 164, 230 160"/>
+        <path class="pc-base" d="M230 160 C 300 158, 400 162, 500 160"/>
+        <path class="pc-area" d="M230 160 C 300 158, 400 162, 500 160 L500 70 C 420 90, 330 110, 230 160 Z"/>
+        <path class="pc-dopo" pathLength="1" d="M230 160 C 330 110, 420 90, 500 70"/>
+        <line x1="230" y1="40" x2="230" y2="222" class="pc-acc"/>
+        <circle cx="230" cy="160" r="6" class="pc-punto"/>
+        <text x="30" y="246" class="pc-t">dodici mesi prima</text>
+        <text x="230" y="30" class="pc-t on" text-anchor="middle">accensione</text>
+        <text x="500" y="246" class="pc-t" text-anchor="end">dodici mesi dopo</text>
+        <text x="420" y="118" class="pc-t verde" text-anchor="middle">il venduto in più</text>
+      </svg>
+      <figcaption>La quota si calcola solo sull'area verde.</figcaption>
+    </figure>
   </section>
 
   <section class="xs xs6" id="m-chi">
@@ -2059,8 +2115,35 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
 <section class="solo-d tesi" id="tesi" aria-labelledby="tesi-t">
   <img class="mark-t" src="images/brand/mark-bianco.svg" alt="" aria-hidden="true">
   <div class="wrap">
-    <h2 id="tesi-t" class="fx">Un'agenzia classica vende servizi. <span>Noi leggiamo i numeri e prendiamo decisioni.</span></h2>
-    <p class="fx fx-blur ritardo">Ogni mattina: cosa spingere, cosa fermare, cosa riordinare, quanto spendere. Decisioni analitiche, prodotto per prodotto: è l'unico modo per avere un vantaggio sugli altri. <strong>Per questo possiamo farci pagare a percentuale sul venduto in più, con una quota decisa insieme in base alla situazione di partenza.</strong> Nessuna fee fissa.</p>
+    <div class="pc-grid">
+      <div class="pc-testo">
+        <p class="pc-k fx">Come ci paghi</p>
+        <h2 id="tesi-t" class="fx">Un'agenzia classica vende servizi. <span>Noi leggiamo i numeri e prendiamo decisioni.</span></h2>
+        <p class="pc-lead fx fx-blur ritardo">Ogni mattina: cosa spingere, cosa fermare, cosa riordinare, quanto spendere. Per questo possiamo farci pagare <strong>a percentuale sul venduto in più</strong>.</p>
+        <ol class="pc-righe">
+          <li class="fx fx-sx" style="--i:0"><b>Il venduto in più</b> si misura sui dodici mesi prima, letti dal tuo Shopify: la stessa curva che vedi nella sezione Risultati.</li>
+          <li class="fx fx-sx" style="--i:1"><b>La quota</b> la decidiamo insieme in base alla situazione di partenza.</li>
+          <li class="fx fx-sx" style="--i:2"><b>Se non cresci, non guadagniamo.</b> Nessuna fee fissa, niente minimi.</li>
+        </ol>
+      </div>
+      <figure class="pc-fig fx fx-dx">
+        <svg class="pc-svg" viewBox="0 0 520 260" role="img" aria-label="La tua crescita: dodici mesi prima in grigio, poi l'accensione e la curva che sale; l'area fra le due è il venduto in più, su cui si calcola la quota">
+        <defs><linearGradient id="pc-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#60E787" stop-opacity=".45"/><stop offset="1" stop-color="#60E787" stop-opacity="0"/></linearGradient></defs>
+        <line x1="30" y1="222" x2="500" y2="222" class="pc-asse"/>
+        <path class="pc-prima" d="M30 160 C 90 158, 150 164, 230 160"/>
+        <path class="pc-base" d="M230 160 C 300 158, 400 162, 500 160"/>
+        <path class="pc-area" d="M230 160 C 300 158, 400 162, 500 160 L500 70 C 420 90, 330 110, 230 160 Z"/>
+        <path class="pc-dopo" pathLength="1" d="M230 160 C 330 110, 420 90, 500 70"/>
+        <line x1="230" y1="40" x2="230" y2="222" class="pc-acc"/>
+        <circle cx="230" cy="160" r="6" class="pc-punto"/>
+        <text x="30" y="246" class="pc-t">dodici mesi prima</text>
+        <text x="230" y="30" class="pc-t on" text-anchor="middle">accensione</text>
+        <text x="500" y="246" class="pc-t" text-anchor="end">dodici mesi dopo</text>
+        <text x="420" y="118" class="pc-t verde" text-anchor="middle">il venduto in più</text>
+      </svg>
+        <figcaption>La tua crescita, letta ogni mattina dal pannello Shopify. La quota si calcola solo sull'area verde.</figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
