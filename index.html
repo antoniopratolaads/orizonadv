@@ -1039,6 +1039,15 @@ h1,h2,h3{font-weight:600;letter-spacing:-.025em}
 .wf-svg .l{font-size:10.5px;fill:var(--black-m)}
 .wf-svg .lnk{stroke:rgba(12,23,19,.25);stroke-width:1;stroke-dasharray:2 3}
 .wf-mese{margin-top:12px;font-size:13px;color:var(--black-m);line-height:1.5}
+/* la cascata di «Il fatturato è un numero» (21/10/2026): statica, fuori dal disegno di .wf */
+.cas{border:1px solid var(--line-2);border-radius:16px;background:var(--white);padding:16px 16px 14px;margin-bottom:22px;box-shadow:0 24px 50px -34px rgba(12,23,19,.35)}
+.cas .wf-svg rect{transition:none}
+.cas .wf-svg .f{opacity:.45}
+.cas .wf-svg .l.on{fill:#B4322B;font-weight:600}
+.js .vs-why .cas rect{transform:scaleY(0);transform-box:fill-box;transform-origin:50% 100%;transition:transform .9s var(--ease) var(--d,0s)}
+.js .vs-why .cas rect.b-meno{transform-origin:50% 0}
+.js .vs-why.in .cas rect{transform:none}
+@media (prefers-reduced-motion: reduce){.js .vs-why .cas rect{transform:none;transition:none}}
 .wf-mese b{color:var(--black);font-weight:600}
 .vs-why .wf .wf-mese b{color:var(--black)}
 .ric{border:1px solid var(--line-2);border-radius:16px;background:var(--white);padding:16px 16px 14px;margin-bottom:22px}
@@ -2049,9 +2058,10 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
         <div class="vr tot" style="--r:10" role="row"><span>= Utile del mese</span><span class="b"><b>quello che resta</b><small>il numero su cui guidiamo le campagne</small></span></div>
       </div>
       <div class="vs-why fx fx-dx">
-        <div class="bars" aria-hidden="true">
-          <div><i style="--h:100%"></i><b>350.095 €</b><span>il «venduto» in Shopify</span></div>
-          <div class="on"><i style="--h:69%"></i><b>240.496 €</b><span>davvero tuo, prima del costo d'acquisto</span></div>
+        <div class="cas" aria-describedby="cas-n">
+          <div class="wf-top"><span class="wf-k">Dal venduto a quello che resta</span></div>
+          <svg class="wf-svg" viewBox="0 0 480 228" role="img" aria-label="Cascata del mese: 350.095 euro venduti in Shopify, meno 61.608 di IVA e 15.275 di spedizioni fa 273.211 di merce netta; meno 32.715 di resi restano 240.496 euro, prima del costo d'acquisto."><line x1="10" y1="204" x2="470" y2="204" class="g"/><line x1="78" y1="28.0" x2="88" y2="28.0" class="lnk"/><line x1="156" y1="59.0" x2="166" y2="59.0" class="lnk"/><line x1="234" y1="66.7" x2="244" y2="66.7" class="lnk"/><line x1="312" y1="66.7" x2="322" y2="66.7" class="lnk"/><line x1="390" y1="83.1" x2="400" y2="83.1" class="lnk"/><rect x="10" y="28.0" width="68" height="176.0" rx="4" class="b-inc" style="--d:0.00s"/><text x="44.0" y="22.0" text-anchor="middle" class="v">350.095 €</text><text x="44.0" y="222" text-anchor="middle" class="l">Venduto</text><rect x="88" y="28.0" width="68" height="31.0" rx="4" class="b-meno f" style="--d:0.11s"/><text x="122.0" y="22.0" text-anchor="middle" class="v meno">−61.608 €</text><text x="122.0" y="222" text-anchor="middle" class="l">IVA</text><rect x="166" y="59.0" width="68" height="7.7" rx="4" class="b-meno f" style="--d:0.22s"/><text x="200.0" y="53.0" text-anchor="middle" class="v meno">−15.275 €</text><text x="200.0" y="222" text-anchor="middle" class="l">Spedizioni</text><rect x="244" y="66.7" width="68" height="137.3" rx="4" class="b-inc f" style="--d:0.33s"/><text x="278.0" y="60.7" text-anchor="middle" class="v">273.211 €</text><text x="278.0" y="222" text-anchor="middle" class="l">Merce netta</text><rect x="322" y="66.7" width="68" height="16.4" rx="4" class="b-meno" style="--d:0.44s"/><text x="356.0" y="60.7" text-anchor="middle" class="v meno">−32.715 €</text><text x="356.0" y="222" text-anchor="middle" class="l on">Resi</text><rect x="400" y="83.1" width="68" height="120.9" rx="4" class="b-resta" style="--d:0.55s"/><text x="434.0" y="77.1" text-anchor="middle" class="v resta">240.496 €</text><text x="434.0" y="222" text-anchor="middle" class="l">Resta a te</text></svg>
+          <p class="wf-mese" id="cas-n"><b>Il 31% del venduto non è tuo:</b> 109.599 € fra IVA, spedizioni e resi. I resi li leggiamo il giorno in cui arrivano.</p>
         </div>
         <details class="vs-det"><summary>Perché conta<i></i></summary><div class="vs-det-in">
         <ol>
