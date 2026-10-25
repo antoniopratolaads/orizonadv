@@ -286,6 +286,8 @@ html:not(.animato) .cru{position:static;margin-bottom:18px} html:not(.animato) .
 .conto-sim{width:100%;border-collapse:collapse;font-size:12.5px;font-variant-numeric:tabular-nums} .conto-sim th{font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--mut);text-align:right;padding:4px 8px;font-weight:600} .conto-sim th:first-child,.conto-sim td:first-child{text-align:left}
 .conto-sim td{padding:6px 8px;border-top:1px solid var(--line);text-align:right;color:var(--mut);opacity:.3;transition:.3s} .conto-sim tr.on td{opacity:1} .conto-sim tr.on td:first-child{color:var(--fg)} .conto-sim td .badge-c{display:inline-block;font-size:10.5px;letter-spacing:.08em;font-weight:800;border-radius:6px;padding:3px 8px;margin-right:8px;color:#fff;background:#3750f7;vertical-align:middle} .badge-c.shopping{background:#1a73e8} .badge-c.meta{background:#0866ff} .badge-c.tiktok{background:#111;box-shadow:0 0 0 1px #444} .conto-sim td b{font-weight:700;color:var(--fg);vertical-align:middle} .conto-sim td .seg{display:inline;font-size:11.5px;color:var(--mut);margin-left:8px} .conto-sim td{padding:6px 8px} .conto-sim td .badge-c{padding:2px 7px;font-size:10px;margin-right:6px} .conto-sim tr.tot td{font-weight:700;border-top:2px solid var(--line)} .conto-sim tr.tot.on td:last-child{color:var(--ok)}
 .sposta{margin:8px 0 0;font-size:12px;color:var(--mut);opacity:0;transition:.4s} .sposta.on{opacity:1} .sposta b{color:var(--ok)}
+.tel .audio.play{bottom:auto;top:50%;transform:translate(-50%,-50%);font-size:15px;padding:12px 20px}
+.tab-scorri{overflow-x:auto;-webkit-overflow-scrolling:touch} .tab-scorri .conto-sim{min-width:480px}
 /* 06 i conti: il mese letto da Shopify, riga per riga */
 .conti3{grid-template-columns:1.25fr .9fr} .ledger{list-style:none;padding:0;margin:0;font-size:13px} .ledger li{display:grid;grid-template-columns:1fr auto;gap:12px;padding:7px 0;border-bottom:1px solid var(--line);opacity:.22;transition:.3s} .ledger li.on{opacity:1}
 .ledger li span b{font-weight:600;color:var(--fg)} .ledger li small{display:block;font-size:11.5px;color:var(--mut);margin-top:1px} .ledger li i{font-style:normal;font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap;color:var(--fg)}
@@ -313,7 +315,7 @@ section.tech{padding-block:clamp(48px,6vw,72px)} .testa-t{display:flex;justify-c
 @keyframes cp-deriva1{to{transform:translate(-180px,120px) scale(1.18)}} @keyframes cp-deriva2{to{transform:translate(200px,-90px) scale(1.1)}} @keyframes cp-deriva3{from{transform:scale(.9)}to{transform:translate(-240px,140px) scale(1.25)}}
 .griglia-cp{position:absolute;inset:0;background-image:linear-gradient(rgba(120,150,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(120,150,255,.05) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse 80% 70% at 50% 18%,#000 35%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 18%,#000 35%,transparent 100%)}
 @media(prefers-reduced-motion:reduce){.fondo-cp .aurora{animation:none}}
-body{background:#070d0a} main,header.top,footer.foot,.guida{position:relative;z-index:1} .apertura{z-index:100} .scuro{background:transparent} .hero8.scuro{background:transparent} .foot{background:transparent}
+body{background:#070d0a} main,footer.foot{position:relative;z-index:1} header.top{z-index:20} .guida{z-index:30} .apertura{z-index:100} .scuro{background:transparent} .hero8.scuro{background:transparent} .foot{background:transparent}
 .chiaro{position:relative;z-index:1} .hfondo{background:transparent}
 /* la luce che segue il puntatore sui vetri, e le tessere che si inclinano */
 .luce:not(.cru){position:relative} .luce::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .35s;background:radial-gradient(380px circle at var(--x,50%) var(--y,50%),rgba(92,121,255,.16),transparent 55%)} .luce:hover::after{opacity:1}
@@ -352,7 +354,7 @@ html.telefono .parl.scena8 .pista{height:auto} html.telefono .parl.scena8 .fisso
 .parl{--h:calc(1.9 * 100svh)} .parl-grid{align-items:center} .parl-chi{display:flex;align-items:center;gap:12px;margin-top:18px} .parl-chi .tondo{width:56px;height:56px;flex:0 0 auto;border:2px solid #fff;box-shadow:0 8px 24px -10px rgba(0,0,0,.4)} .parl-chi b{display:block;font-size:15px} .parl-chi span:not(.tondo){font-size:13px;color:var(--mut)}
 .parl-promesse li{opacity:.25;transition:opacity .35s} .parl-promesse li.on{opacity:1} .parl-promesse li span{color:var(--mut)} .parl-promesse li span i{display:inline-block;width:2px;height:1em;background:var(--acc);vertical-align:-.15em}
 .parl-antonio{display:flex;align-items:center;gap:12px;margin:22px 0 0;opacity:0;transform:translateY(10px);transition:.5s} .parl-antonio.on{opacity:1;transform:none} .parl-antonio img{width:52px;height:52px;border-radius:50%;object-fit:cover} .parl-antonio b{display:block} .parl-antonio span{font-size:14px;color:var(--mut)}
-.animato .pform [data-f]{opacity:.15;transform:translateY(14px);transition:opacity .4s,transform .5s cubic-bezier(.2,.9,.3,1)} .animato .pform [data-f].on{opacity:1;transform:none} .animato .pform{transform:translateY(var(--sale,40px));transition:transform .6s cubic-bezier(.2,.9,.3,1);box-shadow:0 40px 80px -50px rgba(12,23,19,.5)}
+.animato .pform [data-f]{opacity:.6;transition:opacity .4s} .animato .pform [data-f].on{opacity:1} .pform input:not([type=checkbox]),.pform select{font-size:16px} .pform input[type=checkbox]{width:20px;height:20px;padding:0;flex:0 0 auto} .animato .pform{transform:translateY(var(--sale,40px));transition:transform .6s cubic-bezier(.2,.9,.3,1);box-shadow:0 40px 80px -50px rgba(12,23,19,.5)}
 
 
 /* la scala delle proporzioni (passo 1,25): 14 17 21 27 34 42 53 66; colonne 5/7 nell'hero; righe 45-60 caratteri */
@@ -367,6 +369,19 @@ h2{font-size:var(--t2);line-height:1.1} .lead{font-size:var(--t4);line-height:1.
 .scrive2 b{font-size:var(--t3)} .conti-lato .grande{font-size:var(--t1)}
 @media(max-width:860px){.htesto{display:block} .htesto h1{font-size:var(--t1);max-width:14ch} .htesto .lead{font-size:var(--t5)} .hfondo img{object-position:50% 100%}}
 .srv{--h:calc(7 * 165svh)}
+
+/* dal check di Codex (25/10 sera): la finestra dei servizi entra nello schermo, le lastre tornano nelle misure del telefono, le miniature a due colonne */
+@media(max-width:860px){
+html.telefono.animato .srv .fisso{align-content:start;padding-block:66px 24px} html.telefono .srv-scene{height:calc(100svh - 148px)}
+html.telefono .strati{height:470px} html.telefono .strato{transform:translateZ(calc(var(--e) * var(--i) * 44px + var(--i) * .4px))} html.telefono .s-foto{top:40px;height:140px} html.telefono .s-titolo{top:196px} html.telefono .s-desc{top:262px} html.telefono .s-lingue{top:330px} html.telefono .s-campi{top:368px} html.telefono .s-eti{top:412px} html.telefono .s-track{top:444px}
+html.telefono .fam{grid-template-columns:repeat(2,minmax(0,1fr))} html.telefono .fam figcaption{font-size:13px} html.telefono .fam img{max-height:150px}
+html.telefono .feedrow li{grid-template-columns:1fr} html.telefono .feedrow li b{overflow-wrap:anywhere}
+}
+/* i testi d'esempio leggibili anche prima dell'animazione */
+.campo{opacity:.55} .lingua{opacity:.5} .ledger li{opacity:.45} .conto-sim td{opacity:.5} .cat-passate li{opacity:.55} .evento{opacity:.5} .canale{opacity:.5}
+.campo .et,.conto-sim th,.esempio{font-size:12.5px} .s-desc,.lingua .ok8,.evento small,.canale code{font-size:12.5px}
+/* le piste: i servizi un po' meno lunghi, la ruota più lunga */
+.srv{--h:calc(7 * 140svh)} .orb{--h:calc(3.4 * 100svh)}
 /* il catalogo da 5.000+: la griglia che si accende */
 .cat{--h:calc(3 * 100svh)} .cat-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(32px,5vw,80px);align-items:center} .cat h2 .cat-dopo{color:var(--mut);transition:color .4s} .cat.fine h2 .cat-dopo{color:var(--ok)}
 .cat-passate{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:4px} .cat-passate li{display:grid;grid-template-columns:150px 1fr;gap:12px;align-items:baseline;padding:8px 10px;border-radius:10px;font-size:14px;opacity:.4;transition:.3s} .cat-passate li.att{opacity:1;background:var(--card);box-shadow:0 0 0 1px var(--line)} .cat-passate li.fatta{opacity:1}
@@ -473,7 +488,7 @@ h2{font-size:var(--t2);line-height:1.1} .lead{font-size:var(--t4);line-height:1.
 <p class="pan-robot"><img src="img/testa-fibonacci.png" alt=""><span><b>Fibonacci</b>muove il budget</span></p>
 <h2>Le campagne segmentate con le etichette del catalogo.</h2>
 <p class="lead">Google Shopping e Performance Max, Meta e TikTok: ogni campagna spinge un segmento del catalogo, e il budget si sposta ogni settimana dove rende di più sull&#x27;utile.</p>
-<div class="viz"><p class="esempio">Un conto simulato, un mese · segmentato con le etichette del catalogo</p><table class="conto-sim" id="s5-tab"><thead><tr><th>Campagna · segmento del catalogo</th><th>Spesa</th><th>Venduto</th><th>ROAS</th><th>Utile</th></tr></thead><tbody><tr><td><span class="badge-c pmax">PMAX</span><b>PMAX 1</b><span class="seg">margine alto</span></td><td data-n="6200">0 €</td><td data-n="48400">0 €</td><td>7,8x</td><td data-n="9100">0 €</td></tr><tr><td><span class="badge-c pmax">PMAX</span><b>PMAX 2</b><span class="seg">competitivi</span></td><td data-n="3100">0 €</td><td data-n="18600">0 €</td><td>6,0x</td><td data-n="2900">0 €</td></tr><tr><td><span class="badge-c shopping">SHOPPING</span><b>SHOPPING 1</b><span class="seg">novità</span></td><td data-n="900">0 €</td><td data-n="4300">0 €</td><td>4,8x</td><td data-n="500">0 €</td></tr><tr><td><span class="badge-c meta">META</span><b>META 1</b><span class="seg">catalogo · chi ha visto il prodotto</span></td><td data-n="2400">0 €</td><td data-n="14900">0 €</td><td>6,2x</td><td data-n="2300">0 €</td></tr><tr><td><span class="badge-c tiktok">TIKTOK</span><b>TIKTOK 1</b><span class="seg">video · pubblico nuovo</span></td><td data-n="1100">0 €</td><td data-n="4600">0 €</td><td>4,2x</td><td data-n="300">0 €</td></tr><tr class="tot"><td>Totale</td><td data-n="13700">0 €</td><td data-n="90800">0 €</td><td>6.6x</td><td data-n="15100">0 €</td></tr></tbody></table>
+<div class="viz"><p class="esempio">Un conto simulato, un mese · segmentato con le etichette del catalogo</p><div class="tab-scorri"><table class="conto-sim" id="s5-tab"><thead><tr><th>Campagna · segmento del catalogo</th><th>Spesa</th><th>Venduto</th><th>ROAS</th><th>Utile</th></tr></thead><tbody><tr><td><span class="badge-c pmax">PMAX</span><b>PMAX 1</b><span class="seg">margine alto</span></td><td data-n="6200">0 €</td><td data-n="48400">0 €</td><td>7,8x</td><td data-n="9100">0 €</td></tr><tr><td><span class="badge-c pmax">PMAX</span><b>PMAX 2</b><span class="seg">competitivi</span></td><td data-n="3100">0 €</td><td data-n="18600">0 €</td><td>6,0x</td><td data-n="2900">0 €</td></tr><tr><td><span class="badge-c shopping">SHOPPING</span><b>SHOPPING 1</b><span class="seg">novità</span></td><td data-n="900">0 €</td><td data-n="4300">0 €</td><td>4,8x</td><td data-n="500">0 €</td></tr><tr><td><span class="badge-c meta">META</span><b>META 1</b><span class="seg">catalogo · chi ha visto il prodotto</span></td><td data-n="2400">0 €</td><td data-n="14900">0 €</td><td>6,2x</td><td data-n="2300">0 €</td></tr><tr><td><span class="badge-c tiktok">TIKTOK</span><b>TIKTOK 1</b><span class="seg">video · pubblico nuovo</span></td><td data-n="1100">0 €</td><td data-n="4600">0 €</td><td>4,2x</td><td data-n="300">0 €</td></tr><tr class="tot"><td>Totale</td><td data-n="13700">0 €</td><td data-n="90800">0 €</td><td>6.6x</td><td data-n="15100">0 €</td></tr></tbody></table></div>
 <p class="sposta" id="s5-sposta">Questa settimana: <b>+300 € a settimana</b> spostati da «novità» a «margine alto». Lo propone Fibonacci, lo decide Antonio.</p></div>
 <p class="snum"><b data-snum="4">+53%</b><span>di vendite in dodici mesi · Climando</span></p>
 <p class="chi8">Fibonacci propone · Antonio decide</p>
@@ -594,13 +609,13 @@ h2{font-size:var(--t2);line-height:1.1} .lead{font-size:var(--t4);line-height:1.
 <ul class="dett-ag" style="list-style:none;padding:0;margin:18px 0 0" id="dett-ag"><li data-i="0" hidden><b>Leonardo</b><p>scrive le schede, SEO e GEO</p></li><li data-i="1" hidden><b>Holmes</b><p>giudica ogni scheda prima che esca</p></li><li data-i="2" hidden><b>Galileo</b><p>traduce in quattro lingue</p></li><li data-i="3" hidden><b>Volta</b><p>compila il feed per Google</p></li><li data-i="4" hidden><b>Archimede</b><p>tracciamento server-side</p></li><li data-i="5" hidden><b>Fibonacci</b><p>muove il budget dove si vince</p></li></ul>
 
 </div>
-<div class="anello" id="anello"><img class="centro" src="img/antonio-pratola.jpg" alt="Antonio Pratola"><div class="giro" id="giro"><div class="ag2" data-i="0" style="--a:-90deg"><div class="tondo" style="--x:.15;--y:.31;--z:1.5"><video muted loop playsinline autoplay preload="metadata" src="img/clip-leonardo.mp4" aria-label="Leonardo"></video></div><b>Leonardo</b></div><div class="ag2" data-i="1" style="--a:-30deg"><div class="tondo" style="--x:.54;--y:.34;--z:1.5"><video muted loop playsinline autoplay preload="metadata" src="img/clip-holmes.mp4" aria-label="Holmes"></video></div><b>Holmes</b></div><div class="ag2" data-i="2" style="--a:30deg"><div class="tondo" style="--x:.15;--y:.31;--z:1.5"><video muted loop playsinline autoplay preload="metadata" src="img/clip-galileo.mp4" aria-label="Galileo"></video></div><b>Galileo</b></div><div class="ag2" data-i="3" style="--a:90deg"><div class="tondo" style="--x:.12;--y:.35;--z:1.5"><video muted loop playsinline autoplay preload="metadata" src="img/clip-volta.mp4" aria-label="Volta"></video></div><b>Volta</b></div><div class="ag2" data-i="4" style="--a:150deg"><div class="tondo" style="--x:.53;--y:.33;--z:1.5"><video muted loop playsinline autoplay preload="metadata" src="img/clip-archimede.mp4" aria-label="Archimede"></video></div><b>Archimede</b></div><div class="ag2" data-i="5" style="--a:210deg"><div class="tondo" style="--x:.80;--y:.37;--z:1.5"><video muted loop playsinline autoplay preload="metadata" src="img/clip-fibonacci.mp4" aria-label="Fibonacci"></video></div><b>Fibonacci</b></div></div></div>
+<div class="anello" id="anello"><img class="centro" src="img/antonio-pratola.jpg" alt="Antonio Pratola"><div class="giro" id="giro"><div class="ag2" data-i="0" style="--a:-90deg"><div class="tondo" style="--x:.15;--y:.31;--z:1.5"><video muted loop playsinline preload="metadata" src="img/clip-leonardo.mp4" aria-label="Leonardo"></video></div><b>Leonardo</b></div><div class="ag2" data-i="1" style="--a:-30deg"><div class="tondo" style="--x:.54;--y:.34;--z:1.5"><video muted loop playsinline preload="metadata" src="img/clip-holmes.mp4" aria-label="Holmes"></video></div><b>Holmes</b></div><div class="ag2" data-i="2" style="--a:30deg"><div class="tondo" style="--x:.15;--y:.31;--z:1.5"><video muted loop playsinline preload="metadata" src="img/clip-galileo.mp4" aria-label="Galileo"></video></div><b>Galileo</b></div><div class="ag2" data-i="3" style="--a:90deg"><div class="tondo" style="--x:.12;--y:.35;--z:1.5"><video muted loop playsinline preload="metadata" src="img/clip-volta.mp4" aria-label="Volta"></video></div><b>Volta</b></div><div class="ag2" data-i="4" style="--a:150deg"><div class="tondo" style="--x:.53;--y:.33;--z:1.5"><video muted loop playsinline preload="metadata" src="img/clip-archimede.mp4" aria-label="Archimede"></video></div><b>Archimede</b></div><div class="ag2" data-i="5" style="--a:210deg"><div class="tondo" style="--x:.80;--y:.37;--z:1.5"><video muted loop playsinline preload="metadata" src="img/clip-fibonacci.mp4" aria-label="Fibonacci"></video></div><b>Fibonacci</b></div></div></div>
 </div></div></div></section>
 <section class="sec parl chiaro scena8" id="parliamone" data-parl><div class="pista" data-parl-pista><div class="fisso"><div class="wrap two parl-grid">
 <div class="parl-testo">
 <p class="eyebrow">Parliamone</p>
 <h2>Vediamo cosa c'è da accendere nel tuo negozio.</h2>
-<div class="parl-chi"><span class="tondo" style="--x:.54;--y:.34;--z:1.5"><video muted loop playsinline autoplay preload="metadata" src="img/clip-holmes.mp4" aria-label="Holmes"></video></span><div><b>Holmes legge i tuoi numeri</b><span>poi ti risponde Antonio, in persona</span></div></div>
+<div class="parl-chi"><span class="tondo" style="--x:.54;--y:.34;--z:1.5"><video muted loop playsinline preload="metadata" src="img/clip-holmes.mp4" aria-label="Holmes"></video></span><div><b>Holmes legge i tuoi numeri</b><span>poi ti risponde Antonio, in persona</span></div></div>
 <ul class="promesse parl-promesse" id="parl-promesse"><li data-i="0"><b>Entro 24 ore</b> <span data-tx="ti rispondo con una lettura dei tuoi numeri: pannelli, campagne, catalogo."></span></li><li data-i="1"><b>Nessuna fee fissa.</b> <span data-tx="Una percentuale sul venduto in più, decisa insieme."></span></li><li data-i="2"><b>Non lavoriamo con tutti.</b> <span data-tx="Se non vediamo margine, te lo diciamo prima."></span></li></ul>
 <p class="parl-antonio" id="parl-antonio"><img src="img/antonio-pratola.jpg" alt="Antonio Pratola"><span><b>Antonio Pratola</b>founder · «Ti rispondo io, entro 24 ore.»</span></p>
 </div>
@@ -628,7 +643,7 @@ h2{font-size:var(--t2);line-height:1.1} .lead{font-size:var(--t4);line-height:1.
 
 <script>
 (function(){
-  var rm = matchMedia('(prefers-reduced-motion: reduce)').matches, tel = innerWidth < 860, ok = window.gsap && window.ScrollTrigger && !rm;
+  var rm = matchMedia('(prefers-reduced-motion: reduce)').matches, tel = matchMedia('(max-width:860px)').matches, ok = window.gsap && window.ScrollTrigger && !rm;
   if (tel) document.documentElement.classList.add('telefono');
   var $ = function(id){ return document.getElementById(id); }, q = function(s, r){ return [].slice.call((r||document).querySelectorAll(s)); };
   var c01 = function(v){ return Math.max(0, Math.min(1, v)); }, out3 = function(t){ return 1 - Math.pow(1 - t, 3); }, inout = function(t){ return t < .5 ? 2*t*t : 1 - Math.pow(-2*t + 2, 2)/2; };
@@ -678,8 +693,8 @@ h2{font-size:var(--t2);line-height:1.1} .lead{font-size:var(--t4);line-height:1.
   function servizi(p){ var s = p*N, k = Math.min(N - 1, Math.floor(s)), f = s - k; servizio(k);
     var t = (k < N - 1) ? c01((f - .9)/.1) : 0, ang = t*180;
     if (ang < 90) { faccia(k); moneta.style.transform = 'rotateY(' + ang + 'deg)'; } else { faccia(k + 1); moneta.style.transform = 'rotateY(' + (ang - 180) + 'deg)'; }
-    oblo.style.setProperty('--riempi', (k < N - 1 ? c01(f/.9) : f).toFixed(3)); SCENE[k](tel ? Math.min(1, f/.55) : f);
-    if (tel) { var pan = pans[k], ov = pan.scrollHeight - pan.clientHeight; if (ov > 0) pan.scrollTop = Math.round(ov * c01((f - .4)/.5)); } }
+    oblo.style.setProperty('--riempi', (k < N - 1 ? c01(f/.9) : f).toFixed(3)); SCENE[k](tel ? Math.min(1, f/.4) : f);
+    if (tel) { var pan = pans[k], ov = Math.max(0, pan.scrollHeight - pan.clientHeight); pan.scrollTop = Math.round(ov * c01((f - .45)/.45)); } }
 
   // --- i risultati
   var cru = q('.cru'), punti = q('#ris-punti li'), NC = cru.length;
@@ -703,7 +718,7 @@ h2{font-size:var(--t2);line-height:1.1} .lead{font-size:var(--t4);line-height:1.
   var media = q('#tel .schermo video, #tel .schermo img.stat'), lis = q('#crea-lista li[data-i]'), mob = $('crea-mob'), tag = $('tel-tag'), audio = $('tel-audio'), CREA = JSON.parse($('crea-dati').textContent), curC = -1, conAudio = false;
   function creativita(p){ creaK(Math.min(CREA.length - 1, Math.floor(p*CREA.length))); }
   function creaK(k){ if (k === curC) return; curC = k;
-    media.forEach(function(m){ var on = +m.dataset.i === k; m.classList.toggle('vis', on); if (m.tagName === 'VIDEO') { if (on) { m.muted = !conAudio; var pr = m.play(); if (pr && pr.catch) pr.catch(function(){}); } else { m.pause(); m.muted = true; } } });
+    media.forEach(function(m){ var on = +m.dataset.i === k; m.classList.toggle('vis', on); if (m.tagName === 'VIDEO') { if (on) { m.muted = !conAudio; var pr = m.play(); if (pr && pr.catch) pr.then(function(){ var b = $('tel-play'); if (b) b.hidden = true; }).catch(function(){ var b = $('tel-play'); if (!b) { b = document.createElement('button'); b.id = 'tel-play'; b.type = 'button'; b.className = 'audio play'; b.textContent = '▶ Riproduci'; m.parentElement.appendChild(b); b.addEventListener('click', function(){ m.muted = !conAudio; m.play(); b.hidden = true; }); } b.hidden = false; }); } else { m.pause(); m.muted = true; } } });
     lis.forEach(function(li){ li.classList.toggle('on', +li.dataset.i === k); }); var c = CREA[k]; mob.innerHTML = '<b>' + c.cat + ' · ' + c.t + (c.ai ? ' <span class="ai">full AI</span>' : '') + '</b>' + c.s; tag.classList.toggle('on', !!c.ai); audio.hidden = !!c.img; }
   audio.addEventListener('click', function(){ conAudio = !conAudio; media.forEach(function(m){ if (m.tagName === 'VIDEO' && m.classList.contains('vis')) { m.muted = !conAudio; if (conAudio) { m.currentTime = 0; var pr = m.play(); if (pr && pr.catch) pr.catch(function(){}); } } }); audio.textContent = conAudio ? '🔇 Senza audio' : '🔊 Tocca per l\'audio'; });
 
@@ -781,6 +796,9 @@ h2{font-size:var(--t2);line-height:1.1} .lead{font-size:var(--t4);line-height:1.
 
   ScrollTrigger.create({trigger:'[data-orb-pista]', start:'top top', end:'bottom bottom', scrub:.5, onUpdate:function(st){ ruota(st.progress); }});
   dett[0].hidden = false;
+  // i video (ruota, oblò, telefono, contatti, Holmes) girano solo quando la loro sezione è in vista
+  (function(){ var sez = q('#squadra, #servizi, #creativita, #parliamone'); if (!('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function(en){ en.forEach(function(x){ q('video', x.target).forEach(function(v){ if (x.isIntersecting) { if (v.closest('.faccia') && !v.closest('.faccia.vis')) return; if (v.closest('#tel') && !v.classList.contains('vis')) return; var pr = v.play(); if (pr && pr.catch) pr.catch(function(){}); } else { v.pause(); if (v.closest('#tel')) v.muted = true; } }); }); }, {rootMargin:'120px 0px'}); sez.forEach(function(z){ io.observe(z); }); })();
   ScrollTrigger.refresh();
   if (prova) { document.documentElement.style.scrollBehavior = 'auto'; var salta = function(){ window.scrollTo(0, +prova[1]); ScrollTrigger.update(); }; setTimeout(salta, 300); setTimeout(salta, 1500); }
 })();
@@ -789,7 +807,7 @@ h2{font-size:var(--t2);line-height:1.1} .lead{font-size:var(--t4);line-height:1.
 <script>
 (function(){
   // il fondo come su Ori: la costellazione che si accende vicino al mouse (ferma con «riduci movimento»)
-  var statico = matchMedia('(prefers-reduced-motion: reduce)').matches, cv = document.getElementById('cielo'); if (!cv) return; if (innerWidth < 860 || !matchMedia('(hover: hover)').matches) { cv.remove(); return; } var cx = cv.getContext('2d');
+  var statico = matchMedia('(prefers-reduced-motion: reduce)').matches, cv = document.getElementById('cielo'); if (!cv) return; if (matchMedia('(max-width:860px)').matches || !matchMedia('(hover: hover)').matches) { cv.remove(); return; } var cx = cv.getContext('2d');
   var punti = [], mouse = {x:-999, y:-999}, giro = 0;
   function misura(){ var dpr = Math.min(2, devicePixelRatio || 1); cv.width = innerWidth*dpr; cv.height = innerHeight*dpr; cx.setTransform(dpr,0,0,dpr,0,0);
     var n = Math.round(Math.min(70, innerWidth*innerHeight/19000)); punti = []; for (var i = 0; i < n; i++) punti.push({x:Math.random()*innerWidth, y:Math.random()*innerHeight, vx:(Math.random()-.5)*.18, vy:(Math.random()-.5)*.18, r:Math.random()*1.3+.4}); }
@@ -820,7 +838,7 @@ h2{font-size:var(--t2);line-height:1.1} .lead{font-size:var(--t4);line-height:1.
 <script>
 (function(){
   if (!window.THREE || !THREE.GLTFLoader || !THREE.RoomEnvironment) return;
-  var cv = document.getElementById('cat3d'); if (!cv || innerWidth < 860) { if (cv) cv.remove(); return; }
+  var cv = document.getElementById('cat3d'); if (!cv || matchMedia('(max-width:860px)').matches) { if (cv) cv.remove(); return; }
   var ROBOT = ['leonardo', 'leonardo', 'galileo', 'volta', 'fibonacci', 'archimede'], modelli = {}, caricando = {}, attuale = -1, mostrato = null, T = null;
   function scena3(){
     var R = new THREE.WebGLRenderer({canvas:cv, antialias:true, alpha:true}); R.setPixelRatio(Math.min(2, devicePixelRatio||1)); R.outputEncoding = THREE.sRGBEncoding; R.toneMapping = THREE.ACESFilmicToneMapping; R.toneMappingExposure = .95; R.setClearColor(0, 0);
@@ -835,11 +853,11 @@ h2{font-size:var(--t2);line-height:1.1} .lead{font-size:var(--t4);line-height:1.
       o.frustumCulled = false; o.updateMatrixWorld(true); o.geometry.computeBoundingBox(); box.union(o.geometry.boundingBox.clone().applyMatrix4(o.matrixWorld)); if (o.material && o.material.envMapIntensity !== undefined) o.material.envMapIntensity = .9; });
     var size = new THREE.Vector3(); box.getSize(size); var c = new THREE.Vector3(); box.getCenter(c); var sc = 2.1/Math.max(size.x, size.y, size.z);
     var gr = new THREE.Group(); gr.add(m); m.position.sub(c); gr.scale.setScalar(sc); return gr; }
-  function carica(n, cb){ if (modelli[n]) { cb(modelli[n]); return; } if (caricando[n]) return; caricando[n] = true; loader.load('img/' + n + '-1k.glb', function(g){ modelli[n] = prepara(g); cb(modelli[n]); }, undefined, function(){ caricando[n] = false; }); }
-  function mostra(i){ if (i === attuale) return; attuale = i; var n = ROBOT[i]; carica(n, function(m){ if (attuale !== i) return; if (!T) T = scena3(); if (mostrato) T.radice.remove(mostrato); mostrato = m; T.radice.add(m); }); }
+  var code = {}; function carica(n, cb){ if (modelli[n]) { cb(modelli[n]); return; } (code[n] = code[n] || []).push(cb); if (caricando[n]) return; caricando[n] = true; loader.load('img/' + n + '-1k.glb', function(g){ modelli[n] = prepara(g); var cbs = code[n] || []; code[n] = []; cbs.forEach(function(f){ f(modelli[n]); }); }, undefined, function(){ caricando[n] = false; code[n] = []; }); }
+  var vicino = false; function mostra(i){ if (!vicino || i === attuale) return; attuale = i; var n = ROBOT[i]; carica(n, function(m){ if (attuale !== i) return; if (!T) T = scena3(); if (mostrato) T.radice.remove(mostrato); mostrato = m; T.radice.add(m); }); }
   window.__cat3d = mostra;
-  var vicino = false; new IntersectionObserver(function(en){ vicino = en[0].isIntersecting; if (vicino && attuale < 0) mostra(0); }, {rootMargin:'600px 0px'}).observe(cv);
-  var t0 = performance.now(); (function q(now){ requestAnimationFrame(q); if (!T || !vicino) return; var t = (now - t0)/1000; T.radice.position.y = Math.sin(t*1.2)*.06; T.radice.rotation.y = -.3 + Math.sin(t*.5)*.25; T.radice.rotation.z = Math.sin(t*.8)*.03; T.R.render(T.scena, T.cam); })(t0);
+  new IntersectionObserver(function(en){ vicino = en[0].isIntersecting; if (vicino && attuale < 0) mostra(0); }, {rootMargin:'600px 0px'}).observe(cv);
+  var fermo3 = matchMedia('(prefers-reduced-motion: reduce)').matches; var t0 = performance.now(); (function q(now){ requestAnimationFrame(q); if (!T || !vicino) return; var t = fermo3 ? 0 : (now - t0)/1000; T.radice.position.y = Math.sin(t*1.2)*.06; T.radice.rotation.y = -.3 + Math.sin(t*.5)*.25; T.radice.rotation.z = Math.sin(t*.8)*.03; T.R.render(T.scena, T.cam); })(t0);
 })();
 </script>
 
@@ -854,6 +872,7 @@ h2{font-size:var(--t2);line-height:1.1} .lead{font-size:var(--t4);line-height:1.
   var teste = ap.querySelectorAll('.ap-testa'), n = teste.length;
   var chiudi = function(){ if (ap.dataset.chiusa) return; ap.dataset.chiusa = '1';
     try { sessionStorage.setItem('orizon-apertura','1'); } catch(e){}
+    removeEventListener('keydown', tasto); ['main','header','footer'].forEach(function(t){ var el = document.querySelector(t); if (el) el.removeAttribute('inert'); }); if (window.lenis) lenis.start();
     gsap.to(ap, {yPercent:-100, duration:.7, ease:'power3.inOut', onComplete:function(){ ap.remove(); document.body.classList.remove('in-apertura'); if (window.ScrollTrigger) ScrollTrigger.refresh(); }}); };
   var tl = gsap.timeline({onComplete:chiudi});
   tl.to(trace, {strokeDashoffset:0, duration:1.1, ease:'power2.inOut'})
@@ -866,7 +885,7 @@ h2{font-size:var(--t2);line-height:1.1} .lead{font-size:var(--t4);line-height:1.
   tl.to('.ap-riga', {opacity:1, y:-6, duration:.4}, 1.8).to({}, {duration:.7});
   var salta = function(){ tl.kill(); chiudi(); };
   document.getElementById('ap-salta').addEventListener('click', salta); ap.addEventListener('click', function(ev){ if (ev.target.id !== 'ap-salta') salta(); });
-  addEventListener('keydown', function(ev){ if (ev.key === 'Escape' || ev.key === ' ') salta(); }, {once:true});
+  var tasto = function(ev){ if (ev.key === 'Escape' || ev.key === ' ') salta(); }; addEventListener('keydown', tasto); ap.removeAttribute('aria-hidden'); ['main','header','footer'].forEach(function(t){ var el = document.querySelector(t); if (el) el.setAttribute('inert', ''); }); if (window.lenis) lenis.stop();
   var hv = document.getElementById('hv'), hb = document.getElementById('hv-pausa');
   if (hv && hb) { hb.addEventListener('click', function(){ if (hv.paused) { hv.play(); hb.textContent = '⏸ Ferma il video'; hb.setAttribute('aria-pressed','false'); } else { hv.pause(); hb.textContent = '▶ Riprendi'; hb.setAttribute('aria-pressed','true'); } }); }
 })();
