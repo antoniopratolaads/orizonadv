@@ -310,7 +310,7 @@ section.tech{padding-block:clamp(48px,6vw,72px)} .testa-t{display:flex;justify-c
 @keyframes cp-deriva1{to{transform:translate(-180px,120px) scale(1.18)}} @keyframes cp-deriva2{to{transform:translate(200px,-90px) scale(1.1)}} @keyframes cp-deriva3{from{transform:scale(.9)}to{transform:translate(-240px,140px) scale(1.25)}}
 .griglia-cp{position:absolute;inset:0;background-image:linear-gradient(rgba(120,150,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(120,150,255,.05) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse 80% 70% at 50% 18%,#000 35%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 18%,#000 35%,transparent 100%)}
 @media(prefers-reduced-motion:reduce){.fondo-cp .aurora{animation:none}}
-body{background:#070d0a} main,header.top,footer.foot,.guida,.apertura{position:relative;z-index:1} .scuro{background:transparent} .hero8.scuro{background:transparent} .foot{background:transparent}
+body{background:#070d0a} main,header.top,footer.foot,.guida{position:relative;z-index:1} .apertura{z-index:100} .scuro{background:transparent} .hero8.scuro{background:transparent} .foot{background:transparent}
 .chiaro{position:relative;z-index:1} .hfondo{background:transparent}
 /* la luce che segue il puntatore sui vetri, e le tessere che si inclinano */
 .luce:not(.cru){position:relative} .luce::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .35s;background:radial-gradient(380px circle at var(--x,50%) var(--y,50%),rgba(92,121,255,.16),transparent 55%)} .luce:hover::after{opacity:1}
