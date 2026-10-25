@@ -382,6 +382,7 @@ html.telefono .feedrow li{grid-template-columns:1fr} html.telefono .feedrow li b
 .campo .et,.conto-sim th,.esempio{font-size:12.5px} .s-desc,.lingua .ok8,.evento small,.canale code{font-size:12.5px}
 /* le piste: i servizi un po' meno lunghi, la ruota più lunga */
 .srv{--h:calc(7 * 140svh)} .orb{--h:calc(3.4 * 100svh)}
+.top{transition:transform .35s cubic-bezier(.2,.9,.3,1)} .top.via{transform:translateY(-100%)}
 /* il catalogo da 5.000+: la griglia che si accende */
 .cat{--h:calc(3 * 100svh)} .cat-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(32px,5vw,80px);align-items:center} .cat h2 .cat-dopo{color:var(--mut);transition:color .4s} .cat.fine h2 .cat-dopo{color:var(--ok)}
 .cat-passate{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:4px} .cat-passate li{display:grid;grid-template-columns:150px 1fr;gap:12px;align-items:baseline;padding:8px 10px;border-radius:10px;font-size:14px;opacity:.4;transition:.3s} .cat-passate li.att{opacity:1;background:var(--card);box-shadow:0 0 0 1px var(--line)} .cat-passate li.fatta{opacity:1}
@@ -799,6 +800,9 @@ html.telefono .feedrow li{grid-template-columns:1fr} html.telefono .feedrow li b
   // i video (ruota, oblò, telefono, contatti, Holmes) girano solo quando la loro sezione è in vista
   (function(){ var sez = q('#squadra, #servizi, #creativita, #parliamone'); if (!('IntersectionObserver' in window)) return;
     var io = new IntersectionObserver(function(en){ en.forEach(function(x){ q('video', x.target).forEach(function(v){ if (x.isIntersecting) { if (v.closest('.faccia') && !v.closest('.faccia.vis')) return; if (v.closest('#tel') && !v.classList.contains('vis')) return; var pr = v.play(); if (pr && pr.catch) pr.catch(function(){}); } else { v.pause(); if (v.closest('#tel')) v.muted = true; } }); }); }, {rootMargin:'120px 0px'}); sez.forEach(function(z){ io.observe(z); }); })();
+  // la barra in alto si nasconde scendendo e torna risalendo
+  (function(){ var top = document.querySelector('.top'), ultimo = 0, via = false; function passo(y){ if (y < 80) { if (via) { via = false; top.classList.remove('via'); } } else if (y > ultimo + 6 && !via) { via = true; top.classList.add('via'); } else if (y < ultimo - 6 && via) { via = false; top.classList.remove('via'); } ultimo = y; }
+    if (lenis) lenis.on('scroll', function(e){ passo(e.scroll); }); else addEventListener('scroll', function(){ passo(scrollY); }, {passive:true}); })();
   ScrollTrigger.refresh();
   if (prova) { document.documentElement.style.scrollBehavior = 'auto'; var salta = function(){ window.scrollTo(0, +prova[1]); ScrollTrigger.update(); }; setTimeout(salta, 300); setTimeout(salta, 1500); }
 })();
