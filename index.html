@@ -690,7 +690,7 @@ html.telefono .pan-robot{display:none} html.telefono .pan-robot img{width:40px;h
   var SCENE = [
     function(f){ var k = scrivi(s1t, f, .05, .9); s1c.forEach(function(c){ var st = c.querySelector('.tx').dataset.stato; c.classList.toggle('ok', st === 'ok'); c.classList.toggle('att', st === 'att'); }); var ind = 23 + Math.round(77 * k / s1t.length); s1i.textContent = ind; },
     function(f){ var k = scrivi(s2t, f, .05, .85); s2.forEach(function(c, i){ if (s2t[i]) c.classList.toggle('on', s2t[i].dataset.stato !== ''); }); s2n.textContent = k; },
-    function(f){ var n = Math.floor(c01((f - .04)/.5) * (s3.length + .99)); s3.forEach(function(li, i){ li.classList.toggle('on', i < n); }); s3n.textContent = Math.min(s3.length, n); s3g.classList.toggle('on', f > .6); s3m.classList.toggle('on', f > .78); },
+    function(f){ var n = Math.floor(c01((f - .04)/.5) * (s3.length + .99)); s3.forEach(function(li, i){ li.classList.toggle('on', i < n); }); s3n.textContent = Math.min(s3.length, n); s3g.classList.toggle('on', f > (tel ? .08 : .6)); s3m.classList.toggle('on', f > (tel ? .3 : .78)); },
     function(f){ var t = c01((f - .03)/.9) * 4, i = Math.min(3, Math.floor(t)), ph = t - i; if (f >= .93) { i = 3; ph = 1; }
       s4nome.textContent = EV[i][0]; var nasce = c01(ph/.2), viaggio = c01((ph - .2)/.25), stampa = ph > .45, fan = c01((ph - .6)/.4);
       s4e.forEach(function(n, j){ n.classList.toggle('att', j === i && nasce > 0); n.classList.toggle('fatto', j < i); var c = n.querySelector('.n'); c.textContent = j < i ? '✓ 5 canali' : (j === i && fan > 0 ? Math.min(5, Math.floor(fan*5)) + '/5' : ''); });
