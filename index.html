@@ -386,20 +386,19 @@ html.telefono .feedrow li{grid-template-columns:1fr} html.telefono .feedrow li b
 
 /* telefono semplificato (dal check di Codex): servizi e risultati scorrono come blocchi normali, completi e ridotti all'essenziale */
 @media(max-width:860px){
-html.telefono .srv .pista,html.telefono .ris .pista{height:auto} html.telefono .srv .fisso,html.telefono .ris .fisso{position:static;height:auto;overflow:visible;padding-block:48px 8px;display:block}
-html.telefono .srv-lato{display:none} html.telefono .srv-grid{display:block} html.telefono .srv-scene{height:auto} html.telefono .pan{position:static;opacity:1;transform:none;overflow:visible;margin:0 0 44px;padding:0;gap:10px;pointer-events:auto} html.telefono .pan-robot{display:flex}
+html.telefono .srv{--h:calc(7 * 130svh)} html.telefono .ris{--h:calc(6.6 * 110svh)}
+html.telefono .srv-lato{display:flex} html.telefono .srv-grid{display:grid;grid-template-columns:1fr;gap:10px;align-content:start} html.telefono .srv-scene{height:calc(100svh - 148px)} html.telefono .pan{position:absolute;align-content:start;overflow:hidden;gap:10px;padding:0} html.telefono .pan-robot{display:none}
 html.telefono .pan h2{font-size:22px;line-height:1.15;max-width:none} html.telefono .pan .lead{display:none} html.telefono .chi8{display:block;font-size:13px}
 html.telefono .viz{padding:14px 16px;max-height:none;overflow:visible;mask-image:none;-webkit-mask-image:none} html.telefono .esempio{display:none}
-html.telefono .viz-2{grid-template-columns:1fr;gap:10px} html.telefono .viz-2>div:last-child{display:none} html.telefono .scheda{grid-template-columns:72px 1fr;gap:10px} html.telefono .scheda img{display:block;width:72px}
+html.telefono .viz-2{grid-template-columns:1fr;gap:10px} html.telefono .pan[data-i="0"] .viz-2>div:last-child{display:none} html.telefono .scheda{grid-template-columns:72px 1fr;gap:10px} html.telefono .scheda img{display:block;width:72px}
 html.telefono .lingue{grid-template-columns:1fr 1fr 1fr;gap:6px} html.telefono .lingua{padding:8px} html.telefono .lingua p,html.telefono .lingua .ok8{display:none} html.telefono .lingua.piu{display:block} html.telefono .lingua b{font-size:11.5px;flex-direction:column;align-items:flex-start;gap:4px}
 html.telefono .feedrow{display:none} html.telefono .annunci .ann.meta{display:grid} html.telefono .s3-feed-n{display:none}
 html.telefono .schema{grid-template-columns:1fr} html.telefono .canale code{display:none} html.telefono .evento small{display:none} html.telefono .nodo.server span{display:none}
 html.telefono .conti3{grid-template-columns:1fr} html.telefono .ledger li small{display:none} html.telefono .conti-lato{display:none}
 html.telefono .fam{grid-template-columns:1fr 1fr}
 html.telefono .snum b{font-size:34px}
-html.telefono .ris .testa{margin-bottom:12px} html.telefono .mazzo{height:auto;margin-top:0} html.telefono .cru{position:static;transform:none!important;opacity:1!important;filter:none!important;margin-bottom:12px;padding:16px;gap:8px} html.telefono .cru .dett{display:none} html.telefono .pbars{min-height:70px} html.telefono .punti{display:none}
-html.telefono .fx{transition:opacity .6s ease,transform .6s cubic-bezier(.2,.9,.3,1)} html.telefono .fx.pre{opacity:0;transform:translateY(18px)}
-html.telefono .pan-robot{display:flex;align-items:center;gap:10px;margin:0;font-size:13px;color:var(--mut)} html.telefono .pan-robot img{width:40px;height:40px;border-radius:50%;object-fit:cover;background:#dfe2f0;flex:0 0 auto} html.telefono .pan-robot b{color:var(--fg);display:block} html.telefono .pan-robot .logo{width:40px;height:40px;border-radius:50%;background:#3750f7;display:grid;place-items:center;flex:0 0 auto} html.telefono .pan-robot .logo img{width:60%;height:auto;border-radius:0;background:none}
+html.telefono .ris .testa{margin-bottom:8px} html.telefono .mazzo{height:min(58svh,520px);margin-top:24px} html.telefono .cru{padding:16px;gap:8px;overflow:hidden} html.telefono .cru .dett{display:none} html.telefono .pbars{min-height:70px} html.telefono .punti{display:none}
+html.telefono .pan-robot{display:none} html.telefono .pan-robot img{width:40px;height:40px;border-radius:50%;object-fit:cover;background:#dfe2f0;flex:0 0 auto} html.telefono .pan-robot b{color:var(--fg);display:block} html.telefono .pan-robot .logo{width:40px;height:40px;border-radius:50%;background:#3750f7;display:grid;place-items:center;flex:0 0 auto} html.telefono .pan-robot .logo img{width:60%;height:auto;border-radius:0;background:none}
 }
 /* il catalogo da 5.000+: la griglia che si accende */
 .cat{--h:calc(3 * 100svh)} .cat-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(32px,5vw,80px);align-items:center} .cat h2 .cat-dopo{color:var(--mut);transition:color .4s} .cat.fine h2 .cat-dopo{color:var(--ok)}
@@ -798,12 +797,9 @@ html.telefono .pan-robot{display:flex;align-items:center;gap:10px;margin:0;font-
   q('a[href^="#"]').forEach(function(a){ if (a.hasAttribute('data-srv-vai')) return; a.addEventListener('click', function(ev){ var t = document.querySelector(a.getAttribute('href')); if (!t) return; ev.preventDefault(); vai(t); }); });
   var himg = $('himg'), htesto = $('htesto');
   ScrollTrigger.create({trigger:'[data-hero-pista]', start:'top top', end:'bottom bottom', scrub:.4, onUpdate:function(st){ var p = st.progress; himg.style.transform = 'scale(' + (1 + p*.1).toFixed(3) + ') translateY(' + (-p*4).toFixed(2) + '%)'; htesto.style.transform = 'translateY(' + (-p*70).toFixed(1) + 'px)'; htesto.style.opacity = (1 - c01((p - .5)/.4)).toFixed(3); }});
-  var stSrv = null;
-  if (tel) { pans.forEach(function(p, i){ p.classList.add('on'); SCENE[i](1); }); s4o.classList.add('on'); idx.forEach(function(li){ li.classList.add('fatto'); });
-    var elsT = q('.pan, .cru'); elsT.forEach(function(el){ el.classList.add('fx', 'pre'); }); var ioT = new IntersectionObserver(function(en){ en.forEach(function(x){ if (x.isIntersecting) { x.target.classList.remove('pre'); ioT.unobserve(x.target); } }); }, {rootMargin:'0px 0px -8% 0px'}); elsT.forEach(function(el){ ioT.observe(el); }); }
-  else { stSrv = ScrollTrigger.create({trigger:'[data-srv-pista]', start:'top top', end:'bottom bottom', scrub:.4, onUpdate:function(st){ servizi(st.progress); }}); servizi(0); }
+  var stSrv = ScrollTrigger.create({trigger:'[data-srv-pista]', start:'top top', end:'bottom bottom', scrub:.4, onUpdate:function(st){ servizi(st.progress); }}); servizi(0);
   q('[data-srv-vai]').forEach(function(a){ a.addEventListener('click', function(ev){ ev.preventDefault(); if (!stSrv) return; var i = +a.dataset.srvVai; vai(stSrv.start + (stSrv.end - stSrv.start)*((i + .3)/N), 0); }); });
-  if (tel) { cru.forEach(function(c){ c.style.setProperty('--g', 1); }); } else { ScrollTrigger.create({trigger:'[data-ris-pista]', start:'top top', end:'bottom bottom', scrub:.5, onUpdate:function(st){ risultati(st.progress); }}); risultati(0); }
+  ScrollTrigger.create({trigger:'[data-ris-pista]', start:'top top', end:'bottom bottom', scrub:.5, onUpdate:function(st){ risultati(st.progress); }}); risultati(0);
   var frasi = q('[data-frase8]'); gsap.set(frasi.slice(1), {opacity:0});
   var tl = gsap.timeline({scrollTrigger:{trigger:'[data-tesi-pista]', start:'top top', end:'bottom bottom', scrub:.5}}), qq = 1/frasi.length, pos = 0;
   frasi.forEach(function(f, i){ var ws = q('.w', f), first = i === 0, last = i === frasi.length - 1, d = first ? 0 : qq*.08, dur = qq*.7, per = dur/ws.length;
