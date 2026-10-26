@@ -411,18 +411,18 @@ html.entra .pannello .tenda{display:block} html.entra .rv{opacity:0;transform:tr
     function f(t){ if (!t0) t0 = t; var p = Math.min(1, (t - t0)/d), v = Math.round(a * (1 - Math.pow(1 - p, 3))); n.textContent = '+' + v + ' %'; if (p < 1) requestAnimationFrame(f); }
     requestAnimationFrame(f); }); }
   // la squadretta: chi è nel cerchio parla al tocco; toccando un altro entra lui, con la sua clip e la sua frase
-  var SQ = JSON.parse($('#holmes-dati').textContent), h = $('#holmes'), box = h.parentNode, fum = $('#fumetto'), chiOra = $('#chi-ora'), vid = null, cur = 0, kk = -1;
+  var SQ = JSON.parse($('#holmes-dati').textContent), h = $('#holmes'), box = h.parentNode, fum = $('#fumetto'), chiOra = $('#chi-ora'), vid = null, cur = 0, giri = {};
   function parla(n, nuovo){ var R = SQ[n];
-    if (nuovo) { cur = n; kk = -1; $('img', h).src = 'img/home/r-' + R[0] + '.webp'; $('img', h).alt = R[1]; chiOra.innerHTML = '<b>' + R[1] + '</b> · ' + R[2];
+    if (nuovo) { cur = n; $('img', h).src = 'img/home/r-' + R[0] + '.webp'; $('img', h).alt = R[1]; chiOra.innerHTML = '<b>' + R[1] + '</b> · ' + R[2];
       $$('.orbita button', box).forEach(function(b){ b.classList.toggle('ora', +b.dataset.n === n); }); }
-    kk = (kk + 1) % R[4].length; var F = R[4][kk];
+    giri[n] = (giri[n] === undefined ? -1 : giri[n]) + 1; var F = R[4][giri[n] % R[4].length];
     if (!vid) { vid = document.createElement('video'); vid.muted = true; vid.playsInline = true; vid.setAttribute('playsinline', ''); vid.setAttribute('aria-hidden', 'true'); h.appendChild(vid); vid.addEventListener('ended', function(){ box.classList.remove('parla'); }); }
     var src = 'img/home/clip-' + R[0] + '.mp4'; if (vid.dataset.src !== src) { vid.dataset.src = src; vid.src = src; }
     h.style.setProperty('--vx', R[3][0] + '%'); h.style.setProperty('--vy', R[3][1] + '%');
     try { vid.currentTime = 0; var p = vid.play(); if (p && p.catch) p.catch(function(){}); } catch (er) {}
     box.classList.add('parla');
     fum.innerHTML = F[0].replace(/&/g,'&amp;').replace(/</g,'&lt;') + (F[1] ? '<br><a href="#parliamone">' + F[1] + ' →</a>' : ''); }
-  h.addEventListener('click', function(){ parla(cur, false); });
+  h.addEventListener('click', function(){ parla((cur + 1) % SQ.length, true); });  // Antonio, 26/10: al centro si passa al prossimo
   $$('.orbita button', box).forEach(function(b){ b.addEventListener('click', function(){ parla(+b.dataset.n, +b.dataset.n !== cur); }); });
   // i video: al tocco, a tutto schermo, con l'audio
   var dlg = $('#lettore'), lv = $('#lettore video'), ultimo = null;
