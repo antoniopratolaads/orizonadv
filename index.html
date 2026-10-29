@@ -123,7 +123,7 @@ img.sfondo{filter:var(--logo-sfondo)!important;mix-blend-mode:var(--logo-fusione
 .pista{position:relative} .fisso{position:relative}
 html.scena .pista{height:var(--h)} html.scena .fisso{position:sticky;top:76px;height:calc(100svh - 76px);overflow:hidden;display:grid;align-content:center}
 /* la tesi: le parole si accendono, il cubo del catalogo gira e si accende */
-.tesi2 .fisso{padding-block:24px} .tesi2 .wrap{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(24px,4vw,64px);align-items:center;width:100%}
+.tesi2 .fisso{padding-block:24px} .tesi2 .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center;width:100%}
 .frasi p{font-size:clamp(34px,5vw,64px);font-weight:700;letter-spacing:-.035em;line-height:1.08;max-width:17ch;margin:0} .frasi p+p{margin-top:.28em}
 html.scena .frasi .w{color:var(--spento)} html.scena .frasi .w.on{color:var(--fg)} .frasi p:last-of-type .w,html.scena .frasi p:last-of-type .w.on{color:var(--verde)} html.scena .frasi p:last-of-type .w:not(.on){color:var(--spento)}
 .frasi a{display:inline-flex;align-items:center;min-height:44px;margin-top:18px;font-weight:600;color:var(--blu2);text-decoration:none;font-size:17px}
@@ -137,16 +137,12 @@ html.scena .frasi .w{color:var(--spento)} html.scena .frasi .w.on{color:var(--fg
 .cel i:nth-child(1){transform:translateZ(calc(var(--u)/2))} .cel i:nth-child(2){transform:rotateY(180deg) translateZ(calc(var(--u)/2))} .cel i:nth-child(3){transform:rotateY(90deg) translateZ(calc(var(--u)/2))}
 .cel i:nth-child(4){transform:rotateY(-90deg) translateZ(calc(var(--u)/2))} .cel i:nth-child(5){transform:rotateX(90deg) translateZ(calc(var(--u)/2))} .cel i:nth-child(6){transform:rotateX(-90deg) translateZ(calc(var(--u)/2))}
 .contatore{margin-top:8px;text-align:center;font-size:14px;color:var(--mut)} .contatore b{display:block;font-size:34px;color:var(--verde);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
-/* il monolite: un blocco da 100 € che perde gli strati dei costi col dito; resta il margine, che avanza */
-.mono{--W:190px;--D:190px;position:relative;width:var(--W);height:var(--Hm);transform-style:preserve-3d;transform:rotateX(14deg) rotateY(-30deg);margin:30px auto}
-.lastra{position:absolute;left:0;width:var(--W);height:var(--h);top:var(--t);transform-style:preserve-3d}
-.lastra i{position:absolute;display:block} .lastra .fr{inset:0;background:var(--c1);transform:translateZ(calc(var(--D)/2))}
-.lastra .la{top:0;height:100%;width:var(--D);left:calc((var(--W) - var(--D))/2);background:var(--c2);transform:rotateY(90deg) translateZ(calc(var(--W)/2))}
-.lastra .ci{left:0;width:var(--W);height:var(--D);top:calc((var(--h) - var(--D))/2);background:var(--c3);transform:rotateX(90deg) translateZ(calc(var(--h)/2))}
-.lastra{--c1:#3750f7;--c2:#2236c9;--c3:#6a7dff} .lastra.margine{--c1:#60e787;--c2:#33b862;--c3:#9af3b5}
-.lastra .eti{position:absolute;top:50%;white-space:nowrap;transform:translate3d(0,-50%,calc(var(--D)/2 + 1px));font-size:14px;font-weight:700;color:#fff;padding:0 12px}
-.lastra .eti{left:0} .lastra.margine .eti{color:#0c1713;opacity:1}
-.lastra .eti b{font-weight:500;opacity:.85;margin-left:6px}
+/* la partita a scacchi (29/10, Antonio: «una scacchiera con una partita… più sexy»): i costi mangiano i pezzi bianchi,
+   resta il re verde. three.js si carica solo vicino alla sezione; prima, e con «riduci movimento», si vede la foto finale */
+.scacchi{display:grid;justify-items:center;width:100%}
+.palco-sc{position:relative;width:min(100%,calc(100svh - 230px));aspect-ratio:1;border-radius:28px;overflow:hidden;background:radial-gradient(110% 80% at 50% 25%,#fff,var(--bg2))}
+.palco-sc .sc-poster,.palco-sc .sc-tela{position:absolute;inset:0;width:100%!important;height:100%!important;display:block;object-fit:cover}
+.palco-sc .sc-tela,.palco-sc .sc-poster{transition:opacity .5s} .palco-sc .sc-tela{opacity:0;touch-action:pan-y} .palco-sc.sc-pronto .sc-tela{opacity:1} .palco-sc.sc-pronto .sc-poster{opacity:0}
 .resta{margin-top:10px;text-align:center;font-size:14px;color:var(--mut)} .resta b{display:block;font-size:40px;letter-spacing:-.03em;color:var(--fg);font-variant-numeric:tabular-nums} .resta b.verde{color:var(--verde)}
 /* la mappa dei servizi: Orizon al centro, i rami che si accendono col dito (alla Obsidian) */
 .mappa2 .fisso{align-content:center} .mappa2 .wrap{display:grid;grid-template-columns:minmax(0,.62fr) minmax(0,1.38fr);gap:clamp(20px,3vw,48px);align-items:center;width:100%}
@@ -259,7 +255,7 @@ html.entra .pannello .tenda{display:block} html.entra .rv{opacity:0;transform:tr
   .servizi{grid-template-columns:1fr 1fr} .srv{padding:16px} .srv b{font-size:15.5px} .srv span{font-size:13.5px}
   .ign-box,.parl,.squadra{grid-template-columns:1fr} .crea{grid-template-columns:1fr 1fr} .agenti{grid-template-columns:1fr 1fr}
   form{grid-template-columns:1fr} .foto-vuota{aspect-ratio:4/3} .agenti{grid-auto-rows:auto} .agente{gap:12px;padding:12px 14px} .agente img{width:52px;height:52px} .agente b{font-size:15px} .agente span{font-size:13px}
-  .scena3d>div{zoom:.6} .mono{margin:10px auto} .lastra .eti{font-size:12px;padding:0 8px} .resta b{font-size:30px}
+  .palco-sc{width:min(100%,46svh);border-radius:20px} .resta{margin-top:6px} .resta b{font-size:30px}
   html.scena .mappa2 .pista{height:auto} html.scena .mappa2 .fisso{position:relative;top:auto;height:auto;overflow:visible;padding-block:56px 40px} #ramo-ora{display:none}
   .rami-schede{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding:4px max(16px,env(safe-area-inset-left,0px)) 12px;scrollbar-width:none} .rami-schede::-webkit-scrollbar{display:none}
   .rami-schede{counter-reset:ramo} .rami-schede .scheda-ramo{position:relative;overflow:hidden;counter-increment:ramo;gap:14px;padding:22px 20px 20px} .rami-schede .scheda-ramo::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--blu),#60e787)} .rami-schede .scheda-ramo .num{display:none} .rami-schede .tit::after{content:"0" counter(ramo) " / 06";margin-left:auto;font-size:12px;font-weight:600;color:var(--mut);font-variant-numeric:tabular-nums} .rami-schede .tit img{width:52px;height:52px;box-shadow:0 0 0 4px color-mix(in srgb,var(--blu) 10%,transparent)} .rami-schede .tit h3{font-size:22px} .rami-schede .elenco span{background:color-mix(in srgb,var(--blu) 7%,var(--pieno));border-color:color-mix(in srgb,var(--blu) 20%,transparent);color:var(--fg);font-weight:500}
@@ -267,7 +263,7 @@ html.entra .pannello .tenda{display:block} html.entra .rv{opacity:0;transform:tr
   .prove a{padding:14px 12px 12px} .prove b{font-size:24px} .prove span{font-size:12.5px} .prove small{padding:8px 12px}
   .altri b{font-size:24px} .altri div{padding:14px 16px}
   .mappa2 .wrap{grid-template-columns:1fr;gap:12px} .nodo:not(.ramo):not(.centro){display:none} .nodo.ramo{font-size:12px;padding:5px 10px} .nodo.centro{border-width:6px} .ramo-t h3{font-size:20px} .elenco span{font-size:13px}
-  .tesi2 .wrap{grid-template-columns:1fr;gap:18px;align-content:center} .scena3d{order:-1} .cubo{--u:clamp(36px,11vw,52px)} #cubo3d{width:min(260px,64vw)} .contatore{margin-top:16px} .contatore b{font-size:26px}
+  .tesi2 .wrap{grid-template-columns:1fr;gap:18px;align-content:center} .scacchi{order:-1} .cubo{--u:clamp(36px,11vw,52px)} #cubo3d{width:min(260px,64vw)} .contatore{margin-top:16px} .contatore b{font-size:26px}
   .frasi p{font-size:clamp(28px,8vw,40px)} .ris2 .intesta h2{font-size:24px} .ris2 .intesta p{display:none}
   html.scena .mazzo .caso{gap:10px;align-content:start;padding:16px;overflow:hidden} html.scena .caso .num{font-size:56px;margin:8px 0 6px} html.scena .caso .euro{font-size:15.5px} html.scena .caso .fatto,html.scena .caso .velo-t{display:none} html.scena .caso .quando{font-size:13px}
 }
@@ -325,7 +321,7 @@ html.entra .pannello .tenda{display:block} html.entra .rv{opacity:0;transform:tr
 
 <section class="tesi2" style="padding-block:0"><div class="pista" style="--h:calc(3.2 * 100svh)"><div class="fisso"><div class="wrap">
   <div class="frasi"><p><span class="w">Le</span> <span class="w">campagne</span> <span class="w">alzano</span> <span class="w">il</span> <span class="w">fatturato.</span></p><p><span class="w">Il</span> <span class="w">fatturato</span> <span class="w">non</span> <span class="w">è</span> <span class="w">l&#x27;utile.</span></p><p><span class="w">Noi</span> <span class="w">guidiamo</span> <span class="w">sull&#x27;utile.</span></p></div>
-  <div class="scena3d" aria-hidden="true"><div><div class="mono" id="mono" style="--Hm:438px"><div class="lastra iva" data-k="iva" data-dir="-1" data-pc="18" style="--h:76px;--t:0px"><i class="fr"></i><i class="la"></i><i class="ci"></i><span class="eti">IVA<b>−18 €</b></span></div><div class="lastra resi" data-k="resi" data-dir="1" data-pc="9" style="--h:38px;--t:79px"><i class="fr"></i><i class="la"></i><i class="ci"></i><span class="eti">Resi<b>−9 €</b></span></div><div class="lastra margine" data-k="margine" data-dir="0" data-pc="22" style="--h:92px;--t:120px"><i class="fr"></i><i class="la"></i><i class="ci"></i><span class="eti">Margine<b>22 €</b></span></div><div class="lastra sped" data-k="sped" data-dir="-1" data-pc="4" style="--h:17px;--t:215px"><i class="fr"></i><i class="la"></i><i class="ci"></i><span class="eti">Spedizioni<b>−4 €</b></span></div><div class="lastra prodotto" data-k="prodotto" data-dir="1" data-pc="37" style="--h:155px;--t:235px"><i class="fr"></i><i class="la"></i><i class="ci"></i><span class="eti">Costo del prodotto<b>−37 €</b></span></div><div class="lastra ads" data-k="ads" data-dir="-1" data-pc="10" style="--h:42px;--t:393px"><i class="fr"></i><i class="la"></i><i class="ci"></i><span class="eti">Pubblicità<b>−10 €</b></span></div></div><p class="resta"><b id="resta">100 €</b>restano, su 100 € venduti · esempio</p></div></div>
+  <div class="scacchi" aria-hidden="true"><div class="palco-sc" id="scacchi"><img class="sc-poster" src="img/home/scacchi-poster.webp" alt="" width="900" height="900" loading="lazy" decoding="async"></div><p class="resta"><b id="resta" class="verde">22 €</b>ti restano, su 100 € venduti · esempio</p></div>
 </div></div></div></section>
 
 <section id="servizi" class="mappa2" style="padding-block:0"><div class="pista" style="--h:calc(2.8 * 100svh)"><div class="fisso"><div class="wrap">
@@ -394,7 +390,14 @@ html.entra .pannello .tenda{display:block} html.entra .rv{opacity:0;transform:tr
   if (!rm) {
     document.documentElement.classList.add('scena');
     var tesi = $('.tesi2 .pista'), ris = $('.ris2 .pista');
-    var parole = $$('.frasi .w'), mono = $('#mono'), lastre = $$('#mono .lastra'), resta = $('#resta'), TOLTE = ['iva', 'resi', 'sped', 'prodotto', 'ads'];
+    var parole = $$('.frasi .w'), resta = $('#resta'), sc = null, carica = false;
+    // finché la partita non è pronta il conto va avanti da solo, con gli stessi tempi (valori d'esempio)
+    var COSTI = [18, 37, 10, 9, 4], conto = function(p){ var t = 0; COSTI.forEach(function(e, i){ var x = c01((c01((p - .08 - i*.15)/.14) - .45)/.45); t += e*x*x*(3 - 2*x); }); return {resta: Math.round(100 - t), fine: p >= .9}; };
+    function partita(){ if (carica) return; carica = true;
+      var fila = ['js/three.min.js', 'js/RoomEnvironment.js', 'js/scacchi.js'], prossimo = function(){
+        if (!fila.length) { try { sc = window.OrizonScacchi($('#scacchi')); } catch (e) { sc = null; } if (sc) sc.set(prog(tesi)); return; }
+        var t = document.createElement('script'); t.src = fila.shift(); t.onload = prossimo; document.head.appendChild(t); };
+      prossimo(); }
     var mappa = $('.mappa2 .pista'), grafo = $('#grafo'), RAMI = JSON.parse($('#rami-dati').textContent), ramoOra = $('#ramo-ora'), ramoN = -1;
     var casiS = $$('.mazzo .caso'), tacche = $$('.indice i'), dati = casiS.map(function(c){ return {n: $('.num', c), a: +$('.num', c).dataset.a, t: $('.tenda', c)}; });
     function prog(el){ var f = el.firstElementChild, top = parseFloat(getComputedStyle(f).top) || 0, h = el.offsetHeight - f.offsetHeight; return h > 0 ? c01(-(el.getBoundingClientRect().top - top)/h) : 0; }
@@ -403,12 +406,7 @@ html.entra .pannello .tenda{display:block} html.entra .rv{opacity:0;transform:tr
     function scena(){ vuoto = false;
       if (vicino(tesi)) { var p = prog(tesi), n = Math.round(c01((p - .04)/.78) * parole.length);
         parole.forEach(function(w, i){ w.classList.toggle('on', i < n); });
-        mono.style.transform = 'rotateX(14deg) rotateY(' + (-30 + p*26) + 'deg)'; var tolto = 0, fine = c01((p - .8)/.12);
-        lastre.forEach(function(l){ var k = l.dataset.k, r = TOLTE.indexOf(k);
-          if (r < 0) { var dy = (mono.offsetHeight/2 - (l.offsetTop + l.offsetHeight/2)) * fine; l.style.transform = 'translate3d(0,' + dy.toFixed(1) + 'px,' + (fine*120).toFixed(1) + 'px) scale(' + (1 + fine*.12).toFixed(3) + ')'; return; }
-          var t = c01((p - .22 - r*.1)/.1), u = t*t*(3 - 2*t); if (t > 0) tolto += +l.dataset.pc * u;
-          l.style.transform = 'translate3d(' + (+l.dataset.dir * u * 280).toFixed(1) + 'px,0,' + (-u*40).toFixed(1) + 'px)'; l.style.opacity = (1 - c01((t - .55)/.45)).toFixed(3); });
-        var rr = Math.round(100 - tolto); resta.textContent = rr + ' €'; resta.classList.toggle('verde', rr <= 22); }
+        partita(); var r = sc ? sc.set(p) : conto(p); resta.textContent = r.resta + ' €'; resta.classList.toggle('verde', r.fine); }
       if (vicino(mappa)) { var m = matchMedia('(max-width: 860px)').matches ? .97 : prog(mappa), att = Math.min(RAMI.length - 1, Math.floor(c01((m - .04)/.8) * RAMI.length));
         $$('path[data-r]', grafo).forEach(function(pa){ var r = +pa.dataset.r, i = pa.dataset.i, t0 = .04 + r*(.8/RAMI.length), t = c01((m - t0 - (i ? .03 + i*.02 : 0))/.06); pa.style.setProperty('--d', (1 - t).toFixed(3)); });
         $$('.nodo[data-r], circle[data-r]', grafo).forEach(function(nd){ var r = +nd.dataset.r, i = nd.dataset.i, t0 = .04 + r*(.8/RAMI.length), t = c01((m - t0 - (i ? .05 + i*.02 : .03))/.05);
