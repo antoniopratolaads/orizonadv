@@ -237,6 +237,8 @@
     function misura() {
       var w = el.clientWidth, h = el.clientHeight; if (!w || !h) return;
       renderer.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix(); sporco = true;
+      var k = w < 520 ? 1.3 : 1;  // sul telefono i cartellini un po' più grandi
+      cartellini.forEach(function (c) { c.scale.set(1.7 * k, .43 * k, 1); }); finale.scale.set(2.3 * k, .58 * k, 1);
     }
     if (window.ResizeObserver) new ResizeObserver(misura).observe(el); else window.addEventListener("resize", misura);
     misura();
