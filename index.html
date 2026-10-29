@@ -101,20 +101,18 @@ img.sfondo{filter:var(--logo-sfondo)!important;mix-blend-mode:var(--logo-fusione
 
 /* i risultati */
 .casi{display:grid;gap:22px}
-.caso{display:grid;grid-template-columns:minmax(0,.62fr) minmax(0,1.38fr);gap:28px;align-items:center;padding:clamp(20px,3vw,32px);border-radius:var(--r);background:var(--card);border:1px solid var(--line)}
-.caso .chi{display:flex;align-items:center;gap:12px;font-weight:600} .caso .chi img{height:30px;width:auto;max-width:150px;object-fit:contain;filter:var(--logo-filtro)}
-.caso .num{font-size:clamp(64px,9vw,112px);font-weight:700;letter-spacing:-.05em;line-height:.95;color:var(--verde);font-variant-numeric:tabular-nums;margin:14px 0 10px}
-.caso .euro{font-size:18px;font-weight:600} .caso .quando{font-size:14px;color:var(--mut);margin-top:4px} .caso .fatto{font-size:15px;color:var(--mut);margin-top:16px;padding-top:14px;border-top:1px solid var(--line)} .caso .fatto b{color:var(--fg)}
-.pannello{position:relative;border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 24px 60px -34px rgba(0,0,0,.55)}
-.pannello img{width:100%;height:auto}
-.pannello .tenda{display:none;position:absolute;left:7.5%;right:35%;top:20%;bottom:13%;background:#fff;transform-origin:100% 50%}
-
-.pannello .velo{position:absolute;right:2%;top:18%;bottom:8%;width:31%;display:grid;place-items:center;padding:12px;text-align:center;font-size:13.5px;font-weight:600;line-height:1.35;color:#0c1713}
-.pannello .velo span{background:rgba(255,255,255,.9);border:1px solid rgba(12,23,19,.1);border-radius:12px;padding:10px 12px;box-shadow:0 8px 24px -14px rgba(0,0,0,.4)}
-.altri{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:22px}
-.altri div{position:relative;display:grid;gap:4px;padding:18px 20px;border-radius:16px;background:var(--pieno);border:1px solid var(--line);overflow:hidden}
-.altri div::after{content:"";position:absolute;right:-30px;top:-30px;width:90px;height:90px;border-radius:50%;background:radial-gradient(circle,rgba(96,231,135,.35),transparent 70%)}
-.altri small{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);font-weight:600} .altri b{font-size:30px;letter-spacing:-.03em;color:var(--blu);line-height:1.05} .altri span{font-size:14px;color:var(--mut)}
+.risq{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:clamp(16px,2.4vw,28px);display:grid;gap:clamp(16px,2.4vw,24px)}
+.schede-ris{display:flex;gap:8px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:14px}
+.schede-ris button{appearance:none;border:1px solid var(--line);background:var(--bg);border-radius:999px;height:48px;padding:0 20px;display:inline-flex;align-items:center;cursor:pointer;transition:background .2s,border-color .2s,box-shadow .2s}
+.schede-ris button img{height:20px;width:auto;max-width:120px;filter:var(--logo-filtro);opacity:.5;transition:opacity .2s,filter .2s} .schede-ris button img.sfondo,.schede-ris button[aria-selected="true"] img.sfondo{filter:var(--logo-sfondo);mix-blend-mode:var(--logo-fusione,normal)}
+.schede-ris button[aria-selected="true"]{background:var(--card);border-color:var(--blu);box-shadow:0 0 0 1px var(--blu)} .schede-ris button[aria-selected="true"] img{filter:none;opacity:1}
+.schede-ris button:hover img{opacity:.85} .schede-ris button:focus-visible{outline:2px solid var(--blu2);outline-offset:3px}
+.caso{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr);gap:clamp(18px,3vw,40px);align-items:center}
+.caso[hidden]{display:none}
+.caso .num{font-size:clamp(64px,8vw,104px);font-weight:700;letter-spacing:-.05em;line-height:.95;color:var(--verde);font-variant-numeric:tabular-nums;margin:0 0 12px}
+.caso .euro{font-size:17px;font-weight:600} .caso .fatto{font-size:15.5px;color:var(--mut);margin-top:10px;max-width:46ch} .caso .quando{font-size:13px;color:var(--mut);margin-top:10px}
+.grafico{margin:0;display:grid;gap:8px} .grafico img{width:100%;height:auto;border-radius:14px;border:1px solid var(--line);background:#fff;box-shadow:0 20px 40px -28px rgba(12,23,19,.35)}
+.grafico figcaption{font-size:12.5px;color:var(--mut);text-align:right}
 .chiudi{display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px;margin-top:32px} .chiudi p{color:var(--mut);font-size:15px}
 
 /* 26/10 sera, Antonio: «è diventato molto anonimo… almeno le animazioni di scroll con il testo che si illumina…
@@ -165,12 +163,7 @@ html:not(.scena) .grafo path{stroke-dashoffset:0}
 .rami-schede,.rami-schede-t{display:none}
 #ramo-ora .scheda-ramo{animation:entra-ramo .35s ease} @keyframes entra-ramo{from{opacity:0;transform:translateY(8px)}} .elenco{display:flex;flex-wrap:wrap;gap:8px} .elenco span{font-size:14px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--pieno)}
 /* i risultati: lo schermo resta fermo, i tre casi arrivano uno sopra l'altro */
-html.scena .ris2 .fisso{align-content:stretch;padding-block:clamp(16px,3vh,32px)}
 .ris2 .intesta{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px 24px;margin-bottom:clamp(12px,2.4vh,24px)} .ris2 .intesta h2{font-size:clamp(28px,3.4vw,42px)}
-.indice{display:flex;gap:6px;list-style:none;margin:0;padding:0} .indice li{width:48px;height:4px;border-radius:99px;background:var(--line);overflow:hidden} .indice li i{display:block;height:100%;background:var(--verde);transform-origin:0 50%;transform:scaleX(var(--q,0))}
-.mazzo{position:relative;display:grid;gap:22px}
-html.scena .mazzo{display:block;height:100%} html.scena .mazzo .caso{position:absolute;inset:0;background:var(--pieno);transform:translateY(calc(var(--y,1) * 110%)) scale(var(--s,1));opacity:var(--o,1);transform-origin:50% 0;will-change:transform}
-html.scena .mazzo .caso:first-child{--y:0}
 /* la tesi, ferma */
 .tesi p{font-size:clamp(34px,5.4vw,68px);font-weight:700;letter-spacing:-.035em;line-height:1.08;max-width:18ch} .tesi p+p{margin-top:6px}
 .tesi p:nth-child(2){color:var(--mut)} .tesi p:nth-child(3){color:var(--verde)} .tesi a{display:inline-flex;align-items:center;min-height:44px;margin-top:20px;font-weight:600;color:var(--blu2);text-decoration:none}
@@ -219,9 +212,15 @@ html.scena .mazzo .caso:first-child{--y:0}
 .agente img{flex:0 0 auto;width:72px;height:72px;border-radius:50%;object-fit:cover;background:#e9e8f5} .agente div{display:grid;gap:2px;min-width:0} .agente b{font-size:17px} .agente span{font-size:14.5px;color:var(--mut)}
 
 /* partner e strumenti */
-.fascia{display:grid;gap:20px;padding:28px;border-radius:var(--r);border:1px solid var(--line)}
-.pill{display:flex;flex-wrap:wrap;gap:10px} .pill span{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:14.5px;font-weight:600}
-.pill.str span{font-weight:500;color:var(--mut)} .pill.str img{width:20px;height:20px;filter:var(--logo-filtro);opacity:.8}
+.fascia{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.5fr);gap:clamp(20px,3vw,40px);padding:clamp(20px,3vw,32px);border-radius:var(--r);border:1px solid var(--line);background:var(--card)}
+@media (max-width:860px){.fascia{grid-template-columns:1fr} .griglia{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.fascia .blocco{display:grid;gap:14px;align-content:start;min-width:0}
+.certi{display:grid;gap:10px} .cert{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:14px;background:var(--bg);border:1px solid var(--line)}
+.cert img{width:28px;height:28px} .cert b{font-size:16px}
+.griglia{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card)}
+.cella{display:grid;justify-items:center;align-content:center;gap:8px;padding:18px 8px;min-height:92px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);margin:0 -1px -1px 0}
+.cella img{width:26px;height:26px;filter:var(--logo-filtro);opacity:.75} .cella span{font-size:13.5px;font-weight:600;color:var(--mut)}
+.fascia .ai{font-size:13.5px;color:var(--mut)}
 
 /* Parliamone */
 .parl{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(24px,4vw,56px);align-items:start}
@@ -243,17 +242,15 @@ dialog::backdrop{background:rgba(3,6,10,.92)}
 .lettore .x{position:absolute;top:max(14px,env(safe-area-inset-top,0px));right:max(14px,env(safe-area-inset-right,0px));width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:#0c1713;font-size:22px;cursor:pointer}
 
 /* entrata una volta sola: senza JS o con «riduci movimento» tutto è già al suo posto */
-html.entra .pannello .tenda{display:block} html.entra .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .7s cubic-bezier(.2,.8,.2,1)} html.entra .rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.frasi .w{color:var(--fg)} .cielo i,.nastro ul,.holmes .tondo{animation:none} .pannello .tenda{display:none} html.entra .rv{opacity:1;transform:none;transition:none}}
+html.entra .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .7s cubic-bezier(.2,.8,.2,1)} html.entra .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.frasi .w{color:var(--fg)} .cielo i,.nastro ul,.holmes .tondo{animation:none} html.entra .rv{opacity:1;transform:none;transition:none}}
 
-.caso .velo-t{display:none;font-size:14px;color:var(--mut);font-style:italic}
 /* telefono */
 @media (max-width:860px){
   .pillola nav,.pillola>.btn{display:none} .burger{display:block} .barra{height:68px;padding-top:10px} .pillola{height:52px;padding:0 4px 0 18px;background:rgba(255,255,255,.94);backdrop-filter:none;-webkit-backdrop-filter:none} .pillola .logo{height:19px} .cielo .griglia{display:none} .cielo i{width:110vmax;height:110vmax}
   .testa .wrap{grid-template-columns:1fr;gap:28px} .holmes{order:-1;width:min(180px,48vw);justify-self:center;margin:96px 0 40px} .fumetto{max-width:min(300px,calc(100vw - 32px));font-size:13.5px} .orbita button{width:44px;height:44px;margin:-22px;border-width:2px;animation:none} .chi-ora{font-size:13px}
   .testa .sotto{font-size:17px} .numeri b{font-size:24px}
-  .caso{grid-template-columns:1fr;gap:18px} .pannello img{width:158%;max-width:none} .pannello .tenda{left:12%;right:44%} .pannello .velo{display:none}
-  .caso .velo-t{display:block} .altri{grid-template-columns:1fr}
+  .caso{grid-template-columns:1fr;gap:18px} .schede-ris button{height:44px;padding:0 14px} .schede-ris button img{height:17px;max-width:96px}
   .servizi{grid-template-columns:1fr 1fr} .srv{padding:16px} .srv b{font-size:15.5px} .srv span{font-size:13.5px}
   .ign-box,.parl,.squadra{grid-template-columns:1fr} .crea{grid-template-columns:1fr 1fr} .agenti{grid-template-columns:1fr 1fr}
   form{grid-template-columns:1fr} .foto-vuota{aspect-ratio:4/3} .agenti{grid-auto-rows:auto} .agente{gap:12px;padding:12px 14px} .agente img{width:52px;height:52px} .agente b{font-size:15px} .agente span{font-size:13px}
@@ -263,11 +260,9 @@ html.entra .pannello .tenda{display:block} html.entra .rv{opacity:0;transform:tr
   .rami-schede{counter-reset:ramo} .rami-schede .scheda-ramo{position:relative;overflow:hidden;counter-increment:ramo;gap:14px;padding:22px 20px 20px} .rami-schede .scheda-ramo::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--blu),#60e787)} .rami-schede .scheda-ramo .num{display:none} .rami-schede .tit::after{content:"0" counter(ramo) " / 06";margin-left:auto;font-size:12px;font-weight:600;color:var(--mut);font-variant-numeric:tabular-nums} .rami-schede .tit img{width:52px;height:52px;box-shadow:0 0 0 4px color-mix(in srgb,var(--blu) 10%,transparent)} .rami-schede .tit h3{font-size:22px} .rami-schede .elenco span{background:color-mix(in srgb,var(--blu) 7%,var(--pieno));border-color:color-mix(in srgb,var(--blu) 20%,transparent);color:var(--fg);font-weight:500}
   .rami-schede-t{display:block} .rami-schede .scheda-ramo{flex:0 0 84%;scroll-snap-align:start;align-content:start} .scorri{font-size:13px;color:var(--mut);margin-top:-4px}
   .prove a{padding:14px 12px 12px} .prove b{font-size:24px} .prove span{font-size:12.5px} .prove small{padding:8px 12px}
-  .altri b{font-size:24px} .altri div{padding:14px 16px}
   .mappa2 .wrap{grid-template-columns:1fr;gap:12px} .nodo:not(.ramo):not(.centro){display:none} .nodo.ramo{font-size:12px;padding:5px 10px} .nodo.centro{border-width:6px} .ramo-t h3{font-size:20px} .elenco span{font-size:13px}
   .tesi2 .wrap{grid-template-columns:1fr;gap:18px;align-content:center} .scacchi{order:-1} .cubo{--u:clamp(36px,11vw,52px)} #cubo3d{width:min(260px,64vw)} .contatore{margin-top:16px} .contatore b{font-size:26px}
   .frasi p{font-size:clamp(28px,8vw,40px)} .ris2 .intesta h2{font-size:24px} .ris2 .intesta p{display:none}
-  html.scena .mazzo .caso{gap:10px;align-content:start;padding:16px;overflow:hidden} html.scena .caso .num{font-size:56px;margin:8px 0 6px} html.scena .caso .euro{font-size:15.5px} html.scena .caso .fatto,html.scena .caso .velo-t{display:none} html.scena .caso .quando{font-size:13px}
 }
 </style>
 </head>
@@ -289,35 +284,27 @@ html.entra .pannello .tenda{display:block} html.entra .rv{opacity:0;transform:tr
 </div></section>
 <div class="nastro" aria-label="I nostri clienti"><ul><li><img src="img/home/loghi/logo-londonstore.png" alt="London Store" loading="lazy" height="28"></li><li><img class="sfondo" src="img/home/loghi/logo-climando.svg" alt="Climando" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-manfrellotti.png" alt="Manfrellotti" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-fontana.png" alt="F.lli Fontana" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-dematteo.png" alt="De Matteo Home" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-larcolaio.png" alt="L&#x27;Arcolaio" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-paskal.png" alt="PK by Paskal" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-chenzo.png" alt="Chenzo" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-madamalu.png" alt="Madamalù" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-vginformatica.png" alt="VG Informatica" loading="lazy" height="28"></li><li class="nome"><span>B-Power</span></li><li class="nome"><span>Martina Esposito</span></li><li class="nome"><span>Mister LedWall</span></li><li class="nome"><img src="img/home/loghi-web/fcp.it.png" alt="" width="22" height="22" loading="lazy"><span>Franco Cosimo Panini</span></li><li class="nome"><img src="img/home/loghi-web/resetenergia.it.png" alt="" width="22" height="22" loading="lazy"><span>Reset Energia</span></li><li class="nome"><img src="img/home/loghi-web/buytutto.com.png" alt="" width="22" height="22" loading="lazy"><span>Buytutto</span></li><li class="nome"><img src="img/home/loghi-web/prestigioargentieori.it.png" alt="" width="22" height="22" loading="lazy"><span>Prestigio Argenti e Ori</span></li><li class="nome"><span>Opposti Boutique</span></li><li class="nome"><img src="img/home/loghi-web/gruppoautouno.it.png" alt="" width="22" height="22" loading="lazy"><span>Autouno</span></li><li class="nome"><img src="img/home/loghi-web/zampol.it.png" alt="" width="22" height="22" loading="lazy"><span>Zampol</span></li><li><img src="img/home/loghi/logo-londonstore.png" alt="London Store" loading="lazy" height="28"></li><li><img class="sfondo" src="img/home/loghi/logo-climando.svg" alt="Climando" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-manfrellotti.png" alt="Manfrellotti" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-fontana.png" alt="F.lli Fontana" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-dematteo.png" alt="De Matteo Home" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-larcolaio.png" alt="L&#x27;Arcolaio" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-paskal.png" alt="PK by Paskal" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-chenzo.png" alt="Chenzo" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-madamalu.png" alt="Madamalù" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-vginformatica.png" alt="VG Informatica" loading="lazy" height="28"></li><li class="nome"><span>B-Power</span></li><li class="nome"><span>Martina Esposito</span></li><li class="nome"><span>Mister LedWall</span></li><li class="nome"><img src="img/home/loghi-web/fcp.it.png" alt="" width="22" height="22" loading="lazy"><span>Franco Cosimo Panini</span></li><li class="nome"><img src="img/home/loghi-web/resetenergia.it.png" alt="" width="22" height="22" loading="lazy"><span>Reset Energia</span></li><li class="nome"><img src="img/home/loghi-web/buytutto.com.png" alt="" width="22" height="22" loading="lazy"><span>Buytutto</span></li><li class="nome"><img src="img/home/loghi-web/prestigioargentieori.it.png" alt="" width="22" height="22" loading="lazy"><span>Prestigio Argenti e Ori</span></li><li class="nome"><span>Opposti Boutique</span></li><li class="nome"><img src="img/home/loghi-web/gruppoautouno.it.png" alt="" width="22" height="22" loading="lazy"><span>Autouno</span></li><li class="nome"><img src="img/home/loghi-web/zampol.it.png" alt="" width="22" height="22" loading="lazy"><span>Zampol</span></li><li><img src="img/home/loghi/logo-londonstore.png" alt="London Store" loading="lazy" height="28"></li><li><img class="sfondo" src="img/home/loghi/logo-climando.svg" alt="Climando" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-manfrellotti.png" alt="Manfrellotti" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-fontana.png" alt="F.lli Fontana" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-dematteo.png" alt="De Matteo Home" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-larcolaio.png" alt="L&#x27;Arcolaio" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-paskal.png" alt="PK by Paskal" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-chenzo.png" alt="Chenzo" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-madamalu.png" alt="Madamalù" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-vginformatica.png" alt="VG Informatica" loading="lazy" height="28"></li><li class="nome"><span>B-Power</span></li><li class="nome"><span>Martina Esposito</span></li><li class="nome"><span>Mister LedWall</span></li><li class="nome"><img src="img/home/loghi-web/fcp.it.png" alt="" width="22" height="22" loading="lazy"><span>Franco Cosimo Panini</span></li><li class="nome"><img src="img/home/loghi-web/resetenergia.it.png" alt="" width="22" height="22" loading="lazy"><span>Reset Energia</span></li><li class="nome"><img src="img/home/loghi-web/buytutto.com.png" alt="" width="22" height="22" loading="lazy"><span>Buytutto</span></li><li class="nome"><img src="img/home/loghi-web/prestigioargentieori.it.png" alt="" width="22" height="22" loading="lazy"><span>Prestigio Argenti e Ori</span></li><li class="nome"><span>Opposti Boutique</span></li><li class="nome"><img src="img/home/loghi-web/gruppoautouno.it.png" alt="" width="22" height="22" loading="lazy"><span>Autouno</span></li><li class="nome"><img src="img/home/loghi-web/zampol.it.png" alt="" width="22" height="22" loading="lazy"><span>Zampol</span></li><li><img src="img/home/loghi/logo-londonstore.png" alt="London Store" loading="lazy" height="28"></li><li><img class="sfondo" src="img/home/loghi/logo-climando.svg" alt="Climando" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-manfrellotti.png" alt="Manfrellotti" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-fontana.png" alt="F.lli Fontana" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-dematteo.png" alt="De Matteo Home" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-larcolaio.png" alt="L&#x27;Arcolaio" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-paskal.png" alt="PK by Paskal" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-chenzo.png" alt="Chenzo" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-madamalu.png" alt="Madamalù" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-vginformatica.png" alt="VG Informatica" loading="lazy" height="28"></li><li class="nome"><span>B-Power</span></li><li class="nome"><span>Martina Esposito</span></li><li class="nome"><span>Mister LedWall</span></li><li class="nome"><img src="img/home/loghi-web/fcp.it.png" alt="" width="22" height="22" loading="lazy"><span>Franco Cosimo Panini</span></li><li class="nome"><img src="img/home/loghi-web/resetenergia.it.png" alt="" width="22" height="22" loading="lazy"><span>Reset Energia</span></li><li class="nome"><img src="img/home/loghi-web/buytutto.com.png" alt="" width="22" height="22" loading="lazy"><span>Buytutto</span></li><li class="nome"><img src="img/home/loghi-web/prestigioargentieori.it.png" alt="" width="22" height="22" loading="lazy"><span>Prestigio Argenti e Ori</span></li><li class="nome"><span>Opposti Boutique</span></li><li class="nome"><img src="img/home/loghi-web/gruppoautouno.it.png" alt="" width="22" height="22" loading="lazy"><span>Autouno</span></li><li class="nome"><img src="img/home/loghi-web/zampol.it.png" alt="" width="22" height="22" loading="lazy"><span>Zampol</span></li><li><img src="img/home/loghi/logo-londonstore.png" alt="London Store" loading="lazy" height="28"></li><li><img class="sfondo" src="img/home/loghi/logo-climando.svg" alt="Climando" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-manfrellotti.png" alt="Manfrellotti" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-fontana.png" alt="F.lli Fontana" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-dematteo.png" alt="De Matteo Home" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-larcolaio.png" alt="L&#x27;Arcolaio" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-paskal.png" alt="PK by Paskal" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-chenzo.png" alt="Chenzo" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-madamalu.png" alt="Madamalù" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-vginformatica.png" alt="VG Informatica" loading="lazy" height="28"></li><li class="nome"><span>B-Power</span></li><li class="nome"><span>Martina Esposito</span></li><li class="nome"><span>Mister LedWall</span></li><li class="nome"><img src="img/home/loghi-web/fcp.it.png" alt="" width="22" height="22" loading="lazy"><span>Franco Cosimo Panini</span></li><li class="nome"><img src="img/home/loghi-web/resetenergia.it.png" alt="" width="22" height="22" loading="lazy"><span>Reset Energia</span></li><li class="nome"><img src="img/home/loghi-web/buytutto.com.png" alt="" width="22" height="22" loading="lazy"><span>Buytutto</span></li><li class="nome"><img src="img/home/loghi-web/prestigioargentieori.it.png" alt="" width="22" height="22" loading="lazy"><span>Prestigio Argenti e Ori</span></li><li class="nome"><span>Opposti Boutique</span></li><li class="nome"><img src="img/home/loghi-web/gruppoautouno.it.png" alt="" width="22" height="22" loading="lazy"><span>Autouno</span></li><li class="nome"><img src="img/home/loghi-web/zampol.it.png" alt="" width="22" height="22" loading="lazy"><span>Zampol</span></li><li><img src="img/home/loghi/logo-londonstore.png" alt="London Store" loading="lazy" height="28"></li><li><img class="sfondo" src="img/home/loghi/logo-climando.svg" alt="Climando" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-manfrellotti.png" alt="Manfrellotti" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-fontana.png" alt="F.lli Fontana" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-dematteo.png" alt="De Matteo Home" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-larcolaio.png" alt="L&#x27;Arcolaio" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-paskal.png" alt="PK by Paskal" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-chenzo.png" alt="Chenzo" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-madamalu.png" alt="Madamalù" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-vginformatica.png" alt="VG Informatica" loading="lazy" height="28"></li><li class="nome"><span>B-Power</span></li><li class="nome"><span>Martina Esposito</span></li><li class="nome"><span>Mister LedWall</span></li><li class="nome"><img src="img/home/loghi-web/fcp.it.png" alt="" width="22" height="22" loading="lazy"><span>Franco Cosimo Panini</span></li><li class="nome"><img src="img/home/loghi-web/resetenergia.it.png" alt="" width="22" height="22" loading="lazy"><span>Reset Energia</span></li><li class="nome"><img src="img/home/loghi-web/buytutto.com.png" alt="" width="22" height="22" loading="lazy"><span>Buytutto</span></li><li class="nome"><img src="img/home/loghi-web/prestigioargentieori.it.png" alt="" width="22" height="22" loading="lazy"><span>Prestigio Argenti e Ori</span></li><li class="nome"><span>Opposti Boutique</span></li><li class="nome"><img src="img/home/loghi-web/gruppoautouno.it.png" alt="" width="22" height="22" loading="lazy"><span>Autouno</span></li><li class="nome"><img src="img/home/loghi-web/zampol.it.png" alt="" width="22" height="22" loading="lazy"><span>Zampol</span></li></ul></div>
 
-<section id="risultati" class="ris2" style="padding-block:clamp(40px,6vw,72px) clamp(64px,9vw,120px)"><div class="pista" style="--h:calc(3 * 115svh)"><div class="fisso"><div class="wrap" style="width:100%;display:grid;grid-template-rows:auto minmax(0,1fr);height:100%">
-  <div class="intesta"><div><p class="eyebrow">Risultati</p><h2 style="margin-top:8px">Le vendite dei nostri clienti. Vere, da Shopify.</h2><p class="mut" style="margin-top:8px">Il fatturato lo vedi qui. Quanto resta in tasca, te lo mostriamo in call.</p></div><ol class="indice" aria-hidden="true"><li><i></i></li><li><i></i></li><li><i></i></li></ol></div>
-  <div class="mazzo"><article class="caso">
-  <div><div class="chi"><img src="img/home/loghi/logo-londonstore.png" alt="London Store"></div>
-  <p class="num" data-a="65">+65 %</p>
+<section id="risultati" class="ris2" style="padding-block:clamp(56px,8vw,104px)"><div class="wrap">
+  <div class="intesta"><div><p class="eyebrow">Risultati</p><h2 style="margin-top:8px">Le vendite dei nostri clienti. Vere, da Shopify.</h2><p class="mut" style="margin-top:8px">Il fatturato lo vedi qui. Quanto resta in tasca, te lo mostriamo in call.</p></div></div>
+  <div class="risq rv"><div class="schede-ris" role="tablist" aria-label="Clienti"><button type="button" role="tab" id="t-london" aria-controls="c-london" aria-selected="true"><img src="img/home/loghi/logo-londonstore.png" alt="London Store"></button><button type="button" role="tab" id="t-climando" aria-controls="c-climando" aria-selected="false" tabindex="-1"><img class="sfondo" src="img/home/loghi/logo-climando.svg" alt="Climando"></button><button type="button" role="tab" id="t-manfrellotti" aria-controls="c-manfrellotti" aria-selected="false" tabindex="-1"><img src="img/home/loghi/logo-manfrellotti.png" alt="Manfrellotti"></button></div><article class="caso" role="tabpanel" id="c-london" aria-labelledby="t-london">
+  <div><p class="num" data-a="65">+65 %</p>
   <p class="euro">855.012 € di vendite · 13.224 ordini (+75 %)</p>
-  <p class="quando">1 gen–26 ott 2026 contro lo stesso periodo 2025. Fonte: Shopify.</p>
-  <p class="velo-t">Il resto del pannello, e quanto resta in tasca al cliente, te lo facciamo vedere in call.</p></div>
-  <figure class="pannello" style="margin:0"><img src="img/home/pannello-london.webp" alt="Il grafico delle vendite di London Store su Shopify, 2026 contro 2025" width="1400" height="378" loading="lazy"><i class="tenda" aria-hidden="true"></i>
-  <figcaption class="velo"><span>Il resto del pannello, e quanto resta in tasca al cliente, te lo facciamo vedere in call.</span></figcaption></figure>
-</article><article class="caso">
-  <div><div class="chi"><img class="sfondo" src="img/home/loghi/logo-climando.svg" alt="Climando"></div>
-  <p class="num" data-a="72">+72 %</p>
+  <p class="fatto">Google Ads con 9 Performance Max divise per stagione, il feed, video e statiche per Meta.</p>
+  <p class="quando">1 gen–26 ott 2026 contro lo stesso periodo 2025. Fonte: Shopify.</p></div>
+  <figure class="grafico"><img src="img/home/grafico-london.webp" alt="Vendite totali nel tempo di London Store su Shopify, 2026 contro 2025" width="926" height="378" loading="lazy"><figcaption>Il grafico di Shopify, così com'è.</figcaption></figure>
+</article><article class="caso" role="tabpanel" id="c-climando" aria-labelledby="t-climando" hidden>
+  <div><p class="num" data-a="72">+72 %</p>
   <p class="euro">7.373.609 € di vendite · 10.301 ordini (+56 %)</p>
-  <p class="quando">1 gen–26 ott 2026 contro lo stesso periodo 2025. Fonte: Shopify.</p>
-  <p class="velo-t">Il resto del pannello, e quanto resta in tasca al cliente, te lo facciamo vedere in call.</p></div>
-  <figure class="pannello" style="margin:0"><img src="img/home/pannello-climando.webp" alt="Il grafico delle vendite di Climando su Shopify, 2026 contro 2025" width="1400" height="378" loading="lazy"><i class="tenda" aria-hidden="true"></i>
-  <figcaption class="velo"><span>Il resto del pannello, e quanto resta in tasca al cliente, te lo facciamo vedere in call.</span></figcaption></figure>
-</article><article class="caso">
-  <div><div class="chi"><img src="img/home/loghi/logo-manfrellotti.png" alt="Manfrellotti"></div>
-  <p class="num" data-a="36">+36 %</p>
+  <p class="fatto">Google Shopping e Performance Max, schede riscritte per Google e per le AI, i pubblici.</p>
+  <p class="quando">1 gen–26 ott 2026 contro lo stesso periodo 2025. Fonte: Shopify.</p></div>
+  <figure class="grafico"><img src="img/home/grafico-climando.webp" alt="Vendite totali nel tempo di Climando su Shopify, 2026 contro 2025" width="926" height="378" loading="lazy"><figcaption>Il grafico di Shopify, così com'è.</figcaption></figure>
+</article><article class="caso" role="tabpanel" id="c-manfrellotti" aria-labelledby="t-manfrellotti" hidden>
+  <div><p class="num" data-a="36">+36 %</p>
   <p class="euro">336.831 € di vendite · 4.054 ordini (+35 %)</p>
-  <p class="quando">1 gen–26 ott 2026 contro lo stesso periodo 2025. Fonte: Shopify.</p>
-  <p class="velo-t">Il resto del pannello, e quanto resta in tasca al cliente, te lo facciamo vedere in call.</p></div>
-  <figure class="pannello" style="margin:0"><img src="img/home/pannello-manfrellotti.webp" alt="Il grafico delle vendite di Manfrellotti su Shopify, 2026 contro 2025" width="1400" height="378" loading="lazy"><i class="tenda" aria-hidden="true"></i>
-  <figcaption class="velo"><span>Il resto del pannello, e quanto resta in tasca al cliente, te lo facciamo vedere in call.</span></figcaption></figure>
+  <p class="fatto">Google Ads, feed supplementare, catalogo Meta con le nostre etichette, i reel del Black Month.</p>
+  <p class="quando">1 gen–26 ott 2026 contro lo stesso periodo 2025. Fonte: Shopify.</p></div>
+  <figure class="grafico"><img src="img/home/grafico-manfrellotti.webp" alt="Vendite totali nel tempo di Manfrellotti su Shopify, 2026 contro 2025" width="926" height="378" loading="lazy"><figcaption>Il grafico di Shopify, così com'è.</figcaption></figure>
 </article></div>
-</div></div></div><div class="wrap">
-  <div class="altri rv"><div><small>L&#x27;Arcolaio</small><b>0 → 2 M€</b><span>in due anni</span></div><div><small>De Matteo Home</small><b>4,2 M€</b><span>di valore da Google Ads</span></div><div><small>Aste online</small><b>561 mila</b><span>registrazioni</span></div></div>
   <div class="chiudi rv"><a class="btn" href="#parliamone">Vuoi essere il prossimo caso studio? Parliamone</a><p>Non lavoriamo con tutti.</p></div>
 </div></section>
 
@@ -346,7 +333,8 @@ html.entra .pannello .tenda{display:block} html.entra .rv{opacity:0;transform:tr
 </div></section>
 
 <section style="padding-block:0 clamp(64px,9vw,120px)"><div class="wrap"><div class="fascia rv">
-  <p class="eyebrow">Le piattaforme su cui spendi, e gli strumenti con cui misuriamo</p><div class="pill"><span>Google Partner</span><span>Meta Business Partner</span><span>Shopify Partner</span><span>Klaviyo</span><span>RedTrack</span></div><div class="pill str"><span><img src="img/home/tech/shopify.svg" alt="" loading="lazy">Shopify</span><span><img src="img/home/tech/googleads.svg" alt="" loading="lazy">Google Ads</span><span><img src="img/home/tech/meta.svg" alt="" loading="lazy">Meta</span><span><img src="img/home/tech/tiktok.svg" alt="" loading="lazy">TikTok</span><span><img src="img/home/tech/googleanalytics.svg" alt="" loading="lazy">GA4</span><span><img src="img/home/tech/googletagmanager.svg" alt="" loading="lazy">Tag Manager</span><span><img src="img/home/tech/anthropic.svg" alt="" loading="lazy">Claude</span><span><img src="img/home/tech/googlegemini.svg" alt="" loading="lazy">Gemini</span><span><img src="img/home/tech/openai.svg" alt="" loading="lazy">OpenAI</span><span><img src="img/home/tech/davinciresolve.svg" alt="" loading="lazy">DaVinci Resolve</span><span><img src="img/home/tech/adobeaftereffects.svg" alt="" loading="lazy">After Effects</span><span><img src="img/home/tech/figma.svg" alt="" loading="lazy">Figma</span></div>
+  <div class="blocco"><p class="eyebrow">Certificati</p><div class="certi"><div class="cert"><img src="img/home/tech/googleads.svg" alt="" loading="lazy"><b>Google Partner</b></div><div class="cert"><img src="img/home/tech/meta.svg" alt="" loading="lazy"><b>Meta Business Partner</b></div><div class="cert"><img src="img/home/tech/shopify.svg" alt="" loading="lazy"><b>Shopify Partner</b></div></div></div>
+  <div class="blocco"><p class="eyebrow">Con cosa lavoriamo</p><div class="griglia"><div class="cella"><img src="img/home/tech/googleads.svg" alt="" loading="lazy"><span>Google Ads</span></div><div class="cella"><img src="img/home/tech/meta.svg" alt="" loading="lazy"><span>Meta</span></div><div class="cella"><img src="img/home/tech/tiktok.svg" alt="" loading="lazy"><span>TikTok</span></div><div class="cella"><img src="img/home/tech/shopify.svg" alt="" loading="lazy"><span>Shopify</span></div><div class="cella"><img src="img/home/tech/googleanalytics.svg" alt="" loading="lazy"><span>GA4</span></div><div class="cella"><img src="img/home/tech/googletagmanager.svg" alt="" loading="lazy"><span>Tag Manager</span></div><div class="cella"><span>Klaviyo</span></div><div class="cella"><span>RedTrack</span></div></div><p class="ai">In squadra anche Claude, Gemini e OpenAI, per scrivere le schede e montare i video.</p></div>
 </div></div></section>
 
 <section id="parliamone"><div class="wrap parl">
@@ -387,11 +375,20 @@ html.entra .pannello .tenda{display:block} html.entra .rv{opacity:0;transform:tr
   addEventListener('keydown', function(ev){ if (ev.key === 'Escape' && mt.classList.contains('aperto')) menu(false); });
   // sul computer la voce della sezione in cui sei resta accesa
   if ('IntersectionObserver' in window) { var voci = $$('.pillola nav a'), oss = new IntersectionObserver(function(es){ es.forEach(function(en){ if (en.isIntersecting) voci.forEach(function(a){ a.classList.toggle('qui', a.getAttribute('href') === '#' + en.target.id); }); }); }, {rootMargin:'-45% 0px -50% 0px'}); $$('section[id]').forEach(function(sz){ oss.observe(sz); }); }
+  // i risultati a schede: clic o frecce; il numero sale la prima volta che la scheda si vede
+  (function(){ var bt = $$('.schede-ris button'), visti = {};
+    function sali(c){ var n = $('.num', c); if (!n || visti[c.id] || rm) return; visti[c.id] = 1; var a = +n.dataset.a, t0 = performance.now();
+      (function f(t){ var q = Math.min(1, (t - t0)/900); n.textContent = '+' + Math.round(a*(1 - Math.pow(1 - q, 3))) + ' %'; if (q < 1) requestAnimationFrame(f); })(t0); }
+    function vai(b, fuoco){ bt.forEach(function(x){ var su = x === b; x.setAttribute('aria-selected', su ? 'true' : 'false'); x.tabIndex = su ? 0 : -1; $('#' + x.getAttribute('aria-controls')).hidden = !su; });
+      if (fuoco) b.focus(); sali($('#' + b.getAttribute('aria-controls'))); }
+    bt.forEach(function(b, i){ b.addEventListener('click', function(){ vai(b); });
+      b.addEventListener('keydown', function(ev){ var d = ev.key === 'ArrowRight' ? 1 : ev.key === 'ArrowLeft' ? -1 : 0; if (d) { ev.preventDefault(); vai(bt[(i + d + bt.length) % bt.length], true); } }); });
+    var primo = $('.caso'); if (primo && 'IntersectionObserver' in window) { var o = new IntersectionObserver(function(es){ if (es[0].isIntersecting) { sali(primo); o.disconnect(); } }, {threshold: .4}); o.observe(primo); } })();
   // le scene a schermo fermo: un solo ascoltatore dello scroll, solo transform e classi
   var c01 = function(v){ return v < 0 ? 0 : v > 1 ? 1 : v; };
   if (!rm) {
     document.documentElement.classList.add('scena');
-    var tesi = $('.tesi2 .pista'), ris = $('.ris2 .pista');
+    var tesi = $('.tesi2 .pista');
     var parole = $$('.frasi .w'), sc = null, carica = false, scN = $('#sc-nota'), scS = $('#sc-servizio'), scF = $('#sc-frase'), mostrata = null;
     // le mosse bianche (Opera Game, Morphy 1858): ognuna è un servizio. Finché la scena non è pronta la didascalia va avanti da sola, con gli stessi tempi
     var MOSSE = [['13. T×d7', 'Feed per Google e Meta', 'Il prodotto giusto davanti a chi lo cerca.'], ['14. Td1', 'Tracciamento', 'Ogni ordine contato, sul canale giusto.'],
@@ -406,7 +403,6 @@ html.entra .pannello .tenda{display:block} html.entra .rv{opacity:0;transform:tr
         var t = document.createElement('script'); t.src = fila.shift(); t.onload = prossimo; document.head.appendChild(t); };
       prossimo(); }
     var mappa = $('.mappa2 .pista'), grafo = $('#grafo'), RAMI = JSON.parse($('#rami-dati').textContent), ramoOra = $('#ramo-ora'), ramoN = -1;
-    var casiS = $$('.mazzo .caso'), tacche = $$('.indice i'), dati = casiS.map(function(c){ return {n: $('.num', c), a: +$('.num', c).dataset.a, t: $('.tenda', c)}; });
     function prog(el){ var f = el.firstElementChild, top = parseFloat(getComputedStyle(f).top) || 0, h = el.offsetHeight - f.offsetHeight; return h > 0 ? c01(-(el.getBoundingClientRect().top - top)/h) : 0; }
     function vicino(el){ var r = el.getBoundingClientRect(); return r.bottom > -200 && r.top < innerHeight + 200; }
     var vuoto = false;
@@ -420,13 +416,7 @@ html.entra .pannello .tenda{display:block} html.entra .rv{opacity:0;transform:tr
           nd.style.setProperty('--op', t.toFixed(2)); nd.style.setProperty('--sc', (.7 + t*.3).toFixed(3)); if (nd.tagName === 'circle') nd.style.opacity = t; nd.classList.toggle('acceso', r === att && m < .9); });
         $$('path.leg', grafo).forEach(function(pa){ pa.style.setProperty('--d', (1 - c01((m - .86)/.1)).toFixed(3)); });
         grafo.classList.toggle('fuoco', m > .04 && m < .9);
-        if (att !== ramoN) { ramoN = att; ramoOra.innerHTML = RAMI[att]; } }
-      if (vicino(ris)) { var q = prog(ris) * casiS.length;
-        casiS.forEach(function(c, i){ var t = c01(q - i + .35), dopo = i < casiS.length - 1 ? c01(q - i - .65) : 0;
-          if (i > 0) c.style.setProperty('--y', (1 - t*t*(3 - 2*t)).toFixed(4));
-          c.style.setProperty('--s', (1 - dopo*.05).toFixed(4)); c.style.setProperty('--o', (1 - dopo*.6).toFixed(3));
-          var f = i ? c01((q - i + .1)/.6) : c01(1 - (ris.getBoundingClientRect().top - 76)/(innerHeight*.7)), d = dati[i]; d.n.textContent = '+' + Math.round(d.a * (1 - Math.pow(1 - f, 3))) + ' %'; if (d.t) d.t.style.transform = 'scaleX(' + (1 - f).toFixed(3) + ')';
-          if (tacche[i]) tacche[i].style.setProperty('--q', c01(q - i).toFixed(3)); }); } }
+        if (att !== ramoN) { ramoN = att; ramoOra.innerHTML = RAMI[att]; } } }
     addEventListener('scroll', function(){ if (!vuoto) { vuoto = true; requestAnimationFrame(scena); } }, {passive:true});
     addEventListener('resize', scena); scena();
   }
