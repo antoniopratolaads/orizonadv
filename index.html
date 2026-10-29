@@ -137,13 +137,15 @@ html.scena .frasi .w{color:var(--spento)} html.scena .frasi .w.on{color:var(--fg
 .cel i:nth-child(1){transform:translateZ(calc(var(--u)/2))} .cel i:nth-child(2){transform:rotateY(180deg) translateZ(calc(var(--u)/2))} .cel i:nth-child(3){transform:rotateY(90deg) translateZ(calc(var(--u)/2))}
 .cel i:nth-child(4){transform:rotateY(-90deg) translateZ(calc(var(--u)/2))} .cel i:nth-child(5){transform:rotateX(90deg) translateZ(calc(var(--u)/2))} .cel i:nth-child(6){transform:rotateX(-90deg) translateZ(calc(var(--u)/2))}
 .contatore{margin-top:8px;text-align:center;font-size:14px;color:var(--mut)} .contatore b{display:block;font-size:34px;color:var(--verde);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
-/* la partita a scacchi (29/10, Antonio: «una scacchiera con una partita… più sexy»): i costi mangiano i pezzi bianchi,
-   resta il re verde. three.js si carica solo vicino alla sezione; prima, e con «riduci movimento», si vede la foto finale */
+/* la partita a scacchi (29/10, Antonio: «vinciamola noi… sono le varie funzioni che ci fanno vincere»): il finale
+   dell'Opera Game di Morphy, ogni mossa bianca è un servizio, l'ultima dà scacco matto. three.js si carica solo vicino alla sezione; prima, e con «riduci movimento», si vede la foto finale */
 .scacchi{display:grid;justify-items:center;width:100%}
 .palco-sc{position:relative;width:min(100%,calc(100svh - 230px));aspect-ratio:1;border-radius:28px;overflow:hidden;background:radial-gradient(110% 80% at 50% 25%,#fff,var(--bg2))}
 .palco-sc .sc-poster,.palco-sc .sc-tela{position:absolute;inset:0;width:100%!important;height:100%!important;display:block;object-fit:cover}
+.mossa-sc{margin-top:12px;display:grid;justify-items:center;gap:2px;text-align:center;min-height:5.2em} .mossa-sc .n{font:500 13px var(--fm);color:var(--mut);letter-spacing:.02em}
+.mossa-sc b{font-size:clamp(24px,2.4vw,32px);letter-spacing:-.025em;color:var(--blu2);line-height:1.15} .mossa-sc b.verde{color:var(--verde)} .mossa-sc span:last-child{font-size:15px;color:var(--mut)}
+.morphy{margin-top:6px;font-size:12px;color:var(--mut);opacity:.75;text-align:center}
 .palco-sc .sc-tela,.palco-sc .sc-poster{transition:opacity .5s} .palco-sc .sc-tela{opacity:0;touch-action:pan-y} .palco-sc.sc-pronto .sc-tela{opacity:1} .palco-sc.sc-pronto .sc-poster{opacity:0}
-.resta{margin-top:10px;text-align:center;font-size:14px;color:var(--mut)} .resta b{display:block;font-size:40px;letter-spacing:-.03em;color:var(--fg);font-variant-numeric:tabular-nums} .resta b.verde{color:var(--verde)}
 /* la mappa dei servizi: Orizon al centro, i rami che si accendono col dito (alla Obsidian) */
 .mappa2 .fisso{align-content:center} .mappa2 .wrap{display:grid;grid-template-columns:minmax(0,.62fr) minmax(0,1.38fr);gap:clamp(20px,3vw,48px);align-items:center;width:100%}
 .grafo{position:relative;width:100%;aspect-ratio:10/7}
@@ -255,7 +257,7 @@ html.entra .pannello .tenda{display:block} html.entra .rv{opacity:0;transform:tr
   .servizi{grid-template-columns:1fr 1fr} .srv{padding:16px} .srv b{font-size:15.5px} .srv span{font-size:13.5px}
   .ign-box,.parl,.squadra{grid-template-columns:1fr} .crea{grid-template-columns:1fr 1fr} .agenti{grid-template-columns:1fr 1fr}
   form{grid-template-columns:1fr} .foto-vuota{aspect-ratio:4/3} .agenti{grid-auto-rows:auto} .agente{gap:12px;padding:12px 14px} .agente img{width:52px;height:52px} .agente b{font-size:15px} .agente span{font-size:13px}
-  .palco-sc{width:min(100%,46svh);border-radius:20px} .resta{margin-top:6px} .resta b{font-size:30px}
+  .palco-sc{width:min(100%,44svh);border-radius:20px} .mossa-sc{margin-top:6px;min-height:4.6em} .mossa-sc b{font-size:22px} .mossa-sc span:last-child{font-size:14px} .morphy{display:none}
   html.scena .mappa2 .pista{height:auto} html.scena .mappa2 .fisso{position:relative;top:auto;height:auto;overflow:visible;padding-block:56px 40px} #ramo-ora{display:none}
   .rami-schede{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding:4px max(16px,env(safe-area-inset-left,0px)) 12px;scrollbar-width:none} .rami-schede::-webkit-scrollbar{display:none}
   .rami-schede{counter-reset:ramo} .rami-schede .scheda-ramo{position:relative;overflow:hidden;counter-increment:ramo;gap:14px;padding:22px 20px 20px} .rami-schede .scheda-ramo::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--blu),#60e787)} .rami-schede .scheda-ramo .num{display:none} .rami-schede .tit::after{content:"0" counter(ramo) " / 06";margin-left:auto;font-size:12px;font-weight:600;color:var(--mut);font-variant-numeric:tabular-nums} .rami-schede .tit img{width:52px;height:52px;box-shadow:0 0 0 4px color-mix(in srgb,var(--blu) 10%,transparent)} .rami-schede .tit h3{font-size:22px} .rami-schede .elenco span{background:color-mix(in srgb,var(--blu) 7%,var(--pieno));border-color:color-mix(in srgb,var(--blu) 20%,transparent);color:var(--fg);font-weight:500}
@@ -321,7 +323,7 @@ html.entra .pannello .tenda{display:block} html.entra .rv{opacity:0;transform:tr
 
 <section class="tesi2" style="padding-block:0"><div class="pista" style="--h:calc(3.2 * 100svh)"><div class="fisso"><div class="wrap">
   <div class="frasi"><p><span class="w">Le</span> <span class="w">campagne</span> <span class="w">alzano</span> <span class="w">il</span> <span class="w">fatturato.</span></p><p><span class="w">Il</span> <span class="w">fatturato</span> <span class="w">non</span> <span class="w">è</span> <span class="w">l&#x27;utile.</span></p><p><span class="w">Noi</span> <span class="w">guidiamo</span> <span class="w">sull&#x27;utile.</span></p></div>
-  <div class="scacchi" aria-hidden="true"><div class="palco-sc" id="scacchi"><img class="sc-poster" src="img/home/scacchi-poster.webp" alt="" width="900" height="900" loading="lazy" decoding="async"></div><p class="resta"><b id="resta" class="verde">22 €</b>ti restano, su 100 € venduti · esempio</p></div>
+  <div class="scacchi" aria-hidden="true"><div class="palco-sc" id="scacchi"><img class="sc-poster" src="img/home/scacchi-poster.webp" alt="" width="900" height="900" loading="lazy" decoding="async"></div><p class="mossa-sc"><span class="n" id="sc-nota">17. Td8#</span><b id="sc-servizio" class="verde">I conti</b><span id="sc-frase">Scacco matto. Si vince in utile.</span></p><p class="morphy">La partita è vera: Morphy, Parigi 1858. Noi giochiamo col Bianco.</p></div>
 </div></div></div></section>
 
 <section id="servizi" class="mappa2" style="padding-block:0"><div class="pista" style="--h:calc(2.8 * 100svh)"><div class="fisso"><div class="wrap">
@@ -390,9 +392,14 @@ html.entra .pannello .tenda{display:block} html.entra .rv{opacity:0;transform:tr
   if (!rm) {
     document.documentElement.classList.add('scena');
     var tesi = $('.tesi2 .pista'), ris = $('.ris2 .pista');
-    var parole = $$('.frasi .w'), resta = $('#resta'), sc = null, carica = false;
-    // finché la partita non è pronta il conto va avanti da solo, con gli stessi tempi (valori d'esempio)
-    var COSTI = [18, 37, 10, 9, 4], conto = function(p){ var t = 0; COSTI.forEach(function(e, i){ var x = c01((c01((p - .08 - i*.15)/.14) - .45)/.45); t += e*x*x*(3 - 2*x); }); return {resta: Math.round(100 - t), fine: p >= .9}; };
+    var parole = $$('.frasi .w'), sc = null, carica = false, scN = $('#sc-nota'), scS = $('#sc-servizio'), scF = $('#sc-frase'), mostrata = null;
+    // le mosse bianche (Opera Game, Morphy 1858): ognuna è un servizio. Finché la scena non è pronta la didascalia va avanti da sola, con gli stessi tempi
+    var MOSSE = [['13. T×d7', 'Feed per Google e Meta', 'Il prodotto giusto davanti a chi lo cerca.'], ['14. Td1', 'Tracciamento', 'Ogni ordine contato, sul canale giusto.'],
+      ['15. A×d7+', 'Schede SEO e GEO', 'Trovati su Google e dalle AI.'], ['16. Db8+!!', 'Campagne', 'Il budget va dove rende. Anche la regina.'], ['17. Td8#', 'I conti', 'Scacco matto. Si vince in utile.']];
+    var quale = function(p){ var n = -1; MOSSE.forEach(function(m, i){ if (p >= .06 + 2*i*.085) n = i; }); return {mossa: n, fine: p >= .9}; };
+    function didascalia(r){ var k = r.mossa + (r.fine ? 'f' : ''); if (k === mostrata) return; mostrata = k;
+      var m = r.mossa < 0 ? ['12. … Td8', 'Tocca a noi', 'Giochiamo col Bianco. Ogni mossa è un servizio.'] : MOSSE[r.mossa];
+      scN.textContent = m[0]; scS.textContent = m[1]; scF.textContent = m[2]; scS.classList.toggle('verde', r.mossa === MOSSE.length - 1); }
     function partita(){ if (carica) return; carica = true;
       var fila = ['js/three.min.js', 'js/RoomEnvironment.js', 'js/scacchi.js'], prossimo = function(){
         if (!fila.length) { try { sc = window.OrizonScacchi($('#scacchi')); } catch (e) { sc = null; } if (sc) sc.set(prog(tesi)); return; }
@@ -406,7 +413,7 @@ html.entra .pannello .tenda{display:block} html.entra .rv{opacity:0;transform:tr
     function scena(){ vuoto = false;
       if (vicino(tesi)) { var p = prog(tesi), n = Math.round(c01((p - .04)/.78) * parole.length);
         parole.forEach(function(w, i){ w.classList.toggle('on', i < n); });
-        partita(); var r = sc ? sc.set(p) : conto(p); resta.textContent = r.resta + ' €'; resta.classList.toggle('verde', r.fine); }
+        partita(); didascalia(sc ? sc.set(p) : quale(p)); }
       if (vicino(mappa)) { var m = matchMedia('(max-width: 860px)').matches ? .97 : prog(mappa), att = Math.min(RAMI.length - 1, Math.floor(c01((m - .04)/.8) * RAMI.length));
         $$('path[data-r]', grafo).forEach(function(pa){ var r = +pa.dataset.r, i = pa.dataset.i, t0 = .04 + r*(.8/RAMI.length), t = c01((m - t0 - (i ? .03 + i*.02 : 0))/.06); pa.style.setProperty('--d', (1 - t).toFixed(3)); });
         $$('.nodo[data-r], circle[data-r]', grafo).forEach(function(nd){ var r = +nd.dataset.r, i = nd.dataset.i, t0 = .04 + r*(.8/RAMI.length), t = c01((m - t0 - (i ? .05 + i*.02 : .03))/.05);
