@@ -396,9 +396,9 @@ html.entra .pannello .tenda{display:block} html.entra .rv{opacity:0;transform:tr
     // le mosse bianche (Opera Game, Morphy 1858): ognuna è un servizio. Finché la scena non è pronta la didascalia va avanti da sola, con gli stessi tempi
     var MOSSE = [['13. T×d7', 'Feed per Google e Meta', 'Il prodotto giusto davanti a chi lo cerca.'], ['14. Td1', 'Tracciamento', 'Ogni ordine contato, sul canale giusto.'],
       ['15. A×d7+', 'Schede SEO e GEO', 'Trovati su Google e dalle AI.'], ['16. Db8+!!', 'Campagne', 'Il budget va dove rende. Anche la regina.'], ['17. Td8#', 'I conti', 'Scacco matto. Si vince in utile.']];
-    var quale = function(p){ var n = -1; MOSSE.forEach(function(m, i){ if (p >= .06 + 2*i*.085) n = i; }); return {mossa: n, fine: p >= .9}; };
+    var quale = function(p){ var n = -1; MOSSE.forEach(function(m, i){ if (p >= .1 + 2*i*.08) n = i; }); return {mossa: n, fine: p >= .9}; };
     function didascalia(r){ var k = r.mossa + (r.fine ? 'f' : ''); if (k === mostrata) return; mostrata = k;
-      var m = r.mossa < 0 ? ['12. … Td8', 'Tocca a noi', 'Giochiamo col Bianco. Ogni mossa è un servizio.'] : MOSSE[r.mossa];
+      var m = r.mossa < 0 ? ['12. … Td8', 'Tocca a noi', 'In campo ci sono già creatività e lingue. Ogni mossa è un servizio.'] : MOSSE[r.mossa];
       scN.textContent = m[0]; scS.textContent = m[1]; scF.textContent = m[2]; scS.classList.toggle('verde', r.mossa === MOSSE.length - 1); }
     function partita(){ if (carica) return; carica = true;
       var fila = ['js/three.min.js', 'js/RoomEnvironment.js', 'js/scacchi.js'], prossimo = function(){

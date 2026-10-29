@@ -20,7 +20,9 @@
   ];
   var BIANCHI = {c1: "k", b3: "q", d1: "r", h1: "r", b5: "b", g5: "b", a2: "p", b2: "p", c2: "p", e4: "p", f2: "p", g2: "p", h2: "p"};
   var NERI = {e8: "k", e7: "q", d8: "r", h8: "r", f8: "b", d7: "n", f6: "n", a7: "p", e5: "p", f7: "p", g7: "p", h7: "p"};
-  var PASSO = .085, INIZIO = .06, MATTO = .84;
+  var PASSO = .08, INIZIO = .1, MATTO = .85;
+  // i servizi già in campo prima della prima mossa (Antonio, 29/10: «figo vai» anche a lingue e creatività)
+  var FERMI = [{su: "g5", servizio: "Creatività"}, {su: "e4", servizio: "Lingue"}];
 
   var c01 = function (v) { return v < 0 ? 0 : v > 1 ? 1 : v; };
   var liscio = function (t) { return t * t * (3 - 2 * t); };
@@ -154,6 +156,7 @@
     }
     bianche.forEach(function (m) { m.cartello = pillola(m.servizio, m === bianche[bianche.length - 1] ? "#60e787" : "#3750f7", m === bianche[bianche.length - 1] ? "#0c1713" : "#ffffff"); });
     var finale = pillola("Scacco matto · si vince in utile", "#60e787", "#0c1713");
+    FERMI.forEach(function (f) { f.cartello = pillola(f.servizio, "#3750f7", "#ffffff"); f.cartello.position.copy(casa(f.su)); f.cartello.position.y += 1.9; });
 
     // le schegge delle prese: poche, blu e bianche, legate al punto dello scorrimento (si riavvolgono)
     MOSSE.forEach(function (m, i) {
@@ -231,6 +234,9 @@
       luceVerde.intensity = fine * 1.4; luceVerde.position.copy(casa("d8")); luceVerde.position.y = 2.4;
       finale.material.opacity = liscio(c01((p - .9) / .06)); finale.position.copy(casa("d8")); finale.position.y = 2.6;
       if (fine > 0) scossa = Math.max(scossa, Math.sin(Math.PI * c01(fine * 1.6)) * .8);
+      // lingue e creatività si presentano all'inizio; l'alfiere in g5 si riaccende un momento al matto, che senza di lui non c'è
+      var prima = liscio(c01(p / .03)) * (1 - liscio(c01((p - .08) / .04)));
+      FERMI.forEach(function (f, i) { f.cartello.material.opacity = Math.max(prima, i === 0 ? liscio(c01((p - .86) / .03)) * (1 - liscio(c01((p - .93) / .04))) : 0); });
 
       // la camera: dal lato del Bianco, gira piano, si avvicina a ogni mossa, alla fine va sul matto
       var asp = cam.aspect || 1, lontano = asp < 1 ? Math.pow(1 / asp, .75) : 1;
@@ -249,7 +255,7 @@
       var w = el.clientWidth, h = el.clientHeight; if (!w || !h) return;
       renderer.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix(); sporco = true;
       var k = w < 520 ? 1.3 : 1;  // sul telefono i cartellini un po' più grandi
-      bianche.concat([{cartello: finale}]).forEach(function (m) { var c = m.cartello, hh = c === finale ? .82 : .7 * k; /* la scritta finale è lunga: sul telefono resta com'è */ c.scale.set(hh * c.userData.r, hh, 1); });
+      bianche.concat([{cartello: finale}], FERMI).forEach(function (m) { var c = m.cartello, hh = c === finale ? .82 : .7 * k; /* la scritta finale è lunga: sul telefono resta com'è */ c.scale.set(hh * c.userData.r, hh, 1); });
     }
     if (window.ResizeObserver) new ResizeObserver(misura).observe(el); else window.addEventListener("resize", misura);
     misura();
