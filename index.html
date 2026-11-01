@@ -205,7 +205,8 @@ html:not(.scena) .grafo path{stroke-dashoffset:0}
 .squadra{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,2fr);gap:16px}
 .squadra{grid-template-columns:minmax(0,.8fr) minmax(0,1.6fr);align-items:stretch}
 .antonio{display:grid;grid-template-rows:auto auto;align-content:start;border-radius:var(--r);overflow:hidden;background:var(--pieno);border:1px solid var(--line)}
-.foto-vuota{aspect-ratio:4/5;display:grid;place-items:center;background:repeating-linear-gradient(135deg,var(--bg2) 0 12px,var(--bg) 12px 24px);color:var(--mut);font-size:14px;border-bottom:1px solid var(--line)}
+.foto-antonio{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-bottom:1px solid var(--line)}
+.antonio.senza-foto{align-content:center;justify-items:center;text-align:center;padding:28px 12px} .antonio.senza-foto .iniziali{width:96px;height:96px;font-size:30px;margin-bottom:14px}
 .antonio div{padding:16px 20px 18px} .antonio b{font-size:20px} .antonio p{color:var(--mut);font-size:15px;margin-top:2px}
 .agenti{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:1fr;gap:12px}
 .agente{display:flex;align-items:center;gap:16px;padding:16px 18px;border-radius:var(--r);background:var(--pieno);border:1px solid var(--line)}
@@ -224,7 +225,7 @@ html:not(.scena) .grafo path{stroke-dashoffset:0}
 
 /* Parliamone */
 .parl{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(24px,4vw,56px);align-items:start}
-.parl .chi{display:flex;align-items:center;gap:14px;margin-top:26px} .parl .chi img{width:56px;height:56px;border-radius:50%;object-fit:cover} .parl .chi span{font-size:14.5px;color:var(--mut)} .iniziali{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font-weight:700;color:var(--mut);background:repeating-linear-gradient(135deg,var(--bg2) 0 8px,var(--bg) 8px 16px);border:1px solid var(--line);font-size:16px!important}
+.parl .chi{display:flex;align-items:center;gap:14px;margin-top:26px} .parl .chi img{width:56px;height:56px;border-radius:50%;object-fit:cover} .parl .chi span{font-size:14.5px;color:var(--mut)} .iniziali{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font-weight:700;color:#fff;background:var(--blu);letter-spacing:.02em;font-size:16px}
 form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding:clamp(20px,3vw,30px);border-radius:var(--r);background:var(--card);border:1px solid var(--line)}
 label{display:grid;gap:6px;font-size:14px;font-weight:600} label.tutta,fieldset.tutta,.invia{grid-column:1/-1}
 [aria-invalid=true]{border-color:#e5484d!important} input,select,textarea{font:inherit;font-size:16px;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 14px;min-height:48px;width:100%}
@@ -253,7 +254,7 @@ html.entra .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,
   .caso{grid-template-columns:minmax(0,1fr);gap:18px} .schede-ris button{height:44px;padding:0 14px} .schede-ris button img{height:17px;max-width:96px}
   .servizi{grid-template-columns:repeat(2,minmax(0,1fr))} .srv{padding:16px} .srv b{font-size:15.5px} .srv span{font-size:13.5px}
   .ign-box,.parl,.squadra{grid-template-columns:minmax(0,1fr)} .crea{grid-template-columns:repeat(2,minmax(0,1fr))} .agenti{grid-template-columns:repeat(2,minmax(0,1fr))}
-  form{grid-template-columns:minmax(0,1fr)} .foto-vuota{aspect-ratio:4/3} .agenti{grid-auto-rows:auto} .agente{gap:12px;padding:12px 14px} .agente img{width:52px;height:52px} .agente b{font-size:15px} .agente span{font-size:13px}
+  form{grid-template-columns:minmax(0,1fr)} .foto-antonio{aspect-ratio:4/3} .agenti{grid-auto-rows:auto} .agente{gap:12px;padding:12px 14px} .agente img{width:52px;height:52px} .agente b{font-size:15px} .agente span{font-size:13px}
   .palco-sc{width:min(100%,44svh);border-radius:20px} .mossa-sc{margin-top:6px;min-height:4.6em} .mossa-sc b{font-size:22px} .mossa-sc span:last-child{font-size:14px} .morphy{display:none}
   html.scena .mappa2 .pista{height:auto} html.scena .mappa2 .fisso{position:relative;top:auto;height:auto;overflow:visible;padding-block:56px 40px} #ramo-ora{display:none}
   .rami-schede{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding:4px max(16px,env(safe-area-inset-left,0px)) 12px;scrollbar-width:none} .rami-schede::-webkit-scrollbar{display:none}
@@ -329,7 +330,7 @@ html.entra .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,
 
 <section id="squadra"><div class="wrap">
   <div class="sez-testa rv"><p class="eyebrow">Squadra</p><h2>Persone che decidono. Sei agenti che non dormono.</h2></div>
-  <div class="squadra"><div class="antonio rv"><div class="foto-vuota">La foto di Antonio</div><div><b>Antonio Pratola</b><p>Fondatore. Leggo i tuoi conti ogni mattina.</p></div></div><div class="agenti"><div class="agente rv"><img src="img/home/r-leonardo.webp" alt="" width="72" height="72" loading="lazy"><div><b>Leonardo</b><span>copywriter delle schede</span></div></div><div class="agente rv"><img src="img/home/r-galileo.webp" alt="" width="72" height="72" loading="lazy"><div><b>Galileo</b><span>esperto di traduzioni</span></div></div><div class="agente rv"><img src="img/home/r-volta.webp" alt="" width="72" height="72" loading="lazy"><div><b>Volta</b><span>specialista del feed</span></div></div><div class="agente rv"><img src="img/home/r-archimede.webp" alt="" width="72" height="72" loading="lazy"><div><b>Archimede</b><span>esperto di tracciamento</span></div></div><div class="agente rv"><img src="img/home/r-fibonacci.webp" alt="" width="72" height="72" loading="lazy"><div><b>Fibonacci</b><span>stratega del budget</span></div></div><div class="agente rv"><img src="img/home/r-holmes.webp" alt="" width="72" height="72" loading="lazy"><div><b>Holmes</b><span>Chief Detective Officer</span></div></div></div></div>
+  <div class="squadra"><div class="antonio rv senza-foto"><span class="iniziali" aria-hidden="true">AP</span><div><b>Antonio Pratola</b><p>Fondatore. Leggo i tuoi conti ogni mattina.</p></div></div><div class="agenti"><div class="agente rv"><img src="img/home/r-leonardo.webp" alt="" width="72" height="72" loading="lazy"><div><b>Leonardo</b><span>copywriter delle schede</span></div></div><div class="agente rv"><img src="img/home/r-galileo.webp" alt="" width="72" height="72" loading="lazy"><div><b>Galileo</b><span>esperto di traduzioni</span></div></div><div class="agente rv"><img src="img/home/r-volta.webp" alt="" width="72" height="72" loading="lazy"><div><b>Volta</b><span>specialista del feed</span></div></div><div class="agente rv"><img src="img/home/r-archimede.webp" alt="" width="72" height="72" loading="lazy"><div><b>Archimede</b><span>esperto di tracciamento</span></div></div><div class="agente rv"><img src="img/home/r-fibonacci.webp" alt="" width="72" height="72" loading="lazy"><div><b>Fibonacci</b><span>stratega del budget</span></div></div><div class="agente rv"><img src="img/home/r-holmes.webp" alt="" width="72" height="72" loading="lazy"><div><b>Holmes</b><span>Chief Detective Officer</span></div></div></div></div>
 </div></section>
 
 <section style="padding-block:0 clamp(64px,9vw,120px)"><div class="wrap"><div class="fascia rv">
@@ -343,10 +344,7 @@ html.entra .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,
   <form id="modulo" class="rv" novalidate>
     <label class="tutta" for="f-sito">Il tuo sito<input id="f-sito" name="sito" type="url" required inputmode="url" placeholder="https://" autocomplete="url"></label>
     <label class="tutta" for="f-spesa">Quanto spendi al mese in pubblicità<select id="f-spesa" name="spesa" required><option value="">Scegli una fascia</option><option>Meno di 2.000 €</option><option>2.000-5.000 €</option><option>5.000-10.000 €</option><option>10.000-20.000 €</option><option>Oltre 20.000 €</option></select></label>
-    <fieldset class="tutta"><legend>Dove spendi oggi</legend><div class="scelte"><label for="f-g"><input id="f-g" type="checkbox" name="canali" value="Google">Google</label><label for="f-m"><input id="f-m" type="checkbox" name="canali" value="Meta">Meta</label><label for="f-t"><input id="f-t" type="checkbox" name="canali" value="TikTok">TikTok</label><label for="f-n"><input id="f-n" type="checkbox" name="canali" value="Nessuno">Ancora da nessuna parte</label></div></fieldset>
-    <label class="tutta" for="f-cosa">Cosa non ti torna oggi? (facoltativo)<textarea id="f-cosa" name="cosa"></textarea></label>
-    <label for="f-nome">Il tuo nome<input id="f-nome" name="nome" autocomplete="name"></label>
-    <label for="f-mail">La tua email<input id="f-mail" name="email" type="email" required autocomplete="email"></label>
+    <label class="tutta" for="f-mail">La tua email<input id="f-mail" name="email" type="email" required autocomplete="email"></label>
     <label class="tutta" for="f-tel">Telefono, se preferisci una chiamata (facoltativo)<input id="f-tel" name="tel" type="tel" autocomplete="tel"></label>
     <div class="invia"><button class="btn" type="submit">Manda ad Antonio</button></div>
     <p class="esito" id="esito" role="status" hidden></p>
@@ -463,7 +461,7 @@ html.entra .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,
     var bad = er ? (er.indexOf('sito') > 0 ? f.sito : (er.indexOf('fascia') > 0 ? f.spesa : f.email)) : null; if (bad) { bad.setAttribute('aria-invalid', 'true'); bad.setAttribute('aria-describedby', 'esito'); bad.focus(); }
     var o = $('#esito'); o.hidden = false; o.style.color = er ? 'var(--fg)' : ''; if (er) { o.textContent = er; return; }
     var btn = f.querySelector('button[type=submit]'); if (btn.disabled) return; btn.disabled = true; var t0 = btn.textContent; btn.textContent = 'Invio…'; o.hidden = true;
-    var dati = {sito: f.sito.value, spesa_ads: f.spesa.value, canali: $$('input[name=canali]:checked', f).map(function(x){ return x.value; }).join(', '), cosa_non_torna: f.cosa.value, nome: f.nome.value, email: f.email.value, telefono: f.tel.value, _subject: 'Parliamone, dalla home di orizonadv.it', pagina: location.href};
+    var dati = {sito: f.sito.value, spesa_ads: f.spesa.value, email: f.email.value, telefono: f.tel.value, _subject: 'Parliamone, dalla home di orizonadv.it', pagina: location.href};
     var ctl = 'AbortController' in window ? new AbortController() : null, tm = setTimeout(function(){ if (ctl) ctl.abort(); }, 15000);
     fetch('https://formspree.io/f/xreobbbz', {method:'POST', headers:{'Content-Type':'application/json', 'Accept':'application/json'}, body:JSON.stringify(dati), signal: ctl ? ctl.signal : undefined})
       .then(function(r){ clearTimeout(tm); if (!r.ok) throw new Error(r.status); o.hidden = false; o.style.color = ''; o.textContent = 'Ricevuto. Guardo il tuo negozio e ti rispondo io, Antonio.'; btn.textContent = 'Inviato ✓'; f.reset(); })
