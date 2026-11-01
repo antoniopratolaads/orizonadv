@@ -213,7 +213,7 @@ html:not(.scena) .grafo path{stroke-dashoffset:0}
 
 /* partner e strumenti */
 .fascia{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.5fr);gap:clamp(20px,3vw,40px);padding:clamp(20px,3vw,32px);border-radius:var(--r);border:1px solid var(--line);background:var(--card)}
-@media (max-width:860px){.fascia{grid-template-columns:1fr} .griglia{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:860px){.fascia{grid-template-columns:minmax(0,1fr)} .griglia{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .fascia .blocco{display:grid;gap:14px;align-content:start;min-width:0}
 .certi{display:grid;gap:10px} .cert{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:14px;background:var(--bg);border:1px solid var(--line)}
 .cert img{width:28px;height:28px} .cert b{font-size:16px}
@@ -225,7 +225,7 @@ html:not(.scena) .grafo path{stroke-dashoffset:0}
 /* Parliamone */
 .parl{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(24px,4vw,56px);align-items:start}
 .parl .chi{display:flex;align-items:center;gap:14px;margin-top:26px} .parl .chi img{width:56px;height:56px;border-radius:50%;object-fit:cover} .parl .chi span{font-size:14.5px;color:var(--mut)} .iniziali{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font-weight:700;color:var(--mut);background:repeating-linear-gradient(135deg,var(--bg2) 0 8px,var(--bg) 8px 16px);border:1px solid var(--line);font-size:16px!important}
-form{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:clamp(20px,3vw,30px);border-radius:var(--r);background:var(--card);border:1px solid var(--line)}
+form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding:clamp(20px,3vw,30px);border-radius:var(--r);background:var(--card);border:1px solid var(--line)}
 label{display:grid;gap:6px;font-size:14px;font-weight:600} label.tutta,fieldset.tutta,.invia{grid-column:1/-1}
 [aria-invalid=true]{border-color:#e5484d!important} input,select,textarea{font:inherit;font-size:16px;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 14px;min-height:48px;width:100%}
 textarea{min-height:96px;resize:vertical} fieldset{border:0;padding:0;margin:0;display:grid;gap:8px} legend{font-size:14px;font-weight:600;margin-bottom:6px}
@@ -248,20 +248,20 @@ html.entra .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,
 /* telefono */
 @media (max-width:860px){
   .pillola nav,.pillola>.btn{display:none} .burger{display:block} .barra{height:68px;padding-top:10px} .pillola{height:52px;padding:0 4px 0 18px;background:rgba(255,255,255,.94);backdrop-filter:none;-webkit-backdrop-filter:none} .pillola .logo{height:19px} .cielo .griglia{display:none} .cielo i{width:110vmax;height:110vmax}
-  .testa .wrap{grid-template-columns:1fr;gap:28px} .holmes{order:-1;width:min(180px,48vw);justify-self:center;margin:96px 0 40px} .fumetto{max-width:min(300px,calc(100vw - 32px));font-size:13.5px} .orbita button{width:44px;height:44px;margin:-22px;border-width:2px;animation:none} .chi-ora{font-size:13px}
+  .testa .wrap{grid-template-columns:minmax(0,1fr);gap:28px} .holmes{order:-1;width:min(180px,48vw);justify-self:center;margin:96px 0 40px} .fumetto{max-width:min(300px,calc(100vw - 32px));font-size:13.5px} .orbita button{width:44px;height:44px;margin:-22px;border-width:2px;animation:none} .chi-ora{font-size:13px}
   .testa .sotto{font-size:17px} .numeri b{font-size:24px}
-  .caso{grid-template-columns:1fr;gap:18px} .schede-ris button{height:44px;padding:0 14px} .schede-ris button img{height:17px;max-width:96px}
-  .servizi{grid-template-columns:1fr 1fr} .srv{padding:16px} .srv b{font-size:15.5px} .srv span{font-size:13.5px}
-  .ign-box,.parl,.squadra{grid-template-columns:1fr} .crea{grid-template-columns:1fr 1fr} .agenti{grid-template-columns:1fr 1fr}
-  form{grid-template-columns:1fr} .foto-vuota{aspect-ratio:4/3} .agenti{grid-auto-rows:auto} .agente{gap:12px;padding:12px 14px} .agente img{width:52px;height:52px} .agente b{font-size:15px} .agente span{font-size:13px}
+  .caso{grid-template-columns:minmax(0,1fr);gap:18px} .schede-ris button{height:44px;padding:0 14px} .schede-ris button img{height:17px;max-width:96px}
+  .servizi{grid-template-columns:repeat(2,minmax(0,1fr))} .srv{padding:16px} .srv b{font-size:15.5px} .srv span{font-size:13.5px}
+  .ign-box,.parl,.squadra{grid-template-columns:minmax(0,1fr)} .crea{grid-template-columns:repeat(2,minmax(0,1fr))} .agenti{grid-template-columns:repeat(2,minmax(0,1fr))}
+  form{grid-template-columns:minmax(0,1fr)} .foto-vuota{aspect-ratio:4/3} .agenti{grid-auto-rows:auto} .agente{gap:12px;padding:12px 14px} .agente img{width:52px;height:52px} .agente b{font-size:15px} .agente span{font-size:13px}
   .palco-sc{width:min(100%,44svh);border-radius:20px} .mossa-sc{margin-top:6px;min-height:4.6em} .mossa-sc b{font-size:22px} .mossa-sc span:last-child{font-size:14px} .morphy{display:none}
   html.scena .mappa2 .pista{height:auto} html.scena .mappa2 .fisso{position:relative;top:auto;height:auto;overflow:visible;padding-block:56px 40px} #ramo-ora{display:none}
   .rami-schede{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding:4px max(16px,env(safe-area-inset-left,0px)) 12px;scrollbar-width:none} .rami-schede::-webkit-scrollbar{display:none}
   .rami-schede{counter-reset:ramo} .rami-schede .scheda-ramo{position:relative;overflow:hidden;counter-increment:ramo;gap:14px;padding:22px 20px 20px} .rami-schede .scheda-ramo::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--blu),#60e787)} .rami-schede .scheda-ramo .num{display:none} .rami-schede .tit::after{content:"0" counter(ramo) " / 06";margin-left:auto;font-size:12px;font-weight:600;color:var(--mut);font-variant-numeric:tabular-nums} .rami-schede .tit img{width:52px;height:52px;box-shadow:0 0 0 4px color-mix(in srgb,var(--blu) 10%,transparent)} .rami-schede .tit h3{font-size:22px} .rami-schede .elenco span{background:color-mix(in srgb,var(--blu) 7%,var(--pieno));border-color:color-mix(in srgb,var(--blu) 20%,transparent);color:var(--fg);font-weight:500}
   .rami-schede-t{display:block} .rami-schede .scheda-ramo{flex:0 0 84%;scroll-snap-align:start;align-content:start} .scorri{font-size:13px;color:var(--mut);margin-top:-4px}
   .prove a{padding:14px 12px 12px} .prove b{font-size:24px} .prove span{font-size:12.5px} .prove small{padding:8px 12px}
-  .mappa2 .wrap{grid-template-columns:1fr;gap:12px} .nodo:not(.ramo):not(.centro){display:none} .nodo.ramo{font-size:12px;padding:5px 10px} .nodo.centro{border-width:6px} .ramo-t h3{font-size:20px} .elenco span{font-size:13px}
-  .tesi2 .wrap{grid-template-columns:1fr;gap:18px;align-content:center} .scacchi{order:-1} .cubo{--u:clamp(36px,11vw,52px)} #cubo3d{width:min(260px,64vw)} .contatore{margin-top:16px} .contatore b{font-size:26px}
+  .mappa2 .wrap{grid-template-columns:minmax(0,1fr);gap:12px} .nodo:not(.ramo):not(.centro){display:none} .nodo.ramo{font-size:12px;padding:5px 10px} .nodo.centro{border-width:6px} .ramo-t h3{font-size:20px} .elenco span{font-size:13px}
+  .tesi2 .wrap{grid-template-columns:minmax(0,1fr);gap:18px;align-content:center} .scacchi{order:-1} .cubo{--u:clamp(36px,11vw,52px)} #cubo3d{width:min(260px,64vw)} .contatore{margin-top:16px} .contatore b{font-size:26px}
   .frasi p{font-size:clamp(28px,8vw,40px)} .ris2 .intesta h2{font-size:24px} .ris2 .intesta p{display:none}
 }
 </style>
@@ -323,7 +323,7 @@ html.entra .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,
 <section id="ignition" class="ign-fascia"><video class="ign-sfondo" muted loop playsinline preload="none" aria-hidden="true" data-src="img/home/video/ignition-anteprima.mp4" poster="img/home/video/ignition-anteprima.jpg"></video><div class="ign-velo" aria-hidden="true"></div><div class="wrap ign-box">
   <div class="rv"><p class="eyebrow">Ignition</p><h2>La nostra arma. Solo per chi diventa cliente.</h2>
   <p class="testo">La suite che abbiamo costruito per lavorare il catalogo prodotto per prodotto: schede, lingue, feed, etichette, tracciamento e conti. Non si compra. La usano solo i nostri clienti.</p></div>
-  <button type="button" class="copertina rv" data-video="video/orizon-ignition-2026-10-720.mp4" aria-label="Guarda il video di Ignition"><img src="img/home/video/ignition-anteprima.jpg" alt="" loading="lazy"><video class="anteprima" muted loop playsinline preload="none" aria-hidden="true" data-src="img/home/video/ignition-anteprima.mp4"></video><span class="play"><i></i>Guarda il video · 2:39</span></button>
+  <button type="button" class="copertina rv" data-video="video/orizon-ignition-2026-10-720.mp4" aria-label="Guarda il video di Ignition"><img src="img/home/video/ignition-anteprima.jpg" alt="" loading="lazy"><video class="anteprima" muted loop playsinline preload="none" aria-hidden="true" poster="img/home/video/ignition-anteprima.jpg" data-src="img/home/video/ignition-anteprima.mp4"></video><span class="play"><i></i>Guarda il video · 2:39</span></button>
 </div></section>
 
 
@@ -449,8 +449,8 @@ html.entra .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,
   $$('.orbita button', box).forEach(function(b){ b.addEventListener('click', function(){ parla(+b.dataset.n, +b.dataset.n !== cur); }); });
   // i video: al tocco, a tutto schermo, con l'audio
   var dlg = $('#lettore'), lv = $('#lettore video'), ultimo = null;
-  function apri(src){ lv.src = src; if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', ''); document.documentElement.style.overflow = 'hidden'; $('#lettore .x').focus(); var p = lv.play(); if (p && p.catch) p.catch(function(){}); }
-  function chiudi(){ lv.pause(); lv.removeAttribute('src'); lv.load(); if (dlg.close) dlg.close(); else dlg.removeAttribute('open'); document.documentElement.style.overflow = ''; if (ultimo) ultimo.focus(); }
+  function apri(src){ var im = document.querySelector('[data-video="' + src + '"] img'); lv.poster = im ? im.currentSrc || im.src : ''; lv.src = src; if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', ''); document.documentElement.style.overflow = 'hidden'; $('#lettore .x').focus(); var p = lv.play(); if (p && p.catch) p.catch(function(){}); }
+  function chiudi(){ lv.pause(); lv.removeAttribute('src'); lv.removeAttribute('poster'); lv.load(); if (dlg.close) dlg.close(); else dlg.removeAttribute('open'); document.documentElement.style.overflow = ''; if (ultimo) ultimo.focus(); }
   $$('[data-video]').forEach(function(b){ b.addEventListener('click', function(){ ultimo = b; var tel = matchMedia('(max-width: 860px)').matches; apri(tel && b.dataset.tel ? b.dataset.tel : b.dataset.video); }); });
   $('#lettore .x').addEventListener('click', chiudi); dlg.addEventListener('cancel', function(ev){ ev.preventDefault(); chiudi(); });
   dlg.addEventListener('click', function(ev){ if (ev.target === dlg || ev.target.classList.contains('lettore')) chiudi(); });
