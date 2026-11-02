@@ -224,15 +224,39 @@ html:not(.scena) .grafo path{stroke-dashoffset:0}
 .fascia .ai{font-size:13.5px;color:var(--mut)}
 
 /* Parliamone */
-.parl{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(24px,4vw,56px);align-items:start}
-.parl .chi{display:flex;align-items:center;gap:14px;margin-top:26px} .parl .chi img{width:56px;height:56px;border-radius:50%;object-fit:cover} .parl .chi span{font-size:14.5px;color:var(--mut)} .iniziali{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font-weight:700;color:#fff;background:var(--blu);letter-spacing:.02em;font-size:16px}
-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding:clamp(20px,3vw,30px);border-radius:var(--r);background:var(--card);border:1px solid var(--line)}
-label{display:grid;gap:6px;font-size:14px;font-weight:600} label.tutta,fieldset.tutta,.invia{grid-column:1/-1}
-[aria-invalid=true]{border-color:#e5484d!important} input,select,textarea{font:inherit;font-size:16px;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 14px;min-height:48px;width:100%}
-textarea{min-height:96px;resize:vertical} fieldset{border:0;padding:0;margin:0;display:grid;gap:8px} legend{font-size:14px;font-weight:600;margin-bottom:6px}
-.scelte{display:flex;flex-wrap:wrap;gap:8px} .scelte label{display:inline-flex;align-items:center;gap:8px;font-weight:500;padding:0 14px;min-height:44px;border:1px solid var(--line);border-radius:999px;cursor:pointer}
-.scelte input{width:18px;height:18px;min-height:0;accent-color:var(--blu)}
-.invia{display:flex;flex-wrap:wrap;align-items:center;gap:14px} .invia p{font-size:14px;color:var(--mut)} .esito{grid-column:1/-1;font-weight:600;color:var(--verde)}
+.parl{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,340px);grid-template-areas:"t t" "f s";gap:28px clamp(24px,4vw,48px);align-items:start} .parl-t{grid-area:t;max-width:720px} .wiz{grid-area:f} .side{grid-area:s}
+/* il modulo del vecchio sito (/contatti), Antonio 2/11: «quello del vecchio sito mi pareva molto meglio» */
+.wiz{position:relative;overflow:hidden;background:var(--pieno);border:1px solid var(--line);border-radius:var(--r);box-shadow:0 30px 80px -28px rgba(12,23,19,.18),0 2px 6px rgba(12,23,19,.04)}
+.steps{display:flex;border-bottom:1px solid var(--line);background:var(--bg2)} .steps div{flex:1;padding:13px 18px;font-size:13px;font-weight:500;color:var(--mut);display:flex;gap:9px;align-items:center;transition:color .3s} .steps div+div{border-left:1px solid var(--line)}
+.steps i{width:20px;height:20px;border-radius:50%;border:1px solid var(--line);font-style:normal;font-size:11px;font-weight:600;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--mut);background:var(--pieno);transition:background .3s,border-color .3s,color .3s}
+.steps i svg{width:11px;height:11px;stroke:currentColor;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;display:none} .steps i em{font-style:normal}
+.steps div.cur{color:var(--fg)} .steps div.cur i{background:var(--blu);border-color:var(--blu);color:#fff} .steps div.ok i{background:var(--fg);border-color:var(--fg);color:var(--bg)} .steps div.ok i svg{display:block} .steps div.ok i em{display:none}
+.pane{padding:28px 32px 30px} .pane[hidden],.okp[hidden]{display:none} .pane h3,.okp h3{font-size:24px;line-height:1.2;letter-spacing:-.025em;outline:none} .pane .lead{margin-top:6px;font-size:15px;color:var(--mut)} .pane .lead b{color:var(--fg);font-weight:600}
+.pane.enter{animation:stepin .45s cubic-bezier(.2,.8,.2,1) both} @keyframes stepin{from{opacity:0;transform:translateX(16px)}} .pane.leave{animation:stepout .16s ease-in both} @keyframes stepout{to{opacity:0;transform:translateX(-10px)}}
+.q{margin-top:22px} .q .lab{display:block;font-size:14.5px;font-weight:600;margin-bottom:8px;letter-spacing:-.01em} .q .lab small{font-weight:400;font-size:13px;color:var(--mut);margin-left:6px} .q .why{margin-top:8px;font-size:13px;color:var(--mut)}
+.field{width:100%;height:48px;padding:0 14px;border:1px solid var(--line);border-radius:10px;font:inherit;font-size:16px;color:var(--fg);background:var(--pieno);transition:border-color .2s,box-shadow .2s;caret-color:var(--blu)} .field::placeholder{color:var(--spento)}
+.field:focus{outline:none;border-color:var(--blu);box-shadow:0 0 0 4px rgba(55,80,247,.14)} textarea.field{height:auto;min-height:96px;padding:11px 14px;resize:vertical;line-height:1.5}
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.opt{font:inherit;font-size:15px;color:var(--fg);text-align:left;padding:11px 14px;min-height:46px;border:1px solid var(--line);border-radius:10px;background:var(--pieno);cursor:pointer;display:flex;align-items:center;gap:11px;transition:border-color .2s,background .2s,box-shadow .2s;-webkit-tap-highlight-color:transparent}
+.opt:hover{border-color:var(--spento)} .opt i{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--spento);flex-shrink:0;transition:border-color .2s,background .2s,box-shadow .2s}
+.opt[aria-checked=true]{border-color:var(--blu);background:rgba(55,80,247,.05);box-shadow:0 0 0 1px var(--blu) inset} .opt[aria-checked=true] i{border-color:var(--blu);background:var(--blu);box-shadow:inset 0 0 0 3.5px var(--pieno)}
+.err{display:none;margin-top:8px;font-size:13.5px;color:#c73838} .q.bad .err{display:block} .q.bad .field{border-color:#c73838} .q.bad .opt{border-color:rgba(199,56,56,.5)}
+.row2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.acts{margin-top:26px;display:flex;justify-content:space-between;align-items:center;gap:12px} .acts .spacer{flex:1}
+.wiz .fr{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round} .btn:disabled{opacity:.55;cursor:wait}
+.back{font:inherit;font-weight:500;font-size:14px;color:var(--mut);background:none;border:0;cursor:pointer;display:inline-flex;gap:6px;align-items:center;padding:10px 6px;border-radius:6px} .back:hover{color:var(--fg)} .back .fr{transform:rotate(180deg)}
+.priv{margin-top:14px;font-size:12.5px;color:var(--mut);line-height:1.45} .priv a{color:var(--blu);font-weight:600;text-decoration:none}
+.send-err{display:none;margin-top:14px;padding:12px 14px;border:1px solid rgba(199,56,56,.35);border-radius:10px;font-size:14px;color:#c73838;background:rgba(199,56,56,.04)} .send-err.show{display:block} .send-err a{color:inherit}
+.okp{padding:40px 32px 44px;text-align:center} .okp .tick{width:56px;height:56px;border-radius:50%;background:var(--blu);color:#fff;display:inline-flex;align-items:center;justify-content:center;margin-bottom:18px}
+.okp .tick svg{width:26px;height:26px;stroke:currentColor;stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round} .okp h3{font-size:30px} .okp p{margin:12px auto 0;font-size:16px;color:var(--mut);max-width:460px} .okp p b{color:var(--fg);font-weight:600}
+.side{position:sticky;top:96px;display:grid;gap:14px} .box{border:1px solid var(--line);border-radius:14px;padding:20px 22px;background:var(--card)} .box h3{font-size:15px;font-weight:600;letter-spacing:-.01em}
+.tl{margin-top:14px} .tl div{position:relative;padding:0 0 16px 24px} .tl div::before{content:"";position:absolute;left:4px;top:7px;width:8px;height:8px;border-radius:50%;background:var(--blu)}
+.tl div::after{content:"";position:absolute;left:7.5px;top:19px;bottom:-1px;width:1px;background:var(--line)} .tl div:last-child{padding-bottom:0} .tl div:last-child::after{display:none}
+.tl b{display:block;font-weight:600;font-size:15px;line-height:1.3} .tl span{display:block;margin-top:2px;font-size:14px;color:var(--mut);line-height:1.45}
+.person{display:grid;grid-template-columns:52px minmax(0,1fr);gap:14px;align-items:center} .person .iniziali{width:52px;height:52px;font-size:15px} .person b{display:block;font-size:15px;font-weight:600} .person span:not(.iniziali){display:block;font-size:13.5px;color:var(--mut);line-height:1.4}
+.iniziali{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font-weight:700;color:#fff;background:var(--blu);letter-spacing:.02em;font-size:16px}
+.links{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);display:grid;gap:8px} .links a{font-size:14.5px;color:var(--fg);text-decoration:none;display:flex;gap:10px;align-items:center;min-height:32px} .links a:hover{color:var(--blu)}
+.links svg{width:16px;height:16px;stroke:currentColor;stroke-width:1.9;fill:none;stroke-linecap:round;stroke-linejoin:round;color:var(--mut);flex-shrink:0}
 .piede{padding-block:28px 40px;border-top:1px solid var(--line);font-size:14px;color:var(--mut)} .piede .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between} .piede a{text-decoration:none} .piede nav{display:flex;gap:18px}
 
 /* il lettore dei video, a tutto schermo */
@@ -253,8 +277,8 @@ html.entra .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,
   .testa .sotto{font-size:17px} .numeri b{font-size:24px}
   .caso{grid-template-columns:minmax(0,1fr);gap:18px} .schede-ris button{height:44px;padding:0 14px} .schede-ris button img{height:17px;max-width:96px}
   .servizi{grid-template-columns:repeat(2,minmax(0,1fr))} .srv{padding:16px} .srv b{font-size:15.5px} .srv span{font-size:13.5px}
-  .ign-box,.parl,.squadra{grid-template-columns:minmax(0,1fr)} .crea{grid-template-columns:repeat(2,minmax(0,1fr))} .agenti{grid-template-columns:repeat(2,minmax(0,1fr))}
-  form{grid-template-columns:minmax(0,1fr)} .foto-antonio{aspect-ratio:4/3} .agenti{grid-auto-rows:auto} .agente{gap:12px;padding:12px 14px} .agente img{width:52px;height:52px} .agente b{font-size:15px} .agente span{font-size:13px}
+  .ign-box,.squadra{grid-template-columns:minmax(0,1fr)} .crea{grid-template-columns:repeat(2,minmax(0,1fr))} .agenti{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .parl{grid-template-columns:minmax(0,1fr);grid-template-areas:"t" "f" "s"} .side{position:static} .pane{padding:22px 18px 24px} .okp{padding:32px 18px} .steps div{padding:12px} .steps div:not(.cur) span{display:none} .steps div:not(.cur){flex:0 0 auto} .row2{grid-template-columns:minmax(0,1fr)} .opt{font-size:14.5px;padding:10px 12px;gap:9px} .foto-antonio{aspect-ratio:4/3} .agenti{grid-auto-rows:auto} .agente{gap:12px;padding:12px 14px} .agente img{width:52px;height:52px} .agente b{font-size:15px} .agente span{font-size:13px}
   .palco-sc{width:min(100%,44svh);border-radius:20px} .mossa-sc{margin-top:6px;min-height:4.6em} .mossa-sc b{font-size:22px} .mossa-sc span:last-child{font-size:14px} .morphy{display:none}
   html.scena .mappa2 .pista{height:auto} html.scena .mappa2 .fisso{position:relative;top:auto;height:auto;overflow:visible;padding-block:56px 40px} #ramo-ora{display:none}
   .rami-schede{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding:4px max(16px,env(safe-area-inset-left,0px)) 12px;scrollbar-width:none} .rami-schede::-webkit-scrollbar{display:none}
@@ -339,16 +363,45 @@ html.entra .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,
 </div></div></section>
 
 <section id="parliamone"><div class="wrap parl">
-  <div class="rv"><p class="eyebrow">Parliamone</p><h2 style="margin-top:12px">Parliamone. Ti rispondo io.</h2><p class="mut" style="margin-top:16px;font-size:18px">Non lavoriamo con tutti: dimmi dove sei e dove vuoi arrivare.</p>
-  <div class="chi"><span class="iniziali" aria-hidden="true">AP</span><div><b>Antonio Pratola</b><br><span>Orizon ADV · Napoli</span></div></div></div>
-  <form id="modulo" class="rv" novalidate>
-    <label class="tutta" for="f-sito">Il tuo sito<input id="f-sito" name="sito" type="url" required inputmode="url" placeholder="https://" autocomplete="url"></label>
-    <label class="tutta" for="f-spesa">Quanto spendi al mese in pubblicità<select id="f-spesa" name="spesa" required><option value="">Scegli una fascia</option><option>Meno di 2.000 €</option><option>2.000-5.000 €</option><option>5.000-10.000 €</option><option>10.000-20.000 €</option><option>Oltre 20.000 €</option></select></label>
-    <label class="tutta" for="f-mail">La tua email<input id="f-mail" name="email" type="email" required autocomplete="email"></label>
-    <label class="tutta" for="f-tel">Telefono, se preferisci una chiamata (facoltativo)<input id="f-tel" name="tel" type="tel" autocomplete="tel"></label>
-    <div class="invia"><button class="btn" type="submit">Manda ad Antonio</button></div>
-    <p class="esito" id="esito" role="status" hidden></p>
+  <div class="parl-t rv"><p class="eyebrow">Parliamone</p><h2 style="margin-top:12px">Parliamone. Ti rispondo io.</h2><p class="mut" style="margin-top:16px;font-size:18px">Tre domande, due minuti. <b style="color:var(--fg);font-weight:600">Entro 24 ore ti scrivo io</b> con le prime tre cose da accendere nel tuo catalogo, e se vale la pena lavorare insieme.</p></div>
+  <form class="wiz rv" id="modulo" novalidate autocomplete="on">
+    <div class="steps" aria-hidden="true"><div class="cur" data-s="1"><i><em>1</em><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></i><span>Il negozio</span></div><div data-s="2"><i><em>2</em><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></i><span>Oggi</span></div><div data-s="3"><i><em>3</em><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></i><span>Tu</span></div></div>
+    <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+    <div class="pane" data-step="1">
+      <h3 tabindex="-1">Dove vendi?</h3><p class="lead">Mi basta l'indirizzo: parto da lì.</p>
+      <div class="q" data-req="sito"><label class="lab" for="sito">Indirizzo del negozio</label><input class="field" id="sito" name="sito" type="text" placeholder="www.iltuonegozio.it" inputmode="url" autocomplete="url" autocapitalize="off" spellcheck="false"><p class="err">Serve l'indirizzo del negozio: guardo quello prima di risponderti.</p></div>
+      <div class="q" data-req="piattaforma"><span class="lab" id="l-piattaforma">Su che piattaforma?</span><div class="opts" role="radiogroup" aria-labelledby="l-piattaforma" data-name="piattaforma"><button type="button" class="opt" role="radio" aria-checked="false" data-v="Shopify"><i></i>Shopify</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="WooCommerce"><i></i>WooCommerce</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="PrestaShop o Magento"><i></i>PrestaShop o Magento</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="Altro, o non lo so"><i></i>Altro, o non lo so</button></div><input type="hidden" name="piattaforma" value=""><p class="err">Scegli la piattaforma, anche «non lo so» va bene.</p></div>
+      <div class="q" data-req="catalogo"><span class="lab" id="l-catalogo">Quanti prodotti hai a catalogo?</span><div class="opts" role="radiogroup" aria-labelledby="l-catalogo" data-name="catalogo"><button type="button" class="opt" role="radio" aria-checked="false" data-v="Meno di 100"><i></i>Meno di 100</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="Da 100 a 1.000"><i></i>Da 100 a 1.000</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="Da 1.000 a 10.000"><i></i>Da 1.000 a 10.000</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="Più di 10.000"><i></i>Più di 10.000</button></div><input type="hidden" name="catalogo" value=""><p class="why">Più prodotti hai, più Ignition ha da accendere.</p><p class="err">Scegli una fascia, anche a occhio.</p></div>
+      <div class="acts"><span class="spacer"></span><button type="button" class="btn" data-next>Continua <svg class="fr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+    </div>
+    <div class="pane" data-step="2" hidden>
+      <h3 tabindex="-1">Come va oggi?</h3><p class="lead">Due risposte secche: servono per capire da dove si parte.</p>
+      <div class="q" data-req="budget"><span class="lab" id="l-budget">Quanto spendi in pubblicità al mese?</span><div class="opts" role="radiogroup" aria-labelledby="l-budget" data-name="budget"><button type="button" class="opt" role="radio" aria-checked="false" data-v="Niente, ancora"><i></i>Niente, ancora</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="Meno di 5.000 €"><i></i>Meno di 5.000 €</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="Da 5 a 15 mila €"><i></i>Da 5 a 15 mila €</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="Da 15 a 50 mila €"><i></i>Da 15 a 50 mila €</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="Più di 50 mila €"><i></i>Più di 50 mila €</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="Preferisco dirlo a voce"><i></i>Preferisco dirlo a voce</button></div><input type="hidden" name="budget" value=""><p class="err">Scegli una fascia: mi serve per non proporti cose fuori misura.</p></div>
+      <div class="q" data-req="gestione"><span class="lab" id="l-gestione">Chi gestisce le campagne?</span><div class="opts" role="radiogroup" aria-labelledby="l-gestione" data-name="gestione"><button type="button" class="opt" role="radio" aria-checked="false" data-v="Io, internamente"><i></i>Io, internamente</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="Un'agenzia"><i></i>Un'agenzia</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="Un freelance"><i></i>Un freelance</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="Nessuno, non ne faccio"><i></i>Nessuno, non ne faccio</button></div><input type="hidden" name="gestione" value=""><p class="err">Scegli una risposta.</p></div>
+      <div class="acts"><button type="button" class="back" data-back><svg class="fr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg> Indietro</button><button type="button" class="btn" data-next>Continua <svg class="fr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+    </div>
+    <div class="pane" data-step="3" hidden>
+      <h3 tabindex="-1">A chi scrivo?</h3><p class="lead">Ti rispondo io, <b>Antonio</b>, entro 24 ore. Niente liste, niente chiamate a freddo.</p>
+      <div class="q" data-req="nome"><label class="lab" for="nome">Nome e cognome</label><input class="field" id="nome" name="nome" type="text" autocomplete="name" placeholder="Come ti chiami"><p class="err">Mi serve il tuo nome per scriverti.</p></div>
+      <div class="q" data-req="email" data-type="email"><label class="lab" for="email">Email</label><input class="field" id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="nome@azienda.it"><p class="err">Serve un'email valida: è lì che ti rispondo.</p></div>
+      <div class="row2"><div class="q"><label class="lab" for="telefono">Telefono<small>facoltativo</small></label><input class="field" id="telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" placeholder="+39"></div><div class="q"><label class="lab" for="azienda">Azienda<small>facoltativo</small></label><input class="field" id="azienda" name="azienda" type="text" autocomplete="organization" placeholder="Ragione sociale o brand"></div></div>
+      <div class="q"><label class="lab" for="messaggio">Qualcosa da sapere prima?<small>facoltativo</small></label><textarea class="field" id="messaggio" name="messaggio" rows="3" placeholder="Stagionalità, mercati esteri, un problema che vedi da tempo…"></textarea></div>
+      <div class="acts"><button type="button" class="back" data-back><svg class="fr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg> Indietro</button><button type="submit" class="btn" id="invia"><span>Manda ad Antonio</span> <svg class="fr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+      <div class="send-err" id="send-err" role="alert">Non è partito. Riprova fra un attimo, oppure scrivimi a <a href="mailto:antonio@orizonadv.it">antonio@orizonadv.it</a>.</div>
+      <p class="priv">Uso questi dati solo per risponderti. Niente newsletter, niente cessione a terzi.</p>
+    </div>
+    <div class="okp" id="fatto" hidden><div class="tick"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></div><h3 tabindex="-1">Ricevuto.</h3><p>Entro 24 ore ti scrivo a <b id="ok-email"></b> con le prime tre cose da accendere. Intanto guardo <b id="ok-sito"></b>.</p><p class="priv">Hai fretta? <a href="tel:+393347113332">334 711 3332</a></p></div>
   </form>
+  <aside class="side rv" aria-label="Cosa succede dopo e contatti diretti">
+    <div class="box"><h3>Cosa succede dopo</h3><div class="tl">
+      <div><b>Entro 24 ore ti scrivo io</b><span>con le prime tre cose da accendere nel tuo catalogo.</span></div>
+      <div><b>Trenta minuti insieme</b><span>se ha senso: guardiamo catalogo, margini e spesa. I numeri, non le slide.</span></div>
+      <div><b>Una proposta a percentuale</b><span>nessuna fee fissa. E se non siamo la scelta giusta per te, te lo diciamo: non lavoriamo con tutti.</span></div>
+    </div></div>
+    <div class="box"><div class="person"><span class="iniziali" aria-hidden="true">AP</span><div><b>Antonio Pratola</b><span>Fondatore di Orizon ADV. Leggo io ogni richiesta, non un commerciale.</span></div></div>
+      <div class="links"><a href="mailto:antonio@orizonadv.it"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>antonio@orizonadv.it</a><a href="tel:+393347113332"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>334 711 3332</a><a href="https://maps.google.com/?q=Corso+Umberto+I+153+Napoli" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Corso Umberto I, 153, Napoli</a></div>
+    </div>
+  </aside>
 </div></section>
 </main>
 <footer class="piede"><div class="wrap"><p>© 2026 Orizon ADV · Napoli · antonio@orizonadv.it</p><nav><a href="/servizi">Servizi</a><a href="/work">Casi</a><a href="/ignition">Ignition</a><a href="/contatti">Contatti</a></nav></div></footer>
@@ -452,20 +505,39 @@ html.entra .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,
   $$('[data-video]').forEach(function(b){ b.addEventListener('click', function(){ ultimo = b; var tel = matchMedia('(max-width: 860px)').matches; apri(tel && b.dataset.tel ? b.dataset.tel : b.dataset.video); }); });
   $('#lettore .x').addEventListener('click', chiudi); dlg.addEventListener('cancel', function(ev){ ev.preventDefault(); chiudi(); });
   dlg.addEventListener('click', function(ev){ if (ev.target === dlg || ev.target.classList.contains('lettore')) chiudi(); });
-  // il modulo (in bozza non parte niente)
-  $('#modulo').addEventListener('submit', function(ev){ ev.preventDefault(); var f = ev.target, er = '';
-    if (!f.sito.value.trim()) er = 'Mi serve il sito per guardare il negozio prima di risponderti.';
-    else if (!f.spesa.value) er = 'Scegli una fascia, anche indicativa.';
-    else if (!/^\S+@\S+\.\S+$/.test(f.email.value.trim())) er = "Controlla l'email, manca qualcosa.";
-    $$('[aria-invalid]', f).forEach(function(x){ x.removeAttribute('aria-invalid'); });
-    var bad = er ? (er.indexOf('sito') > 0 ? f.sito : (er.indexOf('fascia') > 0 ? f.spesa : f.email)) : null; if (bad) { bad.setAttribute('aria-invalid', 'true'); bad.setAttribute('aria-describedby', 'esito'); bad.focus(); }
-    var o = $('#esito'); o.hidden = false; o.style.color = er ? 'var(--fg)' : ''; if (er) { o.textContent = er; return; }
-    var btn = f.querySelector('button[type=submit]'); if (btn.disabled) return; btn.disabled = true; var t0 = btn.textContent; btn.textContent = 'Invio…'; o.hidden = true;
-    var dati = {sito: f.sito.value, spesa_ads: f.spesa.value, email: f.email.value, telefono: f.tel.value, _subject: 'Parliamone, dalla home di orizonadv.it', pagina: location.href};
-    var ctl = 'AbortController' in window ? new AbortController() : null, tm = setTimeout(function(){ if (ctl) ctl.abort(); }, 15000);
-    fetch('https://formspree.io/f/xreobbbz', {method:'POST', headers:{'Content-Type':'application/json', 'Accept':'application/json'}, body:JSON.stringify(dati), signal: ctl ? ctl.signal : undefined})
-      .then(function(r){ clearTimeout(tm); if (!r.ok) throw new Error(r.status); o.hidden = false; o.style.color = ''; o.textContent = 'Ricevuto. Guardo il tuo negozio e ti rispondo io, Antonio.'; btn.textContent = 'Inviato ✓'; f.reset(); })
-      .catch(function(){ clearTimeout(tm); btn.disabled = false; btn.textContent = t0; o.hidden = false; o.style.color = 'var(--fg)'; o.textContent = 'Non è partito. Riprova, o scrivi a antonio@orizonadv.it.'; }); });
+  // il modulo in tre passi (dal vecchio /contatti); INVIO lo mette home2_live.py, in bozza non parte niente
+  var INVIO = 'https://formspree.io/f/xreobbbz';
+  (function(){ var form = $('#modulo'), panes = $$('.pane', form), steps = $$('.steps div', form), cur = 1, busy = false;
+    var q = new URLSearchParams(location.search).get('sito'); if (q) form.sito.value = q.trim();
+    $$('.opts', form).forEach(function(g){ var name = g.getAttribute('data-name'), hid = form.querySelector('input[name="' + name + '"]'), btns = $$('.opt', g);
+      function pick(btn){ btns.forEach(function(x){ x.setAttribute('aria-checked', x === btn ? 'true' : 'false'); x.tabIndex = x === btn ? 0 : -1; }); hid.value = btn.getAttribute('data-v'); g.closest('.q').classList.remove('bad'); }
+      btns.forEach(function(btn, i){ btn.tabIndex = i === 0 ? 0 : -1; btn.addEventListener('click', function(){ pick(btn); });
+        btn.addEventListener('keydown', function(e){ var d = (e.key === 'ArrowRight' || e.key === 'ArrowDown') ? 1 : (e.key === 'ArrowLeft' || e.key === 'ArrowUp') ? -1 : 0; if (!d) return; e.preventDefault(); var n = btns[(i + d + btns.length) % btns.length]; pick(n); n.focus(); }); }); });
+    $$('.field', form).forEach(function(inp){ inp.addEventListener('input', function(){ inp.closest('.q').classList.remove('bad'); }); });
+    function valid(step){ var first = null;
+      $$('.q[data-req]', panes[step - 1]).forEach(function(qe){ var v = (form[qe.getAttribute('data-req')].value || '').trim(), ok = v.length > 0;
+        if (ok && qe.getAttribute('data-type') === 'email') ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+        qe.classList.toggle('bad', !ok); var f = qe.querySelector('.field'); if (f) f.setAttribute('aria-invalid', ok ? 'false' : 'true');
+        if (!ok && !first) first = f || qe.querySelector('.opt[tabindex="0"]') || qe.querySelector('.opt'); });
+      if (first) first.focus(); return !first; }
+    function su(){ var top = form.getBoundingClientRect().top; if (top < 90) scrollTo({top: scrollY + top - 100, behavior: rm ? 'auto' : 'smooth'}); }
+    function show(n){ var from = panes[cur - 1], to = panes[n - 1];
+      steps.forEach(function(st){ var k = +st.getAttribute('data-s'); st.classList.toggle('cur', k === n); st.classList.toggle('ok', k < n); });
+      function swap(){ from.hidden = true; from.classList.remove('leave'); to.hidden = false; to.classList.remove('enter'); void to.offsetWidth; if (!rm) to.classList.add('enter'); cur = n; su(); to.querySelector('h3').focus({preventScroll: true}); }
+      if (rm) swap(); else { from.classList.add('leave'); setTimeout(swap, 150); } }
+    form.addEventListener('click', function(e){ if (e.target.closest('[data-next]')) { if (valid(cur)) show(cur + 1); } if (e.target.closest('[data-back]')) show(cur - 1); });
+    form.addEventListener('submit', function(e){ e.preventDefault(); if (cur < 3) { if (valid(cur)) show(cur + 1); return; } if (!valid(3) || busy) return; manda(); });
+    function manda(){ var btn = $('#invia'), sp = btn.querySelector('span'), err = $('#send-err'); busy = true; btn.disabled = true; sp.textContent = 'Invio in corso…'; err.classList.remove('show');
+      var dati = {}; new FormData(form).forEach(function(v, k){ dati[k] = v; }); dati._subject = 'Parliamone: ' + (dati.sito || dati.nome); dati.pagina = location.href;
+      var fine = function(){ busy = false; btn.disabled = false; sp.textContent = 'Manda ad Antonio'; };
+      if (!INVIO) { fatto(dati); fine(); return; }
+      var ctl = 'AbortController' in window ? new AbortController() : null, tm = setTimeout(function(){ if (ctl) ctl.abort(); }, 15000);
+      fetch(INVIO, {method: 'POST', headers: {'Content-Type': 'application/json', 'Accept': 'application/json'}, body: JSON.stringify(dati), signal: ctl ? ctl.signal : undefined})
+        .then(function(r){ clearTimeout(tm); if (!r.ok) throw new Error(r.status); fatto(dati); }).catch(function(){ clearTimeout(tm); err.classList.add('show'); }).then(fine); }
+    function fatto(d){ $('#ok-email').textContent = d.email; $('#ok-sito').textContent = (d.sito || '').replace(/^https?:\/\//, '').replace(/\/$/, '');
+      steps.forEach(function(st){ st.classList.remove('cur'); st.classList.add('ok'); }); panes[2].hidden = true;
+      var ok = $('#fatto'); ok.hidden = false; if (!rm) ok.classList.add('pane', 'enter'); ok.querySelector('h3').focus({preventScroll: true}); su(); }
+  })();
   // la costellazione: solo col mouse, e disegna solo quando il mouse si muove
   if (fine && !rm) {
     var c = $('#stelle'), x = c.getContext('2d'), W, Hh, P = [], mx = -999, my = -999, att = false, col = getComputedStyle(document.documentElement).getPropertyValue('--blu2').trim() || '#8191ff';
