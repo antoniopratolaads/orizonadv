@@ -16,6 +16,7 @@
 <link rel="icon" href="images/brand/mark-blu.svg" type="image/svg+xml">
 <link rel="preload" href="fonts/IBMPlexSans.woff2" as="font" type="font/woff2" crossorigin>
 <script>document.documentElement.classList.add('js')</script>
+<script src="js/lead.js" defer></script>
 <style>
 @font-face{font-family:'IBM Plex Sans';font-weight:100 700;font-style:normal;font-display:swap;src:url(fonts/IBMPlexSans.woff2) format('woff2-variations'),url(fonts/IBMPlexSans.woff2) format('woff2')}
 
@@ -687,7 +688,7 @@ footer{border-top:1px solid var(--line);padding:48px 0 28px;background:var(--whi
     var data = {}; new FormData(form).forEach(function(v, k){ data[k] = v; });
     data._subject = 'Scan richiesto: ' + (data.sito || data.nome);
     fetch('https://formspree.io/f/xreobbbz', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) })
-      .then(function(r){ if (!r.ok) throw new Error(r.status); done(data); })
+      .then(function(r){ if (!r.ok) throw new Error(r.status); data._modulo = 'Contatti'; if (window.orizonLead) orizonLead(data); done(data); })
       .catch(function(){ err.classList.add('show'); })
       .then(function(){ busy = false; btn.disabled = false; btn.firstChild.textContent = 'Richiedi lo scan '; });
   }

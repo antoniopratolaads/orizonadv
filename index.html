@@ -16,6 +16,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#f6f7fc">
 <link rel="icon" href="images/brand/mark-blu.svg" type="image/svg+xml">
+<script src="js/lead.js" defer></script>
 <link rel="preload" href="fonts/IBMPlexSans.woff2" as="font" type="font/woff2" crossorigin>
 <style>@font-face{font-family:'IBM Plex Sans';font-weight:100 700;font-style:normal;font-display:swap;src:url(fonts/IBMPlexSans.woff2) format('woff2-variations'),url(fonts/IBMPlexSans.woff2) format('woff2')}</style>
 <style>
@@ -533,7 +534,7 @@ html.entra .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,
       if (!INVIO) { fatto(dati); fine(); return; }
       var ctl = 'AbortController' in window ? new AbortController() : null, tm = setTimeout(function(){ if (ctl) ctl.abort(); }, 15000);
       fetch(INVIO, {method: 'POST', headers: {'Content-Type': 'application/json', 'Accept': 'application/json'}, body: JSON.stringify(dati), signal: ctl ? ctl.signal : undefined})
-        .then(function(r){ clearTimeout(tm); if (!r.ok) throw new Error(r.status); fatto(dati); }).catch(function(){ clearTimeout(tm); err.classList.add('show'); }).then(fine); }
+        .then(function(r){ clearTimeout(tm); if (!r.ok) throw new Error(r.status); if (window.orizonLead) orizonLead(dati); fatto(dati); }).catch(function(){ clearTimeout(tm); err.classList.add('show'); }).then(fine); }
     function fatto(d){ $('#ok-email').textContent = d.email; $('#ok-sito').textContent = (d.sito || '').replace(/^https?:\/\//, '').replace(/\/$/, '');
       steps.forEach(function(st){ st.classList.remove('cur'); st.classList.add('ok'); }); panes[2].hidden = true;
       var ok = $('#fatto'); ok.hidden = false; if (!rm) ok.classList.add('pane', 'enter'); ok.querySelector('h3').focus({preventScroll: true}); su(); }
