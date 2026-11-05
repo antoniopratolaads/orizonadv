@@ -167,17 +167,18 @@ html.scena .pista{height:var(--h)} html.scena .fisso{position:sticky;top:76px;he
    mi piace quel numero verde così grande… perché è così vuoto sopra»): sette carte uguali, la cifra in nero col segno verde accanto */
 .ris3 .fisso{grid-template-rows:auto 1fr auto;align-content:stretch;padding-block:16px 10px}
 .ris3-testa{width:100%;display:grid;gap:4px} .ris3-testa h2{font-size:clamp(28px,3.6vw,46px);letter-spacing:-.04em;line-height:1.02}
-.ventaglio{position:relative;min-height:0;--cw:min(330px,80vw)}
-.vc{position:absolute;left:50%;top:52%;width:var(--cw);margin-left:calc(var(--cw) / -2);translate:0 -50%;background:#fff;color:#0c1713;border-radius:22px;border:1px solid rgba(12,23,19,.1);box-shadow:0 30px 60px -34px rgba(12,23,19,.55);padding:16px 16px 12px;display:grid;gap:6px;will-change:transform;transform-origin:50% 130%}
+.ventaglio{position:relative;min-height:0;--cw:clamp(330px,36vw,520px)}
+.vc{position:absolute;left:50%;top:clamp(16px,4svh,40px);width:var(--cw);margin-left:calc(var(--cw) / -2);background:#fff;color:#0c1713;border-radius:22px;border:1px solid rgba(12,23,19,.1);box-shadow:0 30px 60px -34px rgba(12,23,19,.55);padding:16px 16px 12px;display:grid;gap:6px;will-change:transform;transform-origin:50% 130%}
 .vc-chi{height:28px;display:flex;align-items:center;gap:10px} .vc-chi img{height:22px;width:auto;max-width:150px;object-fit:contain} .vc-chi img.sfondo{mix-blend-mode:multiply}
 .vc .sett{font:500 12.5px var(--fm,ui-monospace,monospace);letter-spacing:.06em;text-transform:uppercase;color:#5b6474} .vc .sett span{position:relative;display:inline-block}
 .vc .sett span::after{content:"";position:absolute;inset:-3px -7px;border-radius:4px;background:#0c1713;transform-origin:right;transform:scaleX(var(--copre,1));transition:transform .45s cubic-bezier(.7,0,.2,1)}
 .vc .timido{font:500 11px var(--fm,ui-monospace,monospace);color:#8a93a3}
-.vc-cifra{font-size:clamp(26px,2.6vw,32px);font-weight:700;letter-spacing:-.035em;line-height:1.05;font-variant-numeric:tabular-nums;display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.vc-cifra{font-size:clamp(26px,2.4vw,36px);font-weight:700;letter-spacing:-.035em;line-height:1.05;font-variant-numeric:tabular-nums;display:flex;align-items:center;flex-wrap:wrap;gap:8px}
 .vc-segno{font-size:14px;letter-spacing:0;font-weight:700;color:#0b7a3b;background:rgba(11,122,59,.1);border-radius:999px;padding:3px 9px}
 .vc-riga{font-size:14px;color:#5b6474;line-height:1.35}
 .vc-graf{border-radius:12px;overflow:hidden;border:1px solid rgba(12,23,19,.06);background:#fff;margin-top:4px}
 .vc-graf img{display:block;width:100%;height:auto}
+@media (min-width:861px){.vc{padding:20px 20px 14px;gap:8px} .vc-riga{font-size:15px} .vc-graf{height:clamp(150px,30svh,290px)} .vc-graf img{height:100%;object-fit:contain}}
 .vc-graf.alto{max-height:190px} .vc-graf.alto img{object-fit:cover;object-position:top}
 .vc-quando{font-size:11.5px;color:#5b6474}
 .v-punti{display:flex;gap:6px;justify-content:center;padding-top:6px} .v-punti i{width:7px;height:7px;border-radius:50%;background:var(--line);transition:background .2s,transform .2s} .v-punti i.on{background:var(--blu);transform:scale(1.35)}
@@ -343,7 +344,7 @@ html.entra .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,
   .ign-box,.squadra{grid-template-columns:minmax(0,1fr)} .crea{grid-template-columns:repeat(2,minmax(0,1fr))} .agenti{grid-template-columns:repeat(2,minmax(0,1fr))}
   .parl{grid-template-columns:minmax(0,1fr);grid-template-areas:"t" "f" "s"} .side{position:static} .pane{padding:22px 18px 24px} .okp{padding:32px 18px} .steps div{padding:12px} .steps div:not(.cur) span{display:none} .steps div:not(.cur){flex:0 0 auto} .row2{grid-template-columns:minmax(0,1fr)} .opt{font-size:14.5px;padding:10px 12px;gap:9px} .foto-antonio{aspect-ratio:4/3} .agenti{grid-auto-rows:auto} .agente{gap:12px;padding:12px 14px} .agente img{width:52px;height:52px} .agente b{font-size:15px} .agente span{font-size:13px}
   /* telefono ripensato (5/11): la home era 26 schermate; meno scroll fermo, i clienti senza nome si scorrono di lato, gli agenti in griglia */
-  html.scena .ris3 .pista{height:calc(3.6 * 100svh)} .ventaglio{--cw:min(290px,78vw)} .vc{top:44%} .ris3-testa .mut{display:none} .vc-graf.alto{max-height:150px}
+  html.scena .ris3 .pista{height:calc(3.6 * 100svh)} .ventaglio{--cw:min(290px,78vw)} .ris3-testa .mut{display:none} .vc-graf.alto{max-height:150px}
   html.scena .tesi2 .pista{height:calc(2 * 100svh)} html.scena .regia .pista{height:calc(5 * 100svh)} html.scena .annunci .pista:not(.muro-p){height:calc(3.2 * 100svh)} html.scena .annunci .muro-p{height:calc(1.5 * 100svh)}
   .schede-ris{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:-4px;padding-inline:4px} .schede-ris::-webkit-scrollbar{display:none} .schede-ris button{flex:none}
   .anonimi .tre{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding:4px max(16px,env(safe-area-inset-left,0px)) 12px;scrollbar-width:none} .anonimi .tre::-webkit-scrollbar{display:none}
