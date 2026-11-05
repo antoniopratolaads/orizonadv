@@ -308,7 +308,7 @@ html.entra .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,
 
 /* telefono */
 @media (max-width:860px){
-  .pillola nav,.pillola>.btn{display:none} .burger{display:block} .barra{height:68px;padding-top:10px} .pillola{height:52px;padding:0 4px 0 18px;background:rgba(255,255,255,.94);backdrop-filter:none;-webkit-backdrop-filter:none} .pillola .logo{height:19px} .cielo .griglia{display:none} .cielo i{width:110vmax;height:110vmax}
+  .pillola nav,.pillola>.btn{display:none} .burger{display:block} .barra{height:68px;padding-top:10px;transition:transform .32s cubic-bezier(.2,.7,.2,1)} .barra.via{transform:translateY(calc(-100% - env(safe-area-inset-top,0px)))} .pillola{height:52px;padding:0 4px 0 18px;background:rgba(255,255,255,.94);backdrop-filter:none;-webkit-backdrop-filter:none} .pillola .logo{height:19px} .cielo .griglia{display:none} .cielo i{width:110vmax;height:110vmax}
   .bot:nth-child(n+5){display:none} .cartellino{font-size:12px}
   .testa .sotto{font-size:17px} .numeri b{font-size:24px}
   .anonimi .tre{grid-template-columns:minmax(0,1fr)} .caso{grid-template-columns:minmax(0,1fr);gap:18px} .schede-ris button{height:44px;padding:0 14px} .schede-ris button img{height:17px;max-width:96px}
@@ -491,6 +491,11 @@ html.entra .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,
   var bu = $('#burger'), mt = $('#menu-tel');
   function menu(apri){ mt.classList.toggle('aperto', apri); bu.setAttribute('aria-expanded', apri ? 'true' : 'false'); bu.setAttribute('aria-label', apri ? 'Chiudi il menu' : 'Apri il menu'); document.documentElement.style.overflow = apri ? 'hidden' : ''; }
   bu.addEventListener('click', function(){ menu(!mt.classList.contains('aperto')); });
+  // sul telefono la barra in alto sparisce scorrendo in giù e torna solo scorrendo in su (Antonio, 5/11)
+  (function(){ var ba = $('.barra'), ult = scrollY, tel = matchMedia('(max-width: 860px)');
+    addEventListener('scroll', function(){ var y = scrollY, d = y - ult; if (Math.abs(d) < 6) return; ult = y;
+      if (!tel.matches || y < 80 || mt.classList.contains('aperto')) { ba.classList.remove('via'); return; }
+      ba.classList.toggle('via', d > 0); }, {passive: true}); })();
   $$('a', mt).forEach(function(a){ a.addEventListener('click', function(){ menu(false); }); });
   addEventListener('keydown', function(ev){ if (ev.key === 'Escape' && mt.classList.contains('aperto')) menu(false); });
   // sul computer la voce della sezione in cui sei resta accesa
