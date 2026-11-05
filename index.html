@@ -145,6 +145,12 @@ html.scena .pista{height:var(--h)} html.scena .fisso{position:sticky;top:76px;he
 /* la tesi senza scacchiera (Antonio, 5/11: «leverei proprio la scacchiera»; bozza A): le prime due frasi esplodono in lettere,
    coi pezzi si forma la verde. Lo scroll la manda avanti e indietro */
 .tesi2 .fisso{padding-block:24px} .tesi2 .wrap{width:100%}
+/* la tesi nel pannello scuro (Antonio, 5/11: «ha lo stesso sfondo di sopra, ed è brutto così»… «B direi»; e «non si può fare che lo
+   scroll la fa partire?»): pannello arrotondato sospeso coi margini, griglia leggera; l'esplosione parte da sola quando entra */
+.tesi3{padding-block:clamp(24px,4vw,48px)}
+.tesi3 .pannello{position:relative;max-width:1240px;width:calc(100% - 2 * max(16px,env(safe-area-inset-left,0px)));margin:0 auto;border-radius:clamp(22px,3vw,34px);background:#0b1220;color:#eef2f8;min-height:min(600px,78svh);display:grid;align-content:center;overflow:hidden;box-shadow:0 40px 80px -50px rgba(12,23,19,.7)}
+.tesi3 .pannello::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:radial-gradient(70% 70% at 50% 50%,#000,transparent);mask-image:radial-gradient(70% 70% at 50% 50%,#000,transparent);pointer-events:none}
+.tesi3 .wrap{position:relative;width:100%;padding-inline:clamp(20px,5vw,72px)} .tesi3 .frasi p:last-child{color:#60e787}
 .frasi p{font-size:clamp(36px,6.4vw,88px);font-weight:700;letter-spacing:-.045em;line-height:1;max-width:19ch;margin:0;text-wrap:balance} .frasi p+p{margin-top:.22em} .frasi p:last-child{color:var(--verde)}
 .frasi .parola{display:inline-block;white-space:nowrap} .frasi .l{display:inline-block;white-space:pre;will-change:transform,opacity}
 .frasi a{display:inline-flex;align-items:center;min-height:44px;margin-top:18px;font-weight:600;color:var(--blu2);text-decoration:none;font-size:17px}
@@ -345,7 +351,7 @@ html.entra .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,
   .parl{grid-template-columns:minmax(0,1fr);grid-template-areas:"t" "f" "s"} .side{position:static} .pane{padding:22px 18px 24px} .okp{padding:32px 18px} .steps div{padding:12px} .steps div:not(.cur) span{display:none} .steps div:not(.cur){flex:0 0 auto} .row2{grid-template-columns:minmax(0,1fr)} .opt{font-size:14.5px;padding:10px 12px;gap:9px} .foto-antonio{aspect-ratio:4/3} .agenti{grid-auto-rows:auto} .agente{gap:12px;padding:12px 14px} .agente img{width:52px;height:52px} .agente b{font-size:15px} .agente span{font-size:13px}
   /* telefono ripensato (5/11): la home era 26 schermate; meno scroll fermo, i clienti senza nome si scorrono di lato, gli agenti in griglia */
   html.scena .ris3 .pista{height:calc(3.6 * 100svh)} .ventaglio{--cw:min(290px,78vw)} .ris3-testa .mut{display:none} .vc-graf.alto{max-height:150px}
-  html.scena .tesi2 .pista{height:calc(2 * 100svh)} html.scena .regia .pista{height:calc(5 * 100svh)} html.scena .annunci .pista:not(.muro-p){height:calc(3.2 * 100svh)} html.scena .annunci .muro-p{height:calc(1.5 * 100svh)}
+  .tesi3 .pannello{min-height:min(480px,62svh)} html.scena .regia .pista{height:calc(5 * 100svh)} html.scena .annunci .pista:not(.muro-p){height:calc(3.2 * 100svh)} html.scena .annunci .muro-p{height:calc(1.5 * 100svh)}
   .schede-ris{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:-4px;padding-inline:4px} .schede-ris::-webkit-scrollbar{display:none} .schede-ris button{flex:none}
   .anonimi .tre{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding:4px max(16px,env(safe-area-inset-left,0px)) 12px;scrollbar-width:none} .anonimi .tre::-webkit-scrollbar{display:none}
   .anonimi .tre{align-items:flex-start} .anon{flex:0 0 84%;scroll-snap-align:start} .anonimi>.mut::after{content:" Scorri di lato.";}
@@ -386,9 +392,9 @@ html.entra .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,
   <div class="v-punti" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
 </div></div></section>
 
-<section class="tesi2" style="padding-block:0"><div class="pista" style="--h:calc(3.2 * 100svh)"><div class="fisso"><div class="wrap">
-  <div class="frasi"><p data-f="1">Le campagne alzano il fatturato.</p><p data-f="2">Il fatturato non è l&#x27;utile.</p><p data-f="3">Noi guidiamo sull&#x27;utile.</p></div>
-</div></div></div></section>
+<section class="tesi3"><div class="pannello"><div class="wrap">
+  <div class="frasi"><p>Le campagne alzano il fatturato.</p><p>Il fatturato non è l&#x27;utile.</p><p>Noi guidiamo sull&#x27;utile.</p></div>
+</div></div></section>
 
 <section id="ignition" class="ign-fascia"><video class="ign-sfondo" muted loop playsinline preload="none" aria-hidden="true" data-src="img/home/video/ignition-anteprima.mp4" poster="img/home/video/ignition-anteprima.jpg"></video><div class="ign-velo" aria-hidden="true"></div><div class="wrap ign-box">
   <div class="rv"><p class="eyebrow">Ignition</p><h2>La nostra arma. Solo per chi diventa cliente.</h2>
@@ -496,7 +502,6 @@ html.entra .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,
   var c01 = function(v){ return v < 0 ? 0 : v > 1 ? 1 : v; };
   if (!rm) {
     document.documentElement.classList.add('scena');
-    var tesi = $('.tesi2 .pista');
     // la tesi: ogni frase in lettere (le parole restano intere per l'a capo), ogni lettera con la sua direzione fissa
     var rnd = function(k){ var x = Math.sin(k * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); }, esce = function(t){ return 1 - Math.pow(1 - t, 3); };
     var F = $$('.frasi p').map(function(fr, n){ var out = [], t = fr.textContent; fr.textContent = ''; fr.setAttribute('aria-label', t);
@@ -505,6 +510,11 @@ html.entra .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,
           l._v = {a: rnd(k) * Math.PI * 2, d: .6 + rnd(k + 9) * .9, r: (rnd(k + 3) - .5) * 2, s: rnd(k + 5)}; pa.appendChild(l); out.push(l); });
         fr.appendChild(pa); });
       return out; });
+    // parte da sola quando la tesi entra nello schermo: un attimo ferme le prime due frasi, poi lo scoppio (2,6 s)
+    (function(){ var fr0 = $('.tesi3 .frasi'); if (!fr0 || !('IntersectionObserver' in window)) { esplodi(1); return; } esplodi(0);
+      var o = new IntersectionObserver(function(es){ if (!es[0].isIntersecting) return; o.disconnect(); var t0 = null;
+        (function f(t){ if (!t0) t0 = t; var p = c01((t - t0 - 700) / 2600); esplodi(p); if (p < 1) requestAnimationFrame(f); })(performance.now()); }, {threshold: .55});
+      o.observe(fr0); })();
     function esplodi(p){ var V = Math.max(innerWidth, 400);
       F[0].concat(F[1]).forEach(function(l, k){ var dentro = esce(c01((p - (k < F[0].length ? -.14 : .06))/.14)), boom = esce(c01((p - .42 - l._v.s*.06)/.26)), v = l._v;
         l.style.transform = 'translate(' + (Math.cos(v.a)*v.d*V*.7*boom).toFixed(1) + 'px,' + (Math.sin(v.a)*v.d*V*.45*boom + (1 - dentro)*40).toFixed(1) + 'px) rotate(' + (v.r*300*boom).toFixed(1) + 'deg) scale(' + (1 - boom*.3).toFixed(3) + ')';
@@ -565,7 +575,6 @@ html.entra .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,
     function vicino(el){ var r = el.getBoundingClientRect(); return r.bottom > -200 && r.top < innerHeight + 200; }
     var vuoto = false;
     function scena(){ vuoto = false;
-      if (vicino(tesi)) esplodi(prog(tesi));
       if (vicino(ag)) agenti(prog(ag));
       if (vicino(risP)) ventaglio(prog(risP));
       if (vicino(annP)) fila(prog(annP)); else ferma();
