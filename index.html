@@ -129,10 +129,11 @@ img.sfondo{filter:var(--logo-sfondo)!important;mix-blend-mode:var(--logo-fusione
    ascoltatore dello scroll che muove transform e colori (niente librerie). Senza JS o con «riduci movimento» scorrono normali. */
 .pista{position:relative} .fisso{position:relative}
 html.scena .pista{height:var(--h)} html.scena .fisso{position:sticky;top:76px;height:calc(100svh - 76px);overflow:hidden;display:grid;align-content:center}
-/* la tesi: le parole si accendono, il cubo del catalogo gira e si accende */
-.tesi2 .fisso{padding-block:24px} .tesi2 .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center;width:100%}
-.frasi p{font-size:clamp(34px,5vw,64px);font-weight:700;letter-spacing:-.035em;line-height:1.08;max-width:17ch;margin:0} .frasi p+p{margin-top:.28em}
-html.scena .frasi .w{color:var(--spento)} html.scena .frasi .w.on{color:var(--fg)} .frasi p:last-of-type .w,html.scena .frasi p:last-of-type .w.on{color:var(--verde)} html.scena .frasi p:last-of-type .w:not(.on){color:var(--spento)}
+/* la tesi senza scacchiera (Antonio, 5/11: «leverei proprio la scacchiera»; bozza A): le prime due frasi esplodono in lettere,
+   coi pezzi si forma la verde. Lo scroll la manda avanti e indietro */
+.tesi2 .fisso{padding-block:24px} .tesi2 .wrap{width:100%}
+.frasi p{font-size:clamp(36px,6.4vw,88px);font-weight:700;letter-spacing:-.045em;line-height:1;max-width:19ch;margin:0;text-wrap:balance} .frasi p+p{margin-top:.22em} .frasi p:last-child{color:var(--verde)}
+.frasi .parola{display:inline-block;white-space:nowrap} .frasi .l{display:inline-block;white-space:pre;will-change:transform,opacity}
 .frasi a{display:inline-flex;align-items:center;min-height:44px;margin-top:18px;font-weight:600;color:var(--blu2);text-decoration:none;font-size:17px}
 .scena3d{display:grid;place-items:center;perspective:1300px;justify-self:center}
 #cubo3d{display:none;width:min(460px,38vw);height:auto;aspect-ratio:1;max-width:100%} html.cubo-ok #cubo3d{display:block} html.cubo-ok .cubo{display:none}
@@ -144,15 +145,6 @@ html.scena .frasi .w{color:var(--spento)} html.scena .frasi .w.on{color:var(--fg
 .cel i:nth-child(1){transform:translateZ(calc(var(--u)/2))} .cel i:nth-child(2){transform:rotateY(180deg) translateZ(calc(var(--u)/2))} .cel i:nth-child(3){transform:rotateY(90deg) translateZ(calc(var(--u)/2))}
 .cel i:nth-child(4){transform:rotateY(-90deg) translateZ(calc(var(--u)/2))} .cel i:nth-child(5){transform:rotateX(90deg) translateZ(calc(var(--u)/2))} .cel i:nth-child(6){transform:rotateX(-90deg) translateZ(calc(var(--u)/2))}
 .contatore{margin-top:8px;text-align:center;font-size:14px;color:var(--mut)} .contatore b{display:block;font-size:34px;color:var(--verde);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
-/* la partita a scacchi (29/10, Antonio: «vinciamola noi… sono le varie funzioni che ci fanno vincere»): il finale
-   dell'Opera Game di Morphy, ogni mossa bianca è un servizio, l'ultima dà scacco matto. three.js si carica solo vicino alla sezione; prima, e con «riduci movimento», si vede la foto finale */
-.scacchi{display:grid;justify-items:center;width:100%}
-.palco-sc{position:relative;width:min(100%,calc(100svh - 230px));aspect-ratio:1;border-radius:28px;overflow:hidden;background:radial-gradient(110% 80% at 50% 25%,#fff,var(--bg2))}
-.palco-sc .sc-poster,.palco-sc .sc-tela{position:absolute;inset:0;width:100%!important;height:100%!important;display:block;object-fit:cover}
-.mossa-sc{margin-top:12px;display:grid;justify-items:center;gap:2px;text-align:center;min-height:5.2em} .mossa-sc .n{font:500 13px var(--fm);color:var(--mut);letter-spacing:.02em}
-.mossa-sc b{font-size:clamp(24px,2.4vw,32px);letter-spacing:-.025em;color:var(--blu2);line-height:1.15} .mossa-sc b.verde{color:var(--verde)} .mossa-sc span:last-child{font-size:15px;color:var(--mut)}
-.morphy{margin-top:6px;font-size:12px;color:var(--mut);opacity:.75;text-align:center}
-.palco-sc .sc-tela,.palco-sc .sc-poster{transition:opacity .5s} .palco-sc .sc-tela{opacity:0;touch-action:pan-y} .palco-sc.sc-pronto .sc-tela{opacity:1} .palco-sc.sc-pronto .sc-poster{opacity:0}
 /* la mappa dei servizi: Orizon al centro, i rami che si accendono col dito (alla Obsidian) */
 .mappa2 .fisso{align-content:center} .mappa2 .wrap{display:grid;grid-template-columns:minmax(0,.62fr) minmax(0,1.38fr);gap:clamp(20px,3vw,48px);align-items:center;width:100%}
 .grafo{position:relative;width:100%;aspect-ratio:10/7}
@@ -277,7 +269,7 @@ dialog::backdrop{background:rgba(3,6,10,.92)}
 
 /* entrata una volta sola: senza JS o con «riduci movimento» tutto è già al suo posto */
 html.entra .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .7s cubic-bezier(.2,.8,.2,1)} html.entra .rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.frasi .w{color:var(--fg)} .cielo i,.nastro ul,.holmes .tondo{animation:none} html.entra .rv{opacity:1;transform:none;transition:none}}
+@media (prefers-reduced-motion:reduce){.cielo i,.nastro ul,.holmes .tondo{animation:none} html.entra .rv{opacity:1;transform:none;transition:none}}
 
 /* telefono */
 @media (max-width:860px){
@@ -288,15 +280,14 @@ html.entra .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,
   .servizi{grid-template-columns:repeat(2,minmax(0,1fr))} .srv{padding:16px} .srv b{font-size:15.5px} .srv span{font-size:13.5px}
   .ign-box,.squadra{grid-template-columns:minmax(0,1fr)} .crea{grid-template-columns:repeat(2,minmax(0,1fr))} .agenti{grid-template-columns:repeat(2,minmax(0,1fr))}
   .parl{grid-template-columns:minmax(0,1fr);grid-template-areas:"t" "f" "s"} .side{position:static} .pane{padding:22px 18px 24px} .okp{padding:32px 18px} .steps div{padding:12px} .steps div:not(.cur) span{display:none} .steps div:not(.cur){flex:0 0 auto} .row2{grid-template-columns:minmax(0,1fr)} .opt{font-size:14.5px;padding:10px 12px;gap:9px} .foto-antonio{aspect-ratio:4/3} .agenti{grid-auto-rows:auto} .agente{gap:12px;padding:12px 14px} .agente img{width:52px;height:52px} .agente b{font-size:15px} .agente span{font-size:13px}
-  .palco-sc{width:min(100%,44svh);border-radius:20px} .mossa-sc{margin-top:6px;min-height:4.6em} .mossa-sc b{font-size:22px} .mossa-sc span:last-child{font-size:14px} .morphy{display:none}
   html.scena .mappa2 .pista{height:auto} html.scena .mappa2 .fisso{position:relative;top:auto;height:auto;overflow:visible;padding-block:56px 40px} #ramo-ora{display:none}
   .rami-schede{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding:4px max(16px,env(safe-area-inset-left,0px)) 12px;scrollbar-width:none} .rami-schede::-webkit-scrollbar{display:none}
   .rami-schede{counter-reset:ramo} .rami-schede .scheda-ramo{position:relative;overflow:hidden;counter-increment:ramo;gap:14px;padding:22px 20px 20px} .rami-schede .scheda-ramo::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--blu),#60e787)} .rami-schede .scheda-ramo .num{display:none} .rami-schede .tit::after{content:"0" counter(ramo) " / 06";margin-left:auto;font-size:12px;font-weight:600;color:var(--mut);font-variant-numeric:tabular-nums} .rami-schede .tit img{width:52px;height:52px;box-shadow:0 0 0 4px color-mix(in srgb,var(--blu) 10%,transparent)} .rami-schede .tit h3{font-size:22px} .rami-schede .elenco span{background:color-mix(in srgb,var(--blu) 7%,var(--pieno));border-color:color-mix(in srgb,var(--blu) 20%,transparent);color:var(--fg);font-weight:500}
   .rami-schede-t{display:block} .rami-schede .scheda-ramo{flex:0 0 84%;scroll-snap-align:start;align-content:start} .scorri{font-size:13px;color:var(--mut);margin-top:-4px}
   .prove a{padding:14px 12px 12px} .prove b{font-size:24px} .prove span{font-size:12.5px} .prove small{padding:8px 12px}
   .mappa2 .wrap{grid-template-columns:minmax(0,1fr);gap:12px} .nodo:not(.ramo):not(.centro){display:none} .nodo.ramo{font-size:12px;padding:5px 10px} .nodo.centro{border-width:6px} .ramo-t h3{font-size:20px} .elenco span{font-size:13px}
-  .tesi2 .wrap{grid-template-columns:minmax(0,1fr);gap:18px;align-content:center} .scacchi{order:-1} .cubo{--u:clamp(36px,11vw,52px)} #cubo3d{width:min(260px,64vw)} .contatore{margin-top:16px} .contatore b{font-size:26px}
-  .frasi p{font-size:clamp(28px,8vw,40px)} .ris2 .intesta h2{font-size:24px} .ris2 .intesta p{display:none}
+  .tesi2 .wrap{grid-template-columns:minmax(0,1fr);gap:18px;align-content:center} .cubo{--u:clamp(36px,11vw,52px)} #cubo3d{width:min(260px,64vw)} .contatore{margin-top:16px} .contatore b{font-size:26px}
+  .frasi p{font-size:clamp(34px,10.5vw,46px)} .ris2 .intesta h2{font-size:24px} .ris2 .intesta p{display:none}
 }
 </style>
 </head>
@@ -362,8 +353,7 @@ html.entra .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,
 </div></section>
 
 <section class="tesi2" style="padding-block:0"><div class="pista" style="--h:calc(3.2 * 100svh)"><div class="fisso"><div class="wrap">
-  <div class="frasi"><p><span class="w">Le</span> <span class="w">campagne</span> <span class="w">alzano</span> <span class="w">il</span> <span class="w">fatturato.</span></p><p><span class="w">Il</span> <span class="w">fatturato</span> <span class="w">non</span> <span class="w">è</span> <span class="w">l&#x27;utile.</span></p><p><span class="w">Noi</span> <span class="w">guidiamo</span> <span class="w">sull&#x27;utile.</span></p></div>
-  <div class="scacchi" aria-hidden="true"><div class="palco-sc" id="scacchi"><img class="sc-poster" src="img/home/scacchi-poster.webp" alt="" width="900" height="900" loading="lazy" decoding="async"></div><p class="mossa-sc"><span class="n" id="sc-nota">17. Td8#</span><b id="sc-servizio" class="verde">I conti</b><span id="sc-frase">Scacco matto. Si vince in utile.</span></p><p class="morphy">La partita è vera: Morphy, Parigi 1858. Noi giochiamo col Bianco.</p></div>
+  <div class="frasi"><p data-f="1">Le campagne alzano il fatturato.</p><p data-f="2">Il fatturato non è l&#x27;utile.</p><p data-f="3">Noi guidiamo sull&#x27;utile.</p></div>
 </div></div></div></section>
 
 <section id="ignition" class="ign-fascia"><video class="ign-sfondo" muted loop playsinline preload="none" aria-hidden="true" data-src="img/home/video/ignition-anteprima.mp4" poster="img/home/video/ignition-anteprima.jpg"></video><div class="ign-velo" aria-hidden="true"></div><div class="wrap ign-box">
@@ -468,27 +458,30 @@ html.entra .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,
   if (!rm) {
     document.documentElement.classList.add('scena');
     var tesi = $('.tesi2 .pista');
-    var parole = $$('.frasi .w'), sc = null, carica = false, scN = $('#sc-nota'), scS = $('#sc-servizio'), scF = $('#sc-frase'), mostrata = null;
-    // le mosse bianche (Opera Game, Morphy 1858): ognuna è un servizio. Finché la scena non è pronta la didascalia va avanti da sola, con gli stessi tempi
-    var MOSSE = [['13. T×d7', 'Feed per Google e Meta', 'Il prodotto giusto davanti a chi lo cerca.'], ['14. Td1', 'Tracciamento', 'Ogni ordine contato, sul canale giusto.'],
-      ['15. A×d7+', 'Schede SEO e GEO', 'Trovati su Google e dalle AI.'], ['16. Db8+!!', 'Campagne', 'Il budget va dove rende. Anche la regina.'], ['17. Td8#', 'I conti', 'Scacco matto. Si vince in utile.']];
-    var quale = function(p){ var n = -1; MOSSE.forEach(function(m, i){ if (p >= .1 + 2*i*.08) n = i; }); return {mossa: n, fine: p >= .9}; };
-    function didascalia(r){ var k = r.mossa + (r.fine ? 'f' : ''); if (k === mostrata) return; mostrata = k;
-      var m = r.mossa < 0 ? ['12. … Td8', 'Tocca a noi', 'In campo ci sono già creatività e lingue. Ogni mossa è un servizio.'] : MOSSE[r.mossa];
-      scN.textContent = m[0]; scS.textContent = m[1]; scF.textContent = m[2]; scS.classList.toggle('verde', r.mossa === MOSSE.length - 1); }
-    function partita(){ if (carica) return; carica = true;
-      var fila = ['js/three.min.js', 'js/RoomEnvironment.js', 'js/scacchi.js'], prossimo = function(){
-        if (!fila.length) { try { sc = window.OrizonScacchi($('#scacchi')); } catch (e) { sc = null; } if (sc) sc.set(prog(tesi)); return; }
-        var t = document.createElement('script'); t.src = fila.shift(); t.onload = prossimo; document.head.appendChild(t); };
-      prossimo(); }
+    // la tesi: ogni frase in lettere (le parole restano intere per l'a capo), ogni lettera con la sua direzione fissa
+    var rnd = function(k){ var x = Math.sin(k * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); }, esce = function(t){ return 1 - Math.pow(1 - t, 3); };
+    var F = $$('.frasi p').map(function(fr, n){ var out = [], t = fr.textContent; fr.textContent = ''; fr.setAttribute('aria-label', t);
+      t.split(' ').forEach(function(w, wi, arr){ var pa = document.createElement('span'); pa.className = 'parola'; pa.setAttribute('aria-hidden', 'true');
+        (w + (wi < arr.length - 1 ? ' ' : '')).split('').forEach(function(ch){ var l = document.createElement('span'), k = out.length + n*100; l.className = 'l'; l.textContent = ch;
+          l._v = {a: rnd(k) * Math.PI * 2, d: .6 + rnd(k + 9) * .9, r: (rnd(k + 3) - .5) * 2, s: rnd(k + 5)}; pa.appendChild(l); out.push(l); });
+        fr.appendChild(pa); });
+      return out; });
+    function esplodi(p){ var V = Math.max(innerWidth, 400);
+      F[0].concat(F[1]).forEach(function(l, k){ var dentro = esce(c01((p - (k < F[0].length ? -.14 : .06))/.14)), boom = esce(c01((p - .42 - l._v.s*.06)/.26)), v = l._v;
+        l.style.transform = 'translate(' + (Math.cos(v.a)*v.d*V*.7*boom).toFixed(1) + 'px,' + (Math.sin(v.a)*v.d*V*.45*boom + (1 - dentro)*40).toFixed(1) + 'px) rotate(' + (v.r*300*boom).toFixed(1) + 'deg) scale(' + (1 - boom*.3).toFixed(3) + ')';
+        l.style.opacity = (dentro * (1 - c01((boom - .55)/.45))).toFixed(3); l.style.filter = boom > 0 ? 'blur(' + (boom*3).toFixed(1) + 'px)' : ''; });
+      // la frase verde sale al centro del blocco, al posto delle due che sono esplose
+      var fr = $$('.frasi p'), su = (fr[2].offsetTop + fr[2].offsetHeight/2) - (fr[0].offsetTop + (fr[2].offsetTop + fr[2].offsetHeight - fr[0].offsetTop)/2);
+      fr[2].style.transform = 'translateY(' + (-su*esce(c01((p - .5)/.35))).toFixed(1) + 'px)';
+      F[2].forEach(function(l){ var v = l._v, q = esce(c01((p - .55 - v.s*.12)/.3));
+        l.style.transform = 'translate(' + (Math.cos(v.a)*v.d*V*.6*(1 - q)).toFixed(1) + 'px,' + (Math.sin(v.a)*v.d*V*.4*(1 - q)).toFixed(1) + 'px) rotate(' + (v.r*280*(1 - q)).toFixed(1) + 'deg) scale(' + (1.6 - .6*q).toFixed(3) + ')';
+        l.style.opacity = c01(q*1.4).toFixed(3); l.style.filter = q < 1 ? 'blur(' + ((1 - q)*4).toFixed(1) + 'px)' : ''; }); }
     var mappa = $('.mappa2 .pista'), grafo = $('#grafo'), RAMI = JSON.parse($('#rami-dati').textContent), ramoOra = $('#ramo-ora'), ramoN = -1;
     function prog(el){ var f = el.firstElementChild, top = parseFloat(getComputedStyle(f).top) || 0, h = el.offsetHeight - f.offsetHeight; return h > 0 ? c01(-(el.getBoundingClientRect().top - top)/h) : 0; }
     function vicino(el){ var r = el.getBoundingClientRect(); return r.bottom > -200 && r.top < innerHeight + 200; }
     var vuoto = false;
     function scena(){ vuoto = false;
-      if (vicino(tesi)) { var p = prog(tesi), n = Math.round(c01((p - .04)/.78) * parole.length);
-        parole.forEach(function(w, i){ w.classList.toggle('on', i < n); });
-        partita(); didascalia(sc ? sc.set(p) : quale(p)); }
+      if (vicino(tesi)) esplodi(prog(tesi));
       if (vicino(mappa)) { var m = matchMedia('(max-width: 860px)').matches ? .97 : prog(mappa), att = Math.min(RAMI.length - 1, Math.floor(c01((m - .04)/.8) * RAMI.length));
         $$('path[data-r]', grafo).forEach(function(pa){ var r = +pa.dataset.r, i = pa.dataset.i, t0 = .04 + r*(.8/RAMI.length), t = c01((m - t0 - (i ? .03 + i*.02 : 0))/.06); pa.style.setProperty('--d', (1 - t).toFixed(3)); });
         $$('.nodo[data-r], circle[data-r]', grafo).forEach(function(nd){ var r = +nd.dataset.r, i = nd.dataset.i, t0 = .04 + r*(.8/RAMI.length), t = c01((m - t0 - (i ? .05 + i*.02 : .03))/.05);
