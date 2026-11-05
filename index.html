@@ -122,6 +122,14 @@ img.sfondo{filter:var(--logo-sfondo)!important;mix-blend-mode:var(--logo-fusione
 .caso .num{white-space:nowrap} .caso .num.lungo{font-size:clamp(52px,6.2vw,84px)} .caso .ads{font-size:14.5px;margin-top:10px;max-width:46ch} .caso .ads b{color:var(--verde)}
 .anonimi{margin-top:clamp(28px,4vw,48px);display:grid;gap:6px} .anonimi .tre{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.8vw,20px);margin-top:14px}
 .anon{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:clamp(16px,2vw,22px);display:flex;flex-direction:column;gap:8px}
+/* i timidi (5/11): entrano dal basso uno dopo l'altro, il numero sale (il costo per acquisto scende), il grafico si disegna da sinistra;
+   il settore è coperto da una barra nera che si sposta e torna a coprirlo quando ci passi sopra */
+html.scena .anon{opacity:0;transform:translateY(34px) rotate(-1.2deg);transition:opacity .6s ease,transform .8s cubic-bezier(.2,.8,.2,1);transition-delay:var(--rit,0s)}
+html.scena .anon.in{opacity:1;transform:none}
+html.scena .anon .grafico img{clip-path:inset(0 100% 0 0);transition:clip-path 1.4s cubic-bezier(.6,0,.2,1);transition-delay:calc(var(--rit,0s) + .35s)} html.scena .anon.in .grafico img{clip-path:inset(0 0 0 0)}
+.anon .sett span{position:relative;display:inline-block}
+html.scena .anon .sett span::after{content:"";position:absolute;inset:-2px -6px;border-radius:4px;background:var(--fg);transform-origin:right;transition:transform .5s cubic-bezier(.7,0,.2,1);transition-delay:calc(var(--rit,0s) + 1.2s)}
+html.scena .anon.in .sett span::after{transform:scaleX(0)} html.scena .anon.in:hover .sett span::after{transform:scaleX(1);transition-delay:0s}
 .anon .sett{font-family:var(--fm);font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--mut)}
 .anon .big{font-size:clamp(40px,4.4vw,56px);font-weight:700;letter-spacing:-.045em;line-height:1;color:var(--verde);font-variant-numeric:tabular-nums}
 .anon .euro{font-size:15px;font-weight:600} .anon .grafico{margin-top:6px} .anon .quando{font-size:12.5px;color:var(--mut);margin-top:auto}
@@ -373,21 +381,21 @@ html.entra .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,
   <p class="quando">1 gen–26 ott 2026 contro lo stesso periodo 2025. Fonte: Shopify.</p></div>
   <figure class="grafico"><img src="img/home/grafico-manfrellotti.webp" alt="Vendite totali nel tempo di Manfrellotti su Shopify, 2026 contro 2025" width="926" height="378" loading="lazy"><figcaption>Il grafico di Shopify, così com'è.</figcaption></figure>
 </article><article class="caso" role="tabpanel" id="c-fontana" aria-labelledby="t-fontana" hidden>
-  <div><p class="num lungo" data-a="1200">+1.200 %</p>
-  <p class="euro">121.223 € di vendite in dodici mesi</p>
+  <div><p class="num lungo" data-e="123792">123.792 €</p>
+  <p class="euro">di vendite nel 2026: da meno di mille euro al mese a oltre 20 mila</p>
   <p class="fatto">Schede riscritte per Google e per le AI, il feed arricchito, le traduzioni, il tracciamento dal server.</p>
-  <p class="quando">1 nov 2025–31 ott 2026 contro i dodici mesi prima. Fonte: Shopify, che arrotonda a +1,2K %.</p></div>
-  <figure class="grafico"><img src="img/home/grafico-fontana.webp" alt="Vendite totali nel tempo di F.lli Fontana su Shopify, ultimi dodici mesi contro i dodici prima" width="986" height="715" loading="lazy"><figcaption>Il grafico di Shopify, così com'è.</figcaption></figure>
+  <p class="quando">1 gen–5 nov 2026. Fonte: Shopify.</p></div>
+  <figure class="grafico"><img src="img/home/grafico-fontana.webp" alt="Vendite totali nel tempo di F.lli Fontana su Shopify nel 2026: da meno di mille euro a gennaio a oltre 20 mila a ottobre" width="1000" height="305" loading="lazy"><figcaption>Il grafico di Shopify, così com'è.</figcaption></figure>
 </article></div>
-  <div class="anonimi rv"><p class="eyebrow">Altri clienti, senza nome</p><p class="mut">Il nome lo teniamo per noi. I numeri sono veri.</p>
+  <div class="anonimi rv"><p class="eyebrow">Altri clienti, senza nome</p><p class="mut">Sono un po' timidi. I numeri no.</p>
   <div class="tre">
-  <article class="anon"><p class="sett">Moda</p><p class="big">+79 %</p><p class="euro">689.054 € di vendite in dodici mesi</p>
+  <article class="anon"><p class="sett"><span>Moda</span></p><p class="big" data-da="0" data-a="79" data-f="+{} %">+79 %</p><p class="euro">689.054 € di vendite in dodici mesi</p>
   <figure class="grafico"><img src="img/home/grafico-moda.webp" alt="Vendite totali nel tempo di un negozio di moda su Shopify: da giugno 2026, quando si accende Ignition, la curva sale" width="1000" height="705" loading="lazy"><figcaption>Il grafico di Shopify. Il segno è nostro.</figcaption></figure>
   <p class="quando">1 nov 2025–31 ott 2026 contro i dodici mesi prima. Fonte: Shopify.</p></article>
-  <article class="anon"><p class="sett">Arredo da esterni</p><p class="big">702 mila €</p><p class="euro">Da zero, al primo anno di e-commerce</p>
+  <article class="anon"><p class="sett"><span>Arredo da esterni</span></p><p class="big" data-da="0" data-a="702" data-f="{} mila €">702 mila €</p><p class="euro">Da zero, al primo anno di e-commerce</p>
   <figure class="grafico"><img src="img/home/grafico-arredo-esterni.webp" alt="Vendite totali nel tempo di un e-commerce di arredo da esterni su Shopify, primo anno" width="986" height="715" loading="lazy"><figcaption>Il grafico di Shopify, così com'è.</figcaption></figure>
   <p class="quando">1 nov 2025–31 ott 2026. Fonte: Shopify.</p></article>
-  <article class="anon"><p class="sett">Marketplace</p><p class="big">0,38 €</p><p class="euro">ad acquisto, nella campagna Meta che rende di più</p>
+  <article class="anon"><p class="sett"><span>Marketplace</span></p><p class="big" data-da="5" data-a="0.38" data-d="2" data-f="{} €">0,38 €</p><p class="euro">ad acquisto, nella campagna Meta che rende di più</p>
   <figure class="grafico"><img src="img/home/grafico-marketplace.webp" alt="Le campagne Meta di un marketplace: acquisti dal sito e costo per acquisto, da 217.186 acquisti a 3,74 € a 105.064 a 0,38 €" width="446" height="484" loading="lazy"><figcaption>Gestione inserzioni di Meta, così com'è. Solo acquisti e costo per acquisto.</figcaption></figure>
   <p class="quando">Ultimi dodici mesi, campagne attive. Fonte: Gestione inserzioni di Meta.</p></article>
   </div></div>
@@ -503,7 +511,7 @@ html.entra .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,
   // i risultati a schede: clic o frecce; il numero sale la prima volta che la scheda si vede
   (function(){ var bt = $$('.schede-ris button'), visti = {};
     function sali(c){ var n = $('.num', c); if (!n || visti[c.id] || rm) return; visti[c.id] = 1; var a = +n.dataset.a, t0 = performance.now();
-      (function f(t){ var q = Math.min(1, (t - t0)/900); n.textContent = '+' + Math.round(a*(1 - Math.pow(1 - q, 3))).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' %'; if (q < 1) requestAnimationFrame(f); })(t0); }
+      (function f(t){ var q = Math.min(1, (t - t0)/900); var v = Math.round((n.dataset.e ? +n.dataset.e : a)*(1 - Math.pow(1 - q, 3))).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.'); n.textContent = n.dataset.e ? v + ' €' : '+' + v + ' %'; if (q < 1) requestAnimationFrame(f); })(t0); }
     function vai(b, fuoco){ bt.forEach(function(x){ var su = x === b; x.setAttribute('aria-selected', su ? 'true' : 'false'); x.tabIndex = su ? 0 : -1; $('#' + x.getAttribute('aria-controls')).hidden = !su; });
       if (fuoco) b.focus(); sali($('#' + b.getAttribute('aria-controls'))); }
     bt.forEach(function(b, i){ b.addEventListener('click', function(){ vai(b); });
@@ -629,6 +637,15 @@ html.entra .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,
       bots.forEach(function(o){ o.el.addEventListener('click', function(){ o.vy -= 14; o.vx += (Math.random() - .5) * 8; o.el.classList.add('vicino'); clearTimeout(o.t);
         o.t = setTimeout(function(){ o.el.classList.remove('vicino'); }, 1600); sveglia(); }); }); }
   })();
+  // i clienti senza nome: entrano quando si vedono, uno dopo l'altro; il numero conta fino al suo valore
+  (function(){ var C = $$('.anon'); if (!C.length || !('IntersectionObserver' in window) || !document.documentElement.classList.contains('scena')) return;
+    C.forEach(function(c, k){ c.style.setProperty('--rit', (k * .15) + 's'); });
+    function conta(b){ var da = +b.dataset.da, a = +b.dataset.a, d = +(b.dataset.d || 0), f = b.dataset.f, t0 = null;
+      (function g(t){ if (!t0) t0 = t; var q = Math.min(1, (t - t0) / 1300), v = da + (a - da) * (1 - Math.pow(1 - q, 3));
+        b.textContent = f.replace('{}', v.toFixed(d).replace('.', ',')); if (q < 1) requestAnimationFrame(g); })(performance.now()); }
+    var o = new IntersectionObserver(function(es){ es.forEach(function(e){ if (!e.isIntersecting) return; var c = e.target; o.unobserve(c); c.classList.add('in');
+      var b = $('.big', c); if (b && b.dataset.a) setTimeout(function(){ conta(b); }, 200 + parseFloat(getComputedStyle(c).getPropertyValue('--rit')) * 1000); }); }, {threshold: .35});
+    C.forEach(function(c){ o.observe(c); }); })();
   // il bottone della testata: si riscrive da solo, come in un editor; al clic apre il modulo sul primo campo
   (function(){ var b = $('.btn-cur'), t = $('.testo', b), FRASI = ['Parliamone', 'Analizziamo il tuo negozio'], k = 0, corsa = 0;
     function riscrivi(verso, fine){ var mia = ++corsa, ora = t.textContent;
