@@ -45,6 +45,10 @@
     if (QUALIFICATE.indexOf(dati.budget) >= 0) manda('trackCustom', 'LeadQualificata', info, {eventID: id + '-q'});
   };
 
+  // il primo passo del modulo fatto (budget e indirizzo): a Meta va solo la fascia di budget. È un evento più
+  // frequente della lead, su cui far ottimizzare la campagna nelle prime settimane (10/11/2026)
+  window.orizonPasso = function(dati){ manda('trackCustom', 'ModuloIniziato', {content_name: 'Parliamone', budget: (dati && dati.budget) || ''}); };
+
   try { if (new URLSearchParams(location.search).get('pixel') === 'prova') carica(); } catch (e) {}
   giaDato();
 })();

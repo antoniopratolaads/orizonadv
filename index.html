@@ -366,6 +366,55 @@ html.entra .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,
   .tesi2 .wrap{grid-template-columns:minmax(0,1fr);gap:18px;align-content:center} .cubo{--u:clamp(36px,11vw,52px)} #cubo3d{width:min(260px,64vw)} .contatore{margin-top:16px} .contatore b{font-size:26px}
   .frasi p{font-size:clamp(34px,10.5vw,46px)} .ris2 .intesta h2{font-size:24px} .ris2 .intesta p{display:none}
 }
+
+/* 10/11 · la struttura della bozza A dentro la home (Antonio: «La A mi piace, chiaramente non levare tutti quegli elementi
+   grafici, il video ecc. Integriamo questa idea e struttura a cosa esiste adesso»): il problema in testa con una prova,
+   «cosa ricevi» e il modulo in due passi subito dopo i loghi, compenso e domande in fondo, un bottone fisso sul telefono */
+.testa h1.h1-lungo{font-size:clamp(34px,5.2vw,72px);line-height:1;letter-spacing:-.045em;max-width:12.5em}
+.chip-ai{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.chip-ai li{font-size:14px;font-weight:500;padding:6px 12px;border-radius:999px;background:var(--card);border:1px solid var(--line)}
+.chip-ai li::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#60e787;margin-right:8px;vertical-align:middle}
+.prova-ai{margin-top:18px;display:inline-grid;justify-items:center;gap:3px;padding:12px 18px;border-radius:16px;border:1px solid var(--line);background:var(--card);color:var(--fg);text-decoration:none;max-width:100%;transition:transform .15s}
+.prova-ai:hover{transform:translateY(-2px)}
+.prova-ai .pa-chi{font-size:14px;color:var(--mut)} .prova-ai b{font-weight:600;color:var(--fg)} .prova-ai .pa-num{display:inline-flex;align-items:center;gap:10px}
+.prova-ai strong{font-size:22px;font-weight:700;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.prova-ai em{font-style:normal;font-size:13px;font-weight:600;color:var(--verde);background:#dbffe3;border-radius:999px;padding:3px 9px}
+.prova-ai small{font-size:12.5px;color:var(--mut)}
+.ricevi{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,4vw,56px);align-items:start;margin-bottom:clamp(48px,7vw,88px)}
+.mail{background:var(--pieno);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:0 30px 80px -28px rgba(12,23,19,.18),0 2px 6px rgba(12,23,19,.04);min-width:0}
+.mail header{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--line);background:var(--bg2)}
+.mail header div{min-width:0} .mail header b{display:block;font-size:15px} .mail header span{font-size:13px;color:var(--mut)}
+.mail .targa{flex:none;font:500 12px var(--fm,ui-monospace,monospace);text-transform:uppercase;letter-spacing:.06em;color:var(--blu);background:rgba(55,80,247,.1);border-radius:6px;padding:4px 8px}
+.mail ol{margin:0;padding:6px 18px 4px;list-style:none;counter-reset:n}
+.mail li{counter-increment:n;display:grid;grid-template-columns:auto 1fr;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.mail li::before{content:counter(n);font-weight:700;font-size:15px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--fg);color:#fff}
+.mail li b{display:block;font-size:16px;line-height:1.3;font-weight:600} .mail li span{font-size:15px;color:var(--mut)}
+.mail footer{padding:14px 18px 18px;font-size:15px;color:var(--mut)}
+.wiz{scroll-margin-top:96px} .priv a{color:var(--blu)}
+.patto-p{background-color:#0a1120;color:#eef1ff;border-radius:26px;padding:clamp(26px,5vw,60px);display:grid;gap:18px;
+  background-image:linear-gradient(rgba(238,241,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(238,241,255,.045) 1px,transparent 1px);background-size:44px 44px}
+.patto-p h2{color:#60e787;font-size:clamp(34px,5.6vw,72px);letter-spacing:-.045em}
+.patto-p p{color:#a9b2cf;max-width:36em;font-size:clamp(17px,1.6vw,20px)} .patto-p p b{color:#eef1ff;font-weight:600}
+.domande{display:grid;gap:8px;max-width:820px}
+.domande details{background:var(--card);border:1px solid var(--line);border-radius:14px}
+.domande summary{cursor:pointer;list-style:none;padding:16px 18px;font-weight:600;font-size:17px;display:flex;justify-content:space-between;gap:14px;align-items:center}
+.domande summary::-webkit-details-marker{display:none}
+.domande summary::after{content:"+";font-size:24px;font-weight:400;color:var(--blu);line-height:1}
+.domande details[open] summary::after{content:"–"}
+.domande details p{padding:0 18px 18px;color:var(--mut)}
+.chiusura{margin-top:clamp(40px,6vw,72px);display:grid;gap:18px;justify-items:start;padding:clamp(22px,4vw,40px);border-radius:24px;border:1px solid var(--line);background:var(--card)}
+.chiusura .btn{min-height:56px;padding:0 28px;font-size:17px} .chiusura .fr{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.fisso-tel{display:none}
+@media (max-width:860px){
+  .ricevi{grid-template-columns:minmax(0,1fr)}
+  .testa h1.h1-lungo{margin-top:14px} .occhio-ai{max-width:22ch} .testa:has(.h1-lungo){padding-top:84px}
+  .fisso-tel{display:block;position:fixed;left:0;right:0;bottom:0;z-index:18;padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));
+    background:rgba(246,247,252,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);transition:transform .25s ease}
+  .fisso-tel[data-via="1"]{transform:translateY(120%)}
+  .fisso-tel .btn{width:100%;min-height:52px;font-size:15.5px}
+  .piede{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))} .ris3 .v-punti{transform:translateY(-64px)}
+}
+@media (prefers-reduced-motion:reduce){.fisso-tel,.prova-ai{transition:none}}
 </style>
 </head>
 <body>
@@ -377,14 +426,68 @@ html.entra .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,
 <a class="btn" href="#parliamone">Parliamone</a><p>Ti rispondo io, Antonio.</p></div>
 <main id="top">
 <section class="testa"><div class="cielo-ai" aria-hidden="true"></div><div class="wrap">
-  <div class="centro-ai"><p class="eyebrow">Agenzia performance per e-commerce · Napoli</p>
-  <h1>Un'agenzia <em>full AI</em> per e-commerce.</h1>
-  <p class="sotto">Sei agenti AI lavorano sul tuo catalogo ogni giorno. Le persone di Orizon li guidano, e rispondono di ogni euro.</p>
-  <div class="azioni"><a class="btn btn-cur" href="#parliamone" aria-label="Parliamone: apri il modulo"><span class="testo" aria-hidden="true">Parliamone</span><span class="car" aria-hidden="true"></span><span class="fr" aria-hidden="true">→</span></a></div>
-  <p class="nota-btn">risposta entro 24 ore</p>
+  <div class="centro-ai"><p class="eyebrow occhio-ai">Per e-commerce da 5.000 € al mese in pubblicità</p>
+  <h1 class="h1-lungo">Il fatturato è fermo? Di solito il motivo <em>non è dove guardi.</em></h1>
+  <p class="sotto">Antonio legge il tuo negozio prodotto per prodotto, coi nostri agenti AI, e ti scrive le tre cose che lo frenano. Entro 24 ore.</p>
+  <div class="azioni"><a class="btn btn-cur" href="#parliamone" aria-label="Voglio le mie tre cose: apri il modulo"><span class="testo" aria-hidden="true">Voglio le mie tre cose</span><span class="car" aria-hidden="true"></span><span class="fr" aria-hidden="true">→</span></a></div>
+  <ul class="chip-ai"><li>Risposta in 24 ore</li><li>Nessuna fee fissa</li><li>Ti scrive Antonio</li></ul>
+  <a class="prova-ai" href="#risultati"><span class="pa-chi"><b>Climando</b> · climatizzazione</span><span class="pa-num"><strong>7.373.609 €</strong><em>+72 %</em></span><small>vendite dal 1° gennaio al 26 ottobre 2026 contro il 2025 · Shopify</small></a>
   </div>
 </div></section>
 <div class="nastro" aria-label="I nostri clienti"><ul><li><img src="img/home/loghi/logo-londonstore.png" alt="London Store" loading="lazy" height="28"></li><li><img class="sfondo" src="img/home/loghi/logo-climando.svg" alt="Climando" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-manfrellotti.png" alt="Manfrellotti" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-fontana.png" alt="F.lli Fontana" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-dematteo.png" alt="De Matteo Home" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-larcolaio.png" alt="L&#x27;Arcolaio" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-chenzo.png" alt="Chenzo" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-madamalu.png" alt="Madamalù" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-vginformatica.png" alt="VG Informatica" loading="lazy" height="28"></li><li class="nome"><span>B-Power</span></li><li class="nome"><span>Martina Esposito</span></li><li class="nome"><span>Mister LedWall</span></li><li class="nome"><img src="img/home/loghi-web/fcp.it.png" alt="" width="22" height="22" loading="lazy"><span>Franco Cosimo Panini</span></li><li class="nome"><img src="img/home/loghi-web/resetenergia.it.png" alt="" width="22" height="22" loading="lazy"><span>Reset Energia</span></li><li class="nome"><img src="img/home/loghi-web/buytutto.com.png" alt="" width="22" height="22" loading="lazy"><span>Buytutto</span></li><li class="nome"><img src="img/home/loghi-web/prestigioargentieori.it.png" alt="" width="22" height="22" loading="lazy"><span>Prestigio Argenti e Ori</span></li><li class="nome"><span>Opposti Boutique</span></li><li class="nome"><img src="img/home/loghi-web/gruppoautouno.it.png" alt="" width="22" height="22" loading="lazy"><span>Autouno</span></li><li class="nome"><img src="img/home/loghi-web/zampol.it.png" alt="" width="22" height="22" loading="lazy"><span>Zampol</span></li><li><img src="img/home/loghi/logo-londonstore.png" alt="London Store" loading="lazy" height="28"></li><li><img class="sfondo" src="img/home/loghi/logo-climando.svg" alt="Climando" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-manfrellotti.png" alt="Manfrellotti" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-fontana.png" alt="F.lli Fontana" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-dematteo.png" alt="De Matteo Home" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-larcolaio.png" alt="L&#x27;Arcolaio" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-chenzo.png" alt="Chenzo" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-madamalu.png" alt="Madamalù" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-vginformatica.png" alt="VG Informatica" loading="lazy" height="28"></li><li class="nome"><span>B-Power</span></li><li class="nome"><span>Martina Esposito</span></li><li class="nome"><span>Mister LedWall</span></li><li class="nome"><img src="img/home/loghi-web/fcp.it.png" alt="" width="22" height="22" loading="lazy"><span>Franco Cosimo Panini</span></li><li class="nome"><img src="img/home/loghi-web/resetenergia.it.png" alt="" width="22" height="22" loading="lazy"><span>Reset Energia</span></li><li class="nome"><img src="img/home/loghi-web/buytutto.com.png" alt="" width="22" height="22" loading="lazy"><span>Buytutto</span></li><li class="nome"><img src="img/home/loghi-web/prestigioargentieori.it.png" alt="" width="22" height="22" loading="lazy"><span>Prestigio Argenti e Ori</span></li><li class="nome"><span>Opposti Boutique</span></li><li class="nome"><img src="img/home/loghi-web/gruppoautouno.it.png" alt="" width="22" height="22" loading="lazy"><span>Autouno</span></li><li class="nome"><img src="img/home/loghi-web/zampol.it.png" alt="" width="22" height="22" loading="lazy"><span>Zampol</span></li><li><img src="img/home/loghi/logo-londonstore.png" alt="London Store" loading="lazy" height="28"></li><li><img class="sfondo" src="img/home/loghi/logo-climando.svg" alt="Climando" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-manfrellotti.png" alt="Manfrellotti" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-fontana.png" alt="F.lli Fontana" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-dematteo.png" alt="De Matteo Home" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-larcolaio.png" alt="L&#x27;Arcolaio" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-chenzo.png" alt="Chenzo" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-madamalu.png" alt="Madamalù" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-vginformatica.png" alt="VG Informatica" loading="lazy" height="28"></li><li class="nome"><span>B-Power</span></li><li class="nome"><span>Martina Esposito</span></li><li class="nome"><span>Mister LedWall</span></li><li class="nome"><img src="img/home/loghi-web/fcp.it.png" alt="" width="22" height="22" loading="lazy"><span>Franco Cosimo Panini</span></li><li class="nome"><img src="img/home/loghi-web/resetenergia.it.png" alt="" width="22" height="22" loading="lazy"><span>Reset Energia</span></li><li class="nome"><img src="img/home/loghi-web/buytutto.com.png" alt="" width="22" height="22" loading="lazy"><span>Buytutto</span></li><li class="nome"><img src="img/home/loghi-web/prestigioargentieori.it.png" alt="" width="22" height="22" loading="lazy"><span>Prestigio Argenti e Ori</span></li><li class="nome"><span>Opposti Boutique</span></li><li class="nome"><img src="img/home/loghi-web/gruppoautouno.it.png" alt="" width="22" height="22" loading="lazy"><span>Autouno</span></li><li class="nome"><img src="img/home/loghi-web/zampol.it.png" alt="" width="22" height="22" loading="lazy"><span>Zampol</span></li><li><img src="img/home/loghi/logo-londonstore.png" alt="London Store" loading="lazy" height="28"></li><li><img class="sfondo" src="img/home/loghi/logo-climando.svg" alt="Climando" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-manfrellotti.png" alt="Manfrellotti" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-fontana.png" alt="F.lli Fontana" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-dematteo.png" alt="De Matteo Home" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-larcolaio.png" alt="L&#x27;Arcolaio" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-chenzo.png" alt="Chenzo" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-madamalu.png" alt="Madamalù" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-vginformatica.png" alt="VG Informatica" loading="lazy" height="28"></li><li class="nome"><span>B-Power</span></li><li class="nome"><span>Martina Esposito</span></li><li class="nome"><span>Mister LedWall</span></li><li class="nome"><img src="img/home/loghi-web/fcp.it.png" alt="" width="22" height="22" loading="lazy"><span>Franco Cosimo Panini</span></li><li class="nome"><img src="img/home/loghi-web/resetenergia.it.png" alt="" width="22" height="22" loading="lazy"><span>Reset Energia</span></li><li class="nome"><img src="img/home/loghi-web/buytutto.com.png" alt="" width="22" height="22" loading="lazy"><span>Buytutto</span></li><li class="nome"><img src="img/home/loghi-web/prestigioargentieori.it.png" alt="" width="22" height="22" loading="lazy"><span>Prestigio Argenti e Ori</span></li><li class="nome"><span>Opposti Boutique</span></li><li class="nome"><img src="img/home/loghi-web/gruppoautouno.it.png" alt="" width="22" height="22" loading="lazy"><span>Autouno</span></li><li class="nome"><img src="img/home/loghi-web/zampol.it.png" alt="" width="22" height="22" loading="lazy"><span>Zampol</span></li><li><img src="img/home/loghi/logo-londonstore.png" alt="London Store" loading="lazy" height="28"></li><li><img class="sfondo" src="img/home/loghi/logo-climando.svg" alt="Climando" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-manfrellotti.png" alt="Manfrellotti" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-fontana.png" alt="F.lli Fontana" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-dematteo.png" alt="De Matteo Home" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-larcolaio.png" alt="L&#x27;Arcolaio" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-chenzo.png" alt="Chenzo" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-madamalu.png" alt="Madamalù" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-vginformatica.png" alt="VG Informatica" loading="lazy" height="28"></li><li class="nome"><span>B-Power</span></li><li class="nome"><span>Martina Esposito</span></li><li class="nome"><span>Mister LedWall</span></li><li class="nome"><img src="img/home/loghi-web/fcp.it.png" alt="" width="22" height="22" loading="lazy"><span>Franco Cosimo Panini</span></li><li class="nome"><img src="img/home/loghi-web/resetenergia.it.png" alt="" width="22" height="22" loading="lazy"><span>Reset Energia</span></li><li class="nome"><img src="img/home/loghi-web/buytutto.com.png" alt="" width="22" height="22" loading="lazy"><span>Buytutto</span></li><li class="nome"><img src="img/home/loghi-web/prestigioargentieori.it.png" alt="" width="22" height="22" loading="lazy"><span>Prestigio Argenti e Ori</span></li><li class="nome"><span>Opposti Boutique</span></li><li class="nome"><img src="img/home/loghi-web/gruppoautouno.it.png" alt="" width="22" height="22" loading="lazy"><span>Autouno</span></li><li class="nome"><img src="img/home/loghi-web/zampol.it.png" alt="" width="22" height="22" loading="lazy"><span>Zampol</span></li><li><img src="img/home/loghi/logo-londonstore.png" alt="London Store" loading="lazy" height="28"></li><li><img class="sfondo" src="img/home/loghi/logo-climando.svg" alt="Climando" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-manfrellotti.png" alt="Manfrellotti" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-fontana.png" alt="F.lli Fontana" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-dematteo.png" alt="De Matteo Home" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-larcolaio.png" alt="L&#x27;Arcolaio" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-chenzo.png" alt="Chenzo" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-madamalu.png" alt="Madamalù" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-vginformatica.png" alt="VG Informatica" loading="lazy" height="28"></li><li class="nome"><span>B-Power</span></li><li class="nome"><span>Martina Esposito</span></li><li class="nome"><span>Mister LedWall</span></li><li class="nome"><img src="img/home/loghi-web/fcp.it.png" alt="" width="22" height="22" loading="lazy"><span>Franco Cosimo Panini</span></li><li class="nome"><img src="img/home/loghi-web/resetenergia.it.png" alt="" width="22" height="22" loading="lazy"><span>Reset Energia</span></li><li class="nome"><img src="img/home/loghi-web/buytutto.com.png" alt="" width="22" height="22" loading="lazy"><span>Buytutto</span></li><li class="nome"><img src="img/home/loghi-web/prestigioargentieori.it.png" alt="" width="22" height="22" loading="lazy"><span>Prestigio Argenti e Ori</span></li><li class="nome"><span>Opposti Boutique</span></li><li class="nome"><img src="img/home/loghi-web/gruppoautouno.it.png" alt="" width="22" height="22" loading="lazy"><span>Autouno</span></li><li class="nome"><img src="img/home/loghi-web/zampol.it.png" alt="" width="22" height="22" loading="lazy"><span>Zampol</span></li></ul></div>
+
+<section id="parliamone"><div class="wrap">
+  <div class="ricevi">
+    <div class="rv"><p class="eyebrow">Cosa ricevi</p><h2 style="margin-top:12px">Una mail di Antonio, con tre cose precise sul tuo negozio.</h2>
+      <p class="mut" style="margin-top:16px;font-size:18px">Le leggiamo da fuori, come le vede un cliente e come le vede Google. Non ti chiediamo accessi né password.</p>
+      <p class="mut" style="margin-top:10px;font-size:18px">Se ti torna, ci sentiamo trenta minuti. Se no, ti restano le tre cose.</p></div>
+    <article class="mail rv" aria-label="Esempio della mail che ricevi">
+      <header><div><b>Tre cose su iltuonegozio.it</b><span>da Antonio Pratola · oggi, 9:12</span></div><span class="targa">Esempio</span></header>
+      <ol>
+        <li><div><b>214 schede su 380 non dicono materiale e misure.</b><span>Google e ChatGPT non sanno a chi mostrarle, e il cliente non sa se gli vanno bene.</span></div></li>
+        <li><div><b>Su Meta girano le stesse sei immagini da marzo.</b><span>Si vede dalla Libreria inserzioni: da otto mesi Meta non ha niente di nuovo da provare.</span></div></li>
+        <li><div><b>Sul telefono «Aggiungi al carrello» è sotto la prima schermata.</b><span>Succede in nove schede su dieci: prima di poter comprare bisogna scorrere.</span></div></li>
+      </ol>
+      <footer>Per ognuna ti scrivo da dove comincerei.</footer>
+    </article>
+  </div>
+  <div class="parl">
+  <div class="parl-t rv"><p class="eyebrow">Parliamone</p><h2 style="margin-top:12px">Dimmi dove vendi. Ti rispondo io.</h2><p class="mut" style="margin-top:16px;font-size:18px">Due passi, un minuto. <b style="color:var(--fg);font-weight:600">Entro 24 ore ti scrivo io</b> le tre cose che frenano il tuo negozio, e se vale la pena lavorare insieme.</p></div>
+  <form class="wiz rv" id="modulo" novalidate autocomplete="on">
+    <div class="steps" aria-hidden="true"><div class="cur" data-s="1"><i><em>1</em><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></i><span>Il negozio</span></div><div data-s="2"><i><em>2</em><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></i><span>Tu</span></div></div>
+    <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+    <div class="pane" data-step="1">
+      <h3 tabindex="-1">Da dove partiamo?</h3><p class="lead">Due risposte: quanto investi e dove vendi. Il resto lo guardo io.</p>
+      <div class="q" data-req="budget"><span class="lab" id="l-budget">Quanto spendi in pubblicità al mese?</span><div class="opts" role="radiogroup" aria-labelledby="l-budget" data-name="budget"><button type="button" class="opt" role="radio" aria-checked="false" data-v="Niente, ancora"><i></i>Niente, ancora</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="Meno di 5.000 €"><i></i>Meno di 5.000 €</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="Da 5 a 15 mila €"><i></i>Da 5 a 15 mila €</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="Da 15 a 50 mila €"><i></i>Da 15 a 50 mila €</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="Più di 50 mila €"><i></i>Più di 50 mila €</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="Preferisco dirlo a voce"><i></i>Preferisco dirlo a voce</button></div><input type="hidden" name="budget" value=""><p class="err">Scegli una fascia: mi serve per non proporti cose fuori misura.</p></div>
+      <div class="q" data-req="sito"><label class="lab" for="sito">Indirizzo del negozio</label><input class="field" id="sito" name="sito" type="text" placeholder="www.iltuonegozio.it" inputmode="url" autocomplete="url" autocapitalize="off" spellcheck="false"><p class="err">Serve l'indirizzo del negozio: guardo quello prima di risponderti.</p></div>
+      <div class="acts"><span class="spacer"></span><button type="button" class="btn" data-next>Continua <svg class="fr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+    </div>
+    <div class="pane" data-step="2" hidden>
+      <h3 tabindex="-1">A chi scrivo?</h3><p class="lead">Ti rispondo io, <b>Antonio</b>, entro 24 ore. Niente liste, niente chiamate a freddo.</p>
+      <div class="q" data-req="nome"><label class="lab" for="nome">Nome e cognome</label><input class="field" id="nome" name="nome" type="text" autocomplete="name" placeholder="Come ti chiami"><p class="err">Mi serve il tuo nome per scriverti.</p></div>
+      <div class="q" data-req="email" data-type="email"><label class="lab" for="email">Email</label><input class="field" id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="nome@azienda.it"><p class="err">Serve un'email valida: è lì che ti rispondo.</p></div>
+      <div class="q"><label class="lab" for="telefono">Telefono<small>facoltativo, se preferisci che ti chiami</small></label><input class="field" id="telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" placeholder="+39"></div>
+      <div class="acts"><button type="button" class="back" data-back><svg class="fr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg> Indietro</button><button type="submit" class="btn" id="invia"><span>Manda ad Antonio</span> <svg class="fr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+      <div class="send-err" id="send-err" role="alert">Non è partito. Riprova fra un attimo, oppure scrivimi a <a href="mailto:antonio@orizonadv.it">antonio@orizonadv.it</a>.</div>
+      <p class="priv">Uso questi dati solo per risponderti. Niente newsletter, niente cessione a terzi. <a href="/privacy">Privacy e cookie</a>.</p>
+    </div>
+    <div class="okp" id="fatto" hidden><div class="tick"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></div><h3 tabindex="-1">Ricevuto.</h3>
+      <p id="ok-alto">Entro 24 ore ti scrivo a <b id="ok-email"></b> le tre cose che frenano <b id="ok-sito"></b>.</p>
+      <p id="ok-basso" hidden>Entro 24 ore ti scrivo a <b id="ok-email2"></b> e ti dico con sincerità se possiamo esserti utili.</p>
+      <p class="priv">Hai fretta? <a href="tel:+393347113332">334 711 3332</a></p></div>
+  </form>
+  <aside class="side rv" aria-label="Cosa succede dopo e contatti diretti">
+    <div class="box"><h3>Cosa succede dopo</h3><div class="tl">
+      <div><b>Entro 24 ore ti scrivo io</b><span>le tre cose che frenano il tuo negozio.</span></div>
+      <div><b>Trenta minuti insieme</b><span>se ha senso: guardiamo catalogo, margini e spesa. I numeri, non le slide.</span></div>
+      <div><b>Una proposta a percentuale</b><span>nessuna fee fissa. E se non siamo la scelta giusta per te, te lo diciamo: non lavoriamo con tutti.</span></div>
+    </div></div>
+    <div class="box"><div class="person"><span class="iniziali" aria-hidden="true">AP</span><div><b>Antonio Pratola</b><span>Fondatore di Orizon ADV. Leggo io ogni richiesta, non un commerciale.</span></div></div>
+      <div class="links"><a href="mailto:antonio@orizonadv.it"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>antonio@orizonadv.it</a><a href="tel:+393347113332"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>334 711 3332</a><a href="https://maps.google.com/?q=Corso+Umberto+I+153+Napoli" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Corso Umberto I, 153, Napoli</a></div>
+    </div>
+  </aside>
+  </div>
+</div></section>
 
 <section id="risultati" class="ris3" style="padding-block:0"><div class="pista" style="--h:calc(4.4 * 100svh)"><div class="fisso">
   <div class="wrap ris3-testa"><p class="eyebrow">Risultati</p><h2>Le vendite dei nostri clienti. Vere, da Shopify.</h2><p class="mut">Qualcuno è un po' timido. I numeri no.</p></div>
@@ -429,48 +532,27 @@ html.entra .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,
   <div class="blocco"><p class="eyebrow">Con cosa lavoriamo</p><div class="griglia"><div class="cella"><img src="img/home/tech/googleads.svg" alt="" loading="lazy"><span>Google Ads</span></div><div class="cella"><img src="img/home/tech/meta.svg" alt="" loading="lazy"><span>Meta</span></div><div class="cella"><img src="img/home/tech/tiktok.svg" alt="" loading="lazy"><span>TikTok</span></div><div class="cella"><img src="img/home/tech/shopify.svg" alt="" loading="lazy"><span>Shopify</span></div><div class="cella"><img src="img/home/tech/googleanalytics.svg" alt="" loading="lazy"><span>GA4</span></div><div class="cella"><img src="img/home/tech/googletagmanager.svg" alt="" loading="lazy"><span>Tag Manager</span></div><div class="cella"><span>Klaviyo</span></div><div class="cella"><span>RedTrack</span></div></div><p class="ai">In squadra anche Claude, Gemini e OpenAI, per scrivere le schede e montare i video.</p></div>
 </div></div></section>
 
-<section id="parliamone"><div class="wrap parl">
-  <div class="parl-t rv"><p class="eyebrow">Parliamone</p><h2 style="margin-top:12px">Parliamone. Ti rispondo io.</h2><p class="mut" style="margin-top:16px;font-size:18px">Tre domande, due minuti. <b style="color:var(--fg);font-weight:600">Entro 24 ore ti scrivo io</b> con le prime tre cose da accendere nel tuo catalogo, e se vale la pena lavorare insieme.</p></div>
-  <form class="wiz rv" id="modulo" novalidate autocomplete="on">
-    <div class="steps" aria-hidden="true"><div class="cur" data-s="1"><i><em>1</em><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></i><span>Il negozio</span></div><div data-s="2"><i><em>2</em><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></i><span>Oggi</span></div><div data-s="3"><i><em>3</em><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></i><span>Tu</span></div></div>
-    <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
-    <div class="pane" data-step="1">
-      <h3 tabindex="-1">Dove vendi?</h3><p class="lead">Mi basta l'indirizzo: parto da lì.</p>
-      <div class="q" data-req="sito"><label class="lab" for="sito">Indirizzo del negozio</label><input class="field" id="sito" name="sito" type="text" placeholder="www.iltuonegozio.it" inputmode="url" autocomplete="url" autocapitalize="off" spellcheck="false"><p class="err">Serve l'indirizzo del negozio: guardo quello prima di risponderti.</p></div>
-      <div class="q" data-req="piattaforma"><span class="lab" id="l-piattaforma">Su che piattaforma?</span><div class="opts" role="radiogroup" aria-labelledby="l-piattaforma" data-name="piattaforma"><button type="button" class="opt" role="radio" aria-checked="false" data-v="Shopify"><i></i>Shopify</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="WooCommerce"><i></i>WooCommerce</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="PrestaShop o Magento"><i></i>PrestaShop o Magento</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="Altro, o non lo so"><i></i>Altro, o non lo so</button></div><input type="hidden" name="piattaforma" value=""><p class="err">Scegli la piattaforma, anche «non lo so» va bene.</p></div>
-      <div class="q" data-req="catalogo"><span class="lab" id="l-catalogo">Quanti prodotti hai a catalogo?</span><div class="opts" role="radiogroup" aria-labelledby="l-catalogo" data-name="catalogo"><button type="button" class="opt" role="radio" aria-checked="false" data-v="Meno di 100"><i></i>Meno di 100</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="Da 100 a 1.000"><i></i>Da 100 a 1.000</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="Da 1.000 a 10.000"><i></i>Da 1.000 a 10.000</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="Più di 10.000"><i></i>Più di 10.000</button></div><input type="hidden" name="catalogo" value=""><p class="why">Più prodotti hai, più Ignition ha da accendere.</p><p class="err">Scegli una fascia, anche a occhio.</p></div>
-      <div class="acts"><span class="spacer"></span><button type="button" class="btn" data-next>Continua <svg class="fr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
-    </div>
-    <div class="pane" data-step="2" hidden>
-      <h3 tabindex="-1">Come va oggi?</h3><p class="lead">Due risposte secche: servono per capire da dove si parte.</p>
-      <div class="q" data-req="budget"><span class="lab" id="l-budget">Quanto spendi in pubblicità al mese?</span><div class="opts" role="radiogroup" aria-labelledby="l-budget" data-name="budget"><button type="button" class="opt" role="radio" aria-checked="false" data-v="Niente, ancora"><i></i>Niente, ancora</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="Meno di 5.000 €"><i></i>Meno di 5.000 €</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="Da 5 a 15 mila €"><i></i>Da 5 a 15 mila €</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="Da 15 a 50 mila €"><i></i>Da 15 a 50 mila €</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="Più di 50 mila €"><i></i>Più di 50 mila €</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="Preferisco dirlo a voce"><i></i>Preferisco dirlo a voce</button></div><input type="hidden" name="budget" value=""><p class="err">Scegli una fascia: mi serve per non proporti cose fuori misura.</p></div>
-      <div class="q" data-req="gestione"><span class="lab" id="l-gestione">Chi gestisce le campagne?</span><div class="opts" role="radiogroup" aria-labelledby="l-gestione" data-name="gestione"><button type="button" class="opt" role="radio" aria-checked="false" data-v="Io, internamente"><i></i>Io, internamente</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="Un'agenzia"><i></i>Un'agenzia</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="Un freelance"><i></i>Un freelance</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="Nessuno, non ne faccio"><i></i>Nessuno, non ne faccio</button></div><input type="hidden" name="gestione" value=""><p class="err">Scegli una risposta.</p></div>
-      <div class="acts"><button type="button" class="back" data-back><svg class="fr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg> Indietro</button><button type="button" class="btn" data-next>Continua <svg class="fr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
-    </div>
-    <div class="pane" data-step="3" hidden>
-      <h3 tabindex="-1">A chi scrivo?</h3><p class="lead">Ti rispondo io, <b>Antonio</b>, entro 24 ore. Niente liste, niente chiamate a freddo.</p>
-      <div class="q" data-req="nome"><label class="lab" for="nome">Nome e cognome</label><input class="field" id="nome" name="nome" type="text" autocomplete="name" placeholder="Come ti chiami"><p class="err">Mi serve il tuo nome per scriverti.</p></div>
-      <div class="q" data-req="email" data-type="email"><label class="lab" for="email">Email</label><input class="field" id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="nome@azienda.it"><p class="err">Serve un'email valida: è lì che ti rispondo.</p></div>
-      <div class="row2"><div class="q"><label class="lab" for="telefono">Telefono<small>facoltativo</small></label><input class="field" id="telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" placeholder="+39"></div><div class="q"><label class="lab" for="azienda">Azienda<small>facoltativo</small></label><input class="field" id="azienda" name="azienda" type="text" autocomplete="organization" placeholder="Ragione sociale o brand"></div></div>
-      <div class="q"><label class="lab" for="messaggio">Qualcosa da sapere prima?<small>facoltativo</small></label><textarea class="field" id="messaggio" name="messaggio" rows="3" placeholder="Stagionalità, mercati esteri, un problema che vedi da tempo…"></textarea></div>
-      <div class="acts"><button type="button" class="back" data-back><svg class="fr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg> Indietro</button><button type="submit" class="btn" id="invia"><span>Manda ad Antonio</span> <svg class="fr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
-      <div class="send-err" id="send-err" role="alert">Non è partito. Riprova fra un attimo, oppure scrivimi a <a href="mailto:antonio@orizonadv.it">antonio@orizonadv.it</a>.</div>
-      <p class="priv">Uso questi dati solo per risponderti. Niente newsletter, niente cessione a terzi.</p>
-    </div>
-    <div class="okp" id="fatto" hidden><div class="tick"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></div><h3 tabindex="-1">Ricevuto.</h3><p>Entro 24 ore ti scrivo a <b id="ok-email"></b> con le prime tre cose da accendere. Intanto guardo <b id="ok-sito"></b>.</p><p class="priv">Hai fretta? <a href="tel:+393347113332">334 711 3332</a></p></div>
-  </form>
-  <aside class="side rv" aria-label="Cosa succede dopo e contatti diretti">
-    <div class="box"><h3>Cosa succede dopo</h3><div class="tl">
-      <div><b>Entro 24 ore ti scrivo io</b><span>con le prime tre cose da accendere nel tuo catalogo.</span></div>
-      <div><b>Trenta minuti insieme</b><span>se ha senso: guardiamo catalogo, margini e spesa. I numeri, non le slide.</span></div>
-      <div><b>Una proposta a percentuale</b><span>nessuna fee fissa. E se non siamo la scelta giusta per te, te lo diciamo: non lavoriamo con tutti.</span></div>
-    </div></div>
-    <div class="box"><div class="person"><span class="iniziali" aria-hidden="true">AP</span><div><b>Antonio Pratola</b><span>Fondatore di Orizon ADV. Leggo io ogni richiesta, non un commerciale.</span></div></div>
-      <div class="links"><a href="mailto:antonio@orizonadv.it"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>antonio@orizonadv.it</a><a href="tel:+393347113332"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>334 711 3332</a><a href="https://maps.google.com/?q=Corso+Umberto+I+153+Napoli" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Corso Umberto I, 153, Napoli</a></div>
-    </div>
-  </aside>
+<section class="patto" style="padding-block:0 clamp(64px,9vw,120px)"><div class="wrap"><div class="patto-p rv">
+  <h2>Nessuna fee fissa.</h2>
+  <p><b>Ci paghi a percentuale,</b> con una quota decisa insieme in base alla situazione di partenza. Se il negozio non cresce, non cresciamo nemmeno noi.</p>
+  <p>E se non siamo la scelta giusta per te, te lo diciamo: <b>non lavoriamo con tutti.</b></p>
+</div></div></section>
+
+<section id="domande" style="padding-top:0"><div class="wrap">
+  <div class="sez-testa rv"><h2>Prima di scriverci</h2></div>
+  <div class="domande rv">
+    <details><summary>Mi chiedete gli accessi?</summary><p>No. Per le tre cose mi basta l'indirizzo: guardo quello che vede chiunque. Gli accessi servono solo se poi lavoriamo insieme.</p></details>
+    <details><summary>Ho già un'agenzia.</summary><p>Va bene così. Le tre cose le ricevi lo stesso, e se la tua agenzia le sta già sistemando te lo dico.</p></details>
+    <details><summary>Quanto costa lavorare con voi?</summary><p>A percentuale, con una quota decisa insieme in base alla situazione di partenza. Nessuna fee fissa.</p></details>
+    <details><summary>Investo meno di 5.000 € al mese.</summary><p>Di solito sotto quella cifra non siamo la scelta giusta: il nostro lavoro si ripaga quando c'è già una spesa da far rendere. Scrivimi lo stesso e te lo dico con sincerità.</p></details>
+    <details><summary>Mi risponde davvero una persona?</summary><p>Sì, Antonio. Legge il negozio coi suoi agenti e le tre cose le scrive lui.</p></details>
+  </div>
+  <div class="chiusura rv"><div class="person"><span class="iniziali" aria-hidden="true">AP</span><div><b>Antonio Pratola</b><span>Leggo io ogni richiesta, non un commerciale.</span></div></div>
+    <h2>Tre cose sul tuo negozio, entro 24 ore.</h2>
+    <a class="btn" href="#modulo">Voglio le mie tre cose <svg class="fr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
 </div></section>
 </main>
+<div class="fisso-tel" id="fisso-tel" data-via="1"><a class="btn" href="#modulo">Tre cose sul tuo negozio, in 24 ore</a></div>
 <footer class="piede"><div class="wrap"><p>© 2026 Orizon ADV · Napoli · antonio@orizonadv.it</p><nav><a href="/servizi">Servizi</a><a href="/work">Casi</a><a href="/ignition">Ignition</a><a href="/contatti">Contatti</a><a href="/privacy">Privacy e cookie</a></nav></div></footer>
 <dialog id="lettore" aria-label="Video"><div class="lettore"><video controls playsinline preload="none"></video><button type="button" class="x" aria-label="Chiudi">×</button></div></dialog>
 
@@ -629,13 +711,13 @@ html.entra .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,
         o.t = setTimeout(function(){ o.el.classList.remove('vicino'); }, 1600); sveglia(); }); }); }
   })();
   // il bottone della testata: si riscrive da solo, come in un editor; al clic apre il modulo sul primo campo
-  (function(){ var b = $('.btn-cur'), t = $('.testo', b), FRASI = ['Parliamone', 'Analizziamo il tuo negozio'], k = 0, corsa = 0;
+  (function(){ var b = $('.btn-cur'), t = $('.testo', b), FRASI = ['Voglio le mie tre cose', 'Analizziamo il tuo negozio'], k = 0, corsa = 0;
     function riscrivi(verso, fine){ var mia = ++corsa, ora = t.textContent;
       (function giu(){ if (mia !== corsa) return; if (ora.length) { ora = ora.slice(0, -1); t.textContent = ora; return setTimeout(giu, 28); }
         var c = 0; (function su(){ if (mia !== corsa) return; t.textContent = verso.slice(0, ++c); if (c < verso.length) setTimeout(su, 45); else if (fine) fine(); })(); })(); }
     function giro(){ k = (k + 1) % FRASI.length; riscrivi(FRASI[k], function(){ setTimeout(giro, k ? 2600 : 3400); }); }
     if (!rm) setTimeout(giro, 2200);
-    b.addEventListener('click', function(e){ var f = $('#parliamone'), campo = $('#sito'); if (!f || !campo) return; e.preventDefault();
+    b.addEventListener('click', function(e){ var f = $('#modulo'), campo = $('#modulo .opt'); if (!f || !campo) return; e.preventDefault();
       // salto diretto (lo scorrimento morbido attraverserebbe tutte le scene animate), poi un lampo sul modulo
       f.scrollIntoView({block: 'start'}); campo.focus({preventScroll: true}); var pa = campo.closest('form') || f; pa.classList.remove('lampo'); void pa.offsetWidth; pa.classList.add('lampo'); });
   })();
@@ -646,7 +728,7 @@ html.entra .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,
   $$('[data-video]').forEach(function(b){ b.addEventListener('click', function(){ ultimo = b; var tel = matchMedia('(max-width: 860px)').matches; apri(tel && b.dataset.tel ? b.dataset.tel : b.dataset.video); }); });
   $('#lettore .x').addEventListener('click', chiudi); dlg.addEventListener('cancel', function(ev){ ev.preventDefault(); chiudi(); });
   dlg.addEventListener('click', function(ev){ if (ev.target === dlg || ev.target.classList.contains('lettore')) chiudi(); });
-  // il modulo in tre passi (dal vecchio /contatti); INVIO lo mette home2_live.py, in bozza non parte niente
+  // il modulo in due passi (10/11: budget e indirizzo, poi nome ed email); manda a Formspree come /contatti
   var INVIO = 'https://formspree.io/f/xreobbbz';
   (function(){ var form = $('#modulo'), panes = $$('.pane', form), steps = $$('.steps div', form), cur = 1, busy = false;
     var q = new URLSearchParams(location.search).get('sito'); if (q) form.sito.value = q.trim();
@@ -666,8 +748,11 @@ html.entra .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,
       steps.forEach(function(st){ var k = +st.getAttribute('data-s'); st.classList.toggle('cur', k === n); st.classList.toggle('ok', k < n); });
       function swap(){ from.hidden = true; from.classList.remove('leave'); to.hidden = false; to.classList.remove('enter'); void to.offsetWidth; if (!rm) to.classList.add('enter'); cur = n; su(); to.querySelector('h3').focus({preventScroll: true}); }
       if (rm) swap(); else { from.classList.add('leave'); setTimeout(swap, 150); } }
-    form.addEventListener('click', function(e){ if (e.target.closest('[data-next]')) { if (valid(cur)) show(cur + 1); } if (e.target.closest('[data-back]')) show(cur - 1); });
-    form.addEventListener('submit', function(e){ e.preventDefault(); if (cur < 3) { if (valid(cur)) show(cur + 1); return; } if (!valid(3) || busy) return; manda(); });
+    var N = panes.length;
+    // il primo passo fatto (budget e indirizzo): un evento più frequente della lead, per le prime settimane della campagna
+    function avanti(){ if (!valid(cur)) return; if (cur === 1 && window.orizonPasso) orizonPasso({budget: form.budget.value}); show(cur + 1); }
+    form.addEventListener('click', function(e){ if (e.target.closest('[data-next]')) avanti(); if (e.target.closest('[data-back]')) show(cur - 1); });
+    form.addEventListener('submit', function(e){ e.preventDefault(); if (cur < N) { avanti(); return; } if (!valid(N) || busy) return; manda(); });
     function manda(){ var btn = $('#invia'), sp = btn.querySelector('span'), err = $('#send-err'); busy = true; btn.disabled = true; sp.textContent = 'Invio in corso…'; err.classList.remove('show');
       var dati = {}; new FormData(form).forEach(function(v, k){ dati[k] = v; }); dati._subject = 'Parliamone: ' + (dati.sito || dati.nome); dati.pagina = location.href;
       var fine = function(){ busy = false; btn.disabled = false; sp.textContent = 'Manda ad Antonio'; };
@@ -676,9 +761,15 @@ html.entra .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,
       fetch(INVIO, {method: 'POST', headers: {'Content-Type': 'application/json', 'Accept': 'application/json'}, body: JSON.stringify(dati), signal: ctl ? ctl.signal : undefined})
         .then(function(r){ clearTimeout(tm); if (!r.ok) throw new Error(r.status); if (window.orizonLead) orizonLead(dati); fatto(dati); }).catch(function(){ clearTimeout(tm); err.classList.add('show'); }).then(fine); }
     function fatto(d){ $('#ok-email').textContent = d.email; $('#ok-sito').textContent = (d.sito || '').replace(/^https?:\/\//, '').replace(/\/$/, '');
-      steps.forEach(function(st){ st.classList.remove('cur'); st.classList.add('ok'); }); panes[2].hidden = true;
+      var alto = ['Niente, ancora', 'Meno di 5.000 €'].indexOf(d.budget) < 0; $('#ok-email2').textContent = d.email; $('#ok-alto').hidden = !alto; $('#ok-basso').hidden = alto;
+      steps.forEach(function(st){ st.classList.remove('cur'); st.classList.add('ok'); }); panes[N - 1].hidden = true;
       var ok = $('#fatto'); ok.hidden = false; if (!rm) ok.classList.add('pane', 'enter'); ok.querySelector('h3').focus({preventScroll: true}); su(); }
   })();
+  // il bottone fisso del telefono: compare dopo la testa, sparisce sul modulo e col menu aperto
+  (function(){ var fx = $('#fisso-tel'), testa = $('.testa'), mod = $('#modulo'), fin = $('.chiusura'); if (!fx || !testa || !mod) return;
+    function dentro(el){ if (!el) return false; var r = el.getBoundingClientRect(); return r.top < innerHeight - 40 && r.bottom > 40; }
+    function vedi(){ fx.dataset.via = (testa.getBoundingClientRect().bottom > 120 || dentro(mod) || dentro(fin) || mt.classList.contains('aperto')) ? '1' : '0'; }
+    addEventListener('scroll', vedi, {passive: true}); addEventListener('resize', vedi); bu.addEventListener('click', function(){ setTimeout(vedi, 0); }); vedi(); })();
   // la costellazione: solo col mouse, e disegna solo quando il mouse si muove
   if (fine && !rm) {
     var c = $('#stelle'), x = c.getContext('2d'), W, Hh, P = [], mx = -999, my = -999, att = false, col = getComputedStyle(document.documentElement).getPropertyValue('--blu2').trim() || '#8191ff';
