@@ -8,7 +8,7 @@
   // il codice del sito su CookieYes (Impostazioni › Codice di installazione: cdn-cookieyes.com/client_data/<codice>/script.js)
   var COOKIEYES = '';
   var QUALIFICATE = ['Da 5 a 15 mila €', 'Da 15 a 50 mila €', 'Più di 50 mila €'];
-  var acceso = false;
+  var acceso = false, inAttesa = [];
 
   function carica(){
     if (acceso) { fbq('consent', 'grant'); return; }
@@ -17,6 +17,7 @@
     if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;
     s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', PIXEL); fbq('track', 'PageView');
+    inAttesa.splice(0).forEach(function(f){ f(); });
   }
   // senza consenso l'evento non parte e non si tiene da parte
   function manda(){ if (acceso) fbq.apply(null, arguments); }
@@ -35,6 +36,10 @@
     s.src = 'https://cdn-cookieyes.com/client_data/' + COOKIEYES + '/script.js';
     document.head.appendChild(s);
   }
+
+  // /ricevuto manda la lead appena il pixel è acceso: subito se il consenso c'era già, altrimenti quando arriva in quella
+  // pagina; senza consenso non parte niente (10/11/2026)
+  window.orizonQuandoAcceso = function(f){ if (acceso) f(); else inAttesa.push(f); };
 
   // dati = i campi del modulo; nome, email e telefono non vanno a Meta (solo le risposte alle domande)
   window.orizonLead = function(dati){

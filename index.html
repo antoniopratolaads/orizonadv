@@ -424,6 +424,91 @@ html.entra .rv{opacity:0;transform:translateY(10px);transition:opacity .35s var(
   .muro-tit{-webkit-backdrop-filter:none;backdrop-filter:none;background:color-mix(in srgb,var(--bg) 94%,transparent)}
   .fisso-tel{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(246,247,252,.97)}
 }
+
+/* 10/11 sera · «Tre cose» non è più solo testo (Antonio: «È solo testuale. Possiamo fare di meglio»): ogni cosa ha il suo
+   reperto disegnato (la scheda coi campi che mancano, le sei immagini uguali, il bottone sotto la prima schermata) e Holmes che guarda */
+.mail{position:relative;overflow:visible} .mail header{border-radius:var(--r) var(--r) 0 0}
+.mail ol.reperti{padding:4px 18px 0}
+.reperti li{position:relative;grid-template-columns:auto minmax(0,1fr);gap:16px;align-items:center;padding:16px 0}
+.reperti li::before{position:absolute;left:-8px;top:8px;z-index:1;box-shadow:0 0 0 3px var(--pieno)}
+.ill{width:124px;height:124px;border-radius:14px;background:var(--bg2);border:1px solid var(--line);position:relative;overflow:hidden;padding:10px;display:grid;gap:5px;align-content:start}
+.ill .foto{display:block;height:36px;border-radius:8px;background:linear-gradient(135deg,#d7dcff,#eef0ff)}
+.ill .r{display:block;height:6px;border-radius:3px;background:rgba(12,23,19,.13)} .ill .r.t{width:68%;height:8px;background:rgba(12,23,19,.32)}
+.ill-scheda em{font-style:normal;font-size:10px;line-height:1.3;color:var(--mut);display:flex;justify-content:space-between;align-items:center}
+.ill-scheda em b{display:inline;font-size:9.5px;font-weight:600;line-height:1.3;color:#b3261e;background:#feeaee;border:1px dashed #e3a39c;border-radius:5px;padding:1px 5px;animation:manca 2.6s var(--mov) infinite}
+.ill-scheda em+em b{animation-delay:.5s}
+@keyframes manca{0%,62%,100%{opacity:1}78%{opacity:.3}}
+.ill-sei{grid-template-columns:repeat(3,1fr);gap:5px;align-content:center}
+.ill-sei i{aspect-ratio:1;border-radius:6px;background:radial-gradient(circle at 50% 40%,#fff 0 17%,transparent 18%),linear-gradient(160deg,#3750f7,#93a2ff)}
+.ill-sei .da{position:absolute;left:50%;bottom:8px;transform:translateX(-50%);white-space:nowrap;font:500 10px var(--fm,ui-monospace,monospace);color:var(--fg);background:#fff;border:1px solid var(--line);border-radius:999px;padding:2px 8px}
+.ill-tel{padding:8px 0 0;justify-items:center}
+.ill-tel .schermo{width:74px;height:150px;border:2px solid var(--fg);border-radius:12px;padding:6px;display:grid;gap:4px;align-content:start;background:#fff}
+.ill-tel .foto{height:30px} .ill-tel .r{height:5px}
+.ill-tel .piega{margin:3px -6px 0;border-top:1.5px dashed var(--blu);font:500 7px var(--fm,ui-monospace,monospace);color:var(--blu);text-align:center;padding-top:1px;letter-spacing:.02em}
+.ill-tel .finto{font-size:7px;font-weight:600;line-height:1.2;color:#fff;background:var(--fg);border-radius:5px;text-align:center;padding:3px 2px}
+.reperti .dice b{font-size:16px} .reperti .dice span{display:block;margin-top:4px}
+.mail .holmes{position:absolute;right:-8px;bottom:-30px;width:88px;height:auto;border-radius:50%;box-shadow:0 14px 26px -10px rgba(12,23,19,.35);animation:galla 5s ease-in-out infinite;pointer-events:none}
+@keyframes galla{50%{transform:translateY(-7px) rotate(4deg)}}
+.mail footer{padding-right:96px}
+@media (max-width:860px){ .ill{width:104px;height:104px;padding:8px} .ill .foto{height:28px} .ill-tel .schermo{width:64px} .ill-tel .foto{height:20px} .mail ol.reperti{padding-inline:14px} .reperti li{gap:13px} .mail .holmes{width:76px;right:-4px;bottom:-26px} }
+@media (prefers-reduced-motion:reduce){.ill-scheda em b,.mail .holmes{animation:none}}
+
+/* 10/11 sera · la radiografia (Antonio: «Mi sembra debole proprio il senso di quella sezione… cosa potrebbe creare un effetto
+   wow per capire certe cose?» · «si vai con la 2»): un prodotto vero com'era il 30/9, sopra la pagina di chi compra e sotto
+   la lente i dati che leggevano le macchine. Due carte sovrapposte della stessa misura; la lente è un foro nella carta scura */
+.ricevi.rx{grid-template-columns:minmax(0,1fr) minmax(0,420px);grid-template-areas:"dire scena" "lato scena";gap:26px clamp(28px,5vw,72px);align-items:start}
+.rx-dire{grid-area:dire} .rx-lato{grid-area:lato;display:grid;gap:16px} .rx-scena{grid-area:scena}
+.rx-scena{position:relative;--x:50%;--y:34%;--rg:78px;border-radius:22px;overflow:hidden;box-shadow:0 30px 80px -28px rgba(12,23,19,.3),0 2px 6px rgba(12,23,19,.05);cursor:crosshair;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.rx-carta{display:grid;grid-template-rows:auto 208px}
+.rx-su{background:var(--pieno)} .rx-su img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}
+.rx-su .rx-testi{padding:16px 18px;display:grid;gap:10px;align-content:start}
+.rx-riga{display:flex;justify-content:space-between;align-items:baseline;gap:12px} .rx-tit{font-size:18px;font-weight:700;letter-spacing:-.02em;line-height:1.2} .rx-prezzo{font-weight:600;white-space:nowrap}
+.rx-su p{font-size:14.5px;line-height:1.45;color:var(--mut)}
+.rx-mis{display:flex;gap:6px} .rx-mis i{font-style:normal;font-size:13px;font-weight:500;padding:5px 11px;border-radius:999px;border:1px solid var(--line)} .rx-mis i.on{border-color:var(--fg);background:var(--fg);color:#fff}
+.rx-giu{position:absolute;inset:0;background-color:#0a1120;color:#eef1ff;clip-path:circle(var(--rg) at var(--x) var(--y));
+  background-image:linear-gradient(rgba(238,241,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(238,241,255,.06) 1px,transparent 1px);background-size:28px 28px}
+.rx-foto{position:relative;aspect-ratio:1/1}
+.rx-foto .rx-r{position:absolute;left:18px;right:18px} .rx-r.stretta span{min-width:0}
+.rx-giu .rx-testi{padding:14px 18px;display:grid;gap:9px;align-content:start;border-top:1px dashed rgba(238,241,255,.2)}
+.rx-r{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px;font:500 12.5px/1.35 var(--fm,ui-monospace,monospace)}
+.rx-r span{color:#a9b2cf;min-width:74px} .rx-r b{font-weight:500;color:#eef1ff} .rx-r em{font-style:normal;font-size:11px}
+.rx-r .vuoto,.rx-r .ko{color:#ffb4ab} .rx-r b.vuoto{border:1px dashed rgba(255,180,171,.7);border-radius:6px;padding:0 7px}
+.rx-r em.ko{border:1px solid rgba(255,180,171,.55);border-radius:999px;padding:0 7px} .rx-r em.nota{color:#a9b2cf}
+.rx .do{display:none} .rx[data-vista="dopo"] .pr{display:none} .rx[data-vista="dopo"] .do{display:inline}
+.rx[data-vista="dopo"] .rx-r b.do{color:#60e787} .rx[data-vista="dopo"] .rx-r b.do.ko{color:#ffb4ab}
+.rx[data-vista="prima"] .rx-giu,.rx[data-vista="dopo"] .rx-giu{clip-path:none} .rx[data-vista="prima"] .rx-lente,.rx[data-vista="dopo"] .rx-lente{display:none}
+.rx[data-vista="prima"] .rx-scena,.rx[data-vista="dopo"] .rx-scena{cursor:default}
+.rx-lente{position:absolute;left:var(--x);top:var(--y);width:calc(var(--rg) * 2);height:calc(var(--rg) * 2);margin:calc(var(--rg) * -1) 0 0 calc(var(--rg) * -1);border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 2px var(--blu),0 18px 40px -12px rgba(12,23,19,.55),inset 0 0 0 1px rgba(255,255,255,.25);pointer-events:none}
+.rx-lente::after{content:"";position:absolute;right:calc(var(--rg) * .293 - 37px);bottom:calc(var(--rg) * .293 - 7px);width:34px;height:9px;border-radius:6px;background:var(--blu);transform:rotate(45deg);transform-origin:left center;box-shadow:0 4px 10px -4px rgba(12,23,19,.5)}
+.rx-tabs{display:flex;flex-wrap:wrap;gap:6px}
+.rx-tab{font:inherit;font-size:14.5px;font-weight:500;color:var(--fg);padding:9px 15px;min-height:44px;border-radius:999px;border:1px solid var(--line);background:var(--card);cursor:pointer;transition:background .18s,color .18s,border-color .18s}
+.rx-tab[aria-pressed="true"]{background:var(--fg);border-color:var(--fg);color:#fff}
+.rx-come{font:500 12.5px var(--fm,ui-monospace,monospace);color:var(--mut)} .rx:not([data-vista="cliente"]) .rx-come{visibility:hidden}
+.col-dito{display:none} @media (pointer:coarse){.col-mouse{display:none} .col-dito{display:inline}}
+.rx-cose{list-style:none;margin:0;padding:0;display:grid;gap:10px;counter-reset:c}
+.rx-cose li{counter-increment:c;position:relative;padding:14px 16px 14px 54px;border-radius:14px;border:1px solid var(--line);background:var(--card);transition:border-color .28s,box-shadow .28s}
+.rx-cose li::before{content:counter(c);position:absolute;left:14px;top:14px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:15px;background:var(--bg2);color:var(--fg);transition:background .28s,color .28s}
+.rx-cose b{display:block;font-weight:600;line-height:1.3} .rx-cose span{font-size:15px;color:var(--mut)}
+.rx[data-vista="dopo"] .rx-cose span.do{display:block;color:var(--verde)}
+.rx[data-vista="cliente"] .rx-cose li.acceso{border-color:var(--blu);box-shadow:0 0 0 3px rgba(55,80,247,.12)} .rx[data-vista="cliente"] .rx-cose li.acceso::before{background:var(--blu);color:#fff}
+.rx-fine{font-size:18px} .rx-fine b{font-weight:600}
+.rx-fonte{font:500 12px var(--fm,ui-monospace,monospace);color:var(--mut)}
+@media (max-width:860px){ .ricevi.rx{grid-template-columns:minmax(0,1fr);grid-template-areas:"dire" "scena" "lato";gap:22px} .rx-scena{--rg:66px;max-width:420px;width:100%;justify-self:center} }
+@media (prefers-reduced-motion:reduce){.rx-tab,.rx-cose li,.rx-cose li::before{transition:none}}
+
+/* 10/11 sera · le correzioni di landing approvate da Antonio: la riga dei partner sotto la testata, il conto «nella foto / nei dati»
+   sempre in vista sotto la radiografia, e la radiografia più corta sul telefono */
+.partner-riga{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px;margin:0 auto;padding:14px 16px 8px;font-size:13.5px;font-weight:500;color:var(--mut)}
+.partner-riga span{display:inline-flex;align-items:center;gap:7px} .partner-riga img{width:16px;height:16px}
+.rx-conto{display:grid;gap:6px;font-size:15px;color:var(--mut)}
+.rx-conto span{display:flex;justify-content:space-between;gap:12px;padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:var(--card)}
+.rx-conto b{font-weight:600;color:var(--fg);text-align:right} .rx-conto .ko{color:#b3261e;font-style:normal} .rx[data-vista="dopo"] .rx-conto b.do{color:var(--verde)}
+.rx-fine{font-size:17px}
+@media (max-width:860px){
+  .rx-lato{gap:12px} .rx-tabs{flex-wrap:nowrap} .rx-tab{flex:1;padding:8px 6px;font-size:13.5px;white-space:nowrap}
+  .rx-cose{gap:8px} .rx-cose li{padding:11px 12px 11px 46px} .rx-cose li::before{left:10px;top:11px;width:26px;height:26px;font-size:14px} .rx-cose span{font-size:14.5px}
+  .rx-conto{font-size:14.5px} .rx-conto span{padding:8px 12px}
+}
 </style>
 </head>
 <body>
@@ -437,28 +522,62 @@ html.entra .rv{opacity:0;transform:translateY(10px);transition:opacity .35s var(
 <section class="testa"><div class="cielo-ai" aria-hidden="true"></div><div class="wrap">
   <div class="centro-ai"><p class="eyebrow occhio-ai">Per e-commerce da 5.000 € al mese in pubblicità</p>
   <h1 class="h1-lungo">Il fatturato è fermo? Di solito il motivo <em>non è dove guardi.</em></h1>
-  <p class="sotto">Antonio legge il tuo negozio prodotto per prodotto, coi nostri agenti AI, e ti scrive le tre cose che lo frenano. Entro 24 ore.</p>
+  <p class="sotto">Antonio, il fondatore, legge il tuo negozio prodotto per prodotto, coi nostri agenti AI, e ti scrive le tre cose che lo frenano. Entro 24 ore.</p>
+  <script>/* 10/11 · una pagina sola, ogni annuncio ritrova le sue parole: il link dell'annuncio finisce con ?t=spesa oppure ?t=oggi */
+  (function(){ var T = {
+    spesa: ["Spendi sempre di più in pubblicità e torna <em>sempre meno?</em>", "Spesso il budget finisce su prodotti che non vendono. Antonio, il fondatore, legge il tuo negozio coi nostri agenti AI e ti scrive le tre cose che lo frenano. Entro 24 ore."],
+    oggi: ["Una buona campagna <em>non basta più.</em>", "Meta e Google leggono il tuo catalogo, e sempre più clienti chiedono a ChatGPT cosa comprare. Antonio, il fondatore, legge il tuo negozio coi nostri agenti AI e ti scrive le tre cose che lo frenano. Entro 24 ore."]
+  }, k = null; try { k = new URLSearchParams(location.search).get("t"); } catch (e) {}
+    if (!k || !T.hasOwnProperty(k)) return; var h = document.querySelector(".testa h1"), p = document.querySelector(".testa .sotto");
+    if (h && p) { h.innerHTML = T[k][0]; p.textContent = T[k][1]; document.documentElement.setAttribute("data-titolo", k); } })();</script>
   <div class="azioni"><a class="btn btn-cur" href="#parliamone" aria-label="Voglio le mie tre cose: apri il modulo"><span class="testo" aria-hidden="true">Voglio le mie tre cose</span><span class="car" aria-hidden="true"></span><span class="fr" aria-hidden="true">→</span></a></div>
+  <p class="nota-btn">Senza impegno. Niente accessi.</p>
   <ul class="chip-ai"><li>Risposta in 24 ore</li><li>Nessuna fee fissa</li><li>Ti scrive Antonio</li></ul>
   <a class="prova-ai" href="#risultati"><span class="pa-chi"><b>Climando</b> · climatizzazione</span><span class="pa-num"><strong>7.373.609 €</strong><em>+72 %</em></span><small>vendite dal 1° gennaio al 26 ottobre 2026 contro il 2025 · Shopify</small></a>
   </div>
 </div></section>
+<p class="partner-riga"><span><img src="img/home/tech/googleads.svg" alt="" width="16" height="16">Google Partner</span><span><img src="img/home/tech/meta.svg" alt="" width="16" height="16">Meta Business Partner</span><span><img src="img/home/tech/shopify.svg" alt="" width="16" height="16">Shopify Partner</span></p>
 <div class="nastro" aria-label="I nostri clienti"><ul><li><img src="img/home/loghi/logo-londonstore.png" alt="London Store" loading="lazy" height="28"></li><li><img class="sfondo" src="img/home/loghi/logo-climando.svg" alt="Climando" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-manfrellotti.png" alt="Manfrellotti" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-fontana.png" alt="F.lli Fontana" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-dematteo.png" alt="De Matteo Home" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-larcolaio.png" alt="L&#x27;Arcolaio" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-chenzo.png" alt="Chenzo" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-madamalu.png" alt="Madamalù" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-vginformatica.png" alt="VG Informatica" loading="lazy" height="28"></li><li class="nome"><span>B-Power</span></li><li class="nome"><span>Martina Esposito</span></li><li class="nome"><span>Mister LedWall</span></li><li class="nome"><img src="img/home/loghi-web/fcp.it.png" alt="" width="22" height="22" loading="lazy"><span>Franco Cosimo Panini</span></li><li class="nome"><img src="img/home/loghi-web/resetenergia.it.png" alt="" width="22" height="22" loading="lazy"><span>Reset Energia</span></li><li class="nome"><img src="img/home/loghi-web/buytutto.com.png" alt="" width="22" height="22" loading="lazy"><span>Buytutto</span></li><li class="nome"><img src="img/home/loghi-web/prestigioargentieori.it.png" alt="" width="22" height="22" loading="lazy"><span>Prestigio Argenti e Ori</span></li><li class="nome"><span>Opposti Boutique</span></li><li class="nome"><img src="img/home/loghi-web/gruppoautouno.it.png" alt="" width="22" height="22" loading="lazy"><span>Autouno</span></li><li class="nome"><img src="img/home/loghi-web/zampol.it.png" alt="" width="22" height="22" loading="lazy"><span>Zampol</span></li><li><img src="img/home/loghi/logo-londonstore.png" alt="London Store" loading="lazy" height="28"></li><li><img class="sfondo" src="img/home/loghi/logo-climando.svg" alt="Climando" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-manfrellotti.png" alt="Manfrellotti" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-fontana.png" alt="F.lli Fontana" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-dematteo.png" alt="De Matteo Home" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-larcolaio.png" alt="L&#x27;Arcolaio" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-chenzo.png" alt="Chenzo" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-madamalu.png" alt="Madamalù" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-vginformatica.png" alt="VG Informatica" loading="lazy" height="28"></li><li class="nome"><span>B-Power</span></li><li class="nome"><span>Martina Esposito</span></li><li class="nome"><span>Mister LedWall</span></li><li class="nome"><img src="img/home/loghi-web/fcp.it.png" alt="" width="22" height="22" loading="lazy"><span>Franco Cosimo Panini</span></li><li class="nome"><img src="img/home/loghi-web/resetenergia.it.png" alt="" width="22" height="22" loading="lazy"><span>Reset Energia</span></li><li class="nome"><img src="img/home/loghi-web/buytutto.com.png" alt="" width="22" height="22" loading="lazy"><span>Buytutto</span></li><li class="nome"><img src="img/home/loghi-web/prestigioargentieori.it.png" alt="" width="22" height="22" loading="lazy"><span>Prestigio Argenti e Ori</span></li><li class="nome"><span>Opposti Boutique</span></li><li class="nome"><img src="img/home/loghi-web/gruppoautouno.it.png" alt="" width="22" height="22" loading="lazy"><span>Autouno</span></li><li class="nome"><img src="img/home/loghi-web/zampol.it.png" alt="" width="22" height="22" loading="lazy"><span>Zampol</span></li><li><img src="img/home/loghi/logo-londonstore.png" alt="London Store" loading="lazy" height="28"></li><li><img class="sfondo" src="img/home/loghi/logo-climando.svg" alt="Climando" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-manfrellotti.png" alt="Manfrellotti" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-fontana.png" alt="F.lli Fontana" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-dematteo.png" alt="De Matteo Home" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-larcolaio.png" alt="L&#x27;Arcolaio" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-chenzo.png" alt="Chenzo" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-madamalu.png" alt="Madamalù" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-vginformatica.png" alt="VG Informatica" loading="lazy" height="28"></li><li class="nome"><span>B-Power</span></li><li class="nome"><span>Martina Esposito</span></li><li class="nome"><span>Mister LedWall</span></li><li class="nome"><img src="img/home/loghi-web/fcp.it.png" alt="" width="22" height="22" loading="lazy"><span>Franco Cosimo Panini</span></li><li class="nome"><img src="img/home/loghi-web/resetenergia.it.png" alt="" width="22" height="22" loading="lazy"><span>Reset Energia</span></li><li class="nome"><img src="img/home/loghi-web/buytutto.com.png" alt="" width="22" height="22" loading="lazy"><span>Buytutto</span></li><li class="nome"><img src="img/home/loghi-web/prestigioargentieori.it.png" alt="" width="22" height="22" loading="lazy"><span>Prestigio Argenti e Ori</span></li><li class="nome"><span>Opposti Boutique</span></li><li class="nome"><img src="img/home/loghi-web/gruppoautouno.it.png" alt="" width="22" height="22" loading="lazy"><span>Autouno</span></li><li class="nome"><img src="img/home/loghi-web/zampol.it.png" alt="" width="22" height="22" loading="lazy"><span>Zampol</span></li><li><img src="img/home/loghi/logo-londonstore.png" alt="London Store" loading="lazy" height="28"></li><li><img class="sfondo" src="img/home/loghi/logo-climando.svg" alt="Climando" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-manfrellotti.png" alt="Manfrellotti" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-fontana.png" alt="F.lli Fontana" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-dematteo.png" alt="De Matteo Home" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-larcolaio.png" alt="L&#x27;Arcolaio" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-chenzo.png" alt="Chenzo" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-madamalu.png" alt="Madamalù" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-vginformatica.png" alt="VG Informatica" loading="lazy" height="28"></li><li class="nome"><span>B-Power</span></li><li class="nome"><span>Martina Esposito</span></li><li class="nome"><span>Mister LedWall</span></li><li class="nome"><img src="img/home/loghi-web/fcp.it.png" alt="" width="22" height="22" loading="lazy"><span>Franco Cosimo Panini</span></li><li class="nome"><img src="img/home/loghi-web/resetenergia.it.png" alt="" width="22" height="22" loading="lazy"><span>Reset Energia</span></li><li class="nome"><img src="img/home/loghi-web/buytutto.com.png" alt="" width="22" height="22" loading="lazy"><span>Buytutto</span></li><li class="nome"><img src="img/home/loghi-web/prestigioargentieori.it.png" alt="" width="22" height="22" loading="lazy"><span>Prestigio Argenti e Ori</span></li><li class="nome"><span>Opposti Boutique</span></li><li class="nome"><img src="img/home/loghi-web/gruppoautouno.it.png" alt="" width="22" height="22" loading="lazy"><span>Autouno</span></li><li class="nome"><img src="img/home/loghi-web/zampol.it.png" alt="" width="22" height="22" loading="lazy"><span>Zampol</span></li><li><img src="img/home/loghi/logo-londonstore.png" alt="London Store" loading="lazy" height="28"></li><li><img class="sfondo" src="img/home/loghi/logo-climando.svg" alt="Climando" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-manfrellotti.png" alt="Manfrellotti" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-fontana.png" alt="F.lli Fontana" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-dematteo.png" alt="De Matteo Home" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-larcolaio.png" alt="L&#x27;Arcolaio" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-chenzo.png" alt="Chenzo" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-madamalu.png" alt="Madamalù" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-vginformatica.png" alt="VG Informatica" loading="lazy" height="28"></li><li class="nome"><span>B-Power</span></li><li class="nome"><span>Martina Esposito</span></li><li class="nome"><span>Mister LedWall</span></li><li class="nome"><img src="img/home/loghi-web/fcp.it.png" alt="" width="22" height="22" loading="lazy"><span>Franco Cosimo Panini</span></li><li class="nome"><img src="img/home/loghi-web/resetenergia.it.png" alt="" width="22" height="22" loading="lazy"><span>Reset Energia</span></li><li class="nome"><img src="img/home/loghi-web/buytutto.com.png" alt="" width="22" height="22" loading="lazy"><span>Buytutto</span></li><li class="nome"><img src="img/home/loghi-web/prestigioargentieori.it.png" alt="" width="22" height="22" loading="lazy"><span>Prestigio Argenti e Ori</span></li><li class="nome"><span>Opposti Boutique</span></li><li class="nome"><img src="img/home/loghi-web/gruppoautouno.it.png" alt="" width="22" height="22" loading="lazy"><span>Autouno</span></li><li class="nome"><img src="img/home/loghi-web/zampol.it.png" alt="" width="22" height="22" loading="lazy"><span>Zampol</span></li><li><img src="img/home/loghi/logo-londonstore.png" alt="London Store" loading="lazy" height="28"></li><li><img class="sfondo" src="img/home/loghi/logo-climando.svg" alt="Climando" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-manfrellotti.png" alt="Manfrellotti" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-fontana.png" alt="F.lli Fontana" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-dematteo.png" alt="De Matteo Home" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-larcolaio.png" alt="L&#x27;Arcolaio" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-chenzo.png" alt="Chenzo" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-madamalu.png" alt="Madamalù" loading="lazy" height="28"></li><li><img src="img/home/loghi/logo-vginformatica.png" alt="VG Informatica" loading="lazy" height="28"></li><li class="nome"><span>B-Power</span></li><li class="nome"><span>Martina Esposito</span></li><li class="nome"><span>Mister LedWall</span></li><li class="nome"><img src="img/home/loghi-web/fcp.it.png" alt="" width="22" height="22" loading="lazy"><span>Franco Cosimo Panini</span></li><li class="nome"><img src="img/home/loghi-web/resetenergia.it.png" alt="" width="22" height="22" loading="lazy"><span>Reset Energia</span></li><li class="nome"><img src="img/home/loghi-web/buytutto.com.png" alt="" width="22" height="22" loading="lazy"><span>Buytutto</span></li><li class="nome"><img src="img/home/loghi-web/prestigioargentieori.it.png" alt="" width="22" height="22" loading="lazy"><span>Prestigio Argenti e Ori</span></li><li class="nome"><span>Opposti Boutique</span></li><li class="nome"><img src="img/home/loghi-web/gruppoautouno.it.png" alt="" width="22" height="22" loading="lazy"><span>Autouno</span></li><li class="nome"><img src="img/home/loghi-web/zampol.it.png" alt="" width="22" height="22" loading="lazy"><span>Zampol</span></li></ul></div>
 
 <section id="parliamone"><div class="wrap">
-  <div class="ricevi">
-    <div class="rv"><p class="eyebrow">Cosa ricevi</p><h2 style="margin-top:12px">Una mail di Antonio, con tre cose precise sul tuo negozio.</h2>
-      <p class="mut" style="margin-top:16px;font-size:18px">Le leggiamo da fuori, come le vede un cliente e come le vede Google. Non ti chiediamo accessi né password.</p>
-      <p class="mut" style="margin-top:10px;font-size:18px">Se ti torna, ci sentiamo trenta minuti. Se no, ti restano le tre cose.</p></div>
-    <article class="mail rv" aria-label="Esempio della mail che ricevi">
-      <header><div><b>Tre cose su iltuonegozio.it</b><span>da Antonio Pratola · oggi, 9:12</span></div><span class="targa">Esempio</span></header>
-      <ol>
-        <li><div><b>214 schede su 380 non dicono materiale e misure.</b><span>Google e ChatGPT non sanno a chi mostrarle, e il cliente non sa se gli vanno bene.</span></div></li>
-        <li><div><b>Su Meta girano le stesse sei immagini da marzo.</b><span>Si vede dalla Libreria inserzioni: da otto mesi Meta non ha niente di nuovo da provare.</span></div></li>
-        <li><div><b>Sul telefono «Aggiungi al carrello» è sotto la prima schermata.</b><span>Succede in nove schede su dieci: prima di poter comprare bisogna scorrere.</span></div></li>
+  <div class="ricevi rx rv" data-vista="cliente">
+    <div class="rx-dire"><p class="eyebrow">La radiografia</p><h2 style="margin-top:12px">La scheda è bella. Ma Google e ChatGPT cosa leggono?</h2>
+      <p class="mut" style="margin-top:16px;font-size:18px">Una padella vera di un nostro cliente, com'era prima di noi. Sopra, la pagina che vede chi compra. Sotto la lente, i dati che leggono le macchine.</p></div>
+    <div class="rx-scena" id="rx-scena">
+      <div class="rx-carta rx-su">
+        <img src="img/home/padella-rx.webp" alt="La foto del prodotto: una padella in acciaio su fondo scuro, con scritto nell'immagine 28 cm di diametro, peso 1,36 kg, volume 2,7 litri" width="480" height="480" loading="lazy">
+        <div class="rx-testi"><div class="rx-riga"><b class="rx-tit">Padella Alta Saltare Pensofal</b><span class="rx-prezzo">44,90 €</span></div>
+          <p>Salta, rosola e cucina con la precisione di uno chef professionista. Rivestimento Biotank® a 6 strati, corpo in alluminio riciclato, manico in acciaio inossidabile.</p>
+          <div class="rx-mis"><i>24 cm</i><i class="on">28 cm</i><i>32 cm</i></div></div>
+      </div>
+      <div class="rx-carta rx-giu" aria-hidden="true">
+        <div class="rx-foto">
+          <div class="rx-r" style="top:9%"><span>immagine</span><b>1 foto</b><em class="nota">le scritte nella foto non si leggono</em></div>
+          <div class="rx-r stretta" style="top:35%;left:20%"><span>misura</span><b class="pr vuoto">non c'è</b><b class="do">28 cm</b></div>
+          <div class="rx-r stretta" style="top:65%;left:9%"><span>peso</span><b class="pr ko">0 kg</b><b class="do ko">0 kg</b><em class="nota do">il prossimo da scrivere</em></div>
+        </div>
+        <div class="rx-testi">
+          <div class="rx-r"><span>titolo</span><b class="pr">Padella Alta Saltare Pensofal</b><em class="pr ko">4 parole</em><b class="do">Padella alta a saltare antiaderente in alluminio Pensofal 28 cm</b></div>
+          <div class="rx-r"><span>tipo</span><b class="pr">Utensili &amp; Pentolame</b><em class="pr ko">un reparto</em><b class="do">Padella alta a saltare</b></div>
+          <div class="rx-r"><span>materiale</span><b class="pr vuoto">non c'è</b><b class="do">Alluminio / Acciaio</b></div>
+          <div class="rx-r"><span>dettagli</span><b class="pr vuoto">non ci sono</b><b class="do">rivestimento · corpo · manico</b></div>
+          <div class="rx-r"><span>domande</span><b class="pr vuoto">non ci sono</b><b class="do">3, con la risposta</b></div>
+        </div>
+      </div>
+      <div class="rx-lente" aria-hidden="true"></div>
+    </div>
+    <div class="rx-lato">
+      <p class="rx-conto"><span>Nella foto <b>28 cm · 1,36 kg</b></span><span>Nei dati <b class="pr ko">misura vuota · 0 kg</b><b class="do">28 cm · <i class="ko">0 kg</i></b></span></p>
+      <div class="rx-tabs" role="group" aria-label="Cosa guardare"><button type="button" class="rx-tab" data-v="cliente" aria-pressed="true">Chi compra</button><button type="button" class="rx-tab" data-v="prima" aria-pressed="false">Google, prima</button><button type="button" class="rx-tab" data-v="dopo" aria-pressed="false">Google, dopo</button></div>
+      <p class="rx-come"><span class="col-mouse">passa la lente sulla foto</span><span class="col-dito">tocca la foto per spostare la lente</span></p>
+      <ol class="rx-cose">
+        <li><b>Quattro parole di titolo.</b><span class="pr">«Padella Alta Saltare Pensofal»: niente materiale, niente misura, niente «antiaderente».</span><span class="do">Dopo: «Padella alta a saltare antiaderente in alluminio Pensofal 28 cm».</span></li>
+        <li><b>La foto dice 28 cm e 1,36 kg. I dati no.</b><span class="pr">Sono scritti dentro l'immagine, che le macchine non leggono: nei dati la misura non c'era e il peso era 0 kg.</span><span class="do">Dopo: la misura è nei dati, variante per variante. Il peso è il prossimo.</span></li>
+        <li><b>Un reparto al posto del prodotto.</b><span class="pr">Tipo «Utensili &amp; Pentolame». Materiale, rivestimento e manico stavano solo dentro il testo.</span><span class="do">Dopo: «Padella alta a saltare», col materiale, tre dettagli, quattro punti di forza e tre domande con la risposta.</span></li>
       </ol>
-      <footer>Per ognuna ti scrivo da dove comincerei.</footer>
-    </article>
+      <p class="rx-fine"><b>Tre buchi così li cerco anche nel tuo negozio.</b> Te li scrivo in una mail entro 24 ore: cosa ho visto, dove, cosa cambierei. Mi basta l'indirizzo, niente accessi.</p>
+      <p class="rx-fonte">dati letti dalla nostra piattaforma il 30 settembre 2026</p>
+    </div>
   </div>
   <div class="parl">
   <div class="parl-t rv"><p class="eyebrow">Parliamone</p><h2 style="margin-top:12px">Dimmi dove vendi. Ti rispondo io.</h2><p class="mut" style="margin-top:16px;font-size:18px">Due passi, un minuto. <b style="color:var(--fg);font-weight:600">Entro 24 ore ti scrivo io</b> le tre cose che frenano il tuo negozio, e se vale la pena lavorare insieme.</p></div>
@@ -469,13 +588,13 @@ html.entra .rv{opacity:0;transform:translateY(10px);transition:opacity .35s var(
       <h3 tabindex="-1">Da dove partiamo?</h3><p class="lead">Due risposte: quanto investi e dove vendi. Il resto lo guardo io.</p>
       <div class="q" data-req="budget"><span class="lab" id="l-budget">Quanto spendi in pubblicità al mese?</span><div class="opts" role="radiogroup" aria-labelledby="l-budget" data-name="budget"><button type="button" class="opt" role="radio" aria-checked="false" data-v="Niente, ancora"><i></i>Niente, ancora</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="Meno di 5.000 €"><i></i>Meno di 5.000 €</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="Da 5 a 15 mila €"><i></i>Da 5 a 15 mila €</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="Da 15 a 50 mila €"><i></i>Da 15 a 50 mila €</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="Più di 50 mila €"><i></i>Più di 50 mila €</button><button type="button" class="opt" role="radio" aria-checked="false" data-v="Preferisco dirlo a voce"><i></i>Preferisco dirlo a voce</button></div><input type="hidden" name="budget" value=""><p class="err">Scegli una fascia: mi serve per non proporti cose fuori misura.</p></div>
       <div class="q" data-req="sito"><label class="lab" for="sito">Indirizzo del negozio</label><input class="field" id="sito" name="sito" type="text" placeholder="www.iltuonegozio.it" inputmode="url" autocomplete="url" autocapitalize="off" spellcheck="false"><p class="err">Serve l'indirizzo del negozio: guardo quello prima di risponderti.</p></div>
-      <div class="acts"><span class="spacer"></span><button type="button" class="btn" data-next>Continua <svg class="fr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+      <div class="acts"><span class="spacer"></span><button type="button" class="btn" data-next>Ultimo passo <svg class="fr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
     </div>
     <div class="pane" data-step="2" hidden>
       <h3 tabindex="-1">A chi scrivo?</h3><p class="lead">Ti rispondo io, <b>Antonio</b>, entro 24 ore. Niente liste, niente chiamate a freddo.</p>
       <div class="q" data-req="nome"><label class="lab" for="nome">Nome e cognome</label><input class="field" id="nome" name="nome" type="text" autocomplete="name" placeholder="Come ti chiami"><p class="err">Mi serve il tuo nome per scriverti.</p></div>
       <div class="q" data-req="email" data-type="email"><label class="lab" for="email">Email</label><input class="field" id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="nome@azienda.it"><p class="err">Serve un'email valida: è lì che ti rispondo.</p></div>
-      <div class="q"><label class="lab" for="telefono">Telefono<small>facoltativo, se preferisci che ti chiami</small></label><input class="field" id="telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" placeholder="+39"></div>
+      <div class="q" id="q-tel"><label class="lab" for="telefono">Telefono<small>facoltativo, se preferisci che ti chiami</small></label><input class="field" id="telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" placeholder="+39"><p class="err">Mi serve il numero per chiamarti.</p></div>
       <div class="acts"><button type="button" class="back" data-back><svg class="fr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg> Indietro</button><button type="submit" class="btn" id="invia"><span>Manda ad Antonio</span> <svg class="fr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
       <div class="send-err" id="send-err" role="alert">Non è partito. Riprova fra un attimo, oppure scrivimi a <a href="mailto:antonio@orizonadv.it">antonio@orizonadv.it</a>.</div>
       <p class="priv">Uso questi dati solo per risponderti. Niente newsletter, niente cessione a terzi. <a href="/privacy">Privacy e cookie</a>.</p>
@@ -581,10 +700,15 @@ html.entra .rv{opacity:0;transform:translateY(10px);transition:opacity .35s var(
   function menu(apri){ mt.classList.toggle('aperto', apri); bu.setAttribute('aria-expanded', apri ? 'true' : 'false'); bu.setAttribute('aria-label', apri ? 'Chiudi il menu' : 'Apri il menu'); document.documentElement.style.overflow = apri ? 'hidden' : ''; }
   bu.addEventListener('click', function(){ menu(!mt.classList.contains('aperto')); });
   // sul telefono la barra in alto sparisce scorrendo in giù e torna solo scorrendo in su (Antonio, 5/11)
-  (function(){ var ba = $('.barra'), ult = scrollY, tel = matchMedia('(max-width: 860px)');
-    addEventListener('scroll', function(){ var y = scrollY, d = y - ult; if (Math.abs(d) < 6) return; ult = y;
-      if (!tel.matches || y < 80 || mt.classList.contains('aperto')) { ba.classList.remove('via'); return; }
-      ba.classList.toggle('via', d > 0); }, {passive: true}); })();
+  (function(){ var ba = $('.barra'), ult = scrollY, giro = scrollY, tel = matchMedia('(max-width: 860px)');
+    // 10/11 sera (Antonio: «un leggero bug della barra»): bastavano 6 px di ritorno del dito per farla entrare e uscire.
+    // Ora si nasconde dopo 12 px in giù e torna solo dopo 48 px in su, contati dal punto in cui il dito ha cambiato verso
+    addEventListener('scroll', function(){ var y = scrollY, d = y - ult; ult = y;
+      if (!tel.matches || y < 80 || mt.classList.contains('aperto')) { ba.classList.remove('via'); giro = y; return; }
+      var nascosta = ba.classList.contains('via');
+      if ((d > 0 && nascosta) || (d < 0 && !nascosta)) { giro = y; return; }
+      if (!nascosta && y - giro > 12) { ba.classList.add('via'); giro = y; }
+      else if (nascosta && giro - y > 48) { ba.classList.remove('via'); giro = y; } }, {passive: true}); })();
   $$('a', mt).forEach(function(a){ a.addEventListener('click', function(){ menu(false); }); });
   addEventListener('keydown', function(ev){ if (ev.key === 'Escape' && mt.classList.contains('aperto')) menu(false); });
   // sul computer la voce della sezione in cui sei resta accesa
@@ -767,7 +891,10 @@ html.entra .rv{opacity:0;transform:translateY(10px);transition:opacity .35s var(
       if (rm) swap(); else { from.classList.add('leave'); setTimeout(swap, 150); } }
     var N = panes.length;
     // il primo passo fatto (budget e indirizzo): un evento più frequente della lead, per le prime settimane della campagna
-    function avanti(){ if (!valid(cur)) return; if (cur === 1 && window.orizonPasso) orizonPasso({budget: form.budget.value}); show(cur + 1); }
+    // chi sceglie «Preferisco dirlo a voce» deve lasciare il telefono: altrimenti nessuno lo può chiamare (10/11)
+    function voce(){ var q = $('#q-tel'), si = form.budget.value === 'Preferisco dirlo a voce'; if (si) q.setAttribute('data-req', 'telefono'); else { q.removeAttribute('data-req'); q.classList.remove('bad'); }
+      $('small', q).textContent = si ? 'ti chiamo io' : 'facoltativo, se preferisci che ti chiami'; }
+    function avanti(){ if (!valid(cur)) return; if (cur === 1) { voce(); if (window.orizonPasso) orizonPasso({budget: form.budget.value}); } show(cur + 1); }
     form.addEventListener('click', function(e){ if (e.target.closest('[data-next]')) avanti(); if (e.target.closest('[data-back]')) show(cur - 1); });
     form.addEventListener('submit', function(e){ e.preventDefault(); if (cur < N) { avanti(); return; } if (!valid(N) || busy) return; manda(); });
     function manda(){ var btn = $('#invia'), sp = btn.querySelector('span'), err = $('#send-err'); busy = true; btn.disabled = true; sp.textContent = 'Invio in corso…'; err.classList.remove('show');
@@ -776,17 +903,45 @@ html.entra .rv{opacity:0;transform:translateY(10px);transition:opacity .35s var(
       if (!INVIO) { fatto(dati); fine(); return; }
       var ctl = 'AbortController' in window ? new AbortController() : null, tm = setTimeout(function(){ if (ctl) ctl.abort(); }, 15000);
       fetch(INVIO, {method: 'POST', headers: {'Content-Type': 'application/json', 'Accept': 'application/json'}, body: JSON.stringify(dati), signal: ctl ? ctl.signal : undefined})
-        .then(function(r){ clearTimeout(tm); if (!r.ok) throw new Error(r.status); if (window.orizonLead) orizonLead(dati); fatto(dati); }).catch(function(){ clearTimeout(tm); err.classList.add('show'); }).then(fine); }
+        .then(function(r){ clearTimeout(tm); if (!r.ok) throw new Error(r.status); fatto(dati); ricevuto(dati); }).catch(function(){ clearTimeout(tm); err.classList.add('show'); }).then(fine); }
+    // la pagina «Ricevuto» ha un indirizzo suo (10/11): un contatto si conta anche solo dalla visita. Lead e LeadQualificata
+    // partono da lì, una volta sola, così il cambio di pagina non li taglia; se la memoria della scheda non c'è, partono da qui
+    function ricevuto(d){ var messo = false;
+      try { sessionStorage.setItem('orizon-ricevuto', JSON.stringify({email: d.email, sito: (d.sito || '').replace(/^https?:\/\//, '').replace(/\/$/, ''), budget: d.budget || '',
+        alto: ['Niente, ancora', 'Meno di 5.000 €'].indexOf(d.budget) < 0})); messo = true; } catch (e) {}
+      if (!messo && window.orizonLead) orizonLead(d);
+      setTimeout(function(){ location.assign('/ricevuto'); }, messo ? 150 : 600); }
     function fatto(d){ $('#ok-email').textContent = d.email; $('#ok-sito').textContent = (d.sito || '').replace(/^https?:\/\//, '').replace(/\/$/, '');
       var alto = ['Niente, ancora', 'Meno di 5.000 €'].indexOf(d.budget) < 0; $('#ok-email2').textContent = d.email; $('#ok-alto').hidden = !alto; $('#ok-basso').hidden = alto;
       steps.forEach(function(st){ st.classList.remove('cur'); st.classList.add('ok'); }); panes[N - 1].hidden = true;
       var ok = $('#fatto'); ok.hidden = false; if (!rm) ok.classList.add('pane', 'enter'); ok.querySelector('h3').focus({preventScroll: true}); su(); }
   })();
+  // la radiografia: la lente gira da sola sulla carta e segue il mouse o il dito; le tre viste si scelgono coi bottoni
+  (function(){ var rx = $('.rx'); if (!rx) return; var sc = $('.rx-scena', rx), voci = $$('.rx-cose li', rx), tabs = $$('.rx-tab', rx), da = 0, vede = false, giri = 0, sola = true, torna = 0;
+    function metti(x, y){ var W = sc.offsetWidth, H = sc.offsetHeight; x = Math.max(0, Math.min(W, x)); y = Math.max(0, Math.min(H, y));
+      sc.style.setProperty('--x', x.toFixed(1) + 'px'); sc.style.setProperty('--y', y.toFixed(1) + 'px');
+      var k = y < W ? 1 : y < W + 64 ? 0 : 2; voci.forEach(function(v, i){ v.classList.toggle('acceso', i === k); }); }
+    // la lente parte ferma sul peso e fa il giro dei punti che contano, fermandosi su ognuno: peso, misura, titolo, dati vuoti
+    var TAPPE = [[.27, .69, 2800], [.37, .39, 2000], [.42, 1.1, 1800], [.46, 1.36, 1800]], VIA = 900;
+    function gira(t){ giri = 0; if (!sola || !vede || rx.dataset.vista !== 'cliente') return; if (!da) da = t; var W = sc.offsetWidth, tot = 0, q, i, a, b, f;
+      TAPPE.forEach(function(x){ tot += x[2] + VIA; }); q = (t - da) % tot;
+      for (i = 0; i < TAPPE.length; i++) { a = TAPPE[i]; b = TAPPE[(i + 1) % TAPPE.length];
+        if (q < a[2]) { metti(a[0] * W, a[1] * W); break; } q -= a[2];
+        if (q < VIA) { f = q / VIA; f = f * f * (3 - 2 * f); metti((a[0] + (b[0] - a[0]) * f) * W, (a[1] + (b[1] - a[1]) * f) * W); break; } q -= VIA; }
+      giri = requestAnimationFrame(gira); }
+    function parti(){ if (!giri && !rm) giri = requestAnimationFrame(gira); }
+    function dito(e){ if (rx.dataset.vista !== 'cliente') return; var r = sc.getBoundingClientRect(); sola = false; metti(e.clientX - r.left, e.clientY - r.top);
+      clearTimeout(torna); torna = setTimeout(function(){ sola = true; da = 0; parti(); }, 4500); }
+    sc.addEventListener('pointermove', function(e){ if (e.pointerType === 'mouse') dito(e); }); sc.addEventListener('pointerdown', dito);
+    tabs.forEach(function(b){ b.addEventListener('click', function(){ rx.dataset.vista = b.dataset.v; tabs.forEach(function(x){ x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); }); if (b.dataset.v === 'cliente') { sola = true; da = 0; parti(); } }); });
+    metti(sc.offsetWidth * .27, sc.offsetWidth * .69);
+    if ('IntersectionObserver' in window) new IntersectionObserver(function(es){ vede = es[0].isIntersecting; if (vede) parti(); }, {threshold: .15}).observe(sc); else { vede = true; parti(); }
+    addEventListener('resize', function(){ if (!sola || rm) metti(sc.offsetWidth * .27, sc.offsetWidth * .69); }); })();
   // il bottone fisso del telefono: compare dopo la testa, sparisce sul modulo e col menu aperto
   (function(){ var fx = $('#fisso-tel'), testa = $('.testa'), mod = $('#modulo'), fin = $('.chiusura'); if (!fx || !testa || !mod) return;
     function dentro(el){ if (!el) return false; var r = el.getBoundingClientRect(); return r.top < innerHeight - 40 && r.bottom > 40; }
     function vedi(){ fx.dataset.via = (testa.getBoundingClientRect().bottom > 120 || dentro(mod) || dentro(fin) || mt.classList.contains('aperto')) ? '1' : '0'; }
-    addEventListener('scroll', vedi, {passive: true}); addEventListener('resize', vedi); bu.addEventListener('click', function(){ setTimeout(vedi, 0); }); vedi(); })();
+    addEventListener('scroll', vedi, {passive: true}); addEventListener('resize', vedi); bu.addEventListener('click', function(){ setTimeout(vedi, 0); }); $$('a', mt).forEach(function(a){ a.addEventListener('click', function(){ setTimeout(vedi, 0); }); }); vedi(); })();
   // la costellazione: solo col mouse, e disegna solo quando il mouse si muove
   if (fine && !rm) {
     var c = $('#stelle'), x = c.getContext('2d'), W, Hh, P = [], mx = -999, my = -999, att = false, col = getComputedStyle(document.documentElement).getPropertyValue('--blu2').trim() || '#8191ff';
