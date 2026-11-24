@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Pochi passi per fare una clip AI con la camera decisa in Blender: grigio, schede, primo fotogramma, prompt, collegamento a Claude.">
+<link rel="canonical" href="https://www.orizonadv.it/guida-editing-blender">
+<link rel="icon" href="/images/brand/mark-blu.svg" type="image/svg+xml">
+<meta property="og:title" content="Da Blender a video — guida">
+<meta property="og:image" content="https://www.orizonadv.it/img/guida-editing-blender/grigio-e-clip.jpg">
+<title>Da Blender a video — guida · Orizon ADV</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: sei passi in colonna, ognuno con un'immagine vera; al passo 5 un pannello di generazione simulato */
+:root{
+  /* Stile scuro (Inter 800, pillole col puntino), colori Orizon: nero verdastro, blu, verde */
+  --bg:#0C1713; --panel:#122019; --panel-2:#17281F; --line:#1F3029; --fg:#F4F5F7; --muted:#A8ACAB;
+  --blue:#3750F7; --blue-l:#6377FD; --blue-s:#D2D8FF; --green:#60E787; --pink:#FEEAEE;
+  --f-ui:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-ui);font-size:16px;line-height:1.55;margin:0}
+.wrap{max-width:920px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:32px 72px}
+.pill{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--blue-s);padding:5px 11px;border-radius:999px;background:rgba(55,80,247,.18)}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green)}
+h1{font-weight:800;font-size:clamp(36px,7vw,58px);line-height:1;letter-spacing:-.035em;margin:14px 0 12px}
+h2{font-weight:800;font-size:clamp(22px,3.4vw,28px);letter-spacing:-.02em;line-height:1.15;margin:6px 0 8px;text-wrap:balance}
+p{margin:0 0 10px;max-width:64ch}
+.lead{font-size:18px;color:var(--muted);max-width:56ch}
+.muted{color:var(--muted);font-size:14px}
+code{font-family:var(--f-mono);font-size:.86em;color:var(--blue-s);background:rgba(55,80,247,.16);padding:1px 6px;border-radius:6px}
+
+.need{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0 8px}
+@media (max-width:640px){.need{grid-template-columns:1fr}}
+.need div{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:14px 16px;min-width:0}
+.need b{display:block;font-size:14px}
+.need span{font-size:13px;color:var(--muted)}
+
+.step{display:grid;grid-template-columns:52px 1fr;gap:16px;padding-block:34px;border-top:1px solid var(--line)}
+.num{width:44px;height:44px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;font-size:18px;display:grid;place-items:center}
+.step>div:last-child{min-width:0}
+.shot{margin:14px 0 6px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#000}
+.shot img,.shot video{display:block;width:100%;height:auto}
+.cap{font-size:13px;color:var(--muted);margin-top:6px}
+.row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.row figure,.pair figure{margin:0;min-width:0}
+.row img,.pair img{width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--line)}
+.row figcaption,.pair figcaption{font-size:12px;color:var(--muted);margin-top:5px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tags span{font-size:12px;padding:4px 10px;border-radius:999px;border:1px solid var(--line);color:var(--fg)}
+.tags span::before{content:"✓ ";color:var(--green)}
+
+.chat{background:var(--panel);border:1px solid var(--line);border-radius:18px 18px 18px 4px;padding:14px 16px;margin-top:12px;font-size:15px;max-width:640px}
+.chat .who{font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--green);margin-bottom:4px}
+
+/* pannello simulato */
+.gen{margin-top:16px;border:1px solid var(--line);border-radius:20px;background:#0A110E;overflow:hidden}
+.gen-top{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px 14px;border-bottom:1px solid var(--line);background:var(--panel)}
+.gen-top .model{font-weight:700;font-size:14px;padding:6px 12px;border-radius:10px;background:var(--panel-2);border:1px solid var(--line)}
+.opt{font-size:12px;padding:5px 10px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.opt.on{border-color:var(--blue-l);color:var(--blue-s);background:rgba(55,80,247,.15)}
+.sim{margin-left:auto;font-size:11px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.gen-body{padding:14px}
+.label{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:2px 0 8px}
+.refs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-bottom:14px}
+.ref{position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#000;aspect-ratio:1/1}
+.ref img{width:100%;height:100%;object-fit:cover;display:block}
+.ref b{position:absolute;left:6px;top:6px;font-family:var(--f-mono);font-size:11px;font-weight:500;padding:2px 6px;border-radius:6px;background:rgba(12,23,19,.85);color:var(--green)}
+.ref i{position:absolute;left:0;right:0;bottom:0;font-style:normal;font-size:11px;padding:14px 6px 5px;background:linear-gradient(transparent,rgba(0,0,0,.85));color:#fff}
+.ref.video{outline:2px solid var(--blue-l);outline-offset:-2px}
+.ref.video b{color:var(--blue-s)}
+.prompt{font-family:var(--f-mono);font-size:12.5px;line-height:1.6;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px;white-space:pre-wrap;word-break:break-word;color:#DCE3E0;max-height:none}
+.prompt .s{color:var(--green)}
+.prompt .r{color:var(--blue-s);background:rgba(55,80,247,.2);border-radius:4px;padding:0 3px}
+.gen-foot{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding:12px 14px;border-top:1px solid var(--line);background:var(--panel)}
+.cost{font-size:13px;color:var(--muted)}
+.btn{font-weight:700;font-size:14px;padding:10px 18px;border-radius:12px;background:var(--green);color:#0C1713;border:0}
+.callouts{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:8px;margin-top:12px}
+.callouts div{font-size:13px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.callouts b{color:var(--green)}
+
+.tool{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin:22px 0 4px;padding:16px 18px;border-radius:18px;background:var(--blue);color:#fff;font-weight:600}
+.tool a{color:#0C1713;background:var(--green);text-decoration:none;font-weight:800;font-size:14px;padding:9px 16px;border-radius:12px;white-space:nowrap}
+.tool a:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.ph{aspect-ratio:16/9;display:grid;place-items:center;text-align:center;font-size:12px;color:var(--muted);border:1px dashed var(--line);border-radius:12px;background:var(--panel);padding:8px}
+.ph.sm{aspect-ratio:auto;height:100%;border:0;border-radius:0}
+.cmd{display:flex;gap:8px;align-items:stretch;margin-top:10px}
+.cmd code{flex:1;min-width:0;font-family:var(--f-mono);font-size:13px;background:#08100D;color:var(--blue-s);border:1px solid var(--line);border-radius:12px;padding:11px 14px;overflow-x:auto;white-space:nowrap}
+.cmd button{font:600 13px var(--f-ui);border:1px solid var(--line);background:var(--panel-2);color:var(--fg);border-radius:12px;padding:0 14px;cursor:pointer}
+.cmd button:hover,.cmd button:focus-visible{border-color:var(--green);outline:none}
+.where{font-size:12px;color:var(--muted);margin-top:6px}
+.where b{color:var(--fg);font-weight:600}
+/* pannello di Blender simulato */
+.bl{margin-top:12px;display:grid;grid-template-columns:1fr 220px;border:1px solid #2b2b2b;border-radius:14px;overflow:hidden;background:#3d3d3d;font-family:var(--f-ui)}
+.bl .vp{min-height:170px;background:linear-gradient(#393939,#2f2f2f);position:relative}
+.bl .vp::after{content:"";position:absolute;left:50%;top:55%;width:70px;height:70px;transform:translate(-50%,-50%) rotate(45deg) skew(-8deg,-8deg);background:#8a8a8a;box-shadow:inset -12px -12px 0 #6c6c6c}
+.bl .vp span{position:absolute;left:10px;top:8px;font-size:11px;color:#bdbdbd}
+.bl .side{background:#2b2b2b;border-left:1px solid #1f1f1f;padding:10px;display:flex;flex-direction:column;gap:8px}
+.bl .tab{font-size:11px;color:#e6e6e6;background:#3a3a3a;border-radius:6px;padding:5px 8px;align-self:flex-start}
+.bl .row{font-size:11px;color:#bdbdbd;display:flex;justify-content:space-between}
+.bl .go{font-size:12px;font-weight:600;color:#fff;background:#4772b3;border-radius:6px;padding:7px;text-align:center;outline:2px solid var(--green);outline-offset:2px}
+.bl .key{position:absolute;right:10px;top:8px;font:500 11px var(--f-mono);color:#0C1713;background:var(--green);border-radius:5px;padding:2px 7px}
+.chat{background:var(--panel);border:1px solid var(--line);border-radius:16px 16px 16px 4px;padding:12px 14px;margin-top:10px;font-size:15px}
+.chat .who{font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--green);margin-bottom:3px}
+.fix{list-style:none;padding:0;margin:10px 0 0;display:grid;gap:8px}
+.fix li{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:14px}
+.fix b{color:var(--green);font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 6px}
+.chips span{font-size:13px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--bg)}
+.chips span b{color:var(--green);font-weight:600}
+.tog{margin:14px 0 10px;border:1px solid var(--blue-l);border-radius:18px;background:var(--panel)}
+.tog summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 18px;font-weight:700}
+.tog summary::-webkit-details-marker{display:none}
+.tog summary em{font-style:normal;font-size:12px;font-weight:600;color:var(--blue-s);padding:4px 10px;border-radius:999px;background:rgba(55,80,247,.2)}
+.tog[open] summary em{color:var(--green)}
+.tog summary:focus-visible{outline:2px solid var(--green);outline-offset:2px;border-radius:18px}
+.togbody{padding:0 18px 16px}
+.mstep{display:grid;grid-template-columns:34px 1fr;gap:12px;padding-block:16px;border-top:1px solid var(--line)}
+.mstep>div:last-child{min-width:0}
+.mnum{width:28px;height:28px;border-radius:50%;background:var(--panel-2);border:1px solid var(--blue-l);color:var(--blue-s);font-weight:800;font-size:13px;display:grid;place-items:center}
+.mstep h3{font-size:17px;margin:2px 0 4px}
+@media (max-width:640px){.mstep{grid-template-columns:1fr;gap:6px}}
+.dont{margin-top:10px;padding:0;list-style:none;display:grid;gap:8px}
+.dont li{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 14px 12px 40px;position:relative;font-size:15px}
+.dont li::before{content:"✕";position:absolute;left:14px;top:12px;color:var(--pink);font-weight:800}
+footer{color:var(--muted);font-size:13px;border-top:1px solid var(--line);padding-top:18px;margin-top:10px}
+
+@media (max-width:640px){
+  .step{grid-template-columns:1fr;gap:10px}
+  .row{grid-template-columns:1fr 1fr}
+  .refs{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .pair{grid-template-columns:1fr}
+}
+
+.sub{margin-top:8px;padding:26px 22px;border-radius:22px;background:var(--blue);color:#fff}
+.sub h2{color:#fff;margin:0 0 6px}
+.sub p{color:#E6EAFF;margin:0 0 14px}
+.sub form{display:grid;gap:10px;max-width:520px}
+.sub .r{display:flex;gap:8px;flex-wrap:wrap}
+.sub input[type=email],.sub input[type=text]{flex:1;min-width:0;font:500 15px var(--f-ui);padding:12px 14px;border-radius:12px;border:0;background:#fff;color:#0C1713}
+.sub button{font:800 15px var(--f-ui);padding:12px 18px;border-radius:12px;border:0;background:var(--green);color:#0C1713;cursor:pointer}
+.sub button:disabled{opacity:.6;cursor:wait}
+.sub label.ok{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:#E6EAFF;line-height:1.45}
+.sub label.ok input{margin-top:3px;width:16px;height:16px;accent-color:var(--green)}
+.sub a{color:#fff}
+.sub .msg{font-size:14px;font-weight:600;min-height:20px}
+.sub .hp{position:absolute;left:-9999px}
+@media (max-width:560px){.sub .r{flex-direction:column}.sub input[type=email]{width:100%}}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.top a{color:var(--fg);text-decoration:none;font-weight:800;letter-spacing:-.01em}
+.top a span{color:var(--green)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="top"><a href="/">Orizon <span>ADV</span></a></div>
+<span class="pill">Guida veloce</span>
+<h1>Da Blender a video</h1>
+<p class="lead">Pochi passi per fare una clip AI con la camera decisa da te. L'esempio è la scena dell'autostrada del nostro corto «Grand Theft Napoli».</p>
+
+<div class="tool"><span>Questo è il tool che si usa per generare da Blender a video</span><a href="https://higgsfield.ai?fpr=antonio-fd863d" target="_blank" rel="noopener">Apri il tool ↗</a></div>
+
+<div class="step">
+<div class="num">0</div>
+<div>
+<h2>Collega tutto a Claude (una volta sola)</h2>
+<div class="need">
+<div><b>1 · Blender sul computer</b><span>una versione recente, scaricata dal sito di Blender</span></div>
+<div><b>2 · Blender collegato a Claude</b><span>un componente gratuito: Claude costruisce la scena nella tua finestra di Blender. I passi sono qui sotto</span></div>
+<div><b>3 · Il <a href="https://higgsfield.ai?fpr=antonio-fd863d" target="_blank" rel="noopener">tool AI</a> collegabile a Claude</b><span>Impostazioni › Connettori: lo aggiungi ed entri col tuo account. È la parte che genera immagini e video e scala i crediti</span></div>
+<div><b>4 · Apri una chat nuova</b><span>gli strumenti appena collegati si vedono solo nelle chat aperte dopo</span></div>
+</div>
+<details class="tog">
+<summary><span>Come si collega Blender a Claude</span><em>5 passi · apri</em></summary>
+<div class="togbody">
+<div class="chips"><span><b>Blender</b> 3.0 o più nuovo</span><span><b>Claude Code</b> installato</span><span><b>Windows</b> (sul Mac i passi sono gli stessi)</span></div>
+<div class="mstep"><div class="mnum">1</div><div>
+<h3>Installa «uv»</h3>
+<p>È il programmino che scarica e fa partire il collegamento. Lo installi una volta, dal terminale.</p>
+<div class="cmd"><code>winget install --id=astral-sh.uv -e</code><button type="button">Copia</button></div>
+<p class="where">Dove: <b>PowerShell</b> o il terminale di Windows. Poi chiudi e riapri il terminale.</p>
+</div></div>
+
+<div class="mstep"><div class="mnum">2</div><div>
+<h3>Aggiungi il collegamento a Claude</h3>
+<p>Dici a Claude Code che esiste un server chiamato «blender».</p>
+<div class="cmd"><code>claude mcp add blender uvx mcp-for-blender</code><button type="button">Copia</button></div>
+<p class="where">Dove: lo stesso terminale. Il progetto è «MCP for Blender», gratuito e della comunità (non della Blender Foundation).</p>
+</div></div>
+
+<div class="mstep"><div class="mnum">3</div><div>
+<h3>Metti il componente dentro Blender</h3>
+<div class="cmd"><code>uvx mcp-for-blender install-addon</code><button type="button">Copia</button></div>
+<p class="where">Poi in Blender: <b>Edit › Preferences › Add-ons</b> e accendi <b>Interface: MCP for Blender</b>.</p>
+</div></div>
+
+<div class="mstep"><div class="mnum">4</div><div>
+<h3>Accendilo in Blender</h3>
+<p>Nella vista 3D premi <b>N</b>, apri la linguetta <b>MCP for Blender</b> e premi <b>Start MCP Server</b>.</p>
+<div class="bl" role="img" aria-label="Blender: vista 3D con la barra laterale aperta, linguetta MCP for Blender, bottone Start MCP Server evidenziato">
+<div class="vp"><span>Vista 3D</span><span class="key">N</span></div>
+<div class="side"><span class="tab">MCP for Blender</span><div class="row"><span>Porta</span><span>9876</span></div><div class="go">Start MCP Server</div></div>
+</div>
+<p class="where">Va acceso ogni volta che apri Blender.</p>
+</div></div>
+
+<div class="mstep"><div class="mnum">5</div><div>
+<h3>Apri una chat nuova e prova</h3>
+<p>Gli strumenti appena collegati si vedono solo nelle chat aperte dopo.</p>
+<div class="chat"><div class="who">Tu a Claude</div>Controlla che Blender sia collegato e mettimi in scena un pavimento, tre cubi e una camera che li guarda dall'alto.</div>
+<p class="muted" style="margin-top:8px">Se i cubi compaiono nella finestra di Blender, hai finito.</p>
+</div></div>
+
+<div class="mstep"><div class="mnum">?</div><div>
+<h3>Se non va</h3>
+<ul class="fix">
+<li><b>Claude non vede Blender.</b> In Blender il server è acceso (passo 4)? Chiudi e riapri sia Blender sia la chat.</li>
+<li><b>La prima richiesta fallisce.</b> Capita: riprova, di solito dalla seconda funziona.</li>
+<li><b>L'installazione si ferma su un file bloccato.</b> Chiudi Blender e riprova; se insiste, chiedi a Claude di installarlo in un ambiente suo.</li>
+<li><b>Richieste che vanno in tempo scaduto.</b> Chiedi un pezzo alla volta.</li>
+</ul>
+</div></div>
+
+</div>
+</details>
+<p class="muted">Le chiavi e le password non si scrivono mai in chat: si entra dal connettore.</p>
+</div>
+</div>
+
+<div class="step">
+<div class="num">1</div>
+<div>
+<h2>Racconta la scena a Claude</h2>
+<p>Poche righe: dove siamo, chi c'è, cosa fa la camera, quanto dura.</p>
+<div class="chat"><div class="who">Tu a Claude</div>Autostrada verso Napoli, Vesuvio davanti. Lui guida una cabrio gialla. Camera alta dietro l'auto che la segue, 7 secondi, 16:9. Fammi il grigio in Blender.</div>
+</div>
+</div>
+
+<div class="step">
+<div class="num">2</div>
+<div>
+<h2>Claude costruisce il «grigio»</h2>
+<p>Una scena a blocchi in Blender: serve solo a dire al tool AI <b>dove sta la camera e come si muove</b>. Guardalo prima di generare: se l'inquadratura non ti piace, si cambia qui, gratis.</p>
+<div class="shot"><img src="/img/guida-editing-blender/grigio.jpg" alt="Il grigio di Blender: autostrada a blocchi chiari, cabrio come blocco giallo, la sagoma magenta al volante, il Vesuvio come una forma grigia" width="960" height="540"></div>
+<div class="tags"><span>luce chiara, niente zone nere</span><span>lui = sagoma magenta</span><span>auto = blocco giallo</span><span>camera vera, coi tempi giusti</span></div>
+</div>
+</div>
+
+<div class="step">
+<div class="num">3</div>
+<div>
+<h2>Prepara le schede</h2>
+<p>Un'immagine per ogni cosa che deve restare uguale: la persona, l'oggetto, il luogo. Su fondo neutro, da più lati.</p>
+<div class="row">
+<figure><div class="ph">Volto in un pannello<br>+ corpo davanti, di lato, dietro</div><figcaption>@Image1 · persona</figcaption></figure>
+<figure><img src="/img/guida-editing-blender/scheda-auto.jpg" alt="Scheda della cabrio gialla da quattro lati" loading="lazy"><figcaption>@Image2 · auto</figcaption></figure>
+<figure><img src="/img/guida-editing-blender/luogo.jpg" alt="Foto del luogo: autostrada col Vesuvio" loading="lazy"><figcaption>@Image3 · luogo</figcaption></figure>
+</div>
+</div>
+</div>
+
+<div class="step">
+<div class="num">4</div>
+<div>
+<h2>Fai il primo fotogramma sopra il grigio</h2>
+<p>Dai al <a href="https://higgsfield.ai?fpr=antonio-fd863d" target="_blank" rel="noopener">tool AI</a> il fermo del grigio più le schede: esce la prima immagine della clip, con la stessa camera. Costa poco, e se è sbagliata non lanci il video.</p>
+<div class="pair">
+<figure><img src="/img/guida-editing-blender/grigio.jpg" alt="Fermo del grigio" loading="lazy"><figcaption>Il fermo del grigio</figcaption></figure>
+<figure><img src="/img/guida-editing-blender/partenza.jpg" alt="Il fotogramma di partenza generato: stessa inquadratura, autostrada vera" loading="lazy"><figcaption>Il fotogramma di partenza</figcaption></figure>
+</div>
+</div>
+</div>
+
+<div class="step">
+<div class="num">5</div>
+<div>
+<h2>Nel tool: riferimenti, prompt, genera</h2>
+<p>Nel <a href="https://higgsfield.ai?fpr=antonio-fd863d" target="_blank" rel="noopener">tool AI</a>, la modalità video coi riferimenti. Carichi le immagini, il fotogramma e il grigio come video. Il prompt dice cosa prendere da ognuno.</p>
+
+<div class="gen" role="img" aria-label="Pannello di generazione simulato con cinque riferimenti, il prompt e il bottone Genera">
+<div class="gen-top">
+<span class="model">Video · con riferimenti</span>
+<span class="opt on">480p · bozza</span><span class="opt">7 s</span><span class="opt">16:9</span>
+<span class="sim">pannello simulato</span>
+</div>
+<div class="gen-body">
+<div class="label">Riferimenti</div>
+<div class="refs">
+<div class="ref"><div class="ph sm">scheda</div><b>@Image1</b><i>persona</i></div>
+<div class="ref"><img src="/img/guida-editing-blender/scheda-auto.jpg" alt=""><b>@Image2</b><i>auto</i></div>
+<div class="ref"><img src="/img/guida-editing-blender/luogo.jpg" alt=""><b>@Image3</b><i>luogo</i></div>
+<div class="ref"><img src="/img/guida-editing-blender/partenza.jpg" alt=""><b>@Image4</b><i>partenza</i></div>
+<div class="ref video"><img src="/img/guida-editing-blender/grigio.jpg" alt=""><b>@Video1</b><i>grigio</i></div>
+</div>
+<div class="label">Prompt (accorciato)</div>
+<div class="prompt"><span class="s">[STYLE]</span> A present-day Italian comedy film, a real car scene shot on 35mm film, warm faded colours, visible grain. Real time, never slow motion. Not CGI.
+
+<span class="s">[REFERENCES]</span> <span class="r">@Image4</span> is the very first frame of the clip. <span class="r">@Video1</span> gives the shots only: camera position, path, framing and cut times. Everything inside it is a placeholder: the magenta shape marks the man of <span class="r">@Image1</span>, the yellow blocks mark his convertible of <span class="r">@Image2</span>. All movement comes from the text.
+
+<span class="s">[LIGHT]</span> Midday, clear autumn sky, sun high ahead and to the right, short soft shadows. Vesuvius ahead in light haze.
+
+<span class="s">[SHOT 1, 0–2.5 s]</span> High camera behind the car, following it down the motorway toward Vesuvius.
+<span class="s">[SHOT 2, 2.5–4.5 s]</span> Side view beside him in the driver's seat: he reads the sign ahead and a sly half-smile appears.
+<span class="s">[SHOT 3, 4.5–7 s]</span> The green sign passes overhead; the car swerves at the last second onto the exit. Nobody gets hurt.
+
+<span class="s">[NOT]</span> different face, extra fingers, text, logos, slow motion.</div>
+<div class="callouts">
+<div><b>Ogni immagine ha un compito</b><br>chiamata col suo nome, nell'ordine in cui la carichi</div>
+<div><b>Il grigio dà solo la camera</b><br>i movimenti di persone e auto li scrive il testo</div>
+<div><b>La luce sta nel testo</b><br>il grigio è chiaro apposta</div>
+</div>
+</div>
+<div class="gen-foot"><span class="cost">Il costo in crediti si vede prima di generare</span><span class="btn" aria-hidden="true">Genera</span></div>
+</div>
+<p class="cap">Prima una bozza a 480p. L'alta risoluzione solo sulla clip che tieni.</p>
+</div>
+</div>
+
+<div class="step">
+<div class="num">6</div>
+<div>
+<h2>Confronta grigio e clip</h2>
+<p>A sinistra il grigio, a destra quello che ha fatto il tool AI: stesse inquadrature, stessi stacchi.</p>
+<div class="shot"><video src="/img/guida-editing-blender/grigio-e-clip.mp4" poster="/img/guida-editing-blender/grigio-e-clip.jpg" autoplay muted loop playsinline width="1280" height="360" aria-label="Il grigio di Blender accanto alla clip generata"></video></div>
+</div>
+</div>
+
+<div class="step">
+<div class="num">!</div>
+<div>
+<h2>Tre errori da evitare</h2>
+<ul class="dont">
+<li><b>Manichini con braccia e gambe che si muovono.</b> Il tool AI copia anche la rigidità: le persone restano sagome lisce.</li>
+<li><b>Il grigio scuro.</b> La notte la dà il prompt, il grigio è sempre chiaro.</li>
+<li><b>Il fotogramma fatto prima del grigio.</b> Ha un'altra camera, e la clip non sa quale seguire.</li>
+</ul>
+</div>
+</div>
+
+
+<section class="sub" id="aggiornamenti">
+<h2>Vuoi altre guide come questa?</h2>
+<p>Lasciaci la tua email: ti scriviamo quando esce un contenuto nuovo su video AI, Blender e campagne.</p>
+<form id="iscrizione" novalidate>
+<div class="r"><input type="email" id="email" name="email" required autocomplete="email" placeholder="La tua email" aria-label="La tua email"><button type="submit" id="invia">Tienimi aggiornato</button></div>
+<input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+<label class="ok"><input type="checkbox" id="consenso" required><span>Voglio ricevere via email i nuovi contenuti di Orizon ADV. Mi posso cancellare quando voglio. <a href="/privacy#aggiornamenti" target="_blank" rel="noopener">Privacy</a></span></label>
+<div class="msg" id="esito" role="status" aria-live="polite"></div>
+</form>
+</section>
+
+<footer>Orizon ADV · 24/11/2026 · esempio dal corto «Grand Theft Napoli» (lavoro nostro). Il pannello del passo 5 è una simulazione; il prompt è accorciato.</footer>
+</div>
+<script>
+document.querySelectorAll('.tog').forEach(function(d){d.addEventListener('toggle',function(){d.querySelector('summary em').textContent=d.open?'5 passi · chiudi':'5 passi · apri'})});
+document.querySelectorAll('.cmd button').forEach(function(b){
+  b.addEventListener('click',function(){
+    var t=b.previousElementSibling.textContent;
+    function ok(){b.textContent='Copiato';setTimeout(function(){b.textContent='Copia'},1500)}
+    function sel(){var r=document.createRange();r.selectNodeContents(b.previousElementSibling);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selezionato'}
+    try{navigator.clipboard.writeText(t).then(ok,sel)}catch(e){sel()}
+  });
+});
+</script>
+
+<script>
+(function(){
+  var f=document.getElementById('iscrizione'),e=document.getElementById('email'),c=document.getElementById('consenso'),b=document.getElementById('invia'),m=document.getElementById('esito');
+  f.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e.value.trim())){m.textContent='Scrivi un indirizzo email valido.';e.focus();return}
+    if(!c.checked){m.textContent='Spunta la casella per darci il permesso di scriverti.';c.focus();return}
+    b.disabled=true;m.textContent='Invio…';
+    var d={email:e.value.trim(),consenso:'sì, aggiornamenti via email',pagina:'guida-editing-blender',_subject:'Iscrizione aggiornamenti: guida Blender',_gotcha:f._gotcha.value};
+    fetch('https://formspree.io/f/xreobbbz',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(d)})
+      .then(function(r){if(!r.ok)throw 0;f.reset();m.textContent='Fatto, sei dentro. Ti scriviamo al prossimo contenuto.'})
+      .catch(function(){m.textContent='Non è partito. Riprova tra poco o scrivi a antonio@orizonadv.it.'})
+      .finally(function(){b.disabled=false});
+  });
+})();
+</script>
+</body>
+</html>
